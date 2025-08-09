@@ -3596,66 +3596,18 @@ public class TeamFoundation : MonoBehaviour
   }
   public bool AddBackPack(Item item, int addValue, ref int addedNumber)
   {
-    // １つもアイテムを保持していない場合、１つ目として生成する。
-    if (this._backpackList.Count <= 0)
-    {
-      item.StackValue = addValue;
-      this._backpackList.Add(item);
-      addedNumber = 0;
-      return true;
-    }
-
+    // ストック数上限を超えていない同名アイテムがあれば、スタック数を+1する。
     for (int ii = 0; ii < this._backpackList.Count; ii++)
     {
-      Debug.Log("AddBackPack: " + ii.ToString());
-
-      // 対象がnullの場合でも次の検索は行うので分岐する。
-      if (this._backpackList[ii] == null)
+      if (this._backpackList[ii] != null)
       {
-        // 次を探索すると同名アイテムを持っているかもしれないので、まず検索する。
-        for (int jj = ii + 1; jj < Fix.MAX_BACKPACK_SIZE; jj++)
-        {
-          if (CheckBackPackExist(item, jj) > 0)
-          {
-            // スタック上限以上の場合、別のアイテムとして追加する。
-            if (this._backpackList[jj].StackValue >= item.LimitValue)
-            {
-              // 次のアイテムリストへスルー
-              break;
-            }
-            else
-            {
-              // スタック上限を超えていなくても、多数追加で上限を超えてしまう場合
-              if (this._backpackList[jj].StackValue + addValue > item.LimitValue)
-              {
-                // 次のアイテムリストへスルー
-                break;
-              }
-              else
-              {
-                this._backpackList[jj].StackValue += addValue;
-                addedNumber = jj;
-                return true;
-              }
-            }
-          }
-        }
-
-        // やはり探索しても無かったので、そのまま追加する。
-        this._backpackList[ii] = item;
-        this._backpackList[ii].StackValue = addValue;
-        addedNumber = ii;
-        return true;
-      }
-      else
-      {
-        // 既に持っている場合、スタック量を増やす。
-        if (this._backpackList[ii].ItemName == item.ItemName)
+        if (CheckBackPackExist(item, ii) > 0)
         {
           // スタック上限以上の場合、別のアイテムとして追加する。
           if (this._backpackList[ii].StackValue >= item.LimitValue)
           {
             // 次のアイテムリストへスルー
+            break;
           }
           else
           {
@@ -3663,6 +3615,7 @@ public class TeamFoundation : MonoBehaviour
             if (this._backpackList[ii].StackValue + addValue > item.LimitValue)
             {
               // 次のアイテムリストへスルー
+              break;
             }
             else
             {
@@ -3675,16 +3628,17 @@ public class TeamFoundation : MonoBehaviour
       }
     }
 
-    if (this._backpackList.Count > Fix.MAX_BACKPACK_SIZE)
+    // 上限を超えてなければ新たに追加する
+    if (this._backpackList.Count < Fix.MAX_BACKPACK_SIZE)
     {
-      Debug.Log("AddBackpack: maximum_backpack_size detect, then no add.");
-      return false;
+      addedNumber = this._backpackList.Count;
+      item.StackValue = addValue;
+      this._backpackList.Add(item);
+      return true;
     }
 
-    addedNumber = this._backpackList.Count;
-    item.StackValue = addValue;
-    this._backpackList.Add(item);
-    return true;
+    Debug.Log("AddBackpack: maximum_backpack_size detect, then no add.");
+    return false;
   }
 
   /// <summary>

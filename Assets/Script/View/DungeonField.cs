@@ -12702,6 +12702,15 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
         {
           Debug.Log("GetTreasure 1");
+
+          bool success = One.TF.AddBackPack(new Item(currentMessage));
+          if (success == false)
+          {
+            this.txtSystemMessage.text = "バックパックがいっぱいのため、【 "+ currentMessage + " 】を入手できませんでした。";
+            this.panelSystemMessage.SetActive(true);
+            return; // 通常
+          }
+
           FieldObject fieldObj = SearchObject(this.Player.transform.position);
           Vector3 location = fieldObj.transform.position;
           int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
@@ -12711,8 +12720,6 @@ public class DungeonField : MotherBase
           this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
           this.panelSystemMessage.SetActive(true);
           Debug.Log("GetTreasure 3");
-
-          One.TF.AddBackPack(new Item(currentMessage));
 
           #region "エスミリア草原区域"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)

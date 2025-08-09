@@ -969,7 +969,7 @@ public static partial class Fix
   #endregion
   #region "Fixed Value"
   public const int INFINITY = 9999999;
-  public const int MAX_BACKPACK_SIZE = 9999;
+  public const int MAX_BACKPACK_SIZE = 20;
   public const int MAX_ITEM_STACK_SIZE = 10;
   public const int MAX_TEAM_MEMBER = 3;
   public const int MAX_ENEMY_MEMBER = 3;
