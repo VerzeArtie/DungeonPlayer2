@@ -250,6 +250,8 @@ public class DungeonField : MotherBase
   protected List<string> QuestMessageList = new List<string>();
   protected List<MessagePack.ActionEvent> QuestEventList = new List<MessagePack.ActionEvent>();
 
+  protected string GetItemFail = string.Empty;
+
   private bool EditMode = false;
   private bool EditAreaMode = false;
   private bool IgnoreObjMode = false;
@@ -12690,7 +12692,15 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
-          One.TF.AddBackPack(new Item(currentMessage));
+          bool success = One.TF.AddBackPack(new Item(currentMessage));
+          if (success == false)
+          {
+            this.GetItemFail = currentMessage;
+          }
+          else
+          {
+            this.GetItemFail = String.Empty;
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
@@ -15088,6 +15098,16 @@ public class DungeonField : MotherBase
     // メッセージが無くなったら、元の画面に戻す。
     if (this.QuestMessageList.Count <= 0)
     {
+      if (this.GetItemFail != string.Empty)
+      {
+        MessagePack.MessageX00017(ref QuestMessageList, ref QuestEventList, this.GetItemFail);
+        One.TF.AddItemBank(new Item(this.GetItemFail));
+        this.GetItemFail = string.Empty; // 即時クリア
+        // ConstructItemBankView();
+        TapOK();
+        return;
+      }
+
       this.GroupQuestMessage.SetActive(false);
       this.panelSystemMessage.SetActive(false);
       this.txtSystemMessage.text = string.Empty;
