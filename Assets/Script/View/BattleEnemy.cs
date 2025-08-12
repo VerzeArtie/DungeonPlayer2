@@ -2004,14 +2004,6 @@ public partial class BattleEnemy : MotherBase
           {
             Debug.Log("curren item ELSE...");
           }
-          //if (this.GettingNewItem.Rare == ItemBackPack.RareLevel.Epic)
-          //{
-          //  GroundOne.PlaySoundEffect(Database.SOUND_GET_EPIC_ITEM);
-          //}
-          //else if (this.GettingNewItem.Rare == ItemBackPack.RareLevel.Rare)
-          //{
-          //  GroundOne.PlaySoundEffect(Database.SOUND_GET_RARE_ITEM);
-          //}
 
           bool success = One.TF.AddBackPack(current);
           if (success == false)
