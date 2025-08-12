@@ -264,6 +264,11 @@ public partial class HomeTown : MotherBase
   public Text txtFoodMenuStaminaUp;
   public Text txtFoodMenuMindUp;
 
+  // ItemBank
+  public GameObject GroupItemBank;
+  public GameObject ContentItemBank;
+  public NodeBackpackItem nodeItemBankItem;
+
   // Quest Message
   public GameObject GroupQuestMessage;
   public GameObject HidePanelMessage;
@@ -354,16 +359,21 @@ public partial class HomeTown : MotherBase
   List<NodeShopItem> ShopItemList = new List<NodeShopItem>();
   List<NodeShopItem> ShopSellItemList = new List<NodeShopItem>();
   List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
+  List<NodeBackpackItem> ItemBankList = new List<NodeBackpackItem>();
   List<NodeBackpackItem> BackpackJewelSocketList = new List<NodeBackpackItem>();
 
   protected Item CurrentSelectBackpack = null;
   protected Item CurrentSelectJewelSocketItem = null;
   protected int CurrentSelectJewelSocketNumber = 0;
 
+  protected Item CurrentSelectItemBank = null;
+
   protected GameObject CurrentSelectHideACAttribute;
 
   protected List<string> contentSelectAreaList = new List<string>();
   protected List<string> contentDungeonPlayerList = new List<string>();
+
+  protected string GetItemFail = string.Empty;
 
   private string DungeonCall = string.Empty;
   private string DungeonMap = string.Empty;
@@ -544,7 +554,7 @@ public partial class HomeTown : MotherBase
     #endregion
 
     // イベント進行
-    
+
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       if (One.TF.Event_Message2600001 == false)
@@ -960,6 +970,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    GroupItemBank.SetActive(false);
     int countArea = contentSelectAreaList.Count;
     if (countArea >= 1)
     {
@@ -992,6 +1003,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    GroupItemBank.SetActive(false);
   }
 
   public void TapShop()
@@ -1046,6 +1058,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    GroupItemBank.SetActive(false);
     MessagePack.MessageX00015(ref QuestMessageList, ref QuestEventList); TapOK();
   }
 
@@ -1070,6 +1083,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(true);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    GroupItemBank.SetActive(false);
   }
 
   public void TapTactics()
@@ -1088,10 +1102,14 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(true);
     GroupTactics.SetActive(true);
     GroupInn.SetActive(false);
+    GroupItemBank.SetActive(false);
   }
 
   public void TapCommunicationLana()
   {
+    MessagePack.CommunicationLana_0(ref QuestMessageList, ref QuestEventList); TapOK();
+    return;
+
     Debug.Log("TapCommunicationLana(S)");
     if (One.TF.Event_Message000010 == false)
     {
@@ -1254,6 +1272,36 @@ public partial class HomeTown : MotherBase
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(true);
+    GroupItemBank.SetActive(false);
+  }
+
+  public void TapItemBank()
+  {
+    Debug.Log("TapItemBank(S)");
+
+    if (GroupItemBank.activeInHierarchy)
+    {
+      GroupItemBank.SetActive(false);
+      return;
+    }
+
+    GroupDungeonPlayer.SetActive(false);
+    GroupBackpack.SetActive(false);
+    GroupShopItem.SetActive(false);
+    GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(false);
+    GroupItemBank.SetActive(true);
+
+    // もしも１つでもあれば、初期でそれを選択状態にしておく。
+    if (One.TF.ItemBankList.Count > 0)
+    {
+      NodeBackpackItem[] list = ContentItemBank.GetComponentsInChildren<NodeBackpackItem>();
+      for (int ii = 0; ii < list.Length; ii++)
+      {
+        Debug.Log(" ii: " + ii.ToString() + " " + list[ii].txtName.text);
+      }
+      TapItemBankSelect(list[0]);
+    }
   }
 
   public void TapCustomEvent1()
@@ -2052,7 +2100,7 @@ public partial class HomeTown : MotherBase
     else
     {
       txtSellTitle.text = txt.text + " を売却しますか？";
-      txtSellMessage.text = (current.Gold / 2).ToString()  + " Goldで売却した後、 " + txt.text + " を手元に戻す事はできません。";
+      txtSellMessage.text = (current.Gold / 2).ToString() + " Goldで売却した後、 " + txt.text + " を手元に戻す事はできません。";
       btnSellAccept.gameObject.SetActive(true);
       btnSellCancel.gameObject.SetActive(true);
       btnSellOK.gameObject.SetActive(false);
@@ -2594,6 +2642,36 @@ public partial class HomeTown : MotherBase
   {
   }
 
+  public void TapGetItemBank()
+  {
+    if (this.CurrentSelectItemBank == null) { return; }
+
+    bool success = One.TF.AddBackPack(CurrentSelectItemBank);
+    if (success == false)
+    {
+      MessagePack.MessageX00018(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
+    MessagePack.MessageX00018_2(ref QuestMessageList, ref QuestEventList, this.CurrentSelectItemBank.ItemName); TapOK();
+    One.TF.RemoveItemBank(CurrentSelectItemBank);
+    this.CurrentSelectItemBank = null;
+    ConstructItemBankView();
+  }
+
+  public void TapItemBankSelect(NodeBackpackItem item)
+  {
+    Debug.Log("TapItemBankSelect(S)");
+    this.CurrentSelectItemBank = One.TF.ItemBankList[item.BackpackNumber];
+
+    for (int ii = 0; ii < ItemBankList.Count; ii++)
+    {
+      Debug.Log("ItemBankList: " + ItemBankList[ii].txtName.text);
+      ItemBankList[ii].imgSelect.gameObject.SetActive(false);
+    }
+    item.imgSelect.gameObject.SetActive(true);
+  }
+
   public void TapOK()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -2930,8 +3008,17 @@ public partial class HomeTown : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
-          One.TF.AddBackPack(new Item(currentMessage));
+          bool success = One.TF.AddBackPack(new Item(currentMessage));
+          if (success == false)
+          {
+            this.GetItemFail = currentMessage;
+          }
+          else
+          {
+            this.GetItemFail = string.Empty;
+          }
           ConstructBackpackView();
+          ConstructItemBankView();
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
@@ -3116,6 +3203,7 @@ public partial class HomeTown : MotherBase
           GroupShopItem.SetActive(false);
           GroupActionCommandSetting.SetActive(false);
           GroupInn.SetActive(false);
+          GroupItemBank.SetActive(false);
           continue;
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
@@ -3141,6 +3229,7 @@ public partial class HomeTown : MotherBase
           GroupShopItem.SetActive(false);
           GroupActionCommandSetting.SetActive(false);
           GroupInn.SetActive(false);
+          GroupItemBank.SetActive(false);
         }
         // 宿屋を呼び出す
         else if (currentEvent == MessagePack.ActionEvent.HomeTownCallRestInn)
@@ -3150,6 +3239,7 @@ public partial class HomeTown : MotherBase
           GroupShopItem.SetActive(false);
           GroupActionCommandSetting.SetActive(false);
           GroupInn.SetActive(true);
+          GroupItemBank.SetActive(false);
           continue;
         }
         // 宿屋による休憩だけを実行する。
@@ -3181,6 +3271,7 @@ public partial class HomeTown : MotherBase
           GroupActionCommandSetting.SetActive(false);
           GroupTactics.SetActive(false);
           GroupInn.SetActive(false);
+          GroupItemBank.SetActive(false);
           continue;
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
@@ -3206,6 +3297,15 @@ public partial class HomeTown : MotherBase
     // メッセージが無くなったら、元の画面に戻す。
     if (this.QuestMessageList.Count <= 0)
     {
+      if (this.GetItemFail != string.Empty)
+      {
+        MessagePack.MessageX00017(ref QuestMessageList, ref QuestEventList, this.GetItemFail);
+        One.TF.AddItemBank(new Item(this.GetItemFail));
+        this.GetItemFail = string.Empty; // 即時クリア
+        ConstructItemBankView();
+        TapOK();
+        return;
+      }
       //this.GroupQuestMessage.SetActive(false);
       HidePanelMessage.gameObject.SetActive(false);
       PanelTapMessage.gameObject.SetActive(false);
@@ -3276,7 +3376,7 @@ public partial class HomeTown : MotherBase
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ || One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
-               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP )
+               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP)
       {
         Debug.Log(MethodBase.GetCurrentMethod() + "4 Duel");
         One.BattleMode = Fix.BattleMode.Duel;
@@ -3339,143 +3439,143 @@ public partial class HomeTown : MotherBase
     }
   }
 
-   // todo リリースで削除する。
-//  private void UpdateActionCommandSetting(Character player)
-//  {
-//    txtACHeaderName.text = player.FullName;
+  // todo リリースで削除する。
+  //  private void UpdateActionCommandSetting(Character player)
+  //  {
+  //    txtACHeaderName.text = player.FullName;
 
-//    // コンテンツ内のparent設定を解放する。
-//    foreach (Transform n in ContentActionCommandSetting.transform)
-//    {
-//      GameObject.Destroy(n.gameObject);
-//    }
-//    //for (int ii = 0; ii < Fix.INFINITY; ii++)
-//    //{
+  //    // コンテンツ内のparent設定を解放する。
+  //    foreach (Transform n in ContentActionCommandSetting.transform)
+  //    {
+  //      GameObject.Destroy(n.gameObject);
+  //    }
+  //    //for (int ii = 0; ii < Fix.INFINITY; ii++)
+  //    //{
 
-//    //    MoveTransform(ContentActionCommandSetting, EmptyGroup.transform);
-//    //    if (ContentActionCommandSetting.transform.childCount <= 0)
-//    //    {
-//    //        break;
-//    //    }
-//    //}
+  //    //    MoveTransform(ContentActionCommandSetting, EmptyGroup.transform);
+  //    //    if (ContentActionCommandSetting.transform.childCount <= 0)
+  //    //    {
+  //    //        break;
+  //    //    }
+  //    //}
 
-//    // コンテンツ長さを初期化する。
-//    GameObject content = ContentActionCommandSetting;
-//    content.GetComponent<RectTransform>().sizeDelta = new Vector2(1, content.GetComponent<RectTransform>().sizeDelta.y);
+  //    // コンテンツ長さを初期化する。
+  //    GameObject content = ContentActionCommandSetting;
+  //    content.GetComponent<RectTransform>().sizeDelta = new Vector2(1, content.GetComponent<RectTransform>().sizeDelta.y);
 
-//    txtAttributeSoulFragment.text = player.SoulFragment.ToString();
+  //    txtAttributeSoulFragment.text = player.SoulFragment.ToString();
 
-//    // 制限開放の分だけ、リスト生成する。
-//    List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
-//    if (One.TF.AvailableAllCommand)
-//    {
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Fire);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Force);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.VoidChant);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Guardian);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Archery);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
-//      CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
-//    }
-//    else
-//    {
-//      if (One.TF.AvailableFirstCommand)
-//      {
-//        Debug.Log("Detect AvailableFirstCommand");
-//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-//        current.CommandAttribute = player.FirstCommandAttribute;
-//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-//        attributeList.Add(current);
-//      }
-//      if (One.TF.AvailableSecondCommand)
-//      {
-//        Debug.Log("Detect AvailableSecondCommand");
-//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-//        current.CommandAttribute = player.SecondCommandAttribute;
-//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-//        attributeList.Add(current);
-//      }
-//      if (One.TF.AvailableThirdCommand)
-//      {
-//        Debug.Log("Detect AvailableThirdCommand");
-//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-//        current.CommandAttribute = player.ThirdCommandAttribute;
-//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-//        attributeList.Add(current);
-//      }
-//    }
+  //    // 制限開放の分だけ、リスト生成する。
+  //    List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
+  //    if (One.TF.AvailableAllCommand)
+  //    {
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Fire);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Force);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.VoidChant);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Guardian);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Archery);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
+  //      CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
+  //    }
+  //    else
+  //    {
+  //      if (One.TF.AvailableFirstCommand)
+  //      {
+  //        Debug.Log("Detect AvailableFirstCommand");
+  //        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+  //        current.CommandAttribute = player.FirstCommandAttribute;
+  //        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+  //        attributeList.Add(current);
+  //      }
+  //      if (One.TF.AvailableSecondCommand)
+  //      {
+  //        Debug.Log("Detect AvailableSecondCommand");
+  //        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+  //        current.CommandAttribute = player.SecondCommandAttribute;
+  //        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+  //        attributeList.Add(current);
+  //      }
+  //      if (One.TF.AvailableThirdCommand)
+  //      {
+  //        Debug.Log("Detect AvailableThirdCommand");
+  //        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+  //        current.CommandAttribute = player.ThirdCommandAttribute;
+  //        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+  //        attributeList.Add(current);
+  //      }
+  //    }
 
-//    // アクションコマンドリストを表示する。
-//    for (int ii = 0; ii < attributeList.Count; ii++)
-//    {
-//      List<string> attrList = ActionCommand.GetCommandList(attributeList[ii].CommandAttribute);
-//      List<int> attrPlus = ActionCommand.GetCommandPlus(CurrentPlayer, attributeList[ii].CommandAttribute);
+  //    // アクションコマンドリストを表示する。
+  //    for (int ii = 0; ii < attributeList.Count; ii++)
+  //    {
+  //      List<string> attrList = ActionCommand.GetCommandList(attributeList[ii].CommandAttribute);
+  //      List<int> attrPlus = ActionCommand.GetCommandPlus(CurrentPlayer, attributeList[ii].CommandAttribute);
 
-//      int totalValue = 0;
-//      for (int jj = 0; jj < attrPlus.Count; jj++)
-//      {
-//        totalValue += attrPlus[jj];
-//      }
+  //      int totalValue = 0;
+  //      for (int jj = 0; jj < attrPlus.Count; jj++)
+  //      {
+  //        totalValue += attrPlus[jj];
+  //      }
 
-//      // トータル１以上であれば表示。それ以外はLOCKED表示とする。
-////      if (totalValue > 0)
-////      {
-//        Debug.Log("Detect totalValue: " + totalValue.ToString());
-//        attributeList[ii].lockPanel.SetActive(false);
-//        attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
-//        attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
-//        //attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
-//        for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
-//        {
-//          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(attrList[jj]);
-//        }
-//        for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
-//        {
-//          attributeList[ii].txtACElement[jj].text = attrList[jj];
-//        }
-//        for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
-//        {
-//          if (attrPlus[jj] > 0)
-//          {
-//            attributeList[ii].ACLockPanel[jj].SetActive(false);
-//            attributeList[ii].txtACPlus[jj].text = "+" + attrPlus[jj].ToString();
-//          }
-//          else
-//          {
-//            attributeList[ii].txtACPlus[jj].text = String.Empty;
-//            //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
-//          }
-//        }
-//      //}
-//      //else
-//      //{
-//        Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
-//        //attributeList[ii].lockPanel.SetActive(true);
-//        //attributeList[ii].txtName.text = String.Empty;
-//        //attributeList[ii].txtTotal.text = String.Empty;
-//        //attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
-//        //for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
-//        //{
-//        //  attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
-//        //}
-//        //for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
-//        //{
-//        //  attributeList[ii].txtACElement[jj].text = string.Empty;
-//        //}
-//        //for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
-//        //{
-//        //  attributeList[ii].txtACPlus[jj].text = string.Empty;
-//        //}
-//      //}
-//    }
-//  }
+  //      // トータル１以上であれば表示。それ以外はLOCKED表示とする。
+  ////      if (totalValue > 0)
+  ////      {
+  //        Debug.Log("Detect totalValue: " + totalValue.ToString());
+  //        attributeList[ii].lockPanel.SetActive(false);
+  //        attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
+  //        attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
+  //        //attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
+  //        for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
+  //        {
+  //          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(attrList[jj]);
+  //        }
+  //        for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
+  //        {
+  //          attributeList[ii].txtACElement[jj].text = attrList[jj];
+  //        }
+  //        for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
+  //        {
+  //          if (attrPlus[jj] > 0)
+  //          {
+  //            attributeList[ii].ACLockPanel[jj].SetActive(false);
+  //            attributeList[ii].txtACPlus[jj].text = "+" + attrPlus[jj].ToString();
+  //          }
+  //          else
+  //          {
+  //            attributeList[ii].txtACPlus[jj].text = String.Empty;
+  //            //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
+  //          }
+  //        }
+  //      //}
+  //      //else
+  //      //{
+  //        Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
+  //        //attributeList[ii].lockPanel.SetActive(true);
+  //        //attributeList[ii].txtName.text = String.Empty;
+  //        //attributeList[ii].txtTotal.text = String.Empty;
+  //        //attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
+  //        //for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
+  //        //{
+  //        //  attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
+  //        //}
+  //        //for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
+  //        //{
+  //        //  attributeList[ii].txtACElement[jj].text = string.Empty;
+  //        //}
+  //        //for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
+  //        //{
+  //        //  attributeList[ii].txtACPlus[jj].text = string.Empty;
+  //        //}
+  //      //}
+  //    }
+  //  }
 
-  private void CreateACAttribute(List<NodeACAttribute> list,  Fix.CommandAttribute attribute)
+  private void CreateACAttribute(List<NodeACAttribute> list, Fix.CommandAttribute attribute)
   {
     NodeACAttribute current = Instantiate(NodeACAttribute);
     current.CommandAttribute = attribute;
@@ -3579,6 +3679,32 @@ public partial class HomeTown : MotherBase
       counter++;
       BackpackList.Add(current);
     }
+  }
+
+  private void ConstructItemBankView()
+  {
+    foreach (Transform n in ContentItemBank.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    ContentItemBank.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+    ItemBankList.Clear();
+    int counter = 0;
+    for (int ii = 0; ii < One.TF.ItemBankList.Count; ii++)
+    {
+      NodeBackpackItem current = Instantiate(nodeItemBankItem) as NodeBackpackItem;
+      current.Construct(ContentItemBank, One.TF.ItemBankList[ii].ItemName, One.TF.ItemBankList[ii].StackValue, ii, counter);
+
+      RectTransform rt = current.GetComponent<RectTransform>();
+      rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
+      rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+      rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+      rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+
+      counter++;
+      ItemBankList.Add(current);
+    }
+
   }
 
   private void ConstructBackpackJewelSocketView()
@@ -4148,6 +4274,9 @@ public partial class HomeTown : MotherBase
 
     // バックパック情報を画面へ反映
     ConstructBackpackView();
+
+    // アイテム保管庫を画面へ反映
+    ConstructItemBankView();
 
     this.CurrentPlayer = One.PlayerList[0];
 

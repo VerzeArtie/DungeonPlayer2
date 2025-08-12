@@ -352,6 +352,20 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.LastMessage);
   }
+
+  public static void MessageX00017(ref List<string> m_list, ref List<ActionEvent> e_list, string item_name)
+  {
+    Message(ref m_list, ref e_list, "【 " + item_name + " 】を入手できませんでした。アイテム保管庫へ転送されます。", ActionEvent.MessageDisplay);
+  }
+
+  public static void MessageX00018(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　バックパックがいっぱいで取り出せないな・・・バックパックをまず整理しよう　）", ActionEvent.LastMessage);
+  }
+  public static void MessageX00018_2(ref List<string> m_list, ref List<ActionEvent> e_list, string item_name)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　よし、【 " + item_name + " 】を取り出したぞ　）", ActionEvent.LastMessage);
+  }
   #endregion
 
   #region "エスミリア草原区域"
@@ -36303,6 +36317,15 @@ public static class MessagePack
   #endregion
 
   #region "幼なじみのラナと会話"
+  public static void CommunicationLana_0(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：お試しでアイテムを1つ上げるわ。受け取ってちょうだい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.FINE_ROBE, ActionEvent.GetItem);
+
+    Message(ref m_list, ref e_list, "アイン：お、サンキュー", ActionEvent.None);
+  }
+
   public static void CommunicationLana_1(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：そういえば、一つ言い忘れていた事があるわ。", ActionEvent.None);

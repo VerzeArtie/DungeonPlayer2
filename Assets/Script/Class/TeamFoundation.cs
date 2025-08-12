@@ -203,6 +203,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _backpackList; }
   }
 
+  [SerializeField] protected List<Item> _itemBankList = new List<Item>();
+  public List<Item> ItemBankList
+  {
+    //  set { _itemBankList = value; }
+    get { return _itemBankList; }
+  }
+
   [SerializeField] protected bool _alreadyRestInn = false;
   public bool AlreadyRestInn
   {
@@ -3709,6 +3716,134 @@ public class TeamFoundation : MonoBehaviour
       }
     }
     return false;
+  }
+  #endregion
+
+  #region "ItemBank Control"
+  public void RemoveItemBank(Item item)
+  {
+    for (int ii = 0; ii < this._itemBankList.Count; ii++)
+    {
+      if (item.ItemName == this._itemBankList[ii].ItemName)
+      {
+        this._itemBankList.RemoveAt(ii);
+        break;
+      }
+    }
+  }
+
+  /// <summary>
+  /// アイテムバンクにアイテムを追加します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns>TRUE:追加完了、FALSE:満杯のため追加できない</returns>
+  public bool AddItemBank(Item item)
+  {
+    return AddItemBank(item, 1);
+  }
+  public bool AddItemBank(Item item, int addValue)
+  {
+    int dummyValue = 0;
+    return AddItemBank(item, addValue, ref dummyValue);
+  }
+  public bool AddItemBank(Item item, int addValue, ref int addedNumber)
+  {
+    // ストック数上限を超えていない同名アイテムがあれば、スタック数を+1する。
+    for (int ii = 0; ii < this._itemBankList.Count; ii++)
+    {
+      if (this._itemBankList[ii] != null)
+      {
+        if (CheckItemBankExist(item, ii) > 0)
+        {
+          // スタック上限以上の場合、別のアイテムとして追加する。
+          if (this._itemBankList[ii].StackValue >= item.LimitValue)
+          {
+            // 次のアイテムリストへスルー
+            break;
+          }
+          else
+          {
+            // スタック上限を超えていなくても、多数追加で上限を超えてしまう場合
+            if (this._itemBankList[ii].StackValue + addValue > item.LimitValue)
+            {
+              // 次のアイテムリストへスルー
+              break;
+            }
+            else
+            {
+              this._itemBankList[ii].StackValue += addValue;
+              addedNumber = ii;
+              return true;
+            }
+          }
+        }
+      }
+    }
+
+    // 上限を超えてなければ新たに追加する
+    if (this._itemBankList.Count < Fix.MAX_BACKPACK_SIZE)
+    {
+      addedNumber = this._itemBankList.Count;
+      item.StackValue = addValue;
+      this._itemBankList.Add(item);
+      return true;
+    }
+
+    Debug.Log("AddBackpack: maximum_backpack_size detect, then no add.");
+    return false;
+  }
+
+  /// <summary>
+  /// バックパックのアイテムを指定した数だけ削除します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <param name="deleteValue">削除する数 ０：全て削除、正値：指定数だけ削除</param>
+  /// <returns></returns>
+  public void DeleteItemBank(Item item, int delete_value)
+  {
+    for (int ii = 0; ii < Fix.MAX_BACKPACK_SIZE; ii++) // 後編編集
+    {
+      if (this._itemBankList[ii] != null)
+      {
+        if (this._itemBankList[ii].ItemName == item.ItemName)
+        {
+          if (delete_value <= 0)
+          {
+            this._itemBankList.RemoveAt(ii);
+            //this._itemBankList[ii] = null;
+            break;
+          }
+          else
+          {
+            // スタック量が正値の場合、指定されたスタック量を減らす。
+            this._itemBankList[ii].StackValue -= delete_value;
+            if (this._itemBankList[ii].StackValue <= 0) // 結果的にスタック量が０になった場合はオブジェクトを消す。
+            {
+              this._itemBankList.RemoveAt(ii);
+              //this._itemBankList[ii] = null;
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  /// <summary>
+  /// バックパックに対象のアイテムが含まれている数を示します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns></returns>
+  public int CheckItemBankExist(Item item, int ii)
+  {
+    if (this._backpackList[ii] != null)
+    {
+      if (this._backpackList[ii].ItemName == item.ItemName)
+      {
+        return this._backpackList[ii].StackValue;
+      }
+    }
+    return 0;
   }
   #endregion
 }
