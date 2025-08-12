@@ -1989,9 +1989,21 @@ public partial class BattleEnemy : MotherBase
           this.txtItemDrop.text = "【 " + targetItemName + " 】を入手した！";
           this.imgItemDrop.sprite = Resources.Load<Sprite>("Icon_" + current?.ItemType.ToString() ?? "");
 
-          One.TF.AddBackPack(current);
-          // todo DungeonPlayer2ではバックパックに上限値が無いようだが、上限を設けるなら不要アイテムに対するアクションが必要です。
-          //this.GettingNewItem = new ItemBackPack(targetItemName);
+          Debug.Log("curren item Rare: " + current.Rare.ToString());
+          if (current.Rare == Item.Rarity.Epic)
+          {
+            Debug.Log("curren item Item.Rarity.Epic");
+            One.PlaySoundEffect(Fix.SOUND_GET_EPIC_ITEM);
+          }
+          else if (current.Rare == Item.Rarity.Rare)
+          {
+            Debug.Log("curren item Item.Rarity.Rare");
+            One.PlaySoundEffect(Fix.SOUND_GET_RARE_ITEM);
+          }
+          else
+          {
+            Debug.Log("curren item ELSE...");
+          }
           //if (this.GettingNewItem.Rare == ItemBackPack.RareLevel.Epic)
           //{
           //  GroundOne.PlaySoundEffect(Database.SOUND_GET_EPIC_ITEM);
@@ -2000,22 +2012,13 @@ public partial class BattleEnemy : MotherBase
           //{
           //  GroundOne.PlaySoundEffect(Database.SOUND_GET_RARE_ITEM);
           //}
-          //MessageDisplayWithIcon(new ItemBackPack(targetItemName));
-          //this.Filter.SetActive(true);
-          //treasurePanel.SetActive(true);
 
-          //if (GetNewItem(this.GettingNewItem))
-          //{
-          //  // バックパックが空いてて入手可能な場合、ここでは何もしない。
-          //  return; // scenebackさせない
-          //}
-          //else
-          //{
-          //  // バックパックがいっぱいの場合ステータス画面で不要アイテムを捨てさせます。
-          //  SceneDimension.CallTruthStatusPlayer(this, true, targetItemName, string.Empty);
-          //  return; // scenebackさせない
-
-          //}
+          bool success = One.TF.AddBackPack(current);
+          if (success == false)
+          {
+            // アイテム保管庫へ移管する。アイテムを捨てさせるのは止める。
+            One.TF.AddItemBank(current);
+          }
         }
         else
         {

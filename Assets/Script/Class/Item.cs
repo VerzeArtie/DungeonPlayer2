@@ -2909,6 +2909,29 @@ public partial class Item
         this._stamina = 0;
         this._mind = 0;
         break;
+
+      case Fix.RING_OF_OSCURETE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 45;
+        this._magicAttackMax = 62;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者オスキュレーテが幼少時代に付けていたリング。力＋１５、技＋７、知＋３０、体力＋４、心＋８、魔法攻撃４５～６２";
+        this._strength = 15;
+        this._agility = 7;
+        this._intelligence = 30;
+        this._stamina = 4;
+        this._mind = 8;
+        break;
       #endregion
       #region "ゴラトラム洞窟"
       case Fix.CLASSICAL_SWORD:

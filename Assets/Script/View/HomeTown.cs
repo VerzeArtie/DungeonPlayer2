@@ -3697,9 +3697,9 @@ public partial class HomeTown : MotherBase
 
       RectTransform rt = current.GetComponent<RectTransform>();
       rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
-      rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-      rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-      rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+      //rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+      //rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+      //rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
 
       counter++;
       ItemBankList.Add(current);
