@@ -176,12 +176,28 @@ public class GroupCharacterStatus : MonoBehaviour
   public GameObject GroupEssenceList3;
   public GameObject GroupEssenceList4;
 
+  public GameObject GroupInnerMessage;
+  public Text txtInnerMessage;
+  protected int InnerMessageTimer = 0;
+
   protected const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
   protected const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
   protected const string ITEMTYPE_ARMOR = "Armor";
   protected const string ITEMTYPE_ACCESSORY1 = "Accessory-1";
   protected const string ITEMTYPE_ACCESSORY2 = "Accessory-2";
   protected const string ITEMTYPE_ARTIFACT = "Artifact";
+
+  public void Update()
+  {
+    if (InnerMessageTimer > 0)
+    {
+      InnerMessageTimer--;
+    }
+    if (InnerMessageTimer <= 0 && GroupInnerMessage.activeInHierarchy)
+    {
+      GroupInnerMessage.SetActive(false);
+    }
+  }
 
   /// <summary>
   /// トップ画面へ戻す。
@@ -966,95 +982,161 @@ public class GroupCharacterStatus : MonoBehaviour
   /// </summary>
   public void TapAcceptChangeEquip()
   {
-    // ・現在装備アイテムをバックパックに戻す。
+    // ・バックパックに空きがあるかチェックする。空きが無い場合、装備変更は失敗とする。
     // ・選択アイテムを装備する。
-    // ・選択アイテムをバックパックから削除する。
+    // ・現在装備アイテムをバックパックに戻す。
     if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
-        Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
+        Item tempCurrent = new Item(CurrentPlayer.MainWeapon.ItemName);
+
+        // バックパック数が最大の時、両手持ち装備に対するMain/Sub外しは、ブロック仕様とする。
+        if (One.TF.BackpackList.Count >= Fix.MAX_BACKPACK_SIZE &&
+            ShadowPlayer.MainWeapon.GripType == Item.GripTypes.TwoHand &&
+            CurrentPlayer.SubWeapon != null && CurrentPlayer.SubWeapon.ItemName != String.Empty)
         {
-          One.TF.AddBackPack(CurrentPlayer.MainWeapon);
+          Debug.Log("Change Equip MainWeapon, failed... Two-Hand and Backpack count is reach: " + One.TF.BackpackList.Count.ToString() + " then, no action.");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備変更できません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
         }
+
+        // メイン武器を入れ替える。
         CurrentPlayer.MainWeapon = new Item(ShadowPlayer.MainWeapon.ItemName);
         One.TF.RemoveItem(ShadowPlayer.MainWeapon);
 
-        // メイン武器が両手持ちで、サブに装備がある場合、サブを外す。
+        // 装備していたメイン武器をバックパックに入れる。
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip MainWeapon, failed(MainWeapon)...");
+          }
+        }
+
+        // メイン武器が両手持ちで、サブに装備がある場合、サブをバックパックに入れて、装備を外す。
         if (ShadowPlayer.MainWeapon.GripType == Item.GripTypes.TwoHand)
         {
           if (CurrentPlayer.SubWeapon != null && CurrentPlayer.SubWeapon.ItemName != String.Empty)
           {
-            One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+            bool success = One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+            if (success == false)
+            {
+              Debug.Log("Change Equip MainWeapon, failed(SubWeapon)...");
+            }
+
             CurrentPlayer.SubWeapon = new Item(string.Empty);
           }
         }
+
       }
     }
     else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
-      if (ShadowPlayer.MainWeapon != null)
+      if (ShadowPlayer.SubWeapon != null)
       {
-        Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
-        {
-          One.TF.AddBackPack(CurrentPlayer.SubWeapon);
-        }
+        Item tempCurrent = new Item(CurrentPlayer.SubWeapon.ItemName);
+
+        // サブ武器を入れ替える。
         CurrentPlayer.SubWeapon = new Item(ShadowPlayer.SubWeapon.ItemName);
         One.TF.RemoveItem(ShadowPlayer.SubWeapon);
+
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          // 装備していたサブ武器をバックパックに入れる。
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip SubWeapon, failed...");
+          }
+        }
       }
     }
     else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
-      if (ShadowPlayer.MainWeapon != null)
+      if (ShadowPlayer.MainArmor != null)
       {
-        Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
-        {
-          One.TF.AddBackPack(CurrentPlayer.MainArmor);
-        }
+        Item tempCurrent = new Item(CurrentPlayer.MainArmor.ItemName);
+
+        // 防具を入れ替える。
         CurrentPlayer.MainArmor = new Item(ShadowPlayer.MainArmor.ItemName);
         One.TF.RemoveItem(ShadowPlayer.MainArmor);
+
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          // 装備していた防具をバックパックに入れる。
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip MainArmor, failed...");
+          }
+        }
       }
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
-      if (ShadowPlayer.MainWeapon != null)
+      if (ShadowPlayer.Accessory1 != null)
       {
-        Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
-        {
-          One.TF.AddBackPack(CurrentPlayer.Accessory1);
-        }
+        Item tempCurrent = new Item(CurrentPlayer.Accessory1.ItemName);
+
+        // アクセサリ１を入れ替える。
         CurrentPlayer.Accessory1 = new Item(ShadowPlayer.Accessory1.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Accessory1);
+
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          // 装備していたアクセサリ１をバックパックに入れる。
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip Accessory1, failed...");
+          }
+        }
       }
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
-      if (ShadowPlayer.MainWeapon != null)
+      if (ShadowPlayer.Accessory2 != null)
       {
-        Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
-        {
-          One.TF.AddBackPack(CurrentPlayer.Accessory2);
-        }
+        Item tempCurrent = new Item(CurrentPlayer.Accessory2.ItemName);
+
+        // アクセサリ２を入れ替える。
         CurrentPlayer.Accessory2 = new Item(ShadowPlayer.Accessory2.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Accessory2);
+
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          // 装備していたアクセサリ２をバックパックに入れる。
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip Accessory2, failed...");
+          }
+        }
       }
     }
     else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
-      if (ShadowPlayer.MainWeapon != null)
+      if (ShadowPlayer.Artifact != null)
       {
-        Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
-        if (current.ItemType != Item.ItemTypes.None)
-        {
-          One.TF.AddBackPack(CurrentPlayer.Artifact);
-        }
+        Item tempCurrent = new Item(CurrentPlayer.Artifact.ItemName);
+
+        // アーティファクトを入れ替える。
         CurrentPlayer.Artifact = new Item(ShadowPlayer.Artifact.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Artifact);
+
+        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        {
+          // 装備していたアーティファクトをバックパックに入れる。
+          bool success = One.TF.AddBackPack(tempCurrent);
+          if (success == false)
+          {
+            Debug.Log("Change Equip Artifact, failed...");
+          }
+        }
       }
     }
     //CurrentPlayer.MaxGain();
@@ -1085,7 +1167,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.MainWeapon);
+        bool success = One.TF.AddBackPack(CurrentPlayer.MainWeapon);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach MainWeapon, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.MainWeapon = new Item(string.Empty);
     }
@@ -1094,7 +1184,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+        bool success = One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach SubWeapon, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.SubWeapon = new Item(string.Empty);
     }
@@ -1103,7 +1201,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.MainArmor);
+        bool success = One.TF.AddBackPack(CurrentPlayer.MainArmor);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach MainArmor, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.MainArmor = new Item(string.Empty);
     }
@@ -1112,7 +1218,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.Accessory1);
+        bool success = One.TF.AddBackPack(CurrentPlayer.Accessory1);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach Accessory1, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.Accessory1 = new Item(string.Empty);
     }
@@ -1121,7 +1235,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.Accessory2);
+        bool success = One.TF.AddBackPack(CurrentPlayer.Accessory2);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach Accessory2, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.Accessory2 = new Item(string.Empty);
     }
@@ -1130,7 +1252,15 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.AddBackPack(CurrentPlayer.Artifact);
+        bool success = One.TF.AddBackPack(CurrentPlayer.Artifact);
+        if (success == false)
+        {
+          Debug.Log("TapEquipDetach Artifact, failed...");
+          GroupInnerMessage.SetActive(true);
+          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          InnerMessageTimer = 100;
+          return;
+        }
       }
       CurrentPlayer.Artifact = new Item(string.Empty);
     }
@@ -1160,6 +1290,11 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateCharacterDetailView(this.CurrentPlayer);
     GroupChangeEquip.SetActive(false);
     GroupMainEquip.SetActive(true);
+  }
+
+  public void TapCancelInnerMessage()
+  {
+    this.InnerMessageTimer = 0;
   }
 
   public void ReleaseIt()
