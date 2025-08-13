@@ -374,6 +374,7 @@ public partial class HomeTown : MotherBase
   protected List<string> contentDungeonPlayerList = new List<string>();
 
   protected string GetItemFail = string.Empty;
+  protected string GetQuestItemFail = string.Empty;
 
   private string DungeonCall = string.Empty;
   private string DungeonMap = string.Empty;
@@ -1107,8 +1108,9 @@ public partial class HomeTown : MotherBase
 
   public void TapCommunicationLana()
   {
-    MessagePack.CommunicationLana_0(ref QuestMessageList, ref QuestEventList); TapOK();
-    return;
+    // debug only
+    // MessagePack.CommunicationLana_0(ref QuestMessageList, ref QuestEventList); TapOK();
+    // return;
 
     Debug.Log("TapCommunicationLana(S)");
     if (One.TF.Event_Message000010 == false)
@@ -2791,7 +2793,12 @@ public partial class HomeTown : MotherBase
             string gainItem = Fix.ARTIFACT_GENSEI;
             // int gainSoulFragment = 0;
             One.TF.Gold += gainGold;
-            One.TF.AddBackPack(new Item(gainItem));
+            bool success = One.TF.AddBackPack(new Item(gainItem));
+            if (success == false)
+            {
+              Debug.Log("QuestComplete cannot get AddBackpack, then AddItemBank");
+              this.GetQuestItemFail = gainItem;
+            }
 
             this.txtQCGoldGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
             this.txtQCExpGain.text = "";// gainExp.ToString() + " 経験値を獲得しました！";
@@ -2809,7 +2816,12 @@ public partial class HomeTown : MotherBase
             {
               One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
             }
-            One.TF.AddBackPack(new Item(gainItem));
+            bool success = One.TF.AddBackPack(new Item(gainItem));
+            if (success == false)
+            {
+              Debug.Log("QuestComplete cannot get AddBackpack, then AddItemBank");
+              this.GetQuestItemFail = gainItem;
+            }
 
             this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
             this.txtQCGoldGain.text = gainItem + " を獲得しました";
@@ -3306,6 +3318,16 @@ public partial class HomeTown : MotherBase
         TapOK();
         return;
       }
+      if (this.GetQuestItemFail != string.Empty)
+      {
+        MessagePack.MessageX00017(ref QuestMessageList, ref QuestEventList, this.GetQuestItemFail);
+        One.TF.AddItemBank(new Item(this.GetQuestItemFail));
+        this.GetQuestItemFail = string.Empty; // 即時クリア
+        ConstructItemBankView();
+        TapOK();
+        return;
+      }
+
       //this.GroupQuestMessage.SetActive(false);
       HidePanelMessage.gameObject.SetActive(false);
       PanelTapMessage.gameObject.SetActive(false);

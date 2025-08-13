@@ -36322,6 +36322,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：お試しでアイテムを1つ上げるわ。受け取ってちょうだい。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, Fix.FINE_ROBE, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】を達成しました！", ActionEvent.QuestComplete);
 
     Message(ref m_list, ref e_list, "アイン：お、サンキュー", ActionEvent.None);
   }
