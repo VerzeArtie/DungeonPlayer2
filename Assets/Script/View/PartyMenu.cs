@@ -854,6 +854,20 @@ public class PartyMenu : MotherBase
     ParentBackpackView.objBlockFilter.SetActive(false);
   }
 
+  public void TapCategoryBackpack()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    ParentBackpackView.GroupCategoryBackpack.SetActive(true);
+    ParentBackpackView.GroupCategoryPrecious.SetActive(false);
+  }
+
+  public void TapCaterogyPrecious()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    ParentBackpackView.GroupCategoryBackpack.SetActive(false);
+    ParentBackpackView.GroupCategoryPrecious.SetActive(true);
+  }
+
   // ÉoÉgÉãê›íË
   public void TapCommandTypeBasic()
   {

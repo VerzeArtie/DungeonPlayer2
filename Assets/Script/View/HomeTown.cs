@@ -3033,6 +3033,15 @@ public partial class HomeTown : MotherBase
           ConstructItemBankView();
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.GetPreciousItem)
+        {
+          Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
+          // 大事なアイテムの入手に上限はない。
+          One.TF.AddPreciousItem(new Item(currentMessage));
+          ConstructBackpackView();
+          ConstructItemBankView();
+          continue; // 継続
+        }
         else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);

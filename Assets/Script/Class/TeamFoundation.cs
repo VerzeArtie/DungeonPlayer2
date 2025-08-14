@@ -210,6 +210,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _itemBankList; }
   }
 
+  [SerializeField] protected List<Item> _preciousItemList = new List<Item>();
+  public List<Item> PreciousItemList
+  {
+    //  set { _preciousItemList = value; }
+    get { return _preciousItemList; }
+  }
+
   [SerializeField] protected bool _alreadyRestInn = false;
   public bool AlreadyRestInn
   {
@@ -3841,6 +3848,80 @@ public class TeamFoundation : MonoBehaviour
       if (this._backpackList[ii].ItemName == item.ItemName)
       {
         return this._backpackList[ii].StackValue;
+      }
+    }
+    return 0;
+  }
+  #endregion
+
+  #region "PreciousItem Control"
+  /// <summary>
+  /// 大事なアイテムにアイテムを追加します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns>TRUE:追加完了、FALSE:満杯のため追加できない</returns>
+  public bool AddPreciousItem(Item item)
+  {
+    return AddPreciousItem(item, 1);
+  }
+  public bool AddPreciousItem(Item item, int addValue)
+  {
+    int dummyValue = 0;
+    return AddPreciousItem(item, addValue, ref dummyValue);
+  }
+  public bool AddPreciousItem(Item item, int addValue, ref int addedNumber)
+  {
+    // ストック数上限を超えていない同名アイテムがあれば、スタック数を+1する。
+    for (int ii = 0; ii < this._preciousItemList.Count; ii++)
+    {
+      if (this._preciousItemList[ii] != null)
+      {
+        if (CheckPreciousItemExist(item, ii) > 0)
+        {
+          // スタック上限以上の場合、別のアイテムとして追加する。
+          if (this._preciousItemList[ii].StackValue >= item.LimitValue)
+          {
+            // 次のアイテムリストへスルー
+            break;
+          }
+          else
+          {
+            // スタック上限を超えていなくても、多数追加で上限を超えてしまう場合
+            if (this._preciousItemList[ii].StackValue + addValue > item.LimitValue)
+            {
+              // 次のアイテムリストへスルー
+              break;
+            }
+            else
+            {
+              this._preciousItemList[ii].StackValue += addValue;
+              addedNumber = ii;
+              return true;
+            }
+          }
+        }
+      }
+    }
+
+    // 新たに追加する。上限なし。
+    addedNumber = this._preciousItemList.Count;
+    item.StackValue = addValue;
+    this._preciousItemList.Add(item);
+    return true;
+  }
+
+  /// <summary>
+  /// バックパックに対象のアイテムが含まれている数を示します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns></returns>
+  public int CheckPreciousItemExist(Item item, int ii)
+  {
+    if (this._preciousItemList[ii] != null)
+    {
+      if (this._preciousItemList[ii].ItemName == item.ItemName)
+      {
+        return this._preciousItemList[ii].StackValue;
       }
     }
     return 0;

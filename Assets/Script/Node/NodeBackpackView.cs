@@ -9,6 +9,13 @@ using UnityEngine.UI;
 
 public class NodeBackpackView : MonoBehaviour
 {
+  public GameObject GroupCategoryBackpack;
+  public GameObject GroupCategoryPrecious;
+
+  public GameObject ContentPrecious;
+  public Text txtPreciousDescription;
+  public NodeBackpackItem nodePreciousItem;
+
   public GameObject GroupBackpack;
   public GameObject ContentBackpack;
   public NodeBackpackItem nodeBackpackItem;
@@ -112,6 +119,7 @@ public class NodeBackpackView : MonoBehaviour
   public Button btnOK;
 
   public List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
+  public List<NodeBackpackItem> PreciousList = new List<NodeBackpackItem>();
 
   public GameObject objBlockFilter;
 
@@ -140,6 +148,21 @@ public class NodeBackpackView : MonoBehaviour
       counter++;
       BackpackList.Add(current);
     }
+
+    foreach (Transform n in ContentPrecious.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    ContentPrecious.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+    PreciousList.Clear();
+    counter = 0;
+    for (int ii = 0; ii < One.TF.PreciousItemList.Count; ii++)
+    {
+      NodeBackpackItem current = Instantiate(nodePreciousItem) as NodeBackpackItem;
+      current.Construct(ContentPrecious, One.TF.PreciousItemList[ii].ItemName, One.TF.PreciousItemList[ii].StackValue, ii, counter);
+      counter++;
+      PreciousList.Add(current);
+    }
   }
 
   public void TapBackpackSelect(NodeBackpackItem backpack)
@@ -153,6 +176,19 @@ public class NodeBackpackView : MonoBehaviour
       BackpackList[ii].imgSelect.gameObject.SetActive(false);
     }
     backpack.imgSelect.gameObject.SetActive(true);
+  }
+
+  public void TapPreciousItemSelect(NodeBackpackItem backpack)
+  {
+    Debug.Log("TapPreciousItemSelect(S)");
+    for (int ii = 0; ii < PreciousList.Count; ii++)
+    {
+      Debug.Log("PreciousList: " + PreciousList[ii].txtName.text);
+      PreciousList[ii].imgSelect.gameObject.SetActive(false);
+    }
+    backpack.imgSelect.gameObject.SetActive(true);
+
+    txtPreciousDescription.text = new Item(backpack.txtName.text).Description;
   }
 
   public void TapCancelUse()
