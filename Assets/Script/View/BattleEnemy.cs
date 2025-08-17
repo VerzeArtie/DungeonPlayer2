@@ -414,7 +414,7 @@ public partial class BattleEnemy : MotherBase
       {
         playerList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (allyBaseStart - (10.0f * ii)));
       }
-      playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+      playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
       if (this.LifePointBattle)
       {
@@ -552,7 +552,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
         }
-        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
         // キャラクターグループのリストに追加
         One.EnemyList[ii].Ally = Fix.Ally.Enemy;
@@ -707,7 +707,7 @@ public partial class BattleEnemy : MotherBase
 
         // 戦闘ゲージを設定
         One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
-        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
         // キャラクターグループのリストに追加
         One.EnemyList[ii].Ally = Fix.Ally.Enemy;
@@ -1312,7 +1312,7 @@ public partial class BattleEnemy : MotherBase
 
     if (detectSpacetimeInfluence == false)
     {
-      this.BattleTimer += 100 * SpeedFactor();
+      this.BattleTimer += SpeedFactor();
       if (BattleTurnCount != 0)
       {
         float currentTime = ((float)Fix.BASE_TIMER_BAR_LENGTH - (float)this.BattleTimer) / ((float)Fix.BASE_TIMER_BAR_LENGTH);
@@ -1321,7 +1321,7 @@ public partial class BattleEnemy : MotherBase
       UpdateTimerSpeed();
       for (int ii = 0; ii < Fix.TIMER_ICON_NUM; ii++)
       {
-        if (Fix.BASE_TIMER_DIV * 100 * ii <= this.BattleTimer && this.BattleTimer < Fix.BASE_TIMER_DIV * 100 * (ii + 1))
+        if (Fix.BASE_TIMER_DIV * Fix.BATTLE_SPEED_MAX * ii <= this.BattleTimer && this.BattleTimer < Fix.BASE_TIMER_DIV * Fix.BATTLE_SPEED_MAX * (ii + 1))
         {
           pbSandglass.sprite = this.imageSandglass[ii];
           break;
@@ -8848,31 +8848,32 @@ public partial class BattleEnemy : MotherBase
     if (move_skip > 0 || move_skip < 0)
     {
       player.BattleGaugeArrow += move_skip;
-      if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      if (player.BattleGaugeArrow >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow = Fix.BATTLE_SPEED_MAX; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
-      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
       if (player.objArrow2 != null && player.objArrow2.activeInHierarchy)
       {
         player.BattleGaugeArrow2 += move_skip;
-        if (player.BattleGaugeArrow2 >= 100.0f) { player.BattleGaugeArrow2 = 100.0f; }
+        if (player.BattleGaugeArrow2 >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow2 = Fix.BATTLE_SPEED_MAX; }
         if (player.BattleGaugeArrow2 <= 0.0f) { player.BattleGaugeArrow2 = 0.0f; }
-        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
       }
     }
     else
     {
       player.BattleGaugeArrow += (float)PrimaryLogic.BattleSpeed(player);
-      if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      Debug.Log(player.FullName + " BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
+      if (player.BattleGaugeArrow >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow = Fix.BATTLE_SPEED_MAX; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
-      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
       if (player.objArrow2 != null && player.objArrow2.activeInHierarchy)
       {
         player.BattleGaugeArrow2 += (float)PrimaryLogic.BattleSpeed(player);
-        if (player.BattleGaugeArrow2 >= 100.0f) { player.BattleGaugeArrow2 = 100.0f; }
+        if (player.BattleGaugeArrow2 >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow2 = Fix.BATTLE_SPEED_MAX; }
         if (player.BattleGaugeArrow2 <= 0.0f) { player.BattleGaugeArrow2 = 0.0f; }
-        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
       }
     }
   }
@@ -8889,7 +8890,7 @@ public partial class BattleEnemy : MotherBase
     {
       player.BattleGaugeArrow = (float)(player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT).EffectValue);
     }
-    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
   }
   private void UpdatePlayerArrowZero2(Character player)
   {
@@ -8898,7 +8899,7 @@ public partial class BattleEnemy : MotherBase
     {
       player.BattleGaugeArrow2 = (float)(player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT).EffectValue);
     }
-    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
   }
 
   private void UpdatePlayerInstantGauge(Character player)
@@ -12430,7 +12431,7 @@ public partial class BattleEnemy : MotherBase
     {
       float factor = (float)PrimaryLogic.BattleSpeed(this.NowSeaStripePlayer) * 2.00f;
       UpdatePlayerArrow(this.NowSeaStripePlayer, factor);
-      this.NowSeaStripeCounter = this.NowSeaStripeCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+      this.NowSeaStripeCounter = this.NowSeaStripeCounter - factor * BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX;
     }
 
     if (this.NowSeaStripeCounter <= 0.0f)
@@ -12456,7 +12457,7 @@ public partial class BattleEnemy : MotherBase
     {
       float factor = (float)PrimaryLogic.BattleSpeed(this.NowIrregularStepPlayer) * 2.00f;
       UpdatePlayerArrow(this.NowIrregularStepPlayer, factor);
-      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor * BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX;
     }
 
     if (this.NowIrregularStepCounter <= 0.0f)
@@ -12483,7 +12484,7 @@ public partial class BattleEnemy : MotherBase
       float factor2 = (float)PrimaryLogic.BattleSpeed(this.NowUnintentionalHitTarget) * 2.00f;
       UpdatePlayerArrow(this.NowUnintentionalHitTarget, factor2 * -1);
 
-      this.NowUnintentionalHitCounter = this.NowUnintentionalHitCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+      this.NowUnintentionalHitCounter = this.NowUnintentionalHitCounter - factor * BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX;
     }
 
     if (this.NowUnintentionalHitCounter <= 0.0f)
@@ -12510,7 +12511,7 @@ public partial class BattleEnemy : MotherBase
       float factor = (float)PrimaryLogic.BattleSpeed(this.NowGodSensePlayer) * 5.00f;
       UpdatePlayerArrow(this.NowGodSensePlayer, factor);
 
-      this.NowGodSenseCounter = this.NowGodSenseCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+      this.NowGodSenseCounter = this.NowGodSenseCounter - factor * BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX;
 
       RectTransform rectX = NowGodSensePlayer.objArrow.GetComponent<RectTransform>();
       if (rectX.position.x >= BATTLE_GAUGE_WITDH)

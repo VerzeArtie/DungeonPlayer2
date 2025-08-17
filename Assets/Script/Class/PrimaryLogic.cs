@@ -600,15 +600,30 @@ public static class PrimaryLogic
   /// </summary>
   public static double BattleSpeed(Character player)
   {
-    // double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
-    // double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
-    //Debug.Log(player.FullName + " TotalAgility: " + player.TotalAgility.ToString() + " TotalMind: " + player.TotalMind);
-    double factor = Math.Exp((double)(player.TotalAgility) * (double)(player.TotalMind) / (Fix.PARAMETER_MAX * Fix.PARAMETER_MAX)) / Math.Exp(1);
-    //Debug.Log(player.FullName + " factor1: " + factor.ToString());
-    //factor = factor / 5.0f; // 0～1を0～2に引き下げてバランスを取る。
-    //Debug.Log(player.FullName + " factor2: " + factor.ToString());
-    double result = 0.30f + factor; // 0.30fがベース値。最大Agility9999、Mind9999の場合 +0.20fで、総合計は0.50fまで。
-    //Debug.Log(player.FullName +  " battlespeed1: " + result.ToString());
+    double factor = 0.01f; // 速度は0.00以下にならないようにする。
+    if (player.TotalAgility <= 100)
+    {
+      factor = 1.00f + 1.00f / 100.00f * player.TotalAgility;
+    }
+    else if (player.TotalAgility <= 1000)
+    {
+      factor = 2.00f + 1.00f / 1000.00f * player.TotalAgility;
+    }
+    else if (player.TotalAgility <= 9999)
+    {
+      factor = 3.00f + 1.00f / 10000.00f * player.TotalAgility;
+    }
+    else
+    {
+      factor = 4.00f + 1.00f / 100000.00f * player.TotalAgility;
+    }
+    double core = Math.Exp((double)player.TotalMind / Fix.PARAMETER_MAX);
+
+    double result = factor * core;
+    Debug.Log(player.FullName + " factor: " + factor.ToString());
+    Debug.Log(player.FullName + " core: " + factor.ToString());
+    Debug.Log(player.FullName +  " battlespeed: " + result.ToString());
+
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
     result += (player.MainArmor?.BattleSpeed ?? 0);

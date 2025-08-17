@@ -263,7 +263,8 @@ public static partial class Fix
   #region "Battle"
   #region "Battle Gauge"
   public const int BATTLE_CORE_SLEEP = 0;
-  public const int BASE_TIMER_BAR_LENGTH = 30000;
+  public static float BATTLE_SPEED_MAX = 500.0f;
+  public const int BASE_TIMER_BAR_LENGTH = 500;
   public const int BASE_TIMER_DIV = 36;
   public const int TIMER_ICON_NUM = 8;
   public const int MAX_INSTANT_POINT = 1000;
