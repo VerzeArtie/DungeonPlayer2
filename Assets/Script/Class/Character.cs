@@ -5946,6 +5946,7 @@ public partial class Character : MonoBehaviour
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
+        this.ActionCommand2 = Fix.DEFENSE;
         this.AvailableWarrior = true;
         this.StraightSmash = 1;
         break;
@@ -5975,6 +5976,7 @@ public partial class Character : MonoBehaviour
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ICE_NEEDLE;
+        this.ActionCommand2 = Fix.DEFENSE;
         this.AvailableIce = true;
         this.IceNeedle = 1;
         break;
@@ -6006,8 +6008,9 @@ public partial class Character : MonoBehaviour
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.HUNTER_SHOT;
         this.ActionCommand2 = Fix.FRESH_HEAL;
-        this.ActionCommand3 = Fix.MULTIPLE_SHOT;
-        this.ActionCommand4 = Fix.DIVINE_CIRCLE;
+        this.ActionCommand3 = Fix.DEFENSE;
+        this.ActionCommand4 = Fix.MULTIPLE_SHOT;
+        this.ActionCommand5 = Fix.DIVINE_CIRCLE;
         this.AvailableArchery = true;
         this.AvailableHolyLight = true;
         this.HunterShot = 1;
@@ -6046,10 +6049,11 @@ public partial class Character : MonoBehaviour
         this.ActionCommand1 = Fix.LEG_STRIKE;
         this.ActionCommand2 = Fix.SPEED_STEP;
         this.ActionCommand3 = Fix.BONE_CRUSH;
-        this.ActionCommand4 = Fix.FIRE_BALL;
-        this.ActionCommand5 = Fix.FLAME_BLADE;
-        this.ActionCommand6 = Fix.METEOR_BULLET;
-        this.ActionCommand7 = Fix.TRUE_SIGHT;
+        this.ActionCommand4 = Fix.DEFENSE;
+        this.ActionCommand5 = Fix.FIRE_BALL;
+        this.ActionCommand6 = Fix.FLAME_BLADE;
+        this.ActionCommand7 = Fix.METEOR_BULLET;
+        this.ActionCommand8 = Fix.TRUE_SIGHT;
         this.AvailableMartialArts = true;
         this.AvailableFire = true;
         this.AvailableTruth = true;
@@ -6090,7 +6094,7 @@ public partial class Character : MonoBehaviour
         this.Artifact = new Item(Fix.YELLOW_KOKUIN);
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ENERGY_BOLT;
-        this.ActionCommand2 = Fix.FRESH_HEAL;
+        this.ActionCommand2 = Fix.DEFENSE;
         this.ActionCommand3 = Fix.SIGIL_OF_THE_PENDING;
         this.ActionCommand4 = Fix.TRUE_SIGHT;
         this.ActionCommand5 = Fix.LEYLINE_SCHEMA;
