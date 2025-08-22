@@ -46,6 +46,10 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("PureVitalityWater");
     }
+    else if (command_name == Fix.CURE_SEAL)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
+    }
     else if (command_name == Fix.ARCHETYPE_EIN_1)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("SYUTYU-DANZETSU");

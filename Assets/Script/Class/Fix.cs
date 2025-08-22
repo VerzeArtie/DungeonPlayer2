@@ -2538,6 +2538,7 @@ public static partial class Fix
   #endregion
   #region "フェーズ【 Iー１ 】：アンシェット街(武具合成)"
   public const string WOLF_CROSS = @"ウルフ製の舞踏衣";
+  public const string KOUKAKU_ARMOR = @"甲殻の鎧";
   #endregion
   #region "フェーズ【 Iー２ 】：ゴラトラム洞窟"
   public const string CLASSICAL_SWORD = "クラシカル・ソード";
@@ -3066,6 +3067,7 @@ public static partial class Fix
 
   #region "アンシェット街(ポーション合成)"
   public const string POTION_RESIST_FIRE = @"耐熱ポーション";
+  public const string CURE_SEAL = @"キュア・シール";
   #endregion
   #endregion
   #region "成長剤"
@@ -3125,6 +3127,7 @@ public static partial class Fix
   public const string COMMON_WARM_NO_KOUKAKU = "ワームの甲殻";
   public const string COMMON_YELLOW_TAIEKI = "黄色の体液";
   public const string COMMON_RABBIT_MEAT = "ウサギの肉";
+  public const string COMMON_ORANGE_MATERIAL = "オレンジ・マテリアル"; // 宝箱
 
   public const string COMMON_TOGETOGE_GRASS = "トゲトゲの草";
   public const string COMMON_ASH_EGG = "薄灰色の卵";

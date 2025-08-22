@@ -3504,6 +3504,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.PURE_VITALIRY_WATER:
         ExecVitalityWater(player, player);
         break;
+
+      case Fix.CURE_SEAL:
+        ExecCureSeal(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13607,6 +13611,26 @@ public partial class BattleEnemy : MotherBase
     One.TF.AlreadyVitalityWater = true;
     double effectValue = target.MaxSkillPoint;
     AbstractGainSkillPoint(null, target, effectValue);
+    return true;
+  }
+
+  private bool ExecCureSeal(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.CURE_SEAL) == false)
+    {
+      Debug.Log(Fix.CURE_SEAL + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.CURE_SEAL);
+    One.TF.DeleteBackpack(current, 1);
+
+    player.RemoveTargetBuff(Fix.EFFECT_POISON);
+    StartAnimation(player.objBuffPanel.gameObject, Fix.EFFECT_REMOVE_POISON, Fix.COLOR_NORMAL);
+
+    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+    AbstractHealCommand(player, player, effectValue, true);
     return true;
   }
 

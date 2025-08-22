@@ -2957,6 +2957,30 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.KOUKAKU_ARMOR:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 13;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "甲殻部を繋ぎ合わせた鎧に、魔法耐性を若干付与させた一品。物理防御１３。火耐性２０、体＋２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 0;
+        this.ResistFireValue = 20;
+        break;
+
       #endregion
       #region "ゴラトラム洞窟"
       case Fix.CLASSICAL_SWORD:
@@ -10973,13 +10997,23 @@ public partial class Item
 
       #region "アンシェット街(ポーション合成)"
       case Fix.POTION_RESIST_FIRE:
-        this._rarity = Rarity.Common;
+        this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Potion;
         this._itemValue1 = 50;
         this._itemValue2 = 0;
-        this._gold = 850;
+        this._gold = 400;
         this._importantType = Important.None;
         this._description = "枯れた茎から抽出した耐熱成分を体液と融合させた薬。火耐性５０。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
+      case Fix.CURE_SEAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 60;
+        this._itemValue2 = 80;
+        this._gold = 500;
+        this._importantType = Important.None;
+        this._description = "治癒の効果を促す薬として調合した結果をシールの形状で作成。対象者にかかっている【猛毒】を解除し、ライフを回復する。ライフ回復量60～80" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
       #endregion
       #endregion
@@ -11374,6 +11408,12 @@ public partial class Item
         this._itemType = ItemTypes.SellOnly;
         this._gold = 99;
         this._description = "雑食で育ったウサギの肉。煮てから焼いて食べると美味しい。" + Fix.DESCRIPTION_SELL_ONLY;
+        break;
+      case Fix.COMMON_ORANGE_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 104;
+        this._description = "オレンジ色の矩形素材。汎用性は高いが、主にポーション素材として溶解した上で調合に使われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_TOGETOGE_GRASS:
