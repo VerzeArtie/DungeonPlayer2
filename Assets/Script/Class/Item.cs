@@ -2933,6 +2933,31 @@ public partial class Item
         this._mind = 8;
         break;
       #endregion
+      #region "アンシェット街(武具合成)"
+      case Fix.WOLF_CROSS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 7;
+        this._magicDefense = 5;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1100;
+        this._importantType = Important.None;
+        this._description = "ウルフの毛皮をベースにして仕立て上げられた舞踏衣。動きやすさはもちろんの事、ある程度の硬さも併せ持つ。物理防御力７、魔法防御力５、技＋２";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      #endregion
       #region "ゴラトラム洞窟"
       case Fix.CLASSICAL_SWORD:
         this._rarity = Rarity.Common;
@@ -10945,6 +10970,18 @@ public partial class Item
         this._stamina = 0;
         this._mind = 0;
         break;
+
+      #region "アンシェット街(ポーション合成)"
+      case Fix.POTION_RESIST_FIRE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 50;
+        this._itemValue2 = 0;
+        this._gold = 850;
+        this._importantType = Important.None;
+        this._description = "枯れた茎から抽出した耐熱成分を体液と融合させた薬。火耐性５０。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+      #endregion
       #endregion
       #region "成長リキッド"
       case Fix.GROWTH_LIQUID_STRENGTH:
@@ -11294,6 +11331,12 @@ public partial class Item
         this._itemType = ItemTypes.SellOnly;
         this._gold = 60;
         this._description = "衣類のカテゴリで最もよく使われる素材の一つ。ゴワつき感があるがしっかりとした毛皮である。" + Fix.DESCRIPTION_SELL_ONLY;
+        break;
+      case Fix.COMMON_KOKYU_LETHER_MATERIAL: // 宝箱
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 70;
+        this._description = "衣類のカテゴリにおけるベーシックなコア素材。汎用性が高く、あらゆる素材と組み合わせる事ができる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_ANT_ESSENCE:

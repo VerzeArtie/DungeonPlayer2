@@ -269,6 +269,12 @@ public partial class HomeTown : MotherBase
   public GameObject ContentItemBank;
   public NodeBackpackItem nodeItemBankItem;
 
+  // New Available
+  public GameObject GroupNewAvailable;
+  public Text txtNewTitle;
+  public Text txtNewDescription;
+  public Text txtCloseButton;
+
   // Quest Message
   public GameObject GroupQuestMessage;
   public GameObject HidePanelMessage;
@@ -1061,6 +1067,42 @@ public partial class HomeTown : MotherBase
     GroupInn.SetActive(false);
     GroupItemBank.SetActive(false);
     MessagePack.MessageX00015(ref QuestMessageList, ref QuestEventList); TapOK();
+
+    CheckNewContents();
+  }
+
+  private void CheckNewContents()
+  {
+    #region "アンシェット街"
+    if ((One.AR.EquipAvailable_11 == false) && (One.AR.EquipMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_11))
+    {
+      One.AR.EquipAvailable_11 = true;
+      AvailableNewContent(Fix.WOLF_CROSS, (new Item(Fix.WOLF_CROSS)).Description);
+    }
+
+    if ((One.AR.PotionAvailable_11 == false) && (One.AR.PotionMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_11))
+    {
+      One.AR.PotionAvailable_11 = true;
+      AvailableNewContent(Fix.POTION_RESIST_FIRE, (new Item(Fix.POTION_RESIST_FIRE).Description));
+    }
+
+    if ((One.AR.FoodAvailable_11 == false) && (One.AR.FoodMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_11))
+    {
+      One.AR.FoodAvailable_11 = true;
+      AvailableNewContent(Fix.FOOD_TSIKARA_UDON, Fix.DESC_03);
+    }
+    #endregion
+
+    ConstructShopBuyView();
+    ConstructFoodMenu();
+  }
+
+  private void AvailableNewContent(string content_name, string description)
+  {
+    this.txtNewTitle.text = content_name;
+    this.txtNewDescription.text = description;
+    this.txtCloseButton.text = "【 " + content_name + " 】が追加されました！";
+    GroupNewAvailable.SetActive(true);
   }
 
   public void TapActionCommandSetting()
@@ -1275,6 +1317,8 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(true);
     GroupItemBank.SetActive(false);
+
+    CheckNewContents();
   }
 
   public void TapItemBank()
@@ -2114,8 +2158,23 @@ public partial class HomeTown : MotherBase
   {
     Item current = new Item(imgSell.name);
 
-    One.TF.DeleteBackpack(current, 1);
+    int stack = 1;
+    One.TF.DeleteBackpack(current, stack);
     One.TF.Gold += current.Gold / 2;
+
+    #region "アンシェット街"
+    if (current.ItemName == Fix.COMMON_WOLF_FUR) { One.AR.EquipMaterial_11 += stack; }
+    if (current.ItemName == Fix.COMMON_KOKYU_LETHER_MATERIAL) { One.AR.EquipMaterial_12 += stack; }
+    if (One.AR.EquipMaterial_11 >= 1 && One.AR.EquipMaterial_12 >= 1 && One.AR.EquipMixtureDay_11 <= 0) { One.AR.EquipMixtureDay_11 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_MANTIS_TAIEKI) { One.AR.PotionMaterial_11 += stack; }
+    if (current.ItemName == Fix.COMMON_MANDORAGORA_ROOT) { One.AR.PotionMaterial_12 += stack; }
+    if (One.AR.PotionMaterial_11 >= 1 && One.AR.PotionMaterial_12 >= 1 && One.AR.PotionMixtureDay_11 <= 0) { One.AR.PotionMixtureDay_11 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_GREEN_SIKISO) { One.AR.FoodMaterial_11 += stack; }
+    if (current.ItemName == Fix.COMMON_ANT_ESSENCE) { One.AR.FoodMaterial_12 += stack; }
+    if (One.AR.FoodMaterial_11 >= 1 && One.AR.FoodMaterial_12 >= 1 && One.AR.FoodMixtureDay_11 <= 0) { One.AR.FoodMixtureDay_11 = One.TF.GameDay; }
+    #endregion
 
     RefreshAllView();
     TapSellCancel();
@@ -2672,6 +2731,11 @@ public partial class HomeTown : MotherBase
       ItemBankList[ii].imgSelect.gameObject.SetActive(false);
     }
     item.imgSelect.gameObject.SetActive(true);
+  }
+
+  public void TapCloseNewAvailable()
+  {
+    GroupNewAvailable.SetActive(false); 
   }
 
   public void TapOK()
@@ -3782,6 +3846,20 @@ public partial class HomeTown : MotherBase
     return false;
   }
 
+  private void ConstructFoodMenu()
+  {
+    List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
+    for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
+    {
+      txtFoodMenuList[ii].text = String.Empty;
+    }
+    for (int ii = 0; ii < listFoodMenu.Count; ii++)
+    {
+      txtFoodMenuList[ii].text = listFoodMenu[ii];
+    }
+    TapSelectFood(txtFoodMenuList[0]);
+  }
+
   private void SelectShopItem(NodeShopItem shopItem, List<NodeShopItem> shop_item_list)
   {
     Item item = new Item(shopItem.txtName.text);
@@ -4377,16 +4455,7 @@ public partial class HomeTown : MotherBase
     TapShopTypeBuyItem();
 
     // 食事メニュー
-    List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
-    for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
-    {
-      txtFoodMenuList[ii].text = String.Empty;
-    }
-    for (int ii = 0; ii < listFoodMenu.Count; ii++)
-    {
-      txtFoodMenuList[ii].text = listFoodMenu[ii];
-    }
-    TapSelectFood(txtFoodMenuList[0]);
+    ConstructFoodMenu();
 
     // Tacticsのリスト
     //int counter = 0;
@@ -4921,12 +4990,14 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FINE_SHIELD));
       shopList.Add(new Item(Fix.FINE_ARMOR));
       shopList.Add(new Item(Fix.FINE_CROSS));
+      if (One.AR.EquipAvailable_11) { shopList.Add(new Item(Fix.WOLF_CROSS)); }
       shopList.Add(new Item(Fix.FINE_ROBE));
       shopList.Add(new Item(Fix.BLUE_WIZARD_HAT));
       shopList.Add(new Item(Fix.SWORD_OF_LIFE));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
       shopList.Add(new Item(Fix.SMALL_GREEN_POTION));
+      if (One.AR.PotionAvailable_11) { shopList.Add(new Item(Fix.POTION_RESIST_FIRE)); }
     }
     if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
@@ -5065,9 +5136,7 @@ public partial class HomeTown : MotherBase
     {
       foodList.Add(Fix.FOOD_BALANCE_SET);
       foodList.Add(Fix.FOOD_LARGE_GOHAN_SET);
-      foodList.Add(Fix.FOOD_TSIKARA_UDON);
-      foodList.Add(Fix.FOOD_ZUNOU_FLY_SET);
-      foodList.Add(Fix.FOOD_SPEED_SOBA);
+      if (One.AR.FoodAvailable_11) { foodList.Add(Fix.FOOD_TSIKARA_UDON); }
     }
     else if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {

@@ -23,6 +23,88 @@ public class AkashicRecord : MonoBehaviour
   [SerializeField] protected bool _record_earring_of_lana = false;
   public bool Record_EarringOfLana { get { return _record_earring_of_lana; } set { _record_earring_of_lana = value; } } // ラナのイヤリングを入手した事がある。
 
+  // Item Shop
+  [SerializeField] protected bool _equip_available_11 = false;
+  public bool EquipAvailable_11
+  {
+    set { _equip_available_11 = value; }
+    get { return _equip_available_11; }
+  }
+
+  [SerializeField] protected bool _potion_available_11 = false;
+  public bool PotionAvailable_11
+  {
+    set { _potion_available_11 = value; }
+    get { return _potion_available_11; }
+  }
+
+  [SerializeField] protected bool _food_available_11 = false;
+  public bool FoodAvailable_11
+  {
+    set { _food_available_11 = value; }
+    get { return _food_available_11; }
+  }
+
+  [SerializeField] protected int _equip_mixtureDay_11 = 0;
+  public int EquipMixtureDay_11
+  {
+    set { _equip_mixtureDay_11 = value; }
+    get { return _equip_mixtureDay_11; }
+  }
+
+  [SerializeField] protected int _potion_mixtureDay_11 = 0;
+  public int PotionMixtureDay_11
+  {
+    set { _potion_mixtureDay_11 = value; }
+    get { return _potion_mixtureDay_11; }
+  }
+
+  [SerializeField] protected int _food_mixtureDay_11 = 0;
+  public int FoodMixtureDay_11
+  {
+    set { _food_mixtureDay_11 = value; }
+    get { return _food_mixtureDay_11; }
+  }
+
+  [SerializeField] protected int _equip_material_11 = 0;
+  public int EquipMaterial_11
+  {
+    set { _equip_material_11 = value; }
+    get { return _equip_material_11; }
+  }
+  [SerializeField] protected int _equip_material_12 = 0;
+  public int EquipMaterial_12
+  {
+    set { _equip_material_12 = value; }
+    get { return _equip_material_12; }
+  }
+
+  [SerializeField] protected int _potion_material_11 = 0;
+  public int PotionMaterial_11
+  {
+    set { _potion_material_11 = value; }
+    get { return _potion_material_11; }
+  }
+  [SerializeField] protected int _potion_material_12 = 0;
+  public int PotionMaterial_12
+  {
+    set { _potion_material_12 = value; }
+    get { return _potion_material_12; }
+  }
+
+  [SerializeField] protected int _food_material_11 = 0;
+  public int FoodMaterial_11
+  {
+    set { _food_material_11 = value; }
+    get { return _food_material_11; }
+  }
+  [SerializeField] protected int _food_material_12 = 0;
+  public int FoodMaterial_12
+  {
+    set { _food_material_12 = value; }
+    get { return _food_material_12; }
+  }
+
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
   [SerializeField] protected bool _FireBall = false;
   public bool FireBall

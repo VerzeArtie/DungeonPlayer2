@@ -9299,7 +9299,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_EsmiliaGrassField_00002 == false && location.x == Fix.ESMILIA_Treasure_2_X && location.y == Fix.ESMILIA_Treasure_2_Y && location.z == Fix.ESMILIA_Treasure_2_Z)
         {
-          treasureName = Fix.GREEN_PENDANT;
+          treasureName = Fix.COMMON_KOKYU_LETHER_MATERIAL;
         }
         if (One.TF.Treasure_EsmiliaGrassField_00003 == false && location.x == Fix.ESMILIA_Treasure_3_X && location.y == Fix.ESMILIA_Treasure_3_Y && location.z == Fix.ESMILIA_Treasure_3_Z)
         {

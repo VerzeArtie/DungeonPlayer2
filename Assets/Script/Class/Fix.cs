@@ -2536,6 +2536,9 @@ public static partial class Fix
   public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
 
   #endregion
+  #region "フェーズ【 Iー１ 】：アンシェット街(武具合成)"
+  public const string WOLF_CROSS = @"ウルフ製の舞踏衣";
+  #endregion
   #region "フェーズ【 Iー２ 】：ゴラトラム洞窟"
   public const string CLASSICAL_SWORD = "クラシカル・ソード";
   public const string CLASSICAL_LANCE = "クラシカル・ランス";
@@ -3060,6 +3063,10 @@ public static partial class Fix
   public const string PERFECT_RED_POTION = "完全な赤ポーション";
   public const string PERFECT_BLUE_POTION = "完全な青ポーション";
   public const string PERFECT_GREEN_POTION = "完全な緑ポーション";
+
+  #region "アンシェット街(ポーション合成)"
+  public const string POTION_RESIST_FIRE = @"耐熱ポーション";
+  #endregion
   #endregion
   #region "成長剤"
   // 成長剤（１階）
@@ -3110,6 +3117,7 @@ public static partial class Fix
   public const string COMMON_GREEN_SIKISO = "緑化色素";
   public const string COMMON_MANDORAGORA_ROOT = "マンドラゴラの根";
   public const string COMMON_WOLF_FUR = "ウルフの毛皮";
+  public const string COMMON_KOKYU_LETHER_MATERIAL = "コキューの革素材"; // 宝箱
 
   public const string COMMON_ANT_ESSENCE = "アントのエキス";
   public const string COMMON_KATAME_TREE = "固めの木の枝";
@@ -3332,6 +3340,7 @@ public static partial class Fix
   #region "ラベル"
   // 素材判別文字
   public const string DESCRIPTION_SELL_ONLY = @"【売却専用品】" + "\r\n";
+  public const string DESCRIPTION_BATTLE_ONLY = @"【戦闘中専用】" + "\r\n";
   public const string DESCRIPTION_EQUIP_MATERIAL = @"【武具素材】" + "\r\n";
   public const string DESCRIPTION_POTION_MATERIAL = @"【ポーション素材】" + "\r\n";
   public const string DESCRIPTION_FOOD_MATERIAL = @"【食材】" + "\r\n";
