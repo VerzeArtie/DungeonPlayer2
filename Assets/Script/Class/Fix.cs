@@ -1200,7 +1200,7 @@ public static partial class Fix
 
   public static string DESC_01 = DESC_01_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１\r\n  技＋１\r\n  知＋１\r\n  体    \r\n  心    ";
   public static string DESC_02 = DESC_02_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知    \r\n  体＋３\r\n  心    ";
-  public static string DESC_03 = DESC_03_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技    \r\n  知    \r\n  体    \r\n  心    ";
+  public static string DESC_03 = DESC_03_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技    \r\n  知    \r\n  体    \r\n  心＋１";
   public static string DESC_04 = DESC_04_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知＋３\r\n  体＋１\r\n  心＋１";
   public static string DESC_05 = DESC_05_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技＋３\r\n  知    \r\n  体    \r\n  心    ";
 
@@ -1272,7 +1272,7 @@ public static partial class Fix
 
   public static int[] FOOD_01_VALUE = { 1, 1, 1, 0, 0 };
   public static int[] FOOD_02_VALUE = { 0, 0, 0, 3, 0 };
-  public static int[] FOOD_03_VALUE = { 3, 0, 0, 0, 0 };
+  public static int[] FOOD_03_VALUE = { 3, 0, 0, 0, 1 };
   public static int[] FOOD_04_VALUE = { 0, 0, 3, 1, 1 };
   public static int[] FOOD_05_VALUE = { 0, 3, 0, 0, 0 };
 
