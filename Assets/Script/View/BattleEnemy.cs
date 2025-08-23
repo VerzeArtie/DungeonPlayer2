@@ -3508,6 +3508,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.CURE_SEAL:
         ExecCureSeal(player, player);
         break;
+
+      case Fix.POTION_MAGIC_SEAL:
+        ExecMagicSeal(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13633,6 +13637,23 @@ public partial class BattleEnemy : MotherBase
     AbstractHealCommand(player, player, effectValue, true);
     return true;
   }
+
+  private bool ExecMagicSeal(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.POTION_MAGIC_SEAL) == false)
+    {
+      Debug.Log(Fix.POTION_MAGIC_SEAL + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.POTION_MAGIC_SEAL);
+    One.TF.DeleteBackpack(current, 1);
+
+    ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 0.00f + (double)(current.ItemValue1) * 0.01f);
+    return true;
+  }
+
 
   private void ExecLifeGain(Character player, Character target, double effectValue)
   {

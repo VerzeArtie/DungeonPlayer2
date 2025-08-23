@@ -3069,6 +3069,7 @@ public static partial class Fix
   #region "アンシェット街(ポーション合成)"
   public const string POTION_RESIST_FIRE = @"耐熱ポーション";
   public const string CURE_SEAL = @"キュア・シール";
+  public const string POTION_MAGIC_SEAL = @"マジック・シール薬";
   #endregion
   #endregion
   #region "成長剤"

@@ -11038,6 +11038,16 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "治癒の効果を促す薬として調合した結果をシールの形状で作成。対象者にかかっている【猛毒】を解除し、ライフを回復する。ライフ回復量60～80" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
+
+      case Fix.POTION_MAGIC_SEAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 5;
+        this._itemValue2 = 0;
+        this._gold = 700;
+        this._description = "赤い胞子内から魔法成分を摘出し、統合に成功。魔法攻撃５％ＵＰ。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"

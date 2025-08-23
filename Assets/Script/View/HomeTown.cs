@@ -1100,6 +1100,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_12 = true;
       AvailableNewContent(Fix.CURE_SEAL, (new Item(Fix.CURE_SEAL).Description));
     }
+    if ((One.AR.PotionAvailable_13 == false) && (One.AR.PotionMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_13))
+    {
+      One.AR.PotionAvailable_13 = true;
+      AvailableNewContent(Fix.POTION_MAGIC_SEAL, (new Item(Fix.POTION_MAGIC_SEAL).Description));
+    }
 
     if ((One.AR.FoodAvailable_11 == false) && (One.AR.FoodMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_11))
     {
@@ -2199,6 +2204,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_YELLOW_TAIEKI) { One.AR.PotionMaterial_13 += stack; }
     if (current.ItemName == Fix.COMMON_ORANGE_MATERIAL) { One.AR.PotionMaterial_14 += stack; }
     if (One.AR.PotionMaterial_13 >= 1 && One.AR.PotionMaterial_14 >= 1 && One.AR.PotionMixtureDay_12 <= 0) { One.AR.PotionMixtureDay_12 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_RED_HOUSI) { One.AR.PotionMaterial_15 += stack; }
+    if (current.ItemName == Fix.COMMON_DOKUSO_NEEDLE) { One.AR.PotionMaterial_16 += stack; }
+    if (One.AR.PotionMaterial_15 >= 1 && One.AR.PotionMaterial_16 >= 1 && One.AR.PotionMixtureDay_13 <= 0) { One.AR.PotionMixtureDay_13 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_GREEN_SIKISO) { One.AR.FoodMaterial_11 += stack; }
     if (current.ItemName == Fix.COMMON_ANT_ESSENCE) { One.AR.FoodMaterial_12 += stack; }
@@ -5033,6 +5041,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_13) { shopList.Add(new Item(Fix.STRIDE_WAR_SWORD)); }
       if (One.AR.PotionAvailable_11) { shopList.Add(new Item(Fix.POTION_RESIST_FIRE)); }
       if (One.AR.PotionAvailable_12) { shopList.Add(new Item(Fix.CURE_SEAL)); }
+      if (One.AR.PotionAvailable_13) { shopList.Add(new Item(Fix.POTION_MAGIC_SEAL)); }
     }
     if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
