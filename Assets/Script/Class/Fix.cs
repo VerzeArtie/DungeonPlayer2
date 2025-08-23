@@ -2539,6 +2539,7 @@ public static partial class Fix
   #region "フェーズ【 Iー１ 】：アンシェット街(武具合成)"
   public const string WOLF_CROSS = @"ウルフ製の舞踏衣";
   public const string KOUKAKU_ARMOR = @"甲殻の鎧";
+  public const string STRIDE_WAR_SWORD = @"ストライド・ウォーソード";
   #endregion
   #region "フェーズ【 Iー２ 】：ゴラトラム洞窟"
   public const string CLASSICAL_SWORD = "クラシカル・ソード";

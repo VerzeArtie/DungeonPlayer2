@@ -1084,6 +1084,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_12 = true;
       AvailableNewContent(Fix.KOUKAKU_ARMOR, (new Item(Fix.KOUKAKU_ARMOR)).Description);
     }
+    if ((One.AR.EquipAvailable_13 == false) && (One.AR.EquipMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_13))
+    {
+      One.AR.EquipAvailable_13 = true;
+      AvailableNewContent(Fix.STRIDE_WAR_SWORD, (new Item(Fix.STRIDE_WAR_SWORD)).Description);
+    }
 
     if ((One.AR.PotionAvailable_11 == false) && (One.AR.PotionMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_11))
     {
@@ -2184,6 +2189,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_KATAME_TREE) { One.AR.EquipMaterial_13 += stack; }
     if (current.ItemName == Fix.COMMON_WARM_NO_KOUKAKU) { One.AR.EquipMaterial_14 += stack; }
     if (One.AR.EquipMaterial_13 >= 1 && One.AR.EquipMaterial_14 >= 1 && One.AR.EquipMixtureDay_12 <= 0) { One.AR.EquipMixtureDay_12 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_TOGETOGE_GRASS) { One.AR.EquipMaterial_15 += stack; }
+    if (current.ItemName == Fix.COMMON_HORSE_HIZUME) { One.AR.EquipMaterial_16 += stack; }
+    if (One.AR.EquipMaterial_15 >= 1 && One.AR.EquipMaterial_16 >= 1 && One.AR.EquipMixtureDay_13 <= 0) { One.AR.EquipMixtureDay_13 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MANTIS_TAIEKI) { One.AR.PotionMaterial_11 += stack; }
     if (current.ItemName == Fix.COMMON_MANDORAGORA_ROOT) { One.AR.PotionMaterial_12 += stack; }
@@ -5014,14 +5022,15 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FINE_SHIELD));
       shopList.Add(new Item(Fix.FINE_ARMOR));
       shopList.Add(new Item(Fix.FINE_CROSS));
-      if (One.AR.EquipAvailable_11) { shopList.Add(new Item(Fix.WOLF_CROSS)); }
-      if (One.AR.EquipAvailable_12) { shopList.Add(new Item(Fix.KOUKAKU_ARMOR)); }
       shopList.Add(new Item(Fix.FINE_ROBE));
       shopList.Add(new Item(Fix.BLUE_WIZARD_HAT));
       shopList.Add(new Item(Fix.SWORD_OF_LIFE));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
       shopList.Add(new Item(Fix.SMALL_GREEN_POTION));
+      if (One.AR.EquipAvailable_11) { shopList.Add(new Item(Fix.WOLF_CROSS)); }
+      if (One.AR.EquipAvailable_12) { shopList.Add(new Item(Fix.KOUKAKU_ARMOR)); }
+      if (One.AR.EquipAvailable_13) { shopList.Add(new Item(Fix.STRIDE_WAR_SWORD)); }
       if (One.AR.PotionAvailable_11) { shopList.Add(new Item(Fix.POTION_RESIST_FIRE)); }
       if (One.AR.PotionAvailable_12) { shopList.Add(new Item(Fix.CURE_SEAL)); }
     }

@@ -2981,6 +2981,29 @@ public partial class Item
         this.ResistFireValue = 20;
         break;
 
+      case Fix.STRIDE_WAR_SWORD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 13;
+        this._physicalAttackMax = 18;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1800;
+        this._importantType = Important.None;
+        this._description = "頑丈な素材を元にして造られた剣。持ち方には少し工夫はいるが、確かな威力を引き出す事ができる。　物理攻撃力１３～１８。技＋２";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
       #endregion
       #region "ゴラトラム洞窟"
       case Fix.CLASSICAL_SWORD:
