@@ -24,6 +24,7 @@ public class AkashicRecord : MonoBehaviour
   public bool Record_EarringOfLana { get { return _record_earring_of_lana; } set { _record_earring_of_lana = value; } } // ラナのイヤリングを入手した事がある。
 
   // Item Shop
+  // 武具合成
   [SerializeField] protected bool _equip_available_11 = false;
   public bool EquipAvailable_11
   {
@@ -43,6 +44,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_available_13; }
   }
 
+  // ポーション合成
   [SerializeField] protected bool _potion_available_11 = false;
   public bool PotionAvailable_11
   {
@@ -62,6 +64,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_available_13; }
   }
 
+  // 食事合成
   [SerializeField] protected bool _food_available_11 = false;
   public bool FoodAvailable_11
   {
@@ -74,7 +77,14 @@ public class AkashicRecord : MonoBehaviour
     set { _food_available_12 = value; }
     get { return _food_available_12; }
   }
+  [SerializeField] protected bool _food_available_13 = false;
+  public bool FoodAvailable_13
+  {
+    set { _food_available_13 = value; }
+    get { return _food_available_13; }
+  }
 
+  // 武具合成
   [SerializeField] protected int _equip_mixtureDay_11 = 0;
   public int EquipMixtureDay_11
   {
@@ -94,6 +104,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_mixtureDay_13; }
   }
 
+  // ポーション合成
   [SerializeField] protected int _potion_mixtureDay_11 = 0;
   public int PotionMixtureDay_11
   {
@@ -113,6 +124,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_mixtureDay_13; }
   }
 
+  // 食事合成
   [SerializeField] protected int _food_mixtureDay_11 = 0;
   public int FoodMixtureDay_11
   {
@@ -125,8 +137,14 @@ public class AkashicRecord : MonoBehaviour
     set { _food_mixtureDay_12 = value; }
     get { return _food_mixtureDay_12; }
   }
+  [SerializeField] protected int _food_mixtureDay_13 = 0;
+  public int FoodMixtureDay_13
+  {
+    set { _food_mixtureDay_13 = value; }
+    get { return _food_mixtureDay_13; }
+  }
 
-
+  // 武具合成
   [SerializeField] protected int _equip_material_11 = 0;
   public int EquipMaterial_11
   {
@@ -164,6 +182,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_material_16; }
   }
 
+  // ポーション合成
   [SerializeField] protected int _potion_material_11 = 0;
   public int PotionMaterial_11
   {
@@ -201,6 +220,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_material_16; }
   }
 
+  // 食事合成
   [SerializeField] protected int _food_material_11 = 0;
   public int FoodMaterial_11
   {
@@ -224,6 +244,18 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _food_material_14 = value; }
     get { return _food_material_14; }
+  }
+  [SerializeField] protected int _food_material_15 = 0;
+  public int FoodMaterial_15
+  {
+    set { _food_material_15 = value; }
+    get { return _food_material_15; }
+  }
+  [SerializeField] protected int _food_material_16 = 0;
+  public int FoodMaterial_16
+  {
+    set { _food_material_16 = value; }
+    get { return _food_material_16; }
   }
 
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）

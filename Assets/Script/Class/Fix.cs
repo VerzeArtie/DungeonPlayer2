@@ -1162,7 +1162,7 @@ public static partial class Fix
   public const string FOOD_LARGE_GOHAN_SET = "山盛りごはんセット";
   public const string FOOD_TSIKARA_UDON = "タップリ 力うどん";
   public const string FOOD_ZUNOU_FLY_SET = "頭脳フライ定食";
-  public const string FOOD_SPEED_SOBA = "おかわり蕎麦";
+  public const string FOOD_SPEED_SOBA = "おかわり卵蕎麦";
 
   // ファージル宮殿
   public const string FOOD_KATUCARRY = @"激辛カツカレー定食";
@@ -1202,7 +1202,7 @@ public static partial class Fix
   public static string DESC_02 = DESC_02_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知    \r\n  体＋３\r\n  心    ";
   public static string DESC_03 = DESC_03_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技    \r\n  知    \r\n  体    \r\n  心＋１";
   public static string DESC_04 = DESC_04_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知＋３\r\n  体＋１\r\n  心＋１";
-  public static string DESC_05 = DESC_05_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技＋３\r\n  知    \r\n  体    \r\n  心    ";
+  public static string DESC_05 = DESC_05_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２\r\n  技＋３\r\n  知    \r\n  体    \r\n  心＋１";
 
   public static string DESC_11 = DESC_11_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技\r\n  知\r\n  体＋５\r\n  心";
   public static string DESC_12 = DESC_12_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知\r\n  体＋５\r\n  心＋５";
@@ -1238,7 +1238,7 @@ public static partial class Fix
   public const string DESC_02_MINI = "腹ごしらえに最適なごはんセット。当然のごとく山盛りとなったごはんに加え、スタミナが十分につくおかずも多く盛られており、一部の客に人気がある";
   public const string DESC_03_MINI = "力を付けたければ、まずはこのうどんセットで決まり。特別な理由はないが、これを食べた次の日、非常にやる気が出ると好評。";
   public const string DESC_04_MINI = "ウサギの肉を太陽の葉で包み込み、じっくりとフライ仕立てにした。味は非常に濃厚で特徴的。食べると脳内が活性化して知力がＵＰするというもっぱらの噂。";
-  public const string DESC_05_MINI = "食べても食べても追加され続ける蕎麦。美味しくて飽きがこないが、途中でストップしないと・・・";
+  public const string DESC_05_MINI = "食べても食べても追加され続ける卵蕎麦。組み合わせが抜群で飽きがこない味がする。途中でストップと宣言しないと、ずっと食べ続けてしまうので止め時が肝心。";
 
   public const string DESC_11_MINI = "か・・・辛い！！でもウマイ！！\r\n　実はハンナが客に応じて辛い配分を全調整してるとの事。";
   public const string DESC_12_MINI = "ほんのりとするオリーブの香りと、アッサリ味に仕立ててあるオニオン味のスープ。非常に好評のため定番メニューの一つとなっている。";
@@ -1274,7 +1274,7 @@ public static partial class Fix
   public static int[] FOOD_02_VALUE = { 0, 0, 0, 3, 0 };
   public static int[] FOOD_03_VALUE = { 3, 0, 0, 0, 1 };
   public static int[] FOOD_04_VALUE = { 0, 0, 3, 1, 1 };
-  public static int[] FOOD_05_VALUE = { 0, 3, 0, 0, 0 };
+  public static int[] FOOD_05_VALUE = { 2, 3, 0, 0, 1 };
 
   public static int[] FOOD_11_VALUE = { 5, 0, 0, 5, 0 };
   public static int[] FOOD_12_VALUE = { 0, 0, 0, 5, 5 };
