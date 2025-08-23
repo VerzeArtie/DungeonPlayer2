@@ -46,7 +46,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("PureVitalityWater");
     }
-    else if (command_name == Fix.CURE_SEAL)
+    else if (command_name == Fix.POTION_RESIST_FIRE ||
+             command_name == Fix.CURE_SEAL ||
+             command_name == Fix.POTION_MAGIC_SEAL)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }
