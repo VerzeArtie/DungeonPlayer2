@@ -1101,6 +1101,11 @@ public partial class HomeTown : MotherBase
       One.AR.FoodAvailable_11 = true;
       AvailableNewContent(Fix.FOOD_TSIKARA_UDON, Fix.DESC_03);
     }
+    if ((One.AR.FoodAvailable_12 == false) && (One.AR.FoodMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_12))
+    {
+      One.AR.FoodAvailable_12 = true;
+      AvailableNewContent(Fix.FOOD_ZUNOU_FLY_SET, Fix.DESC_04);
+    }
     #endregion
 
     ConstructShopBuyView();
@@ -2190,6 +2195,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_GREEN_SIKISO) { One.AR.FoodMaterial_11 += stack; }
     if (current.ItemName == Fix.COMMON_ANT_ESSENCE) { One.AR.FoodMaterial_12 += stack; }
     if (One.AR.FoodMaterial_11 >= 1 && One.AR.FoodMaterial_12 >= 1 && One.AR.FoodMixtureDay_11 <= 0) { One.AR.FoodMixtureDay_11 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_SUN_LEAF) { One.AR.FoodMaterial_13 += stack; }
+    if (current.ItemName == Fix.COMMON_RABBIT_MEAT) { One.AR.FoodMaterial_14 += stack; }
+    if (One.AR.FoodMaterial_13 >= 1 && One.AR.FoodMaterial_14 >= 1 && One.AR.FoodMixtureDay_12 <= 0) { One.AR.FoodMixtureDay_12 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5155,6 +5163,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_BALANCE_SET);
       foodList.Add(Fix.FOOD_LARGE_GOHAN_SET);
       if (One.AR.FoodAvailable_11) { foodList.Add(Fix.FOOD_TSIKARA_UDON); }
+      if (One.AR.FoodAvailable_12) { foodList.Add(Fix.FOOD_ZUNOU_FLY_SET); }
     }
     else if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
