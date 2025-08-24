@@ -3339,6 +3339,10 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_FIRE); }
   }
+  public BuffImage IsResistFire
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_FIRE_UP); }
+  }
 
   public BuffImage IsUpIce
   {
@@ -3347,6 +3351,10 @@ public partial class Character : MonoBehaviour
   public BuffImage IsDownIce
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_ICE); }
+  }
+  public BuffImage IsResistIce
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_ICE_UP); }
   }
 
   public BuffImage IsUpLight
@@ -3357,6 +3365,10 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_LIGHT); }
   }
+  public BuffImage IsResistLight
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_LIGHT_UP); }
+  }
 
   public BuffImage IsUpShadow
   {
@@ -3365,6 +3377,10 @@ public partial class Character : MonoBehaviour
   public BuffImage IsDownShadow
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_SHADOW); }
+  }
+  public BuffImage IsResistShadow
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_SHADOW_UP); }
   }
 
   public BuffImage IsUpWind
@@ -3375,6 +3391,10 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_WIND); }
   }
+  public BuffImage IsResistWind
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_WIND_UP); }
+  }
 
   public BuffImage IsUpEarth
   {
@@ -3383,6 +3403,10 @@ public partial class Character : MonoBehaviour
   public BuffImage IsDownEarth
   {
     get { return SearchBuff(Fix.EFFECT_POWERDOWN_EARTH); }
+  }
+  public BuffImage IsResistEarth
+  {
+    get { return SearchBuff(Fix.EFFECT_RESIST_EARTH_UP); }
   }
 
   public BuffImage IsPhysicalAttackUp
@@ -10029,7 +10053,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(1000, 100, 1000, 99999, 10, 100, 0, 0);
+        SetupParameter(10, 10, 20, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -12014,21 +12038,22 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        if (AP.Math.RandomInteger(2) == 0)
-        {
-          if (this.IsStanceOfTheIai == false)
-          {
-            result = Fix.STRAIGHT_SMASH; // Fix.PIERCING_ARROW;
-          }
-          else
-          {
-            result = "絶望の魔手";
-          }
-        }
-        else
-        {
-          result = "絶望の魔手";
-        }
+        result = Fix.FIRE_BALL;
+        //if (AP.Math.RandomInteger(2) == 0)
+        //{
+        //  if (this.IsStanceOfTheIai == false)
+        //  {
+        //    result = Fix.STRAIGHT_SMASH; // Fix.PIERCING_ARROW;
+        //  }
+        //  else
+        //  {
+        //    result = "絶望の魔手";
+        //  }
+        //}
+        //else
+        //{
+        //  result = "絶望の魔手";
+        //}
         break;
 
       default:

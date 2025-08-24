@@ -385,6 +385,10 @@ public static partial class Fix
 
   public const string EFFECT_RESIST_FIRE_UP = "ResistFireUp";
   public const string EFFECT_RESIST_ICE_UP = "ResistIceUp";
+  public const string EFFECT_RESIST_LIGHT_UP = "ResistLightUp";
+  public const string EFFECT_RESIST_SHADOW_UP = "ResistShadowUp";
+  public const string EFFECT_RESIST_WIND_UP = "ResistWindUp";
+  public const string EFFECT_RESIST_EARTH_UP = "ResistEarthUp";
 
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_POISON_JP = "猛毒";
