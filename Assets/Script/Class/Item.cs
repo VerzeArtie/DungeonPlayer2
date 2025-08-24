@@ -2975,8 +2975,8 @@ public partial class Item
         this._description = "甲殻部を繋ぎ合わせた鎧に、魔法耐性を若干付与させた一品。物理防御１３。火耐性２０、体＋２";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 2;
-        this._stamina = 0;
+        this._intelligence = 0;
+        this._stamina = 2;
         this._mind = 0;
         this.ResistFireValue = 20;
         break;
