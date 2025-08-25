@@ -14548,141 +14548,64 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Detect WaterPresence, then damageValue half. " + damageValue);
     }
 
-    // 属性耐性の分だけ、減衰させる ( Percent )
-    double reductionFire = 0.0f;
-    if (attr == Fix.DamageSource.Fire && target.IsDownFire != null && target.IsDownFire.EffectValue > 0) { reductionFire += target.IsDownFire.EffectValue; }
-    if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFirePercent > 0) { reductionFire += target.MainWeapon.ResistFirePercent; }
-    if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFirePercent > 0) { reductionFire += target.SubWeapon.ResistFirePercent; }
-    if (attr == Fix.DamageSource.Fire && target.MainArmor != null && target.MainArmor.ResistFirePercent > 0) { reductionFire += target.MainArmor.ResistFirePercent; }
-    if (attr == Fix.DamageSource.Fire && target.Accessory1 != null && target.Accessory1.ResistFirePercent > 0) { reductionFire += target.Accessory1.ResistFirePercent; }
-    if (attr == Fix.DamageSource.Fire && target.Accessory2 != null && target.Accessory2.ResistFirePercent > 0) { reductionFire += target.Accessory2.ResistFirePercent; }
-    if (attr == Fix.DamageSource.Fire && target.Artifact != null && target.Artifact.ResistFirePercent > 0) { reductionFire += target.Artifact.ResistFirePercent; }
-    if (reductionFire >= 1.00f) { reductionFire = 1.00f; }
-    damageValue *= (1.00f - reductionFire);
-
-    double reductionIce = 0.0f;
-    if (attr == Fix.DamageSource.Ice && target.IsDownIce != null && target.IsDownIce.EffectValue > 0) { reductionIce += target.IsDownIce.EffectValue; }
-    if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { reductionIce += target.MainWeapon.ResistIcePercent; }
-    if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIcePercent > 0) { reductionIce += target.SubWeapon.ResistIcePercent; }
-    if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIcePercent > 0) { reductionIce += target.MainArmor.ResistIcePercent; }
-    if (attr == Fix.DamageSource.Ice && target.Accessory1 != null && target.Accessory1.ResistIcePercent > 0) { reductionIce += target.Accessory1.ResistIcePercent; }
-    if (attr == Fix.DamageSource.Ice && target.Accessory2 != null && target.Accessory2.ResistIcePercent > 0) { reductionIce += target.Accessory2.ResistIcePercent; }
-    if (attr == Fix.DamageSource.Ice && target.Artifact != null && target.Artifact.ResistIcePercent > 0) { reductionIce += target.Artifact.ResistIcePercent; }
-    if (reductionIce >= 1.00f) { reductionIce = 1.00f; }
-    damageValue *= (1.00f - reductionIce);
-
-    double reductionLight = 0.0f;
-    if (attr == Fix.DamageSource.HolyLight && target.IsDownLight != null && target.IsDownLight.EffectValue > 0) { reductionLight += target.IsDownLight.EffectValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightPercent > 0) { reductionLight += target.MainWeapon.ResistLightPercent; }
-    if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightPercent > 0) { reductionLight += target.SubWeapon.ResistLightPercent; }
-    if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightPercent > 0) { reductionLight += target.MainArmor.ResistLightPercent; }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory1 != null && target.Accessory1.ResistLightPercent > 0) { reductionLight += target.Accessory1.ResistLightPercent; }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory2 != null && target.Accessory2.ResistLightPercent > 0) { reductionLight += target.Accessory2.ResistLightPercent; }
-    if (attr == Fix.DamageSource.HolyLight && target.Artifact != null && target.Artifact.ResistLightPercent > 0) { reductionLight += target.Artifact.ResistLightPercent; }
-    if (reductionLight >= 1.00f) { reductionLight = 1.00f; }
-    damageValue *= (1.00f - reductionLight);
-
-    double reductionShadow = 0.0f;
-    if (attr == Fix.DamageSource.DarkMagic && target.IsDownShadow != null && target.IsDownShadow.EffectValue > 0) { reductionShadow += target.IsDownShadow.EffectValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowPercent > 0) { reductionShadow += target.MainWeapon.ResistShadowPercent; }
-    if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowPercent > 0) { reductionShadow += target.SubWeapon.ResistShadowPercent; }
-    if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowPercent > 0) { reductionShadow += target.MainArmor.ResistShadowPercent; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory1 != null && target.Accessory1.ResistShadowPercent > 0) { reductionShadow += target.Accessory1.ResistShadowPercent; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null && target.Accessory2.ResistShadowPercent > 0) { reductionShadow += target.Accessory2.ResistShadowPercent; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null && target.Artifact.ResistShadowPercent > 0) { reductionShadow += target.Artifact.ResistShadowPercent; }
-    if (reductionShadow >= 1.00f) { reductionShadow = 1.00f; }
-    damageValue *= (1.00f - reductionShadow);
-
-    double reductionWind = 0.0f;
-    if (attr == Fix.DamageSource.Wind && target.IsDownWind != null && target.IsDownWind.EffectValue > 0) { reductionWind += target.IsDownWind.EffectValue; }
-    if (attr == Fix.DamageSource.Wind && target.MainWeapon != null && target.MainWeapon.ResistWindPercent > 0) { reductionWind += target.MainWeapon.ResistWindPercent; }
-    if (attr == Fix.DamageSource.Wind && target.SubWeapon != null && target.SubWeapon.ResistWindPercent > 0) { reductionWind += target.SubWeapon.ResistWindPercent; }
-    if (attr == Fix.DamageSource.Wind && target.MainArmor != null && target.MainArmor.ResistWindPercent > 0) { reductionWind += target.MainArmor.ResistWindPercent; }
-    if (attr == Fix.DamageSource.Wind && target.Accessory1 != null && target.Accessory1.ResistWindPercent > 0) { reductionWind += target.Accessory1.ResistWindPercent; }
-    if (attr == Fix.DamageSource.Wind && target.Accessory2 != null && target.Accessory2.ResistWindPercent > 0) { reductionWind += target.Accessory2.ResistWindPercent; }
-    if (attr == Fix.DamageSource.Wind && target.Artifact != null && target.Artifact.ResistWindPercent > 0) { reductionWind += target.Artifact.ResistWindPercent; }
-    if (reductionWind >= 1.00f) { reductionWind = 1.00f; }
-    damageValue *= (1.00f - reductionWind);
-
-    double reductionEarth = 0.0f;
-    if (attr == Fix.DamageSource.Earth && target.IsDownEarth != null && target.IsDownEarth.EffectValue > 0) { reductionEarth += target.IsDownEarth.EffectValue; }
-    if (attr == Fix.DamageSource.Earth && target.MainWeapon != null && target.MainWeapon.ResistEarthPercent > 0) { reductionEarth += target.MainWeapon.ResistEarthPercent; }
-    if (attr == Fix.DamageSource.Earth && target.SubWeapon != null && target.SubWeapon.ResistEarthPercent > 0) { reductionEarth += target.SubWeapon.ResistEarthPercent; }
-    if (attr == Fix.DamageSource.Earth && target.MainArmor != null && target.MainArmor.ResistEarthPercent > 0) { reductionEarth += target.MainArmor.ResistEarthPercent; }
-    if (attr == Fix.DamageSource.Earth && target.Accessory1 != null && target.Accessory1.ResistEarthPercent > 0) { reductionEarth += target.Accessory1.ResistEarthPercent; }
-    if (attr == Fix.DamageSource.Earth && target.Accessory2 != null && target.Accessory2.ResistEarthPercent > 0) { reductionEarth += target.Accessory2.ResistEarthPercent; }
-    if (attr == Fix.DamageSource.Earth && target.Artifact != null && target.Artifact.ResistEarthPercent > 0) { reductionEarth += target.Artifact.ResistEarthPercent; }
-    if (reductionEarth >= 1.00f) { reductionEarth = 1.00f; }
-    damageValue *= (1.00f - reductionEarth);
-
     double debug1 = damageValue;
 
-    // 属性耐性の分だけ、減衰させる ( Value )
-    double reductionFireValue = 0.0f;
-    if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFireValue > 0) { reductionFireValue += target.MainWeapon.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFireValue > 0) { reductionFireValue += target.SubWeapon.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.MainArmor != null && target.MainArmor.ResistFireValue > 0) { reductionFireValue += target.MainArmor.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.Accessory1 != null && target.Accessory1.ResistFireValue > 0) { reductionFireValue += target.Accessory1.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.Accessory2 != null && target.Accessory2.ResistFireValue > 0) { reductionFireValue += target.Accessory2.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.Artifact != null && target.Artifact.ResistFireValue > 0) { reductionFireValue += target.Artifact.ResistFireValue; }
-    if (attr == Fix.DamageSource.Fire && target.IsResistFire != null && target.IsResistFire.EffectValue > 0) { reductionFireValue += target.IsResistFire.EffectValue; }
-    damageValue -= reductionFireValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    // 属性耐性の分だけ、減衰させる ( Percent )
+    if (attr == Fix.DamageSource.Fire && target.IsDownFire != null && target.IsDownFire.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownFire.EffectValue); }
+    if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.MainArmor != null && target.MainArmor.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.Accessory1 != null && target.Accessory1.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.Accessory2 != null && target.Accessory2.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.Artifact != null && target.Artifact.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.IsResistFire != null && target.IsResistFire.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistFire.EffectValue); }
 
-    double reductionIceValue = 0.0f;
-    if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIceValue > 0) { reductionIceValue += target.MainWeapon.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIceValue > 0) { reductionIceValue += target.SubWeapon.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIceValue > 0) { reductionIceValue += target.MainArmor.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.Accessory1 != null && target.Accessory1.ResistIceValue > 0) { reductionIceValue += target.Accessory1.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.Accessory2 != null && target.Accessory2.ResistIceValue > 0) { reductionIceValue += target.Accessory2.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.Artifact != null && target.Artifact.ResistIceValue > 0) { reductionIceValue += target.Artifact.ResistIceValue; }
-    if (attr == Fix.DamageSource.Ice && target.IsResistIce != null && target.IsResistIce.EffectValue > 0) { reductionIceValue += target.IsResistIce.EffectValue; }
-    damageValue -= reductionIceValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    if (attr == Fix.DamageSource.Ice && target.IsDownIce != null && target.IsDownIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownIce.EffectValue); }
+    if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.Accessory1 != null && target.Accessory1.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.Accessory2 != null && target.Accessory2.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.Artifact != null && target.Artifact.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistIcePercent); }
+    if (attr == Fix.DamageSource.Ice && target.IsResistIce != null && target.IsResistIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistIce.EffectValue); }
 
-    double reductionLightValue = 0.0f;
-    if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightValue > 0) { reductionLightValue += target.MainWeapon.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightValue > 0) { reductionLightValue += target.SubWeapon.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightValue > 0) { reductionLightValue += target.MainArmor.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory1 != null && target.Accessory1.ResistLightValue > 0) { reductionLightValue += target.Accessory1.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory2 != null && target.Accessory2.ResistLightValue > 0) { reductionLightValue += target.Accessory2.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.Artifact != null && target.Artifact.ResistLightValue > 0) { reductionLightValue += target.Artifact.ResistLightValue; }
-    if (attr == Fix.DamageSource.HolyLight && target.IsResistLight != null && target.IsResistLight.EffectValue > 0) { reductionLightValue += target.IsResistLight.EffectValue; }
-    damageValue -= reductionLightValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    if (attr == Fix.DamageSource.HolyLight && target.IsDownLight != null && target.IsDownLight.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownLight.EffectValue); }
+    if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.Accessory1 != null && target.Accessory1.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.Accessory2 != null && target.Accessory2.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.Artifact != null && target.Artifact.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistLightPercent); }
+    if (attr == Fix.DamageSource.HolyLight && target.IsResistLight != null && target.IsResistLight.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistLight.EffectValue); }
 
-    double reductionShadowValue = 0.0f;
-    if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowValue > 0) { reductionShadowValue += target.MainWeapon.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowValue > 0) { reductionShadowValue += target.SubWeapon.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowValue > 0) { reductionShadowValue += target.MainArmor.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory1 != null && target.Accessory1.ResistShadowValue > 0) { reductionShadowValue += target.Accessory1.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null && target.Accessory2.ResistShadowValue > 0) { reductionShadowValue += target.Accessory2.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null && target.Artifact.ResistShadowValue > 0) { reductionShadowValue += target.Artifact.ResistShadowValue; }
-    if (attr == Fix.DamageSource.DarkMagic && target.IsResistShadow != null && target.IsResistShadow.EffectValue > 0) { reductionShadowValue += target.IsResistShadow.EffectValue; }
-    damageValue -= reductionShadowValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    if (attr == Fix.DamageSource.DarkMagic && target.IsDownShadow != null && target.IsDownShadow.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownShadow.EffectValue); }
+    if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.Accessory1 != null && target.Accessory1.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null && target.Accessory2.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null && target.Artifact.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistShadowPercent); }
+    if (attr == Fix.DamageSource.DarkMagic && target.IsResistShadow != null && target.IsResistShadow.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistShadow.EffectValue); }
 
-    double reductionWindValue = 0.0f;
-    if (attr == Fix.DamageSource.Wind && target.MainWeapon != null && target.MainWeapon.ResistWindValue > 0) { reductionWindValue += target.MainWeapon.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.SubWeapon != null && target.SubWeapon.ResistWindValue > 0) { reductionWindValue += target.SubWeapon.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.MainArmor != null && target.MainArmor.ResistWindValue > 0) { reductionWindValue += target.MainArmor.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.Accessory1 != null && target.Accessory1.ResistWindValue > 0) { reductionWindValue += target.Accessory1.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.Accessory2 != null && target.Accessory2.ResistWindValue > 0) { reductionWindValue += target.Accessory2.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.Artifact != null && target.Artifact.ResistWindValue > 0) { reductionWindValue += target.Artifact.ResistWindValue; }
-    if (attr == Fix.DamageSource.Wind && target.IsResistWind != null && target.IsResistWind.EffectValue > 0) { reductionWindValue += target.IsResistWind.EffectValue; }
-    damageValue -= reductionWindValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    if (attr == Fix.DamageSource.Wind && target.IsDownWind != null && target.IsDownWind.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownWind.EffectValue); }
+    if (attr == Fix.DamageSource.Wind && target.MainWeapon != null && target.MainWeapon.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.SubWeapon != null && target.SubWeapon.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.MainArmor != null && target.MainArmor.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.Accessory1 != null && target.Accessory1.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.Accessory2 != null && target.Accessory2.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.Artifact != null && target.Artifact.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistWindPercent); }
+    if (attr == Fix.DamageSource.Wind && target.IsResistWind != null && target.IsResistWind.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistWind.EffectValue); }
 
-    double reductionEarthValue = 0.0f;
-    if (attr == Fix.DamageSource.Earth && target.MainWeapon != null && target.MainWeapon.ResistEarthValue > 0) { reductionEarthValue += target.MainWeapon.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.SubWeapon != null && target.SubWeapon.ResistEarthValue > 0) { reductionEarthValue += target.SubWeapon.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.MainArmor != null && target.MainArmor.ResistEarthValue > 0) { reductionEarthValue += target.MainArmor.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.Accessory1 != null && target.Accessory1.ResistEarthValue > 0) { reductionEarthValue += target.Accessory1.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.Accessory2 != null && target.Accessory2.ResistEarthValue > 0) { reductionEarthValue += target.Accessory2.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.Artifact != null && target.Artifact.ResistEarthValue > 0) { reductionEarthValue += target.Artifact.ResistEarthValue; }
-    if (attr == Fix.DamageSource.Earth && target.IsResistEarth != null && target.IsResistEarth.EffectValue > 0) { reductionEarthValue += target.IsResistEarth.EffectValue; }
-    damageValue -= reductionEarthValue;
-    if (damageValue <= 0) { damageValue = 0; }
+    if (attr == Fix.DamageSource.Earth && target.IsDownEarth != null && target.IsDownEarth.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownEarth.EffectValue); }
+    if (attr == Fix.DamageSource.Earth && target.MainWeapon != null && target.MainWeapon.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.SubWeapon != null && target.SubWeapon.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.MainArmor != null && target.MainArmor.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.Accessory1 != null && target.Accessory1.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.Accessory2 != null && target.Accessory2.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.Artifact != null && target.Artifact.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistEarthPercent); }
+    if (attr == Fix.DamageSource.Earth && target.IsResistEarth != null && target.IsResistEarth.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistEarth.EffectValue); }
+
+    double debug2 = damageValue;
 
     // ターゲットの魔法防御を差し引く。
     double defenseValue = PrimaryLogic.MagicDefense(target);
@@ -14692,11 +14615,11 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Detect ignore targetDefenseValue " + ignore_target_defense.ToString());
       defenseValue = 0;
     }
-    double debug2 = defenseValue;
+    double debug3 = defenseValue;
     damageValue -= defenseValue;
-    double debug3 = damageValue;
+    double debug4 = damageValue;
 
-    Debug.Log("Magic-DamageValue: " + debug0.ToString("F2") + " -> " + debug1.ToString("F2") + " - " + debug2.ToString("F2") + " = " + debug3.ToString("F2"));
+    Debug.Log("Magic-DamageValue: " + debug0.ToString("F2") + " -> " + debug1.ToString("F2") + " -> " + debug2.ToString("F2") + " - " + debug3.ToString("F2") + " = " + debug4.ToString("F2"));
 
     // 防御判定
     if (target.IsDefense)

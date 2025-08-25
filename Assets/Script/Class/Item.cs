@@ -479,20 +479,6 @@ public partial class Item
     get { return _resistFirePercent; }
   }
 
-  public double _resistFireValue = 0.0f;
-  public double ResistFireValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistFireValue = value;
-    }
-    get { return _resistFireValue; }
-  }
-
   public double _resistIcePercent = 0.0f;
   public double ResistIcePercent
   {
@@ -505,20 +491,6 @@ public partial class Item
       _resistIcePercent = value;
     }
     get { return _resistIcePercent; }
-  }
-
-  public double _resistIceValue = 0.0f;
-  public double ResistIceValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistIceValue = value;
-    }
-    get { return _resistIceValue; }
   }
 
   public double _resistLightPercent = 0.0f;
@@ -535,20 +507,6 @@ public partial class Item
     get { return _resistLightPercent; }
   }
 
-  public double _resistLightValue = 0.0f;
-  public double ResistLightValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistLightValue = value;
-    }
-    get { return _resistLightValue; }
-  }
-
   public double _resistShadowPercent = 0.0f;
   public double ResistShadowPercent
   {
@@ -561,20 +519,6 @@ public partial class Item
       _resistShadowPercent = value;
     }
     get { return _resistShadowPercent; }
-  }
-
-  public double _resistShadowValue = 0.0f;
-  public double ResistShadowValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistShadowValue = value;
-    }
-    get { return _resistShadowValue; }
   }
 
   public double _resistWindPercent = 0.0f;
@@ -591,20 +535,6 @@ public partial class Item
     get { return _resistWindPercent; }
   }
 
-  public double _resistWindValue = 0.0f;
-  public double ResistWindValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistWindValue = value;
-    }
-    get { return _resistWindValue; }
-  }
-
   public double _resistEarthPercent = 0.0f;
   public double ResistEarthPercent
   {
@@ -617,20 +547,6 @@ public partial class Item
       _resistEarthPercent = value;
     }
     get { return _resistEarthPercent; }
-  }
-
-  public double _resistEarthValue = 0.0f;
-  public double ResistEarthValue
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistEarthValue = value;
-    }
-    get { return _resistEarthValue; }
   }
 
   // 猛毒への耐性
@@ -2972,13 +2888,13 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1600;
         this._importantType = Important.None;
-        this._description = "甲殻部を繋ぎ合わせた鎧に、魔法耐性を若干付与させた一品。物理防御１３。火耐性２０、体＋２";
+        this._description = "甲殻部を繋ぎ合わせた鎧に、魔法耐性を若干付与させた一品。物理防御１３。炎耐性２０％、体＋２";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 0;
-        this.ResistFireValue = 20;
+        this._resistFirePercent = 0.20f;
         break;
 
       case Fix.STRIDE_WAR_SWORD:
@@ -3569,14 +3485,14 @@ public partial class Item
         this._physicalDefense = 41;
         this._gold = 7000;
         this._importantType = Important.None;
-        this._description = "ロイズ社が皇族向けに制作した鎧。護衛を示す印が刻まれており装着者は様々な恩恵を受けられる。物理防御力４１、体＋４、聖耐性１５０、闇耐性１５０、スタン耐性、沈黙耐性";
+        this._description = "ロイズ社が皇族向けに制作した鎧。護衛を示す印が刻まれており装着者は様々な恩恵を受けられる。物理防御力４１、体＋４、聖耐性２０％、闇耐性２０％、スタン耐性、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 4;
         this._mind = 0;
-        this._resistLightValue = 150;
-        this._resistShadowValue = 150;
+        this._resistLightPercent = 0.20f;
+        this._resistShadowPercent = 0.20f;
         this._resistStun = true;
         this._resistSilence = true;
         break;
@@ -3628,14 +3544,14 @@ public partial class Item
         this._magicDefense = 15;
         this._gold = 6800;
         this._importantType = Important.None;
-        this._description = "重さを全く感じさせない稲妻紋様が入った舞踏衣。攻守を兼ね備えた防護服として仕上がっている。物理防御力２６、魔法防御力１５、体＋２、心＋２、炎耐性＋１５０、氷耐性＋１５０、猛毒耐性、鈍化耐性";
+        this._description = "重さを全く感じさせない稲妻紋様が入った舞踏衣。攻守を兼ね備えた防護服として仕上がっている。物理防御力２６、魔法防御力１５、体＋２、心＋２、炎耐性２０％、氷耐性２０％、猛毒耐性、鈍化耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 2;
-        this._resistFireValue = 150;
-        this._resistIceValue = 150;
+        this._resistFirePercent = 0.20f;
+        this._resistIcePercent = 0.20f;
         this._resistPoison = true;
         this._resistSlow = true;
         break;
@@ -3675,14 +3591,14 @@ public partial class Item
         this._magicDefense = 31;
         this._gold = 7500;
         this._importantType = Important.None;
-        this._description = "ローブにしては重量感を伴うが、通常の魔法耐性以外にも聖・闇に対する特化能力がこめられている。物理防御力１０、魔法防御力３１、心＋４、聖耐性＋１５０、闇耐性＋１５０、束縛耐性、恐怖耐性";
+        this._description = "ローブにしては重量感を伴うが、通常の魔法耐性以外にも聖・闇に対する特化能力がこめられている。物理防御力１０、魔法防御力３１、心＋４、聖耐性２０％、闇耐性２０％、束縛耐性、恐怖耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 4;
-        this._resistLightValue = 150;
-        this._resistShadowValue = 150;
+        this._resistLightPercent = 0.20f;
+        this._resistShadowPercent = 0.20f;
         this._resistBind = true;
         this._resistFear = true;
         break;
@@ -3825,57 +3741,56 @@ public partial class Item
         this._mind = 2;
         break;
 
-        // todo 炎耐性以外は記述不要なパラメタ。全switch-caseで不要パラメタを明記するのは不要である。
       case Fix.MAGICLIGHT_FIRE:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Accessory;
         this._gold = 1200;
-        this._description = "炎の残影を宿しているマジックライト。僅かに炎のイメージが入り込んでくる。体＋３、炎耐性５０";
+        this._description = "炎の残影を宿しているマジックライト。僅かに炎のイメージが入り込んでくる。体＋３、炎耐性３０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistFireValue = 50;
+        this._resistFirePercent = 0.30f;
         break;
 
       case Fix.MAGICLIGHT_ICE:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Accessory;
         this._gold = 1200;
-        this._description = "氷の残影を宿しているマジックライト。僅かに氷のイメージが入り込んでくる。体＋３、氷耐性５０";
+        this._description = "氷の残影を宿しているマジックライト。僅かに氷のイメージが入り込んでくる。体＋３、氷耐性３０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistIceValue = 50;
+        this._resistIcePercent = 0.30f;
         break;
 
       case Fix.MAGICLIGHT_SHADOW:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Accessory;
         this._gold = 1200;
-        this._description = "闇の残影を宿しているマジックライト。僅かに闇のイメージが入り込んでくる。体＋３、闇耐性５０";
+        this._description = "闇の残影を宿しているマジックライト。僅かに闇のイメージが入り込んでくる。体＋３、闇耐性３０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistShadowValue = 50;
+        this._resistShadowPercent = 0.30f;
         break;
 
       case Fix.MAGICLIGHT_LIGHT:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Accessory;
         this._gold = 1200;
-        this._description = "聖の残影を宿しているマジックライト。僅かに聖のイメージが入り込んでくる。体＋３、聖耐性５０";
+        this._description = "聖の残影を宿しているマジックライト。僅かに聖のイメージが入り込んでくる。体＋３、聖耐性３０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistLightValue = 50;
+        this._resistLightPercent = 0.30f;
         break;
 
       case Fix.COPPERRING_TIGER:
@@ -4187,13 +4102,13 @@ public partial class Item
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
         this._gold = 8500;
-        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、出血耐性、闇耐性１００、聖属性の攻撃ダメージ＋１０％";
+        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、出血耐性、闇耐性２５％、聖属性の攻撃ダメージ＋１０％";
         this._strength = 10;
         this._agility = 10;
         this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
-        this._resistShadowValue = 100;
+        this._resistShadowPercent = 0.25f;
         this._amplifyLight = 1.10f;
         this._resistSlip = true;
         break;
@@ -5133,14 +5048,14 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 17000;
         this._importantType = Important.None;
-        this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、炎耐性３００、氷耐性３００、凍結耐性、沈黙耐性";
+        this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、炎耐性２５％、氷耐性２５％、凍結耐性、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 10;
         this._mind = 0;
-        this._resistFireValue = 300;
-        this._resistIceValue = 300;
+        this._resistFirePercent = 0.25f;
+        this._resistIcePercent = 0.25f;
         this._resistFreeze = true;
         this._resistSilence = true;
         break;
@@ -5206,14 +5121,14 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 17000;
         this._importantType = Important.None;
-        this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性＋３００、氷耐性＋３００、スリップ耐性、スタン耐性";
+        this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性２５％、氷耐性２５％、スリップ耐性、スタン耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 4;
-        this._resistShadowValue = 300;
-        this._resistIcePercent = 300;
+        this._resistShadowPercent = 0.25f;
+        this._resistIcePercent = 0.25f;
         this._resistSlip = true;
         this._resistStun = true;
         break;
@@ -5279,14 +5194,14 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 19000;
         this._importantType = Important.None;
-        this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性＋３００、氷耐性＋３００、沈黙耐性、眩暈耐性";
+        this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性２５％、氷耐性２５％、沈黙耐性、眩暈耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
-        this._resistLightValue = 300;
-        this._resistIceValue = 300;
+        this._resistLightPercent = 0.25f;
+        this._resistIcePercent = 0.25f;
         this._resistSilence = true;
         this._resistDizzy = true;
         break;
