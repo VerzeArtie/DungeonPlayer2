@@ -100,10 +100,6 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.WILL_AWAKENING);
     }
-    else if (command_name == Fix.MIND_FORCE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.MIND_FORCE);
-    }
     else if (command_name == Fix.SIGIL_OF_THE_FAITH_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SIGIL_OF_THE_FAITH);
@@ -131,10 +127,6 @@ public class NodeActionCommand : MonoBehaviour
     else if (command_name == Fix.HARDEST_PARRY_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.HARDEST_PARRY);
-    }
-    else if (command_name == Fix.WILD_SWING_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.WILD_SWING);
     }
     else if (command_name == Fix.ONE_IMMUNITY_JP + "強化")
     {
@@ -204,25 +196,13 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.FLASH_COUNTER);
     }
-    else if (command_name == Fix.MUTE_IMPULSE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.MUTE_IMPULSE);
-    }
     else if (command_name == Fix.DETACHMENT_FAULT_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DETACHMENT_FAULT);
     }
-    else if (command_name == Fix.OATH_OF_AEGIS_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.OATH_OF_AEGIS);
-    }
     else if (command_name == Fix.FUTURE_VISION_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.FUTURE_VISION);
-    }
-    else if (command_name == Fix.ESSENCE_OVERFLOW_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ESSENCE_OVERFLOW);
     }
     else if (command_name == Fix.FRESH_HEAL_JP + "強化")
     {
@@ -280,33 +260,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.PIERCING_ARROW);
     }
-    else if (command_name == Fix.AURA_OF_POWER_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AURA_OF_POWER);
-    }
-    else if (command_name == Fix.SKY_SHIELD_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SKY_SHIELD);
-    }
-    else if (command_name == Fix.AETHER_DRIVE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AETHER_DRIVE);
-    }
     else if (command_name == Fix.CIRCLE_OF_SERENITY_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CIRCLE_OF_SERENITY);
-    }
-    else if (command_name == Fix.REVOLUTION_AURA_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.REVOLUTION_AURA);
-    }
-    else if (command_name == Fix.BRILLIANT_FORM_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.BRILLIANT_FORM);
-    }
-    else if (command_name == Fix.AUSTERITY_MATRIX_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AUSTERITY_MATRIX);
     }
     else if (command_name == Fix.LEG_STRIKE_JP + "強化")
     {
@@ -364,11 +320,6 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LAVA_ANNIHILATION);
     }
-
-    else if (command_name == Fix.HEART_OF_LIFE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.HEART_OF_LIFE);
-    }
     else if (command_name == Fix.FORTUNE_SPIRIT_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.FORTUNE_SPIRIT);
@@ -377,29 +328,13 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.VOICE_OF_VIGOR);
     }
-    else if (command_name == Fix.AURA_BURN_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AURA_BURN);
-    }
     else if (command_name == Fix.EVERFLOW_MIND_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.EVERFLOW_MIND);
     }
-    else if (command_name == Fix.SOUL_SHOUT_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SOUL_SHOUT);
-    }
-    else if (command_name == Fix.OVERWHELMING_DESTINY_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.OVERWHELMING_DESTINY);
-    }
     else if (command_name == Fix.ENERGY_BOLT_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ENERGY_BOLT);
-    }
-    else if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.IDEOLOGY_OF_SOPHISTICATION);
     }
     else if (command_name == Fix.SIGIL_OF_THE_PENDING_JP + "強化")
     {
@@ -409,45 +344,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.PHANTOM_OBORO);
     }
-    else if (command_name == Fix.SIGIL_OF_THE_HOMURA_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SIGIL_OF_THE_HOMURA);
-    }
-    else if (command_name == Fix.WORD_OF_PROPHECY_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.WORD_OF_PROPHECY);
-    }
     else if (command_name == Fix.TRANSCENDENCE_REACHED_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TRANSCENDENCE_REACHED);
-    }
-    else if (command_name == Fix.ROCK_SLAM_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ROCK_SLAM);
-    }
-    else if (command_name == Fix.SOLID_WALL_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SOLID_WALL);
-    }
-    else if (command_name == Fix.LAND_SHATTER_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LAND_SHATTER);
-    }
-    else if (command_name == Fix.SAND_BURST_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SAND_BURST);
-    }
-    else if (command_name == Fix.PETRIFICATION_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.PETRIFICATION);
-    }
-    else if (command_name == Fix.LIFE_GRACE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LIFE_GRACE);
-    }
-    else if (command_name == Fix.EARTH_QUAKE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.EARTH_QUAKE);
     }
     else if (command_name == Fix.ORACLE_COMMAND_JP + "強化")
     {
@@ -461,10 +360,6 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.UNSEEN_AID);
     }
-    else if (command_name == Fix.EXACT_TIME_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.EXACT_TIME);
-    }
     else if (command_name == Fix.INNER_INSPIRATION_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.INNER_INSPIRATION);
@@ -477,89 +372,13 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TIME_STOP);
     }
-    else if (command_name == Fix.VENOM_SLASH_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.VENOM_SLASH);
-    }
-    else if (command_name == Fix.INVISIBLE_BIND_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.INVISIBLE_BIND);
-    }
-    else if (command_name == Fix.IRREGULAR_STEP_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.IRREGULAR_STEP);
-    }
-    else if (command_name == Fix.ASSASSINATION_HIT_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ASSASSINATION_HIT);
-    }
     else if (command_name == Fix.COUNTER_DISALLOW_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.COUNTER_DISALLOW);
     }
-    else if (command_name == Fix.DIRTY_WISDOM_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DIRTY_WISDOM);
-    }
-    else if (command_name == Fix.AMBIDEXTERITY_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AMBIDEXTERITY);
-    }
-    else if (command_name == Fix.AIR_CUTTER_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AIR_CUTTER);
-    }
-    else if (command_name == Fix.STORM_ARMOR_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STORM_ARMOR);
-    }
-    else if (command_name == Fix.SONIC_PULSE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SONIC_PULSE);
-    }
     else if (command_name == Fix.GALE_WIND_JP + "強化")
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.GALE_WIND);
-    }
-    else if (command_name == Fix.ERRATIC_THUNDER_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ERRATIC_THUNDER);
-    }
-    else if (command_name == Fix.CYCLONE_FIELD_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CYCLONE_FIELD);
-    }
-    else if (command_name == Fix.LIGHTNING_SQUALL_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LIGHTNING_SQUALL);
-    }
-    else if (command_name == Fix.DARK_AURA_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DARK_AURA);
-    }
-    else if (command_name == Fix.STANCE_OF_THE_SHADE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STANCE_OF_THE_SHADE);
-    }
-    else if (command_name == Fix.KILLING_WAVE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.KILLING_WAVE);
-    }
-    else if (command_name == Fix.LEVEL_EATER_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LEVEL_EATER);
-    }
-    else if (command_name == Fix.ABYSS_EYE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ABYSS_EYE);
-    }
-    else if (command_name == Fix.AVENGER_PROMISE_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AVENGER_PROMISE);
-    }
-    else if (command_name == Fix.DEMON_CONTRACT_JP + "強化")
-    {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DEMON_CONTRACT);
     }
     else if (command_name == Fix.SWORD_TRAINING)
     {

@@ -368,79 +368,6 @@ public class GroupCharacterStatus : MonoBehaviour
       txtEssencePoint.text = player.SoulFragment.ToString();
     }
 
-    //if (imgEssenceList != null && imgEssenceList.Count > 0)
-    //{
-    //  List<string> list = CurrentPlayer.GetEssenceTreeTitleList(1);
-    //  List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
-    //  for (int ii = 0; ii < list.Count; ii++)
-    //  {
-    //    imgEssenceList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(iconList[ii]);
-    //    txtEssenceList[ii].text = list[ii];
-    //  }
-    //  TapSelectEssence(txtEssenceList[0]); // 最初を選択しておく。
-    //}
-
-    // エッセンス設定は次回エンハンスに対応する。
-    // 芋プログラミングだが、良しとする。
-    // 壱なる属性（１）
-    //List<string> list_1_1 = CurrentPlayer.GetEssenceTreeTitleList(0, 0);
-    //for (int ii = 0; ii < list_1_1.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList1_1.Count) { break; }
-    //  imgEssenceList1_1[ii].ApplyImageIcon(list_1_1[ii]);
-    //  txtEssenceList1_1[ii].text = list_1_1[ii];
-    //}
-    //List<string> list_1_2 = CurrentPlayer.GetEssenceTreeTitleList(0, 1);
-    //for (int ii = 0; ii < list_1_2.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList1_2.Count) { break; }
-    //  imgEssenceList1_2[ii].ApplyImageIcon(list_1_2[ii]);
-    //  txtEssenceList1_2[ii].text = list_1_2[ii];
-    //}
-    //List<string> list_1_3 = CurrentPlayer.GetEssenceTreeTitleList(0, 2);
-    //for (int ii = 0; ii < list_1_3.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList1_3.Count) { break; }
-    //  imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
-    //  txtEssenceList1_3[ii].text = list_1_3[ii];
-    //}
-
-    //// 弐なる属性（１）
-    //List<string> list_2_1 = CurrentPlayer.GetEssenceTreeTitleList(1, 0);
-    //for (int ii = 0; ii < list_2_1.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList2_1.Count) { break; }
-    //  imgEssenceList2_1[ii].ApplyImageIcon(list_2_1[ii]);
-    //  txtEssenceList2_1[ii].text = list_2_1[ii];
-    //}
-    //List<string> list_2_2 = CurrentPlayer.GetEssenceTreeTitleList(1, 1);
-    //for (int ii = 0; ii < list_2_2.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList2_2.Count) { break; }
-    //  imgEssenceList2_2[ii].ApplyImageIcon(list_2_2[ii]);
-    //  txtEssenceList2_2[ii].text = list_2_2[ii];
-    //}
-    //List<string> list_2_3 = CurrentPlayer.GetEssenceTreeTitleList(1, 2);
-    //for (int ii = 0; ii < list_2_3.Count; ii++)
-    //{
-    //  if (ii >= imgEssenceList2_3.Count) { break; }
-    //  imgEssenceList2_3[ii].ApplyImageIcon(list_2_3[ii]);
-    //  txtEssenceList2_3[ii].text = list_2_3[ii];
-    //}
-
-    //// 参なる属性（１）
-    //List<string> list_3 = CurrentPlayer.GetEssenceTreeTitleList(2, 0);
-    //for (int ii = 0; ii < list_3.Count; ii++)
-    //{
-    //  imgEssenceListC_1[ii].ApplyImageIcon(list_3[ii]);
-    //}
-    //// 背反属性（１）
-    //List<string> list_4 = CurrentPlayer.GetEssenceTreeTitleList(3, 0);
-    //for (int ii = 0; ii < list_4.Count; ii++)
-    //{
-    //  imgEssenceListD_1[ii].ApplyImageIcon(list_4[ii]);
-    //}
-
     if (ShadowPlayer != null)
     {
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStrength, CurrentPlayer.TotalStrength, ShadowPlayer.TotalStrength);
@@ -1434,14 +1361,6 @@ public class GroupCharacterStatus : MonoBehaviour
     else if (number == 1) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(true); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
     else if (number == 2) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(true); GroupEssenceList4.SetActive(false); }
     else if (number == 3) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(true); }
-  }
-
-  public void TapSelectEssence(Text txt_title)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    txtEssenceCurrentCategory.text = txt_title.text;
-    txtEssenceCurrentDescription.text = CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
-    imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
 
   public void TapDecisionEssence()

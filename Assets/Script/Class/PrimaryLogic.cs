@@ -162,11 +162,6 @@ public static class PrimaryLogic
       result *= (1.00f + player.IsSyutyuDanzetsu.EffectValue);
     }
 
-    if (player.IsAuraOfPower)
-    {
-      result *= player.IsAuraOfPower.EffectValue;
-    }
-
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
     if (stanceOfTheBlade)
     {
@@ -297,10 +292,6 @@ public static class PrimaryLogic
       result *= circleOfDespair.EffectValue;
     }
 
-    if (player.IsRockSlum)
-    {
-      result *= player.IsRockSlum.EffectValue;
-    }
     if (player.IsPenetrationArrow)
     {
       Debug.Log("PhysicalDefense( Penetration-Arrow ): " + player.IsPenetrationArrow.EffectValue2.ToString("F2"));
@@ -419,35 +410,6 @@ public static class PrimaryLogic
     max += (player.Artifact?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
 
     double result = CoreDamage(player, value_type, min, max);
-
-    if (player.objFieldPanel != null)
-    {
-      BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
-      for (int ii = 0; ii < buffList.Length; ii++)
-      {
-        if (buffList[ii].BuffName == Fix.DARKNESS_CIRCLE)
-        {
-          Debug.Log("Potential Value up cause DarknessCircle(before): " + result);
-          result = result * buffList[ii].EffectValue;
-          Debug.Log("Potential Value up cause DarknessCircle(after ): " + result);
-        }
-      }
-    }
-
-    if (player.objFieldPanel != null)
-    {
-      BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
-      for (int ii = 0; ii < buffList.Length; ii++)
-      {
-        if (buffList[ii].BuffName == Fix.AETHER_DRIVE)
-        {
-          Debug.Log("Potential Value up cause AetherDrive(before): " + result);
-          result = result * buffList[ii].EffectValue;
-          Debug.Log("Potential Value up cause AetherDrive(after ): " + result);
-          break;
-        }
-      }
-    }
 
     BuffImage ragingStorm = player.SearchFieldBuff(Fix.RAGING_STORM);
     if (ragingStorm != null)
@@ -639,10 +601,6 @@ public static class PrimaryLogic
     {
       result *= player.IsIceNeedle.EffectValue;
     }
-    if (player.IsStormArmor)
-    {
-      result *= player.IsStormArmor.EffectValue;
-    }
     if (player.IsSlow)
     {
       if (player.IsAbsolutePerfection)
@@ -714,10 +672,6 @@ public static class PrimaryLogic
     result += (player.Accessory2?.BattleResponse ?? 0);
     result += (player.Artifact?.BattleResponse ?? 0);
 
-    if (player.IsAirCutter)
-    {
-      result = result * player.IsAirCutter.EffectValue;
-    }
     if (player.IsSpeedStep)
     {
       result = result * (1.00f + player.IsSpeedStep.EffectValue * player.IsSpeedStep.Cumulative);
@@ -786,21 +740,6 @@ public static class PrimaryLogic
     result += (player.Accessory1?.Potential ?? 0);
     result += (player.Accessory2?.Potential ?? 0);
     result += (player.Artifact?.Potential ?? 0);
-
-    if (player.objFieldPanel != null)
-    {
-      BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
-      for (int ii = 0; ii < buffList.Length; ii++)
-      {
-        if (buffList[ii].BuffName == Fix.AETHER_DRIVE)
-        {
-          Debug.Log("Potential Value up cause AetherDrive(before): " + result);
-          result = result * buffList[ii].EffectValue;
-          Debug.Log("Potential Value up cause AetherDrive(after ): " + result);
-          break;
-        }
-      }
-    }
 
     if (player.IsTrueSight)
     {

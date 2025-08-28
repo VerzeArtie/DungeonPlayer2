@@ -604,11 +604,8 @@ public class PartyMenu : MotherBase
       if (player2.ShiningHeal > 0) { objActionCommand[2].SetActive(true); }
       else { objActionCommand[2].SetActive(false); }
 
-      if (player2.LifeGrace > 0) { objActionCommand[3].SetActive(true); }
+      if (player2.HolyBreath > 0) { objActionCommand[3].SetActive(true); }
       else { objActionCommand[3].SetActive(false); }
-
-      if (player2.HolyBreath > 0) { objActionCommand[4].SetActive(true); }
-      else { objActionCommand[4].SetActive(false); }
     }
 
     // ÉRÉ}ÉìÉhê›íËâÊñ Ç÷ÇÃîΩâf
@@ -1139,7 +1136,7 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = "Å`å¯â Å`Å@" + ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
+    txtEssenceCurrentDescription.text = "Å`å¯â Å`Å@" + ActionCommand.GetDescription(txt_title.text);
     txtEssenceCurrentDescEffect.text = "Å`ã≠âªÅ`Å@" + ActionCommand.GetDescReinforce(txt_title.text);
 
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);

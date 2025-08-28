@@ -151,32 +151,6 @@ public static class SecondaryLogic
     return 0.80f - (player.ShadowBlast - 1) * 0.05f;
   }
 
-  public static double AirCutter(Character player)
-  {
-    return 1.60f;
-  }
-  public static int AirCutter_Turn(Character player)
-  {
-    return 9;
-  }
-  public static double AirCutter_Value(Character player)
-  {
-    return 1.20f;
-  }
-
-  public static double RockSlum(Character player)
-  {
-    return 1.70f;
-  }
-  public static int RockSlum_Turn(Character player)
-  {
-    return 5;
-  }
-  public static double RockSlum_Value(Character player)
-  {
-    return 0.80f;
-  }
-
   public static double StraightSmash(Character player)
   {
     if (player.StraightSmash <= 1) { return 2.00f; }
@@ -211,20 +185,6 @@ public static class SecondaryLogic
     return 1.20f + (player.LegStrike - 1) * 0.05f;
   }
 
-  public static double VenomSlash(Character player)
-  {
-    return 1.50f;
-  }
-  public static double VenomSlash_2(Character player)
-  {
-    if (player.VenomSlash <= 1) { return 0.50f; }
-    return 0.50f + (player.VenomSlash - 1) * 0.10f;
-  }
-  public static int VenomSlash_Turn(Character player)
-  {
-    return 3;
-  }
-
   public static double EnergyBolt(Character player)
   {
     if (player.EnergyBolt <= 1) { return 1.40f; }
@@ -241,16 +201,6 @@ public static class SecondaryLogic
     return 1 + (player.ShieldBash - 1); // todo ただし、強すぎると思われる。
   }
 
-  public static int AuraOfPower_Turn(Character player)
-  {
-    return Fix.INFINITY;
-  }
-
-  public static double AuraOfPower_Value(Character player)
-  {
-    return 1.20f;
-  }
-
   public static int TrueSight_Turn(Character player)
   {
     return Fix.INFINITY;
@@ -265,37 +215,6 @@ public static class SecondaryLogic
   {
     if (player.DispelMagic <= 1) { return 1; }
     return 1 + (player.DispelMagic - 1);
-  }
-
-  public static int SkyShield_Turn(Character player)
-  {
-    return Fix.INFINITY;
-  }
-
-  public static double SkyShield_Value(Character player)
-  {
-    return 1.20f;
-  }
-
-  public static double HeartOfLife(Character player)
-  {
-    if (player.HeartOfLife <= 1) { return 1.10f; }
-    return 1.00f + (player.HeartOfLife - 1) * 0.10f;
-  }
-
-  public static int HeartOfLife_Turn(Character player)
-  {
-    return 3;
-  }
-
-  public static int DarknessCircle_Turn(Character player)
-  {
-    return 5;
-  }
-
-  public static double DarknessCircle_Value(Character player)
-  {
-    return 0.80f;
   }
 
   public static double OracleCommand(Character player)
@@ -430,25 +349,9 @@ public static class SecondaryLogic
     return 10;
   }
 
-  public static double InvisibleBind(Character player)
-  {
-    return 1.00f;
-  }
-
-  public static int InvibisleBind_Turn(Character player)
-  {
-    return 2;
-  }
-
   public static int SpiritualRest_Turn(Character player)
   {
     return 9;
-  }
-
-  // todo draft
-  public static double CircleSlash(Character player)
-  {
-    return 1.20f;
   }
 
   public static double MeteorBullet(Character player)
@@ -486,31 +389,6 @@ public static class SecondaryLogic
   {
     if (player.BlackContract <= 1) { return 3; }
     return 3 + (player.BlackContract - 1);
-  }
-
-  public static double SonicPulse(Character player)
-  {
-    return 2.00f;
-  }
-
-  public static int SonicPulse_Turn(Character player)
-  {
-    return 3;
-  }
-
-  public static double SonicPulse_Value(Character player)
-  {
-    return 0.70f;
-  }
-
-  public static double LandShatter(Character player)
-  {
-    return 2.20f;
-  }
-
-  public static int LandShatter_Turn(Character player)
-  {
-    return 2;
   }
 
   public static double ConcussiveHit(Character player)
@@ -554,40 +432,10 @@ public static class SecondaryLogic
     return result;
   }
 
-  public static double IrregularStep_Damage(Character player)
-  {
-    return 2.00f;
-  }
-
-  public static float IrregularStep_GaugeStep(Character player)
-  {
-    return 0.30f;
-  }
-
   public static int SigilOfThePending_Turn(Character player)
   {
     if (player.SigilOfThePending <= 1) { return 3; }
     return 3 + (player.SigilOfThePending - 1) * 2;
-  }
-
-  public static int AetherDrive_Turn(Character player)
-  {
-    return 9;
-  }
-
-  public static double AetherDrive_Effect(Character player)
-  {
-    return 1.10f;
-  }
-
-  public static int KillingWave_Turn(Character player)
-  {
-    return 9;
-  }
-
-  public static double KillingWave_Effect(Character player)
-  {
-    return 0.95f;
   }
 
   public static double WordOfPower(Character player)
@@ -600,26 +448,6 @@ public static class SecondaryLogic
   {
     if (player.DoubleSlash <= 1) { return 1.20f; }
     return 1.20f + (player.DoubleSlash - 1) * 0.10f;
-  }
-
-  public static double StormArmor_SpeedUp(Character player)
-  {
-    return 1.10f;
-  }
-
-  public static double StormArmor_Damage(Character player)
-  {
-    return 1.20f;
-  }
-
-  public static int StormArmor_Turn(Character player)
-  {
-    return 3;
-  }
-
-  public static double MuteImpulse(Character player)
-  {
-    return 1.00f;
   }
 
   public static double VoiceOfVigor(Character player)

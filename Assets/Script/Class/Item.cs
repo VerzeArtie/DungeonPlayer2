@@ -521,34 +521,6 @@ public partial class Item
     get { return _resistShadowPercent; }
   }
 
-  public double _resistWindPercent = 0.0f;
-  public double ResistWindPercent
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistWindPercent = value;
-    }
-    get { return _resistWindPercent; }
-  }
-
-  public double _resistEarthPercent = 0.0f;
-  public double ResistEarthPercent
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _resistEarthPercent = value;
-    }
-    get { return _resistEarthPercent; }
-  }
-
   // 猛毒への耐性
   protected bool _resistPoison = false;
   public bool ResistPoison
@@ -687,20 +659,6 @@ public partial class Item
   {
     set { _amplifyShadow = value; }
     get { return _amplifyShadow; }
-  }
-
-  protected double _amplifyWind = 1.00f;
-  public double AmplifyWind
-  {
-    set { _amplifyWind = value; }
-    get { return _amplifyWind; }
-  }
-
-  protected double _amplifyEarth = 1.00f;
-  public double AmplifyEarth
-  {
-    set { _amplifyEarth = value; }
-    get { return _amplifyEarth; }
   }
 
   protected double _amplifyPhysicalAttack = 1.00f;

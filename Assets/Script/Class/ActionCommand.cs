@@ -298,7 +298,7 @@ public static class ActionCommand
     else if (attr == Fix.CommandAttribute.Warrior_Mindfulness)
     {
       result.Add(Fix.FORMLESS_STYLE);
-      result.Add(Fix.HARDEST_PARRY);
+      result.Add(Fix.SMOOTHING_MOVE);
     }
     else if (attr == Fix.CommandAttribute.Guardian_MartialArts)
     {
@@ -352,219 +352,10 @@ public static class ActionCommand
     }
     else
     {
-      result.Add(Fix.AIR_CUTTER);
-      result.Add(Fix.STORM_ARMOR);
-      result.Add(Fix.SONIC_PULSE);
-      result.Add(Fix.ERRATIC_THUNDER);
-      result.Add(Fix.CYCLONE_FIELD);
-      result.Add(Fix.LIGHTNING_SQUALL);
-      result.Add(Fix.ROCK_SLAM);
-      result.Add(Fix.SOLID_WALL);
-      result.Add(Fix.LAND_SHATTER);
-      result.Add(Fix.SAND_BURST);
-      result.Add(Fix.PETRIFICATION);
-      result.Add(Fix.LIFE_GRACE);
-      result.Add(Fix.EARTH_QUAKE);
-      result.Add(Fix.VENOM_SLASH);
-      result.Add(Fix.INVISIBLE_BIND);
-      result.Add(Fix.IRREGULAR_STEP);
-      result.Add(Fix.ASSASSINATION_HIT);
-      result.Add(Fix.DIRTY_WISDOM);
-      result.Add(Fix.AMBIDEXTERITY);
-      result.Add(Fix.AURA_OF_POWER);
-      result.Add(Fix.SKY_SHIELD);
-      result.Add(Fix.AETHER_DRIVE);
-      result.Add(Fix.REVOLUTION_AURA);
-      result.Add(Fix.BRILLIANT_FORM);
-      result.Add(Fix.AUSTERITY_MATRIX);
-      result.Add(Fix.MUTE_IMPULSE);
-      result.Add(Fix.OATH_OF_AEGIS);
-      result.Add(Fix.ESSENCE_OVERFLOW);
-      result.Add(Fix.HEART_OF_LIFE);
-      result.Add(Fix.AURA_BURN);
-      result.Add(Fix.SOUL_SHOUT);
-      result.Add(Fix.OVERWHELMING_DESTINY);
-      result.Add(Fix.DARKNESS_CIRCLE);
-      result.Add(Fix.STANCE_OF_THE_SHADE);
-      result.Add(Fix.KILLING_WAVE);
-      result.Add(Fix.LEVEL_EATER);
-      result.Add(Fix.ABYSS_EYE);
-      result.Add(Fix.AVENGER_PROMISE);
-      result.Add(Fix.DEMON_CONTRACT);
-      result.Add(Fix.IDEOLOGY_OF_SOPHISTICATION);
-      result.Add(Fix.SIGIL_OF_THE_HOMURA);
-      result.Add(Fix.WORD_OF_PROPHECY);
+      // 何もしない
     }
     return result;
   }
-
-  // todo リリースで削除する。
-  //public static List<int> GetCommandPlus(Character player, Fix.CommandAttribute attr)
-  //{
-  //  List<int> result = new List<int>();
-  //  if (attr == Fix.CommandAttribute.Fire)
-  //  {
-  //    result.Add(player.FireBall);
-  //    result.Add(player.FlameBlade);
-  //    result.Add(player.MeteorBullet);
-  //    result.Add(player.VolcanicBlaze);
-  //    result.Add(player.FlameStrike);
-  //    result.Add(player.CircleOfTheIgnite);
-  //    result.Add(player.LavaAnnihilation);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Ice)
-  //  {
-  //    result.Add(player.IceNeedle);
-  //    result.Add(player.PurePurification);
-  //    result.Add(player.BlueBullet);
-  //    result.Add(player.FreezingCube);
-  //    result.Add(player.FrostLance);
-  //    result.Add(player.WaterPresence);
-  //    result.Add(player.AbsoluteZero);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.HolyLight)
-  //  {
-  //    result.Add(player.FreshHeal);
-  //    result.Add(player.DivineCircle);
-  //    result.Add(player.HolyBreath);
-  //    result.Add(player.AngelicEcho);
-  //    result.Add(player.ShiningHeal);
-  //    result.Add(player.ValkyrieBlade);
-  //    result.Add(player.Resurrection);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.DarkMagic)
-  //  {
-  //    result.Add(player.ShadowBlast);
-  //    result.Add(player.BloodSign);
-  //    result.Add(player.BlackContract);
-  //    result.Add(player.CursedEvangile);
-  //    result.Add(player.CircleOfTheDespair);
-  //    result.Add(player.TheDarkIntensity);
-  //    result.Add(player.DeathScythe);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Force)
-  //  {
-  //    result.Add(player.OracleCommand);
-  //    result.Add(player.FortuneSpirit);
-  //    result.Add(player.WordOfPower);
-  //    result.Add(player.GaleWind);
-  //    result.Add(player.SeventhPrinciple);
-  //    result.Add(player.FutureVision);
-  //    result.Add(player.Genesis);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.VoidChant)
-  //  {
-  //    result.Add(player.EnergyBolt);
-  //    result.Add(player.FlashCounter);
-  //    result.Add(player.SigilOfThePending);
-  //    result.Add(player.PhantomOboro);
-  //    result.Add(player.CounterDisallow);
-  //    result.Add(player.DetachmentFault);
-  //    result.Add(player.TimeSkip);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Warrior)
-  //  {
-  //    result.Add(player.StraightSmash);
-  //    result.Add(player.StanceOfTheBlade);
-  //    result.Add(player.DoubleSlash);
-  //    result.Add(player.IronBuster);
-  //    result.Add(player.RagingStorm);
-  //    result.Add(player.StanceOfTheIai);
-  //    result.Add(player.KineticSmash);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Guardian)
-  //  {
-  //    result.Add(player.ShieldBash);
-  //    result.Add(player.StanceOfTheGuard);
-  //    result.Add(player.ConcussiveHit);
-  //    result.Add(player.DominationField);
-  //    result.Add(player.HardestParry);
-  //    result.Add(player.OneImmunity);
-  //    result.Add(player.Catastrophe);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.MartialArts)
-  //  {
-  //    result.Add(player.LegStrike);
-  //    result.Add(player.SpeedStep);
-  //    result.Add(player.BoneCrush);
-  //    result.Add(player.DeadlyDrive);
-  //    result.Add(player.UnintentionalHit);
-  //    result.Add(player.StanceOfMuin);
-  //    result.Add(player.CarnageRush);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Archery)
-  //  {
-  //    result.Add(player.HunterShot);
-  //    result.Add(player.MultipleShot);
-  //    result.Add(player.EyeOfTheIsshin);
-  //    result.Add(player.PenetrationArrow);
-  //    result.Add(player.PrecisionStrike);
-  //    result.Add(player.EternalConcentration);
-  //    result.Add(player.PiercingArrow);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Truth)
-  //  {
-  //    result.Add(player.TrueSight);
-  //    result.Add(player.LeylineSchema);
-  //    result.Add(player.VoiceOfVigor);
-  //    result.Add(player.WillAwakening);
-  //    result.Add(player.EverflowMind);
-  //    result.Add(player.SigilOfTheFaith);
-  //    result.Add(player.StanceOfTheKokoroe);
-  //  }
-  //  else if (attr == Fix.CommandAttribute.Mindfulness)
-  //  {
-  //    result.Add(player.DispelMagic);
-  //    result.Add(player.SpiritualRest);
-  //    result.Add(player.UnseenAid);
-  //    result.Add(player.CircleOfSerenity);
-  //    result.Add(player.InnerInspiration);
-  //    result.Add(player.ZeroImmunity);
-  //    result.Add(player.TranscendenceReached);
-  //  }
-  //  else
-  //  {
-  //    result.Add(player.AirCutter);
-  //    result.Add(player.StormArmor);
-  //    result.Add(player.SonicPulse);
-  //    result.Add(player.ErraticThunder);
-  //    result.Add(player.CycloneField);
-  //    result.Add(player.LightningSquall);
-  //    result.Add(player.RockSlam);
-  //    result.Add(player.SoldWall);
-  //    result.Add(player.EarthSurge);
-  //    result.Add(player.SandBurst);
-  //    result.Add(player.Petrification);
-  //    result.Add(player.LifeGrace);
-  //    result.Add(player.EarthQuake);
-  //    result.Add(player.AuraBurn);
-  //    result.Add(player.EagleEye);
-  //    result.Add(player.HeartOfLife);
-  //    result.Add(player.SoulShout);
-  //    result.Add(player.OverwhelmingDestiny);
-  //    result.Add(player.ExactTime);
-  //    result.Add(player.IdeologyOfSophistication);
-  //    result.Add(player.SigilOfTheHomura);
-  //    result.Add(player.WordOfProphecy);
-  //    result.Add(player.AuraOfPower);
-  //    result.Add(player.SkyShield);
-  //    result.Add(player.AetherDrive);
-  //    result.Add(player.RevolutionAura);
-  //    result.Add(player.BrilliantForm);
-  //    result.Add(player.AusterityMatrix);
-  //    result.Add(player.MuteImpulse);
-  //    result.Add(player.OathOfAegis);
-  //    result.Add(player.EssenceOverflow);
-  //    result.Add(player.DarknessCircle);
-  //    result.Add(player.StanceOfTheShade);
-  //    result.Add(player.KillingWave);
-  //    result.Add(player.LevelEater);
-  //    result.Add(player.AbyssEye);
-  //    result.Add(player.AvengerPromise);
-  //    result.Add(player.DemonContract);
-  //  }
-  //  return result;
-  //}
 
   public static string GetAttribute_JP(string command_name)
   {
@@ -861,7 +652,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return Attribute.Skill; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return Attribute.Skill; }
-    if (command_name == Fix.HARDEST_PARRY) { return Attribute.Skill; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return Attribute.Skill; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return Attribute.Skill; }
     if (command_name == Fix.SWIFT_RESPONSE) { return Attribute.Skill; }
@@ -899,26 +690,6 @@ public static class ActionCommand
     #endregion
 
     #region "other"
-    if (command_name == Fix.AIR_CUTTER) { return Attribute.Magic; }
-    if (command_name == Fix.ROCK_SLAM) { return Attribute.Magic; }
-    if (command_name == Fix.VENOM_SLASH) { return Attribute.Skill; }
-    if (command_name == Fix.AURA_OF_POWER) { return Attribute.Magic; }
-    if (command_name == Fix.HEART_OF_LIFE) { return Attribute.Skill; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return Attribute.Skill; }
-    if (command_name == Fix.STORM_ARMOR) { return Attribute.Magic; }
-    if (command_name == Fix.SOLID_WALL) { return Attribute.Magic; }
-    if (command_name == Fix.INVISIBLE_BIND) { return Attribute.Skill; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Attribute.Skill; }
-    if (command_name == Fix.SKY_SHIELD) { return Attribute.Magic; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Attribute.Skill; }
-    if (command_name == Fix.SONIC_PULSE) { return Attribute.Magic; }
-    if (command_name == Fix.LAND_SHATTER) { return Attribute.Magic; }
-    if (command_name == Fix.MUTE_IMPULSE) { return Attribute.Magic; }
-    if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
-    if (command_name == Fix.AETHER_DRIVE) { return Attribute.Skill; }
-    if (command_name == Fix.KILLING_WAVE) { return Attribute.Skill; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
-
     if (command_name == Fix.COMMAND_HIKKAKI) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_KANAKIRI) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_WILD_CLAW) { return Attribute.MonsterAction; }
@@ -1537,7 +1308,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return TimingType.Instant; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return TimingType.StackCommand; }
-    if (command_name == Fix.HARDEST_PARRY) { return TimingType.StackCommand; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return TimingType.StackCommand; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return TimingType.Sorcery; }
     if (command_name == Fix.SWIFT_RESPONSE) { return TimingType.StackCommand; }
@@ -1575,24 +1346,6 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return TimingType.Instant; }
-    if (command_name == Fix.ROCK_SLAM) { return TimingType.Instant; }
-    if (command_name == Fix.VENOM_SLASH) { return TimingType.Instant; }
-    if (command_name == Fix.AURA_OF_POWER) { return TimingType.Instant; }
-    if (command_name == Fix.HEART_OF_LIFE) { return TimingType.Instant; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return TimingType.Normal; }
-    if (command_name == Fix.STORM_ARMOR) { return TimingType.Instant; }
-    if (command_name == Fix.SOLID_WALL) { return TimingType.Instant; }
-    if (command_name == Fix.INVISIBLE_BIND) { return TimingType.Instant; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TimingType.Normal; }
-    if (command_name == Fix.SKY_SHIELD) { return TimingType.Instant; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return TimingType.Normal; }
-    if (command_name == Fix.SONIC_PULSE) { return TimingType.Instant; }
-    if (command_name == Fix.LAND_SHATTER) { return TimingType.Instant; }
-    if (command_name == Fix.MUTE_IMPULSE) { return TimingType.Instant; }
-    if (command_name == Fix.AETHER_DRIVE) { return TimingType.Normal; }
-    if (command_name == Fix.KILLING_WAVE) { return TimingType.Normal; }
-    if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
     #endregion
 
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -1825,7 +1578,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return TargetType.Enemy; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return TargetType.InstantTarget; }
-    if (command_name == Fix.HARDEST_PARRY) { return TargetType.InstantTarget; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return TargetType.InstantTarget; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return TargetType.AllyField; }
     if (command_name == Fix.SWIFT_RESPONSE) { return TargetType.InstantTarget; }
@@ -1863,27 +1616,6 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return TargetType.Enemy; }
-    if (command_name == Fix.ROCK_SLAM) { return TargetType.Enemy; }
-    if (command_name == Fix.VENOM_SLASH) { return TargetType.Enemy; }
-    if (command_name == Fix.AURA_OF_POWER) { return TargetType.Ally; }
-    if (command_name == Fix.HEART_OF_LIFE) { return TargetType.Ally; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return TargetType.EnemyField; }
-    if (command_name == Fix.STORM_ARMOR) { return TargetType.Ally; }
-    if (command_name == Fix.SOLID_WALL) { return TargetType.AllyField; }
-    if (command_name == Fix.INVISIBLE_BIND) { return TargetType.Enemy; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TargetType.AllyField; }
-    if (command_name == Fix.SKY_SHIELD) { return TargetType.Ally; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return TargetType.Own; }
-    if (command_name == Fix.SONIC_PULSE) { return TargetType.Enemy; }
-    if (command_name == Fix.LAND_SHATTER) { return TargetType.Enemy; }
-    if (command_name == Fix.MUTE_IMPULSE) { return TargetType.Enemy; }
-    if (command_name == Fix.AETHER_DRIVE) { return TargetType.AllyField; }
-    if (command_name == Fix.KILLING_WAVE) { return TargetType.EnemyField; }
-    if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
-    #endregion
-
-    #region "Monster"
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_GREEN_NENEKI) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_KANAKIRI) { return TargetType.Enemy; }
@@ -2231,7 +1963,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return 30; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return 10; }
-    if (command_name == Fix.HARDEST_PARRY) { return 20; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return 20; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return 15; }
     if (command_name == Fix.SWIFT_RESPONSE) { return 30; }
@@ -2269,28 +2001,7 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return 3; }
-    if (command_name == Fix.ROCK_SLAM) { return 5; }
-    if (command_name == Fix.VENOM_SLASH) { return 4; }
-    if (command_name == Fix.AURA_OF_POWER) { return 3; }
-    if (command_name == Fix.HEART_OF_LIFE) { return 3; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return 5; }
-    if (command_name == Fix.STORM_ARMOR) { return 7; }
-    if (command_name == Fix.SOLID_WALL) { return 7; }
-    if (command_name == Fix.INVISIBLE_BIND) { return 9; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return 5; }
-    if (command_name == Fix.SKY_SHIELD) { return 7; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return 8; }
-    if (command_name == Fix.SONIC_PULSE) { return 16; }
-    if (command_name == Fix.LAND_SHATTER) { return 15; }
-    if (command_name == Fix.MUTE_IMPULSE) { return 15; }
-    if (command_name == Fix.AETHER_DRIVE) { return 18; }
-    if (command_name == Fix.KILLING_WAVE) { return 19; }
-    if (command_name == Fix.IRREGULAR_STEP) { return 12; }
-    #endregion
-
-    #region "Monster"
-    // 以降、モンスターアクションは基本０とする。
+    // モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
     if (command_name == Fix.COMMAND_GREEN_NENEKI) { return 0; }
     if (command_name == Fix.COMMAND_KANAKIRI) { return 0; }
@@ -2759,7 +2470,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return Fix.BuffType.Negative; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return Fix.BuffType.None; }
-    if (command_name == Fix.HARDEST_PARRY) { return Fix.BuffType.None; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return Fix.BuffType.None; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return Fix.BuffType.Positive; }
     if (command_name == Fix.SWIFT_RESPONSE) { return Fix.BuffType.None; }
@@ -2797,28 +2508,6 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.ROCK_SLAM) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.VENOM_SLASH) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.AURA_OF_POWER) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.HEART_OF_LIFE) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.STORM_ARMOR) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.SOLID_WALL) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.INVISIBLE_BIND) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Fix.BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
-    if (command_name == Fix.SKY_SHIELD) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.SONIC_PULSE) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.LAND_SHATTER) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.MUTE_IMPULSE) { return Fix.BuffType.None; }
-    if (command_name == Fix.AETHER_DRIVE) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.KILLING_WAVE) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.IRREGULAR_STEP) { return Fix.BuffType.None; }
-    #endregion
-
-    #region "Monster"
-    // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
     if (command_name == Fix.COMMAND_GREEN_NENEKI) { return 0; }
     if (command_name == Fix.COMMAND_KANAKIRI) { return 0; }
@@ -3273,7 +2962,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return true; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return false; }
-    if (command_name == Fix.HARDEST_PARRY) { return false; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return false; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return false; }
     if (command_name == Fix.SWIFT_RESPONSE) { return false; }
@@ -3311,28 +3000,6 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return true; }
-    if (command_name == Fix.ROCK_SLAM) { return true; }
-    if (command_name == Fix.VENOM_SLASH) { return true; }
-    if (command_name == Fix.AURA_OF_POWER) { return false; }
-    if (command_name == Fix.HEART_OF_LIFE) { return false; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return false; }
-    if (command_name == Fix.STORM_ARMOR) { return false; }
-    if (command_name == Fix.SOLID_WALL) { return false; }
-    if (command_name == Fix.INVISIBLE_BIND) { return true; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return false; }
-    if (command_name == Fix.SKY_SHIELD) { return false; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return false; }
-    if (command_name == Fix.SONIC_PULSE) { return true; }
-    if (command_name == Fix.LAND_SHATTER) { return true; }
-    if (command_name == Fix.MUTE_IMPULSE) { return true; }
-    if (command_name == Fix.AETHER_DRIVE) { return false; }
-    if (command_name == Fix.KILLING_WAVE) { return false; }
-    if (command_name == Fix.IRREGULAR_STEP) { return false; }
-    if (command_name == Fix.COMMAND_SEA_STRIVE) { return true; }
-    if (command_name == Fix.COMMAND_PLATINUM_BLADE) { return true; }
-    if (command_name == Fix.COMMAND_CHARGE) { return true; }
-
     if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return true; }
     if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return false; }
     if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return false; }
@@ -3584,7 +3251,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return Fix.ONSLAUGHT_HIT_JP; }
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return Fix.FORMLESS_STYLE_JP; }
-    if (command_name == Fix.HARDEST_PARRY) { return Fix.HARDEST_PARRY_JP; }
+    if (command_name == Fix.SMOOTHING_MOVE) { return Fix.SMOOTHING_MOVE_JP; }
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return Fix.TACTICAL_VISION_JP; }
     if (command_name == Fix.SWIFT_RESPONSE) { return Fix.SWIFT_RESPONSE_JP; }
@@ -3622,25 +3289,6 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return Fix.AIR_CUTTER_JP; }
-    if (command_name == Fix.ROCK_SLAM) { return Fix.ROCK_SLAM_JP; }
-    if (command_name == Fix.VENOM_SLASH) { return Fix.VENOM_SLASH_JP; }
-    if (command_name == Fix.AURA_OF_POWER) { return Fix.AURA_OF_POWER_JP; }
-    if (command_name == Fix.HEART_OF_LIFE) { return Fix.HEART_OF_LIFE_JP; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return Fix.DARKNESS_CIRCLE_JP; }
-    if (command_name == Fix.STORM_ARMOR) { return Fix.STORM_ARMOR_JP; }
-    if (command_name == Fix.SOLID_WALL) { return Fix.SOLID_WALL_JP; }
-    if (command_name == Fix.INVISIBLE_BIND) { return Fix.INVISIBLE_BIND_JP; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Fix.IDEOLOGY_OF_SOPHISTICATION_JP; }
-    if (command_name == Fix.SKY_SHIELD) { return Fix.SKY_SHIELD_JP; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Fix.STANCE_OF_THE_SHADE_JP; }
-    if (command_name == Fix.SONIC_PULSE) { return Fix.SONIC_PULSE_JP; }
-    if (command_name == Fix.LAND_SHATTER) { return Fix.LAND_SHATTER_JP; }
-    if (command_name == Fix.MUTE_IMPULSE) { return Fix.MUTE_IMPULSE_JP; }
-    if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
-    if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
-    if (command_name == Fix.IRREGULAR_STEP) { return Fix.IRREGULAR_STEP_JP; }
-
     if (command_name == Fix.BUFF_GOD_WILL) { return Fix.BUFF_GOD_WILL_JP; }
     #endregion
 
@@ -3856,7 +3504,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return ""; } // todo 仮
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return ""; } // todo 仮
-    if (command_name == Fix.HARDEST_PARRY) { return ""; } // todo 仮
+    if (command_name == Fix.SMOOTHING_MOVE) { return ""; } // todo 仮
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return ""; } // todo 仮
     if (command_name == Fix.SWIFT_RESPONSE) { return ""; } // todo 仮
@@ -3897,74 +3545,7 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return "敵一体を対象とする。対象に【風】ダメージを与えた後、自分自身に【俊敏】のBUFFを付与する。\r\n【俊敏】が続く間、戦闘反応値が上昇する。"; }
-    if (command_name == Fix.ROCK_SLAM) { return "敵一体を対象とする。対象に【土】ダメージを与えた後、【破損】のBUFFを付与する。【破損】が続く間、物理防御が減少する。"; }
-    if (command_name == Fix.VENOM_SLASH) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【毒】のBUFFを付与する。\r\n【毒】が続く間、ターン経過毎に毒ダメージを与える。"; }
-    if (command_name == Fix.AURA_OF_POWER) { return "味方一体を対象とする。対象に【パワー】を付与する。\r\n【パワー】が続く間、物理攻撃が上昇する。"; }
-    if (command_name == Fix.HEART_OF_LIFE) { return "味方全員に【生命】のBUFFを付与する。\r\n【生命】が続く間、ターン経過毎にライフを回復する。"; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return "敵フィールドに、【黒炎】のフィールドを形成する。\r\n【黒炎】が続く間、敵の魔法攻撃力が減少する。"; }
-    if (command_name == Fix.STORM_ARMOR) { return "味方一体を対象とする。対象に【ストーム】のBUFFを付与する。【ストーム】が続く間、戦闘速度が上昇する。加えて、魔法攻撃を行う度に、【電撃】ダメージが追加発生する。"; }
-    if (command_name == Fix.SOLID_WALL) { return "味方フィールドに、【防壁】のフィールドを形成する。味方に与えられる物理属性のダメージは【防壁】のポイントに吸収される。【防壁】のポイントが0以下になった場合、【防壁】フィールドは消滅する。"; }
-    if (command_name == Fix.INVISIBLE_BIND) { return "敵一体を対象とする。対象に物理ダメージを与えた後、【麻痺】のBUFFを付与する。【麻痺】が続く間、スキル系のアクションコマンドが使用不可となる。"; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return "味方フィールドに【洗練】のフィールドを形成する。【洗練】が続く間、味方からのコマンド実行時、ダメージもしくはライフ回復を伴う場合、その威力を10%増強する。"; }
-    if (command_name == Fix.SKY_SHIELD) { return "味方一体を対象とする。対象に【魔法障壁】のBUFFを付与する。【魔法障壁】が続く間、魔法防御が上昇する。"; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return "自分自身に【幻闇】のBUFFを付与する。この効果が続く間、敵からダメージ発生を伴う攻撃を食らった場合、あたかも食らわなかったかの様に振る舞った後、このBUFFは除去される。"; }
-    if (command_name == Fix.SONIC_PULSE) { return Fix.SONIC_PULSE_JP; }
-    if (command_name == Fix.LAND_SHATTER) { return Fix.LAND_SHATTER_JP; }
-    if (command_name == Fix.MUTE_IMPULSE) { return Fix.MUTE_IMPULSE_JP; }
-    if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
-    if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
-    if (command_name == Fix.IRREGULAR_STEP) { return Fix.IRREGULAR_STEP_JP; }
-
-    if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
     #endregion
-
-    if (command_name == Fix.ERRATIC_THUNDER) { return ""; }
-    if (command_name == Fix.PETRIFICATION) { return ""; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return ""; }
-    if (command_name == Fix.SIGIL_OF_THE_HOMURA) { return ""; }
-    if (command_name == Fix.REVOLUTION_AURA) { return ""; }
-    if (command_name == Fix.OATH_OF_AEGIS) { return ""; }
-    if (command_name == Fix.ABYSS_EYE) { return ""; }
-    if (command_name == Fix.MIND_FORCE) { return ""; }
-
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return ""; }
-    if (command_name == Fix.WATER_PRESENCE) { return ""; }
-    if (command_name == Fix.VALKYRIE_BLADE) { return ""; }
-    if (command_name == Fix.THE_DARK_INTENSITY) { return ""; }
-    if (command_name == Fix.CYCLONE_FIELD) { return ""; }
-    if (command_name == Fix.LIFE_GRACE) { return ""; }
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return ""; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return ""; }
-    if (command_name == Fix.STANCE_OF_MUIN) { return ""; }
-    if (command_name == Fix.DIRTY_WISDOM) { return ""; }
-    if (command_name == Fix.WORD_OF_PROPHECY) { return ""; }
-    if (command_name == Fix.WILD_SWING) { return ""; }
-    if (command_name == Fix.BRILLIANT_FORM) { return ""; }
-    if (command_name == Fix.FUTURE_VISION) { return ""; }
-    if (command_name == Fix.SOUL_SHOUT) { return ""; }
-    if (command_name == Fix.AVENGER_PROMISE) { return ""; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return ""; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return ""; }
-
-    if (command_name == Fix.LAVA_ANNIHILATION) { return ""; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return ""; }
-    if (command_name == Fix.RESURRECTION) { return ""; }
-    if (command_name == Fix.DEATH_SCYTHE) { return ""; }
-    if (command_name == Fix.LIGHTNING_SQUALL) { return ""; }
-    if (command_name == Fix.EARTH_QUAKE) { return ""; }
-    if (command_name == Fix.KINETIC_SMASH) { return ""; }
-    if (command_name == Fix.PIERCING_ARROW) { return ""; }
-    if (command_name == Fix.CARNAGE_RUSH) { return ""; }
-    if (command_name == Fix.AMBIDEXTERITY) { return ""; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; }
-    if (command_name == Fix.ONE_IMMUNITY) { return ""; }
-    if (command_name == Fix.AUSTERITY_MATRIX) { return ""; }
-    if (command_name == Fix.ESSENCE_OVERFLOW) { return ""; }
-    if (command_name == Fix.OVERWHELMING_DESTINY) { return ""; }
-    if (command_name == Fix.DEMON_CONTRACT) { return ""; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
-    if (command_name == Fix.TIME_STOP) { return ""; }
 
     return String.Empty;
   }
@@ -4168,7 +3749,7 @@ public static class ActionCommand
     if (command_name == Fix.ONSLAUGHT_HIT) { return ""; } // todo 仮
     // 戦士＋無心
     if (command_name == Fix.FORMLESS_STYLE) { return ""; } // todo 仮
-    if (command_name == Fix.HARDEST_PARRY) { return ""; } // todo 仮
+    if (command_name == Fix.SMOOTHING_MOVE) { return ""; } // todo 仮
     // 護衛＋格闘
     if (command_name == Fix.TACTICAL_VISION) { return ""; } // todo 仮
     if (command_name == Fix.SWIFT_RESPONSE) { return ""; } // todo 仮

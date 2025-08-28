@@ -1359,20 +1359,6 @@ public partial class Character : MonoBehaviour
       {
         result = (int)((double)result * (this.IsVoiceOfVigor.EffectValue));
       }
-      if (this.objFieldPanel != null)
-      {
-        BuffImage[] buffList = this.objFieldPanel.GetComponentsInChildren<BuffImage>();
-        for (int ii = 0; ii < buffList.Length; ii++)
-        {
-          if (buffList[ii].BuffName == Fix.KILLING_WAVE)
-          {
-            Debug.Log("MaxLife Value down cause KillingWave(before): " + result);
-            result = (int)((double)result * buffList[ii].EffectValue);
-            Debug.Log("Potential Value down cause KillingWave(after ): " + result);
-            break;
-          }
-        }
-      }
       return result;
     }
   }
@@ -1464,20 +1450,6 @@ public partial class Character : MonoBehaviour
     get { return _AvailableVoidChant; }
   }
 
-  [SerializeField] protected bool _AvailableWind = false;
-  public bool AvailableWind
-  {
-    set { _AvailableWind = value; }
-    get { return _AvailableWind; }
-  }
-
-  [SerializeField] protected bool _AvailableEarth = false;
-  public bool AvailableEarth
-  {
-    set { _AvailableEarth = value; }
-    get { return _AvailableEarth; }
-  }
-
   [SerializeField] protected bool _AvailableWarrior = false;
   public bool AvailableWarrior
   {
@@ -1539,36 +1511,23 @@ public partial class Character : MonoBehaviour
   public int FreshHeal { set { if (value >= 0) { _FreshHeal = value; } } get { return _FreshHeal; } }
   [SerializeField] protected int _ShadowBlast = 0;
   public int ShadowBlast { set { if (value >= 0) { _ShadowBlast = value; } } get { return _ShadowBlast; } }
-  [SerializeField] protected int _AirCutter = 0;
-  public int AirCutter { set { if (value >= 0) { _AirCutter = value; } } get { return _AirCutter; } }
-  [SerializeField] protected int _RockSlam = 0;
-  public int RockSlam { set { if (value >= 0) { _RockSlam = value; } } get { return _RockSlam; } }
-  [SerializeField] protected int _StraightSmash = 0;
-  public int StraightSmash { set { if (value >= 0) { _StraightSmash = value; } } get { return _StraightSmash; } }
-  [SerializeField] protected int _HunterShot = 0;
-  public int HunterShot { set { if (value >= 0) { _HunterShot = value; } } get { return _HunterShot; } }
-  [SerializeField] protected int _LegStrike = 0;
-  public int LegStrike { set { if (value >= 0) { _LegStrike = value; } } get { return _LegStrike; } }
-  [SerializeField] protected int _VenomSlash = 0;
-  public int VenomSlash { set { if (value >= 0) { _VenomSlash = value; } } get { return _VenomSlash; } }
+  [SerializeField] protected int _OracleCommand = 0;
+  public int OracleCommand { set { if (value >= 0) { _OracleCommand = value; } } get { return _OracleCommand; } }
   [SerializeField] protected int _EnergyBolt = 0;
   public int EnergyBolt { set { if (value >= 0) { _EnergyBolt = value; } } get { return _EnergyBolt; } }
+
+  [SerializeField] protected int _StraightSmash = 0;
+  public int StraightSmash { set { if (value >= 0) { _StraightSmash = value; } } get { return _StraightSmash; } }
   [SerializeField] protected int _ShieldBash = 0;
   public int ShieldBash { set { if (value >= 0) { _ShieldBash = value; } } get { return _ShieldBash; } }
-  [SerializeField] protected int _AuraOfPower = 0;
-  public int AuraOfPower { set { if (value >= 0) { _AuraOfPower = value; } } get { return _AuraOfPower; } }
+  [SerializeField] protected int _LegStrike = 0;
+  public int LegStrike { set { if (value >= 0) { _LegStrike = value; } } get { return _LegStrike; } }
+  [SerializeField] protected int _HunterShot = 0;
+  public int HunterShot { set { if (value >= 0) { _HunterShot = value; } } get { return _HunterShot; } }
+  [SerializeField] protected int _TrueSight = 0;
+  public int TrueSight { set { if (value >= 0) { _TrueSight = value; } } get { return _TrueSight; } }
   [SerializeField] protected int _DispelMagic = 0;
   public int DispelMagic { set { if (value >= 0) { _DispelMagic = value; } } get { return _DispelMagic; } }
-  [SerializeField] protected int _TrueSight = 0;
-  public int HeartOfLife { set { if (value >= 0) { _HeartOfLife = value; } } get { return _HeartOfLife; } }
-  [SerializeField] protected int _DarknessCircle = 0;
-  public int DarknessCircle { set { if (value >= 0) { _DarknessCircle = value; } } get { return _DarknessCircle; } }
-  [SerializeField] protected int _DarkAura = 0;
-  public int DarkAura { set { if (value >= 0) { _DarkAura = value; } } get { return _DarkAura; } }
-  [SerializeField] protected int _OracleCommand = 0;
-  public int TrueSight { set { if (value >= 0) { _TrueSight = value; } } get { return _TrueSight; } }
-  [SerializeField] protected int _HeartOfLife = 0;
-  public int OracleCommand { set { if (value >= 0) { _OracleCommand = value; } } get { return _OracleCommand; } }
 
   // Delve II
   [SerializeField] protected int _FlameBlade = 0;
@@ -1579,30 +1538,19 @@ public partial class Character : MonoBehaviour
   public int DivineCircle { set { if (value >= 0) { _DivineCircle = value; } } get { return _DivineCircle; } }
   [SerializeField] protected int _BloodSign = 0;
   public int BloodSign { set { if (value >= 0) { _BloodSign = value; } } get { return _BloodSign; } }
-  [SerializeField] protected int _StormArmor = 0;
-  public int StormArmor { set { if (value >= 0) { _StormArmor = value; } } get { return _StormArmor; } }
-  [SerializeField] protected int _SoldWall = 0;
-  public int SoldWall { set { if (value >= 0) { _SoldWall = value; } } get { return _SoldWall; } }
-  [SerializeField] protected int _StanceOfTheBlade = 0;
-  public int StanceOfTheBlade { set { if (value >= 0) { _StanceOfTheBlade = value; } } get { return _StanceOfTheBlade; } }
-  [SerializeField] protected int _MultipleShot = 0;
-  public int MultipleShot { set { if (value >= 0) { _MultipleShot = value; } } get { return _MultipleShot; } }
-  [SerializeField] protected int _SpeedStep = 0;
-  public int SpeedStep { set { if (value >= 0) { _SpeedStep = value; } } get { return _SpeedStep; } }
-  [SerializeField] protected int _InvisibleBind = 0;
-  public int InvisibleBind { set { if (value >= 0) { _InvisibleBind = value; } } get { return _InvisibleBind; } }
-  [SerializeField] protected int _IdeologyOfSophistication = 0;
-  public int IdeologyOfSophistication { set { if (value >= 0) { _IdeologyOfSophistication = value; } } get { return _IdeologyOfSophistication; } }
-  [SerializeField] protected int _StanceOfTheGuard = 0;
-  public int StanceOfTheGuard { set { if (value >= 0) { _StanceOfTheGuard = value; } } get { return _StanceOfTheGuard; } }
-  [SerializeField] protected int _SkyShield = 0;
-  public int SkyShield { set { if (value >= 0) { _SkyShield = value; } } get { return _SkyShield; } }
-  [SerializeField] protected int _FlashCounter = 0;
-  public int FlashCounter { set { if (value >= 0) { _FlashCounter = value; } } get { return _FlashCounter; } }
   [SerializeField] protected int _FortuneSpirit = 0;
   public int FortuneSpirit { set { if (value >= 0) { _FortuneSpirit = value; } } get { return _FortuneSpirit; } }
-  [SerializeField] protected int _StanceOfTheShade = 0;
-  public int StanceOfTheShade { set { if (value >= 0) { _StanceOfTheShade = value; } } get { return _StanceOfTheShade; } }
+  [SerializeField] protected int _FlashCounter = 0;
+  public int FlashCounter { set { if (value >= 0) { _FlashCounter = value; } } get { return _FlashCounter; } }
+
+  [SerializeField] protected int _StanceOfTheBlade = 0;
+  public int StanceOfTheBlade { set { if (value >= 0) { _StanceOfTheBlade = value; } } get { return _StanceOfTheBlade; } }
+  [SerializeField] protected int _StanceOfTheGuard = 0;
+  public int StanceOfTheGuard { set { if (value >= 0) { _StanceOfTheGuard = value; } } get { return _StanceOfTheGuard; } }
+  [SerializeField] protected int _SpeedStep = 0;
+  public int SpeedStep { set { if (value >= 0) { _SpeedStep = value; } } get { return _SpeedStep; } }
+  [SerializeField] protected int _MultipleShot = 0;
+  public int MultipleShot { set { if (value >= 0) { _MultipleShot = value; } } get { return _MultipleShot; } }
   [SerializeField] protected int _LeylineSchema = 0;
   public int LeylineSchema { set { if (value >= 0) { _LeylineSchema = value; } } get { return _LeylineSchema; } }
   [SerializeField] protected int _SpiritualRest = 0;
@@ -1617,32 +1565,21 @@ public partial class Character : MonoBehaviour
   public int HolyBreath { set { if (value >= 0) { _HolyBreath = value; } } get { return _HolyBreath; } }
   [SerializeField] protected int _BlackContract = 0;
   public int BlackContract { set { if (value >= 0) { _BlackContract = value; } } get { return _BlackContract; } }
-  [SerializeField] protected int _SonicPulse = 0;
-  public int SonicPulse { set { if (value >= 0) { _SonicPulse = value; } } get { return _SonicPulse; } }
-  [SerializeField] protected int _EarthSurge = 0;
-  public int EarthSurge { set { if (value >= 0) { _EarthSurge = value; } } get { return _EarthSurge; } }
-  [SerializeField] protected int _DoubleSlash = 0;
-  public int DoubleSlash { set { if (value >= 0) { _DoubleSlash = value; } } get { return _DoubleSlash; } }
-  [SerializeField] protected int _EyeOfTheIsshin = 0;
-  public int EyeOfTheIsshin { set { if (value >= 0) { _EyeOfTheIsshin = value; } } get { return _EyeOfTheIsshin; } }
-  [SerializeField] protected int _BoneCrush = 0;
-  public int BoneCrush { set { if (value >= 0) { _BoneCrush = value; } } get { return _BoneCrush; } }
-  [SerializeField] protected int _IrregularStep = 0;
-  public int IrregularStep { set { if (value >= 0) { _IrregularStep = value; } } get { return _IrregularStep; } }
-  [SerializeField] protected int _SigilOfThePending = 0;
-  public int SigilOfThePending { set { if (value >= 0) { _SigilOfThePending = value; } } get { return _SigilOfThePending; } }
-  [SerializeField] protected int _ConcussiveHit = 0;
-  public int ConcussiveHit { set { if (value >= 0) { _ConcussiveHit = value; } } get { return _ConcussiveHit; } }
-  [SerializeField] protected int _AetherDrive = 0;
-  public int AetherDrive { set { if (value >= 0) { _AetherDrive = value; } } get { return _AetherDrive; } }
-  [SerializeField] protected int _MuteImpulse = 0;
-  public int MuteImpulse { set { if (value >= 0) { _MuteImpulse = value; } } get { return _MuteImpulse; } }
-  [SerializeField] protected int _VoiceOfVigor = 0;
-  public int VoiceOfVigor { set { if (value >= 0) { _VoiceOfVigor = value; } } get { return _VoiceOfVigor; } }
-  [SerializeField] protected int _KillingWave = 0;
-  public int KillingWave { set { if (value >= 0) { _KillingWave = value; } } get { return _KillingWave; } }
   [SerializeField] protected int _WordOfPower = 0;
   public int WordOfPower { set { if (value >= 0) { _WordOfPower = value; } } get { return _WordOfPower; } }
+  [SerializeField] protected int _SigilOfThePending = 0;
+  public int SigilOfThePending { set { if (value >= 0) { _SigilOfThePending = value; } } get { return _SigilOfThePending; } }
+
+  [SerializeField] protected int _DoubleSlash = 0;
+  public int DoubleSlash { set { if (value >= 0) { _DoubleSlash = value; } } get { return _DoubleSlash; } }
+  [SerializeField] protected int _ConcussiveHit = 0;
+  public int ConcussiveHit { set { if (value >= 0) { _ConcussiveHit = value; } } get { return _ConcussiveHit; } }
+  [SerializeField] protected int _BoneCrush = 0;
+  public int BoneCrush { set { if (value >= 0) { _BoneCrush = value; } } get { return _BoneCrush; } }
+  [SerializeField] protected int _EyeOfTheIsshin = 0;
+  public int EyeOfTheIsshin { set { if (value >= 0) { _EyeOfTheIsshin = value; } } get { return _EyeOfTheIsshin; } }
+  [SerializeField] protected int _VoiceOfVigor = 0;
+  public int VoiceOfVigor { set { if (value >= 0) { _VoiceOfVigor = value; } } get { return _VoiceOfVigor; } }
   [SerializeField] protected int _UnseenAid = 0;
   public int UnseenAid { set { if (value >= 0) { _UnseenAid = value; } } get { return _UnseenAid; } }
 
@@ -1657,30 +1594,21 @@ public partial class Character : MonoBehaviour
   public int CursedEvangile { set { if (value >= 0) { _CursedEvangile = value; } } get { return _CursedEvangile; } }
   [SerializeField] protected int _GaleWind = 0;
   public int GaleWind { set { if (value >= 0) { _GaleWind = value; } } get { return _GaleWind; } }
-  [SerializeField] protected int _SandBurst = 0;
-  public int SandBurst { set { if (value >= 0) { _SandBurst = value; } } get { return _SandBurst; } }
-  [SerializeField] protected int _IronBuster = 0;
-  public int IronBuster { set { if (value >= 0) { _IronBuster = value; } } get { return _IronBuster; } }
-  [SerializeField] protected int _PenetrationArrow = 0;
-  public int PenetrationArrow { set { if (value >= 0) { _PenetrationArrow = value; } } get { return _PenetrationArrow; } }
-  [SerializeField] protected int _DeadlyDrive = 0;
-  public int DeadlyDrive { set { if (value >= 0) { _DeadlyDrive = value; } } get { return _DeadlyDrive; } }
-  [SerializeField] protected int _AssassinationHit = 0;
-  public int AssassinationHit { set { if (value >= 0) { _AssassinationHit = value; } } get { return _AssassinationHit; } }
   [SerializeField] protected int _PhantomOboro = 0;
   public int PhantomOboro { set { if (value >= 0) { _PhantomOboro = value; } } get { return _PhantomOboro; } }
+
+  [SerializeField] protected int _IronBuster = 0;
+  public int IronBuster { set { if (value >= 0) { _IronBuster = value; } } get { return _IronBuster; } }
   [SerializeField] protected int _DominationField = 0;
   public int DominationField { set { if (value >= 0) { _DominationField = value; } } get { return _DominationField; } }
-  [SerializeField] protected int _CircleOfSerenity = 0;
-  public int CircleOfSerenity { set { if (value >= 0) { _CircleOfSerenity = value; } } get { return _CircleOfSerenity; } }
-  [SerializeField] protected int _AuraBurn = 0;
-  public int AuraBurn { set { if (value >= 0) { _AuraBurn = value; } } get { return _AuraBurn; } }
-  [SerializeField] protected int _LevelEater = 0;
-  public int LevelEater { set { if (value >= 0) { _LevelEater = value; } } get { return _LevelEater; } }
+  [SerializeField] protected int _DeadlyDrive = 0;
+  public int DeadlyDrive { set { if (value >= 0) { _DeadlyDrive = value; } } get { return _DeadlyDrive; } }
+  [SerializeField] protected int _PenetrationArrow = 0;
+  public int PenetrationArrow { set { if (value >= 0) { _PenetrationArrow = value; } } get { return _PenetrationArrow; } }
   [SerializeField] protected int _WillAwakening = 0;
   public int WillAwakening { set { if (value >= 0) { _WillAwakening = value; } } get { return _WillAwakening; } }
-  [SerializeField] protected int _ExactTime = 0;
-  public int ExactTime { set { if (value >= 0) { _ExactTime = value; } } get { return _ExactTime; } }
+  [SerializeField] protected int _CircleOfSerenity = 0;
+  public int CircleOfSerenity { set { if (value >= 0) { _CircleOfSerenity = value; } } get { return _CircleOfSerenity; } }
 
   // Delve V
   [SerializeField] protected int _FlameStrike = 0;
@@ -1691,36 +1619,23 @@ public partial class Character : MonoBehaviour
   public int ShiningHeal { set { if (value >= 0) { _ShiningHeal = value; } } get { return _ShiningHeal; } }
   [SerializeField] protected int _CircleOfTheDespair = 0;
   public int CircleOfTheDespair { set { if (value >= 0) { _CircleOfTheDespair = value; } } get { return _CircleOfTheDespair; } }
-  [SerializeField] protected int _ErraticThunder = 0;
-  public int ErraticThunder { set { if (value >= 0) { _ErraticThunder = value; } } get { return _ErraticThunder; } }
-  [SerializeField] protected int _Petrification = 0;
-  public int Petrification { set { if (value >= 0) { _Petrification = value; } } get { return _Petrification; } }
-  [SerializeField] protected int _RagingStorm = 0;
-  public int RagingStorm { set { if (value >= 0) { _RagingStorm = value; } } get { return _RagingStorm; } }
-  [SerializeField] protected int _PrecisionStrike = 0;
-  public int PrecisionStrike { set { if (value >= 0) { _PrecisionStrike = value; } } get { return _PrecisionStrike; } }
-  [SerializeField] protected int _UnintentionalHit = 0;
-  public int UnintentionalHit { set { if (value >= 0) { _UnintentionalHit = value; } } get { return _UnintentionalHit; } }
-  [SerializeField] protected int _CounterDisallow = 0;
-  public int CounterDisallow { set { if (value >= 0) { _CounterDisallow = value; } } get { return _CounterDisallow; } }
-  [SerializeField] protected int _SigilOfTheHomura = 0;
-  public int SigilOfTheHomura { set { if (value >= 0) { _SigilOfTheHomura = value; } } get { return _SigilOfTheHomura; } }
-  [SerializeField] protected int _HardestParry = 0;
-  public int HardestParry { set { if (value >= 0) { _HardestParry = value; } } get { return _HardestParry; } }
-  [SerializeField] protected int _RevolutionAura = 0;
-  public int RevolutionAura { set { if (value >= 0) { _RevolutionAura = value; } } get { return _RevolutionAura; } }
-  [SerializeField] protected int _OathOfAegis = 0;
-  public int OathOfAegis { set { if (value >= 0) { _OathOfAegis = value; } } get { return _OathOfAegis; } }
-  [SerializeField] protected int _EverflowMind = 0;
-  public int EverflowMind { set { if (value >= 0) { _EverflowMind = value; } } get { return _EverflowMind; } }
-  [SerializeField] protected int _AbyssEye = 0;
-  public int AbyssEye { set { if (value >= 0) { _AbyssEye = value; } } get { return _AbyssEye; } }
-  [SerializeField] protected int _EagleEye = 0;
-  public int EagleEye { set { if (value >= 0) { _EagleEye = value; } } get { return _EagleEye; } }
-  [SerializeField] protected int _InnerInspiration = 0;
-  public int InnerInspiration { set { if (value >= 0) { _InnerInspiration = value; } } get { return _InnerInspiration; } }
   [SerializeField] protected int _SeventhPrinciple = 0;
   public int SeventhPrinciple { set { if (value >= 0) { _SeventhPrinciple = value; } } get { return _SeventhPrinciple; } }
+  [SerializeField] protected int _CounterDisallow = 0;
+  public int CounterDisallow { set { if (value >= 0) { _CounterDisallow = value; } } get { return _CounterDisallow; } }
+
+  [SerializeField] protected int _RagingStorm = 0;
+  public int RagingStorm { set { if (value >= 0) { _RagingStorm = value; } } get { return _RagingStorm; } }
+  [SerializeField] protected int _HardestParry = 0;
+  public int HardestParry { set { if (value >= 0) { _HardestParry = value; } } get { return _HardestParry; } }
+  [SerializeField] protected int _UnintentionalHit = 0;
+  public int UnintentionalHit { set { if (value >= 0) { _UnintentionalHit = value; } } get { return _UnintentionalHit; } }
+  [SerializeField] protected int _PrecisionStrike = 0;
+  public int PrecisionStrike { set { if (value >= 0) { _PrecisionStrike = value; } } get { return _PrecisionStrike; } }
+  [SerializeField] protected int _EverflowMind = 0;
+  public int EverflowMind { set { if (value >= 0) { _EverflowMind = value; } } get { return _EverflowMind; } }
+  [SerializeField] protected int _InnerInspiration = 0;
+  public int InnerInspiration { set { if (value >= 0) { _InnerInspiration = value; } } get { return _InnerInspiration; } }
 
   // Delve VI
   [SerializeField] protected int _CircleOfTheIgnite = 0;
@@ -1731,38 +1646,23 @@ public partial class Character : MonoBehaviour
   public int ValkyrieBlade { set { if (value >= 0) { _ValkyrieBlade = value; } } get { return _ValkyrieBlade; } }
   [SerializeField] protected int _TheDarkIntensity = 0;
   public int TheDarkIntensity { set { if (value >= 0) { _TheDarkIntensity = value; } } get { return _TheDarkIntensity; } }
-  [SerializeField] protected int _CycloneField = 0;
-  public int CycloneField { set { if (value >= 0) { _CycloneField = value; } } get { return _CycloneField; } }
-  [SerializeField] protected int _LifeGrace = 0;
-  public int LifeGrace { set { if (value >= 0) { _LifeGrace = value; } } get { return _LifeGrace; } }
-  [SerializeField] protected int _StanceOfTheIai = 0;
-  public int StanceOfTheIai { set { if (value >= 0) { _StanceOfTheIai = value; } } get { return _StanceOfTheIai; } }
-  [SerializeField] protected int _EternalConcentration = 0;
-  public int EternalConcentration { set { if (value >= 0) { _EternalConcentration = value; } } get { return _EternalConcentration; } }
-  [SerializeField] protected int _StanceOfMuin = 0;
-  public int StanceOfMuin { set { if (value >= 0) { _StanceOfMuin = value; } } get { return _StanceOfMuin; } }
-  [SerializeField] protected int _DirtyWisdom = 0;
-  public int DirtyWisdom { set { if (value >= 0) { _DirtyWisdom = value; } } get { return _DirtyWisdom; } }
-  [SerializeField] protected int _WordOfProphecy = 0;
-  public int WordOfProphecy { set { if (value >= 0) { _WordOfProphecy = value; } } get { return _WordOfProphecy; } }
-  [SerializeField] protected int _WildSwing = 0;
-  public int WildSwing { set { if (value >= 0) { _WildSwing = value; } } get { return _WildSwing; } }
-  [SerializeField] protected int _BrilliantForm = 0;
-  public int BrilliantForm { set { if (value >= 0) { _BrilliantForm = value; } } get { return _BrilliantForm; } }
   [SerializeField] protected int _FutureVision = 0;
   public int FutureVision { set { if (value >= 0) { _FutureVision = value; } } get { return _FutureVision; } }
-  [SerializeField] protected int _SoulShout = 0;
-  public int SoulShout { set { if (value >= 0) { _SoulShout = value; } } get { return _SoulShout; } }
-  [SerializeField] protected int _AvengerPromise = 0;
-  public int AvengerPromise { set { if (value >= 0) { _AvengerPromise = value; } } get { return _AvengerPromise; } }
+  [SerializeField] protected int _DetachmentFault = 0;
+  public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
+
+  [SerializeField] protected int _StanceOfTheIai = 0;
+  public int StanceOfTheIai { set { if (value >= 0) { _StanceOfTheIai = value; } } get { return _StanceOfTheIai; } }
+  [SerializeField] protected int _OneImmunity = 0;
+  public int OneImmunity { set { if (value >= 0) { _OneImmunity = value; } } get { return _OneImmunity; } }
+  [SerializeField] protected int _StanceOfMuin = 0;
+  public int StanceOfMuin { set { if (value >= 0) { _StanceOfMuin = value; } } get { return _StanceOfMuin; } }
+  [SerializeField] protected int _EternalConcentration = 0;
+  public int EternalConcentration { set { if (value >= 0) { _EternalConcentration = value; } } get { return _EternalConcentration; } }
   [SerializeField] protected int _SigilOfTheFaith = 0;
   public int SigilOfTheFaith { set { if (value >= 0) { _SigilOfTheFaith = value; } } get { return _SigilOfTheFaith; } }
   [SerializeField] protected int _ZeroImmunity = 0;
   public int ZeroImmunity { set { if (value >= 0) { _ZeroImmunity = value; } } get { return _ZeroImmunity; } }
-  [SerializeField] protected int _DetachmentFault = 0;
-  public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
-  [SerializeField] protected int _OneImmunity = 0;
-  public int OneImmunity { set { if (value >= 0) { _OneImmunity = value; } } get { return _OneImmunity; } }
 
   // Delve VII
   [SerializeField] protected int _LavaAnnihilation = 0;
@@ -1773,40 +1673,27 @@ public partial class Character : MonoBehaviour
   public int Resurrection { set { if (value >= 0) { _Resurrection = value; } } get { return _Resurrection; } }
   [SerializeField] protected int _DeathScythe = 0;
   public int DeathScythe { set { if (value >= 0) { _DeathScythe = value; } } get { return _DeathScythe; } }
-  [SerializeField] protected int _LightningSquall = 0;
-  public int LightningSquall { set { if (value >= 0) { _LightningSquall = value; } } get { return _LightningSquall; } }
-  [SerializeField] protected int _EarthQuake = 0;
-  public int EarthQuake { set { if (value >= 0) { _EarthQuake = value; } } get { return _EarthQuake; } }
-  [SerializeField] protected int _KineticSmash = 0;
-  public int KineticSmash { set { if (value >= 0) { _KineticSmash = value; } } get { return _KineticSmash; } }
-  [SerializeField] protected int _PiercingArrow = 0;
-  public int PiercingArrow { set { if (value >= 0) { _PiercingArrow = value; } } get { return _PiercingArrow; } }
-  [SerializeField] protected int _CarnageRush = 0;
-  public int CarnageRush { set { if (value >= 0) { _CarnageRush = value; } } get { return _CarnageRush; } }
-  [SerializeField] protected int _Ambidexterity = 0;
-  public int Ambidexterity { set { if (value >= 0) { _Ambidexterity = value; } } get { return _Ambidexterity; } }
-  [SerializeField] protected int _TranscendenceReached = 0;
-  public int TranscendenceReached { set { if (value >= 0) { _TranscendenceReached = value; } } get { return _TranscendenceReached; } }
-  [SerializeField] protected int _AusterityMatrix = 0;
-  public int AusterityMatrix { set { if (value >= 0) { _AusterityMatrix = value; } } get { return _AusterityMatrix; } }
-  [SerializeField] protected int _EssenceOverflow = 0;
-  public int EssenceOverflow { set { if (value >= 0) { _EssenceOverflow = value; } } get { return _EssenceOverflow; } }
-  [SerializeField] protected int _OverwhelmingDestiny = 0;
-  public int OverwhelmingDestiny { set { if (value >= 0) { _OverwhelmingDestiny = value; } } get { return _OverwhelmingDestiny; } }
-  [SerializeField] protected int _DemonContract = 0;
-  public int DemonContract { set { if (value >= 0) { _DemonContract = value; } } get { return _DemonContract; } }
-  [SerializeField] protected int _StanceOfTheKokoroe = 0;
-  public int StanceOfTheKokoroe { set { if (value >= 0) { _StanceOfTheKokoroe = value; } } get { return _StanceOfTheKokoroe; } }
+  [SerializeField] protected int _Genesis = 0;
+  public int Genesis { set { if (value >= 0) { _Genesis = value; } } get { return _Genesis; } }
   [SerializeField] protected int _TimeStop = 0;
   public int TimeStop { set { if (value >= 0) { _TimeStop = value; } } get { return _TimeStop; } }
 
-  [SerializeField] protected int _CounterAttack = 0;
-  public int CounterAttack { set { if (value >= 0) { _CounterAttack = value; } } get { return _CounterAttack; } }
-
+  [SerializeField] protected int _KineticSmash = 0;
+  public int KineticSmash { set { if (value >= 0) { _KineticSmash = value; } } get { return _KineticSmash; } }
   [SerializeField] protected int _Catastrophe = 0;
   public int Catastrophe { set { if (value >= 0) { _Catastrophe = value; } } get { return _Catastrophe; } }
-  [SerializeField] protected int _Genesis = 0;
-  public int Genesis { set { if (value >= 0) { _Genesis = value; } } get { return _Genesis; } }
+  [SerializeField] protected int _CarnageRush = 0;
+  public int CarnageRush { set { if (value >= 0) { _CarnageRush = value; } } get { return _CarnageRush; } }
+  [SerializeField] protected int _PiercingArrow = 0;
+  public int PiercingArrow { set { if (value >= 0) { _PiercingArrow = value; } } get { return _PiercingArrow; } }
+  [SerializeField] protected int _StanceOfTheKokoroe = 0;
+  public int StanceOfTheKokoroe { set { if (value >= 0) { _StanceOfTheKokoroe = value; } } get { return _StanceOfTheKokoroe; } }
+  [SerializeField] protected int _TranscendenceReached = 0;
+  public int TranscendenceReached { set { if (value >= 0) { _TranscendenceReached = value; } } get { return _TranscendenceReached; } }
+
+  // Other
+  [SerializeField] protected int _CounterAttack = 0;
+  public int CounterAttack { set { if (value >= 0) { _CounterAttack = value; } } get { return _CounterAttack; } }
 
   [SerializeField] protected int _SanctionField = 0;
   public int SanctionField
@@ -3030,24 +2917,9 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.SKY_SHIELD); }
   }
 
-  public BuffImage IsAuraOfPower
-  {
-    get { return SearchBuff(Fix.AURA_OF_POWER); }
-  }
-
   public BuffImage IsIceNeedle
   {
     get { return SearchBuff(Fix.ICE_NEEDLE); }
-  }
-
-  public BuffImage IsAirCutter
-  {
-    get { return SearchBuff(Fix.AIR_CUTTER); }
-  }
-
-  public BuffImage IsRockSlum
-  {
-    get { return SearchBuff(Fix.ROCK_SLAM); }
   }
 
   public BuffImage IsShadowBlast
@@ -3063,11 +2935,6 @@ public partial class Character : MonoBehaviour
   public BuffImage IsLegStrike
   {
     get { return SearchBuff(Fix.LEG_STRIKE); }
-  }
-
-  public BuffImage IsHeartOfLife
-  {
-    get { return SearchBuff(Fix.HEART_OF_LIFE); }
   }
 
   public BuffImage IsTrueSight
@@ -3115,16 +2982,6 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BLACK_CONTRACT); }
   }
 
-  public BuffImage IsSonicPulse
-  {
-    get { return SearchBuff(Fix.SONIC_PULSE, Fix.SONIC_PULSE_JP); }
-  }
-
-  public BuffImage IsLandShatter
-  {
-    get { return SearchBuff(Fix.LAND_SHATTER, Fix.LAND_SHATTER_JP); }
-  }
-
   public BuffImage IsEyeOfTheIsshin
   {
     get { return SearchBuff(Fix.EYE_OF_THE_ISSHIN); }
@@ -3143,11 +3000,6 @@ public partial class Character : MonoBehaviour
   public BuffImage IsSigilOfThePending
   {
     get { return SearchBuff(Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING_JP); }
-  }
-
-  public BuffImage IsStormArmor
-  {
-    get { return SearchBuff(Fix.STORM_ARMOR); }
   }
 
   public BuffImage IsVoiceOfVigor
@@ -3381,32 +3233,6 @@ public partial class Character : MonoBehaviour
   public BuffImage IsResistShadow
   {
     get { return SearchBuff(Fix.EFFECT_RESIST_SHADOW_UP); }
-  }
-
-  public BuffImage IsUpWind
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERUP_WIND); }
-  }
-  public BuffImage IsDownWind
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_WIND); }
-  }
-  public BuffImage IsResistWind
-  {
-    get { return SearchBuff(Fix.EFFECT_RESIST_WIND_UP); }
-  }
-
-  public BuffImage IsUpEarth
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERUP_EARTH); }
-  }
-  public BuffImage IsDownEarth
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_EARTH); }
-  }
-  public BuffImage IsResistEarth
-  {
-    get { return SearchBuff(Fix.EFFECT_RESIST_EARTH_UP); }
   }
 
   public BuffImage IsPhysicalAttackUp
@@ -3812,7 +3638,6 @@ public partial class Character : MonoBehaviour
 
   public List<string> GetAvailableList()
   {
-    // todo
     List<string> list = new List<string>();
     if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
     if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
@@ -3904,21 +3729,6 @@ public partial class Character : MonoBehaviour
     if (this.PiercingArrow > 0) { list.Add(Fix.PIERCING_ARROW); }
     if (this.StanceOfTheKokoroe > 0) { list.Add(Fix.STANCE_OF_THE_KOKOROE); }
     if (this.TranscendenceReached > 0) { list.Add(Fix.TRANSCENDENCE_REACHED); }
-
-    // other
-    if (this.AirCutter > 0) { list.Add(Fix.AIR_CUTTER); }
-    if (this.RockSlam > 0) { list.Add(Fix.ROCK_SLAM); }
-    if (this.VenomSlash > 0) { list.Add(Fix.VENOM_SLASH); }
-    if (this.AuraBurn > 0) { list.Add(Fix.AURA_BURN); }
-    if (this.HeartOfLife > 0) { list.Add(Fix.HEART_OF_LIFE); }
-    if (this.DarkAura > 0) { list.Add(Fix.DARK_AURA); }
-    if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
-    if (this.StormArmor > 0) { list.Add(Fix.STORM_ARMOR); }
-    if (this.SoldWall > 0) { list.Add(Fix.SOLID_WALL); }
-    if (this.InvisibleBind > 0) { list.Add(Fix.INVISIBLE_BIND); }
-    if (this.IdeologyOfSophistication > 0) { list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION); }
-    if (this.SkyShield > 0) { list.Add(Fix.SKY_SHIELD); }
-    if (this.StanceOfTheShade > 0) { list.Add(Fix.STANCE_OF_THE_SHADE); }
 
     return list;
   }
@@ -4201,498 +4011,6 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  public List<string> GetEssenceTreeTitleList(int attr, int type)
-  {
-    List<string> list = new List<string>();
-    if (this.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
-          list.Add(Fix.STANCE_OF_THE_BLADE_JP + "強化");
-          list.Add(Fix.DOUBLE_SLASH_JP + "強化");
-          list.Add(Fix.IRON_BUSTER_JP + "強化");
-          list.Add(Fix.RAGING_STORM_JP + "強化");
-          list.Add(Fix.STANCE_OF_THE_IAI_JP + "強化");
-          list.Add(Fix.KINETIC_SMASH_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.TRUE_SIGHT_JP + "強化");
-          list.Add(Fix.LEYLINE_SCHEMA_JP + "強化");
-          list.Add(Fix.WORD_OF_POWER_JP + "強化");
-          list.Add(Fix.WILL_AWAKENING_JP + "強化");
-          list.Add(Fix.MIND_FORCE_JP + "強化");
-          list.Add(Fix.SIGIL_OF_THE_FAITH_JP + "強化");
-          list.Add(Fix.STANCE_OF_THE_KOKOROE_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.SHIELD_BASH_JP + "強化");
-          list.Add(Fix.STANCE_OF_THE_GUARD_JP + "強化");
-          list.Add(Fix.CONCUSSIVE_HIT_JP + "強化");
-          list.Add(Fix.DOMINATION_FIELD_JP + "強化");
-          list.Add(Fix.HARDEST_PARRY_JP + "強化");
-          list.Add(Fix.WILD_SWING_JP + "強化");
-          list.Add(Fix.ONE_IMMUNITY_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.SWORD_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.LANCE_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.SHIELD_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_GLADIATOR);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_DEFENDER);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_BRAVE_SEEKER);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.GIFT_OF_TWIN);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.WAY_OF_POTENTIAL);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.TIME_EXPANSION);
-        }
-      }
-    }
-    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.ICE_NEEDLE_JP + "強化");
-          list.Add(Fix.PURE_PURIFICATION_JP + "強化");
-          list.Add(Fix.BLUE_BULLET_JP + "強化");
-          list.Add(Fix.FREEZING_CUBE_JP + "強化");
-          list.Add(Fix.FROST_LANCE_JP + "強化");
-          list.Add(Fix.WATER_PRESENCE_JP + "強化");
-          list.Add(Fix.ABSOLUTE_ZERO_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.SHADOW_BLAST_JP + "強化");
-          list.Add(Fix.BLOOD_SIGN_JP + "強化");
-          list.Add(Fix.BLACK_CONTRACT_JP + "強化");
-          list.Add(Fix.CURSED_EVANGILE_JP + "強化");
-          list.Add(Fix.CIRCLE_OF_THE_DESPAIR_JP + "強化");
-          list.Add(Fix.THE_DARK_INTENSITY_JP + "強化");
-          list.Add(Fix.DEATH_SCYTHE_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.DISPEL_MAGIC_JP + "強化");
-          list.Add(Fix.FLASH_COUNTER_JP + "強化");
-          list.Add(Fix.MUTE_IMPULSE_JP + "強化");
-          list.Add(Fix.DETACHMENT_FAULT_JP + "強化");
-          list.Add(Fix.OATH_OF_AEGIS_JP + "強化");
-          list.Add(Fix.FUTURE_VISION_JP + "強化");
-          list.Add(Fix.ESSENCE_OVERFLOW_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.ROD_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.BOOK_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.CLAW_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_SWORD_DANCER);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_ELEMENTAL_WIZARD);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_MYSTIC_ENHANCER);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.BREATHING_DANCE);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.MAGIC_SPELL_STANCE);
-        }
-        else if (type == 2)
-        {
-          list.Add(""); // todo
-        }
-      }
-    }
-    else if (this.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.FRESH_HEAL_JP + "強化");
-          list.Add(Fix.DIVINE_CIRCLE_JP + "強化");
-          list.Add(Fix.HOLY_BREATH_JP + "強化");
-          list.Add(Fix.ANGELIC_ECHO_JP + "強化");
-          list.Add(Fix.SHINING_HEAL_JP + "強化");
-          list.Add(Fix.VALKYRIE_BLADE_JP + "強化");
-          list.Add(Fix.RESURRECTION_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.HUNTER_SHOT_JP + "強化");
-          list.Add(Fix.MULTIPLE_SHOT_JP + "強化");
-          list.Add(Fix.EYE_OF_THE_ISSHIN_JP + "強化");
-          list.Add(Fix.PENETRATION_ARROW_JP + "強化");
-          list.Add(Fix.PRECISION_STRIKE_JP + "強化");
-          list.Add(Fix.ETERNAL_CONCENTRATION_JP + "強化");
-          list.Add(Fix.PIERCING_ARROW_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.AURA_OF_POWER_JP + "強化");
-          list.Add(Fix.SKY_SHIELD_JP + "強化");
-          list.Add(Fix.AETHER_DRIVE_JP + "強化");
-          list.Add(Fix.CIRCLE_OF_SERENITY_JP + "強化");
-          list.Add(Fix.REVOLUTION_AURA_JP + "強化");
-          list.Add(Fix.BRILLIANT_FORM_JP + "強化");
-          list.Add(Fix.AUSTERITY_MATRIX_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.BOW_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.ORB_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.BOOK_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_AERIAL_HUNTER);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_HIGH_PRIEST);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_ROYAL_KNIGHT);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.MIKIRI_SENSE);
-        }
-        else if (type == 1)
-        {
-          list.Add(""); // todo
-        }
-        else if (type == 2)
-        {
-          list.Add(""); // todo
-        }
-      }
-    }
-    else if (this.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.LEG_STRIKE_JP + "強化");
-          list.Add(Fix.SPEED_STEP_JP + "強化");
-          list.Add(Fix.BONE_CRUSH_JP + "強化");
-          list.Add(Fix.DEADLY_DRIVE_JP + "強化");
-          list.Add(Fix.UNINTENTIONAL_HIT_JP + "強化");
-          list.Add(Fix.STANCE_OF_MUIN_JP + "強化");
-          list.Add(Fix.CARNAGE_RUSH_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.FIRE_BALL_JP + "強化");
-          list.Add(Fix.FLAME_BLADE_JP + "強化");
-          list.Add(Fix.METEOR_BULLET_JP + "強化");
-          list.Add(Fix.VOLCANIC_BLAZE_JP + "強化");
-          list.Add(Fix.FLAME_STRIKE_JP + "強化");
-          list.Add(Fix.CIRCLE_OF_THE_IGNITE_JP + "強化");
-          list.Add(Fix.LAVA_ANNIHILATION_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.HEART_OF_LIFE_JP + "強化");
-          list.Add(Fix.FORTUNE_SPIRIT_JP + "強化");
-          list.Add(Fix.VOICE_OF_VIGOR_JP + "強化");
-          list.Add(Fix.AURA_BURN_JP + "強化");
-          list.Add(Fix.EVERFLOW_MIND_JP + "強化");
-          list.Add(Fix.SOUL_SHOUT_JP + "強化");
-          list.Add(Fix.OVERWHELMING_DESTINY_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.CLAW_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.AXE_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.SWORD_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_VOICE_CALLER);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_WAR_MASTER);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_DRAGON_SLAYER);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.WAY_OF_SWORD);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.NEED_MORE_POWER);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.RUSH_STANCE);
-        }
-      }
-    }
-    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.ENERGY_BOLT_JP + "強化");
-          list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION_JP + "強化");
-          list.Add(Fix.SIGIL_OF_THE_PENDING_JP + "強化");
-          list.Add(Fix.PHANTOM_OBORO_JP + "強化");
-          list.Add(Fix.SIGIL_OF_THE_HOMURA_JP + "強化");
-          list.Add(Fix.WORD_OF_PROPHECY_JP + "強化");
-          list.Add(Fix.TRANSCENDENCE_REACHED_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.ROCK_SLAM_JP + "強化");
-          list.Add(Fix.SOLID_WALL_JP + "強化");
-          list.Add(Fix.LAND_SHATTER_JP + "強化");
-          list.Add(Fix.SAND_BURST_JP + "強化");
-          list.Add(Fix.PETRIFICATION_JP + "強化");
-          list.Add(Fix.LIFE_GRACE_JP + "強化");
-          list.Add(Fix.EARTH_QUAKE_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.ORACLE_COMMAND_JP + "強化");
-          list.Add(Fix.SPIRITUAL_REST_JP + "強化");
-          list.Add(Fix.UNSEEN_AID_JP + "強化");
-          list.Add(Fix.EXACT_TIME_JP + "強化");
-          list.Add(Fix.INNER_INSPIRATION_JP + "強化");
-          list.Add(Fix.ZERO_IMMUNITY_JP + "強化");
-          list.Add(Fix.TIME_STOP_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.ROD_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.AXE_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.SHIELD_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_BARD_RANGER);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_BATTLE_SAGE);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_ORACLE_COMMANDER);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.MASTER_TEACHING);
-        }
-        else if (type == 1)
-        {
-          list.Add(""); // todo
-        }
-        else if (type == 2)
-        {
-          list.Add(""); // todo
-        }
-      }
-    }
-    else if (this.FullName == Fix.NAME_SELMOI_RO)
-    {
-      if (attr == 0)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.VENOM_SLASH_JP + "強化");
-          list.Add(Fix.INVISIBLE_BIND_JP + "強化");
-          list.Add(Fix.IRREGULAR_STEP_JP + "強化");
-          list.Add(Fix.ASSASSINATION_HIT_JP + "強化");
-          list.Add(Fix.COUNTER_DISALLOW_JP + "強化");
-          list.Add(Fix.DIRTY_WISDOM_JP + "強化");
-          list.Add(Fix.AMBIDEXTERITY_JP + "強化");
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.AIR_CUTTER_JP + "強化");
-          list.Add(Fix.STORM_ARMOR_JP + "強化");
-          list.Add(Fix.SONIC_PULSE_JP + "強化");
-          list.Add(Fix.GALE_WIND_JP + "強化");
-          list.Add(Fix.ERRATIC_THUNDER_JP + "強化");
-          list.Add(Fix.CYCLONE_FIELD_JP + "強化");
-          list.Add(Fix.LIGHTNING_SQUALL_JP + "強化");
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.DARK_AURA_JP + "強化");
-          list.Add(Fix.STANCE_OF_THE_SHADE_JP + "強化");
-          list.Add(Fix.KILLING_WAVE_JP + "強化");
-          list.Add(Fix.LEVEL_EATER_JP + "強化");
-          list.Add(Fix.ABYSS_EYE_JP + "強化");
-          list.Add(Fix.AVENGER_PROMISE_JP + "強化");
-          list.Add(Fix.DEMON_CONTRACT_JP + "強化");
-        }
-      }
-      else if (attr == 1)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.BOW_TRAINING);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.ORB_TRAINING);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.LANCE_TRAINING);
-        }
-      }
-      else if (attr == 2)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.STYLE_MAGE_BREAKER);
-        }
-        else if (type == 1)
-        {
-          list.Add(Fix.STYLE_SHADOW_ROGUE);
-        }
-        else if (type == 2)
-        {
-          list.Add(Fix.STYLE_DEMON_LOAD);
-        }
-      }
-      else if (attr == 3)
-      {
-        if (type == 0)
-        {
-          list.Add(Fix.TWIN_OFFENSIVE_STANCE);
-        }
-        else if (type == 1)
-        {
-          list.Add(""); // todo
-        }
-        else if (type == 2)
-        {
-          list.Add(""); // todo
-        }
-      }
-    }
-    return list;
-  }
-
   public string GetEssenceFactor(string command_name)
   {
     #region "Delve I"
@@ -4816,98 +4134,6 @@ public partial class Character : MonoBehaviour
 
     else if (command_name == "") { return ""; }
     return "";
-  }
-
-  public string GetEssenceTreeDescList(string essence_name)
-  {
-    if (essence_name == Fix.STRAIGHT_SMASH_JP + "強化") { return Fix.STRAIGHT_SMASH_JP + "の威力が５％上昇する。"; }
-    else if (essence_name == Fix.TRUE_SIGHT_JP + "強化") { return Fix.TRUE_SIGHT_JP + "の効果時間が１ターン長くなる。"; }
-    else if (essence_name == Fix.SHIELD_BASH_JP + "強化") { return Fix.SHIELD_BASH_JP + "によるスタン効果時間が１ターン長くなる。"; }
-    else if (essence_name == Fix.ICE_NEEDLE_JP + "強化") { return Fix.ICE_NEEDLE_JP + "の威力が５％上昇する。"; }
-    else if (essence_name == Fix.SHADOW_BLAST_JP + "強化") { return Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減少させる効果が５％上昇する。"; }
-    else if (essence_name == Fix.DISPEL_MAGIC_JP + "強化") { return Fix.DISPEL_MAGIC_JP + "による【有益】に属するBUFFを除去する数が１つ増える。"; }
-    else if (essence_name == Fix.FRESH_HEAL_JP + "強化") { return Fix.FRESH_HEAL_JP + "の威力が５％上昇する。"; }
-    else if (essence_name == Fix.HUNTER_SHOT_JP + "強化") { return Fix.HUNTER_SHOT_JP + "による【標的】効果からの命中率が１０％上昇する。"; }
-    else if (essence_name == Fix.AURA_OF_POWER_JP + "強化") { return Fix.AURA_OF_POWER_JP + "による【パワー】効果からの物理攻撃を増強する威力が５％上昇する。"; }
-    else if (essence_name == Fix.LEG_STRIKE_JP + "強化") { return Fix.LEG_STRIKE_JP + "の威力が５％上昇する。"; }
-    else if (essence_name == Fix.FIRE_BALL_JP + "強化") { return Fix.FIRE_BALL_JP + "の威力が５％上昇する。"; }
-    else if (essence_name == Fix.HEART_OF_LIFE_JP + "強化") { return Fix.HEART_OF_LIFE_JP + "による【生命】効果からのライフ回復量が１０％上昇する。"; }
-    else if (essence_name == Fix.ENERGY_BOLT_JP + "強化") { return "エナジー・ボルトの威力が５％上昇する。"; }
-    else if (essence_name == Fix.ROCK_SLAM_JP + "強化") { return "ロック・スラムの威力が５％上昇する。"; }
-    else if (essence_name == Fix.ORACLE_COMMAND_JP + "強化") { return "オラクル・コマンドによるインスタント・ゲージ進行が10%増加する。"; }
-    else if (essence_name == Fix.VENOM_SLASH_JP + "強化") { return "ヴェノム・スラッシュの威力が５％上昇する。"; }
-    else if (essence_name == Fix.AIR_CUTTER_JP + "強化") { return "エア・カッターの威力が５％上昇する。"; }
-    else if (essence_name == Fix.DARK_AURA_JP + "強化") { return "ダーク・オーラによる【黒炎】の累積カウントに対する最大上限が＋１される。"; }
-
-    else if (essence_name == Fix.SWORD_TRAINING) { return "剣を装備しているとき、物理攻撃力が３％上昇する。"; }
-    else if (essence_name == Fix.LANCE_TRAINING) { return "槍を装備しているとき、物理攻撃力が３％上昇する。"; }
-    else if (essence_name == Fix.AXE_TRAINING) { return "斧を装備しているとき、物理攻撃力が３％上昇する。"; }
-    else if (essence_name == Fix.CLAW_TRAINING) { return "爪を装備をしている時、物理攻撃力が3％上昇する。"; }
-    else if (essence_name == Fix.ROD_TRAINING) { return "杖を装備をしている時、魔法攻撃力が3％上昇する。"; }
-    else if (essence_name == Fix.BOOK_TRAINING) { return "本を装備をしている時、魔法攻撃力が3％上昇する。"; }
-    else if (essence_name == Fix.ORB_TRAINING) { return "水晶を装備をしている時、魔法攻撃力が3％上昇する。"; }
-    else if (essence_name == Fix.BOW_TRAINING) { return "弓を装備をしている時、物理攻撃力が3％上昇する。"; }
-    else if (essence_name == Fix.SHIELD_TRAINING) { return "防御姿勢時のダメージ軽減率が２％上昇する。"; }
-
-    else if (essence_name == Fix.STYLE_GLADIATOR_JP) { return "両手を使う武器の命中率が100%となる。"; }
-    else if (essence_name == Fix.STYLE_DEFENDER_JP) { return "「防衛」のコマンドを使用可能となる。また物理防御力が１％上昇する。"; }
-    else if (essence_name == Fix.STYLE_BRAVE_SEEKER_JP) { return "味方フィールドに「勇敢」のBUFFを形成する事が可能になる。"; }
-    else if (essence_name == Fix.STYLE_SWORD_DANCER_JP) { return "「二刀流」が使用可能となる。武器の命中率が上昇する。"; }
-    else if (essence_name == Fix.STYLE_ELEMENTAL_WIZARD_JP) { return "両手杖装備時、魔法攻撃力が３％上昇する。また、炎、氷、風、土の魔法耐性が１０％上昇する。"; }
-    else if (essence_name == Fix.STYLE_MYSTIC_ENHANCER_JP) { return "ターン制BUFFのターン永続数が＋１ターンされる。また、威力を示す要素が含まれるBUFFを付与する時、威力の値が５％上昇する。"; }
-    else if (essence_name == Fix.STYLE_AERIAL_HUNTER_JP) { return "弓装備時、命中率が100%になり、「ためる」コマンドを使用可能となる。"; }
-    else if (essence_name == Fix.STYLE_HIGH_PRIEST_JP) { return "回復魔法の威力が5%上昇する。"; }
-    else if (essence_name == Fix.STYLE_ROYAL_KNIGHT_JP) { return "【力】パラメタから物理防御への変換比率、【知】パラメタからの魔法防御への変換比率が0.2から0.3に上昇する。"; }
-    else if (essence_name == Fix.STYLE_VOICE_CALLER_JP) { return "「シャウト」コマンドが使用可能となる。"; }
-    else if (essence_name == Fix.STYLE_WAR_MASTER_JP) { return "「二刀流」が使用可能となる。武器による攻撃力が上昇する。"; }
-    else if (essence_name == Fix.STYLE_DRAGON_SLAYER_JP) { return ""; }
-    else if (essence_name == Fix.STYLE_BARD_RANGER_JP) { return "味方のフィールドBUFFから影響を受ける効果が増強される。"; }
-    else if (essence_name == Fix.STYLE_BATTLE_SAGE_JP) { return ""; }
-    else if (essence_name == Fix.STYLE_ORACLE_COMMANDER_JP) { return ""; }
-    else if (essence_name == Fix.STYLE_MAGE_BREAKER_JP) { return ""; }
-    else if (essence_name == Fix.STYLE_SHADOW_ROGUE_JP) { return ""; }
-    else if (essence_name == Fix.STYLE_DEMON_LOAD_JP) { return ""; }
-
-    else if (essence_name == Fix.MAGIC_SPELL_STANCE) { return "インスタントの行動が魔法の場合、インスタントゲージが５％残った状態で行動する。"; }
-    else if (essence_name == Fix.MIKIRI_SENSE) { return "相手から自分に対しての命中率を１０％減らす。"; }
-    else if (essence_name == Fix.RUSH_STANCE) { return "１回の行動で連続してダメージを伴う攻撃を実行した場合、２回目またはそれ以降の威力が１０％上昇する。"; }
-    else if (essence_name == Fix.TWIN_OFFENSIVE_STANCE) { return "二刀流の装備形態の場合、物理ダメージがそれぞれ２％上昇する。"; }
-
-    return String.Empty;
-  }
-
-  public List<string> GetEssenceTreeIconList(int level)
-  {
-    List<string> list = new List<string>();
-    if (this.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      list.Add(Fix.STRAIGHT_SMASH);
-      list.Add(Fix.TRUE_SIGHT);
-      list.Add(Fix.SHIELD_BASH);
-      list.Add(Fix.DEFENSE);
-    }
-    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      list.Add(Fix.ICE_NEEDLE);
-      list.Add(Fix.SHADOW_BLAST);
-      list.Add(Fix.DISPEL_MAGIC);
-      list.Add(Fix.MAGIC_ATTACK);
-    }
-    else if (this.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      list.Add(Fix.FRESH_HEAL);
-      list.Add(Fix.HUNTER_SHOT);
-      list.Add(Fix.AURA_OF_POWER);
-      list.Add("RunAwayButton"); // todo アイコンは改めて対応。
-    }
-    else if (this.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      list.Add(Fix.LEG_STRIKE);
-      list.Add(Fix.FIRE_BALL);
-      list.Add(Fix.HEART_OF_LIFE);
-      list.Add(Fix.STAY);
-    }
-    return list;
   }
 
   public bool EssenceTreeMaxCap(string essence_name)
@@ -5305,11 +4531,6 @@ public partial class Character : MonoBehaviour
       this.SoulFragment--;
       this.HunterShot++;
     }
-    else if (essence_name == Fix.AURA_OF_POWER_JP + "強化 Ｉ")
-    {
-      this.SoulFragment--;
-      this.AuraOfPower++;
-    }
     else if (essence_name == "見切りのセンス Ｉ")
     {
       this.SoulFragment--;
@@ -5324,11 +4545,6 @@ public partial class Character : MonoBehaviour
     {
       this.SoulFragment--;
       this.LegStrike++;
-    }
-    else if (essence_name == Fix.HEART_OF_LIFE_JP + "強化 Ｉ")
-    {
-      this.SoulFragment--;
-      this.HeartOfLife++;
     }
     else if (essence_name == "ラッシュの心構え Ｉ")
     {
@@ -12038,7 +11254,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        result = Fix.FIRE_BALL;
+        result = Fix.ICE_NEEDLE;
         //if (AP.Math.RandomInteger(2) == 0)
         //{
         //  if (this.IsStanceOfTheIai == false)

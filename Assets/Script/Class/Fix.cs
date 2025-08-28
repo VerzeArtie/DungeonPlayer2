@@ -131,8 +131,6 @@ public static partial class Fix
     Ice,
     HolyLight,
     DarkMagic,
-    Wind,
-    Earth,
     Physical, // 物理
     PhysicalMixed, // 物理(KineticSmashなど)
     Colorless, // 無属性
@@ -373,22 +371,16 @@ public static partial class Fix
   public const string EFFECT_POWERUP_ICE = "UP Ice";
   public const string EFFECT_POWERUP_LIGHT = "UP Light";
   public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
-  public const string EFFECT_POWERUP_WIND = "UP Wind";
-  public const string EFFECT_POWERUP_EARTH = "UP Earth";
 
   public const string EFFECT_POWERDOWN_FIRE = "DOWN Fire";
   public const string EFFECT_POWERDOWN_ICE = "DOWN Ice";
   public const string EFFECT_POWERDOWN_LIGHT = "DOWN Light";
   public const string EFFECT_POWERDOWN_SHADOW = "DOWN Shadow";
-  public const string EFFECT_POWERDOWN_WIND = "DOWN Wind";
-  public const string EFFECT_POWERDOWN_EARTH = "DOWN Earth";
 
   public const string EFFECT_RESIST_FIRE_UP = "ResistFireUp";
   public const string EFFECT_RESIST_ICE_UP = "ResistIceUp";
   public const string EFFECT_RESIST_LIGHT_UP = "ResistLightUp";
   public const string EFFECT_RESIST_SHADOW_UP = "ResistShadowUp";
-  public const string EFFECT_RESIST_WIND_UP = "ResistWindUp";
-  public const string EFFECT_RESIST_EARTH_UP = "ResistEarthUp";
 
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_POISON_JP = "猛毒";
@@ -1322,17 +1314,7 @@ public static partial class Fix
   public const string ATTRIBUTE_NONE = "その他"; // 【なし】と書くと万が一GUI表示した時不適切なので、【その他】としておく。
   #endregion
 
-  #region "クラス属性ラベル(JP)"
-  public const string CLASS_WARRIOR = "Warrior";
-  public const string CLASS_WARRIOR_JP = "戦士";
-  public const string CLASS_ARCHERY = "Archery";
-  public const string CLASS_ARCHERY_JP = "弓術";
-  public const string CLASS_MARTIAL_ARTS = "MartialArts";
-  public const string CLASS_MARTIAL_ARTS_JP = "格闘";
-  public const string CLASS_COMBAT_TRICK_JP = "計略";
-  public const string CLASS_WONDER_HERMIT_JP = "仙術";
-  public const string CLASS_GUARDIAN = "Guardian";
-  public const string CLASS_GUARDIAN_JP = "護衛";
+  #region "クラス属性ラベル(EN/JP)"
   public const string CLASS_FIRE = "Fire";
   public const string CLASS_FIRE_JP = "炎";
   public const string CLASS_ICE = "Ice";
@@ -1341,14 +1323,18 @@ public static partial class Fix
   public const string CLASS_HOLYLIGHT_JP = "聖";
   public const string CLASS_DARK_MAGIC = "DarkMagic";
   public const string CLASS_DARK_MAGIC_JP = "闇";
-  public const string CLASS_WIND = "Wind";
-  public const string CLASS_WIND_JP = "風";
-  public const string CLASS_EARTH = "Earth";
-  public const string CLASS_EARTH_JP = "土";
   public const string CLASS_FORCE = "Force";
   public const string CLASS_FORCE_JP = "理";
   public const string CLASS_VOIDCHANT = "VoidChant";
   public const string CLASS_VOIDCHANT_JP = "空唱";
+  public const string CLASS_WARRIOR = "Warrior";
+  public const string CLASS_WARRIOR_JP = "戦士";
+  public const string CLASS_GUARDIAN = "Guardian";
+  public const string CLASS_GUARDIAN_JP = "護衛";
+  public const string CLASS_MARTIAL_ARTS = "MartialArts";
+  public const string CLASS_MARTIAL_ARTS_JP = "格闘";
+  public const string CLASS_ARCHERY = "Archery";
+  public const string CLASS_ARCHERY_JP = "弓術";
   public const string CLASS_TRUTH = "Truth";
   public const string CLASS_TRUTH_JP = "心眼";
   public const string CLASS_MINDFULNESS = "Mindfulness";
@@ -1441,34 +1427,23 @@ public static partial class Fix
   public const string FRESH_HEAL_JP = "フレッシュ・ヒール";
   public const string SHADOW_BLAST = "Shadow Blast";
   public const string SHADOW_BLAST_JP = "シャドウ・ブラスト";
-  public const string AIR_CUTTER = "Air Cutter";
-  public const string AIR_CUTTER_JP = "エア・カッター";
-  public const string ROCK_SLAM = "Rock Slam";
-  public const string ROCK_SLAM_JP = "ロック・スラム";
-  public const string STRAIGHT_SMASH = "Straight Smash";
-  public const string STRAIGHT_SMASH_JP = "ストレート・スマッシュ";
-  public const string HUNTER_SHOT = "Hunter Shot";
-  public const string HUNTER_SHOT_JP = "ハンター・ショット";
-  public const string LEG_STRIKE = "Leg Strike";
-  public const string LEG_STRIKE_JP = "レッグ・ストライク";
-  public const string VENOM_SLASH = "Venom Slash";
-  public const string VENOM_SLASH_JP = "ヴェノム・スラッシュ";
-  public const string ENERGY_BOLT = "Energy Bolt";
-  public const string ENERGY_BOLT_JP = "エナジー・ボルト";
-  public const string SHIELD_BASH = "Shield Bash";
-  public const string SHIELD_BASH_JP = "シールド・バッシュ";
-  public const string AURA_OF_POWER = "Aura of Power";
-  public const string AURA_OF_POWER_JP = "オーラ・オブ・パワー";
-  public const string DISPEL_MAGIC = "Dispel Magic";
-  public const string DISPEL_MAGIC_JP = "ディスペル・マジック";
-  public const string HEART_OF_LIFE = "Heart of Life";
-  public const string HEART_OF_LIFE_JP = "ハート・オブ・ライフ";
-  public const string DARKNESS_CIRCLE = "Darkness Circle";
-  public const string DARKNESS_CIRCLE_JP = "ダークネス・サークル";
-  public const string TRUE_SIGHT = "True Sight";
-  public const string TRUE_SIGHT_JP = "トゥルー・サイト";
   public const string ORACLE_COMMAND = "Oracle Command";
   public const string ORACLE_COMMAND_JP = "オラクル・コマンド";
+  public const string ENERGY_BOLT = "Energy Bolt";
+  public const string ENERGY_BOLT_JP = "エナジー・ボルト";
+
+  public const string STRAIGHT_SMASH = "Straight Smash";
+  public const string STRAIGHT_SMASH_JP = "ストレート・スマッシュ";
+  public const string SHIELD_BASH = "Shield Bash";
+  public const string SHIELD_BASH_JP = "シールド・バッシュ";
+  public const string LEG_STRIKE = "Leg Strike";
+  public const string LEG_STRIKE_JP = "レッグ・ストライク";
+  public const string HUNTER_SHOT = "Hunter Shot";
+  public const string HUNTER_SHOT_JP = "ハンター・ショット";
+  public const string TRUE_SIGHT = "True Sight";
+  public const string TRUE_SIGHT_JP = "トゥルー・サイト";
+  public const string DISPEL_MAGIC = "Dispel Magic";
+  public const string DISPEL_MAGIC_JP = "ディスペル・マジック";
 
   // Devle II
   public const string FLAME_BLADE = "Flame Blade";
@@ -1479,28 +1454,19 @@ public static partial class Fix
   public const string DIVINE_CIRCLE_JP = "ディバイン・サークル";
   public const string BLOOD_SIGN = "Blood Sign";
   public const string BLOOD_SIGN_JP = "ブラッド・サイン";
-  public const string STORM_ARMOR = "Storm Armor";
-  public const string STORM_ARMOR_JP = "ストーム・アーマー";
-  public const string SOLID_WALL = "Solid Wall";
-  public const string SOLID_WALL_JP = "ソリッド・ウォール";
-  public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
-  public const string STANCE_OF_THE_BLADE_JP = "スタンス・オブ・ブレイド";
-  public const string MULTIPLE_SHOT = "Multiple Shot";
-  public const string MULTIPLE_SHOT_JP = "マルチプル・ショット";
-  public const string SPEED_STEP = "Speed Step";
-  public const string SPEED_STEP_JP = "スピード・ステップ";
-  public const string INVISIBLE_BIND = "Invisible Bind";
-  public const string INVISIBLE_BIND_JP = "インヴィジブル・バインド";
-  public const string IDEOLOGY_OF_SOPHISTICATION = "Ideology of Sophistication";
-  public const string IDEOLOGY_OF_SOPHISTICATION_JP = "イデオロギー・洗練";
-  public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
-  public const string STANCE_OF_THE_GUARD_JP = "スタンス・オブ・ガード";
-  public const string FLASH_COUNTER = "Flash Counter";
-  public const string FLASH_COUNTER_JP = "フラッシュ・カウンター";
   public const string FORTUNE_SPIRIT = "Fortune Spirit";
   public const string FORTUNE_SPIRIT_JP = "フォーチュン・スピリット";
-  public const string STANCE_OF_THE_SHADE = "Stance of the Shade";
-  public const string STANCE_OF_THE_SHADE_JP = "スタンス・オブ・シェイド";
+  public const string FLASH_COUNTER = "Flash Counter";
+  public const string FLASH_COUNTER_JP = "フラッシュ・カウンター";
+
+  public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
+  public const string STANCE_OF_THE_BLADE_JP = "スタンス・オブ・ブレイド";
+  public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
+  public const string STANCE_OF_THE_GUARD_JP = "スタンス・オブ・ガード";
+  public const string SPEED_STEP = "Speed Step";
+  public const string SPEED_STEP_JP = "スピード・ステップ";
+  public const string MULTIPLE_SHOT = "Multiple Shot";
+  public const string MULTIPLE_SHOT_JP = "マルチプル・ショット";
   public const string LEYLINE_SCHEMA = "Leyline Schema";
   public const string LEYLINE_SCHEMA_JP = "レイライン・スキーマ";
   public const string SPIRITUAL_REST = "Spiritual Rest";
@@ -1515,32 +1481,21 @@ public static partial class Fix
   public const string HOLY_BREATH_JP = "ホーリー・ブレス";
   public const string BLACK_CONTRACT = "Black Contract";
   public const string BLACK_CONTRACT_JP = "ブラック・コントラクト";
-  public const string SONIC_PULSE = "Sonic Pulse";
-  public const string SONIC_PULSE_JP = "ソニック・パルス";
-  public const string LAND_SHATTER = "Land Shatter";
-  public const string LAND_SHATTER_JP = "ランド・シャッター";
-  public const string DOUBLE_SLASH = "Double Slash";
-  public const string DOUBLE_SLASH_JP = "ダブル・スラッシュ";
-  public const string EYE_OF_THE_ISSHIN = "Eye of the Isshin";
-  public const string EYE_OF_THE_ISSHIN_JP = "一心の眼";
-  public const string BONE_CRUSH = "Bone Crush";
-  public const string BONE_CRUSH_JP = "ボーン・クラッシュ";
-  public const string IRREGULAR_STEP = "Irregular Step";
-  public const string IRREGULAR_STEP_JP = "イレギュラー・ステップ";
-  public const string SIGIL_OF_THE_PENDING = "Sigil of the Pending";
-  public const string SIGIL_OF_THE_PENDING_JP = "シギル・オブ・ペンディング";
-  public const string CONCUSSIVE_HIT = "Concussive Hit";
-  public const string CONCUSSIVE_HIT_JP = "コンカッシヴ・ヒット";
-  public const string AETHER_DRIVE = "Aether Drive";
-  public const string AETHER_DRIVE_JP = "エーテル・ドライブ";
-  public const string MUTE_IMPULSE = "Mute Impulse";
-  public const string MUTE_IMPULSE_JP = "ミュート・インパルス";
-  public const string VOICE_OF_VIGOR = "Voice of Vigor";
-  public const string VOICE_OF_VIGOR_JP = "ヴォイス・オブ・ヴィゴー";
-  public const string KILLING_WAVE = "Killing Wave";
-  public const string KILLING_WAVE_JP = "キリング・ウェイブ";
   public const string WORD_OF_POWER = "Word Of Power";
   public const string WORD_OF_POWER_JP = "ワード・オブ・パワー";
+  public const string SIGIL_OF_THE_PENDING = "Sigil of the Pending";
+  public const string SIGIL_OF_THE_PENDING_JP = "シギル・オブ・ペンディング";
+
+  public const string DOUBLE_SLASH = "Double Slash";
+  public const string DOUBLE_SLASH_JP = "ダブル・スラッシュ";
+  public const string CONCUSSIVE_HIT = "Concussive Hit";
+  public const string CONCUSSIVE_HIT_JP = "コンカッシヴ・ヒット";
+  public const string BONE_CRUSH = "Bone Crush";
+  public const string BONE_CRUSH_JP = "ボーン・クラッシュ";
+  public const string EYE_OF_THE_ISSHIN = "Eye of the Isshin";
+  public const string EYE_OF_THE_ISSHIN_JP = "一心の眼";
+  public const string VOICE_OF_VIGOR = "Voice of Vigor";
+  public const string VOICE_OF_VIGOR_JP = "ヴォイス・オブ・ヴィゴー";
   public const string UNSEEN_AID = "Unseen Aid";
   public const string UNSEEN_AID_JP = "アンシーン・エイド";
 
@@ -1555,32 +1510,21 @@ public static partial class Fix
   public const string CURSED_EVANGILE_JP = "カーズド・エヴァンジール";
   public const string GALE_WIND = "Gale Wind";
   public const string GALE_WIND_JP = "ゲイル・ウィンド";
-  public const string SAND_BURST = "Sand Burst";
-  public const string SAND_BURST_JP = "サンド・バースト";
-  public const string IRON_BUSTER = "Iron Buster";
-  public const string IRON_BUSTER_JP = "アイアン・バスター";
-  public const string PENETRATION_ARROW = "Penetration Arrow";
-  public const string PENETRATION_ARROW_JP = "ペネトレーション・アロー";
-  public const string DEADLY_DRIVE = "Deadly Drive";
-  public const string DEADLY_DRIVE_JP = "デッドリー・ドライブ";
   public const string PHANTOM_OBORO = "Phantom Oboro";
   public const string PHANTOM_OBORO_JP = "ファントム・朧";
+
+  public const string IRON_BUSTER = "Iron Buster";
+  public const string IRON_BUSTER_JP = "アイアン・バスター";
   public const string DOMINATION_FIELD = "Domination Field";
   public const string DOMINATION_FIELD_JP = "ドミネーション・フィールド";
-  //public const string CIRCLE_OF_THE_VIGOR = "Circle of the Vigor";
-  //public const string CIRCLE_OF_THE_VIGOR_JP = "サークル・オブ・ヴィゴー";
-  public const string CIRCLE_OF_SERENITY = "Circle of Serenity";
-  public const string CIRCLE_OF_SERENITY_JP = "サークル・オブ・セレニティ";
-  public const string DETACHMENT_FAULT = "Detachment Fault";
-  public const string DETACHMENT_FAULT_JP = "デタッチメント・フォールト";
-  public const string AURA_BURN = "Aura Burn";
-  public const string AURA_BURN_JP = "オーラ・バーン";
-  public const string LEVEL_EATER = "Level Eater";
-  public const string LEVEL_EATER_JP = "レベル・イーター";
+  public const string DEADLY_DRIVE = "Deadly Drive";
+  public const string DEADLY_DRIVE_JP = "デッドリー・ドライブ";
+  public const string PENETRATION_ARROW = "Penetration Arrow";
+  public const string PENETRATION_ARROW_JP = "ペネトレーション・アロー";
   public const string WILL_AWAKENING = "Will Awakening";
   public const string WILL_AWAKENING_JP = "ウィル・アウェイケニング";
-  public const string EXACT_TIME = "Exact Time";
-  public const string EXACT_TIME_JP = "イグザクト・タイム";
+  public const string CIRCLE_OF_SERENITY = "Circle of Serenity";
+  public const string CIRCLE_OF_SERENITY_JP = "サークル・オブ・セレニティ";
 
   // Delve V
   public const string FLAME_STRIKE = "Flame Strike";
@@ -1591,33 +1535,23 @@ public static partial class Fix
   public const string SHINING_HEAL_JP = "シャイニング・ヒール";
   public const string CIRCLE_OF_THE_DESPAIR = "Circle of the Despair";
   public const string CIRCLE_OF_THE_DESPAIR_JP = "サークル・オブ・ディスペア";
-  public const string ERRATIC_THUNDER = "Erratic Thunder";
-  public const string ERRATIC_THUNDER_JP = "エラティック・サンダー";
-  public const string PETRIFICATION = "Petrification";
-  public const string PETRIFICATION_JP = "ペトリフィケーション";
-  public const string RAGING_STORM = "Raging Storm";
-  public const string RAGING_STORM_JP = "レイジング・ストーム";
-  public const string PRECISION_STRIKE = "Precision Strike";
-  public const string PRECISION_STRIKE_JP = "プレシジョン・ストライク";
-  public const string UNINTENTIONAL_HIT = "Unintentional Hit";
-  public const string UNINTENTIONAL_HIT_JP = "アンインテンショナル・ヒット";
-  public const string COUNTER_DISALLOW = "Counter Disallow";
-  public const string COUNTER_DISALLOW_JP = "カウンター・ディスアロウ";
-  public const string SIGIL_OF_THE_HOMURA = "Sigil of the Homura";
-  public const string SIGIL_OF_THE_HOMURA_JP = "シギル・オブ・ホムラ";
-  public const string REVOLUTION_AURA = "Revolution Aura";
-  public const string REVOLUTION_AURA_JP = "レボリューション・オーラ";
-  public const string OATH_OF_AEGIS = "Oath of Aegis";
-  public const string OATH_OF_AEGIS_JP = "オース・オブ・イージス";
-  public const string EVERFLOW_MIND = "Everflow Mind";
-  public const string EVERFLOW_MIND_JP = "エバーフロー・マインド";
-  public const string MIND_FORCE = "Mind Force";
-  public const string MIND_FORCE_JP = "精神の波動";
-  public const string INNER_INSPIRATION = "Inner Inspiration";
-  public const string INNER_INSPIRATION_JP = "インナー・インスピレーション";
-
   public const string SEVENTH_PRINCIPLE = "Seventh Principle";
   public const string SEVENTH_PRINCIPLE_JP = "第七原理";
+  public const string COUNTER_DISALLOW = "Counter Disallow";
+  public const string COUNTER_DISALLOW_JP = "カウンター・ディスアロウ";
+
+  public const string RAGING_STORM = "Raging Storm";
+  public const string RAGING_STORM_JP = "レイジング・ストーム";
+  public const string HARDEST_PARRY = "Hardest Parry";
+  public const string HARDEST_PARRY_JP = "ハーデスト・パリィ";
+  public const string UNINTENTIONAL_HIT = "Unintentional Hit";
+  public const string UNINTENTIONAL_HIT_JP = "アンインテンショナル・ヒット";
+  public const string PRECISION_STRIKE = "Precision Strike";
+  public const string PRECISION_STRIKE_JP = "プレシジョン・ストライク";
+  public const string EVERFLOW_MIND = "Everflow Mind";
+  public const string EVERFLOW_MIND_JP = "エバーフロー・マインド";
+  public const string INNER_INSPIRATION = "Inner Inspiration";
+  public const string INNER_INSPIRATION_JP = "インナー・インスピレーション";
 
   // Delve VI
   public const string CIRCLE_OF_THE_IGNITE = "Circle of the Ignite";
@@ -1628,30 +1562,19 @@ public static partial class Fix
   public const string VALKYRIE_BLADE_JP = "ヴァルキリー・ブレイド";
   public const string THE_DARK_INTENSITY = "The Dark Intensity";
   public const string THE_DARK_INTENSITY_JP = "ザ・ダーク・インテンシティ";
-  public const string CYCLONE_FIELD = "Cyclone Field";
-  public const string CYCLONE_FIELD_JP = "サイクロン・フィールド";
-  public const string LIFE_GRACE = "Life Grace";
-  public const string LIFE_GRACE_JP = "ライフ・グレイス";
-  public const string STANCE_OF_THE_IAI = "Stance of the Iai";
-  public const string STANCE_OF_THE_IAI_JP = "スタンス・オブ・イアイ";
-  public const string ETERNAL_CONCENTRATION = "Eternal Concentration";
-  public const string ETERNAL_CONCENTRATION_JP = "エターナル・コンセントレーション";
-  public const string STANCE_OF_MUIN = "Stance of Muin";
-  public const string STANCE_OF_MUIN_JP = "無音の構え";
-  public const string DIRTY_WISDOM = "Dirty Wisdom";
-  public const string DIRTY_WISDOM_JP = "ダーティ・ウィズダム";
-  public const string WORD_OF_PROPHECY = "Word of Prophecy";
-  public const string WORD_OF_PROPHECY_JP = "ワード・オブ・プロフェシー";
-  public const string WILD_SWING = "Wild Swing";
-  public const string WILD_SWING_JP = "ワイルド・スウィング";
-  public const string BRILLIANT_FORM = "Brilliant Form";
-  public const string BRILLIANT_FORM_JP = "ブリリアント・フォーム";
   public const string FUTURE_VISION = "Future Vision";
   public const string FUTURE_VISION_JP = "フューチャー・ビジョン";
-  public const string SOUL_SHOUT = "Soul Shout";
-  public const string SOUL_SHOUT_JP = "ソウル・シャウト";
-  public const string AVENGER_PROMISE = "Avenger Promise";
-  public const string AVENGER_PROMISE_JP = "アヴェンジャー・プロミス";
+  public const string DETACHMENT_FAULT = "Detachment Fault";
+  public const string DETACHMENT_FAULT_JP = "デタッチメント・フォールト";
+
+  public const string STANCE_OF_THE_IAI = "Stance of the Iai";
+  public const string STANCE_OF_THE_IAI_JP = "スタンス・オブ・イアイ";
+  public const string ONE_IMMUNITY = "One Immunity";
+  public const string ONE_IMMUNITY_JP = "ワン・イムーニティ";
+  public const string STANCE_OF_MUIN = "Stance of Muin";
+  public const string STANCE_OF_MUIN_JP = "無音の構え";
+  public const string ETERNAL_CONCENTRATION = "Eternal Concentration";
+  public const string ETERNAL_CONCENTRATION_JP = "エターナル・コンセントレーション";
   public const string SIGIL_OF_THE_FAITH = "Sigil of the Faith";
   public const string SIGIL_OF_THE_FAITH_JP = "シギル・オブ・フェイス";
   public const string ZERO_IMMUNITY = "Zero Immunity";
@@ -1666,34 +1589,23 @@ public static partial class Fix
   public const string RESURRECTION_JP = "リザレクション";
   public const string DEATH_SCYTHE = "Death Scythe";
   public const string DEATH_SCYTHE_JP = "デス・サイズ";
-  public const string LIGHTNING_SQUALL = "Lightning Squall";
-  public const string LIGHTNING_SQUALL_JP = "ライトニング・スコール";
-  public const string EARTH_QUAKE = "Earth Quake";
-  public const string EARTH_QUAKE_JP = "アース・クェイク";
-  public const string KINETIC_SMASH = "Kinetic Smash";
-  public const string KINETIC_SMASH_JP = "キネティック・スマッシュ";
-  public const string PIERCING_ARROW = "Piercing Arrow";
-  public const string PIERCING_ARROW_JP = "ピアッシング・アロー";
-  public const string CARNAGE_RUSH = "Carnage Rush";
-  public const string CARNAGE_RUSH_JP = "カルネージ・ラッシュ";
-  public const string AMBIDEXTERITY = "Ambidexterity";
-  public const string AMBIDEXTERITY_JP = "アンビデキシタリティ";
-  public const string TRANSCENDENCE_REACHED = "Transcendence Reached";
-  public const string TRANSCENDENCE_REACHED_JP = "トランッセンデンス・リーチ";
-  public const string ONE_IMMUNITY = "One Immunity";
-  public const string ONE_IMMUNITY_JP = "ワン・イムーニティ";
-  public const string CATASTROPHE = "Catastrophe";
-  public const string CATASTROPHE_JP = "カタストロフィ";
-  public const string ESSENCE_OVERFLOW = "Essence Overflow";
-  public const string ESSENCE_OVERFLOW_JP = "エッセンス・オーバーフロー";
-  public const string DEMON_CONTRACT = "Demon Contract";
-  public const string DEMON_CONTRACT_JP = "デーモン・コントラクト";
-  public const string STANCE_OF_THE_KOKOROE = "Stance of the Kokoroe";
-  public const string STANCE_OF_THE_KOKOROE_JP = "スタンス・オブ・心得";
-  public const string TIME_STOP = "Time Stop";
-  public const string TIME_STOP_JP = "タイム・ストップ";
   public const string GENESIS = "Genesis";
   public const string GENESIS_JP = "ジェネシス";
+  public const string TIME_STOP = "Time Stop";
+  public const string TIME_STOP_JP = "タイム・ストップ";
+
+  public const string KINETIC_SMASH = "Kinetic Smash";
+  public const string KINETIC_SMASH_JP = "キネティック・スマッシュ";
+  public const string CATASTROPHE = "Catastrophe";
+  public const string CATASTROPHE_JP = "カタストロフィ";
+  public const string CARNAGE_RUSH = "Carnage Rush";
+  public const string CARNAGE_RUSH_JP = "カルネージ・ラッシュ";
+  public const string PIERCING_ARROW = "Piercing Arrow";
+  public const string PIERCING_ARROW_JP = "ピアッシング・アロー";
+  public const string STANCE_OF_THE_KOKOROE = "Stance of the Kokoroe";
+  public const string STANCE_OF_THE_KOKOROE_JP = "スタンス・オブ・心得";
+  public const string TRANSCENDENCE_REACHED = "Transcendence Reached";
+  public const string TRANSCENDENCE_REACHED_JP = "トランッセンデンス・リーチ";
 
   #region "【複合魔法】"
   // 聖＋闇 [完全逆]
@@ -1827,8 +1739,8 @@ public static partial class Fix
   // 戦士＋無心
   public const string FORMLESS_STYLE = "Formless Style";
   public const string FORMLESS_STYLE_JP = "フォームレス・スタイル";
-  public const string HARDEST_PARRY = "Hardest Parry";
-  public const string HARDEST_PARRY_JP = "ハーデスト・パリィ";
+  public const string SMOOTHING_MOVE = "Smoothing Move";
+  public const string SMOOTHING_MOVE_JP = "スムージング・ムーヴ";
   // 護衛＋格闘
   public const string TACTICAL_VISION = "Tactical Vision";
   public const string TACTICAL_VISION_JP = "タクティカル・ビジョン";
@@ -1900,9 +1812,6 @@ public static partial class Fix
   //public const string WATER_SPLASH = "Water Splash";
   //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
   //public const string TRANQUILITY = "Tranquility";
-
-  public const string DARK_AURA = "Dark Aura";
-  public const string DARK_AURA_JP = "ダーク・オーラ";
 
   public const string COUNTER_ATTACK = "Counter Attack";
   public const string COUNTER_ATTACK_JP = "カウンター・アタック";

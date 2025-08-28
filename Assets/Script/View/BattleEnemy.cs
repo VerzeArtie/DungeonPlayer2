@@ -147,11 +147,6 @@ public partial class BattleEnemy : MotherBase
   protected const int ANIMATION_TIME_HALF = 20;
   protected const int ANIMATION_TIME_SHORT = 10;
 
-  protected bool NowIrregularStepMode = false;
-  protected Character NowIrregularStepPlayer = null;
-  protected Character NowIrregularStepTarget = null;
-  protected double NowIrregularStepCounter = 0;
-
   protected bool NowSeaStripeMode = false;
   protected Character NowSeaStripePlayer = null;
   protected Character NowSeaStripeTarget = null;
@@ -934,55 +929,6 @@ public partial class BattleEnemy : MotherBase
     // メインコマンドボタンの割当を設定する。
     if (groupActionButton != null)
     {
-      //character.ActionCommandList.Clear();
-      //AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
-      //AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
-      //AddActionButton(character, groupActionButton, Fix.DEFENSE);
-
-      //// todo
-      //// Delve I
-      //if (character.FireBall > 0) { AddActionButton(character, groupActionButton, Fix.FIRE_BALL); }
-      //if (character.IceNeedle > 0) { AddActionButton(character, groupActionButton, Fix.ICE_NEEDLE); }
-      //if (character.FreshHeal > 0) { AddActionButton(character, groupActionButton, Fix.FRESH_HEAL); }
-      //if (character.ShadowBlast > 0) { AddActionButton(character, groupActionButton, Fix.SHADOW_BLAST); }
-      //if (character.AirCutter > 0) { AddActionButton(character, groupActionButton, Fix.AIR_CUTTER); }
-      //if (character.RockSlam > 0) { AddActionButton(character, groupActionButton, Fix.ROCK_SLAM); }
-      //if (character.StraightSmash > 0) { AddActionButton(character, groupActionButton, Fix.STRAIGHT_SMASH); }
-      //if (character.HunterShot > 0) { AddActionButton(character, groupActionButton, Fix.HUNTER_SHOT); }
-      //if (character.LegStrike > 0) { AddActionButton(character, groupActionButton, Fix.LEG_STRIKE); }
-      //if (character.VenomSlash > 0) { AddActionButton(character, groupActionButton, Fix.VENOM_SLASH); }
-      //if (character.EnergyBolt > 0) { AddActionButton(character, groupActionButton, Fix.ENERGY_BOLT); }
-      //if (character.ShieldBash > 0) { AddActionButton(character, groupActionButton, Fix.SHIELD_BASH); }
-      //if (character.AuraOfPower > 0) { AddActionButton(character, groupActionButton, Fix.AURA_OF_POWER); }
-      //if (character.DispelMagic > 0) { AddActionButton(character, groupActionButton, Fix.DISPEL_MAGIC); }
-      //if (character.TrueSight > 0) { AddActionButton(character, groupActionButton, Fix.TRUE_SIGHT); }
-      //if (character.HeartOfLife > 0) { AddActionButton(character, groupActionButton, Fix.HEART_OF_LIFE); }
-      //if (character.DarkAura > 0) { AddActionButton(character, groupActionButton, Fix.DARK_AURA); }
-      //if (character.OracleCommand > 0) { AddActionButton(character, groupActionButton, Fix.ORACLE_COMMAND); }
-      //if (character.FlameBlade > 0) { AddActionButton(character, groupActionButton, Fix.FLAME_BLADE); }
-      //if (character.PurePurification > 0) { AddActionButton(character, groupActionButton, Fix.PURE_PURIFICATION); }
-      //if (character.DivineCircle> 0) { AddActionButton(character, groupActionButton, Fix.DIVINE_CIRCLE); }
-      //if (character.BloodSign> 0) { AddActionButton(character, groupActionButton, Fix.BLOOD_SIGN); }
-      //if (character.StanceOfTheBlade > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_BLADE); }
-      //if (character.StanceOfTheGuard > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_GUARD); }
-      //if (character.MultipleShot > 0) { AddActionButton(character, groupActionButton, Fix.MULTIPLE_SHOT); }
-      //if (character.InvisibleBind > 0) { AddActionButton(character, groupActionButton, Fix.INVISIBLE_BIND); }
-      //if (character.SkyShield > 0) { AddActionButton(character, groupActionButton, Fix.SKY_SHIELD); }
-      //if (character.FlashCounter > 0) { AddActionButton(character, groupActionButton, Fix.FLASH_COUNTER); }
-      //if (character.FortuneSpirit > 0) { AddActionButton(character, groupActionButton, Fix.FORTUNE_SPIRIT); }
-      //if (character.SpiritualRest > 0) { AddActionButton(character, groupActionButton, Fix.SPIRITUAL_REST); }
-      //if (character.MeteorBullet > 0) { AddActionButton(character, groupActionButton, Fix.METEOR_BULLET); }
-      //if (character.BlueBullet > 0) { AddActionButton(character, groupActionButton, Fix.BLUE_BULLET); }
-      //if (character.HolyBreath > 0) { AddActionButton(character, groupActionButton, Fix.HOLY_BREATH); }
-      //if (character.BlackContract > 0) { AddActionButton(character, groupActionButton, Fix.BLACK_CONTRACT); }
-      //if (character.DoubleSlash > 0) { AddActionButton(character, groupActionButton, Fix.DOUBLE_SLASH); }
-      //if (character.ConcussiveHit > 0) { AddActionButton(character, groupActionButton, Fix.CONCUSSIVE_HIT); }
-      //if (character.IrregularStep > 0) { AddActionButton(character, groupActionButton, Fix.IRREGULAR_STEP); }
-      //if (character.StormArmor > 0) { AddActionButton(character, groupActionButton, Fix.STORM_ARMOR); }
-      //if (character.MuteImpulse > 0) { AddActionButton(character, groupActionButton, Fix.MUTE_IMPULSE); }
-      //if (character.VoiceOfVigor > 0) { AddActionButton(character, groupActionButton, Fix.VOICE_OF_VIGOR); }
-      //if (character.UnseenAid > 0) { AddActionButton(character, groupActionButton, Fix.UNSEEN_AID); }
-
       // キャラクター達が保持している情報に基づいてアクションコマンドを登録。
       List<string> mainActionList = new List<string>();
       List<string> basicActionList = character.GetAvailableBasicAction();
@@ -1082,12 +1028,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    // イレギュラー・ステップを実行する。この間、時間を進めずイレギュラー・ステップのゲージ進行を行う。
-    if (NowIrregularStepMode)
-    {
-      ExecPlayIrregularStep();
-      return;
-    }
+    // 時間を進めず、特定イベントによるゲージ進行を行う。
     if (NowSeaStripeMode)
     {
       ExecPlaySeaStripe();
@@ -3015,14 +2956,6 @@ public partial class BattleEnemy : MotherBase
         ExecShadowBlast(player, target, critical);
         break;
 
-      case Fix.AIR_CUTTER:
-        ExecAirCutter(player, target, critical);
-        break;
-
-      case Fix.ROCK_SLAM:
-        ExecRockSlum(player, target, critical);
-        break;
-
       case Fix.STRAIGHT_SMASH:
         ExecStraightSmash(player, target, critical);
         break;
@@ -3035,10 +2968,6 @@ public partial class BattleEnemy : MotherBase
         ExecLegStrike(player, target, critical);
         break;
 
-      case Fix.VENOM_SLASH:
-        ExecVenomSlash(player, target, critical);
-        break;
-
       case Fix.ENERGY_BOLT:
         ExecEnergyBolt(player, target, critical);
         break;
@@ -3047,24 +2976,12 @@ public partial class BattleEnemy : MotherBase
         ExecShieldBash(player, target, critical);
         break;
 
-      case Fix.AURA_OF_POWER:
-        ExecAuraOfPower(player, target);
-        break;
-
       case Fix.DISPEL_MAGIC:
         ExecDispelMagic(player, target);
         break;
 
       case Fix.TRUE_SIGHT:
         ExecTrueSight(player, target);
-        break;
-
-      case Fix.HEART_OF_LIFE:
-        ExecHeartOfLife(player, target);
-        break;
-
-      case Fix.DARKNESS_CIRCLE:
-        ExecDarknessCircle(player, target, target.objFieldPanel);
         break;
 
       case Fix.ORACLE_COMMAND:
@@ -3088,10 +3005,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.DIVINE_CIRCLE:
         ExecDivineCircle(player, target, player.objFieldPanel);
-        break;
-
-      case Fix.SKY_SHIELD:
-        ExecSkyShield(player, target);
         break;
 
       case Fix.COUNTER_ATTACK:
@@ -3121,10 +3034,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.LEYLINE_SCHEMA:
         ExecLeylineSchema(player, player.objFieldPanel);
-        break;
-
-      case Fix.INVISIBLE_BIND:
-        ExecInvisibleBind(player, target, critical);
         break;
 
       case Fix.FORTUNE_SPIRIT:
@@ -3394,45 +3303,7 @@ public partial class BattleEnemy : MotherBase
         ExecTranscendenceReached(player, target);
         break;
       #endregion
-
-      #region "Other"
-      case Fix.IRREGULAR_STEP:
-        ExecIrregularStep(player, target);
-        break;
-
-      case Fix.AETHER_DRIVE:
-      case Fix.AETHER_DRIVE_JP:
-        ExecAetherDrive(player, target, player.objFieldPanel);
-        break;
-
-      case Fix.KILLING_WAVE:
-      case Fix.KILLING_WAVE_JP:
-        ExecKillingWave(player, target_list, target.objFieldPanel);
-        break;
-
-      case Fix.STORM_ARMOR:
-        ExecStormArmor(player, target);
-        break;
-
-      case Fix.MUTE_IMPULSE:
-        ExecMuteImpulse(player, target, critical);
-        break;
       #endregion
-      #endregion
-
-      case Fix.DARK_AURA:
-        ExecDarkAura(player, target);
-        break;
-
-      case Fix.SONIC_PULSE:
-      case Fix.SONIC_PULSE_JP:
-        ExecSonicPulse(player, target, critical);
-        break;
-
-      case Fix.LAND_SHATTER:
-      case Fix.LAND_SHATTER_JP:
-        ExecLandShatter(player, target, critical);
-        break;
 
       #region "元核"
       case Fix.ARCHETYPE_EIN_1:
@@ -3775,7 +3646,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
@@ -3833,7 +3704,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 3; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
+          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
@@ -3932,12 +3803,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_YOUKAIEKI:
-        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBattleSpeedDown(player, target, 2, 0.70f);
@@ -3982,7 +3853,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WINDFLARE:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlow(player, target, 2, 0.5f);
@@ -3990,7 +3861,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_EARTHBOLT:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBind(player, target, 2, 0);
@@ -4019,7 +3890,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPLASH_HARMONY:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffParalyze(player, target, 2, 0);
@@ -4170,7 +4041,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WING_BLADE:
-        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
@@ -4271,7 +4142,7 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < 3; ii++)
         {
           int number = AP.Math.RandomInteger(target_list.Count);
-          ExecMagicAttack(player, target_list[number], 1.10f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);         
+          ExecMagicAttack(player, target_list[number], 1.10f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);         
         }
         break;
 
@@ -4323,7 +4194,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 0.9f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
+          ExecMagicAttack(player, target_list[ii], 0.9f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4338,7 +4209,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_CYCLONE_SHOT:
         for (int ii = 0; ii < 2; ii++)
         {
-          ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
+          ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4382,7 +4253,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.7f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.7f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -8990,16 +8861,7 @@ public partial class BattleEnemy : MotherBase
           {
             if (PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE || PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE_JP)
             {
-              if (PlayerList[ii].IsLandShatter)
-              {
-                Debug.Log("PlayerList[ii].IsLandShatter phase, CommandName is Defense_Disable");
-                PlayerList[ii].objMainActionList[jj].ApplyImageIcon(Fix.DEFENSE_DISABLE);
-              }
-              else
-              {
-                Debug.Log("PlayerList[ii].IsLandShatter phase, CommandName is Defense");
-                PlayerList[ii].objMainActionList[jj].ApplyImageIcon(PlayerList[ii].objMainActionList[jj].CommandName);
-              }
+              PlayerList[ii].objMainActionList[jj].ApplyImageIcon(PlayerList[ii].objMainActionList[jj].CommandName);
             }
           }
           PlayerList[ii].objParentActionPanel.imgBackGauge.color = PlayerList[ii].BattleBackColor;
@@ -9247,19 +9109,6 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log(MethodBase.GetCurrentMethod() + " selectedPlayer is null, then no action.");
       return;
-    }
-
-    // LandShatter効果が続いている間は、防御を選択できない。
-    if (sender.CommandName == Fix.DEFENSE || sender.CommandName == Fix.DEFENSE_JP)
-    {
-      for (int ii = 0; ii < this.NowSelectSrcPlayer.objMainActionList.Count; ii++)
-      {
-        if (this.NowSelectSrcPlayer.objMainActionList[ii].CommandName == sender.CommandName &&
-            this.NowSelectSrcPlayer.IsLandShatter)
-        {
-          return;
-        }
-      }
     }
 
     // 自分自身の場合はその場で選択決定。（防御など）
@@ -10087,7 +9936,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (PlayerList[jj].IsSigilOfThePending == null)
           {
-            ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Wind, buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+            ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Colorless, buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
           }
         }
       }
@@ -10142,7 +9991,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (EnemyList[jj].IsSigilOfThePending == null)
           {
-            ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Wind, buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+            ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Colorless, buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
           }
         }
       }
@@ -10243,11 +10092,6 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Upkeep phase, but sigilOfThePending is enabled, then no effect");
         AllList[ii].BuffCountdown(); // ペンディング効果がある状態だが、カウントダウンが進む方がゲーム性は高いため、進む事とする。
         continue; 
-      }
-
-      if (AllList[ii].IsHeartOfLife)
-      {
-        ExecLifeGain(AllList[ii], AllList[ii], AllList[ii].IsHeartOfLife.EffectValue);
       }
 
       // 【猛毒】による効果
@@ -10715,22 +10559,6 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
-    }
-
-    if (player.IsSonicPulse)
-    {
-      Debug.Log("Detect SonicPulse phase");
-      double rand = AP.Math.RandomReal();
-      Debug.Log("result: " + rand.ToString() + " " + player.IsSonicPulse.EffectValue.ToString());
-      if (rand <= player.IsSonicPulse.EffectValue)
-      {
-        Debug.Log("SonicPulse effect, then no ExecNormalAttack.");
-        // SonicPulseは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
-        player.UseInstantPoint(true, Fix.SONIC_PULSE);
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-        this.NowAnimationMode = true;
-        return false;
-      }
     }
 
     // 攻撃コマンドのダメージを算出
@@ -11291,16 +11119,6 @@ public partial class BattleEnemy : MotherBase
       ExecElementalDamage(player, Fix.DamageSource.Fire, SecondaryLogic.AbyssFireValue(player));
     }
 
-    if (player.IsStormArmor && player.Dead == false)
-    {
-      bool resultCritical2 = false;
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical, ref resultCritical2);
-      if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
-      {
-        addDamageValue = 0;
-      }
-      ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
-    }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
     if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
     {
@@ -11537,26 +11355,6 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.SHADOW_BLAST, stack);
   }
 
-  private void ExecAirCutter(Character player, Character target, Fix.CriticalType critical)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(player, player.objBuffPanel, Fix.AIR_CUTTER, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0, 0);
-    }
-  }
-
-  private void ExecRockSlum(Character player, Character target, Fix.CriticalType critical)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.ROCK_SLAM, Fix.ROCK_SLAM, SecondaryLogic.RockSlum_Turn(player), SecondaryLogic.RockSlum_Value(player), 0, 0);
-    }
-  }
-
   private void ExecStraightSmash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -11611,16 +11409,6 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.LEG_STRIKE, stack);
   }
 
-  private void ExecVenomSlash(Character player, Character target, Fix.CriticalType critical)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player) * PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength), 0, 0);
-    }
-  }
-
   private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -11655,12 +11443,6 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.SHIELD_BASH, stack);
   }
 
-  private void ExecAuraOfPower(Character player, Character target)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.AURA_OF_POWER, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0, 0);
-  }
-
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -11688,28 +11470,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.Target = target;
     CreateNormalStackObject(Fix.TRUE_SIGHT, stack);
-  }
-
-  private void ExecHeartOfLife(Character player, Character target)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.HEART_OF_LIFE, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), SecondaryLogic.HeartOfLife(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
-  }
-
-  private void ExecDarknessCircle(Character player, Character target, BuffField target_field_obj)
-  {
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-
-    AbstractAddBuff(target, target_field_obj, Fix.DARKNESS_CIRCLE, Fix.DARKNESS_CIRCLE, SecondaryLogic.DarknessCircle_Turn(player), SecondaryLogic.DarknessCircle_Value(player), 0, 0);
-  }
-
-  private void ExecDarkAura(Character player, Character target)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    // todo
-    // 味方一体を対象とする。対象に【黒炎】のBUFFを付与する。
-    // ターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。
-    //【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。
   }
 
   private void ExecOracleCommand(Character player, Character target)
@@ -11787,12 +11547,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.Target = target;
     CreateNormalStackObject(Fix.BLOOD_SIGN, stack);
-  }
-
-  private void ExecSkyShield(Character player, Character target)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.SKY_SHIELD, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0, 0);
   }
 
   // true: カウンター成功
@@ -12140,16 +11894,6 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.LEYLINE_SCHEMA, stack);
   }
 
-  private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_BIND, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0, 0);
-    }
-  }
-
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -12215,15 +11959,6 @@ public partial class BattleEnemy : MotherBase
         stack_list[num] = null;
       }
     }    
-  }
-
-  private void ExecCircleSlash(Character player, List<Character> target_list, Fix.CriticalType critical)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    }
   }
 
   private void ExecDoubleSlash(Character player, Character target, Fix.CriticalType critical)
@@ -12311,30 +12046,6 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.BLACK_CONTRACT, stack);
   }
 
-  private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
-  {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.SONIC_PULSE, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0, 0);
-    }
-  }
-
-  private void ExecLandShatter(Character player, Character target, Fix.CriticalType critical)
-  {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.LAND_SHATTER, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0, 0);
-      if (target.CurrentActionCommand == Fix.DEFENSE || target.CurrentActionCommand == Fix.DEFENSE_JP)
-      {
-        target.CurrentActionCommand = Fix.STAY;
-        target.txtActionCommand.text = Fix.STAY;
-        SetupActionCommandButton(target.objMainButton, Fix.STAY);
-      }
-    }
-  }
-
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -12354,27 +12065,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.Target = target;
     CreateNormalStackObject(Fix.CONCUSSIVE_HIT, stack);
-  }
-
-  public void ExecAetherDrive(Character player, Character target, BuffField target_field_obj)
-  {
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-
-    AbstractAddBuff(player, target_field_obj, Fix.AETHER_DRIVE, Fix.AETHER_DRIVE, SecondaryLogic.AetherDrive_Turn(player), SecondaryLogic.AetherDrive_Effect(player), 0, 0);
-  }
-
-  public void ExecKillingWave(Character player, List<Character> target_list, BuffField target_field_obj)
-  {
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-
-    AbstractAddBuff(target_list[0], target_field_obj, Fix.KILLING_WAVE, Fix.KILLING_WAVE, SecondaryLogic.KillingWave_Turn(player), SecondaryLogic.KillingWave_Effect(player), 0, 0);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      if (target_list[ii].CurrentLife > target_list[ii].MaxLife)
-      {
-        target_list[ii].CurrentLife = target_list[ii].MaxLife;
-      }
-    }
   }
 
   public void ExecWordOfPower(Character player, Character target, Fix.CriticalType critical)
@@ -12453,32 +12143,6 @@ public partial class BattleEnemy : MotherBase
       this.NowSeaStripeTarget = null;
       this.NowSeaStripeCounter = 0;
       this.NowSeaStripeMode = false;
-    }
-  }
-
-  public void ExecIrregularStep(Character player, Character target)
-  {
-    this.NowIrregularStepPlayer = player;
-    this.NowIrregularStepTarget = target;
-    this.NowIrregularStepCounter = SecondaryLogic.IrregularStep_GaugeStep(player) * BATTLE_GAUGE_WITDH;
-    this.NowIrregularStepMode = true;
-  }
-  private void ExecPlayIrregularStep()
-  {
-    if (this.NowIrregularStepCounter > 0)
-    {
-      float factor = (float)PrimaryLogic.BattleSpeed(this.NowIrregularStepPlayer) * 2.00f;
-      UpdatePlayerArrow(this.NowIrregularStepPlayer, factor);
-      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor * BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX;
-    }
-
-    if (this.NowIrregularStepCounter <= 0.0f)
-    {
-      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Random);
-      this.NowIrregularStepPlayer = null;
-      this.NowIrregularStepTarget = null;
-      this.NowIrregularStepCounter = 0;
-      this.NowIrregularStepMode = false;
     }
   }
 
@@ -12575,17 +12239,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.Target = target;
     CreateNormalStackObject(Fix.SIGIL_OF_THE_PENDING, stack);
-  }
-
-  public void ExecStormArmor(Character player, Character target)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.STORM_ARMOR, Fix.STORM_ARMOR, SecondaryLogic.StormArmor_Turn(player), SecondaryLogic.StormArmor_SpeedUp(player), SecondaryLogic.StormArmor_Damage(player), 0);
-  }
-
-  public void ExecMuteImpulse(Character player, Character target, Fix.CriticalType critical)
-  {
-    int positiveCount = target.GetPositiveBuff() + 1;
-    ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
   }
 
   public void ExecVoiceOfVigor(Character player, List<Character> target_list)
@@ -14078,26 +13731,6 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_SHADOW, Fix.EFFECT_POWERDOWN_SHADOW, turn, effect_value, 0, 0);
   }
 
-  private void BuffUpWind(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_WIND, Fix.EFFECT_POWERUP_WIND, turn, effect_value, 0, 0);
-  }
-
-  private void BuffDownWind(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_WIND, Fix.EFFECT_POWERDOWN_WIND, turn, effect_value, 0, 0);
-  }
-
-  private void BuffUpEarth(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_EARTH, Fix.EFFECT_POWERUP_EARTH, turn, effect_value, 0, 0);
-  }
-
-  private void BuffDownEarth(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_EARTH, Fix.EFFECT_POWERDOWN_EARTH, turn, effect_value, 0, 0);
-  }
-
   private void BuffResistFireUp(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_RESIST_FIRE_UP, Fix.EFFECT_RESIST_FIRE_UP, turn, effect_value, 0, 0);
@@ -14394,34 +14027,6 @@ public partial class BattleEnemy : MotherBase
       if (player.Accessory2 != null && player.Accessory2.AmplifyShadow > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyShadow; }
       if (player.Artifact != null && player.Artifact.AmplifyShadow > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyShadow; }
     }
-    if (attr == Fix.DamageSource.Wind)
-    {
-      if (player.IsUpWind)
-      {
-        Debug.Log("damageValue IsUpWind: " + player.IsUpWind.EffectValue.ToString());
-        damageValue = damageValue * player.IsUpWind.EffectValue;
-      }
-      if (player.MainWeapon != null && player.MainWeapon.AmplifyWind > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyWind; }
-      if (player.SubWeapon != null && player.SubWeapon.AmplifyWind > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyWind; }
-      if (player.MainArmor != null && player.MainArmor.AmplifyWind > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyWind; }
-      if (player.Accessory1 != null && player.Accessory1.AmplifyWind > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyWind; }
-      if (player.Accessory2 != null && player.Accessory2.AmplifyWind > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyWind; }
-      if (player.Artifact != null && player.Artifact.AmplifyWind > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyWind; }
-    }
-    if (attr == Fix.DamageSource.Earth)
-    {
-      if (player.IsUpEarth)
-      {
-        Debug.Log("damageValue IsUpEarth: " + player.IsUpEarth.EffectValue.ToString());
-        damageValue = damageValue * player.IsUpEarth.EffectValue;
-      }
-      if (player.MainWeapon != null && player.MainWeapon.AmplifyEarth > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyEarth; }
-      if (player.SubWeapon != null && player.SubWeapon.AmplifyEarth > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyEarth; }
-      if (player.MainArmor != null && player.MainArmor.AmplifyEarth > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyEarth; }
-      if (player.Accessory1 != null && player.Accessory1.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyEarth; }
-      if (player.Accessory2 != null && player.Accessory2.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyEarth; }
-      if (player.Artifact != null && player.Artifact.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyEarth; }
-    }
 
     if (target.objFieldPanel != null)
     {
@@ -14444,13 +14049,6 @@ public partial class BattleEnemy : MotherBase
           Debug.Log("MagicDamage ( VolcanicWave ) : " + buffList[ii].EffectValue.ToString("F2") + " " + before_result.ToString("F2") + " -> " + damageValue.ToString("F2"));
         }
       }
-    }
-
-    // ストーム・アーマーによる効果
-    if (player.IsStormArmor)
-    {
-      damageValue = damageValue * player.IsStormArmor.EffectValue2;
-      Debug.Log("damageValue IsStormArmor(after): " + damageValue.ToString());
     }
 
     // クリティカル判定
@@ -14586,24 +14184,6 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null && target.Accessory2.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistShadowPercent); }
     if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null && target.Artifact.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistShadowPercent); }
     if (attr == Fix.DamageSource.DarkMagic && target.IsResistShadow != null && target.IsResistShadow.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistShadow.EffectValue); }
-
-    if (attr == Fix.DamageSource.Wind && target.IsDownWind != null && target.IsDownWind.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownWind.EffectValue); }
-    if (attr == Fix.DamageSource.Wind && target.MainWeapon != null && target.MainWeapon.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.SubWeapon != null && target.SubWeapon.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.MainArmor != null && target.MainArmor.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.Accessory1 != null && target.Accessory1.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.Accessory2 != null && target.Accessory2.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.Artifact != null && target.Artifact.ResistWindPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistWindPercent); }
-    if (attr == Fix.DamageSource.Wind && target.IsResistWind != null && target.IsResistWind.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistWind.EffectValue); }
-
-    if (attr == Fix.DamageSource.Earth && target.IsDownEarth != null && target.IsDownEarth.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownEarth.EffectValue); }
-    if (attr == Fix.DamageSource.Earth && target.MainWeapon != null && target.MainWeapon.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.SubWeapon != null && target.SubWeapon.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.MainArmor != null && target.MainArmor.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.Accessory1 != null && target.Accessory1.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.Accessory2 != null && target.Accessory2.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.Artifact != null && target.Artifact.ResistEarthPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistEarthPercent); }
-    if (attr == Fix.DamageSource.Earth && target.IsResistEarth != null && target.IsResistEarth.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistEarth.EffectValue); }
 
     double debug2 = damageValue;
 
