@@ -10640,6 +10640,11 @@ public partial class BattleEnemy : MotherBase
     {
       damageValue = 0;
     }
+    // ハーデスト・パリィによる効果
+    if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
+    {
+      damageValue = 0;
+    }
 
     // モンスター特有
     if (target.IsIchimaiGuardwall != null)
@@ -10682,6 +10687,11 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Buff-Detect FlameBlade addDamage: " + addDamageValue);
       // ファントム・朧による効果
       if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
+      {
+        addDamageValue = 0;
+      }
+      // ハーデスト・パリィによる効果
+      if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
       {
         addDamageValue = 0;
       }
@@ -11094,6 +11104,11 @@ public partial class BattleEnemy : MotherBase
 
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
+    {
+      damageValue = 0;
+    }
+    // ハーデスト・パリィによる効果
+    if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
     {
       damageValue = 0;
     }
@@ -11731,34 +11746,33 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     One.PlaySoundEffect(Fix.SOUND_HARDEST_PARRY);
-    
+
+    AbstractAddBuff(player, player.objBuffPanel, Fix.HARDEST_PARRY, Fix.HARDEST_PARRY, SecondaryLogic.HardestParry_Turn(player), 0, 0, 0);
+
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
 
-      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
+      // todo CounterAttackやFlashCounter, CounterDisallowとロジックを統合する必要がある。
+      // カウンターできない。
+      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+          stack_list[num].StackName == Fix.IRON_BUSTER ||
+          stack_list[num].StackName == Fix.PRECISION_STRIKE ||
+          stack_list[num].Player.IsWillAwakening != null)
       {
-        // todo CounterAttackやFlashCounter, CounterDisallowとロジックを統合する必要がある。
-        // カウンターできない。
-        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-            stack_list[num].StackName == Fix.IRON_BUSTER ||
-            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
-            stack_list[num].Player.IsWillAwakening != null)
-        {
-          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
-        }
-        else
-        {
-          Character target = stack_list[num].Player;
-          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
-          Destroy(stack_list[num].gameObject);
-          stack_list[num] = null;
-        }
+        StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
       }
       else
       {
-        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        Character target = stack_list[num].Player;
+        StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+        Destroy(stack_list[num].gameObject);
+        stack_list[num] = null;
       }
+    }
+    else
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " stack_list is less than 2... " + stack_list.Length);
     }
   }
 
@@ -13387,7 +13401,13 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_ONE_IMMUNITY_JP, Fix.COLOR_GUARD);
     }
 
-    if (target.IsPhantomOboro)
+    if (target.IsPhantomOboro && this.NowStackInTheCommand)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+    }
+    // ハーデスト・パリィによる効果
+    if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
     {
       effect_value = 0;
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);

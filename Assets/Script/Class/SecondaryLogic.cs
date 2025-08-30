@@ -703,6 +703,11 @@ public static class SecondaryLogic
     return 1.10f + (player.RagingStorm - 1) * 0.10f;
   }
 
+  public static int HardestParry_Turn(Character player)
+  {
+    return 2;
+  }
+
   public static double PrecisionStrike(Character player)
   {
     if (player.PrecisionStrike <= 1) { return 2.50f; }

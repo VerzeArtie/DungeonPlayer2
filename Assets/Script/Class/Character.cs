@@ -3092,6 +3092,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.STANCE_OF_THE_IAI); }
   }
 
+  public BuffImage IsHardestParry
+  {
+    get { return SearchBuff(Fix.HARDEST_PARRY); }
+  }
+
   public BuffImage IsOneImmunity
   {
     get { return SearchBuff(Fix.ONE_IMMUNITY); }
