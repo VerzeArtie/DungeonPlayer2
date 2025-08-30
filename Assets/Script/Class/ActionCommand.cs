@@ -3314,7 +3314,7 @@ public static class ActionCommand
     if (command_name == Fix.FRESH_HEAL) { return "味方一体を対象とする。対象のライフを回復する。"; }
     if (command_name == Fix.SHADOW_BLAST) { return "敵一体を対象とする。対象に【闇】ダメージを与えた後、【陰影】のBUFFを付与する。\r\n【陰影】が続く間、魔法防御が減少する。"; }
     if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを進行させる。"; }
-    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に無属性のダメージを与える。\r\nこのダメージは魔法属性として扱われる。\r\nダメージ量は【知】を根源として算出される。"; }
+    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に無属性の魔法ダメージを与える。"; }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
     if (command_name == Fix.SHIELD_BASH) { return "敵一体を対象とする。対象を【物理】ダメージを与えた後、【スタン】のBUFFを付与する。\r\n【スタン】が続く間、戦闘ゲージ進行が停止する。"; }

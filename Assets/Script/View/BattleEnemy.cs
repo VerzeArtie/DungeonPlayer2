@@ -8091,7 +8091,7 @@ public partial class BattleEnemy : MotherBase
     else if (command_name == Fix.ENERGY_BOLT)
     {
       One.PlaySoundEffect(Fix.SOUND_ENERGY_BOLT);
-      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
     else if (command_name == Fix.STRAIGHT_SMASH)
     {
