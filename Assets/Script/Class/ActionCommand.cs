@@ -2087,8 +2087,6 @@ public static class ActionCommand
     if (command_name == Fix.SPACETIME_INFLUENCE || command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return 0; }
     #endregion
 
-    if (command_name == Fix.COUNTER_ATTACK) { return 3; }
-
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
@@ -2686,8 +2684,9 @@ public static class ActionCommand
   {
     if (command_name == Fix.WORD_OF_POWER) { return true; }
     if (command_name == Fix.IRON_BUSTER) { return true; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return true; }
+    if (command_name == Fix.PRECISION_STRIKE) { return true; }
     if (command_name == Fix.WILL_AWAKENING) { return true; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return true; }
 
     return false; // 通常はカウンターできるためFalse
   }
@@ -3367,7 +3366,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
     if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、周囲敵全体（対象となった敵以外）に対して【物理】ダメージを与える。このコマンドはカウンターされない。"; }
+    if (command_name == Fix.IRON_BUSTER) { return "このコマンドはカウンターされない。敵一体を対象とする。対象に【物理】ダメージを与える。加えて、周囲敵全体（対象となった敵以外）に対して【物理】ダメージを与える。"; }
     if (command_name == Fix.DOMINATION_FIELD) { return "味方フィールドに【鉄壁】のBUFFを形成する。【鉄壁】が続く間、物理防御力および魔法防御力が１０％上昇する。また、各味方が【防御】姿勢を行っている場合のダメージ軽減率が20%上昇する。"; }
     if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１以下の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
@@ -3382,7 +3381,7 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return "味方一体を対象とする。対象のライフを全回復する。また、味方フィールドに【祝福】のBUFFを付与する。【祝福】の効果が続く間、【猛毒】【出血】の影響を受けない。"; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "敵フィールドに【荒廃】のフィールドを形成する。【荒廃】の効果が続く間、物理防御力、魔法防御力、戦闘反応値がそれぞれ２０％減少する。"; }
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return "味方一体を対象とする。対象に【第七原理】のBUFFを付与する。【第七原理】が続く間、物理属性値の源を【知】、魔法属性値の源を【力】に転換する。"; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
     // スキル
     if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
     if (command_name == Fix.HARDEST_PARRY) { return "インスタント限定。この行動は即座に発揮される。インスタント行動が行われた際、その行動を打ち消す。加えて、自分自身に【見切り】のBUFFを付与する。【見切り】が続く間、メイン行動からダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
@@ -3412,7 +3411,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return "敵全体に対して【炎】ダメージを与える。"; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return "この魔法はカウンターされない。\r\n敵一体を対象とする。対象に【絶対零度】のBUFFを付与する。【絶対零度】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、ライフ、マナ、スキルポイントが回復不可となる。"; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return "敵一体を対象とする。対象に【絶対零度】のBUFFを付与する。【絶対零度】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、ライフ、マナ、スキルポイントが回復不可となる。"; }
     if (command_name == Fix.RESURRECTION) { return "味方一体を対象とする。対象を蘇生し、ライフを全回復する。"; }
     if (command_name == Fix.DEATH_SCYTHE) { return "敵フィールドに【死の鎌】フィールドを形成する。\r\n【死の鎌】が続く間、ターン経過毎に累積カウンターが１つ載る。ターン経過毎に最大ライフのX % 分ライフを失い、最大マナのX % 分マナを失い、最大スキルポイントのX % 分スキルポイントを失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。累積カウンターは最大９９まで累積する。"; }
     if (command_name == Fix.GENESIS) { return "この魔法はマナを消費しない。\r\n前回自分が行ったアクションコマンドと同じ内容を実行する。"; }
@@ -3423,12 +3422,12 @@ public static class ActionCommand
     if (command_name == Fix.CARNAGE_RUSH) { return "敵一体を対象とする。対象に【物理】ダメージを５回連続で与える。"; }
     if (command_name == Fix.PIERCING_ARROW) { return "敵一体を対象とする。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与え、対象に【致命傷】のBUFFを付与し、インスタントゲージを０にする。【致命傷】が続く間、【防御姿勢】を取る事が出来ない。"; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "自分自身を対象とする。対象に【心得】のBUFFを付与する。\r\n【心得】が続く間、ソーサリーまたはノーマルタイミングのコマンドを放つ場合、インスタントタイミングで行動する事が可能になる。"; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "味方一体を対象とする。対象の負のBUFFを全て除去し、【超越】のBUFFを付与する。【超越】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。"; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "このコマンドはカウンターされない。味方一体を対象とする。対象の負のBUFFを全て除去し、【超越】のBUFFを付与する。【超越】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。対象のスタック・コマンドに対してカウンターする効果が発動した場合、そのカウンターを無効化する。この効果は即時に適用される。"; }
     #endregion
 
     #region "複合魔法"
-      // 聖＋闇 [完全逆]
-      if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
     if (command_name == Fix.BLIND_JUSTICE) { return ""; } // todo 仮
     if (command_name == Fix.DEATH_DENY) { return ""; } // todo 仮
     // 聖＋炎

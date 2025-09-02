@@ -293,7 +293,18 @@ public static partial class Fix
   public const string BATTLE_POTENTIAL_UP = "潜在率 UP";
 
   public const string BATTLE_SORCERY_FAIL = "ソーサリー失敗";
+     
+  // public const string MISS = @"ミス！";
+  // public const string MISS_ACTION = @"行動ミス！";
+  // public const string MISS_SPELL = @"詠唱ミス！";
+  // public const string MISS_SKILL = @"スキル失敗！";
+  public const string FAIL_COUNTER = @"カウンターミス！";
+  // public const string FAIL_DEFLECTION = @"物理反射ミス！";
+  public const string SUCCESS_COUNTER = @"カウンター発動！";
+  // public const string RESIST_DISPEL = @"ディスペル耐性！";
 
+  // 一般用語
+  public const string BATTLE_STACK_FAIL_FACTOR = " 失敗！（要因：";
   #endregion
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;
@@ -1812,9 +1823,6 @@ public static partial class Fix
   //public const string WATER_SPLASH = "Water Splash";
   //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
   //public const string TRANQUILITY = "Tranquility";
-
-  public const string COUNTER_ATTACK = "Counter Attack";
-  public const string COUNTER_ATTACK_JP = "カウンター・アタック";
 
   // 元核
   public const string ARCHETYPE_EIN_1 = "集中と断絶";

@@ -472,6 +472,8 @@ public partial class BattleEnemy : MotherBase
       //  ExecBuffSlip(playerList[ii], playerList[ii], 99, 100);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
       //  ExecBuffPhysicalAttackDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.TRANSCENDENCE_REACHED, Fix.INFINITY, 0, 0, 0);
+      //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, Fix.INFINITY, 0, 0, 0);
       //}
     }
 
@@ -572,6 +574,8 @@ public partial class BattleEnemy : MotherBase
           rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
         }
       }
+
+      // AbstractAddBuff(EnemyList[0], EnemyList[0].objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.TRANSCENDENCE_REACHED, Fix.INFINITY, 0, 0, 0);
     }
     else if (BattleType == Fix.BattleMode.Boss)
     {
@@ -3005,10 +3009,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.DIVINE_CIRCLE:
         ExecDivineCircle(player, target, player.objFieldPanel);
-        break;
-
-      case Fix.COUNTER_ATTACK:
-        ExecCounterAttack(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
 
       case Fix.FLASH_COUNTER:
@@ -7839,6 +7839,21 @@ public partial class BattleEnemy : MotherBase
     // 敵専用、スタックコマンドの割り込み
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
+      if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI || EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
+          {
+            EnemyList[ii].UseInstantPoint(false, Fix.HARDEST_PARRY);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.HARDEST_PARRY, Fix.STACKCOMMAND_SUDDEN_TIMER, 0);
+            return;
+          }
+        }
+      }
+
       #region "デュエルプレイヤー１"
       if (EnemyList[ii].FullName == Fix.DUEL_PLAYER_1 || EnemyList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
       {
@@ -7847,9 +7862,9 @@ public partial class BattleEnemy : MotherBase
           int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
-            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_ATTACK);
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_DISALLOW);
             EnemyList[ii].UpdateInstantPointGauge();
-            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_DISALLOW, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return;
           }
         }
@@ -7879,9 +7894,9 @@ public partial class BattleEnemy : MotherBase
           int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
-            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_ATTACK);
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_DISALLOW);
             EnemyList[ii].UpdateInstantPointGauge();
-            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_DISALLOW, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return;
           }
         }
@@ -11648,57 +11663,24 @@ public partial class BattleEnemy : MotherBase
     return false;
   }
 
-  private void ExecCounterAttack(Character player, StackObject[] stack_list)
-  {
-    if (stack_list.Length >= 2)
-    {
-      int num = stack_list.Length - 2;
-
-      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
-      {
-        // カウンターできない。
-        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-            stack_list[num].StackName == Fix.IRON_BUSTER ||
-            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
-            stack_list[num].Player.IsWillAwakening != null)
-        {
-          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
-        }
-        else
-        {
-          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
-          Destroy(stack_list[num].gameObject);
-          stack_list[num] = null;
-        }
-      }
-      else
-      {
-        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      }
-    }
-  }
-
   private void ExecFlashCounter(Character player, StackObject[] stack_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     One.PlaySoundEffect(Fix.SOUND_FLASH_COUNTER);
 
-    if (stack_list.Length >= 2)
-    {
-      // FLASH_COUNTERがスタック先頭なので、一つ前を削除する。
-      int num = stack_list.Length - 2;
+    int num = stack_list.Length - 2;
+    if (num < 0) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
 
-      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Magic &&
-          (ActionCommand.GetBuffType(stack_list[num].StackName) == Fix.BuffType.Negative || ActionCommand.GetBuffType(stack_list[num].StackName) == Fix.BuffType.Positive))
-      {
-        StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
-        Destroy(stack_list[num].gameObject);
-        stack_list[num] = null;
-      }
-      else
-      {
-        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      }
+    // 対象制限
+    if (ActionCommand.GetAttribute(stack_list[num].StackName) != ActionCommand.Attribute.Magic) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
+    // BuffTypeを制限しようとしていた様だが、Neutralであってもカウンターの対象ではあるため、コメントアウト
+    // if (ActionCommand.GetBuffType(stack_list[num].StackName) != Fix.BuffType.Negative && ActionCommand.GetBuffType(stack_list[num].StackName) != Fix.BuffType.Positive) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
+
+    Character targetted = null;
+    bool success = ExecCounterLogic(player, stack_list, Fix.FLASH_COUNTER, ref targetted);
+    if (success)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " ExecCounterLogic success!");
     }
   }
 
@@ -11706,39 +11688,15 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     One.PlaySoundEffect(Fix.SOUND_COUNTER_DISALLOW);
-    
-    if (stack_list.Length >= 2)
+
+    int num = stack_list.Length - 2;
+    if (num < 0) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
+
+    Character targetted = null;
+    bool success = ExecCounterLogic(player, stack_list, Fix.COUNTER_DISALLOW, ref targetted);
+    if (success)
     {
-      int num = stack_list.Length - 2;
-
-      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill ||
-          (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Magic))
-      {
-        // todo CounterAttackやFlashCounterとロジックを統合する必要がある。
-        // カウンターできない。
-        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-            stack_list[num].StackName == Fix.IRON_BUSTER ||
-            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
-            stack_list[num].Player.IsWillAwakening != null)
-        {
-          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
-        }
-        else
-        {
-          Debug.Log("stack number: " + num);
-          Debug.Log("stack_list: " + stack_list[num].Player.FullName);
-          Character target = stack_list[num].Player;
-          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
-          Destroy(stack_list[num].gameObject);
-          stack_list[num] = null;
-
-          AbstractAddBuff(target, target.objBuffPanel, Fix.COUNTER_DISALLOW, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
-        }
-      }
-      else
-      {
-        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      }
+      AbstractAddBuff(targetted, targetted.objBuffPanel, Fix.COUNTER_DISALLOW, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
     }
   }
 
@@ -11747,32 +11705,14 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     One.PlaySoundEffect(Fix.SOUND_HARDEST_PARRY);
 
-    AbstractAddBuff(player, player.objBuffPanel, Fix.HARDEST_PARRY, Fix.HARDEST_PARRY, SecondaryLogic.HardestParry_Turn(player), 0, 0, 0);
+    int num = stack_list.Length - 2;
+    if (num < 0) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
 
-    if (stack_list.Length >= 2)
+    Character targetted = null;
+    bool success = ExecCounterLogic(player, stack_list, Fix.HARDEST_PARRY, ref targetted);
+    if (success)
     {
-      int num = stack_list.Length - 2;
-
-      // todo CounterAttackやFlashCounter, CounterDisallowとロジックを統合する必要がある。
-      // カウンターできない。
-      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-          stack_list[num].StackName == Fix.IRON_BUSTER ||
-          stack_list[num].StackName == Fix.PRECISION_STRIKE ||
-          stack_list[num].Player.IsWillAwakening != null)
-      {
-        StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
-      }
-      else
-      {
-        Character target = stack_list[num].Player;
-        StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
-        Destroy(stack_list[num].gameObject);
-        stack_list[num] = null;
-      }
-    }
-    else
-    {
-      Debug.Log(MethodBase.GetCurrentMethod() + " stack_list is less than 2... " + stack_list.Length);
+      AbstractAddBuff(player, player.objBuffPanel, Fix.HARDEST_PARRY, Fix.HARDEST_PARRY, SecondaryLogic.HardestParry_Turn(player), 0, 0, 0);
     }
   }
 
@@ -11957,18 +11897,23 @@ public partial class BattleEnemy : MotherBase
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
-
-      // カウンターできない。
-      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-          stack_list[num].StackName == Fix.IRON_BUSTER ||
-          stack_list[num].StackName == Fix.PRECISION_STRIKE ||
-          stack_list[num].Player.IsWillAwakening != null)
+      string factor = string.Empty;
+      if (JudgeSuccessOfCounter(stack_list[num].Player, stack_list[num].StackName, ref factor) == false)
       {
-        StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
+        if (factor != String.Empty)
+        {
+          Destroy(stack_list[stack_list.Length - 1].gameObject);
+          stack_list[stack_list.Length - 1] = null;
+          CreateStackObject(player, stack_list[num].Player, Fix.ZERO_IMMUNITY + " 失敗！（要因：" + factor + " ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+        else
+        {
+          StartAnimation(stack_list[num].gameObject, Fix.FAIL_COUNTER, Fix.COLOR_NORMAL);
+        }
       }
       else
       {
-        StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+        StartAnimation(stack_list[num].gameObject, Fix.SUCCESS_COUNTER, Fix.COLOR_NORMAL);
         Destroy(stack_list[num].gameObject);
         stack_list[num] = null;
       }
@@ -13063,6 +13008,77 @@ public partial class BattleEnemy : MotherBase
     CreateNormalStackObject(Fix.TRANSCENDENCE_REACHED, stack);
   }
   #endregion
+
+  private bool ExecCounterLogic(Character player, StackObject[] stack_list, string command_name, ref Character targetted)
+  {
+    for (int ii = 0; ii < stack_list.Length; ii++)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " stack_list " + ii.ToString() + " " + stack_list[ii].StackName + " " + stack_list[ii].Player + " " + stack_list[ii].Target);
+    }
+
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+      string factor = string.Empty;
+
+      if (JudgeSuccessOfCounter(stack_list[num].Player, command_name, ref factor) == false)
+      {
+        if (factor != String.Empty)
+        {
+          Destroy(stack_list[stack_list.Length - 1].gameObject);
+          stack_list[stack_list.Length - 1] = null;
+          CreateStackObject(player, stack_list[num].Player, command_name + Fix.BATTLE_STACK_FAIL_FACTOR + factor + " ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+          targetted = null;
+          return false;
+        }
+        else
+        {
+          StartAnimation(stack_list[num].gameObject, Fix.FAIL_COUNTER, Fix.COLOR_NORMAL);
+          targetted = null;
+          return false;
+        }
+      }
+      else
+      {
+        targetted = stack_list[num].Player;
+        StartAnimation(stack_list[num].gameObject, Fix.SUCCESS_COUNTER, Fix.COLOR_NORMAL);
+        Destroy(stack_list[num].gameObject);
+        stack_list[num] = null;
+        return true;
+      }
+    }
+
+    targetted = null;
+    return false;
+  }
+
+  /// <summary>
+  /// カウンター行為が発動成功するかどうかを判定するメソッド
+  /// </summary>
+  /// <returns>カウンター成功ならTrue、失敗ならFalse</returns>
+  private bool JudgeSuccessOfCounter(Character target, string command_name, ref string factor)
+  {
+    if (ActionCommand.CannotBeCountered(command_name))
+    {
+      factor = String.Empty;
+      return false;
+    }
+    else if (target.IsWillAwakening)
+    {
+      factor = Fix.WILL_AWAKENING;
+      return false;
+    }
+    else if (target.IsTranscendenceReached)
+    {
+      factor = Fix.TRANSCENDENCE_REACHED;
+      return false;
+    }
+    else
+    {
+      factor = String.Empty;
+      return true;
+    }
+  }
 
   private bool ExecUseRedPotion(Character player, Character target, string command_name)
   {

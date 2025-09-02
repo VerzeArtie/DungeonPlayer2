@@ -623,10 +623,10 @@ public class Title : MotherBase
     ein.PiercingArrow = 1;
     ein.StanceOfTheKokoroe = 1;
     ein.TranscendenceReached = 1;
-    ein.ActionCommand1 = Fix.DOUBLE_SLASH;
-    ein.ActionCommand2 = Fix.ZERO_IMMUNITY;
+    ein.ActionCommand1 = Fix.CURE_SEAL;
+    ein.ActionCommand2 = Fix.POTION_MAGIC_SEAL;
     ein.ActionCommand3 = Fix.DEFENSE;
-    ein.ActionCommand4 = Fix.CIRCLE_OF_SERENITY;
+    ein.ActionCommand4 = Fix.POTION_RESIST_FIRE;
     ein.ActionCommand5 = Fix.ARCHETYPE_EIN_1;
     //ein.ActionCommand4 = Fix.FLAME_STRIKE;
     ein.ActionCommand5 = Fix.FRESH_HEAL;
@@ -640,8 +640,12 @@ public class Title : MotherBase
     //ein.SubWeapon = new Item(Fix.SILVER_EARTH_SHIELD);
     //ein.Accessory1 = new Item(Fix.RED_AMULET);
     //ein.Accessory2 = new Item(Fix.BLUE_AMULET);
+    ein.Accessory1 = new Item(Fix.MAGICLIGHT_ICE);
     ein.ActionCommandMain = Fix.TRANSCENDENCE_REACHED;
     ein.MaxGain();
+    One.TF.AddBackPack(new Item(Fix.CURE_SEAL), 3);
+    One.TF.AddBackPack(new Item(Fix.POTION_MAGIC_SEAL), 3);
+    One.TF.AddBackPack(new Item(Fix.POTION_RESIST_FIRE), 3);
 
     One.TF.AvailablePotentialGauge = true;
     One.TF.AvailableArchetype_EinWolence = true;
@@ -738,7 +742,7 @@ public class Title : MotherBase
     ein.ActionCommand3 = Fix.DEFENSE;
     ein.ActionCommand4 = Fix.PRECISION_STRIKE;
     ein.ActionCommand5 = Fix.ARCHETYPE_EIN_1;
-    ein.ActionCommand6 = Fix.FRESH_HEAL;
+    ein.ActionCommand6 = Fix.WORD_OF_POWER;
     ein.ActionCommand7 = Fix.HARDEST_PARRY;
     ein.ActionCommand8 = Fix.COUNTER_DISALLOW;
     //ein.ActionCommand4 = Fix.FLAME_STRIKE;
@@ -838,7 +842,7 @@ public class Title : MotherBase
     ein.ActionCommand4 = Fix.PENETRATION_ARROW;
     ein.ActionCommand5 = Fix.CIRCLE_OF_SERENITY;
     ein.ActionCommand6 = Fix.WILL_AWAKENING;
-    ein.ActionCommand7 = Fix.COUNTER_ATTACK;
+    ein.ActionCommand7 = Fix.COUNTER_DISALLOW;
     ein.ActionCommand8 = Fix.PHANTOM_OBORO;
     ein.ActionCommand9 = Fix.DEADLY_DRIVE;
     ein.MaxGain();
