@@ -582,9 +582,9 @@ public static class PrimaryLogic
     double core = Math.Exp((double)player.TotalMind / Fix.PARAMETER_MAX);
 
     double result = factor * core;
-    Debug.Log(player.FullName + " factor: " + factor.ToString());
-    Debug.Log(player.FullName + " core: " + factor.ToString());
-    Debug.Log(player.FullName +  " battlespeed: " + result.ToString());
+    //Debug.Log(player.FullName + " factor: " + factor.ToString());
+    //Debug.Log(player.FullName + " core: " + factor.ToString());
+    //Debug.Log(player.FullName +  " battlespeed: " + result.ToString());
 
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
@@ -615,11 +615,11 @@ public static class PrimaryLogic
 
     if (player.IsBattleSpeedUp)
     {
-      Debug.Log("Buff player.IsBattleSpeedUp (factor) " + player + " " + player.IsBattleSpeedUp.EffectValue + " " + player.IsBattleSpeedUp.Cumulative);
+      // Debug.Log("Buff player.IsBattleSpeedUp (factor) " + player + " " + player.IsBattleSpeedUp.EffectValue + " " + player.IsBattleSpeedUp.Cumulative);
       double effect = 1.00 + (player.IsBattleSpeedUp.EffectValue * player.IsBattleSpeedUp.Cumulative);
-      Debug.Log("Buff player.IsBattleSpeedUp (before) " + player + " " + result + " : " + effect);
+      // Debug.Log("Buff player.IsBattleSpeedUp (before) " + player + " " + result + " : " + effect);
       result = result * effect;
-      Debug.Log("Buff player.IsBattleSpeedUp (after ) " + player + " " + result + " : " + effect);
+      // Debug.Log("Buff player.IsBattleSpeedUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsBattleSpeedDown)
     {
