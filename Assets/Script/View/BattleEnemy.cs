@@ -2837,6 +2837,7 @@ public partial class BattleEnemy : MotherBase
     Character currentTarget = null;
     int rand = 0;
     bool success = false;
+    Character targetted = null;
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
 
     // レインボー・ムーン・コンパスによる効果
@@ -7064,7 +7065,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BUTOH_ISSEN:
-        AbstractCounterStackCommand(player, command_name, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        ExecCounterLogic(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>(), command_name, ref targetted);
         break;
 
       case Fix.COMMAND_GOD_SENSE:
@@ -7282,7 +7283,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DOUBLE_STANCE:
-        AbstractCounterStackCommand(player, command_name, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        ExecCounterLogic(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>(), command_name, ref targetted);
         AbstractAddBuff(player, player.objBuffPanel, Fix.DOUBLE_STANCE, Fix.COMMAND_DOUBLE_STANCE, SecondaryLogic.DoubleStance_Turn(player), 0, 0, 0);
         break;
 
@@ -7686,6 +7687,11 @@ public partial class BattleEnemy : MotherBase
     {
       this.NowStackInTheCommand = false;
       GroupStackInTheCommand.SetActive(false);
+
+      for (int ii = 0; ii < AllList.Count; ii++)
+      {
+        AllList[ii].CleanupStackCommandStatus();
+      }
       return;
     }
 
@@ -8761,7 +8767,7 @@ public partial class BattleEnemy : MotherBase
     else
     {
       player.BattleGaugeArrow += (float)PrimaryLogic.BattleSpeed(player);
-      Debug.Log(player.FullName + " BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
+      //Debug.Log(player.FullName + " BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
       if (player.BattleGaugeArrow >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow = Fix.BATTLE_SPEED_MAX; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
@@ -10660,6 +10666,10 @@ public partial class BattleEnemy : MotherBase
     {
       damageValue = 0;
     }
+    if (target.NowStackDamageIsZero && this.NowStackInTheCommand)
+    {
+      damageValue = 0;
+    }
 
     // モンスター特有
     if (target.IsIchimaiGuardwall != null)
@@ -10707,6 +10717,10 @@ public partial class BattleEnemy : MotherBase
       }
       // ハーデスト・パリィによる効果
       if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
+      {
+        addDamageValue = 0;
+      }
+      if (target.NowStackDamageIsZero && this.NowStackInTheCommand)
       {
         addDamageValue = 0;
       }
@@ -11124,6 +11138,10 @@ public partial class BattleEnemy : MotherBase
     }
     // ハーデスト・パリィによる効果
     if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
+    {
+      damageValue = 0;
+    }
+    if (target.NowStackDamageIsZero && this.NowStackInTheCommand)
     {
       damageValue = 0;
     }
@@ -11577,90 +11595,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.Target = target;
     CreateNormalStackObject(Fix.BLOOD_SIGN, stack);
-  }
-
-  // true: カウンター成功
-  // false: カウンター失敗
-  private bool AbstractCounterStackCommand(Character player, string src_command_name, StackObject[] stack_list)
-  {
-    if (stack_list.Length >= 2)
-    {
-      int num = stack_list.Length - 2;
-
-      Debug.Log("AbstractCounterStackCommand: " + stack_list[num].StackName);
-      Debug.Log("Fix.WORD_OF_POWER          : " + Fix.WORD_OF_POWER);
-      // 下記コマンドはCannot be counteredの対象
-      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-          stack_list[num].StackName == Fix.IRON_BUSTER)
-      {
-        // Will Awakeningが無い場合は、カウンターできないまま。
-        if (stack_list[num].Player.IsWillAwakening == null)
-        {
-          // 舞踏・一閃のみ、ダメージ０にできる。
-          if (src_command_name == Fix.COMMAND_BUTOH_ISSEN)
-          {
-            StartAnimation(stack_list[num].gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
-            ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
-            Destroy(stack_list[num].gameObject);
-            stack_list[num] = null;
-            return true;
-          }
-
-          // 上記以外は、カウンター不可
-          Debug.Log("AbstractCounterStackCommand 0 : " + stack_list[num].StackName);
-          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_CANNOT_BE_COUNTERED, Fix.COLOR_NORMAL);
-          return false;
-        }
-        // Will Awakeningがあるので、カウンター
-        else
-        {
-          Debug.Log("AbstractCounterStackCommand 1 : " + stack_list[num].StackName);
-          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_COUNTER, Fix.COLOR_NORMAL);
-          Destroy(stack_list[num].gameObject);
-          stack_list[num] = null;
-          return true;
-        }
-      }
-      // 通常コマンドは原則カウンターできる
-      else
-      {
-        Debug.Log("AbstractCounterStackCommand 2 : " + stack_list[num].StackName);
-        StartAnimation(stack_list[num].gameObject, Fix.EFFECT_COUNTER, Fix.COLOR_NORMAL);
-        if (src_command_name == Fix.COMMAND_BUTOH_ISSEN)
-        {
-          if (ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.Enemy ||
-              ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyField ||
-              ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyGroup ||
-              (ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyOrAlly && stack_list[num].Target == player) // リガール専用コマンドのため、これで良しとする
-              )
-          {
-            ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
-          }
-          else
-          {
-            // なにもしない
-          }
-        }
-        BuffImage seiei = player.IsStarswordSeiei;
-        if (seiei)
-        {
-          Debug.Log("starswordSeiei additional damage 2");
-          Debug.Log("Starsword-Seiei Cumulative " + seiei.Cumulative);
-          ExecMagicAttack(player, stack_list[num].Player, (1.00f + 0.50f * seiei.Cumulative), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
-        }
-        Destroy(stack_list[num].gameObject);
-        stack_list[num] = null;
-
-        return true;
-      }
-    }
-    else
-    {
-      // とくになし
-    }
-
-    // 予期せぬ場合は対象が無いので失敗として扱う。
-    return false;
   }
 
   private void ExecFlashCounter(Character player, StackObject[] stack_list)
@@ -13009,8 +12943,13 @@ public partial class BattleEnemy : MotherBase
   }
   #endregion
 
+  /// <summary>
+  /// カウンター判定処理ロジック
+  /// </summary>
+  /// <returns>true: カウンター成功、false:カウンター失敗</returns>
   private bool ExecCounterLogic(Character player, StackObject[] stack_list, string command_name, ref Character targetted)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     for (int ii = 0; ii < stack_list.Length; ii++)
     {
       Debug.Log(MethodBase.GetCurrentMethod() + " stack_list " + ii.ToString() + " " + stack_list[ii].StackName + " " + stack_list[ii].Player + " " + stack_list[ii].Target);
@@ -13021,10 +12960,34 @@ public partial class BattleEnemy : MotherBase
       int num = stack_list.Length - 2;
       string factor = string.Empty;
 
-      if (JudgeSuccessOfCounter(stack_list[num].Player, command_name, ref factor) == false)
+      // 皇帝リガール：舞踏・一閃 専用
+      if (command_name == Fix.COMMAND_BUTOH_ISSEN &&
+          ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.Enemy ||
+          ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyField ||
+          ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyGroup ||
+          (ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyOrAlly && stack_list[num].Target == player)
+          )
       {
+        Debug.Log("Fix.COMMAND_BUTOH_ISSEN ExecNormalAttack call");
+        ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
+      }
+
+      // カウンター不可判定（CannotBeCounteredなどに起因して、カウンター出来ない）
+      if (JudgeSuccessOfCounter(stack_list[num].Player, stack_list[num].StackName, ref factor) == false)
+      {
+        // 皇帝リガール：舞踏・一閃 専用
+        if (command_name == Fix.COMMAND_BUTOH_ISSEN)
+        {
+          player.NowStackDamageIsZero = true;
+          Debug.Log(MethodBase.GetCurrentMethod() + " 1 EFFECT_DAMAGE_IS_ZERO");
+          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+          targetted = null;
+          return false;
+        }
+
         if (factor != String.Empty)
         {
+          Debug.Log(MethodBase.GetCurrentMethod() + " 2 BATTLE_STACK_FAIL_FACTOR");
           Destroy(stack_list[stack_list.Length - 1].gameObject);
           stack_list[stack_list.Length - 1] = null;
           CreateStackObject(player, stack_list[num].Player, command_name + Fix.BATTLE_STACK_FAIL_FACTOR + factor + " ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
@@ -13033,15 +12996,28 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          StartAnimation(stack_list[num].gameObject, Fix.FAIL_COUNTER, Fix.COLOR_NORMAL);
+          Debug.Log(MethodBase.GetCurrentMethod() + " 3 EFFECT_CANNOT_BE_COUNTERED");
+          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_CANNOT_BE_COUNTERED, Fix.COLOR_NORMAL);
           targetted = null;
           return false;
         }
       }
+      // 通常コマンドは原則カウンターできる
       else
       {
+        Debug.Log(MethodBase.GetCurrentMethod() + " 4 EFFECT_COUNTER");
         targetted = stack_list[num].Player;
-        StartAnimation(stack_list[num].gameObject, Fix.SUCCESS_COUNTER, Fix.COLOR_NORMAL);
+        StartAnimation(stack_list[num].gameObject, Fix.EFFECT_COUNTER, Fix.COLOR_NORMAL);
+
+        // 皇帝リガール専用だが、IsStarswordSeieiが付与されていれば、誰でも対象
+        BuffImage seiei = player.IsStarswordSeiei;
+        if (seiei)
+        {
+          Debug.Log("starswordSeiei additional damage 2");
+          Debug.Log("Starsword-Seiei Cumulative " + seiei.Cumulative);
+          ExecMagicAttack(player, stack_list[num].Player, (1.00f + 0.50f * seiei.Cumulative), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+        }
+
         Destroy(stack_list[num].gameObject);
         stack_list[num] = null;
         return true;
@@ -13424,6 +13400,11 @@ public partial class BattleEnemy : MotherBase
     }
     // ハーデスト・パリィによる効果
     if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+    }
+    if (target.NowStackDamageIsZero && this.NowStackInTheCommand)
     {
       effect_value = 0;
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);

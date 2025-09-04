@@ -1330,6 +1330,14 @@ public partial class Character : MonoBehaviour
     set { _detectDeath = true; }
   }
 
+  // 皇帝リガール「舞踏・一閃」専用フラグ
+  protected bool _nowStackDamageIsZero = false;
+  public bool NowStackDamageIsZero
+  {
+    get { return _nowStackDamageIsZero; }
+    set { _nowStackDamageIsZero = true; }
+  }
+
   // ボス負の影響自動リカバー
   protected int autoRecoverPoison = 0;
   protected int autoRecoverSilence = 0;
@@ -2387,6 +2395,11 @@ public partial class Character : MonoBehaviour
 
       this.CurrentInstantPoint -= this.MaxInstantPoint * spendValue;
     }
+  }
+
+  public void CleanupStackCommandStatus()
+  {
+    this._nowStackDamageIsZero = false;
   }
 
   public int GetNextExp()
