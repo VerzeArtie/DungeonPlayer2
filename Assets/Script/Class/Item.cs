@@ -4093,6 +4093,24 @@ public partial class Item
         break;
 
       #endregion
+      #region "ファージル宮殿"
+      case Fix.DENDO_DRILL_AXE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 90;
+        this._physicalAttack = 48;
+        this._physicalAttackMax = 72;
+        this._gold = 7000;
+        this._importantType = Important.None;
+        this._description = "自動電動式で動くわけではないが、何らかのエッセンスを検知して機械的な振る舞いを実現する大きな斧。物理攻撃力４８～７２、力＋４、体＋３";
+        this._strength = 4;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        break;
+      #endregion
       #region "神秘の森"
       case Fix.SMART_SWORD:
         this._rarity = Rarity.Common;

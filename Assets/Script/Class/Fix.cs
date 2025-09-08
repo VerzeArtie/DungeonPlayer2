@@ -2547,6 +2547,9 @@ public static partial class Fix
   public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
   public const string MAXCARN_X_BUSTER = @"Maxcarn the X-BUSTER";
   #endregion
+  #region "ファージル宮殿(武具合成)"
+  public const string DENDO_DRILL_AXE = "電磁式ドリル・アックス";
+  #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
   public const string SMART_LANCE = "スマート・ランス";

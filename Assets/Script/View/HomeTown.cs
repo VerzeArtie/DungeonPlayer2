@@ -1122,6 +1122,14 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.FOOD_SPEED_SOBA, Fix.DESC_05);
     }
     #endregion
+    #region "ファージル宮殿"
+    if ((One.AR.EquipAvailable_21 == false) && (One.AR.EquipMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_21))
+    {
+      One.AR.EquipAvailable_21 = true;
+      AvailableNewContent(Fix.DENDO_DRILL_AXE, (new Item(Fix.DENDO_DRILL_AXE)).Description);
+    }
+
+    #endregion
 
     ConstructShopBuyView();
     ConstructFoodMenu();
@@ -2148,6 +2156,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_ASH_EGG) { One.AR.FoodMaterial_15 += stack; }
     if (current.ItemName == Fix.COMMON_PLANTNOID_SEED) { One.AR.FoodMaterial_16 += stack; }
     if (One.AR.FoodMaterial_15 >= 1 && One.AR.FoodMaterial_16 >= 1 && One.AR.FoodMixtureDay_13 <= 0) { One.AR.FoodMixtureDay_13 = One.TF.GameDay; }
+    #endregion
+    #region "ファージル宮殿"
+    if (current.ItemName == Fix.COMMON_MACHINE_PARTS) { One.AR.EquipMaterial_21 += stack; }
+    if (current.ItemName == Fix.COMMON_SHARP_HAHEN) { One.AR.EquipMaterial_22 += stack; }
+    if (One.AR.EquipMaterial_21 >= 1 && One.AR.EquipMaterial_22 >= 1 && One.AR.EquipMixtureDay_21 <= 0) { One.AR.EquipMixtureDay_21 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5005,6 +5018,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.NORMAL_RED_POTION));
       shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
       shopList.Add(new Item(Fix.NORMAL_GREEN_POTION));
+      if (One.AR.EquipAvailable_21) { shopList.Add(new Item(Fix.DENDO_DRILL_AXE)); }
 
       //// todo
       //if (false)
