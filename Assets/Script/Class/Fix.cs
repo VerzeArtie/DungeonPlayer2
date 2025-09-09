@@ -2995,6 +2995,9 @@ public static partial class Fix
   public const string CURE_SEAL = @"キュア・シール";
   public const string POTION_MAGIC_SEAL = @"マジック・シール薬";
   #endregion
+  #region "ファージル宮殿(ポーション合成)"
+  public const string POTION_RESIST_PLUS = "レジスト・ポーション・プラス";
+  #endregion
   #endregion
   #region "成長剤"
   // 成長剤（１階）

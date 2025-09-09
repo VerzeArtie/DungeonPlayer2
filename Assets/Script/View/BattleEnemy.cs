@@ -3381,6 +3381,10 @@ public partial class BattleEnemy : MotherBase
         ExecPotionResistFire(player, player);
         break;
 
+      case Fix.POTION_RESIST_PLUS:
+        ExecResistPotionPlus(player, player);
+        break;
+
       case Fix.CURE_SEAL:
         ExecCureSeal(player, player);
         break;
@@ -13293,7 +13297,27 @@ public partial class BattleEnemy : MotherBase
     Item current = new Item(Fix.POTION_RESIST_FIRE);
     One.TF.DeleteBackpack(current, 1);
 
-    BuffResistFireUp(player, player, Fix.INFINITY, current.ItemValue1);
+    double effect = current.ItemValue1 * 0.01f;
+    BuffResistFireUp(player, player, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecResistPotionPlus(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.POTION_RESIST_PLUS) == false)
+    {
+      Debug.Log(Fix.POTION_RESIST_PLUS + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.POTION_RESIST_PLUS);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    BuffResistFireUp(player, player, Fix.INFINITY, effect);
+    double gainLife = current.ItemValue2;
+    ExecLifeGain(player, target, gainLife);
     return true;
   }
 
@@ -14166,6 +14190,7 @@ public partial class BattleEnemy : MotherBase
     double debug1 = damageValue;
 
     // 属性耐性の分だけ、減衰させる ( Percent )
+    Debug.Log("Resist-Fire before: " + damageValue); 
     if (attr == Fix.DamageSource.Fire && target.IsDownFire != null && target.IsDownFire.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownFire.EffectValue); }
     if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistFirePercent); }
     if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistFirePercent); }
@@ -14173,7 +14198,8 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.Fire && target.Accessory1 != null && target.Accessory1.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistFirePercent); }
     if (attr == Fix.DamageSource.Fire && target.Accessory2 != null && target.Accessory2.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistFirePercent); }
     if (attr == Fix.DamageSource.Fire && target.Artifact != null && target.Artifact.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.IsResistFire != null && target.IsResistFire.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistFire.EffectValue); }
+    if (attr == Fix.DamageSource.Fire && target.IsResistFire != null) { double reduction = 1.00f - target.IsResistFire.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    Debug.Log("Resist-Fire after : " + damageValue);
 
     if (attr == Fix.DamageSource.Ice && target.IsDownIce != null && target.IsDownIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownIce.EffectValue); }
     if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistIcePercent); }

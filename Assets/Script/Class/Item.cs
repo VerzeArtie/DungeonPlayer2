@@ -10913,11 +10913,11 @@ public partial class Item
       case Fix.POTION_RESIST_FIRE:
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Potion;
-        this._itemValue1 = 50;
+        this._itemValue1 = 30;
         this._itemValue2 = 0;
         this._gold = 400;
         this._importantType = Important.None;
-        this._description = "枯れた茎から抽出した耐熱成分を体液と融合させた薬。火耐性５０。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        this._description = "枯れた茎から抽出した耐熱成分を体液と融合させた薬。炎耐性３０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
       case Fix.CURE_SEAL:
@@ -10937,6 +10937,18 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 700;
         this._description = "赤い胞子内から魔法成分を摘出し、統合に成功。魔法攻撃５％ＵＰ。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
+      #endregion
+      #region "ファージル宮殿(ポーション合成)"
+      case Fix.POTION_RESIST_PLUS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 40;
+        this._itemValue2 = 300;
+        this._gold = 500;
+        this._importantType = Important.None;
+        this._description = "アンバー素材からレジストに必要な成分を抽出し、薬品としての調合に成功させた。ライフ回復量３００、炎耐性４０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
       #endregion

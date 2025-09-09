@@ -1129,6 +1129,12 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.DENDO_DRILL_AXE, (new Item(Fix.DENDO_DRILL_AXE)).Description);
     }
 
+    if ((One.AR.PotionAvailable_21 == false) && (One.AR.PotionMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_21))
+    {
+      One.AR.PotionAvailable_21 = true;
+      AvailableNewContent(Fix.POTION_RESIST_PLUS, (new Item(Fix.POTION_RESIST_PLUS).Description));
+    }
+
     #endregion
 
     ConstructShopBuyView();
@@ -2161,6 +2167,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_MACHINE_PARTS) { One.AR.EquipMaterial_21 += stack; }
     if (current.ItemName == Fix.COMMON_SHARP_HAHEN) { One.AR.EquipMaterial_22 += stack; }
     if (One.AR.EquipMaterial_21 >= 1 && One.AR.EquipMaterial_22 >= 1 && One.AR.EquipMixtureDay_21 <= 0) { One.AR.EquipMixtureDay_21 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_COLORFUL_BALL) { One.AR.PotionMaterial_21 += stack; }
+    if (current.ItemName == Fix.COMMON_AMBER_MATERIAL) { One.AR.PotionMaterial_22 += stack; }
+    if (One.AR.PotionMaterial_21 >= 1 && One.AR.PotionMaterial_22 >= 1 && One.AR.PotionMixtureDay_21 <= 0) { One.AR.PotionMixtureDay_21 = One.TF.GameDay; }
+
     #endregion
 
     RefreshAllView();
@@ -5019,6 +5030,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
       shopList.Add(new Item(Fix.NORMAL_GREEN_POTION));
       if (One.AR.EquipAvailable_21) { shopList.Add(new Item(Fix.DENDO_DRILL_AXE)); }
+      if (One.AR.PotionAvailable_21) { shopList.Add(new Item(Fix.POTION_RESIST_PLUS)); }
 
       //// todo
       //if (false)

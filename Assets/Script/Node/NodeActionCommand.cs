@@ -48,7 +48,8 @@ public class NodeActionCommand : MonoBehaviour
     }
     else if (command_name == Fix.POTION_RESIST_FIRE ||
              command_name == Fix.CURE_SEAL ||
-             command_name == Fix.POTION_MAGIC_SEAL)
+             command_name == Fix.POTION_MAGIC_SEAL ||
+             command_name == Fix.POTION_RESIST_PLUS)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }
