@@ -2993,6 +2993,7 @@ public static partial class Fix
   #endregion
   #region "ファージル宮殿(ポーション合成)"
   public const string POTION_RESIST_PLUS = "レジスト・ポーション・プラス";
+  public const string TOTAL_HIYAKU_KASSEI = "統合秘薬【活性】";
   #endregion
   #endregion
   #region "成長剤"

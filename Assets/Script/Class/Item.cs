@@ -10969,6 +10969,16 @@ public partial class Item
         this._description = "アンバー素材からレジストに必要な成分を抽出し、薬品としての調合に成功させた。ライフ回復量３００、炎耐性４０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
+      case Fix.TOTAL_HIYAKU_KASSEI:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 150;
+        this._itemValue2 = 0;
+        this._gold = 700;
+        this._importantType = Important.None;
+        this._description = "統合された活性剤。医学的効果はなく、副作用もない。飲んだ者は不思議と集中力が増すとされている。戦速率＋１５％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"
