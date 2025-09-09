@@ -2544,6 +2544,7 @@ public static partial class Fix
   #endregion
   #region "ファージル宮殿(武具合成)"
   public const string DENDO_DRILL_AXE = "電磁式ドリル・アックス";
+  public const string ATTACH_SPIRAL_ORB = "装着型スパイラルオーブ";
   #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";

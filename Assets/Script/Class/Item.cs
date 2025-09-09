@@ -4110,6 +4110,24 @@ public partial class Item
         this._stamina = 3;
         this._mind = 0;
         break;
+
+      case Fix.ATTACH_SPIRAL_ORB:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._magicAttack = 31;
+        this._magicAttackMax = 37;
+        this._gold = 5400;
+        this._importantType = Important.None;
+        this._description = "魔力で装着するのではなく、物理的に腕に巻きつく形で装備する特殊形状のオーブ。魔力自体は伝わってくる。魔法攻撃力３１～３７、知＋３、体＋４";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 4;
+        this._mind = 0;
+        break;
+
       #endregion
       #region "神秘の森"
       case Fix.SMART_SWORD:
