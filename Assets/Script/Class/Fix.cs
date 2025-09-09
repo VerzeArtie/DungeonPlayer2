@@ -383,11 +383,6 @@ public static partial class Fix
   public const string EFFECT_POWERUP_LIGHT = "UP Light";
   public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
 
-  public const string EFFECT_POWERDOWN_FIRE = "DOWN Fire";
-  public const string EFFECT_POWERDOWN_ICE = "DOWN Ice";
-  public const string EFFECT_POWERDOWN_LIGHT = "DOWN Light";
-  public const string EFFECT_POWERDOWN_SHADOW = "DOWN Shadow";
-
   public const string EFFECT_RESIST_FIRE_UP = "ResistFireUp";
   public const string EFFECT_RESIST_ICE_UP = "ResistIceUp";
   public const string EFFECT_RESIST_LIGHT_UP = "ResistLightUp";

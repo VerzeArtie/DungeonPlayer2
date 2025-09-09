@@ -3205,10 +3205,6 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
   }
-  public BuffImage IsDownFire
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_FIRE); }
-  }
   public BuffImage IsResistFire
   {
     get { return SearchBuff(Fix.EFFECT_RESIST_FIRE_UP); }
@@ -3217,10 +3213,6 @@ public partial class Character : MonoBehaviour
   public BuffImage IsUpIce
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_ICE); }
-  }
-  public BuffImage IsDownIce
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_ICE); }
   }
   public BuffImage IsResistIce
   {
@@ -3231,10 +3223,6 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_LIGHT); }
   }
-  public BuffImage IsDownLight
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_LIGHT); }
-  }
   public BuffImage IsResistLight
   {
     get { return SearchBuff(Fix.EFFECT_RESIST_LIGHT_UP); }
@@ -3243,10 +3231,6 @@ public partial class Character : MonoBehaviour
   public BuffImage IsUpShadow
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_SHADOW); }
-  }
-  public BuffImage IsDownShadow
-  {
-    get { return SearchBuff(Fix.EFFECT_POWERDOWN_SHADOW); }
   }
   public BuffImage IsResistShadow
   {

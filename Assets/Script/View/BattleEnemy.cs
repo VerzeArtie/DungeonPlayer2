@@ -4161,10 +4161,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_BLUE_BUBBLE:
         success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
-        if (success)
-        {
-          BuffDownFire(player, target, 5, 0.30f);
-        }
         break;
 
       case Fix.COMMAND_WHITE_LAVA:
@@ -4177,10 +4173,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_WHITE_BUBBLE:
         success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
-        if (success)
-        {
-          BuffDownLight(player, target, 5, 0.30f);
-        }
         break;
 
       case Fix.COMMAND_REFLECTION_SHADE:
@@ -13737,19 +13729,9 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_FIRE, Fix.EFFECT_POWERUP_FIRE, turn, effect_value, 0, 0);
   }
 
-  private void BuffDownFire(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_FIRE, Fix.EFFECT_POWERDOWN_FIRE, turn, effect_value, 0, 0);
-  }
-
   private void BuffUpIce(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_ICE, Fix.EFFECT_POWERUP_ICE, turn, effect_value, 0, 0);
-  }
-
-  private void BuffDownIce(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_ICE, Fix.EFFECT_POWERDOWN_ICE, turn, effect_value, 0, 0);
   }
 
   private void BuffUpLight(Character player, Character target, int turn, double effect_value)
@@ -13757,19 +13739,9 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_LIGHT, Fix.EFFECT_POWERUP_LIGHT, turn, effect_value, 0, 0);
   }
 
-  private void BuffDownLight(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_LIGHT, Fix.EFFECT_POWERDOWN_LIGHT, turn, effect_value, 0, 0);
-  }
-
   private void BuffUpShadow(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_SHADOW, Fix.EFFECT_POWERUP_SHADOW, turn, effect_value, 0, 0);
-  }
-
-  private void BuffDownShadow(Character player, Character target, int turn, double effect_value)
-  {
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_SHADOW, Fix.EFFECT_POWERDOWN_SHADOW, turn, effect_value, 0, 0);
   }
 
   private void BuffResistFireUp(Character player, Character target, int turn, double effect_value)
@@ -14191,17 +14163,15 @@ public partial class BattleEnemy : MotherBase
 
     // 属性耐性の分だけ、減衰させる ( Percent )
     Debug.Log("Resist-Fire before: " + damageValue); 
-    if (attr == Fix.DamageSource.Fire && target.IsDownFire != null && target.IsDownFire.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownFire.EffectValue); }
-    if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.MainArmor != null && target.MainArmor.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.Accessory1 != null && target.Accessory1.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.Accessory2 != null && target.Accessory2.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistFirePercent); }
-    if (attr == Fix.DamageSource.Fire && target.Artifact != null && target.Artifact.ResistFirePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistFirePercent); }
+    if (attr == Fix.DamageSource.Fire && target.MainWeapon != null) { double reduction = 1.00f - target.MainWeapon.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Fire && target.SubWeapon != null) { double reduction = 1.00f - target.SubWeapon.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Fire && target.MainArmor != null) { double reduction = 1.00f - target.MainArmor.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Fire && target.Accessory1 != null) { double reduction = 1.00f - target.Accessory1.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Fire && target.Accessory2 != null) { double reduction = 1.00f - target.Accessory2.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Fire && target.Artifact != null) { double reduction = 1.00f - target.Artifact.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
     if (attr == Fix.DamageSource.Fire && target.IsResistFire != null) { double reduction = 1.00f - target.IsResistFire.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
     Debug.Log("Resist-Fire after : " + damageValue);
 
-    if (attr == Fix.DamageSource.Ice && target.IsDownIce != null && target.IsDownIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownIce.EffectValue); }
     if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistIcePercent); }
     if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistIcePercent); }
     if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistIcePercent); }
@@ -14210,7 +14180,6 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.Ice && target.Artifact != null && target.Artifact.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistIcePercent); }
     if (attr == Fix.DamageSource.Ice && target.IsResistIce != null && target.IsResistIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistIce.EffectValue); }
 
-    if (attr == Fix.DamageSource.HolyLight && target.IsDownLight != null && target.IsDownLight.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownLight.EffectValue); }
     if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistLightPercent); }
     if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistLightPercent); }
     if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistLightPercent); }
@@ -14219,7 +14188,6 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.HolyLight && target.Artifact != null && target.Artifact.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistLightPercent); }
     if (attr == Fix.DamageSource.HolyLight && target.IsResistLight != null && target.IsResistLight.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistLight.EffectValue); }
 
-    if (attr == Fix.DamageSource.DarkMagic && target.IsDownShadow != null && target.IsDownShadow.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsDownShadow.EffectValue); }
     if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistShadowPercent); }
     if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistShadowPercent); }
     if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistShadowPercent); }
