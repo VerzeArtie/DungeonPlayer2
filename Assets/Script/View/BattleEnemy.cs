@@ -3392,6 +3392,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.POTION_MAGIC_SEAL:
         ExecMagicSeal(player, player);
         break;
+
+      case Fix.TOTAL_HIYAKU_KASSEI:
+        ExecTotalHiyakuKassei(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13349,6 +13353,22 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
+  private bool ExecTotalHiyakuKassei(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TOTAL_HIYAKU_KASSEI) == false)
+    {
+      Debug.Log(Fix.TOTAL_HIYAKU_KASSEI + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TOTAL_HIYAKU_KASSEI);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
 
   private void ExecLifeGain(Character player, Character target, double effectValue)
   {
