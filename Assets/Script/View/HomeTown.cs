@@ -1135,6 +1135,12 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.POTION_RESIST_PLUS, (new Item(Fix.POTION_RESIST_PLUS).Description));
     }
 
+    if ((One.AR.FoodAvailable_21 == false) && (One.AR.FoodMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_21))
+    {
+      One.AR.FoodAvailable_21 = true;
+      AvailableNewContent(Fix.FOOD_INAGO_AND_TAMAGO, Fix.DESC_13);
+    }
+
     #endregion
 
     ConstructShopBuyView();
@@ -2171,6 +2177,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_COLORFUL_BALL) { One.AR.PotionMaterial_21 += stack; }
     if (current.ItemName == Fix.COMMON_AMBER_MATERIAL) { One.AR.PotionMaterial_22 += stack; }
     if (One.AR.PotionMaterial_21 >= 1 && One.AR.PotionMaterial_22 >= 1 && One.AR.PotionMixtureDay_21 <= 0) { One.AR.PotionMixtureDay_21 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_BAT_FEATHER) { One.AR.FoodMaterial_21 += stack; }
+    if (current.ItemName == Fix.COMMON_NEBARIKE_EKITAI) { One.AR.FoodMaterial_22 += stack; }
+    if (One.AR.FoodMaterial_21 >= 1 && One.AR.FoodMaterial_22 >= 1 && One.AR.FoodMixtureDay_21 <= 0) { One.AR.FoodMixtureDay_21 = One.TF.GameDay; }
 
     #endregion
 
@@ -5148,9 +5158,9 @@ public partial class HomeTown : MotherBase
     {
       foodList.Add(Fix.FOOD_KATUCARRY);
       foodList.Add(Fix.FOOD_OLIVE_AND_ONION);
-      foodList.Add(Fix.FOOD_INAGO_AND_TAMAGO);
-      foodList.Add(Fix.FOOD_USAGI);
-      foodList.Add(Fix.FOOD_SANMA);
+      if (One.AR.FoodAvailable_21) { foodList.Add(Fix.FOOD_INAGO_AND_TAMAGO); }
+      if (false) { foodList.Add(Fix.FOOD_USAGI); }
+      if (false) { foodList.Add(Fix.FOOD_SANMA); }
     }
     else if (area_name == Fix.TOWN_COTUHSYE)
     {
