@@ -14171,30 +14171,33 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.Fire && target.Artifact != null) { double reduction = 1.00f - target.Artifact.ResistFirePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
     if (attr == Fix.DamageSource.Fire && target.IsResistFire != null) { double reduction = 1.00f - target.IsResistFire.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
     Debug.Log("Resist-Fire after : " + damageValue);
-
-    if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.Accessory1 != null && target.Accessory1.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.Accessory2 != null && target.Accessory2.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.Artifact != null && target.Artifact.ResistIcePercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistIcePercent); }
-    if (attr == Fix.DamageSource.Ice && target.IsResistIce != null && target.IsResistIce.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistIce.EffectValue); }
-
-    if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory1 != null && target.Accessory1.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.Accessory2 != null && target.Accessory2.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.Artifact != null && target.Artifact.ResistLightPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistLightPercent); }
-    if (attr == Fix.DamageSource.HolyLight && target.IsResistLight != null && target.IsResistLight.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistLight.EffectValue); }
-
-    if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainWeapon.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.SubWeapon.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.MainArmor.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory1 != null && target.Accessory1.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory1.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null && target.Accessory2.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Accessory2.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null && target.Artifact.ResistShadowPercent > 0) { damageValue = damageValue * (1.00f - target.Artifact.ResistShadowPercent); }
-    if (attr == Fix.DamageSource.DarkMagic && target.IsResistShadow != null && target.IsResistShadow.EffectValue > 0) { damageValue = damageValue * (1.00f - target.IsResistShadow.EffectValue); }
+    Debug.Log("Resist-Ice before: " + damageValue);
+    if (attr == Fix.DamageSource.Ice && target.MainWeapon != null) { double reduction = 1.00f - target.MainWeapon.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.SubWeapon != null) { double reduction = 1.00f - target.SubWeapon.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.MainArmor != null) { double reduction = 1.00f - target.MainArmor.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.Accessory1 != null) { double reduction = 1.00f - target.Accessory1.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.Accessory2 != null) { double reduction = 1.00f - target.Accessory2.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.Artifact != null) { double reduction = 1.00f - target.Artifact.ResistIcePercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.Ice && target.IsResistIce != null) { double reduction = 1.00f - target.IsResistIce.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    Debug.Log("Resist-Ice after : " + damageValue);
+    Debug.Log("Resist-Light before: " + damageValue);
+    if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null) { double reduction = 1.00f - target.MainWeapon.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null) { double reduction = 1.00f - target.SubWeapon.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null) { double reduction = 1.00f - target.MainArmor.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.Accessory1 != null) { double reduction = 1.00f - target.Accessory1.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.Accessory2 != null) { double reduction = 1.00f - target.Accessory2.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.Artifact != null) { double reduction = 1.00f - target.Artifact.ResistLightPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.HolyLight && target.IsResistLight != null) { double reduction = 1.00f - target.IsResistLight.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    Debug.Log("Resist-Light after : " + damageValue);
+    Debug.Log("Resist-Shadow before: " + damageValue);
+    if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null) { double reduction = 1.00f - target.MainWeapon.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null) { double reduction = 1.00f - target.SubWeapon.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null) { double reduction = 1.00f - target.MainArmor.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.Accessory1 != null) { double reduction = 1.00f - target.Accessory1.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.Accessory2 != null) { double reduction = 1.00f - target.Accessory2.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.Artifact != null) { double reduction = 1.00f - target.Artifact.ResistShadowPercent; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    if (attr == Fix.DamageSource.DarkMagic && target.IsResistShadow != null) { double reduction = 1.00f - target.IsResistShadow.EffectValue; if (reduction <= 0) { reduction = 0; } damageValue = damageValue * reduction; }
+    Debug.Log("Resist-Shadow after : " + damageValue);
 
     double debug2 = damageValue;
 
