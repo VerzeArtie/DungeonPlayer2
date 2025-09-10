@@ -50,7 +50,8 @@ public class NodeActionCommand : MonoBehaviour
              command_name == Fix.CURE_SEAL ||
              command_name == Fix.POTION_MAGIC_SEAL ||
              command_name == Fix.POTION_RESIST_PLUS ||
-             command_name == Fix.TOTAL_HIYAKU_KASSEI)
+             command_name == Fix.TOTAL_HIYAKU_KASSEI ||
+             command_name == Fix.TOTAL_HIYAKU_JOUSEI)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }

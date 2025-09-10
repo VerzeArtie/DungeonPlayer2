@@ -3396,6 +3396,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.TOTAL_HIYAKU_KASSEI:
         ExecTotalHiyakuKassei(player, player);
         break;
+
+      case Fix.TOTAL_HIYAKU_JOUSEI:
+        ExecTotalHiyakuJousei(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13367,6 +13371,23 @@ public partial class BattleEnemy : MotherBase
 
     double effect = current.ItemValue1 * 0.01f;
     ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecTotalHiyakuJousei(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TOTAL_HIYAKU_JOUSEI) == false)
+    {
+      Debug.Log(Fix.TOTAL_HIYAKU_JOUSEI + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TOTAL_HIYAKU_JOUSEI);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffBattleResponseUp(player, target, Fix.INFINITY, effect);
     return true;
   }
 
