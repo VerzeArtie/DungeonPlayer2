@@ -1206,17 +1206,17 @@ public static partial class Fix
   public static string DESC_04 = DESC_04_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知＋３\r\n  体＋１\r\n  心＋１";
   public static string DESC_05 = DESC_05_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２\r\n  技＋３\r\n  知    \r\n  体    \r\n  心＋１";
 
-  public static string DESC_11 = DESC_11_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技\r\n  知\r\n  体＋５\r\n  心";
-  public static string DESC_12 = DESC_12_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知\r\n  体＋５\r\n  心＋５";
-  public static string DESC_13 = DESC_13_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋７\r\n  体\r\n  心＋５";
-  public static string DESC_14 = DESC_14_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８\r\n  技＋５\r\n  知\r\n  体\r\n  心";
-  public static string DESC_15 = DESC_15_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋９\r\n  知＋５\r\n  体\r\n  心";
+  public static string DESC_11 = DESC_11_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋５\r\n  技　　　\r\n  知　　　\r\n  体　＋５\r\n  心　　　";
+  public static string DESC_12 = DESC_12_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　　　\r\n  体　＋５\r\n  心　＋５";
+  public static string DESC_13 = DESC_13_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　＋８\r\n  体　　　\r\n  心　＋５";
+  public static string DESC_14 = DESC_14_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１０\r\n  技　＋５\r\n  知　　　\r\n  体　　　\r\n  心　　　";
+  public static string DESC_15 = DESC_15_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋１２\r\n  知　＋５\r\n  体　　　\r\n  心　　　";
 
-  public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　\r\n  技＋８\r\n  知＋５\r\n  体＋３\r\n  心　　";
-  public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技　　\r\n  知＋８\r\n  体＋５\r\n  心　　";
-  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　\r\n  技　　\r\n  知＋３\r\n  体＋８\r\n  心＋５";
-  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８\r\n  技＋５\r\n  知　　\r\n  体　　\r\n  心＋３";
-  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技＋３\r\n  知　　\r\n  体　　\r\n  心＋８";
+  public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋１２\r\n  知　＋８\r\n  体　＋５\r\n  心　　　";
+  public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋５\r\n  技　　　\r\n  知＋１２\r\n  体　＋８\r\n  心　　　";
+  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　＋５\r\n  体＋１２\r\n  心　＋８";
+  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１２\r\n  技　＋８\r\n  知　　　\r\n  体　　　\r\n  心　＋５";
+  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋８\r\n  技　＋５\r\n  知　　　\r\n  体　　　\r\n  心＋１２";
 
   public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋３０\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
   public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３０\r\n  技　　　\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
@@ -1278,17 +1278,17 @@ public static partial class Fix
   public static int[] FOOD_04_VALUE = { 0, 0, 3, 1, 1 };
   public static int[] FOOD_05_VALUE = { 2, 3, 0, 0, 1 };
 
-  public static int[] FOOD_11_VALUE = { 5, 0, 0, 5, 0 };
-  public static int[] FOOD_12_VALUE = { 0, 0, 0, 5, 5 };
-  public static int[] FOOD_13_VALUE = { 0, 0, 7, 0, 5 };
-  public static int[] FOOD_14_VALUE = { 8, 5, 0, 0, 0 };
-  public static int[] FOOD_15_VALUE = { 0, 9, 5, 0, 0 };
+  public static int[] FOOD_11_VALUE = {  5,  0,  0,  5,  0 };
+  public static int[] FOOD_12_VALUE = {  0,  0,  0,  5,  5 };
+  public static int[] FOOD_13_VALUE = {  0,  0,  8,  0,  5 };
+  public static int[] FOOD_14_VALUE = { 10,  5,  0,  0,  0 };
+  public static int[] FOOD_15_VALUE = {  0, 12,  5,  0,  0 };
 
-  public static int[] FOOD_21_VALUE = { 0, 8, 5, 3, 0 };
-  public static int[] FOOD_22_VALUE = { 3, 0, 8, 5, 0 };
-  public static int[] FOOD_23_VALUE = { 0, 0, 3, 8, 5 };
-  public static int[] FOOD_24_VALUE = { 8, 5, 0, 0, 3 };
-  public static int[] FOOD_25_VALUE = { 5, 3, 0, 0, 8 };
+  public static int[] FOOD_21_VALUE = {  0, 12,  8,  5,  0 };
+  public static int[] FOOD_22_VALUE = {  5,  0, 12,  8,  0 };
+  public static int[] FOOD_23_VALUE = {  0,  0,  5, 12,  8 };
+  public static int[] FOOD_24_VALUE = { 12,  8,  0,  0,  5 };
+  public static int[] FOOD_25_VALUE = {  8,  5,  0,  0, 12 };
 
   public static int[] FOOD_31_VALUE = {  0, 30,  0, 10, 10 };
   public static int[] FOOD_32_VALUE = { 30,  0,  0, 10, 10 };
