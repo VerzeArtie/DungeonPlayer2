@@ -116,6 +116,12 @@ public class AkashicRecord : MonoBehaviour
     set { _food_available_21 = value; }
     get { return _food_available_21; }
   }
+  [SerializeField] protected bool _food_available_22 = false;
+  public bool FoodAvailable_22
+  {
+    set { _food_available_22 = value; }
+    get { return _food_available_22; }
+  }
 
   // 武具合成
   [SerializeField] protected int _equip_mixtureDay_11 = 0;
@@ -209,6 +215,12 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _food_mixtureDay_21 = value; }
     get { return _food_mixtureDay_21; }
+  }
+  [SerializeField] protected int _food_mixtureDay_22 = 0;
+  public int FoodMixtureDay_22
+  {
+    set { _food_mixtureDay_22 = value; }
+    get { return _food_mixtureDay_22; }
   }
 
   // 武具合成
@@ -385,6 +397,18 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _food_material_22 = value; }
     get { return _food_material_22; }
+  }
+  [SerializeField] protected int _food_material_23 = 0;
+  public int FoodMaterial_23
+  {
+    set { _food_material_23 = value; }
+    get { return _food_material_23; }
+  }
+  [SerializeField] protected int _food_material_24 = 0;
+  public int FoodMaterial_24
+  {
+    set { _food_material_24 = value; }
+    get { return _food_material_24; }
   }
 
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
