@@ -1165,6 +1165,11 @@ public partial class HomeTown : MotherBase
       One.AR.FoodAvailable_22 = true;
       AvailableNewContent(Fix.FOOD_USAGI, Fix.DESC_14);
     }
+    if ((One.AR.FoodAvailable_23 == false) && (One.AR.FoodMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_23))
+    {
+      One.AR.FoodAvailable_23 = true;
+      AvailableNewContent(Fix.FOOD_SANMA, Fix.DESC_15);
+    }
 
     #endregion
 
@@ -2221,6 +2226,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_GARGOYLE_EYE) { One.AR.FoodMaterial_23 += stack; }
     if (current.ItemName == Fix.COMMON_WATCHDOG_TONGUE) { One.AR.FoodMaterial_24 += stack; }
     if (One.AR.FoodMaterial_23 >= 1 && One.AR.FoodMaterial_24 >= 1 && One.AR.FoodMixtureDay_22 <= 0) { One.AR.FoodMixtureDay_22 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_BAKUHA_CHAKKAZAI) { One.AR.FoodMaterial_25 += stack; }
+    if (current.ItemName == Fix.COMMON_CHROTIUM_MATERIAL) { One.AR.FoodMaterial_26 += stack; }
+    if (One.AR.FoodMaterial_25 >= 1 && One.AR.FoodMaterial_26 >= 1 && One.AR.FoodMixtureDay_23 <= 0) { One.AR.FoodMixtureDay_23 = One.TF.GameDay; }
 
     #endregion
 
@@ -5204,7 +5212,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_OLIVE_AND_ONION);
       if (One.AR.FoodAvailable_21) { foodList.Add(Fix.FOOD_INAGO_AND_TAMAGO); }
       if (One.AR.FoodAvailable_22) { foodList.Add(Fix.FOOD_USAGI); }
-      if (false) { foodList.Add(Fix.FOOD_SANMA); }
+      if (One.AR.FoodAvailable_23) { foodList.Add(Fix.FOOD_SANMA); }
     }
     else if (area_name == Fix.TOWN_COTUHSYE)
     {
