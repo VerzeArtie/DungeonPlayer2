@@ -10996,6 +10996,16 @@ public partial class Item
         this._description = "統合された活性剤。医学的効果はなく、副作用もない。飲んだ者は不思議と集中力が増すとされている。戦速率２０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
+      case Fix.TOTAL_HIYAKU_JOUSEI:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 20;
+        this._itemValue2 = 0;
+        this._gold = 800;
+        this._importantType = Important.None;
+        this._description = "統合された活性剤。副作用ではないが、戦闘後にある程度の疲労感は感じるので、気を付けて使用する事。戦反率２０％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"

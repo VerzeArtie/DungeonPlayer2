@@ -1149,6 +1149,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_22 = true;
       AvailableNewContent(Fix.TOTAL_HIYAKU_KASSEI, (new Item(Fix.TOTAL_HIYAKU_KASSEI).Description));
     }
+    if ((One.AR.PotionAvailable_23 == false) && (One.AR.PotionMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_23))
+    {
+      One.AR.PotionAvailable_23 = true;
+      AvailableNewContent(Fix.TOTAL_HIYAKU_JOUSEI, (new Item(Fix.TOTAL_HIYAKU_JOUSEI).Description));
+    }
 
     if ((One.AR.FoodAvailable_21 == false) && (One.AR.FoodMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_21))
     {
@@ -2206,6 +2211,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_HASSYADAI) { One.AR.PotionMaterial_23 += stack; }
     if (current.ItemName == Fix.COMMON_KYOUTEN_X) { One.AR.PotionMaterial_24 += stack; }
     if (One.AR.PotionMaterial_23 >= 1 && One.AR.PotionMaterial_24 >= 1 && One.AR.PotionMixtureDay_22 <= 0) { One.AR.PotionMixtureDay_22 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_ELECT_BOLT) { One.AR.PotionMaterial_25 += stack; }
+    if (current.ItemName == Fix.COMMON_BUYOBUYO_MOEKASU) { One.AR.PotionMaterial_26 += stack; }
+    if (One.AR.PotionMaterial_25 >= 1 && One.AR.PotionMaterial_26 >= 1 && One.AR.PotionMixtureDay_23 <= 0) { One.AR.PotionMixtureDay_23 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_BAT_FEATHER) { One.AR.FoodMaterial_21 += stack; }
     if (current.ItemName == Fix.COMMON_NEBARIKE_EKITAI) { One.AR.FoodMaterial_22 += stack; }
@@ -5076,6 +5084,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_23) { shopList.Add(new Item(Fix.THIN_STEEL_BUCKLER)); }
       if (One.AR.PotionAvailable_21) { shopList.Add(new Item(Fix.POTION_RESIST_PLUS)); }
       if (One.AR.PotionAvailable_22) { shopList.Add(new Item(Fix.TOTAL_HIYAKU_KASSEI)); }
+      if (One.AR.PotionAvailable_23) { shopList.Add(new Item(Fix.TOTAL_HIYAKU_JOUSEI)); }
 
       //// todo
       //if (false)
