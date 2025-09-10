@@ -3400,7 +3400,7 @@ public partial class Item
         this._gripType = GripTypes.None;
         this._physicalDefense = 26;
         this._magicDefense = 15;
-        this._gold = 3900;
+        this._gold = 6800;
         this._importantType = Important.None;
         this._description = "大地のエッセンスをシルバー素材に埋め込んで作成された盾。物理防御はもちろんの事、魔法耐性も幾ばくか付与されている。物理防御力２６、魔法防御力１５、体＋３、沈黙耐性";
         this._strength = 0;
@@ -4126,6 +4126,23 @@ public partial class Item
         this._intelligence = 3;
         this._stamina = 4;
         this._mind = 0;
+        break;
+
+      case Fix.THIN_STEEL_BUCKLER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 28;
+        this._magicDefense = 17;
+        this._gold = 7100;
+        this._importantType = Important.None;
+        this._description = "薄型の形状を利用して、防御力を追及したバックラー。驚くほど軽いわりに、ガチっと防御するのにも適している。物理防御力２８、魔法防御力１７、体＋５、心＋２、スタン耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 2;
+        this._resistStun = true;
         break;
 
       #endregion

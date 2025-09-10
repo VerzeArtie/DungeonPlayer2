@@ -1133,6 +1133,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_22 = true;
       AvailableNewContent(Fix.ATTACH_SPIRAL_ORB, (new Item(Fix.ATTACH_SPIRAL_ORB)).Description);
     }
+    if ((One.AR.EquipAvailable_23 == false) && (One.AR.EquipMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_23))
+    {
+      One.AR.EquipAvailable_23 = true;
+      AvailableNewContent(Fix.THIN_STEEL_BUCKLER, (new Item(Fix.THIN_STEEL_BUCKLER)).Description);
+    }
 
     if ((One.AR.PotionAvailable_21 == false) && (One.AR.PotionMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_21))
     {
@@ -2191,6 +2196,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_GLASS_SHARD) { One.AR.EquipMaterial_23 += stack; }
     if (current.ItemName == Fix.COMMON_MECHANICAL_SHAFT) { One.AR.EquipMaterial_24 += stack; }
     if (One.AR.EquipMaterial_23 >= 1 && One.AR.EquipMaterial_24 >= 1 && One.AR.EquipMixtureDay_22 <= 0) { One.AR.EquipMixtureDay_22 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_USUGATA_ENBAN) { One.AR.EquipMaterial_25 += stack; }
+    if (current.ItemName == Fix.COMMON_SOLIDSTONE_MATERIAL) { One.AR.EquipMaterial_26 += stack; }
+    if (One.AR.EquipMaterial_25 >= 1 && One.AR.EquipMaterial_26 >= 1 && One.AR.EquipMixtureDay_23 <= 0) { One.AR.EquipMixtureDay_23 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_COLORFUL_BALL) { One.AR.PotionMaterial_21 += stack; }
     if (current.ItemName == Fix.COMMON_AMBER_MATERIAL) { One.AR.PotionMaterial_22 += stack; }
@@ -5065,6 +5073,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.NORMAL_GREEN_POTION));
       if (One.AR.EquipAvailable_21) { shopList.Add(new Item(Fix.DENDO_DRILL_AXE)); }
       if (One.AR.EquipAvailable_22) { shopList.Add(new Item(Fix.ATTACH_SPIRAL_ORB)); }
+      if (One.AR.EquipAvailable_23) { shopList.Add(new Item(Fix.THIN_STEEL_BUCKLER)); }
       if (One.AR.PotionAvailable_21) { shopList.Add(new Item(Fix.POTION_RESIST_PLUS)); }
       if (One.AR.PotionAvailable_22) { shopList.Add(new Item(Fix.TOTAL_HIYAKU_KASSEI)); }
 
