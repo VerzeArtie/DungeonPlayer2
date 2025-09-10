@@ -1138,6 +1138,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_23 = true;
       AvailableNewContent(Fix.THIN_STEEL_BUCKLER, (new Item(Fix.THIN_STEEL_BUCKLER)).Description);
     }
+    if ((One.AR.EquipAvailable_24 == false) && (One.AR.EquipMixtureDay_24 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_24))
+    {
+      One.AR.EquipAvailable_24 = true;
+      AvailableNewContent(Fix.TETRA_EYE_BIGROD, (new Item(Fix.TETRA_EYE_BIGROD)).Description);
+    }
 
     if ((One.AR.PotionAvailable_21 == false) && (One.AR.PotionMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_21))
     {
@@ -2209,6 +2214,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_USUGATA_ENBAN) { One.AR.EquipMaterial_25 += stack; }
     if (current.ItemName == Fix.COMMON_SOLIDSTONE_MATERIAL) { One.AR.EquipMaterial_26 += stack; }
     if (One.AR.EquipMaterial_25 >= 1 && One.AR.EquipMaterial_26 >= 1 && One.AR.EquipMixtureDay_23 <= 0) { One.AR.EquipMixtureDay_23 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_JUNK_PARTS) { One.AR.EquipMaterial_27 += stack; }
+    if (current.ItemName == Fix.COMMON_SANKAKU_STEEL) { One.AR.EquipMaterial_28 += stack; }
+    if (One.AR.EquipMaterial_27 >= 1 && One.AR.EquipMaterial_28 >= 1 && One.AR.EquipMixtureDay_24 <= 0) { One.AR.EquipMixtureDay_24 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_COLORFUL_BALL) { One.AR.PotionMaterial_21 += stack; }
     if (current.ItemName == Fix.COMMON_AMBER_MATERIAL) { One.AR.PotionMaterial_22 += stack; }
@@ -5090,6 +5098,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_21) { shopList.Add(new Item(Fix.DENDO_DRILL_AXE)); }
       if (One.AR.EquipAvailable_22) { shopList.Add(new Item(Fix.ATTACH_SPIRAL_ORB)); }
       if (One.AR.EquipAvailable_23) { shopList.Add(new Item(Fix.THIN_STEEL_BUCKLER)); }
+      if (One.AR.EquipAvailable_24) { shopList.Add(new Item(Fix.TETRA_EYE_BIGROD)); }
       if (One.AR.PotionAvailable_21) { shopList.Add(new Item(Fix.POTION_RESIST_PLUS)); }
       if (One.AR.PotionAvailable_22) { shopList.Add(new Item(Fix.TOTAL_HIYAKU_KASSEI)); }
       if (One.AR.PotionAvailable_23) { shopList.Add(new Item(Fix.TOTAL_HIYAKU_JOUSEI)); }

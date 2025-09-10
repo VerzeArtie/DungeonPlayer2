@@ -4145,6 +4145,30 @@ public partial class Item
         this._resistStun = true;
         break;
 
+      case Fix.TETRA_EYE_BIGROD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 55;
+        this._magicAttackMax = 80;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 12000;
+        this._importantType = Important.None;
+        this._description = "様々な形状のパーツを組み合わせて合成素材で結合した大杖。見た目は歪だが、そこから弾き出される魔力は強力である。魔法攻撃力５５～８０、知＋５、心＋２、氷増幅１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 5;
+        this._stamina = 0;
+        this._mind = 2;
+        this._amplifyIce = 1.10f;
+        break;
+
       #endregion
       #region "神秘の森"
       case Fix.SMART_SWORD:
