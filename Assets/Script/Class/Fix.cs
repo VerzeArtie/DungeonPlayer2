@@ -2997,6 +2997,7 @@ public static partial class Fix
   public const string POTION_RESIST_PLUS = "レジスト・ポーション・プラス";
   public const string TOTAL_HIYAKU_KASSEI = "統合秘薬【活性】";
   public const string TOTAL_HIYAKU_JOUSEI = "統合秘薬【上清】";
+  public const string PATERMA_DISMAGIC_DRINK = "パテルマ・防魔ドリンク";
   #endregion
   #endregion
   #region "成長剤"
