@@ -3400,6 +3400,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.TOTAL_HIYAKU_JOUSEI:
         ExecTotalHiyakuJousei(player, player);
         break;
+
+      case Fix.PATERMA_DISMAGIC_DRINK:
+        ExecPatermaDismagicDrink(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13388,6 +13392,23 @@ public partial class BattleEnemy : MotherBase
 
     double effect = current.ItemValue1 * 0.01f;
     ExecBuffBattleResponseUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecPatermaDismagicDrink(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.PATERMA_DISMAGIC_DRINK) == false)
+    {
+      Debug.Log(Fix.PATERMA_DISMAGIC_DRINK + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.PATERMA_DISMAGIC_DRINK);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffMagicDefenseUp(player, target, Fix.INFINITY, effect);
     return true;
   }
 
