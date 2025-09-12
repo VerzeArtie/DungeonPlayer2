@@ -1189,6 +1189,12 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.SILENT_OLGA_CLAW, (new Item(Fix.SILENT_OLGA_CLAW)).Description);
     }
 
+    if ((One.AR.PotionAvailable_31 == false) && (One.AR.PotionMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_31))
+    {
+      One.AR.PotionAvailable_31 = true;
+      AvailableNewContent(Fix.SOUKAI_DRINK_SS, (new Item(Fix.SOUKAI_DRINK_SS).Description));
+    }
+
     if ((One.AR.FoodAvailable_31 == false) && (One.AR.FoodMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_31))
     {
       One.AR.FoodAvailable_31 = true;
@@ -2264,6 +2270,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_NORMAL_SPORE_ESSENCE) { One.AR.EquipMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_BEAR_LARGE_CLAW) { One.AR.EquipMaterial_32 += stack; }
     if (One.AR.EquipMaterial_31 >= 1 && One.AR.EquipMaterial_32 >= 1 && One.AR.EquipMixtureDay_31 <= 0) { One.AR.EquipMixtureDay_31 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_MIST_LEAF) { One.AR.PotionMaterial_31 += stack; }
+    if (current.ItemName == Fix.COMMON_SNAKE_EMPTYSHELL) { One.AR.PotionMaterial_32 += stack; }
+    if (One.AR.PotionMaterial_31 >= 1 && One.AR.PotionMaterial_32 >= 1 && One.AR.PotionMixtureDay_31 <= 0) { One.AR.PotionMixtureDay_31 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_BOAR_MOMONIKU) { One.AR.FoodMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_FROG_FRONTLEG) { One.AR.EquipMaterial_32 += stack; }
@@ -5172,6 +5182,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
       shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
       if (One.AR.EquipAvailable_31) { shopList.Add(new Item(Fix.SILENT_OLGA_CLAW)); }
+      if (One.AR.PotionAvailable_31) { shopList.Add(new Item(Fix.SOUKAI_DRINK_SS)); }
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
     {

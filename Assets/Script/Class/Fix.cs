@@ -3002,6 +3002,9 @@ public static partial class Fix
   public const string TOTAL_HIYAKU_JOUSEI = "統合秘薬【上清】";
   public const string PATERMA_DISMAGIC_DRINK = "パテルマ・防魔ドリンク";
   #endregion
+  #region "港町コチューシェ(ポーション合成)"
+  public const string SOUKAI_DRINK_SS = "爽快ドリンク【Ｓ＆Ｓ】";
+  #endregion
   #endregion
   #region "成長剤"
   // 成長剤（１階）

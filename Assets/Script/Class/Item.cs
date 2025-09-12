@@ -11065,6 +11065,17 @@ public partial class Item
         break;
 
       #endregion
+      #region "港町コチューシェ(ポーション合成)"
+      case Fix.SOUKAI_DRINK_SS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 15;
+        this._itemValue2 = 0;
+        this._gold = 2000;
+        this._importantType = Important.None;
+        this._description = "スッキリ爽快（Speedy & Splash!）頭と身体が冴えわたる！魔攻率１５％、戦速率１５％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+      #endregion
       #endregion
       #region "成長リキッド"
       case Fix.GROWTH_LIQUID_STRENGTH:
