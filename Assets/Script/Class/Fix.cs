@@ -2653,6 +2653,9 @@ public static partial class Fix
   public const string VIRGIRANTE_HELLGATE_LANCE = "ヴィルジランデ・ヘルゲート・ランス";
   public const string MULLERHAIZEN_AGARTA_BOOK = "ミュラーヘイゼン・ブック・オブ・アガルタ";
   #endregion
+  #region "港町コチューシェ(武具合成)"
+  public const string SILENT_OLGA_CLAW = "サイレント・オルガ・クロー";
+  #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";
   public const string SUPERIOR_LANCE = "スペリオル・ランス";

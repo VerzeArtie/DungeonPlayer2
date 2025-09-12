@@ -1182,6 +1182,14 @@ public partial class HomeTown : MotherBase
     }
 
     #endregion
+    #region "港町コチューシェ"
+    if ((One.AR.EquipAvailable_31 == false) && (One.AR.EquipMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_31))
+    {
+      One.AR.EquipAvailable_31 = true;
+      AvailableNewContent(Fix.SILENT_OLGA_CLAW, (new Item(Fix.SILENT_OLGA_CLAW)).Description);
+    }
+
+    #endregion
 
     ConstructShopBuyView();
     ConstructFoodMenu();
@@ -2245,6 +2253,13 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_BAKUHA_CHAKKAZAI) { One.AR.FoodMaterial_25 += stack; }
     if (current.ItemName == Fix.COMMON_CHROTIUM_MATERIAL) { One.AR.FoodMaterial_26 += stack; }
     if (One.AR.FoodMaterial_25 >= 1 && One.AR.FoodMaterial_26 >= 1 && One.AR.FoodMixtureDay_23 <= 0) { One.AR.FoodMixtureDay_23 = One.TF.GameDay; }
+
+    #endregion
+    #region "港町コチューシェ"
+    if (current.ItemName == Fix.COMMON_NORMAL_SPORE_ESSENCE) { One.AR.EquipMaterial_31 += stack; }
+    if (current.ItemName == Fix.COMMON_BEAR_LARGE_CLAW) { One.AR.EquipMaterial_32 += stack; }
+    if (One.AR.EquipMaterial_31 >= 1 && One.AR.EquipMaterial_32 >= 1 && One.AR.EquipMixtureDay_31 <= 0) { One.AR.EquipMixtureDay_31 = One.TF.GameDay; }
+
 
     #endregion
 
@@ -5148,6 +5163,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.LARGE_RED_POTION));
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
       shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
+      if (One.AR.EquipAvailable_31) { shopList.Add(new Item(Fix.SILENT_OLGA_CLAW)); }
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
     {

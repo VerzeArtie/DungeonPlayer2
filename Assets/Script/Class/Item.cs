@@ -6497,6 +6497,30 @@ public partial class Item
         this.AmplifyMagicAttack = 1.05f; // todo 要検証
         break;
       #endregion
+      #region "港町コチューシェ(武具合成)"
+      case Fix.SILENT_OLGA_CLAW:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 60;
+        this._physicalAttackMax = 70;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 11000;
+        this._importantType = Important.None;
+        this._description = "オルガ社製の鋭く切れる爪。攻撃時にほとんど音がしない事と威力の強さが一定の評価を得ている。物理攻撃力６０～７０、力＋３、技＋６、心＋６";
+        this._strength = 3;
+        this._agility = 6;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 6;
+        break;
+      #endregion
       #region "オーランの塔"
       case Fix.SUPERIOR_SWORD:
         this._rarity = Rarity.Common;
