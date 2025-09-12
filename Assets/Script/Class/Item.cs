@@ -4429,8 +4429,8 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 52;
-        this._physicalAttackMax = 57;
+        this._physicalAttack = 54;
+        this._physicalAttackMax = 66;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
