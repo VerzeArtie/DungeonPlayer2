@@ -4093,7 +4093,7 @@ public partial class Item
         break;
 
       #endregion
-      #region "ファージル宮殿"
+      #region "ファージル宮殿(武具合成)"
       case Fix.DENDO_DRILL_AXE:
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Onehand_Axe;
