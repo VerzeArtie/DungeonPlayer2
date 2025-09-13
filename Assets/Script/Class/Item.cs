@@ -6520,6 +6520,32 @@ public partial class Item
         this._stamina = 0;
         this._mind = 6;
         break;
+
+      case Fix.IRIDESCENT_CLOUD_FEATHER:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 18000;
+        this._importantType = Important.None;
+        this._description = "髪に添える形で装着できる羽。色合いは鮮やかな黒がメインカラーとなっているが、見る角度によって美しく色合いが変化する。力＋３０、知＋３０、心＋１０、沈黙耐性、麻痺耐性";
+        this._strength = 30;
+        this._agility = 0;
+        this._intelligence = 30;
+        this._stamina = 0;
+        this._mind = 10;
+        this._resistBind = true;
+        this._resistSilence = true;
+        break;
+
       #endregion
       #region "オーランの塔"
       case Fix.SUPERIOR_SWORD:

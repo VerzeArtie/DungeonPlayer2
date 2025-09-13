@@ -2655,6 +2655,7 @@ public static partial class Fix
   #endregion
   #region "港町コチューシェ(武具合成)"
   public const string SILENT_OLGA_CLAW = "サイレント・オルガ・クロー";
+  public const string IRIDESCENT_CLOUD_FEATHER = "イリディッセント・クラウド・フェザー";
   #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";

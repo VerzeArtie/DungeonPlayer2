@@ -1188,6 +1188,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_31 = true;
       AvailableNewContent(Fix.SILENT_OLGA_CLAW, (new Item(Fix.SILENT_OLGA_CLAW)).Description);
     }
+    if ((One.AR.EquipAvailable_32 == false) && (One.AR.EquipMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_32))
+    {
+      One.AR.EquipAvailable_32 = true;
+      AvailableNewContent(Fix.IRIDESCENT_CLOUD_FEATHER, (new Item(Fix.IRIDESCENT_CLOUD_FEATHER)).Description);
+    }
 
     if ((One.AR.PotionAvailable_31 == false) && (One.AR.PotionMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_31))
     {
@@ -2270,6 +2275,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_NORMAL_SPORE_ESSENCE) { One.AR.EquipMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_BEAR_LARGE_CLAW) { One.AR.EquipMaterial_32 += stack; }
     if (One.AR.EquipMaterial_31 >= 1 && One.AR.EquipMaterial_32 >= 1 && One.AR.EquipMixtureDay_31 <= 0) { One.AR.EquipMixtureDay_31 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_BEAUTY_WHITEFEATHER) { One.AR.EquipMaterial_33 += stack; }
+    if (current.ItemName == Fix.COMMON_BLACK_MIST_ESSENCE) { One.AR.EquipMaterial_34 += stack; }
+    if (One.AR.EquipMaterial_33 >= 1 && One.AR.EquipMaterial_34 >= 1 && One.AR.EquipMixtureDay_32 <= 0) { One.AR.EquipMixtureDay_32 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MIST_LEAF) { One.AR.PotionMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_SNAKE_EMPTYSHELL) { One.AR.PotionMaterial_32 += stack; }
@@ -5182,6 +5190,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
       shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
       if (One.AR.EquipAvailable_31) { shopList.Add(new Item(Fix.SILENT_OLGA_CLAW)); }
+      if (One.AR.EquipAvailable_32) { shopList.Add(new Item(Fix.IRIDESCENT_CLOUD_FEATHER)); }
       if (One.AR.PotionAvailable_31) { shopList.Add(new Item(Fix.SOUKAI_DRINK_SS)); }
     }
     else if (area_name == Fix.TOWN_ZHALMAN)

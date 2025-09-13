@@ -75,6 +75,12 @@ public class AkashicRecord : MonoBehaviour
     set { _equip_available_31 = value; }
     get { return _equip_available_31; }
   }
+  [SerializeField] protected bool _equip_available_32 = false;
+  public bool EquipAvailable_32
+  {
+    set { _equip_available_32 = value; }
+    get { return _equip_available_32; }
+  }
 
   // ポーション合成
   [SerializeField] protected bool _potion_available_11 = false;
@@ -224,6 +230,12 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _equip_mixtureDay_31 = value; }
     get { return _equip_mixtureDay_31; }
+  }
+  [SerializeField] protected int _equip_mixtureDay_32 = 0;
+  public int EquipMixtureDay_32
+  {
+    set { _equip_mixtureDay_32 = value; }
+    get { return _equip_mixtureDay_32; }
   }
 
   // ポーション合成
@@ -422,6 +434,18 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _equip_material_32 = value; }
     get { return _equip_material_32; }
+  }
+  [SerializeField] protected int _equip_material_33 = 0;
+  public int EquipMaterial_33
+  {
+    set { _equip_material_33 = value; }
+    get { return _equip_material_33; }
+  }
+  [SerializeField] protected int _equip_material_34 = 0;
+  public int EquipMaterial_34
+  {
+    set { _equip_material_34 = value; }
+    get { return _equip_material_34; }
   }
 
   // ポーション合成
