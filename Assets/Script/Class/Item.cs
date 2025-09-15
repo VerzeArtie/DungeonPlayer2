@@ -11101,6 +11101,17 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "スッキリ爽快（Speedy & Splash!）頭と身体が冴えわたる！魔攻率１５％、戦速率１５％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
+
+      case Fix.TUUKAI_DRINK_DD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 15;
+        this._itemValue2 = 0;
+        this._gold = 2300;
+        this._importantType = Important.None;
+        this._description = "ガッツリ痛快（Dont & DoIt!）身体中に力がみなぎる！物攻率１５％、戦速率１５％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"

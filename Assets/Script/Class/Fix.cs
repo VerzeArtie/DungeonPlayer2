@@ -3005,6 +3005,7 @@ public static partial class Fix
   #endregion
   #region "港町コチューシェ(ポーション合成)"
   public const string SOUKAI_DRINK_SS = "爽快ドリンク【Ｓ＆Ｓ】";
+  public const string TUUKAI_DRINK_DD = "痛快ドリンク【Ｄ＆Ｄ】";
   #endregion
   #endregion
   #region "成長剤"
