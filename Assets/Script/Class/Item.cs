@@ -11134,6 +11134,16 @@ public partial class Item
         this._description = "ガッツリ痛快（Dont & DoIt!）身体中に力がみなぎる！物攻率１５％、戦速率１５％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
+      case Fix.GOD_YORISHIRO_SOSEI:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 10;
+        this._itemValue2 = 0;
+        this._gold = 5000;
+        this._importantType = Important.None;
+        this._description = "神々の息吹をを探求するものが心を込めて作り上げた代物。そこに神は宿ると言われている。対象の生命をライフ１０％状態で復活させる。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"
