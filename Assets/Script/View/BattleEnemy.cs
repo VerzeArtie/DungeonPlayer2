@@ -3416,6 +3416,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.GOD_YORISHIRO_SOSEI:
         ExecGodYorishiroSosei(player, target);
         break;
+
+      case Fix.OLDTREE_GUARDIAN_MARK:
+        ExecOldTreeGuardianMark(player, target);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13477,6 +13481,23 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("ExecGodYorishiroSosei effect: " + effect);
     AbstractResurrection(player, target, effect);
     Debug.Log("ExecGodYorishiroSosei end");
+    return true;
+  }
+
+  private bool ExecOldTreeGuardianMark(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.OLDTREE_GUARDIAN_MARK) == false)
+    {
+      Debug.Log(Fix.OLDTREE_GUARDIAN_MARK + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.OLDTREE_GUARDIAN_MARK);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffBattlePotentialUp(player, target, Fix.INFINITY, effect);
     return true;
   }
 
