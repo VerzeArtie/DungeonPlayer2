@@ -1193,6 +1193,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_32 = true;
       AvailableNewContent(Fix.IRIDESCENT_CLOUD_FEATHER, (new Item(Fix.IRIDESCENT_CLOUD_FEATHER)).Description);
     }
+    if ((One.AR.EquipAvailable_33 == false) && (One.AR.EquipMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_33))
+    {
+      One.AR.EquipAvailable_33 = true;
+      AvailableNewContent(Fix.BRINSCALE_WAR_CROSS, (new Item(Fix.BRINSCALE_WAR_CROSS)).Description);
+    }
 
     if ((One.AR.PotionAvailable_31 == false) && (One.AR.PotionMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_31))
     {
@@ -2289,6 +2294,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_BEAUTY_WHITEFEATHER) { One.AR.EquipMaterial_33 += stack; }
     if (current.ItemName == Fix.COMMON_BLACK_MIST_ESSENCE) { One.AR.EquipMaterial_34 += stack; }
     if (One.AR.EquipMaterial_33 >= 1 && One.AR.EquipMaterial_34 >= 1 && One.AR.EquipMixtureDay_32 <= 0) { One.AR.EquipMixtureDay_32 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_LAPTOR_FUR) { One.AR.EquipMaterial_35 += stack; }
+    if (current.ItemName == Fix.COMMON_SHARPNESS_TIGER_TOOTH) { One.AR.EquipMaterial_36 += stack; }
+    if (One.AR.EquipMaterial_35 >= 1 && One.AR.EquipMaterial_36 >= 1 && One.AR.EquipMixtureDay_33 <= 0) { One.AR.EquipMixtureDay_33 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MIST_LEAF) { One.AR.PotionMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_SNAKE_EMPTYSHELL) { One.AR.PotionMaterial_32 += stack; }
@@ -5207,6 +5216,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
       if (One.AR.EquipAvailable_31) { shopList.Add(new Item(Fix.SILENT_OLGA_CLAW)); }
       if (One.AR.EquipAvailable_32) { shopList.Add(new Item(Fix.IRIDESCENT_CLOUD_FEATHER)); }
+      if (One.AR.EquipAvailable_33) { shopList.Add(new Item(Fix.BRINSCALE_WAR_CROSS)); }
       if (One.AR.PotionAvailable_31) { shopList.Add(new Item(Fix.SOUKAI_DRINK_SS)); }
       if (One.AR.PotionAvailable_32) { shopList.Add(new Item(Fix.TUUKAI_DRINK_DD)); }
     }

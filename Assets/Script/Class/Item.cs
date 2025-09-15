@@ -6546,6 +6546,28 @@ public partial class Item
         this._resistSilence = true;
         break;
 
+      case Fix.BRINSCALE_WAR_CROSS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 45;
+        this._magicDefense = 27;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 11000;
+        this._importantType = Important.None;
+        this._description = "攻撃的なカラーであり、牙模様が記された舞踏衣。戦闘の構えを取った際、虎の構えを思わせるため、威圧感が放たれる。物理防御力４５、魔法防御力２７、技＋２、体＋５、心＋３";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 3;
+        break;
       #endregion
       #region "オーランの塔"
       case Fix.SUPERIOR_SWORD:
