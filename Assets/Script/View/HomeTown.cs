@@ -1205,6 +1205,12 @@ public partial class HomeTown : MotherBase
       One.AR.FoodAvailable_31 = true;
       AvailableNewContent(Fix.FOOD_TRUTH_YAMINABE_1, Fix.DESC_23);
     }
+    if ((One.AR.FoodAvailable_32 == false) && (One.AR.FoodMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_32))
+    {
+      One.AR.FoodAvailable_32 = true;
+      AvailableNewContent(Fix.FOOD_OSAKANA_ZINGISKAN, Fix.DESC_24);
+    }
+
     #endregion
 
     ConstructShopBuyView();
@@ -2287,6 +2293,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_FROG_FRONTLEG) { One.AR.EquipMaterial_32 += stack; }
     if (One.AR.FoodMaterial_31 >= 1 && One.AR.EquipMaterial_32 >= 1 && One.AR.FoodMixtureDay_31 <= 0) { One.AR.FoodMixtureDay_31 = One.TF.GameDay; }
 
+    if (current.ItemName == Fix.COMMON_DRYAD_RINPUN) { One.AR.FoodMaterial_33 += stack; }
+    if (current.ItemName == Fix.COMMON_DORO_YOUKAIEKI) { One.AR.EquipMaterial_34 += stack; }
+    if (One.AR.FoodMaterial_33 >= 1 && One.AR.EquipMaterial_34 >= 1 && One.AR.FoodMixtureDay_32 <= 0) { One.AR.FoodMixtureDay_32 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5281,7 +5290,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_FISH_GURATAN);
       foodList.Add(Fix.FOOD_SEA_TENPURA);
       if (One.AR.FoodAvailable_31) { foodList.Add(Fix.FOOD_TRUTH_YAMINABE_1); }
-      if (false) { foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN); }
+      if (One.AR.FoodAvailable_32) { foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN); }
       if (false) { foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI); }
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
