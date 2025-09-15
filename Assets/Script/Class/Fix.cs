@@ -3144,7 +3144,7 @@ public static partial class Fix
   public const string COMMON_DANPEN_OF_GOFU = "護符の切れ端";
   public const string COMMON_GOTUGOTU_BIGTREE = "ゴツゴツした大木";
   public const string COMMON_MARY_KISS = "マリーキッス";
-  public const string COMMON_REHINO_HOHONIKU = "大型のほほ肉";
+  public const string COMMON_HUGE_HOHONIKU = "大型のほほ肉";
 
   public const string COMMON_MAGIC_HORN = "魔力ホーン";
   public const string COMMON_THREE_FEATHER = "三枚羽";

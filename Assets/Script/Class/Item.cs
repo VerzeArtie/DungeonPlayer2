@@ -11847,7 +11847,7 @@ public partial class Item
         this._gold = 1227;
         this._description = "マリーのキッスは恐れられる場合がほとんどだが、独自の趣向を持っている一部の人には好まれるアイテムである。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
-      case Fix.COMMON_REHINO_HOHONIKU:
+      case Fix.COMMON_HUGE_HOHONIKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1257;
