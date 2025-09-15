@@ -3408,6 +3408,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.SOUKAI_DRINK_SS:
         ExecSokaiDrinkSS(player, player);
         break;
+
+      case Fix.TUUKAI_DRINK_DD:
+        ExecTuukaiDrinkDD(player, player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13430,6 +13434,24 @@ public partial class BattleEnemy : MotherBase
 
     double effect = current.ItemValue1 * 0.01f;
     ExecBuffMagicAttackUp(player, target, Fix.INFINITY, effect);
+    ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecTuukaiDrinkDD(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TUUKAI_DRINK_DD) == false)
+    {
+      Debug.Log(Fix.TUUKAI_DRINK_DD + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TUUKAI_DRINK_DD);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffPhysicalAttackUp(player, target, Fix.INFINITY, effect);
     ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
     return true;
   }
