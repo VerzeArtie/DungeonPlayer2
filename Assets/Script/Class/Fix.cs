@@ -3009,6 +3009,7 @@ public static partial class Fix
   public const string SOUKAI_DRINK_SS = "爽快ドリンク【Ｓ＆Ｓ】";
   public const string TUUKAI_DRINK_DD = "痛快ドリンク【Ｄ＆Ｄ】";
   public const string GOD_YORISHIRO_SOSEI = "神の依り代【蘇生】";
+  public const string OLDTREE_GUARDIAN_MARK = "古代栄樹の護法印";
   #endregion
   #endregion
   #region "成長剤"

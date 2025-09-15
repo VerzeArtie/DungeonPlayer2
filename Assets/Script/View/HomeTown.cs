@@ -1219,6 +1219,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_33 = true;
       AvailableNewContent(Fix.GOD_YORISHIRO_SOSEI, (new Item(Fix.GOD_YORISHIRO_SOSEI).Description));
     }
+    if ((One.AR.PotionAvailable_34 == false) && (One.AR.PotionMixtureDay_34 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_34))
+    {
+      One.AR.PotionAvailable_34 = true;
+      AvailableNewContent(Fix.OLDTREE_GUARDIAN_MARK, (new Item(Fix.OLDTREE_GUARDIAN_MARK).Description));
+    }
 
     if ((One.AR.FoodAvailable_31 == false) && (One.AR.FoodMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_31))
     {
@@ -2322,10 +2327,12 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_FAIRY_POWDER) { One.AR.PotionMaterial_33 += stack; }
     if (current.ItemName == Fix.COMMON_HUNTER_TOOL) { One.AR.PotionMaterial_34 += stack; }
     if (One.AR.PotionMaterial_33 >= 1 && One.AR.PotionMaterial_34 >= 1 && One.AR.PotionMixtureDay_32 <= 0) { One.AR.PotionMixtureDay_32 = One.TF.GameDay; }
-
     if (current.ItemName == Fix.COMMON_ELEMENTAL_KONA) { One.AR.PotionMaterial_35 += stack; }
     if (current.ItemName == Fix.COMMON_THORN_ELEMENT) { One.AR.PotionMaterial_36 += stack; }
     if (One.AR.PotionMaterial_35 >= 1 && One.AR.PotionMaterial_36 >= 1 && One.AR.PotionMixtureDay_33 <= 0) { One.AR.PotionMixtureDay_33 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_DANPEN_OF_GOFU) { One.AR.PotionMaterial_37 += stack; }
+    if (current.ItemName == Fix.COMMON_MARY_KISS) { One.AR.PotionMaterial_38 += stack; }
+    if (One.AR.PotionMaterial_37 >= 1 && One.AR.PotionMaterial_38 >= 1 && One.AR.PotionMixtureDay_34 <= 0) { One.AR.PotionMixtureDay_34 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_BOAR_MOMONIKU) { One.AR.FoodMaterial_31 += stack; }
     if (current.ItemName == Fix.COMMON_FROG_FRONTLEG) { One.AR.EquipMaterial_32 += stack; }
@@ -5246,6 +5253,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_31) { shopList.Add(new Item(Fix.SOUKAI_DRINK_SS)); }
       if (One.AR.PotionAvailable_32) { shopList.Add(new Item(Fix.TUUKAI_DRINK_DD)); }
       if (One.AR.PotionAvailable_33) { shopList.Add(new Item(Fix.GOD_YORISHIRO_SOSEI)); }
+      if (One.AR.PotionAvailable_34) { shopList.Add(new Item(Fix.OLDTREE_GUARDIAN_MARK)); }
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
     {
