@@ -2657,6 +2657,7 @@ public static partial class Fix
   public const string SILENT_OLGA_CLAW = "サイレント・オルガ・クロー";
   public const string IRIDESCENT_CLOUD_FEATHER = "イリディッセント・クラウド・フェザー";
   public const string BRINSCALE_WAR_CROSS = "ブリンスケイル・ウォー・クロス";
+  public const string GREAT_COMPOSITE_LANCE = "グレート・コンポジット・ランス";
   #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";

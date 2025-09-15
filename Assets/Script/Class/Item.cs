@@ -6568,6 +6568,29 @@ public partial class Item
         this._stamina = 5;
         this._mind = 3;
         break;
+
+      case Fix.GREAT_COMPOSITE_LANCE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 85;
+        this._physicalAttack = 95;
+        this._physicalAttackMax = 226;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 30000;
+        this._importantType = Important.None;
+        this._description = "木材と鉄製を複合させた素材を用いて、かつ、長い形状でも組成変形している箇所を逆利用した大型の槍。その威力は保証されている。物理攻撃力９５～２２６、力＋１７、技＋１５、心＋３";
+        this._strength = 17;
+        this._agility = 15;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 3;
+        break;
       #endregion
       #region "オーランの塔"
       case Fix.SUPERIOR_SWORD:
