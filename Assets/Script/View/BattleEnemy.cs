@@ -2638,7 +2638,7 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
-    if (target != null && target.Dead && command_name != Fix.RESURRECTION)
+    if (target != null && target.Dead && command_name != Fix.RESURRECTION && command_name != Fix.GOD_YORISHIRO_SOSEI) // コマンド固有は別の箇所で記載した方が良い。
     {
       if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally || ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy)
       {
@@ -3411,6 +3411,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.TUUKAI_DRINK_DD:
         ExecTuukaiDrinkDD(player, player);
+        break;
+
+      case Fix.GOD_YORISHIRO_SOSEI:
+        ExecGodYorishiroSosei(player, target);
         break;
       #endregion
 
@@ -13453,6 +13457,26 @@ public partial class BattleEnemy : MotherBase
     double effect = current.ItemValue1 * 0.01f;
     ExecBuffPhysicalAttackUp(player, target, Fix.INFINITY, effect);
     ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecGodYorishiroSosei(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.GOD_YORISHIRO_SOSEI) == false)
+    {
+      Debug.Log(Fix.GOD_YORISHIRO_SOSEI + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.GOD_YORISHIRO_SOSEI);
+    One.TF.DeleteBackpack(current, 1);
+
+    Debug.Log("ExecGodYorishiroSosei start");
+    int effect = (int)((double)current.ItemValue1 * 0.01f * (double)target.MaxLife);
+    Debug.Log("ExecGodYorishiroSosei effect: " + effect);
+    AbstractResurrection(player, target, effect);
+    Debug.Log("ExecGodYorishiroSosei end");
     return true;
   }
 
