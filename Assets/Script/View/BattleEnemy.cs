@@ -3371,49 +3371,49 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.PURE_CLEAN_WATER:
-        ExecPureCleanWater(player, player);
+        ExecPureCleanWater(player, target);
         break;
       case Fix.PURE_SINSEISUI:
-        ExecSinseisui(player, player);
+        ExecSinseisui(player, target);
         break;
       case Fix.PURE_VITALIRY_WATER:
-        ExecVitalityWater(player, player);
+        ExecVitalityWater(player, target);
         break;
 
       case Fix.POTION_RESIST_FIRE:
-        ExecPotionResistFire(player, player);
+        ExecPotionResistFire(player, target);
         break;
 
       case Fix.POTION_RESIST_PLUS:
-        ExecResistPotionPlus(player, player);
+        ExecResistPotionPlus(player, target);
         break;
 
       case Fix.CURE_SEAL:
-        ExecCureSeal(player, player);
+        ExecCureSeal(player, target);
         break;
 
       case Fix.POTION_MAGIC_SEAL:
-        ExecMagicSeal(player, player);
+        ExecMagicSeal(player, target);
         break;
 
       case Fix.TOTAL_HIYAKU_KASSEI:
-        ExecTotalHiyakuKassei(player, player);
+        ExecTotalHiyakuKassei(player, target);
         break;
 
       case Fix.TOTAL_HIYAKU_JOUSEI:
-        ExecTotalHiyakuJousei(player, player);
+        ExecTotalHiyakuJousei(player, target);
         break;
 
       case Fix.PATERMA_DISMAGIC_DRINK:
-        ExecPatermaDismagicDrink(player, player);
+        ExecPatermaDismagicDrink(player, target);
         break;
 
       case Fix.SOUKAI_DRINK_SS:
-        ExecSokaiDrinkSS(player, player);
+        ExecSokaiDrinkSS(player, target);
         break;
 
       case Fix.TUUKAI_DRINK_DD:
-        ExecTuukaiDrinkDD(player, player);
+        ExecTuukaiDrinkDD(player, target);
         break;
 
       case Fix.GOD_YORISHIRO_SOSEI:
@@ -13326,7 +13326,7 @@ public partial class BattleEnemy : MotherBase
     One.TF.DeleteBackpack(current, 1);
 
     double effect = current.ItemValue1 * 0.01f;
-    BuffResistFireUp(player, player, Fix.INFINITY, effect);
+    BuffResistFireUp(player, target, Fix.INFINITY, effect);
     return true;
   }
 
@@ -13343,7 +13343,7 @@ public partial class BattleEnemy : MotherBase
     One.TF.DeleteBackpack(current, 1);
 
     double effect = current.ItemValue1 * 0.01f;
-    BuffResistFireUp(player, player, Fix.INFINITY, effect);
+    BuffResistFireUp(player, target, Fix.INFINITY, effect);
     double gainLife = current.ItemValue2;
     ExecLifeGain(player, target, gainLife);
     return true;
@@ -13365,7 +13365,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objBuffPanel.gameObject, Fix.EFFECT_REMOVE_POISON, Fix.COLOR_NORMAL);
 
     double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-    AbstractHealCommand(player, player, effectValue, true);
+    AbstractHealCommand(player, target, effectValue, true);
     return true;
   }
 
@@ -13381,7 +13381,7 @@ public partial class BattleEnemy : MotherBase
     Item current = new Item(Fix.POTION_MAGIC_SEAL);
     One.TF.DeleteBackpack(current, 1);
 
-    ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 0.00f + (double)(current.ItemValue1) * 0.01f);
+    ExecBuffMagicAttackUp(player, target, Fix.INFINITY, 0.00f + (double)(current.ItemValue1) * 0.01f);
     return true;
   }
 
