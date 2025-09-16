@@ -3015,6 +3015,9 @@ public static partial class Fix
   public const string GOD_YORISHIRO_SOSEI = "神の依り代【蘇生】";
   public const string OLDTREE_GUARDIAN_MARK = "古代栄樹の護法印";
   #endregion
+  #region "ツァルマンの里(ポーション合成)"
+  public const string TRADITIONAL_POTION_DATTOU = "伝統霊薬【脱闘】";
+  #endregion
   #endregion
   #region "成長剤"
   // 成長剤（１階）

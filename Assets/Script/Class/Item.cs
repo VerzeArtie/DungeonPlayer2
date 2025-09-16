@@ -11203,6 +11203,18 @@ public partial class Item
         break;
 
       #endregion
+      #region "ツァルマンの里(ポーション合成)"
+      case Fix.TRADITIONAL_POTION_DATTOU:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 50;
+        this._itemValue2 = 0;
+        this._gold = 7000;
+        this._importantType = Important.None;
+        this._description = "不味く、苦く、戦闘中にこれを飲む事はある程度の勇気がいる。しかし、その耐性効果の度合いは事実として証明されるだろう。炎耐性５０％、氷耐性５０％、光耐性５０％、闇耐性５０％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+        
+      #endregion
       #endregion
       #region "成長リキッド"
       case Fix.GROWTH_LIQUID_STRENGTH:
