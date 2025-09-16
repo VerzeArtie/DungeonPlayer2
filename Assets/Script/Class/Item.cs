@@ -8157,6 +8157,31 @@ public partial class Item
         break;
 
       #endregion
+      #region "ツァルマンの里(武具合成)"
+      case Fix.OHRAN_REDIAN_ROD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 122;
+        this._magicAttackMax = 146;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 38000;
+        this._importantType = Important.None;
+        this._description = "オーランの言霊を杖の中央に彫刻してある杖。手に所有すると同時に言霊は対象者に伝搬され、魔力が上昇する。魔法攻撃力１２２～１４６、知＋２０、心＋１０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 20;
+        this._stamina = 0;
+        this._mind = 10;
+        break;
+
+      #endregion
       #region "ヴェルガス海底神殿"
       case Fix.MASTER_SWORD:
         this._rarity = Rarity.Common;

@@ -1242,6 +1242,14 @@ public partial class HomeTown : MotherBase
     }
 
     #endregion
+    #region "ツァルマンの里"
+    if ((One.AR.EquipAvailable_41 == false) && (One.AR.EquipMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_41))
+    {
+      One.AR.EquipAvailable_41 = true;
+      AvailableNewContent(Fix.OHRAN_REDIAN_ROD, (new Item(Fix.OHRAN_REDIAN_ROD)).Description);
+    }
+
+    #endregion
 
     ConstructShopBuyView();
     ConstructFoodMenu();
@@ -2344,6 +2352,12 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_ELEPHANT_LEGS) { One.AR.FoodMaterial_35 += stack; }
     if (current.ItemName == Fix.COMMON_HUGE_HOHONIKU) { One.AR.EquipMaterial_36 += stack; }
     if (One.AR.FoodMaterial_35 >= 1 && One.AR.EquipMaterial_36 >= 1 && One.AR.FoodMixtureDay_33 <= 0) { One.AR.FoodMixtureDay_33 = One.TF.GameDay; }
+    #endregion
+    #region "ツァルマンの里"
+    if (current.ItemName == Fix.COMMON_MAGIC_HORN) { One.AR.EquipMaterial_41 += stack; }
+    if (current.ItemName == Fix.COMMON_WINDMAN_SEAL) { One.AR.EquipMaterial_42 += stack; }
+    if (current.ItemName == Fix.COMMON_KIRAMEKU_GOLDHORN) { One.AR.EquipMaterial_43 += stack; }
+    if (One.AR.EquipMaterial_41 >= 1 && One.AR.EquipMaterial_42 >= 1 && One.AR.EquipMaterial_43 >= 1 && One.AR.EquipMixtureDay_41 <= 0) { One.AR.EquipMixtureDay_41 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5288,6 +5302,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HUGE_RED_POTION));
       shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
+      if (One.AR.EquipAvailable_41) { shopList.Add(new Item(Fix.OHRAN_REDIAN_ROD)); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {

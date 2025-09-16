@@ -2729,6 +2729,10 @@ public static partial class Fix
   public const string GATUH_HAWL_OF_GREAT = @"Gatuh Hawl of Great";
   public const string JUZA_ARESTINE_SLICER = @"Arestine-Slicer of Juza";
   #endregion
+  #region "ツァルマンの里"
+  public const string OHRAN_REDIAN_ROD = "オーラン・レーディアン・ロッド";
+
+  #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
   public const string MASTER_SWORD = "マスター・ソード";
   public const string MASTER_LANCE = "マスター・ランス";
