@@ -7571,7 +7571,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = true;
-        this.DropItem[0] = Fix.COMMON_REHINO_HOHONIKU;
+        this.DropItem[0] = Fix.COMMON_HUGE_HOHONIKU;
         break;
 
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
