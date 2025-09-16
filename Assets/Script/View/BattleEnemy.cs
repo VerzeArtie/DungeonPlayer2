@@ -3423,6 +3423,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.OLDTREE_GUARDIAN_MARK:
         ExecOldTreeGuardianMark(player, target);
         break;
+
+      case Fix.TRADITIONAL_POTION_DATTOU:
+        ExecTraditionalPotionDattou(player, target);
+        break;
+
       #endregion
 
       #region "モンスターアクション"
@@ -13501,6 +13506,26 @@ public partial class BattleEnemy : MotherBase
 
     double effect = current.ItemValue1 * 0.01f;
     ExecBuffBattlePotentialUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecTraditionalPotionDattou(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TRADITIONAL_POTION_DATTOU) == false)
+    {
+      Debug.Log(Fix.TRADITIONAL_POTION_DATTOU + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TRADITIONAL_POTION_DATTOU);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    BuffResistFireUp(player, target, Fix.INFINITY, effect);
+    BuffResistIceUp(player, target, Fix.INFINITY, effect);
+    BuffResistLightUp(player, target, Fix.INFINITY, effect);
+    BuffResistShadowUp(player, target, Fix.INFINITY, effect);
     return true;
   }
 
