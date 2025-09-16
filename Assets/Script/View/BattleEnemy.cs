@@ -2206,7 +2206,10 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
     rect.anchorMin = new Vector2(0, 0);
     rect.anchorMax = new Vector2(1, 1);
-    Debug.Log(MethodBase.GetCurrentMethod() + " target -> " + stack_obj.Target.FullName + " ");
+    if (stack_obj.Target != null)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " target -> " + stack_obj.Target.FullName + " ");
+    }
     stack_obj.ConstructStack(stack_obj.Player, stack_obj.Target, command_name, 0, 0);
     stack_obj.gameObject.SetActive(true);
 
