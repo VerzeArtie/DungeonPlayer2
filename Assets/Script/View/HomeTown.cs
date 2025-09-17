@@ -1254,6 +1254,12 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_41 = true;
       AvailableNewContent(Fix.TRADITIONAL_POTION_DATTOU, (new Item(Fix.TRADITIONAL_POTION_DATTOU).Description));
     }
+
+    if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
+    {
+      One.AR.FoodAvailable_41 = true;
+      AvailableNewContent(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI, Fix.DESC_33);
+    }
     #endregion
 
     ConstructShopBuyView();
@@ -2368,6 +2374,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_YELLOW_DOROTSUCHI) { One.AR.PotionMaterial_42 += stack; }
     if (current.ItemName == Fix.COMMON_HENSYOKU_KOKE) { One.AR.PotionMaterial_43 += stack; }
     if (One.AR.PotionMaterial_41 >= 1 && One.AR.PotionMaterial_42 >= 1 && One.AR.PotionMaterial_43 >= 1 && One.AR.PotionMixtureDay_41 <= 0) { One.AR.PotionMixtureDay_41 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_RED_DOROTSUCHI) { One.AR.FoodMaterial_41 += stack; }
+    if (current.ItemName == Fix.COMMON_AIRORIGIN_KIHO) { One.AR.FoodMaterial_42 += stack; }
+    if (One.AR.FoodMaterial_41 >= 1 && One.AR.FoodMaterial_42 >= 1 && One.AR.FoodMixtureDay_41 <= 0) { One.AR.FoodMixtureDay_41 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5376,9 +5386,9 @@ public partial class HomeTown : MotherBase
     {
       foodList.Add(Fix.FOOD_TOBIUSAGI_ROAST);
       foodList.Add(Fix.FOOD_WATARI_KAMONABE);
-      foodList.Add(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI);
-      foodList.Add(Fix.FOOD_NEGIYAKI_DON);
-      foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE);
+      if (One.AR.FoodAvailable_41) { foodList.Add(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI); }
+      if (false) { foodList.Add(Fix.FOOD_NEGIYAKI_DON); }
+      if (false) { foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {

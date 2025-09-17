@@ -3158,7 +3158,7 @@ public static partial class Fix
   public const string COMMON_MAGIC_HORN = "魔力ホーン";
   public const string COMMON_THREE_FEATHER = "三枚羽";
   public const string COMMON_YELLOW_DOROTSUCHI = "黄色いドロ土";
-  public const string COMMON_RED_DOROTSUCHI = "朱いドロ土";
+  public const string COMMON_RED_DOROTSUCHI = "赤いドロ土";
   public const string COMMON_WINDMAN_SEAL = "風民の印";
 
   public const string COMMON_AIRORIGIN_KIHO = "空源の気泡";
