@@ -8181,6 +8181,29 @@ public partial class Item
         this._mind = 10;
         break;
 
+      case Fix.VIGILANT_FENCER_ROBE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 23;
+        this._magicDefense = 52;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 37000;
+        this._importantType = Important.None;
+        this._description = "舞踏を追及した者が稀にさらなる速度を求めた場合、稀にローブを装着する場合がある。この装備品はそのために生成された。物理防御力２３、魔法防御力５２、技＋２５、体＋２０";
+        this._strength = 0;
+        this._agility = 25;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        break;
+
       #endregion
       #region "ヴェルガス海底神殿"
       case Fix.MASTER_SWORD:

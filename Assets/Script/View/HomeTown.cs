@@ -1248,6 +1248,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_41 = true;
       AvailableNewContent(Fix.OHRAN_REDIAN_ROD, (new Item(Fix.OHRAN_REDIAN_ROD)).Description);
     }
+    if ((One.AR.EquipAvailable_42 == false) && (One.AR.EquipMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_42))
+    {
+      One.AR.EquipAvailable_42 = true;
+      AvailableNewContent(Fix.VIGILANT_FENCER_ROBE, (new Item(Fix.VIGILANT_FENCER_ROBE)).Description);
+    }
 
     if ((One.AR.PotionAvailable_41 == false) && (One.AR.PotionMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_41))
     {
@@ -2369,6 +2374,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_WINDMAN_SEAL) { One.AR.EquipMaterial_42 += stack; }
     if (current.ItemName == Fix.COMMON_KIRAMEKU_GOLDHORN) { One.AR.EquipMaterial_43 += stack; }
     if (One.AR.EquipMaterial_41 >= 1 && One.AR.EquipMaterial_42 >= 1 && One.AR.EquipMaterial_43 >= 1 && One.AR.EquipMixtureDay_41 <= 0) { One.AR.EquipMixtureDay_41 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_BIRD_OUGI) { One.AR.EquipMaterial_44 += stack; }
+    if (current.ItemName == Fix.COMMON_CURTAIN_MATERIAL) { One.AR.EquipMaterial_45 += stack; }
+    if (current.ItemName == Fix.COMMON_KITSUNE_TAIL) { One.AR.EquipMaterial_46 += stack; }
+    if (One.AR.EquipMaterial_44 >= 1 && One.AR.EquipMaterial_45 >= 1 && One.AR.EquipMaterial_46 >= 1 && One.AR.EquipMixtureDay_42 <= 0) { One.AR.EquipMixtureDay_42 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_THREE_FEATHER) { One.AR.PotionMaterial_41 += stack; }
     if (current.ItemName == Fix.COMMON_YELLOW_DOROTSUCHI) { One.AR.PotionMaterial_42 += stack; }
@@ -5323,6 +5333,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
       if (One.AR.EquipAvailable_41) { shopList.Add(new Item(Fix.OHRAN_REDIAN_ROD)); }
+      if (One.AR.EquipAvailable_42) { shopList.Add(new Item(Fix.VIGILANT_FENCER_ROBE)); }
       if (One.AR.PotionAvailable_41) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_DATTOU)); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
