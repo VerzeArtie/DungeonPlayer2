@@ -1253,6 +1253,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_42 = true;
       AvailableNewContent(Fix.VIGILANT_FENCER_ROBE, (new Item(Fix.VIGILANT_FENCER_ROBE)).Description);
     }
+    if ((One.AR.EquipAvailable_43 == false) && (One.AR.EquipMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_43))
+    {
+      One.AR.EquipAvailable_43 = true;
+      AvailableNewContent(Fix.LION_EYES_BLADE, (new Item(Fix.LION_EYES_BLADE)).Description);
+    }
 
     if ((One.AR.PotionAvailable_41 == false) && (One.AR.PotionMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_41))
     {
@@ -2388,6 +2393,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_CURTAIN_MATERIAL) { One.AR.EquipMaterial_45 += stack; }
     if (current.ItemName == Fix.COMMON_KITSUNE_TAIL) { One.AR.EquipMaterial_46 += stack; }
     if (One.AR.EquipMaterial_44 >= 1 && One.AR.EquipMaterial_45 >= 1 && One.AR.EquipMaterial_46 >= 1 && One.AR.EquipMixtureDay_42 <= 0) { One.AR.EquipMixtureDay_42 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_LION_FUR) { One.AR.EquipMaterial_47 += stack; }
+    if (current.ItemName == Fix.COMMON_PARTIMIUM_MATERIAL) { One.AR.EquipMaterial_48 += stack; }
+    if (current.ItemName == Fix.COMMON_STEEL_BATON) { One.AR.EquipMaterial_49 += stack; }
+    if (One.AR.EquipMaterial_47 >= 1 && One.AR.EquipMaterial_48 >= 1 && One.AR.EquipMaterial_49 >= 1 && One.AR.EquipMixtureDay_43 <= 0) { One.AR.EquipMixtureDay_43 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_THREE_FEATHER) { One.AR.PotionMaterial_41 += stack; }
     if (current.ItemName == Fix.COMMON_YELLOW_DOROTSUCHI) { One.AR.PotionMaterial_42 += stack; }
@@ -5351,6 +5361,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
       if (One.AR.EquipAvailable_41) { shopList.Add(new Item(Fix.OHRAN_REDIAN_ROD)); }
       if (One.AR.EquipAvailable_42) { shopList.Add(new Item(Fix.VIGILANT_FENCER_ROBE)); }
+      if (One.AR.EquipAvailable_43) { shopList.Add(new Item(Fix.LION_EYES_BLADE)); }
       if (One.AR.PotionAvailable_41) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_DATTOU)); }
       if (One.AR.PotionAvailable_42) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_HEIGAN)); }
     }

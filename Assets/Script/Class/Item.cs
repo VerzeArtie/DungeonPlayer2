@@ -8204,6 +8204,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.LION_EYES_BLADE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 130;
+        this._physicalAttackMax = 165;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 37000;
+        this._importantType = Important.None;
+        this._description = "ライオンの形状をした柄が特徴の剣。素材の影響により片手剣にしては全体的な重量はあるが、威力は申し分ない。物理攻撃力１３０～１６５、力＋３６、技＋１５、心＋１０";
+        this._strength = 36;
+        this._agility = 15;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 10;
+        break;
+
       #endregion
       #region "ヴェルガス海底神殿"
       case Fix.MASTER_SWORD:

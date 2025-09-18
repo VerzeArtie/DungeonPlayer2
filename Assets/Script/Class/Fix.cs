@@ -2732,6 +2732,7 @@ public static partial class Fix
   #region "ツァルマンの里"
   public const string OHRAN_REDIAN_ROD = "オーラン・レーディアン・ロッド";
   public const string VIGILANT_FENCER_ROBE = "ヴィジラント・フェンサー・ローブ";
+  public const string LION_EYES_BLADE = "ライオン・アイズ・ブレード";
 
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
