@@ -57,7 +57,8 @@ public class NodeActionCommand : MonoBehaviour
              command_name == Fix.TUUKAI_DRINK_DD ||
              command_name == Fix.GOD_YORISHIRO_SOSEI ||
              command_name == Fix.OLDTREE_GUARDIAN_MARK ||
-             command_name == Fix.TRADITIONAL_POTION_DATTOU)
+             command_name == Fix.TRADITIONAL_POTION_DATTOU ||
+             command_name == Fix.TRADITIONAL_POTION_HEIGAN)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }

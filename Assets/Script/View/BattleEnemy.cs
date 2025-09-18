@@ -475,6 +475,15 @@ public partial class BattleEnemy : MotherBase
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.TRANSCENDENCE_REACHED, Fix.INFINITY, 0, 0, 0);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, Fix.INFINITY, 0, 0, 0);
       //}
+      //if (playerList[ii].FullName == Fix.NAME_LANA_AMIRIA)
+      //{
+      //  ExecBuffSilent(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffBind(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffStun(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffParalyze(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffFear(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffDizzy(playerList[ii], playerList[ii], 99, 0);
+      //}
     }
 
     // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
@@ -3426,6 +3435,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.TRADITIONAL_POTION_DATTOU:
         ExecTraditionalPotionDattou(player, target);
+        break;
+
+      case Fix.TRADITIONAL_POTION_HEIGAN:
+        ExecTraditionalPotionHeigan(player, target);
         break;
 
       #endregion
@@ -13526,6 +13539,27 @@ public partial class BattleEnemy : MotherBase
     BuffResistIceUp(player, target, Fix.INFINITY, effect);
     BuffResistLightUp(player, target, Fix.INFINITY, effect);
     BuffResistShadowUp(player, target, Fix.INFINITY, effect);
+    return true;
+  }
+
+  private bool ExecTraditionalPotionHeigan(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TRADITIONAL_POTION_HEIGAN) == false)
+    {
+      Debug.Log(Fix.TRADITIONAL_POTION_HEIGAN + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TRADITIONAL_POTION_HEIGAN);
+    One.TF.DeleteBackpack(current, 1);
+
+    target.RemoveTargetBuff(Fix.EFFECT_SILENT);
+    target.RemoveTargetBuff(Fix.EFFECT_BIND);
+    target.RemoveTargetBuff(Fix.EFFECT_STUN);
+    target.RemoveTargetBuff(Fix.EFFECT_PARALYZE);
+    target.RemoveTargetBuff(Fix.EFFECT_FEAR);
+    target.RemoveTargetBuff(Fix.EFFECT_DIZZY);
     return true;
   }
 
