@@ -11170,7 +11170,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 800;
         this._importantType = Important.None;
-        this._description = "統合された活性剤。副作用ではないが、戦闘後にある程度の疲労感は感じるので、気を付けて使用する事。戦反率２０％" + Fix.DESCRIPTION_BATTLE_ONLY;
+        this._description = "統合された活性剤。副作用ではないが、戦闘後にある程度の疲労感は感じるので、気を付けて使用する事。戦応率２０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
       case Fix.PATERMA_DISMAGIC_DRINK:
