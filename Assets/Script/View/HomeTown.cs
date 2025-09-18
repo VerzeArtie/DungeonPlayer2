@@ -1259,6 +1259,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_41 = true;
       AvailableNewContent(Fix.TRADITIONAL_POTION_DATTOU, (new Item(Fix.TRADITIONAL_POTION_DATTOU).Description));
     }
+    if ((One.AR.PotionAvailable_42 == false) && (One.AR.PotionMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_42))
+    {
+      One.AR.PotionAvailable_42 = true;
+      AvailableNewContent(Fix.TRADITIONAL_POTION_HEIGAN, (new Item(Fix.TRADITIONAL_POTION_HEIGAN).Description));
+    }
 
     if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
     {
@@ -2374,7 +2379,6 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_WINDMAN_SEAL) { One.AR.EquipMaterial_42 += stack; }
     if (current.ItemName == Fix.COMMON_KIRAMEKU_GOLDHORN) { One.AR.EquipMaterial_43 += stack; }
     if (One.AR.EquipMaterial_41 >= 1 && One.AR.EquipMaterial_42 >= 1 && One.AR.EquipMaterial_43 >= 1 && One.AR.EquipMixtureDay_41 <= 0) { One.AR.EquipMixtureDay_41 = One.TF.GameDay; }
-
     if (current.ItemName == Fix.COMMON_BIRD_OUGI) { One.AR.EquipMaterial_44 += stack; }
     if (current.ItemName == Fix.COMMON_CURTAIN_MATERIAL) { One.AR.EquipMaterial_45 += stack; }
     if (current.ItemName == Fix.COMMON_KITSUNE_TAIL) { One.AR.EquipMaterial_46 += stack; }
@@ -2384,6 +2388,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_YELLOW_DOROTSUCHI) { One.AR.PotionMaterial_42 += stack; }
     if (current.ItemName == Fix.COMMON_HENSYOKU_KOKE) { One.AR.PotionMaterial_43 += stack; }
     if (One.AR.PotionMaterial_41 >= 1 && One.AR.PotionMaterial_42 >= 1 && One.AR.PotionMaterial_43 >= 1 && One.AR.PotionMixtureDay_41 <= 0) { One.AR.PotionMixtureDay_41 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_MYSTERY_SCROLL) { One.AR.PotionMaterial_44 += stack; }
+    if (current.ItemName == Fix.COMMON_WHITECOLOR_EYE) { One.AR.PotionMaterial_45 += stack; }
+    if (current.ItemName == Fix.COMMON_MEGANE_MATERIAL) { One.AR.PotionMaterial_46 += stack; }
+    if (One.AR.PotionMaterial_44 >= 1 && One.AR.PotionMaterial_45 >= 1 && One.AR.PotionMaterial_46 >= 1 && One.AR.PotionMixtureDay_42 <= 0) { One.AR.PotionMixtureDay_42 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_RED_DOROTSUCHI) { One.AR.FoodMaterial_41 += stack; }
     if (current.ItemName == Fix.COMMON_AIRORIGIN_KIHO) { One.AR.FoodMaterial_42 += stack; }
@@ -5335,6 +5343,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_41) { shopList.Add(new Item(Fix.OHRAN_REDIAN_ROD)); }
       if (One.AR.EquipAvailable_42) { shopList.Add(new Item(Fix.VIGILANT_FENCER_ROBE)); }
       if (One.AR.PotionAvailable_41) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_DATTOU)); }
+      if (One.AR.PotionAvailable_42) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_HEIGAN)); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {

@@ -11236,7 +11236,16 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "不味く、苦く、戦闘中にこれを飲む事はある程度の勇気がいる。しかし、その耐性効果の度合いは事実として証明されるだろう。炎耐性５０％、氷耐性５０％、光耐性５０％、闇耐性５０％" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
-        
+
+      case Fix.TRADITIONAL_POTION_HEIGAN:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 8000;
+        this._importantType = Important.None;
+        this._description = "この霊薬を喰らう事で、眼および聴覚への神経が瞬間的に麻痺状態となる。ゆえに精神は研ぎ澄まされ、新たな自分自信を発見する事だろう。対象にかかっている【沈黙／束縛／スタン／麻痺／恐怖／眩暈】効果をすべて解除する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
       #endregion
       #endregion
       #region "成長リキッド"
