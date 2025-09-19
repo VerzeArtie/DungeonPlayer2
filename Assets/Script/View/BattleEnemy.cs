@@ -483,6 +483,11 @@ public partial class BattleEnemy : MotherBase
       //  ExecBuffParalyze(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffFear(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffDizzy(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffPoison(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffFreeze(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffSlow(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffSlip(playerList[ii], playerList[ii], 99, 0);
       //}
     }
 
@@ -3439,6 +3444,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.TRADITIONAL_POTION_HEIGAN:
         ExecTraditionalPotionHeigan(player, target);
+        break;
+
+      case Fix.LEKS_MYSTICAL_POTION:
+        ExecLeksMysticalPotion(player, target);
         break;
 
       #endregion
@@ -13560,6 +13569,26 @@ public partial class BattleEnemy : MotherBase
     target.RemoveTargetBuff(Fix.EFFECT_PARALYZE);
     target.RemoveTargetBuff(Fix.EFFECT_FEAR);
     target.RemoveTargetBuff(Fix.EFFECT_DIZZY);
+    return true;
+  }
+
+  private bool ExecLeksMysticalPotion(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.LEKS_MYSTICAL_POTION) == false)
+    {
+      Debug.Log(Fix.LEKS_MYSTICAL_POTION + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.LEKS_MYSTICAL_POTION);
+    One.TF.DeleteBackpack(current, 1);
+
+    target.RemoveTargetBuff(Fix.EFFECT_POISON);
+    target.RemoveTargetBuff(Fix.EFFECT_SLEEP);
+    target.RemoveTargetBuff(Fix.EFFECT_FREEZE);
+    target.RemoveTargetBuff(Fix.EFFECT_SLOW);
+    target.RemoveTargetBuff(Fix.EFFECT_SLIP);
     return true;
   }
 
