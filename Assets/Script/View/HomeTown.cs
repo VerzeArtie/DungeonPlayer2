@@ -1269,6 +1269,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_42 = true;
       AvailableNewContent(Fix.TRADITIONAL_POTION_HEIGAN, (new Item(Fix.TRADITIONAL_POTION_HEIGAN).Description));
     }
+    if ((One.AR.PotionAvailable_43 == false) && (One.AR.PotionMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_43))
+    {
+      One.AR.PotionAvailable_43 = true;
+      AvailableNewContent(Fix.LEKS_MYSTICAL_POTION, (new Item(Fix.LEKS_MYSTICAL_POTION).Description));
+    }
 
     if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
     {
@@ -2407,11 +2412,14 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_WHITECOLOR_EYE) { One.AR.PotionMaterial_45 += stack; }
     if (current.ItemName == Fix.COMMON_MEGANE_MATERIAL) { One.AR.PotionMaterial_46 += stack; }
     if (One.AR.PotionMaterial_44 >= 1 && One.AR.PotionMaterial_45 >= 1 && One.AR.PotionMaterial_46 >= 1 && One.AR.PotionMixtureDay_42 <= 0) { One.AR.PotionMixtureDay_42 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_ARTHARIUM_JEWEL) { One.AR.PotionMaterial_47 += stack; }
+    if (current.ItemName == Fix.COMMON_TOUMEI_KESSYO) { One.AR.PotionMaterial_48 += stack; }
+    if (current.ItemName == Fix.COMMON_HUGE_BOOK) { One.AR.PotionMaterial_49 += stack; }
+    if (One.AR.PotionMaterial_47 >= 1 && One.AR.PotionMaterial_48 >= 1 && One.AR.PotionMaterial_49 >= 1 && One.AR.PotionMixtureDay_43 <= 0) { One.AR.PotionMixtureDay_43 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_RED_DOROTSUCHI) { One.AR.FoodMaterial_41 += stack; }
     if (current.ItemName == Fix.COMMON_AIRORIGIN_KIHO) { One.AR.FoodMaterial_42 += stack; }
     if (One.AR.FoodMaterial_41 >= 1 && One.AR.FoodMaterial_42 >= 1 && One.AR.FoodMixtureDay_41 <= 0) { One.AR.FoodMixtureDay_41 = One.TF.GameDay; }
-
     if (current.ItemName == Fix.COMMON_BLUECOLOR_EYE) { One.AR.FoodMaterial_43 += stack; }
     if (current.ItemName == Fix.COMMON_WHITE_HIDUME) { One.AR.FoodMaterial_44 += stack; }
     if (One.AR.FoodMaterial_43 >= 1 && One.AR.FoodMaterial_44 >= 1 && One.AR.FoodMixtureDay_42 <= 0) { One.AR.FoodMixtureDay_42 = One.TF.GameDay; }
@@ -5364,6 +5372,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_43) { shopList.Add(new Item(Fix.LION_EYES_BLADE)); }
       if (One.AR.PotionAvailable_41) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_DATTOU)); }
       if (One.AR.PotionAvailable_42) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_HEIGAN)); }
+      if (One.AR.PotionAvailable_43) { shopList.Add(new Item(Fix.LEKS_MYSTICAL_POTION)); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {

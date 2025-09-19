@@ -3020,6 +3020,7 @@ public static partial class Fix
   #region "ツァルマンの里(ポーション合成)"
   public const string TRADITIONAL_POTION_DATTOU = "伝統霊薬【脱闘】";
   public const string TRADITIONAL_POTION_HEIGAN = "伝統霊薬【閉眼】";
+  public const string LEKS_MYSTICAL_POTION = "レクス・ミスティカル・ポーション";
   #endregion
   #endregion
   #region "成長剤"

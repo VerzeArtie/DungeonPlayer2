@@ -11269,6 +11269,17 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "この霊薬を喰らう事で、眼および聴覚への神経が瞬間的に麻痺状態となる。ゆえに精神は研ぎ澄まされ、新たな自分自信を発見する事だろう。対象にかかっている【沈黙／束縛／スタン／麻痺／恐怖／眩暈】効果をすべて解除する。" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
+
+      case Fix.LEKS_MYSTICAL_POTION:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 2000;
+        this._itemValue2 = 0;
+        this._gold = 9000;
+        this._importantType = Important.None;
+        this._description = "古代の書物に記されていた内容を元に生成された劇薬。飲むと死ぬほどの激痛を伴うがその恩恵として、自己生命治癒力に関する能力が上昇する。対象にかかっている【猛毒／睡眠／凍結／鈍化／出血】効果をすべて解除する。ライフを２０００回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"
