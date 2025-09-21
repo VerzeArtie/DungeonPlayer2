@@ -1285,6 +1285,11 @@ public partial class HomeTown : MotherBase
       One.AR.FoodAvailable_42 = true;
       AvailableNewContent(Fix.FOOD_NEGIYAKI_DON, Fix.DESC_34);
     }
+    if ((One.AR.FoodAvailable_43 == false) && (One.AR.FoodMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_43))
+    {
+      One.AR.FoodAvailable_43 = true;
+      AvailableNewContent(Fix.FOOD_NANAIRO_BUNA_NITSUKE, Fix.DESC_35);
+    }
     #endregion
 
     ConstructShopBuyView();
@@ -2423,6 +2428,9 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_BLUECOLOR_EYE) { One.AR.FoodMaterial_43 += stack; }
     if (current.ItemName == Fix.COMMON_WHITE_HIDUME) { One.AR.FoodMaterial_44 += stack; }
     if (One.AR.FoodMaterial_43 >= 1 && One.AR.FoodMaterial_44 >= 1 && One.AR.FoodMixtureDay_42 <= 0) { One.AR.FoodMixtureDay_42 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_GUNPOWDER) { One.AR.FoodMaterial_45 += stack; }
+    if (current.ItemName == Fix.COMMON_APLITOS_BONE) { One.AR.FoodMaterial_46 += stack; }
+    if (One.AR.FoodMaterial_45 >= 1 && One.AR.FoodMaterial_46 >= 1 && One.AR.FoodMixtureDay_43 <= 0) { One.AR.FoodMixtureDay_43 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5437,7 +5445,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_WATARI_KAMONABE);
       if (One.AR.FoodAvailable_41) { foodList.Add(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI); }
       if (One.AR.FoodAvailable_42) { foodList.Add(Fix.FOOD_NEGIYAKI_DON); }
-      if (false) { foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE); }
+      if (One.AR.FoodAvailable_43) { foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {
