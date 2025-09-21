@@ -414,6 +414,20 @@ public partial class Item
     get { return _itemValue2; }
   }
 
+  protected int _itemValue3 = 0;
+  public int ItemValue3
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _itemValue3 = value;
+    }
+    get { return _itemValue3; }
+  }
+
   protected int _limitValue = 1;
   public int LimitValue
   {
@@ -11313,8 +11327,9 @@ public partial class Item
       case Fix.TEN_ON_MORI_MEGUMI:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Potion;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
+        this._itemValue1 = 2500;
+        this._itemValue2 = 500;
+        this._itemValue3 = 30;
         this._gold = 15000;
         this._importantType = Important.None;
         this._description = "天と森が全ての生命を司る。この印を手の甲に添える事で、確かな生命力を感じ取る事ができるだろう。ライフを２５００、マナを５００、スキルポイントを３０回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;

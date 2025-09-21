@@ -3450,6 +3450,9 @@ public partial class BattleEnemy : MotherBase
         ExecLeksMysticalPotion(player, target);
         break;
 
+      case Fix.TEN_ON_MORI_MEGUMI:
+        ExecTenOnMoriMegumi(player, target);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -13592,6 +13595,30 @@ public partial class BattleEnemy : MotherBase
 
     double effectValue = current.ItemValue1;
     AbstractHealCommand(player, target, effectValue, true);
+
+    return true;
+  }
+
+  private bool ExecTenOnMoriMegumi(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.TEN_ON_MORI_MEGUMI) == false)
+    {
+      Debug.Log(Fix.TEN_ON_MORI_MEGUMI + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.TEN_ON_MORI_MEGUMI);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effectValue = current.ItemValue1;
+    AbstractHealCommand(player, target, effectValue, true);
+
+    double effectValue2 = current.ItemValue2;
+    AbstractGainManaPoint(player, target, effectValue2);
+
+    double effectValue3 = current.ItemValue3;
+    AbstractGainSkillPoint(player, target, effectValue3);
 
     return true;
   }
