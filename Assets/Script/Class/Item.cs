@@ -8205,7 +8205,7 @@ public partial class Item
         break;
 
       case Fix.LION_EYES_BLADE:
-        this._rarity = Rarity.Common;
+        this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Onehand_Sword;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 95;
