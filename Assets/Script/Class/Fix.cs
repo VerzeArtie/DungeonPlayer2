@@ -3021,6 +3021,7 @@ public static partial class Fix
   public const string TRADITIONAL_POTION_DATTOU = "伝統霊薬【脱闘】";
   public const string TRADITIONAL_POTION_HEIGAN = "伝統霊薬【閉眼】";
   public const string LEKS_MYSTICAL_POTION = "レクス・ミスティカル・ポーション";
+  public const string TEN_ON_MORI_MEGUMI = "天の恩・森の恵";
   #endregion
   #endregion
   #region "成長剤"

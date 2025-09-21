@@ -11310,6 +11310,16 @@ public partial class Item
         this._description = "古代の書物に記されていた内容を元に生成された劇薬。飲むと死ぬほどの激痛を伴うがその恩恵として、自己生命治癒力に関する能力が上昇する。対象にかかっている【猛毒／睡眠／凍結／鈍化／出血】効果をすべて解除する。ライフを２０００回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
+      case Fix.TEN_ON_MORI_MEGUMI:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 15000;
+        this._importantType = Important.None;
+        this._description = "天と森が全ての生命を司る。この印を手の甲に添える事で、確かな生命力を感じ取る事ができるだろう。ライフを２５００、マナを５００、スキルポイントを３０回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"

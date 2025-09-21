@@ -1279,6 +1279,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_43 = true;
       AvailableNewContent(Fix.LEKS_MYSTICAL_POTION, (new Item(Fix.LEKS_MYSTICAL_POTION).Description));
     }
+    if ((One.AR.PotionAvailable_44 == false) && (One.AR.PotionMixtureDay_44 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_44))
+    {
+      One.AR.PotionAvailable_44 = true;
+      AvailableNewContent(Fix.TEN_ON_MORI_MEGUMI, (new Item(Fix.TEN_ON_MORI_MEGUMI).Description));
+    }
 
     if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
     {
@@ -2430,6 +2435,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_TOUMEI_KESSYO) { One.AR.PotionMaterial_48 += stack; }
     if (current.ItemName == Fix.COMMON_HUGE_BOOK) { One.AR.PotionMaterial_49 += stack; }
     if (One.AR.PotionMaterial_47 >= 1 && One.AR.PotionMaterial_48 >= 1 && One.AR.PotionMaterial_49 >= 1 && One.AR.PotionMixtureDay_43 <= 0) { One.AR.PotionMixtureDay_43 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_PURE_SILVER) { One.AR.PotionMaterial_410 += stack; }
+    if (current.ItemName == Fix.COMMON_MUKAKOU_SEKIEI) { One.AR.PotionMaterial_411 += stack; }
+    if (current.ItemName == Fix.COMMON_DEATH_CLOVER) { One.AR.PotionMaterial_412 += stack; }
+    if (One.AR.PotionMaterial_410 >= 1 && One.AR.PotionMaterial_411 >= 1 && One.AR.PotionMaterial_412 >= 1 && One.AR.PotionMixtureDay_44 <= 0) { One.AR.PotionMixtureDay_44 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_RED_DOROTSUCHI) { One.AR.FoodMaterial_41 += stack; }
     if (current.ItemName == Fix.COMMON_AIRORIGIN_KIHO) { One.AR.FoodMaterial_42 += stack; }
@@ -5391,6 +5400,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_41) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_DATTOU)); }
       if (One.AR.PotionAvailable_42) { shopList.Add(new Item(Fix.TRADITIONAL_POTION_HEIGAN)); }
       if (One.AR.PotionAvailable_43) { shopList.Add(new Item(Fix.LEKS_MYSTICAL_POTION)); }
+      if (One.AR.PotionAvailable_44) { shopList.Add(new Item(Fix.TEN_ON_MORI_MEGUMI)); }
     }
     else if (area_name == Fix.TOWN_PARMETYSIA)
     {
