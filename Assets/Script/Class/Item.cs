@@ -8227,6 +8227,36 @@ public partial class Item
         this._mind = 10;
         break;
 
+      case Fix.TYORENSOU_ZANKYO_LANCE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 85;
+        this._physicalAttack = 520;
+        this._physicalAttackMax = 680;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 100000;
+        this._importantType = Important.None;
+        this._description = "槍の先端には二双、持ち手にその残響が伝わってくる。ツァルマンの里にて造られた槍は伝統ある祀りにて使用される。保持者には神々の光が宿るだろう。物理攻撃力５２０～６８０、力＋８０、技＋７０、心＋６０、氷増幅２０％、氷耐性２０％、聖増幅２０％、聖耐性２０％、スタン耐性、凍結耐性、鈍化耐性";
+        this._strength = 80;
+        this._agility = 70;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 60;
+        this._amplifyIce = 1.20f;
+        this._resistIcePercent = 0.20f;
+        this._amplifyLight = 1.20f;
+        this._resistLightPercent = 0.20f;
+        this._resistStun = true;
+        this._resistFreeze = true;
+        this._resistSlow = true;
+        break;
+
       #endregion
       #region "ヴェルガス海底神殿"
       case Fix.MASTER_SWORD:

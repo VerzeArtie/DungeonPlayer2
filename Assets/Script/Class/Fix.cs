@@ -2733,7 +2733,7 @@ public static partial class Fix
   public const string OHRAN_REDIAN_ROD = "オーラン・レーディアン・ロッド";
   public const string VIGILANT_FENCER_ROBE = "ヴィジラント・フェンサー・ローブ";
   public const string LION_EYES_BLADE = "ライオン・アイズ・ブレード";
-
+  public const string TYORENSOU_ZANKYO_LANCE = "蝶連双・弦響槍";
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
   public const string MASTER_SWORD = "マスター・ソード";
