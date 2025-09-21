@@ -13589,6 +13589,10 @@ public partial class BattleEnemy : MotherBase
     target.RemoveTargetBuff(Fix.EFFECT_FREEZE);
     target.RemoveTargetBuff(Fix.EFFECT_SLOW);
     target.RemoveTargetBuff(Fix.EFFECT_SLIP);
+
+    double effectValue = current.ItemValue1;
+    AbstractHealCommand(player, target, effectValue, true);
+
     return true;
   }
 
