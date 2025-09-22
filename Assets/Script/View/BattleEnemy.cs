@@ -3453,6 +3453,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.TEN_ON_MORI_MEGUMI:
         ExecTenOnMoriMegumi(player, target);
         break;
+
+      case Fix.KINDAN_TOKKOUYAKU:
+        ExecKindanTokkouyaku(player, target);
+        break;
+
       #endregion
 
       #region "モンスターアクション"
@@ -13619,6 +13624,33 @@ public partial class BattleEnemy : MotherBase
 
     double effectValue3 = current.ItemValue3;
     AbstractGainSkillPoint(player, target, effectValue3);
+
+    return true;
+  }
+
+  private bool ExecKindanTokkouyaku(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.KINDAN_TOKKOUYAKU) == false)
+    {
+      Debug.Log(Fix.KINDAN_TOKKOUYAKU + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.KINDAN_TOKKOUYAKU);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    BuffResistFireUp(player, target, Fix.INFINITY, effect);
+    BuffResistIceUp(player, target, Fix.INFINITY, effect);
+    BuffResistLightUp(player, target, Fix.INFINITY, effect);
+    BuffResistShadowUp(player, target, Fix.INFINITY, effect);
+
+    double effect2 = current.ItemValue2 * 0.01f;
+    ExecBuffPhysicalDefenseUp(player, target, Fix.INFINITY, effect2);
+
+    double effect3 = current.ItemValue3;
+    AbstractHealCommand(player, target, effect3, true);
 
     return true;
   }

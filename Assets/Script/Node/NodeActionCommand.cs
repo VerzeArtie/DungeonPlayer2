@@ -60,7 +60,8 @@ public class NodeActionCommand : MonoBehaviour
              command_name == Fix.TRADITIONAL_POTION_DATTOU ||
              command_name == Fix.TRADITIONAL_POTION_HEIGAN ||
              command_name == Fix.LEKS_MYSTICAL_POTION ||
-             command_name == Fix.TEN_ON_MORI_MEGUMI)
+             command_name == Fix.TEN_ON_MORI_MEGUMI ||
+             command_name == Fix.KINDAN_TOKKOUYAKU)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }
