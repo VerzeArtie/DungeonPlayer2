@@ -9904,6 +9904,31 @@ public partial class Item
         this._resistSlip = true;
         break;
       #endregion
+      #region "パルメティシア神殿"
+      case Fix.HIGH_RANGER_BATTLE_BOW:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 850;
+        this._physicalAttackMax = 1080;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 300000;
+        this._importantType = Important.None;
+        this._description = "弓向けの構成は通常、戦略性と全体把握が主だが、この弓は戦闘型に特化した形状をしている。ある程度の近接からでも射程を気にせず強打ち出来るため、一定の愛用者は多い。物理攻撃力８５０～１０８０、力＋１２０、技＋１００";
+        this._strength = 120;
+        this._agility = 100;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      #endregion
       #region "エデルガイゼン城"
       case Fix.EXTREME_SWORD:
         this._rarity = Rarity.Common;

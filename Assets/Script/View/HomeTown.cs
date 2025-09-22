@@ -1301,6 +1301,14 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.FOOD_NANAIRO_BUNA_NITSUKE, Fix.DESC_35);
     }
     #endregion
+    #region "パルメティシア神殿"
+    if ((One.AR.EquipAvailable_51 == false) && (One.AR.EquipMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_51))
+    {
+      One.AR.EquipAvailable_51 = true;
+      AvailableNewContent(Fix.HIGH_RANGER_BATTLE_BOW, (new Item(Fix.HIGH_RANGER_BATTLE_BOW)).Description);
+    }
+
+    #endregion
 
     ConstructShopBuyView();
     ConstructFoodMenu();
@@ -2449,6 +2457,13 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_GUNPOWDER) { One.AR.FoodMaterial_45 += stack; }
     if (current.ItemName == Fix.COMMON_APLITOS_BONE) { One.AR.FoodMaterial_46 += stack; }
     if (One.AR.FoodMaterial_45 >= 1 && One.AR.FoodMaterial_46 >= 1 && One.AR.FoodMixtureDay_43 <= 0) { One.AR.FoodMixtureDay_43 = One.TF.GameDay; }
+    #endregion
+    #region "パルメティシア神殿"
+    if (current.ItemName == Fix.COMMON_DAGGERFISH_UROKO) { One.AR.EquipMaterial_51 += stack; }
+    if (current.ItemName == Fix.COMMON_WASI_BLUE_FEATHER) { One.AR.EquipMaterial_52 += stack; }
+    if (current.ItemName == Fix.COMMON_BIGAXE_TOP) { One.AR.EquipMaterial_53 += stack; }
+    if (One.AR.EquipMaterial_51 >= 1 && One.AR.EquipMaterial_52 >= 1 && One.AR.EquipMaterial_53 >= 1 && One.AR.EquipMixtureDay_51 <= 0) { One.AR.EquipMixtureDay_51 = One.TF.GameDay; }
+
     #endregion
 
     RefreshAllView();
@@ -5428,6 +5443,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HQ_RED_POTION));
       shopList.Add(new Item(Fix.HQ_BLUE_POTION));
       shopList.Add(new Item(Fix.HQ_GREEN_POTION));
+      if (One.AR.EquipAvailable_51) { shopList.Add(new Item(Fix.HIGH_RANGER_BATTLE_BOW)); }
     }
     return shopList;
   }

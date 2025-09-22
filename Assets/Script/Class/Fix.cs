@@ -2809,6 +2809,9 @@ public static partial class Fix
   public const string FLOW_FUNNEL_OF_THE_ZVELDOZE = @"Flow Funnel of the Zveldose";
 
   #endregion
+  #region "パルメティシア神殿(武具合成)"
+  public const string HIGH_RANGER_BATTLE_BOW = "ハイレンジャー・バトルボウ";
+  #endregion
   #region "フェーズ【 IIIー２ 】：ダルの門"
   public const string MARVELOUS_SWORD = "マーベラス・ソード";
   public const string MARVELOUS_LANCE = "マーベラス・ランス";
