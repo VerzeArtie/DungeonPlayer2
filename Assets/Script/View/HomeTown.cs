@@ -1308,6 +1308,11 @@ public partial class HomeTown : MotherBase
       AvailableNewContent(Fix.HIGH_RANGER_BATTLE_BOW, (new Item(Fix.HIGH_RANGER_BATTLE_BOW)).Description);
     }
 
+    if ((One.AR.PotionAvailable_51 == false) && (One.AR.PotionMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_51))
+    {
+      One.AR.PotionAvailable_51 = true;
+      AvailableNewContent(Fix.KINDAN_TOKKOUYAKU, (new Item(Fix.KINDAN_TOKKOUYAKU).Description));
+    }
     #endregion
 
     ConstructShopBuyView();
@@ -2464,6 +2469,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_BIGAXE_TOP) { One.AR.EquipMaterial_53 += stack; }
     if (One.AR.EquipMaterial_51 >= 1 && One.AR.EquipMaterial_52 >= 1 && One.AR.EquipMaterial_53 >= 1 && One.AR.EquipMixtureDay_51 <= 0) { One.AR.EquipMixtureDay_51 = One.TF.GameDay; }
 
+    if (current.ItemName == Fix.COMMON_BLUE_MAGATAMA) { One.AR.PotionMaterial_51 += stack; }
+    if (current.ItemName == Fix.COMMON_KURIONE_ZOUMOTU) { One.AR.PotionMaterial_52 += stack; }
+    if (current.ItemName == Fix.COMMON_ROSE_SEKKAI) { One.AR.PotionMaterial_53 += stack; }
+    if (One.AR.PotionMaterial_51 >= 1 && One.AR.PotionMaterial_52 >= 1 && One.AR.PotionMaterial_53 >= 1 && One.AR.PotionMixtureDay_51 <= 0) { One.AR.PotionMixtureDay_51 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5444,6 +5453,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HQ_BLUE_POTION));
       shopList.Add(new Item(Fix.HQ_GREEN_POTION));
       if (One.AR.EquipAvailable_51) { shopList.Add(new Item(Fix.HIGH_RANGER_BATTLE_BOW)); }
+      if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
     }
     return shopList;
   }

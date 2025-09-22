@@ -3026,6 +3026,9 @@ public static partial class Fix
   public const string LEKS_MYSTICAL_POTION = "レクス・ミスティカル・ポーション";
   public const string TEN_ON_MORI_MEGUMI = "天の恩・森の恵";
   #endregion
+  #region "パルメティシア神殿(ポーション合成)"
+  public const string KINDAN_TOKKOUYAKU = "禁断の特効薬";
+  #endregion
   #endregion
   #region "成長剤"
   // 成長剤（１階）

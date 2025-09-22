@@ -11361,6 +11361,19 @@ public partial class Item
         break;
 
       #endregion
+      #region "パルメティシア神殿"
+      case Fix.KINDAN_TOKKOUYAKU:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._itemValue3 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "治癒力もあり、耐性力もあり、持久力も上がる。神々に仕える神官達が丹精込めて製作しており、副作用の心配もない（と言われている）。炎耐性７０％、氷耐性７０％、光耐性７０％、闇耐性７０％。物防率２０％、ライフを３０００回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
+      #endregion
       #endregion
       #region "成長リキッド"
       case Fix.GROWTH_LIQUID_STRENGTH:
