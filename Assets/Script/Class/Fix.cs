@@ -1214,27 +1214,27 @@ public static partial class Fix
 
   public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋１２\r\n  知　＋８\r\n  体　＋５\r\n  心　　　";
   public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋５\r\n  技　　　\r\n  知＋１２\r\n  体　＋８\r\n  心　　　";
-  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　＋５\r\n  体＋１２\r\n  心　＋８";
-  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１２\r\n  技　＋８\r\n  知　　　\r\n  体　　　\r\n  心　＋５";
-  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋８\r\n  技　＋５\r\n  知　　　\r\n  体　　　\r\n  心＋１２";
+  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　＋５\r\n  体＋１７\r\n  心　＋８";
+  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１２\r\n  技＋１８\r\n  知　　　\r\n  体　　　\r\n  心　＋５";
+  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２３\r\n  技　＋５\r\n  知　　　\r\n  体　　　\r\n  心＋１２";
 
   public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋３０\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
   public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３０\r\n  技　　　\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
-  public static string DESC_33 = DESC_33_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知＋３０\r\n  体＋１０\r\n  心＋１０";
-  public static string DESC_34 = DESC_34_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　　　\r\n  体＋３０\r\n  心＋２０";
-  public static string DESC_35 = DESC_35_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１０\r\n  技＋１０\r\n  知＋１０\r\n  体＋１０\r\n  心＋１０";
+  public static string DESC_33 = DESC_33_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知＋３５\r\n  体＋１５\r\n  心＋２０";
+  public static string DESC_34 = DESC_34_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　　　\r\n  体＋５０\r\n  心＋３０";
+  public static string DESC_35 = DESC_35_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２０\r\n  技＋２０\r\n  知＋２０\r\n  体＋２０\r\n  心＋２０";
 
-  public static string DESC_51 = DESC_51_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋８０\r\n  体\r\n  心＋６０";
-  public static string DESC_52 = DESC_52_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋８０\r\n  知＋６０\r\n  体＋６０\r\n  心";
-  public static string DESC_53 = DESC_53_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８０\r\n  技\r\n  知\r\n  体＋８０\r\n  心＋４０";
-  public static string DESC_54 = DESC_54_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５０\r\n  技＋５０\r\n  知＋５０\r\n  体＋５０\r\n  心＋５０";
-  public static string DESC_55 = DESC_55_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋１５０\r\n  体＋１００\r\n  心";
+  public static string DESC_51 = DESC_51_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋６０\r\n  技　　　　\r\n  知　＋８０\r\n  体　　　　\r\n  心　＋６０";
+  public static string DESC_52 = DESC_52_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　　\r\n  技　＋８０\r\n  知　＋６０\r\n  体　＋６０\r\n  心　　　　";
+  public static string DESC_53 = DESC_53_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋７０\r\n  技　　　　\r\n  知　　　　\r\n  体＋１２０\r\n  心　＋６０";
+  public static string DESC_54 = DESC_54_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　＋６０\r\n  技　＋６０\r\n  知　＋６０\r\n  体　＋６０\r\n  心　＋６０";
+  public static string DESC_55 = DESC_55_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　　\r\n  技　　　　\r\n  知＋２５０\r\n  体　＋９０\r\n  心　＋６０";
 
-  public static string DESC_61 = DESC_61_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体\r\n  心＋２５０";
-  public static string DESC_62 = DESC_62_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技\r\n  知\r\n  体＋２５０\r\n  心＋２５０";
-  public static string DESC_63 = DESC_63_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知＋２５０\r\n  知\r\n  体＋２５０";
-  public static string DESC_64 = DESC_64_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋２５０\r\n  心";
-  public static string DESC_65 = DESC_65_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技＋２５０\r\n  知\r\n  体\r\n  心＋２５０";
+  public static string DESC_61 = DESC_61_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　　\r\n  技＋２５０\r\n  知＋２５０\r\n  体　　　　\r\n  心＋２５０";
+  public static string DESC_62 = DESC_62_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技　　　　\r\n  知　　　　\r\n  体＋２５０\r\n  心＋２５０";
+  public static string DESC_63 = DESC_63_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知　　　　\r\n  知＋５００\r\n  体＋２５０\r\n　心　　　　";
+  public static string DESC_64 = DESC_64_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　　\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋５００\r\n  心　　　　";
+  public static string DESC_65 = DESC_65_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５００\r\n  技＋２５０\r\n  知　　　　\r\n  体　　　　\r\n  心＋５００";
 
   public const string DESC_01_MINI = "体調を良くする事を意識して作られた定食。カロリーバランスが取れており、近隣の住人が良く食べに来る味付けとなっている。";
   public const string DESC_02_MINI = "腹ごしらえに最適なごはんセット。当然のごとく山盛りとなったごはんに加え、スタミナが十分につくおかずも多く盛られており、一部の客に人気がある";
@@ -1286,27 +1286,27 @@ public static partial class Fix
 
   public static int[] FOOD_21_VALUE = {  0, 12,  8,  5,  0 };
   public static int[] FOOD_22_VALUE = {  5,  0, 12,  8,  0 };
-  public static int[] FOOD_23_VALUE = {  0,  0,  5, 12,  8 };
-  public static int[] FOOD_24_VALUE = { 12,  8,  0,  0,  5 };
-  public static int[] FOOD_25_VALUE = {  8,  5,  0,  0, 12 };
+  public static int[] FOOD_23_VALUE = {  0,  0,  5, 17,  8 };
+  public static int[] FOOD_24_VALUE = { 12, 18,  0,  0,  5 };
+  public static int[] FOOD_25_VALUE = { 23,  5,  0,  0, 12 };
 
   public static int[] FOOD_31_VALUE = {  0, 30,  0, 10, 10 };
   public static int[] FOOD_32_VALUE = { 30,  0,  0, 10, 10 };
-  public static int[] FOOD_33_VALUE = {  0,  0, 30, 10, 10 };
-  public static int[] FOOD_34_VALUE = {  0,  0,  0, 30, 20 };
-  public static int[] FOOD_35_VALUE = { 10, 10, 10, 10, 10 };
+  public static int[] FOOD_33_VALUE = {  0,  0, 35, 15, 20 };
+  public static int[] FOOD_34_VALUE = {  0,  0,  0, 50, 30 };
+  public static int[] FOOD_35_VALUE = { 20, 20, 20, 20, 20 };
 
-  public static int[] FOOD_51_VALUE = { 0, 0, 80, 0, 60 };
-  public static int[] FOOD_52_VALUE = { 0, 80, 60, 60, 0 };
-  public static int[] FOOD_53_VALUE = { 80, 0, 0, 80, 40 };
-  public static int[] FOOD_54_VALUE = { 50, 50, 50, 50, 50 };
-  public static int[] FOOD_55_VALUE = { 0, 0, 150, 100, 0 };
+  public static int[] FOOD_51_VALUE = {  60,   0,  80,   0,  60 };
+  public static int[] FOOD_52_VALUE = {   0,  80,  60,  60,   0 };
+  public static int[] FOOD_53_VALUE = {  70,   0,   0, 120,  60 };
+  public static int[] FOOD_54_VALUE = {  60,  60,  60,  60,  60 };
+  public static int[] FOOD_55_VALUE = {   0,   0, 250,  90,  60 };
 
-  public static int[] FOOD_61_VALUE = { 0, 250, 250, 0, 250 };
-  public static int[] FOOD_62_VALUE = { 250, 0, 0, 250, 250 };
-  public static int[] FOOD_63_VALUE = { 250, 0, 250, 250, 0 };
-  public static int[] FOOD_64_VALUE = { 0, 250, 250, 250, 0 };
-  public static int[] FOOD_65_VALUE = { 250, 250, 0, 0, 250 };
+  public static int[] FOOD_61_VALUE = {   0, 250, 250,   0, 250 };
+  public static int[] FOOD_62_VALUE = { 250,   0,   0, 250, 250 };
+  public static int[] FOOD_63_VALUE = { 250,   0, 500, 250,   0 };
+  public static int[] FOOD_64_VALUE = {   0, 250, 250, 500,   0 };
+  public static int[] FOOD_65_VALUE = { 500, 250,   0,   0, 500 };
   #endregion
 
   #region "GUI Label"
