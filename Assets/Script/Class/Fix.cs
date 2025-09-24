@@ -2811,6 +2811,7 @@ public static partial class Fix
   #endregion
   #region "パルメティシア神殿(武具合成)"
   public const string HIGH_RANGER_BATTLE_BOW = "ハイレンジャー・バトルボウ";
+  public const string DARMEKIUS_HARD_PLATE = "ダルメキアス・ハード・プレート";
   #endregion
   #region "フェーズ【 IIIー２ 】：ダルの門"
   public const string MARVELOUS_SWORD = "マーベラス・ソード";

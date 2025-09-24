@@ -1307,6 +1307,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_51 = true;
       AvailableNewContent(Fix.HIGH_RANGER_BATTLE_BOW, (new Item(Fix.HIGH_RANGER_BATTLE_BOW)).Description);
     }
+    if ((One.AR.EquipAvailable_52 == false) && (One.AR.EquipMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_52))
+    {
+      One.AR.EquipAvailable_52 = true;
+      AvailableNewContent(Fix.DARMEKIUS_HARD_PLATE, (new Item(Fix.DARMEKIUS_HARD_PLATE)).Description);
+    }    
 
     if ((One.AR.PotionAvailable_51 == false) && (One.AR.PotionMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_51))
     {
@@ -2475,6 +2480,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_WASI_BLUE_FEATHER) { One.AR.EquipMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_BIGAXE_TOP) { One.AR.EquipMaterial_53 += stack; }
     if (One.AR.EquipMaterial_51 >= 1 && One.AR.EquipMaterial_52 >= 1 && One.AR.EquipMaterial_53 >= 1 && One.AR.EquipMixtureDay_51 <= 0) { One.AR.EquipMixtureDay_51 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_JUMP_MATERIAL) { One.AR.EquipMaterial_54 += stack; }
+    if (current.ItemName == Fix.COMMON_SERPENT_UROKO) { One.AR.EquipMaterial_55 += stack; }
+    if (current.ItemName == Fix.COMMON_GOTUGOTU_KARA) { One.AR.EquipMaterial_56 += stack; }
+    if (One.AR.EquipMaterial_54 >= 1 && One.AR.EquipMaterial_55 >= 1 && One.AR.EquipMaterial_56 >= 1 && One.AR.EquipMixtureDay_52 <= 0) { One.AR.EquipMixtureDay_52 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_BLUE_MAGATAMA) { One.AR.PotionMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_KURIONE_ZOUMOTU) { One.AR.PotionMaterial_52 += stack; }
@@ -5465,6 +5475,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HQ_BLUE_POTION));
       shopList.Add(new Item(Fix.HQ_GREEN_POTION));
       if (One.AR.EquipAvailable_51) { shopList.Add(new Item(Fix.HIGH_RANGER_BATTLE_BOW)); }
+      if (One.AR.EquipAvailable_52) { shopList.Add(new Item(Fix.DARMEKIUS_HARD_PLATE)); }
       if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
     }
     return shopList;

@@ -9928,6 +9928,30 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.DARMEKIUS_HARD_PLATE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 220;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 220000;
+        this._importantType = Important.None;
+        this._description = "ダルメキアス製の商品に特徴的な所は無い。汎用的であり、実用的であり、使い勝手が良く、安心して装備できる。物理防御力２２０、体＋６０、心＋２０、スタン耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 60;
+        this._mind = 20;
+        this._resistStun = true;
+        break;
+
       #endregion
       #region "エデルガイゼン城"
       case Fix.EXTREME_SWORD:
