@@ -1318,6 +1318,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_51 = true;
       AvailableNewContent(Fix.KINDAN_TOKKOUYAKU, (new Item(Fix.KINDAN_TOKKOUYAKU).Description));
     }
+    if ((One.AR.PotionAvailable_52 == false) && (One.AR.PotionMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_52))
+    {
+      One.AR.PotionAvailable_52 = true;
+      AvailableNewContent(Fix.SEAL_OF_ARCPOWER, (new Item(Fix.SEAL_OF_ARCPOWER).Description));
+    }
 
     if ((One.AR.FoodAvailable_51 == false) && (One.AR.FoodMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_51))
     {
@@ -2480,7 +2485,6 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_WASI_BLUE_FEATHER) { One.AR.EquipMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_BIGAXE_TOP) { One.AR.EquipMaterial_53 += stack; }
     if (One.AR.EquipMaterial_51 >= 1 && One.AR.EquipMaterial_52 >= 1 && One.AR.EquipMaterial_53 >= 1 && One.AR.EquipMixtureDay_51 <= 0) { One.AR.EquipMixtureDay_51 = One.TF.GameDay; }
-
     if (current.ItemName == Fix.COMMON_JUMP_MATERIAL) { One.AR.EquipMaterial_54 += stack; }
     if (current.ItemName == Fix.COMMON_SERPENT_UROKO) { One.AR.EquipMaterial_55 += stack; }
     if (current.ItemName == Fix.COMMON_GOTUGOTU_KARA) { One.AR.EquipMaterial_56 += stack; }
@@ -2490,6 +2494,10 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_KURIONE_ZOUMOTU) { One.AR.PotionMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_ROSE_SEKKAI) { One.AR.PotionMaterial_53 += stack; }
     if (One.AR.PotionMaterial_51 >= 1 && One.AR.PotionMaterial_52 >= 1 && One.AR.PotionMaterial_53 >= 1 && One.AR.PotionMixtureDay_51 <= 0) { One.AR.PotionMixtureDay_51 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_HANTOUMEI_ROCK) { One.AR.PotionMaterial_54 += stack; }
+    if (current.ItemName == Fix.COMMON_BLACK_GESO) { One.AR.PotionMaterial_55 += stack; }
+    if (current.ItemName == Fix.COMMON_NANAIRO_SYOKUSYU) { One.AR.PotionMaterial_56 += stack; }
+    if (One.AR.PotionMaterial_54 >= 1 && One.AR.PotionMaterial_55 >= 1 && One.AR.PotionMaterial_56 >= 1 && One.AR.PotionMixtureDay_52 <= 0) { One.AR.PotionMixtureDay_52 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MANTA_HARA) { One.AR.FoodMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_RENEW_AKAMI) { One.AR.FoodMaterial_52 += stack; }
@@ -5477,6 +5485,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_51) { shopList.Add(new Item(Fix.HIGH_RANGER_BATTLE_BOW)); }
       if (One.AR.EquipAvailable_52) { shopList.Add(new Item(Fix.DARMEKIUS_HARD_PLATE)); }
       if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
+      if (One.AR.PotionAvailable_52) { shopList.Add(new Item(Fix.SEAL_OF_ARCPOWER)); }
     }
     return shopList;
   }

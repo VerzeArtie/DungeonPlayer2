@@ -3029,6 +3029,7 @@ public static partial class Fix
   #endregion
   #region "パルメティシア神殿(ポーション合成)"
   public const string KINDAN_TOKKOUYAKU = "禁断の特効薬";
+  public const string SEAL_OF_ARCPOWER = "シール・オブ・アークパワー";
   #endregion
   #endregion
   #region "成長剤"
