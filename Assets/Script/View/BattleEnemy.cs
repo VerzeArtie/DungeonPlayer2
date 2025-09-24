@@ -3458,6 +3458,10 @@ public partial class BattleEnemy : MotherBase
         ExecKindanTokkouyaku(player, target);
         break;
 
+      case Fix.SEAL_OF_ARCPOWER:
+        ExecSealofArcPower(player, target);
+        break;
+
       #endregion
 
       #region "モンスターアクション"
@@ -13651,6 +13655,28 @@ public partial class BattleEnemy : MotherBase
 
     double effect3 = current.ItemValue3;
     AbstractHealCommand(player, target, effect3, true);
+
+    return true;
+  }
+
+  private bool ExecSealofArcPower(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.SEAL_OF_ARCPOWER) == false)
+    {
+      Debug.Log(Fix.SEAL_OF_ARCPOWER + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.SEAL_OF_ARCPOWER);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffPhysicalAttackUp(player, target, Fix.INFINITY, effect);
+    ExecBuffMagicAttackUp(player, target, Fix.INFINITY, effect);
+
+    double effect2 = current.ItemValue2;
+    AbstractGainManaPoint(player, target, effect2);
 
     return true;
   }
