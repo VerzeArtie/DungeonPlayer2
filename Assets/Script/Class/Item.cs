@@ -11429,9 +11429,19 @@ public partial class Item
         this._itemValue3 = 0;
         this._gold = 18000;
         this._importantType = Important.None;
-        this._description = "神殿に仕え者達よ。その内なる力を最大限に引き出すが良い。そして神の御霊を接するが良い。物攻率３０％、魔攻率３０％、マナを１０００回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        this._description = "神殿に仕えし者達よ。その内なる力を最大限に引き出すが良い。そして神の御霊に接するが良い。物攻率３０％、魔攻率３０％、マナを１０００回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
 
+      case Fix.SEAL_OF_CHOSEN_POWER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 30;
+        this._itemValue2 = 40;
+        this._itemValue3 = 0;
+        this._gold = 19000;
+        this._importantType = Important.None;
+        this._description = "神々を称えし者達よ。その信仰する心を確かなる容に変えよ。そして神の精神に接するが良い。戦速率３０％、戦応率３０％、スキルポイントを４０回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
       #endregion
       #endregion
       #region "成長リキッド"

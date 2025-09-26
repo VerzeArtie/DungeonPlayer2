@@ -1328,6 +1328,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_52 = true;
       AvailableNewContent(Fix.SEAL_OF_ARCPOWER, (new Item(Fix.SEAL_OF_ARCPOWER).Description));
     }
+    if ((One.AR.PotionAvailable_53 == false) && (One.AR.PotionMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_53))
+    {
+      One.AR.PotionAvailable_53 = true;
+      AvailableNewContent(Fix.SEAL_OF_CHOSEN_POWER, (new Item(Fix.SEAL_OF_CHOSEN_POWER).Description));
+    }
 
     if ((One.AR.FoodAvailable_51 == false) && (One.AR.FoodMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_51))
     {
@@ -2512,12 +2517,15 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_BLACK_GESO) { One.AR.PotionMaterial_55 += stack; }
     if (current.ItemName == Fix.COMMON_NANAIRO_SYOKUSYU) { One.AR.PotionMaterial_56 += stack; }
     if (One.AR.PotionMaterial_54 >= 1 && One.AR.PotionMaterial_55 >= 1 && One.AR.PotionMaterial_56 >= 1 && One.AR.PotionMixtureDay_52 <= 0) { One.AR.PotionMixtureDay_52 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_SEA_MO) { One.AR.PotionMaterial_57 += stack; }
+    if (current.ItemName == Fix.COMMON_AYASHII_NENNEKI_ITO) { One.AR.PotionMaterial_58 += stack; }
+    if (current.ItemName == Fix.COMMON_PUREWHITE_KIMO) { One.AR.PotionMaterial_59 += stack; }
+    if (One.AR.PotionMaterial_57 >= 1 && One.AR.PotionMaterial_58 >= 1 && One.AR.PotionMaterial_59 >= 1 && One.AR.PotionMixtureDay_53 <= 0) { One.AR.PotionMixtureDay_53 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MANTA_HARA) { One.AR.FoodMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_RENEW_AKAMI) { One.AR.FoodMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_EIGHTEIGHT_KUROSUMI) { One.AR.FoodMaterial_53 += stack; }
     if (One.AR.FoodMaterial_51 >= 1 && One.AR.FoodMaterial_52 >= 1 && One.AR.FoodMaterial_53 >= 1 && One.AR.FoodMixtureDay_51 <= 0) { One.AR.FoodMixtureDay_51 = One.TF.GameDay; }
-
     if (current.ItemName == Fix.COMMON_GANGAME_EGG) { One.AR.FoodMaterial_54 += stack; }
     if (current.ItemName == Fix.COMMON_KYOZIN_MUNENIKU) { One.AR.FoodMaterial_55 += stack; }
     if (current.ItemName == Fix.COMMON_SOFT_BIG_HIRE) { One.AR.FoodMaterial_56 += stack; }
@@ -5506,6 +5514,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_53) { shopList.Add(new Item(Fix.HATENA_BIG_BOX)); }
       if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
       if (One.AR.PotionAvailable_52) { shopList.Add(new Item(Fix.SEAL_OF_ARCPOWER)); }
+      if (One.AR.PotionAvailable_53) { shopList.Add(new Item(Fix.SEAL_OF_CHOSEN_POWER)); }
     }
     return shopList;
   }
