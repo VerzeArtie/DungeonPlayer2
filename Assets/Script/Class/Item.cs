@@ -9952,6 +9952,30 @@ public partial class Item
         this._resistStun = true;
         break;
 
+      case Fix.HATENA_BIG_BOX:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold =250000;
+        this._importantType = Important.None;
+        this._description = "大きな箱を叩くと何か効果が発生する・・・基本的に良い事が起こるが、使うかどうかは自分自身で決めた方が良いだろう。心＋２００、潜在率１５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 200;
+        this.AmplifyPotential = 1.15f;
+        break;
+
       #endregion
       #region "エデルガイゼン城"
       case Fix.EXTREME_SWORD:
