@@ -3462,6 +3462,10 @@ public partial class BattleEnemy : MotherBase
         ExecSealofArcPower(player, target);
         break;
 
+      case Fix.SEAL_OF_CHOSEN_POWER:
+        ExecSealofChosenPower(player, target);
+        break;
+
       #endregion
 
       #region "モンスターアクション"
@@ -13677,6 +13681,28 @@ public partial class BattleEnemy : MotherBase
 
     double effect2 = current.ItemValue2;
     AbstractGainManaPoint(player, target, effect2);
+
+    return true;
+  }
+
+  private bool ExecSealofChosenPower(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.SEAL_OF_CHOSEN_POWER) == false)
+    {
+      Debug.Log(Fix.SEAL_OF_CHOSEN_POWER + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.SEAL_OF_CHOSEN_POWER);
+    One.TF.DeleteBackpack(current, 1);
+
+    double effect = current.ItemValue1 * 0.01f;
+    ExecBuffBattleSpeedUp(player, target, Fix.INFINITY, effect);
+    ExecBuffBattleResponseUp(player, target, Fix.INFINITY, effect);
+
+    double effect2 = current.ItemValue2;
+    AbstractGainSkillPoint(player, target, effect2);
 
     return true;
   }
