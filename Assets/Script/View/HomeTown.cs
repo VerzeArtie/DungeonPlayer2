@@ -1329,6 +1329,11 @@ public partial class HomeTown : MotherBase
       One.AR.FoodAvailable_51 = true;
       AvailableNewContent(Fix.FOOD_WINTER_BEEF_CURRY, Fix.DESC_53);
     }
+    if ((One.AR.FoodAvailable_52 == false) && (One.AR.FoodMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_52))
+    {
+      One.AR.FoodAvailable_52 = true;
+      AvailableNewContent(Fix.FOOD_GATTURI_GOZEN, Fix.DESC_54);
+    }
 
     #endregion
 
@@ -2503,6 +2508,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_RENEW_AKAMI) { One.AR.FoodMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_EIGHTEIGHT_KUROSUMI) { One.AR.FoodMaterial_53 += stack; }
     if (One.AR.FoodMaterial_51 >= 1 && One.AR.FoodMaterial_52 >= 1 && One.AR.FoodMaterial_53 >= 1 && One.AR.FoodMixtureDay_51 <= 0) { One.AR.FoodMixtureDay_51 = One.TF.GameDay; }
+
+    if (current.ItemName == Fix.COMMON_GANGAME_EGG) { One.AR.FoodMaterial_54 += stack; }
+    if (current.ItemName == Fix.COMMON_KYOZIN_MUNENIKU) { One.AR.FoodMaterial_55 += stack; }
+    if (current.ItemName == Fix.COMMON_SOFT_BIG_HIRE) { One.AR.FoodMaterial_56 += stack; }
+    if (One.AR.FoodMaterial_54 >= 1 && One.AR.FoodMaterial_55 >= 1 && One.AR.FoodMaterial_56 >= 1 && One.AR.FoodMixtureDay_52 <= 0) { One.AR.FoodMixtureDay_52 = One.TF.GameDay; }
     #endregion
 
     RefreshAllView();
@@ -5530,7 +5540,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_HINYARI_YASAI);
       foodList.Add(Fix.FOOD_AZARASI_SHIOYAKI);
       if (One.AR.FoodAvailable_51) { foodList.Add(Fix.FOOD_WINTER_BEEF_CURRY); }
-      if (false) { foodList.Add(Fix.FOOD_GATTURI_GOZEN); }
+      if (One.AR.FoodAvailable_52) { foodList.Add(Fix.FOOD_GATTURI_GOZEN); }
       if (false) { foodList.Add(Fix.FOOD_KOGOERU_DESSERT); }
     }
 
