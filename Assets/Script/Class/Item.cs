@@ -9976,6 +9976,30 @@ public partial class Item
         this.AmplifyPotential = 1.15f;
         break;
 
+      case Fix.SEE_SONG_FEBRIOL_BOOK:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 92;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 750;
+        this._magicAttackMax = 980;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 280000;
+        this._importantType = Important.None;
+        this._description = "とある伝説の物語をモチーフにして作成された聖なる書物。表紙には海の紋章が埋め込まれており、ページをめくる度に奇麗な音が響き渡る。魔法攻撃力７５０～９８０、知＋１００、潜在率１５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 100;
+        this._stamina = 0;
+        this._mind = 0;
+        this._amplifyPotential = 1.15f;
+        break;
+
       #endregion
       #region "エデルガイゼン城"
       case Fix.EXTREME_SWORD:

@@ -1317,6 +1317,11 @@ public partial class HomeTown : MotherBase
       One.AR.EquipAvailable_53 = true;
       AvailableNewContent(Fix.HATENA_BIG_BOX, (new Item(Fix.HATENA_BIG_BOX)).Description);
     }
+    if ((One.AR.EquipAvailable_54 == false) && (One.AR.EquipMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_54))
+    {
+      One.AR.EquipAvailable_54 = true;
+      AvailableNewContent(Fix.SEE_SONG_FEBRIOL_BOOK, (new Item(Fix.SEE_SONG_FEBRIOL_BOOK)).Description);
+    }
 
     if ((One.AR.PotionAvailable_51 == false) && (One.AR.PotionMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_51))
     {
@@ -2513,6 +2518,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_UNKNOWN_BOX) { One.AR.EquipMaterial_58 += stack; }
     if (current.ItemName == Fix.COMMON_SHRIMP_DOTAI) { One.AR.EquipMaterial_59 += stack; }
     if (One.AR.EquipMaterial_57 >= 1 && One.AR.EquipMaterial_58 >= 1 && One.AR.EquipMaterial_59 >= 1 && One.AR.EquipMixtureDay_53 <= 0) { One.AR.EquipMixtureDay_53 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_KOUSITUKA_MATERIAL) { One.AR.EquipMaterial_510 += stack; }
+    if (current.ItemName == Fix.COMMON_EMBLEM_KNIGHT) { One.AR.EquipMaterial_511 += stack; }
+    if (current.ItemName == Fix.COMMON_BLACKSAME_TOOTH) { One.AR.EquipMaterial_512 += stack; }
+    if (current.ItemName == Fix.COMMON_SEA_MUSICBOX) { One.AR.EquipMaterial_513 += stack; }
+    if (One.AR.EquipMaterial_510 >= 1 && One.AR.EquipMaterial_511 >= 1 && One.AR.EquipMaterial_512 >= 1 && One.AR.EquipMaterial_513 >= 1 && One.AR.EquipMixtureDay_54 <= 0) { One.AR.EquipMixtureDay_54 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_BLUE_MAGATAMA) { One.AR.PotionMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_KURIONE_ZOUMOTU) { One.AR.PotionMaterial_52 += stack; }
@@ -5521,6 +5531,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.EquipAvailable_51) { shopList.Add(new Item(Fix.HIGH_RANGER_BATTLE_BOW)); }
       if (One.AR.EquipAvailable_52) { shopList.Add(new Item(Fix.DARMEKIUS_HARD_PLATE)); }
       if (One.AR.EquipAvailable_53) { shopList.Add(new Item(Fix.HATENA_BIG_BOX)); }
+      if (One.AR.EquipAvailable_54) { shopList.Add(new Item(Fix.SEE_SONG_FEBRIOL_BOOK)); }
       if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
       if (One.AR.PotionAvailable_52) { shopList.Add(new Item(Fix.SEAL_OF_ARCPOWER)); }
       if (One.AR.PotionAvailable_53) { shopList.Add(new Item(Fix.SEAL_OF_CHOSEN_POWER)); }
