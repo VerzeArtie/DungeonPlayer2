@@ -63,7 +63,8 @@ public class NodeActionCommand : MonoBehaviour
              command_name == Fix.TEN_ON_MORI_MEGUMI ||
              command_name == Fix.KINDAN_TOKKOUYAKU ||
              command_name == Fix.SEAL_OF_ARCPOWER ||
-             command_name == Fix.SEAL_OF_CHOSEN_POWER)
+             command_name == Fix.SEAL_OF_CHOSEN_POWER ||
+             command_name == Fix.SOUIN_HIYAKU_DISENCHANT)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("CureSeal");
     }

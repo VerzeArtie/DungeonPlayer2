@@ -472,6 +472,12 @@ public partial class BattleEnemy : MotherBase
       //  ExecBuffSlip(playerList[ii], playerList[ii], 99, 100);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
       //  ExecBuffPhysicalAttackDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffPhysicalDefenseDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffMagicAttackDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffMagicDefenseDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffBattleSpeedDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffBattleResponseDown(playerList[ii], playerList[ii], 99, 0.10f);
+      //  ExecBuffBattlePotentialDown(playerList[ii], playerList[ii], 99, 0.10f);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.TRANSCENDENCE_REACHED, Fix.INFINITY, 0, 0, 0);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, Fix.INFINITY, 0, 0, 0);
       //}
@@ -3464,6 +3470,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.SEAL_OF_CHOSEN_POWER:
         ExecSealofChosenPower(player, target);
+        break;
+
+      case Fix.SOUIN_HIYAKU_DISENCHANT:
+        ExecSouinHiyakuDisenchant(player, target);
         break;
 
       #endregion
@@ -13703,6 +13713,29 @@ public partial class BattleEnemy : MotherBase
 
     double effect2 = current.ItemValue2;
     AbstractGainSkillPoint(player, target, effect2);
+
+    return true;
+  }
+
+  private bool ExecSouinHiyakuDisenchant(Character player, Character target)
+  {
+    if (One.TF.FindBackPackItem(Fix.SOUIN_HIYAKU_DISENCHANT) == false)
+    {
+      Debug.Log(Fix.SOUIN_HIYAKU_DISENCHANT + " was not found... then miss.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(Fix.SOUIN_HIYAKU_DISENCHANT);
+    One.TF.DeleteBackpack(current, 1);
+
+    target.RemoveTargetBuff(Fix.BUFF_PA_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_PD_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_MA_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_MD_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_BS_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_BR_DOWN);
+    target.RemoveTargetBuff(Fix.BUFF_PO_DOWN);
 
     return true;
   }
