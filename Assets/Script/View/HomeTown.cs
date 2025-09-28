@@ -402,6 +402,13 @@ public partial class HomeTown : MotherBase
 
   private int firstDay = 1;
 
+  private enum CallFrom
+  {
+    None,
+    Shop,
+    Inn,
+  }
+
   // Use this for initialization
   public override void Start()
   {
@@ -1068,298 +1075,325 @@ public partial class HomeTown : MotherBase
     GroupItemBank.SetActive(false);
     MessagePack.MessageX00015(ref QuestMessageList, ref QuestEventList); TapOK();
 
-    CheckNewContents();
+    CheckNewContents(CallFrom.Shop);
   }
 
-  private void CheckNewContents()
+  private void CheckNewContents(CallFrom call_from)
   {
     #region "アンシェット街"
-    if ((One.AR.EquipAvailable_11 == false) && (One.AR.EquipMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_11))
+    if (call_from == CallFrom.Shop)
     {
-      One.AR.EquipAvailable_11 = true;
-      AvailableNewContent(Fix.WOLF_CROSS, (new Item(Fix.WOLF_CROSS)).Description);
-    }
-    if ((One.AR.EquipAvailable_12 == false) && (One.AR.EquipMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_12))
-    {
-      One.AR.EquipAvailable_12 = true;
-      AvailableNewContent(Fix.KOUKAKU_ARMOR, (new Item(Fix.KOUKAKU_ARMOR)).Description);
-    }
-    if ((One.AR.EquipAvailable_13 == false) && (One.AR.EquipMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_13))
-    {
-      One.AR.EquipAvailable_13 = true;
-      AvailableNewContent(Fix.STRIDE_WAR_SWORD, (new Item(Fix.STRIDE_WAR_SWORD)).Description);
+      if ((One.AR.EquipAvailable_11 == false) && (One.AR.EquipMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_11))
+      {
+        One.AR.EquipAvailable_11 = true;
+        AvailableNewContent(Fix.WOLF_CROSS, (new Item(Fix.WOLF_CROSS)).Description);
+      }
+      if ((One.AR.EquipAvailable_12 == false) && (One.AR.EquipMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_12))
+      {
+        One.AR.EquipAvailable_12 = true;
+        AvailableNewContent(Fix.KOUKAKU_ARMOR, (new Item(Fix.KOUKAKU_ARMOR)).Description);
+      }
+      if ((One.AR.EquipAvailable_13 == false) && (One.AR.EquipMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_13))
+      {
+        One.AR.EquipAvailable_13 = true;
+        AvailableNewContent(Fix.STRIDE_WAR_SWORD, (new Item(Fix.STRIDE_WAR_SWORD)).Description);
+      }
+
+      if ((One.AR.PotionAvailable_11 == false) && (One.AR.PotionMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_11))
+      {
+        One.AR.PotionAvailable_11 = true;
+        AvailableNewContent(Fix.POTION_RESIST_FIRE, (new Item(Fix.POTION_RESIST_FIRE).Description));
+      }
+      if ((One.AR.PotionAvailable_12 == false) && (One.AR.PotionMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_12))
+      {
+        One.AR.PotionAvailable_12 = true;
+        AvailableNewContent(Fix.CURE_SEAL, (new Item(Fix.CURE_SEAL).Description));
+      }
+      if ((One.AR.PotionAvailable_13 == false) && (One.AR.PotionMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_13))
+      {
+        One.AR.PotionAvailable_13 = true;
+        AvailableNewContent(Fix.POTION_MAGIC_SEAL, (new Item(Fix.POTION_MAGIC_SEAL).Description));
+      }
     }
 
-    if ((One.AR.PotionAvailable_11 == false) && (One.AR.PotionMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_11))
+    if (call_from == CallFrom.Inn)
     {
-      One.AR.PotionAvailable_11 = true;
-      AvailableNewContent(Fix.POTION_RESIST_FIRE, (new Item(Fix.POTION_RESIST_FIRE).Description));
-    }
-    if ((One.AR.PotionAvailable_12 == false) && (One.AR.PotionMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_12))
-    {
-      One.AR.PotionAvailable_12 = true;
-      AvailableNewContent(Fix.CURE_SEAL, (new Item(Fix.CURE_SEAL).Description));
-    }
-    if ((One.AR.PotionAvailable_13 == false) && (One.AR.PotionMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_13))
-    {
-      One.AR.PotionAvailable_13 = true;
-      AvailableNewContent(Fix.POTION_MAGIC_SEAL, (new Item(Fix.POTION_MAGIC_SEAL).Description));
-    }
-
-    if ((One.AR.FoodAvailable_11 == false) && (One.AR.FoodMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_11))
-    {
-      One.AR.FoodAvailable_11 = true;
-      AvailableNewContent(Fix.FOOD_TSIKARA_UDON, Fix.DESC_03);
-    }
-    if ((One.AR.FoodAvailable_12 == false) && (One.AR.FoodMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_12))
-    {
-      One.AR.FoodAvailable_12 = true;
-      AvailableNewContent(Fix.FOOD_ZUNOU_FLY_SET, Fix.DESC_04);
-    }
-    if ((One.AR.FoodAvailable_13 == false) && (One.AR.FoodMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_13))
-    {
-      One.AR.FoodAvailable_13 = true;
-      AvailableNewContent(Fix.FOOD_SPEED_SOBA, Fix.DESC_05);
+      if ((One.AR.FoodAvailable_11 == false) && (One.AR.FoodMixtureDay_11 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_11))
+      {
+        One.AR.FoodAvailable_11 = true;
+        AvailableNewContent(Fix.FOOD_TSIKARA_UDON, Fix.DESC_03);
+      }
+      if ((One.AR.FoodAvailable_12 == false) && (One.AR.FoodMixtureDay_12 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_12))
+      {
+        One.AR.FoodAvailable_12 = true;
+        AvailableNewContent(Fix.FOOD_ZUNOU_FLY_SET, Fix.DESC_04);
+      }
+      if ((One.AR.FoodAvailable_13 == false) && (One.AR.FoodMixtureDay_13 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_13))
+      {
+        One.AR.FoodAvailable_13 = true;
+        AvailableNewContent(Fix.FOOD_SPEED_SOBA, Fix.DESC_05);
+      }
     }
     #endregion
     #region "ファージル宮殿"
-    if ((One.AR.EquipAvailable_21 == false) && (One.AR.EquipMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_21))
+    if (call_from == CallFrom.Shop)
     {
-      One.AR.EquipAvailable_21 = true;
-      AvailableNewContent(Fix.DENDO_DRILL_AXE, (new Item(Fix.DENDO_DRILL_AXE)).Description);
-    }
-    if ((One.AR.EquipAvailable_22 == false) && (One.AR.EquipMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_22))
-    {
-      One.AR.EquipAvailable_22 = true;
-      AvailableNewContent(Fix.ATTACH_SPIRAL_ORB, (new Item(Fix.ATTACH_SPIRAL_ORB)).Description);
-    }
-    if ((One.AR.EquipAvailable_23 == false) && (One.AR.EquipMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_23))
-    {
-      One.AR.EquipAvailable_23 = true;
-      AvailableNewContent(Fix.THIN_STEEL_BUCKLER, (new Item(Fix.THIN_STEEL_BUCKLER)).Description);
-    }
-    if ((One.AR.EquipAvailable_24 == false) && (One.AR.EquipMixtureDay_24 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_24))
-    {
-      One.AR.EquipAvailable_24 = true;
-      AvailableNewContent(Fix.TETRA_EYE_BIGROD, (new Item(Fix.TETRA_EYE_BIGROD)).Description);
+      if ((One.AR.EquipAvailable_21 == false) && (One.AR.EquipMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_21))
+      {
+        One.AR.EquipAvailable_21 = true;
+        AvailableNewContent(Fix.DENDO_DRILL_AXE, (new Item(Fix.DENDO_DRILL_AXE)).Description);
+      }
+      if ((One.AR.EquipAvailable_22 == false) && (One.AR.EquipMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_22))
+      {
+        One.AR.EquipAvailable_22 = true;
+        AvailableNewContent(Fix.ATTACH_SPIRAL_ORB, (new Item(Fix.ATTACH_SPIRAL_ORB)).Description);
+      }
+      if ((One.AR.EquipAvailable_23 == false) && (One.AR.EquipMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_23))
+      {
+        One.AR.EquipAvailable_23 = true;
+        AvailableNewContent(Fix.THIN_STEEL_BUCKLER, (new Item(Fix.THIN_STEEL_BUCKLER)).Description);
+      }
+      if ((One.AR.EquipAvailable_24 == false) && (One.AR.EquipMixtureDay_24 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_24))
+      {
+        One.AR.EquipAvailable_24 = true;
+        AvailableNewContent(Fix.TETRA_EYE_BIGROD, (new Item(Fix.TETRA_EYE_BIGROD)).Description);
+      }
+
+      if ((One.AR.PotionAvailable_21 == false) && (One.AR.PotionMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_21))
+      {
+        One.AR.PotionAvailable_21 = true;
+        AvailableNewContent(Fix.POTION_RESIST_PLUS, (new Item(Fix.POTION_RESIST_PLUS).Description));
+      }
+      if ((One.AR.PotionAvailable_22 == false) && (One.AR.PotionMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_22))
+      {
+        One.AR.PotionAvailable_22 = true;
+        AvailableNewContent(Fix.TOTAL_HIYAKU_KASSEI, (new Item(Fix.TOTAL_HIYAKU_KASSEI).Description));
+      }
+      if ((One.AR.PotionAvailable_23 == false) && (One.AR.PotionMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_23))
+      {
+        One.AR.PotionAvailable_23 = true;
+        AvailableNewContent(Fix.TOTAL_HIYAKU_JOUSEI, (new Item(Fix.TOTAL_HIYAKU_JOUSEI).Description));
+      }
+      if ((One.AR.PotionAvailable_24 == false) && (One.AR.PotionMixtureDay_24 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_24))
+      {
+        One.AR.PotionAvailable_24 = true;
+        AvailableNewContent(Fix.PATERMA_DISMAGIC_DRINK, (new Item(Fix.PATERMA_DISMAGIC_DRINK).Description));
+      }
     }
 
-    if ((One.AR.PotionAvailable_21 == false) && (One.AR.PotionMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_21))
+    if (call_from == CallFrom.Inn)
     {
-      One.AR.PotionAvailable_21 = true;
-      AvailableNewContent(Fix.POTION_RESIST_PLUS, (new Item(Fix.POTION_RESIST_PLUS).Description));
+      if ((One.AR.FoodAvailable_21 == false) && (One.AR.FoodMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_21))
+      {
+        One.AR.FoodAvailable_21 = true;
+        AvailableNewContent(Fix.FOOD_INAGO_AND_TAMAGO, Fix.DESC_13);
+      }
+      if ((One.AR.FoodAvailable_22 == false) && (One.AR.FoodMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_22))
+      {
+        One.AR.FoodAvailable_22 = true;
+        AvailableNewContent(Fix.FOOD_USAGI, Fix.DESC_14);
+      }
+      if ((One.AR.FoodAvailable_23 == false) && (One.AR.FoodMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_23))
+      {
+        One.AR.FoodAvailable_23 = true;
+        AvailableNewContent(Fix.FOOD_SANMA, Fix.DESC_15);
+      }
     }
-    if ((One.AR.PotionAvailable_22 == false) && (One.AR.PotionMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_22))
-    {
-      One.AR.PotionAvailable_22 = true;
-      AvailableNewContent(Fix.TOTAL_HIYAKU_KASSEI, (new Item(Fix.TOTAL_HIYAKU_KASSEI).Description));
-    }
-    if ((One.AR.PotionAvailable_23 == false) && (One.AR.PotionMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_23))
-    {
-      One.AR.PotionAvailable_23 = true;
-      AvailableNewContent(Fix.TOTAL_HIYAKU_JOUSEI, (new Item(Fix.TOTAL_HIYAKU_JOUSEI).Description));
-    }
-    if ((One.AR.PotionAvailable_24 == false) && (One.AR.PotionMixtureDay_24 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_24))
-    {
-      One.AR.PotionAvailable_24 = true;
-      AvailableNewContent(Fix.PATERMA_DISMAGIC_DRINK, (new Item(Fix.PATERMA_DISMAGIC_DRINK).Description));
-    }
-
-    if ((One.AR.FoodAvailable_21 == false) && (One.AR.FoodMixtureDay_21 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_21))
-    {
-      One.AR.FoodAvailable_21 = true;
-      AvailableNewContent(Fix.FOOD_INAGO_AND_TAMAGO, Fix.DESC_13);
-    }
-    if ((One.AR.FoodAvailable_22 == false) && (One.AR.FoodMixtureDay_22 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_22))
-    {
-      One.AR.FoodAvailable_22 = true;
-      AvailableNewContent(Fix.FOOD_USAGI, Fix.DESC_14);
-    }
-    if ((One.AR.FoodAvailable_23 == false) && (One.AR.FoodMixtureDay_23 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_23))
-    {
-      One.AR.FoodAvailable_23 = true;
-      AvailableNewContent(Fix.FOOD_SANMA, Fix.DESC_15);
-    }
-
     #endregion
     #region "港町コチューシェ"
-    if ((One.AR.EquipAvailable_31 == false) && (One.AR.EquipMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_31))
+    if (call_from == CallFrom.Shop)
     {
-      One.AR.EquipAvailable_31 = true;
-      AvailableNewContent(Fix.SILENT_OLGA_CLAW, (new Item(Fix.SILENT_OLGA_CLAW)).Description);
-    }
-    if ((One.AR.EquipAvailable_32 == false) && (One.AR.EquipMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_32))
-    {
-      One.AR.EquipAvailable_32 = true;
-      AvailableNewContent(Fix.IRIDESCENT_CLOUD_FEATHER, (new Item(Fix.IRIDESCENT_CLOUD_FEATHER)).Description);
-    }
-    if ((One.AR.EquipAvailable_33 == false) && (One.AR.EquipMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_33))
-    {
-      One.AR.EquipAvailable_33 = true;
-      AvailableNewContent(Fix.BRINSCALE_WAR_CROSS, (new Item(Fix.BRINSCALE_WAR_CROSS)).Description);
-    }
-    if ((One.AR.EquipAvailable_34 == false) && (One.AR.EquipMixtureDay_34 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_34))
-    {
-      One.AR.EquipAvailable_34 = true;
-      AvailableNewContent(Fix.GREAT_COMPOSITE_LANCE, (new Item(Fix.GREAT_COMPOSITE_LANCE)).Description);
+      if ((One.AR.EquipAvailable_31 == false) && (One.AR.EquipMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_31))
+      {
+        One.AR.EquipAvailable_31 = true;
+        AvailableNewContent(Fix.SILENT_OLGA_CLAW, (new Item(Fix.SILENT_OLGA_CLAW)).Description);
+      }
+      if ((One.AR.EquipAvailable_32 == false) && (One.AR.EquipMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_32))
+      {
+        One.AR.EquipAvailable_32 = true;
+        AvailableNewContent(Fix.IRIDESCENT_CLOUD_FEATHER, (new Item(Fix.IRIDESCENT_CLOUD_FEATHER)).Description);
+      }
+      if ((One.AR.EquipAvailable_33 == false) && (One.AR.EquipMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_33))
+      {
+        One.AR.EquipAvailable_33 = true;
+        AvailableNewContent(Fix.BRINSCALE_WAR_CROSS, (new Item(Fix.BRINSCALE_WAR_CROSS)).Description);
+      }
+      if ((One.AR.EquipAvailable_34 == false) && (One.AR.EquipMixtureDay_34 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_34))
+      {
+        One.AR.EquipAvailable_34 = true;
+        AvailableNewContent(Fix.GREAT_COMPOSITE_LANCE, (new Item(Fix.GREAT_COMPOSITE_LANCE)).Description);
+      }
+
+      if ((One.AR.PotionAvailable_31 == false) && (One.AR.PotionMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_31))
+      {
+        One.AR.PotionAvailable_31 = true;
+        AvailableNewContent(Fix.SOUKAI_DRINK_SS, (new Item(Fix.SOUKAI_DRINK_SS).Description));
+      }
+      if ((One.AR.PotionAvailable_32 == false) && (One.AR.PotionMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_32))
+      {
+        One.AR.PotionAvailable_32 = true;
+        AvailableNewContent(Fix.TUUKAI_DRINK_DD, (new Item(Fix.TUUKAI_DRINK_DD).Description));
+      }
+      if ((One.AR.PotionAvailable_33 == false) && (One.AR.PotionMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_33))
+      {
+        One.AR.PotionAvailable_33 = true;
+        AvailableNewContent(Fix.GOD_YORISHIRO_SOSEI, (new Item(Fix.GOD_YORISHIRO_SOSEI).Description));
+      }
+      if ((One.AR.PotionAvailable_34 == false) && (One.AR.PotionMixtureDay_34 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_34))
+      {
+        One.AR.PotionAvailable_34 = true;
+        AvailableNewContent(Fix.OLDTREE_GUARDIAN_MARK, (new Item(Fix.OLDTREE_GUARDIAN_MARK).Description));
+      }
     }
 
-    if ((One.AR.PotionAvailable_31 == false) && (One.AR.PotionMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_31))
+    if (call_from == CallFrom.Inn)
     {
-      One.AR.PotionAvailable_31 = true;
-      AvailableNewContent(Fix.SOUKAI_DRINK_SS, (new Item(Fix.SOUKAI_DRINK_SS).Description));
+      if ((One.AR.FoodAvailable_31 == false) && (One.AR.FoodMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_31))
+      {
+        One.AR.FoodAvailable_31 = true;
+        AvailableNewContent(Fix.FOOD_TRUTH_YAMINABE_1, Fix.DESC_23);
+      }
+      if ((One.AR.FoodAvailable_32 == false) && (One.AR.FoodMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_32))
+      {
+        One.AR.FoodAvailable_32 = true;
+        AvailableNewContent(Fix.FOOD_OSAKANA_ZINGISKAN, Fix.DESC_24);
+      }
+      if ((One.AR.FoodAvailable_33 == false) && (One.AR.FoodMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_33))
+      {
+        One.AR.FoodAvailable_33 = true;
+        AvailableNewContent(Fix.FOOD_RED_HOT_SPAGHETTI, Fix.DESC_25);
+      }
     }
-    if ((One.AR.PotionAvailable_32 == false) && (One.AR.PotionMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_32))
-    {
-      One.AR.PotionAvailable_32 = true;
-      AvailableNewContent(Fix.TUUKAI_DRINK_DD, (new Item(Fix.TUUKAI_DRINK_DD).Description));
-    }
-    if ((One.AR.PotionAvailable_33 == false) && (One.AR.PotionMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_33))
-    {
-      One.AR.PotionAvailable_33 = true;
-      AvailableNewContent(Fix.GOD_YORISHIRO_SOSEI, (new Item(Fix.GOD_YORISHIRO_SOSEI).Description));
-    }
-    if ((One.AR.PotionAvailable_34 == false) && (One.AR.PotionMixtureDay_34 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_34))
-    {
-      One.AR.PotionAvailable_34 = true;
-      AvailableNewContent(Fix.OLDTREE_GUARDIAN_MARK, (new Item(Fix.OLDTREE_GUARDIAN_MARK).Description));
-    }
-
-    if ((One.AR.FoodAvailable_31 == false) && (One.AR.FoodMixtureDay_31 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_31))
-    {
-      One.AR.FoodAvailable_31 = true;
-      AvailableNewContent(Fix.FOOD_TRUTH_YAMINABE_1, Fix.DESC_23);
-    }
-    if ((One.AR.FoodAvailable_32 == false) && (One.AR.FoodMixtureDay_32 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_32))
-    {
-      One.AR.FoodAvailable_32 = true;
-      AvailableNewContent(Fix.FOOD_OSAKANA_ZINGISKAN, Fix.DESC_24);
-    }
-    if ((One.AR.FoodAvailable_33 == false) && (One.AR.FoodMixtureDay_33 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_33))
-    {
-      One.AR.FoodAvailable_33 = true;
-      AvailableNewContent(Fix.FOOD_RED_HOT_SPAGHETTI, Fix.DESC_25);
-    }
-
     #endregion
     #region "ツァルマンの里"
-    if ((One.AR.EquipAvailable_41 == false) && (One.AR.EquipMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_41))
+    if (call_from == CallFrom.Shop)
     {
-      One.AR.EquipAvailable_41 = true;
-      AvailableNewContent(Fix.OHRAN_REDIAN_ROD, (new Item(Fix.OHRAN_REDIAN_ROD)).Description);
-    }
-    if ((One.AR.EquipAvailable_42 == false) && (One.AR.EquipMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_42))
-    {
-      One.AR.EquipAvailable_42 = true;
-      AvailableNewContent(Fix.VIGILANT_FENCER_ROBE, (new Item(Fix.VIGILANT_FENCER_ROBE)).Description);
-    }
-    if ((One.AR.EquipAvailable_43 == false) && (One.AR.EquipMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_43))
-    {
-      One.AR.EquipAvailable_43 = true;
-      AvailableNewContent(Fix.LION_EYES_BLADE, (new Item(Fix.LION_EYES_BLADE)).Description);
-    }
-    if ((One.AR.EquipAvailable_44 == false) && (One.AR.EquipMixtureDay_44 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_44))
-    {
-      One.AR.EquipAvailable_44 = true;
-      AvailableNewContent(Fix.TYORENSOU_ZANKYO_LANCE, (new Item(Fix.TYORENSOU_ZANKYO_LANCE)).Description);
+      if ((One.AR.EquipAvailable_41 == false) && (One.AR.EquipMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_41))
+      {
+        One.AR.EquipAvailable_41 = true;
+        AvailableNewContent(Fix.OHRAN_REDIAN_ROD, (new Item(Fix.OHRAN_REDIAN_ROD)).Description);
+      }
+      if ((One.AR.EquipAvailable_42 == false) && (One.AR.EquipMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_42))
+      {
+        One.AR.EquipAvailable_42 = true;
+        AvailableNewContent(Fix.VIGILANT_FENCER_ROBE, (new Item(Fix.VIGILANT_FENCER_ROBE)).Description);
+      }
+      if ((One.AR.EquipAvailable_43 == false) && (One.AR.EquipMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_43))
+      {
+        One.AR.EquipAvailable_43 = true;
+        AvailableNewContent(Fix.LION_EYES_BLADE, (new Item(Fix.LION_EYES_BLADE)).Description);
+      }
+      if ((One.AR.EquipAvailable_44 == false) && (One.AR.EquipMixtureDay_44 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_44))
+      {
+        One.AR.EquipAvailable_44 = true;
+        AvailableNewContent(Fix.TYORENSOU_ZANKYO_LANCE, (new Item(Fix.TYORENSOU_ZANKYO_LANCE)).Description);
+      }
+
+      if ((One.AR.PotionAvailable_41 == false) && (One.AR.PotionMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_41))
+      {
+        One.AR.PotionAvailable_41 = true;
+        AvailableNewContent(Fix.TRADITIONAL_POTION_DATTOU, (new Item(Fix.TRADITIONAL_POTION_DATTOU).Description));
+      }
+      if ((One.AR.PotionAvailable_42 == false) && (One.AR.PotionMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_42))
+      {
+        One.AR.PotionAvailable_42 = true;
+        AvailableNewContent(Fix.TRADITIONAL_POTION_HEIGAN, (new Item(Fix.TRADITIONAL_POTION_HEIGAN).Description));
+      }
+      if ((One.AR.PotionAvailable_43 == false) && (One.AR.PotionMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_43))
+      {
+        One.AR.PotionAvailable_43 = true;
+        AvailableNewContent(Fix.LEKS_MYSTICAL_POTION, (new Item(Fix.LEKS_MYSTICAL_POTION).Description));
+      }
+      if ((One.AR.PotionAvailable_44 == false) && (One.AR.PotionMixtureDay_44 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_44))
+      {
+        One.AR.PotionAvailable_44 = true;
+        AvailableNewContent(Fix.TEN_ON_MORI_MEGUMI, (new Item(Fix.TEN_ON_MORI_MEGUMI).Description));
+      }
     }
 
-    if ((One.AR.PotionAvailable_41 == false) && (One.AR.PotionMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_41))
+    if (call_from == CallFrom.Inn)
     {
-      One.AR.PotionAvailable_41 = true;
-      AvailableNewContent(Fix.TRADITIONAL_POTION_DATTOU, (new Item(Fix.TRADITIONAL_POTION_DATTOU).Description));
-    }
-    if ((One.AR.PotionAvailable_42 == false) && (One.AR.PotionMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_42))
-    {
-      One.AR.PotionAvailable_42 = true;
-      AvailableNewContent(Fix.TRADITIONAL_POTION_HEIGAN, (new Item(Fix.TRADITIONAL_POTION_HEIGAN).Description));
-    }
-    if ((One.AR.PotionAvailable_43 == false) && (One.AR.PotionMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_43))
-    {
-      One.AR.PotionAvailable_43 = true;
-      AvailableNewContent(Fix.LEKS_MYSTICAL_POTION, (new Item(Fix.LEKS_MYSTICAL_POTION).Description));
-    }
-    if ((One.AR.PotionAvailable_44 == false) && (One.AR.PotionMixtureDay_44 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_44))
-    {
-      One.AR.PotionAvailable_44 = true;
-      AvailableNewContent(Fix.TEN_ON_MORI_MEGUMI, (new Item(Fix.TEN_ON_MORI_MEGUMI).Description));
-    }
-
-    if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
-    {
-      One.AR.FoodAvailable_41 = true;
-      AvailableNewContent(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI, Fix.DESC_33);
-    }
-    if ((One.AR.FoodAvailable_42 == false) && (One.AR.FoodMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_42))
-    {
-      One.AR.FoodAvailable_42 = true;
-      AvailableNewContent(Fix.FOOD_NEGIYAKI_DON, Fix.DESC_34);
-    }
-    if ((One.AR.FoodAvailable_43 == false) && (One.AR.FoodMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_43))
-    {
-      One.AR.FoodAvailable_43 = true;
-      AvailableNewContent(Fix.FOOD_NANAIRO_BUNA_NITSUKE, Fix.DESC_35);
+      if ((One.AR.FoodAvailable_41 == false) && (One.AR.FoodMixtureDay_41 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_41))
+      {
+        One.AR.FoodAvailable_41 = true;
+        AvailableNewContent(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI, Fix.DESC_33);
+      }
+      if ((One.AR.FoodAvailable_42 == false) && (One.AR.FoodMixtureDay_42 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_42))
+      {
+        One.AR.FoodAvailable_42 = true;
+        AvailableNewContent(Fix.FOOD_NEGIYAKI_DON, Fix.DESC_34);
+      }
+      if ((One.AR.FoodAvailable_43 == false) && (One.AR.FoodMixtureDay_43 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_43))
+      {
+        One.AR.FoodAvailable_43 = true;
+        AvailableNewContent(Fix.FOOD_NANAIRO_BUNA_NITSUKE, Fix.DESC_35);
+      }
     }
     #endregion
     #region "パルメティシア神殿"
-    if ((One.AR.EquipAvailable_51 == false) && (One.AR.EquipMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_51))
+    if (call_from == CallFrom.Shop)
     {
-      One.AR.EquipAvailable_51 = true;
-      AvailableNewContent(Fix.HIGH_RANGER_BATTLE_BOW, (new Item(Fix.HIGH_RANGER_BATTLE_BOW)).Description);
-    }
-    if ((One.AR.EquipAvailable_52 == false) && (One.AR.EquipMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_52))
-    {
-      One.AR.EquipAvailable_52 = true;
-      AvailableNewContent(Fix.DARMEKIUS_HARD_PLATE, (new Item(Fix.DARMEKIUS_HARD_PLATE)).Description);
-    }
-    if ((One.AR.EquipAvailable_53 == false) && (One.AR.EquipMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_53))
-    {
-      One.AR.EquipAvailable_53 = true;
-      AvailableNewContent(Fix.HATENA_BIG_BOX, (new Item(Fix.HATENA_BIG_BOX)).Description);
-    }
-    if ((One.AR.EquipAvailable_54 == false) && (One.AR.EquipMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_54))
-    {
-      One.AR.EquipAvailable_54 = true;
-      AvailableNewContent(Fix.SEE_SONG_FEBRIOL_BOOK, (new Item(Fix.SEE_SONG_FEBRIOL_BOOK)).Description);
+      if ((One.AR.EquipAvailable_51 == false) && (One.AR.EquipMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_51))
+      {
+        One.AR.EquipAvailable_51 = true;
+        AvailableNewContent(Fix.HIGH_RANGER_BATTLE_BOW, (new Item(Fix.HIGH_RANGER_BATTLE_BOW)).Description);
+      }
+      if ((One.AR.EquipAvailable_52 == false) && (One.AR.EquipMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_52))
+      {
+        One.AR.EquipAvailable_52 = true;
+        AvailableNewContent(Fix.DARMEKIUS_HARD_PLATE, (new Item(Fix.DARMEKIUS_HARD_PLATE)).Description);
+      }
+      if ((One.AR.EquipAvailable_53 == false) && (One.AR.EquipMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_53))
+      {
+        One.AR.EquipAvailable_53 = true;
+        AvailableNewContent(Fix.HATENA_BIG_BOX, (new Item(Fix.HATENA_BIG_BOX)).Description);
+      }
+      if ((One.AR.EquipAvailable_54 == false) && (One.AR.EquipMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_54))
+      {
+        One.AR.EquipAvailable_54 = true;
+        AvailableNewContent(Fix.SEE_SONG_FEBRIOL_BOOK, (new Item(Fix.SEE_SONG_FEBRIOL_BOOK)).Description);
+      }
+
+      if ((One.AR.PotionAvailable_51 == false) && (One.AR.PotionMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_51))
+      {
+        One.AR.PotionAvailable_51 = true;
+        AvailableNewContent(Fix.KINDAN_TOKKOUYAKU, (new Item(Fix.KINDAN_TOKKOUYAKU).Description));
+      }
+      if ((One.AR.PotionAvailable_52 == false) && (One.AR.PotionMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_52))
+      {
+        One.AR.PotionAvailable_52 = true;
+        AvailableNewContent(Fix.SEAL_OF_ARCPOWER, (new Item(Fix.SEAL_OF_ARCPOWER).Description));
+      }
+      if ((One.AR.PotionAvailable_53 == false) && (One.AR.PotionMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_53))
+      {
+        One.AR.PotionAvailable_53 = true;
+        AvailableNewContent(Fix.SEAL_OF_CHOSEN_POWER, (new Item(Fix.SEAL_OF_CHOSEN_POWER).Description));
+      }
+      if ((One.AR.PotionAvailable_54 == false) && (One.AR.PotionMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_54))
+      {
+        One.AR.PotionAvailable_54 = true;
+        AvailableNewContent(Fix.SOUIN_HIYAKU_DISENCHANT, (new Item(Fix.SOUIN_HIYAKU_DISENCHANT).Description));
+      }
     }
 
-    if ((One.AR.PotionAvailable_51 == false) && (One.AR.PotionMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_51))
+    if (call_from == CallFrom.Inn)
     {
-      One.AR.PotionAvailable_51 = true;
-      AvailableNewContent(Fix.KINDAN_TOKKOUYAKU, (new Item(Fix.KINDAN_TOKKOUYAKU).Description));
+      if ((One.AR.FoodAvailable_51 == false) && (One.AR.FoodMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_51))
+      {
+        One.AR.FoodAvailable_51 = true;
+        AvailableNewContent(Fix.FOOD_WINTER_BEEF_CURRY, Fix.DESC_53);
+      }
+      if ((One.AR.FoodAvailable_52 == false) && (One.AR.FoodMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_52))
+      {
+        One.AR.FoodAvailable_52 = true;
+        AvailableNewContent(Fix.FOOD_GATTURI_GOZEN, Fix.DESC_54);
+      }
+      if ((One.AR.FoodAvailable_53 == false) && (One.AR.FoodMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_53))
+      {
+        One.AR.FoodAvailable_53 = true;
+        AvailableNewContent(Fix.FOOD_KOGOERU_DESSERT, Fix.DESC_55);
+      }
     }
-    if ((One.AR.PotionAvailable_52 == false) && (One.AR.PotionMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_52))
-    {
-      One.AR.PotionAvailable_52 = true;
-      AvailableNewContent(Fix.SEAL_OF_ARCPOWER, (new Item(Fix.SEAL_OF_ARCPOWER).Description));
-    }
-    if ((One.AR.PotionAvailable_53 == false) && (One.AR.PotionMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_53))
-    {
-      One.AR.PotionAvailable_53 = true;
-      AvailableNewContent(Fix.SEAL_OF_CHOSEN_POWER, (new Item(Fix.SEAL_OF_CHOSEN_POWER).Description));
-    }
-    if ((One.AR.PotionAvailable_54 == false) && (One.AR.PotionMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_54))
-    {
-      One.AR.PotionAvailable_54 = true;
-      AvailableNewContent(Fix.SOUIN_HIYAKU_DISENCHANT, (new Item(Fix.SOUIN_HIYAKU_DISENCHANT).Description));
-    }
-
-    if ((One.AR.FoodAvailable_51 == false) && (One.AR.FoodMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_51))
-    {
-      One.AR.FoodAvailable_51 = true;
-      AvailableNewContent(Fix.FOOD_WINTER_BEEF_CURRY, Fix.DESC_53);
-    }
-    if ((One.AR.FoodAvailable_52 == false) && (One.AR.FoodMixtureDay_52 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_52))
-    {
-      One.AR.FoodAvailable_52 = true;
-      AvailableNewContent(Fix.FOOD_GATTURI_GOZEN, Fix.DESC_54);
-    }
-    if ((One.AR.FoodAvailable_53 == false) && (One.AR.FoodMixtureDay_53 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_53))
-    {
-      One.AR.FoodAvailable_53 = true;
-      AvailableNewContent(Fix.FOOD_KOGOERU_DESSERT, Fix.DESC_55);
-    }
-
     #endregion
 
     ConstructShopBuyView();
@@ -1587,7 +1621,7 @@ public partial class HomeTown : MotherBase
     GroupInn.SetActive(true);
     GroupItemBank.SetActive(false);
 
-    CheckNewContents();
+    CheckNewContents(CallFrom.Inn);
   }
 
   public void TapItemBank()
