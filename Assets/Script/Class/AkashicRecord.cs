@@ -257,6 +257,12 @@ public class AkashicRecord : MonoBehaviour
     set { _potion_available_53 = value; }
     get { return _potion_available_53; }
   }
+  [SerializeField] protected bool _potion_available_54 = false;
+  public bool PotionAvailable_54
+  {
+    set { _potion_available_54 = value; }
+    get { return _potion_available_54; }
+  }
 
   // êHéñçáê¨
   [SerializeField] protected bool _food_available_11 = false;
@@ -586,6 +592,12 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _potion_mixtureDay_53 = value; }
     get { return _potion_mixtureDay_53; }
+  }
+  [SerializeField] protected int _potion_mixtureDay_54 = 0;
+  public int PotionMixtureDay_54
+  {
+    set { _potion_mixtureDay_54 = value; }
+    get { return _potion_mixtureDay_54; }
   }
 
   // êHéñçáê¨
@@ -1239,6 +1251,30 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _potion_material_59 = value; }
     get { return _potion_material_59; }
+  }
+  [SerializeField] protected int _potion_material_510 = 0;
+  public int PotionMaterial_510
+  {
+    set { _potion_material_510 = value; }
+    get { return _potion_material_510; }
+  }
+  [SerializeField] protected int _potion_material_511 = 0;
+  public int PotionMaterial_511
+  {
+    set { _potion_material_511 = value; }
+    get { return _potion_material_511; }
+  }
+  [SerializeField] protected int _potion_material_512 = 0;
+  public int PotionMaterial_512
+  {
+    set { _potion_material_512 = value; }
+    get { return _potion_material_512; }
+  }
+  [SerializeField] protected int _potion_material_513 = 0;
+  public int PotionMaterial_513
+  {
+    set { _potion_material_513 = value; }
+    get { return _potion_material_513; }
   }
 
   // êHéñçáê¨

@@ -3033,6 +3033,7 @@ public static partial class Fix
   public const string KINDAN_TOKKOUYAKU = "禁断の特効薬";
   public const string SEAL_OF_ARCPOWER = "シール・オブ・アークパワー";
   public const string SEAL_OF_CHOSEN_POWER = "シール・オブ・チューズン・パワー";
+  public const string SOUIN_HIYAKU_DISENCHANT = "僧院の秘薬【解呪】";
   #endregion
   #endregion
   #region "成長剤"

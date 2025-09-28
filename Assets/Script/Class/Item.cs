@@ -11466,6 +11466,18 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "神々を称えし者達よ。その信仰する心を確かなる容に変えよ。そして神の精神に接するが良い。戦速率３０％、戦応率３０％、スキルポイントを４０回復する。" + Fix.DESCRIPTION_BATTLE_ONLY;
         break;
+
+      case Fix.SOUIN_HIYAKU_DISENCHANT:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._itemValue3 = 0;
+        this._gold = 20000;
+        this._importantType = Important.None;
+        this._description = "福音を得るには、身体の体内に巣くう穢れを落とす必要がある。この秘薬はあらゆる身体低下に関連するエッセンス浄化してくれる。物攻率、物防率、魔攻率、魔防率、戦速率、戦応率、潜在率DOWNのBUFFを全て解除する。" + Fix.DESCRIPTION_BATTLE_ONLY;
+        break;
+
       #endregion
       #endregion
       #region "成長リキッド"

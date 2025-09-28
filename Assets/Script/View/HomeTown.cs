@@ -1338,6 +1338,11 @@ public partial class HomeTown : MotherBase
       One.AR.PotionAvailable_53 = true;
       AvailableNewContent(Fix.SEAL_OF_CHOSEN_POWER, (new Item(Fix.SEAL_OF_CHOSEN_POWER).Description));
     }
+    if ((One.AR.PotionAvailable_54 == false) && (One.AR.PotionMixtureDay_54 != 0) && (One.TF.GameDay > One.AR.PotionMixtureDay_54))
+    {
+      One.AR.PotionAvailable_54 = true;
+      AvailableNewContent(Fix.SOUIN_HIYAKU_DISENCHANT, (new Item(Fix.SOUIN_HIYAKU_DISENCHANT).Description));
+    }
 
     if ((One.AR.FoodAvailable_51 == false) && (One.AR.FoodMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.FoodMixtureDay_51))
     {
@@ -2536,6 +2541,11 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_AYASHII_NENNEKI_ITO) { One.AR.PotionMaterial_58 += stack; }
     if (current.ItemName == Fix.COMMON_PUREWHITE_KIMO) { One.AR.PotionMaterial_59 += stack; }
     if (One.AR.PotionMaterial_57 >= 1 && One.AR.PotionMaterial_58 >= 1 && One.AR.PotionMaterial_59 >= 1 && One.AR.PotionMixtureDay_53 <= 0) { One.AR.PotionMixtureDay_53 = One.TF.GameDay; }
+    if (current.ItemName == Fix.COMMON_AOSAME_UROKO) { One.AR.PotionMaterial_510 += stack; }
+    if (current.ItemName == Fix.COMMON_SEA_WATER) { One.AR.PotionMaterial_511 += stack; }
+    if (current.ItemName == Fix.COMMON_MYSTERIOUS_KARA) { One.AR.PotionMaterial_512 += stack; }
+    if (current.ItemName == Fix.COMMON_CURSED_ITO) { One.AR.PotionMaterial_513 += stack; }
+    if (One.AR.PotionMaterial_510 >= 1 && One.AR.PotionMaterial_511 >= 1 && One.AR.PotionMaterial_512 >= 1 && One.AR.PotionMaterial_513  >= 1 && One.AR.PotionMixtureDay_54 <= 0) { One.AR.PotionMixtureDay_54 = One.TF.GameDay; }
 
     if (current.ItemName == Fix.COMMON_MANTA_HARA) { One.AR.FoodMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_RENEW_AKAMI) { One.AR.FoodMaterial_52 += stack; }
@@ -5535,6 +5545,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_51) { shopList.Add(new Item(Fix.KINDAN_TOKKOUYAKU)); }
       if (One.AR.PotionAvailable_52) { shopList.Add(new Item(Fix.SEAL_OF_ARCPOWER)); }
       if (One.AR.PotionAvailable_53) { shopList.Add(new Item(Fix.SEAL_OF_CHOSEN_POWER)); }
+      if (One.AR.PotionAvailable_54) { shopList.Add(new Item(Fix.SOUIN_HIYAKU_DISENCHANT)); }
     }
     return shopList;
   }
