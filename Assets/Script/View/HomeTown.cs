@@ -1406,6 +1406,7 @@ public partial class HomeTown : MotherBase
     this.txtNewDescription.text = description;
     this.txtCloseButton.text = "【 " + content_name + " 】が追加されました！";
     GroupNewAvailable.SetActive(true);
+    One.UpdateAkashicRecord();
   }
 
   public void TapActionCommandSetting()
