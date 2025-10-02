@@ -966,6 +966,7 @@ public partial class BattleEnemy : MotherBase
         mainActionList.Add(list[ii]);
       }
 
+      character.objMainActionList.Clear();
       for (int ii = 0; ii < mainActionList.Count; ii++)
       {
         string commandName = mainActionList[ii];
@@ -8915,6 +8916,7 @@ public partial class BattleEnemy : MotherBase
     if (this.NowNormalStack)
     {
       Debug.Log(MethodBase.GetCurrentMethod() + " NowNormalStack, then no action.");
+      UpdateMessage(MethodBase.GetCurrentMethod() + " NowNormalStack, then no action.");
       return;
     }
 
@@ -8958,8 +8960,11 @@ public partial class BattleEnemy : MotherBase
           ////this.txtCurrentPlayerName.text = PlayerList[ii].FullName;
           ////this.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleColor;
 
+          Debug.Log("PlayerList[ii].objMainActionList.Count " + PlayerList[ii].objMainActionList.Count);
           for (int jj = 0; jj < PlayerList[ii].objMainActionList.Count; jj++)
           {
+            if (PlayerList[ii].objMainActionList[jj] == null) { UpdateMessage("objMainActionList null... " + jj.ToString()); continue; }
+
             if (PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE || PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE_JP)
             {
               PlayerList[ii].objMainActionList[jj].ApplyImageIcon(PlayerList[ii].objMainActionList[jj].CommandName);
@@ -10557,6 +10562,7 @@ public partial class BattleEnemy : MotherBase
 
   private void UpdateMessage(string message)
   {
+    Debug.Log(message);
     GameObject node = Instantiate(prefab_Message) as GameObject;
     Text[] txtList = node.GetComponentsInChildren<Text>();
     txtList[0].text = message;
