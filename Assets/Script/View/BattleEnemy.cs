@@ -253,7 +253,6 @@ public partial class BattleEnemy : MotherBase
       global.OwnerName = "Owner";
       global.ActionButton.name = commandName;
       global.ApplyImageIcon(commandName);
-      //global.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
       global.transform.SetParent(GroupGlobalAction.transform);
       global.gameObject.SetActive(true);
@@ -393,7 +392,6 @@ public partial class BattleEnemy : MotherBase
           instant.OwnerName = playerList[ii].FullName;
           instant.ActionButton.name = commandName;
           instant.ApplyImageIcon(commandName);
-          //instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
           instant.transform.SetParent(GroupInstantAction.transform);
           instant.gameObject.SetActive(true);
@@ -869,7 +867,6 @@ public partial class BattleEnemy : MotherBase
       character.objMainButton.name = character.ActionCommandMain;
       character.objMainButton.OwnerName = character.FullName;
       character.objMainButton.ApplyImageIcon(character.ActionCommandMain);
-      //character.objMainButton.ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandMain);
 
       character.objActionCommandList.Clear();
       List<String> actionList = character.GetActionCommandList();
@@ -885,7 +882,6 @@ public partial class BattleEnemy : MotherBase
         character.objActionCommandList[ii].name = actionList[ii];
         character.objActionCommandList[ii].OwnerName = character.FullName;
         character.objActionCommandList[ii].ApplyImageIcon(actionList[ii]);
-        //character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
       }
       if (character.IsEnemy)
       {
@@ -977,7 +973,6 @@ public partial class BattleEnemy : MotherBase
         mainAction.OwnerName = character.FullName;
         mainAction.ActionButton.name = commandName;
         mainAction.ApplyImageIcon(commandName);
-        //mainAction.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
         mainAction.transform.SetParent(groupActionButton.transform);
         mainAction.gameObject.SetActive(true);
@@ -7594,7 +7589,6 @@ public partial class BattleEnemy : MotherBase
       {
         System.Threading.Thread.Sleep(0);
       }
-      //SandGlassImage.sprite = Resources.Load<Sprite>("AnimeSandGlass" + (this.nowAnimationSandGlassCounter-(startTime+1)).ToString());
       angle += 10;
       SandGlassImage.transform.rotation = Quaternion.Euler(0, 0, angle);
       SandGlassImage.transform.position = new Vector3(SandGlassImage.transform.position.x + moveLen, SandGlassImage.transform.position.y, SandGlassImage.transform.position.z);
@@ -8944,32 +8938,13 @@ public partial class BattleEnemy : MotherBase
       }
 
       // 最初は味方をターゲットにする。
-      //bool detectChange = false;
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
         Debug.Log("TapPlayerMainButton: Player is " + PlayerList[ii].FullName + " " + PlayerList[ii].objMainButton.name);
         if (sender.Equals(PlayerList[ii].objMainButton.ActionButton))
         {
           Debug.Log("TapPlayerMainButton: Detect src target: " + PlayerList[ii].FullName);
-          //if (this.currentPlayer.Equals(PlayerList[ii]) == false)
-          //{
-          //  detectChange = true;
-          //}
-          //
-          //this.currentPlayer = PlayerList[ii];
-          ////this.txtCurrentPlayerName.text = PlayerList[ii].FullName;
-          ////this.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleColor;
-
           Debug.Log("PlayerList[ii].objMainActionList.Count " + PlayerList[ii].objMainActionList.Count);
-          for (int jj = 0; jj < PlayerList[ii].objMainActionList.Count; jj++)
-          {
-            if (PlayerList[ii].objMainActionList[jj] == null) { UpdateMessage("objMainActionList null... " + jj.ToString()); continue; }
-
-            if (PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE || PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE_JP)
-            {
-              PlayerList[ii].objMainActionList[jj].ApplyImageIcon(PlayerList[ii].objMainActionList[jj].CommandName);
-            }
-          }
           PlayerList[ii].objParentActionPanel.imgBackGauge.color = PlayerList[ii].BattleBackColor;
           PlayerList[ii].objParentActionPanel.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleForeColor;
           PlayerList[ii].objParentActionPanel.gameObject.SetActive(true);
@@ -8978,18 +8953,11 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
-      // 味方選択が変わった場合は、ターゲット選択モードに入らず終了する。
-      //if (detectChange)
-      //{
-      //  Debug.Log("DetectChange has hitted, then no select target.");
-      //  return;
-      //}
-
       this.NowSelectTarget = true;
       this.NowSelectActionSrcButton = sender;
 
       SelectFilter.SetActive(true);
-      //btnCancelSelect.SetActive(true);
+      btnCancelSelect.SetActive(true);
       lblInstantAction.SetActive(false);
       GroupMainActionCommand.SetActive(true);
     }
@@ -9277,6 +9245,7 @@ public partial class BattleEnemy : MotherBase
         // ターゲット選択状態へ遷移
         this.NowSelectTarget = true;
         SelectFilter.SetActive(true);
+        btnCancelSelect.SetActive(true);
         GroupMainActionCommand.SetActive(false);
         this.NowSelectActionCommandButton = sender.ActionButton;
       }
@@ -9294,6 +9263,7 @@ public partial class BattleEnemy : MotherBase
       // ターゲット選択状態へ遷移
       this.NowSelectTarget = true;
       SelectFilter.SetActive(true);
+      btnCancelSelect.SetActive(true);
       GroupMainActionCommand.SetActive(false);
       this.NowSelectActionCommandButton = sender.ActionButton;
     }
@@ -9451,6 +9421,7 @@ public partial class BattleEnemy : MotherBase
     {
       this.NowSelectTarget = true;
       SelectFilter.SetActive(true);
+      btnCancelSelect.SetActive(true);
       this.NowInstantTarget = true;
       lblInstantAction.SetActive(true);
 
@@ -9615,7 +9586,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectActionSrcButton = sender.ActionButton;
           SelectFilter.SetActive(true);
-          //btnCancelSelect.SetActive(true);
+          btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
           this.NowSelectGlobal = true;
         }
@@ -9639,7 +9610,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectActionSrcButton = sender.ActionButton;
           SelectFilter.SetActive(true);
-          //btnCancelSelect.SetActive(true);
+          btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
           this.NowSelectGlobal = true;
         }
@@ -9663,7 +9634,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectActionSrcButton = sender.ActionButton;
           SelectFilter.SetActive(true);
-          //btnCancelSelect.SetActive(true);
+          btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
           this.NowSelectGlobal = true;
         }
@@ -9879,7 +9850,7 @@ public partial class BattleEnemy : MotherBase
   {
     SelectFilter.SetActive(false);
     lblInstantAction.SetActive(false);
-    //btnCancelSelect.SetActive(false);
+    btnCancelSelect.SetActive(false);
 
     this.NowSelectSrcPlayer = null;
     this.NowSelectActionSrcButton = null;
