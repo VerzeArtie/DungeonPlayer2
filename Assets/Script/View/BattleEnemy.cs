@@ -569,6 +569,10 @@ public partial class BattleEnemy : MotherBase
         }
         One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
+        //ExecFrostLance(One.EnemyList[ii], One.EnemyList[ii], Fix.CriticalType.None);
+        //AbstractAddBuff(One.EnemyList[ii], One.EnemyList[ii].objBuffPanel, Fix.COUNTER_DISALLOW, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(One.EnemyList[ii]), 0, 0, 0);
+        //ExecTranscendenceReached(One.EnemyList[ii], One.EnemyList[ii]);
+
         // キャラクターグループのリストに追加
         One.EnemyList[ii].Ally = Fix.Ally.Enemy;
         EnemyList.Add(One.EnemyList[ii]);
@@ -997,7 +1001,6 @@ public partial class BattleEnemy : MotherBase
   // Update is called once per frame
   void Update()
   {
-    // todo 試験的に常に再描画を行うようにする。処理落ちの場合はコメントアウトする。
     if (One.BattleEnd == Fix.GameEndType.None && CheckGameEnd())
     {
       Debug.Log("Game End 1");
@@ -1979,7 +1982,7 @@ public partial class BattleEnemy : MotherBase
           this.imgItemDrop.sprite = null;
         }
 
-        // todo ここでイベントフラグを制御してよいか、再考の余地はある。
+        // 撃破イベントフラグの更新
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA ||
                                        One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA_JP ||
                                        One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA_JP_VIEW)
@@ -2716,8 +2719,7 @@ public partial class BattleEnemy : MotherBase
     //  player.CurrentActionPoint -= ActionCommand.GetCost(command_name);
     //}
 
-    // ブラック・コントラクトがかかっていれば、SPは消費しない。
-    // todo ブラック・コントラクトは魔法ポイントを消費しない。スキルポイントも消費しないかどうかを決めるべきである。
+    // ブラック・コントラクトがかかっていれば、消費コストをスキップ。
     if (player.IsBlackContract)
     {
       Debug.Log("IsBlackContract was detected, then no spend Mana/Skill point.");
@@ -7888,8 +7890,7 @@ public partial class BattleEnemy : MotherBase
         }
       }
     }
-    // フロスト・ランス効果がある場合、インスタントはカウンターされる。
-    // todo ただし、例外で無効化してくる効果も考えられるため、後にロジック改版。
+    // インスタント即時カウンター判定
     BuffImage frostLance = stackList[num].Player?.IsFrostLance ?? null;
     BuffImage counterDisallow = stackList[num].Player?.IsCounterDisallow ?? null;
     if (frostLance != null || counterDisallow != null)
@@ -7898,6 +7899,24 @@ public partial class BattleEnemy : MotherBase
       string currentStackName = stackList[stackList.Length - 1].StackName;
       Character player = stackList[stackList.Length - 1].Player;
       Character target = stackList[stackList.Length - 1].Target;
+
+      string facotor = string.Empty;
+      if (JudgeSuccessOfCounter(player, currentStackName, ref facotor) == false)
+      {
+        player.RemoveTargetBuff(Fix.FROST_LANCE);
+      player.RemoveTargetBuff(Fix.COUNTER_DISALLOW);
+
+        if (facotor == Fix.TRANSCENDENCE_REACHED)
+        {
+          CreateStackObject(player, target, currentStackName + " 成功！（要因：トランッセンデンス・ウィッシュ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+        else if (facotor == Fix.WILL_AWAKENING)
+        {
+          CreateStackObject(player, target, currentStackName + " 成功！（要因：ウィル・アウェイケニング）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+        return;
+      }
+
       // 現在のスタックを破棄する。
       Destroy(stackList[stackList.Length - 1].gameObject);
       stackList[stackList.Length - 1] = null;
