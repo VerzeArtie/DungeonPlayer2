@@ -133,8 +133,6 @@ public partial class BattleEnemy : MotherBase
   public List<Character> AllList;
   public List<NodeCharaExp> CharaExpList;
 
-  //protected Character currentPlayer = null;
-
   protected Fix.BattleStatus TimeStatus = Fix.BattleStatus.Ready;
   protected float BattleTimer = 0;
 
@@ -457,6 +455,7 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.ANGELIC_ECHO, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(playerList[ii]), PrimaryLogic.MagicAttack(playerList[ii], PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(playerList[ii]), 0, 0);
       }
 
+      // debug
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  PlayerList[ii].CurrentInstantPoint = Fix.MAX_INSTANT_POINT;
@@ -525,11 +524,6 @@ public partial class BattleEnemy : MotherBase
         node.gameObject.SetActive(true);
         node.ParentPanel.SetActive(true);
         node.transform.SetParent(GroupParentEnemy.transform);
-        //GameObject objEC = new GameObject("objEC");
-        //Character character = objEC.AddComponent<Character>();
-        //character.BattleBackColor = Fix.COLOR_ENEMY_CHARA;
-        //character.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
-        //character.Construction(One.EnemyList[ii]);
         One.EnemyList[ii].IsEnemy = true;
         if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
         if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
@@ -569,10 +563,6 @@ public partial class BattleEnemy : MotherBase
         }
         One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
-        //ExecFrostLance(One.EnemyList[ii], One.EnemyList[ii], Fix.CriticalType.None);
-        //AbstractAddBuff(One.EnemyList[ii], One.EnemyList[ii].objBuffPanel, Fix.COUNTER_DISALLOW, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(One.EnemyList[ii]), 0, 0, 0);
-        //ExecTranscendenceReached(One.EnemyList[ii], One.EnemyList[ii]);
-
         // キャラクターグループのリストに追加
         One.EnemyList[ii].Ally = Fix.Ally.Enemy;
         EnemyList.Add(One.EnemyList[ii]);
@@ -597,6 +587,7 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      // debug
       // AbstractAddBuff(EnemyList[0], EnemyList[0].objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.TRANSCENDENCE_REACHED, Fix.INFINITY, 0, 0, 0);
     }
     else if (BattleType == Fix.BattleMode.Boss)
@@ -775,19 +766,6 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Equip " + Fix.AURA_BURN_CLAW + " Setup LeylineSchema " + EnemyList[ii].FullName);
         AbstractAddBuff(EnemyList[ii], EnemyList[ii].objFieldPanel, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(EnemyList[ii]), SecondaryLogic.LeylineSchema_Effect1(EnemyList[ii]), 0, 0);
       }
-
-      //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
-      //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP ||
-      //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
-      //{
-      //  ExecBuffPhysicalAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffPhysicalDefenseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffMagicAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffMagicDefenseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffBattleSpeedDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffBattleResponseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffBattlePotentialDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //}
     }
 
     // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
@@ -799,8 +777,6 @@ public partial class BattleEnemy : MotherBase
     {
       SetupFirstCommand(EnemyList[ii], EnemyList[ii].ActionCommandMain);
     }
-
-    //this.currentPlayer = PlayerList[0];
 
     LogicInvalidate();
   }
@@ -1040,7 +1016,6 @@ public partial class BattleEnemy : MotherBase
     if (this.nowAnimationSandGlass)
     {
       ExecAnimationSandGlass();
-      //Debug.Log("nowAnimationSandGlass is true then return");
       return; // アニメーション表示中は停止させる。
     }
 
@@ -1129,23 +1104,6 @@ public partial class BattleEnemy : MotherBase
       this.labelBattleTurn.color = Color.white;
       this.TimeSpeedLabel.color = Color.white;
       this.lblTimerCount.color = Color.white;
-
-      //  if (EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN &&
-      //      EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP &&
-      //      EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
-      //  {
-      //    this.TimeStopText.gameObject.SetActive(true);
-      //  }
-      //  for (int ii = 0; ii < AllList.Count; ii++)
-      //  {
-      //    AllList[ii].labelName.color = Color.white;
-      //    AllList[ii].ActionLabel.color = Color.white;
-      //    AllList[ii].CriticalLabel.color = Color.white;
-      //    AllList[ii].DamageLabel.color = Color.white;
-      //    GoToTimeStopColor(AllList[ii]);
-      //    AllList[ii].BuffPanel.GetComponent<Image>().color = Color.black;
-      //  }
-      //}
     }
     if (this.NowTimeStop)
     {
@@ -1215,7 +1173,6 @@ public partial class BattleEnemy : MotherBase
                 // それ以外は通常のアニメーション
                 else
                 {
-                  //Debug.Log("CharaExpList normal");
                   float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
                   float current = (CharaExpList[ii].BeforeExp + div_value);
                   float dx = current / (float)CharaExpList[ii].SourceCharacter.GetNextExp();
