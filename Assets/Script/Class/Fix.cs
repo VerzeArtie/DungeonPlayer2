@@ -267,7 +267,6 @@ public static partial class Fix
   public const int TIMER_ICON_NUM = 8;
   public const int MAX_INSTANT_POINT = 1000;
   public const int GLOBAL_INSTANT_MAX = 1000;
-  public const int AP_BASE = 100;
   public const int BOSS_AUTORECOVER = 30;
      
   #endregion

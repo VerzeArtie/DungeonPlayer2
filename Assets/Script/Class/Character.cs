@@ -28,10 +28,6 @@ public partial class Character : MonoBehaviour
   public Image objCurrentInstangGauge_AC = null;
   public Text txtTargetName = null;
   public Image imgTargetLifeGauge = null;
-  public GameObject groupActionPoint;
-  public Image objCurrentActionPointGauge = null;
-  public List<Image> imgActionPointList = null;
-  public Text txtActionPoint = null;
   public Image imgCurrentEnergyPointGauge = null;
 
   public Text txtManaPoint = null;
@@ -680,20 +676,6 @@ public partial class Character : MonoBehaviour
     get { return _currentInstantPoint; }
   }
 
-  [SerializeField] protected double _currentActionPoint = 0.0f;
-  public double CurrentActionPoint
-  {
-    set
-    {
-      if (value >= MaxActionPoint)
-      {
-        value = MaxActionPoint;
-      }
-      _currentActionPoint = value;
-    }
-    get { return _currentActionPoint; }
-  }
-
   [SerializeField] protected double _currentEnergyPoint = 0.0f;
   public double CurrentEnergyPoint
   {
@@ -721,28 +703,6 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  [SerializeField] protected int _baseActionPoint = 1000;
-  public int BaseActionPoint
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _baseActionPoint = value;
-    }
-    get { return _baseActionPoint; }
-  }
-
-  //[SerializeField] protected int _maxActionPoint = 0;
-  public int MaxActionPoint
-  {
-    get
-    {
-      return _baseActionPoint;
-    }
-  }
 
   [SerializeField] protected int _baseEnergyPoint = 10000;
   public int BaseEnergyPoint
@@ -2252,34 +2212,6 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  public void UpdateActionPoint()
-  {
-    if (this.CurrentActionPoint < this.MaxActionPoint)
-    {
-      this.CurrentActionPoint += 0; // 基本は自然回復しない
-    }
-    UpdateActionPointGauge();
-  }
-  public void UpdateActionPointGauge()
-  {
-    float dx = (float)this.CurrentActionPoint / (float)this.MaxActionPoint;
-    if (this.objCurrentActionPointGauge != null)
-    {
-      this.objCurrentActionPointGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
-    }
-    if (this.txtActionPoint != null)
-    {
-      this.txtActionPoint.text = this.CurrentActionPoint.ToString() + " / " + this.MaxActionPoint.ToString();
-    }
-    if (this.imgActionPointList != null)
-    {
-      for (int ii = 0; ii < this.imgActionPointList.Count; ii++)
-      {
-        UpdateActionPointIcon(this.imgActionPointList[ii], this.CurrentActionPoint, Fix.AP_BASE * (ii + 1));
-      }
-    }
-  }
-
   public void UpdateEnergyPoint()
   {
     float dx = (float)this._currentEnergyPoint / (float)this.MaxEnergyPoint;
@@ -2347,17 +2279,6 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  private void UpdateActionPointIcon(Image img, double current_ap, int require_ap)
-  {
-    if (current_ap >= require_ap)
-    {
-      img.sprite = Resources.Load<Sprite>("ActionPoint");
-    }
-    else
-    {
-      img.sprite = Resources.Load<Sprite>("ActionPoint_use");
-    }
-  }
 
   // ゲージ増減に関する記述
   public void UseInstantPoint(bool force_zero, string command_name)

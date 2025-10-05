@@ -805,7 +805,6 @@ public partial class BattleEnemy : MotherBase
     character.objCurrentSkillPointBorder = node.objCurrentSkillPointBorder;
     character.objMainButton = node.objMainButton;
     character.txtActionCommand = node.txtActionCommand;
-    character.groupActionPoint = node.groupActionPoint;
     character.objBuffPanel = node.groupBuff;
     character.txtTargetName = node.txtTargetName;
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
@@ -957,17 +956,6 @@ public partial class BattleEnemy : MotherBase
         mainAction.transform.SetParent(groupActionButton.transform);
         mainAction.gameObject.SetActive(true);
         character.objMainActionList.Add(mainAction);
-      }
-    }
-
-    // アクションポイントのビュー割当を設定する。
-    if (character.groupActionPoint != null)
-    {
-      character.imgActionPointList = new List<Image>();
-      Image[] imageList = character.groupActionPoint.GetComponentsInChildren<Image>();
-      for (int jj = 0; jj < imageList.Length; jj++)
-      {
-        character.imgActionPointList.Add(imageList[jj]);
       }
     }
 
@@ -2190,7 +2178,6 @@ public partial class BattleEnemy : MotherBase
     stack_obj.gameObject.SetActive(true);
 
     this.NowNormalStack = true;
-    //GroupNormalStack.SetActive(true);
   }
 
   private void LogicInvalidate()
@@ -2238,7 +2225,6 @@ public partial class BattleEnemy : MotherBase
       AllList[ii].MaxLifeCheck();
       AllList[ii].UpdateLife();
       AllList[ii].UpdatePlayerInstantPoint();
-      AllList[ii].UpdateActionPoint();
       AllList[ii].UpdateEnergyPoint();
       AllList[ii].UpdateManaPoint();
       AllList[ii].UpdateSkillPoint();
@@ -2273,7 +2259,6 @@ public partial class BattleEnemy : MotherBase
             UpdateMessage(PlayerList[ii].GetCharacterSentence(216));
             StartAnimation(PlayerList[ii].objGroup.gameObject, Fix.EFFECT_LIFE_REGAIN, Fix.COLOR_NORMAL);
             PlayerList[ii].objBuffPanel.ResetAllBuff();
-            //PlayerList[ii].ChangeLifeCountStatus(PlayerList[ii].CurrentLifeCount);
             PlayerList[ii].CurrentLife = (int)(PlayerList[ii].MaxLife);
             PlayerList[ii].UpdateLife();
           }
@@ -2322,7 +2307,6 @@ public partial class BattleEnemy : MotherBase
             UpdateMessage(EnemyList[ii].GetCharacterSentence(216));
             StartAnimation(EnemyList[ii].objGroup.gameObject, Fix.EFFECT_LIFE_REGAIN, Fix.COLOR_NORMAL);
             EnemyList[ii].objBuffPanel.ResetAllBuff();
-            //EnemyList[ii].ChangeLifeCountStatus(EnemyList[ii].CurrentLifeCount);
             EnemyList[ii].CurrentLife = (int)(PlayerList[ii].MaxLife);
             EnemyList[ii].UpdateLife();
           }
@@ -8098,7 +8082,6 @@ public partial class BattleEnemy : MotherBase
     if (stackList.Length <= 0)
     {
       this.NowNormalStack = false;
-      //GroupNormalStack.SetActive(false);
       return;
     }
 
@@ -10119,10 +10102,8 @@ public partial class BattleEnemy : MotherBase
       {
         if (AllList[ii].IsAbsolutePerfection)
         {
-          AllList[ii].CurrentActionPoint += Fix.AP_BASE;
           //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
           AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
-          AllList[ii].UpdateActionPoint();
         }
         else
         {
@@ -10131,10 +10112,8 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        AllList[ii].CurrentActionPoint += Fix.AP_BASE;
         //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
         AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
-        AllList[ii].UpdateActionPoint();
       }
 
       BuffImage sigilOfThePending = AllList[ii].IsSigilOfThePending;
