@@ -227,12 +227,8 @@ public partial class BattleEnemy : MotherBase
     this.BattleTimer = 0;
     this.BattleTurnCount = 1;
 
-    // グローバルアクションボタンを設定する。
+    // 戦闘メニューボタンを設定する。
     List<string> str_list0 = new List<string>();
-    //str_list0.Add(Fix.GLOBAL_ACTION_1);
-    //str_list0.Add(Fix.GLOBAL_ACTION_2);
-    //str_list0.Add(Fix.GLOBAL_ACTION_3);
-    //str_list0.Add(Fix.GLOBAL_ACTION_4);
     str_list0.Add(Fix.LOG_BUTTON);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
@@ -248,8 +244,6 @@ public partial class BattleEnemy : MotherBase
 
       global.transform.SetParent(GroupGlobalAction.transform);
       global.gameObject.SetActive(true);
-
-//      SetupActionCommandButton(GlobalActionButtonList[ii], str_list0[ii]);
     }
 
     // キャラクターを生成する。
@@ -8910,115 +8904,112 @@ public partial class BattleEnemy : MotherBase
     {
       this.NowSelectActionDstButton = sender;
 
-      // 通常のアクションボタン指定時
+      // アクションコマンド指定が無い場合は、キャンセル扱いとする。
+      // note: ターゲット変更時、変更対象が敵味方によってターゲット指定できないものがあるが、
+      // それに準じたブロック仕様を行うと、プレイヤーはなぜターゲット指定できないのかが理解できないケースがあり
+      // ＧＵＩ不備と考えられるケースがある。また単にキャンセル扱いしたい場合は同じキャラクターを
+      // ２回タップするため、それが自然な操作であると考えられる。
+      if (this.NowSelectActionCommandButton == null)
       {
-        // アクションコマンド指定が無い場合は、キャンセル扱いとする。
-        // note: ターゲット変更時、変更対象が敵味方によってターゲット指定できないものがあるが、
-        // それに準じたブロック仕様を行うと、プレイヤーはなぜターゲット指定できないのかが理解できないケースがあり
-        // ＧＵＩ不備と考えられるケースがある。また単にキャンセル扱いしたい場合は同じキャラクターを
-        // ２回タップするため、それが自然な操作であると考えられる。
-        if (this.NowSelectActionCommandButton == null)
+        ClearSelectFilterGroup();
+      }
+      // アクションコマンド指定がある場合
+      else
+      {
+        if (NowSelectActionSrcButton != null) { Debug.Log(NowSelectActionSrcButton.name); }
+        if (NowSelectActionCommandButton != null) { Debug.Log(NowSelectActionCommandButton.name); }
+        if (NowSelectActionDstButton != null) { Debug.Log(NowSelectActionDstButton.name); }
+
+        // 通常選択時
+        if (this.NowInstantTarget == false)
         {
-          ClearSelectFilterGroup();
+          // 新しいメインコマンドを反映する。
+          for (int ii = 0; ii < PlayerList.Count; ii++)
+          {
+            if (NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton.ActionButton))
+            {
+              // ターゲットを反映する。
+              for (int jj = 0; jj < AllList.Count; jj++)
+              {
+                if (NowSelectActionDstButton.Equals(AllList[jj].objMainButton.ActionButton))
+                {
+                  // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
+                  if (AllList[jj].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
+                  {
+                    Debug.Log("Target Error. IsEnemy False : AC is Enemy");
+                    UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
+                    return;
+                  }
+                  if (AllList[jj].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+                  {
+                    Debug.Log("Target Error. IsEnemy True : AC is Enemy");
+                    UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
+                    return;
+                  }
+                  if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+                  {
+                    PlayerList[ii].Target2 = AllList[jj];
+                  }
+                  else
+                  {
+                    PlayerList[ii].Target = AllList[jj];
+                  }
+                  Debug.Log("command: " + NowSelectActionSrcButton.name + " Enemy: " + AllList[jj].FullName);
+                  break;
+                }
+              }
+              ApplyMainActionCommand(PlayerList[ii], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
+              LogicInvalidate();
+              break;
+            }
+          }
         }
-        // アクションコマンド指定がある場合
+        // インスタント行動時
         else
         {
-          if (NowSelectActionSrcButton != null) { Debug.Log(NowSelectActionSrcButton.name); }
-          if (NowSelectActionCommandButton != null) { Debug.Log(NowSelectActionCommandButton.name); }
-          if (NowSelectActionDstButton != null) { Debug.Log(NowSelectActionDstButton.name); }
-
-          // 通常選択時
-          if (this.NowInstantTarget == false)
+          // コマンドを実行する。
+          for (int ii = 0; ii < AllList.Count; ii++)
           {
-            // 新しいメインコマンドを反映する。
-            for (int ii = 0; ii < PlayerList.Count; ii++)
+            if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton.ActionButton))
             {
-              if (NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton.ActionButton))
+              // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
+              if (AllList[ii].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
               {
-                // ターゲットを反映する。
-                for (int jj = 0; jj < AllList.Count; jj++)
-                {
-                  if (NowSelectActionDstButton.Equals(AllList[jj].objMainButton.ActionButton))
-                  {
-                    // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
-                    if (AllList[jj].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
-                    {
-                      Debug.Log("Target Error. IsEnemy False : AC is Enemy");
-                      UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
-                      return;
-                    }
-                    if (AllList[jj].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
-                    {
-                      Debug.Log("Target Error. IsEnemy True : AC is Enemy");
-                      UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
-                      return;
-                    }
-                    if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
-                    {
-                      PlayerList[ii].Target2 = AllList[jj];
-                    }
-                    else
-                    {
-                      PlayerList[ii].Target = AllList[jj];
-                    }
-                    Debug.Log("command: " + NowSelectActionSrcButton.name + " Enemy: " + AllList[jj].FullName);
-                    break;
-                  }
-                }
-                ApplyMainActionCommand(PlayerList[ii], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
-                LogicInvalidate();
-                break;
+                Debug.Log("Target Error. IsEnemy False : AC is Enemy");
+                UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
+                return;
               }
+              if (AllList[ii].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+              {
+                Debug.Log("Target Error. IsEnemy True : AC is Enemy");
+                UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
+                return;
+              }
+
+              Debug.Log("instant target is " + AllList[ii].FullName);
+              ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
+              break;
             }
           }
-          // インスタント行動時
+
+          // 実質ここには来ないが念のため、残しておく。
+          if (ActionCommand.GetAttribute(NowSelectActionCommandButton.name) == ActionCommand.Attribute.Archetype)
+          {
+            // ポテンシャル・ゲージを消費。
+            One.TF.PotentialEnergy = 0;
+          }
+          // 原則、こちらにしかこない。
           else
           {
-            // コマンドを実行する。
-            for (int ii = 0; ii < AllList.Count; ii++)
-            {
-              if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton.ActionButton))
-              {
-                // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
-                if (AllList[ii].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
-                {
-                  Debug.Log("Target Error. IsEnemy False : AC is Enemy");
-                  UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
-                  return;
-                }
-                if (AllList[ii].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
-                {
-                  Debug.Log("Target Error. IsEnemy True : AC is Enemy");
-                  UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
-                  return;
-                }
-
-                Debug.Log("instant target is " + AllList[ii].FullName);
-                ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
-                break;
-              }
-            }
-
-            // 実質ここには来ないが念のため、残しておく。
-            if (ActionCommand.GetAttribute(NowSelectActionCommandButton.name) == ActionCommand.Attribute.Archetype)
-            {
-              // ポテンシャル・ゲージを消費。
-              One.TF.PotentialEnergy = 0;
-            }
-            // 原則、こちらにしかこない。
-            else
-            {
-              // インスタント・ゲージを消費。
-              this.NowSelectSrcPlayer.UseInstantPoint(false, NowSelectActionCommandButton.name);
-              this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-            }
+            // インスタント・ゲージを消費。
+            this.NowSelectSrcPlayer.UseInstantPoint(false, NowSelectActionCommandButton.name);
+            this.NowSelectSrcPlayer.UpdateInstantPointGauge();
           }
-          // 決定後、通常の戦闘モードに戻す。
-          ClearSelectFilterGroup();
         }
+        // 決定後、通常の戦闘モードに戻す。
+        ClearSelectFilterGroup();
       }
-    }
+    }    
   }
 
   /// <summary>
