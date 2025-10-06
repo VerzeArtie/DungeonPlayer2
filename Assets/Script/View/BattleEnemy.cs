@@ -81,7 +81,6 @@ public partial class BattleEnemy : MotherBase
   //public List<Image> imgEnemyInstantGauge_AC; // 敵用のアクションコマンドボタンは画面上に出てこない。
   public List<Image> imgPlayerPotentialGauge;
   //public List<Image> imgEnemyPotentialGauge; // 敵用のアクションコマンドボタンは画面上に出てこない。
-  public Image imgGlobalGauge_AC;
 
   // GUI Team-Energy
   public GameObject groupPotentialEnergy;
@@ -91,7 +90,6 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupMainActionCommand;
   public List<GameObject> GroupMainACList;
 
-  public List<Button> GlobalActionButtonList;
   public List<NodeActionPanel> GroupParentActionPanelList;
   public List<NodeActionPanel> GroupEnemyActionPanel;
   public List<GameObject> GroupActionButton;
@@ -136,9 +134,6 @@ public partial class BattleEnemy : MotherBase
   protected Fix.BattleStatus TimeStatus = Fix.BattleStatus.Ready;
   protected float BattleTimer = 0;
 
-  protected float GlobalInstantValue = 0;
-  protected float GlobalInstantInc = 1;
-
   protected bool NowAnimationMode = false;
   public List<int> AnimationProgress;
   protected const int MAX_ANIMATION_TIME = 40;
@@ -159,7 +154,6 @@ public partial class BattleEnemy : MotherBase
   protected Character NowGodSensePlayer = null;
   protected double NowGodSenseCounter = 0;
 
-  protected bool NowSelectGlobal = false;
   protected bool NowSelectTarget = false;
   protected bool NowInstantTarget = false;
   public Character NowSelectSrcPlayer = null;
@@ -1829,16 +1823,7 @@ public partial class BattleEnemy : MotherBase
     }
     #endregion
 
-    #region "グローバルのインスタント値を更新する。"
-    float incrementGlobal = GlobalInstantInc * SpeedFactor();
-    this.GlobalInstantValue += incrementGlobal;
-    if (this.GlobalInstantValue >= Fix.GLOBAL_INSTANT_MAX)
-    {
-      this.GlobalInstantValue = Fix.GLOBAL_INSTANT_MAX;
-    }
-    UpdateGlobalGauge();
     LogicInvalidate();
-    #endregion
   }
 
   private bool CheckGameEnd()
@@ -8925,86 +8910,7 @@ public partial class BattleEnemy : MotherBase
     {
       this.NowSelectActionDstButton = sender;
 
-      // グローバルアクションボタン指定時
-      if (this.NowSelectGlobal)
-      {
-        if (this.NowSelectActionSrcButton.name == Fix.NORMAL_ATTACK)
-        {
-          for (int ii = 0; ii < PlayerList.Count; ii++)
-          {
-            for (int jj = 0; jj < EnemyList.Count; jj++)
-            {
-              if (this.NowSelectActionDstButton.Equals(EnemyList[jj].objMainButton.ActionButton))
-              {
-                // アクションコマンドを更新
-                PlayerList[ii].CurrentActionCommand = this.NowSelectActionSrcButton.name;
-                PlayerList[ii].txtActionCommand.text = this.NowSelectActionSrcButton.name;
-                CopyActionButton(this.NowSelectActionSrcButton, PlayerList[ii].objMainButton.ActionButton);
-
-                // ターゲット敵を更新
-                PlayerList[ii].Target = EnemyList[jj];
-              }
-            }
-          }
-        }
-        else if (this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_1 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_2 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_3 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_4 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_5 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_6 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_7)
-        {
-          for (int ii = 0; ii < PlayerList.Count; ii++)
-          {
-            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
-            {
-              ExecUseRedPotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
-            }
-          }
-        }
-        else if (this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_1 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_2 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_3 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_4 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_5 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_6 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_7)
-        {
-          for (int ii = 0; ii < PlayerList.Count; ii++)
-          {
-            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
-            {
-              ExecUseBluePotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
-            }
-          }
-        }
-        else if (this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_1 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_2 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_3 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_4 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_5 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_6 ||
-                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_7)
-        {
-          for (int ii = 0; ii < PlayerList.Count; ii++)
-          {
-            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
-            {
-              ExecUseGreenPotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
-            }
-          }
-        }
-
-        // グローバルインスタントゲージを０にする。
-        this.GlobalInstantValue = 0;
-        UpdateGlobalGauge();
-
-        // 決定後、通常の戦闘モードに戻す。
-        ClearSelectFilterGroup();
-      }
       // 通常のアクションボタン指定時
-      else
       {
         // アクションコマンド指定が無い場合は、キャンセル扱いとする。
         // note: ターゲット変更時、変更対象が敵味方によってターゲット指定できないものがあるが、
@@ -9495,110 +9401,6 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
-      case Fix.GLOBAL_ACTION_1:
-        Debug.Log(Fix.GLOBAL_ACTION_1);
-        for (int ii = 0; ii < PlayerList.Count; ii++)
-        {
-          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction1);
-        }
-        break;
-
-      case Fix.GLOBAL_ACTION_2:
-        Debug.Log(Fix.GLOBAL_ACTION_2);
-        for (int ii = 0; ii < PlayerList.Count; ii++)
-        {
-          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction2);
-        }
-        break;
-
-      case Fix.GLOBAL_ACTION_3:
-        Debug.Log(Fix.GLOBAL_ACTION_3);
-        for (int ii = 0; ii < PlayerList.Count; ii++)
-        {
-          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction3);
-        }
-        break;
-
-      case Fix.GLOBAL_ACTION_4:
-        Debug.Log(Fix.GLOBAL_ACTION_4);
-        for (int ii = 0; ii < PlayerList.Count; ii++)
-        {
-          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction4);
-        }
-        break;
-
-      case Fix.USE_RED_POTION_1:
-      case Fix.USE_RED_POTION_2:
-      case Fix.USE_RED_POTION_3:
-      case Fix.USE_RED_POTION_4:
-      case Fix.USE_RED_POTION_5:
-      case Fix.USE_RED_POTION_6:
-      case Fix.USE_RED_POTION_7:
-        Debug.Log("Global USE_RED_POTION");
-        if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
-        {
-          Debug.Log("Still not enough global gauge, then no action.");
-          return;
-        }
-        Debug.Log("UsePotionRed");
-        if (this.NowSelectActionSrcButton == null)
-        {
-          this.NowSelectActionSrcButton = sender.ActionButton;
-          SelectFilter.SetActive(true);
-          btnCancelSelect.SetActive(true);
-          this.NowSelectTarget = true;
-          this.NowSelectGlobal = true;
-        }
-        break;
-
-      case Fix.USE_BLUE_POTION_1:
-      case Fix.USE_BLUE_POTION_2:
-      case Fix.USE_BLUE_POTION_3:
-      case Fix.USE_BLUE_POTION_4:
-      case Fix.USE_BLUE_POTION_5:
-      case Fix.USE_BLUE_POTION_6:
-      case Fix.USE_BLUE_POTION_7:
-        Debug.Log("Global USE_BLUE_POTION");
-        if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
-        {
-          Debug.Log("Still not enough global gauge, then no action.");
-          return;
-        }
-        Debug.Log("UsePotionBLUE");
-        if (this.NowSelectActionSrcButton == null)
-        {
-          this.NowSelectActionSrcButton = sender.ActionButton;
-          SelectFilter.SetActive(true);
-          btnCancelSelect.SetActive(true);
-          this.NowSelectTarget = true;
-          this.NowSelectGlobal = true;
-        }
-        break;
-
-      case Fix.USE_GREEN_POTION_1:
-      case Fix.USE_GREEN_POTION_2:
-      case Fix.USE_GREEN_POTION_3:
-      case Fix.USE_GREEN_POTION_4:
-      case Fix.USE_GREEN_POTION_5:
-      case Fix.USE_GREEN_POTION_6:
-      case Fix.USE_GREEN_POTION_7:
-        Debug.Log("Global USE_GREEN_POTION");
-        if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
-        {
-          Debug.Log("Still not enough global gauge, then no action.");
-          return;
-        }
-        Debug.Log("UsePotionGREEN");
-        if (this.NowSelectActionSrcButton == null)
-        {
-          this.NowSelectActionSrcButton = sender.ActionButton;
-          SelectFilter.SetActive(true);
-          btnCancelSelect.SetActive(true);
-          this.NowSelectTarget = true;
-          this.NowSelectGlobal = true;
-        }
-        break;
-
       case Fix.READY_BUTTON:
         Debug.Log("Global READY_BUTTON");
         this.TimeStatus = Fix.BattleStatus.Go;
@@ -9815,7 +9617,6 @@ public partial class BattleEnemy : MotherBase
     this.NowSelectActionSrcButton = null;
     this.NowSelectActionCommandButton = null;
     this.NowSelectActionDstButton = null;
-    this.NowSelectGlobal = false;
     this.NowSelectTarget = false;
     this.NowInstantTarget = false;
 
@@ -10460,18 +10261,6 @@ public partial class BattleEnemy : MotherBase
         // Debug.Log("Boss AutoRecover " + EnemyList[ii].FullName);
         EnemyList[ii].AutoRecover();
       }
-    }
-  }
-
-  /// <summary>
-  /// グローバルゲージを更新します。
-  /// </summary>
-  private void UpdateGlobalGauge()
-  {
-    float dx = (float)this.GlobalInstantValue / (float)Fix.GLOBAL_INSTANT_MAX;
-    if (this.imgGlobalGauge_AC != null)
-    {
-      this.imgGlobalGauge_AC.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
   }
 

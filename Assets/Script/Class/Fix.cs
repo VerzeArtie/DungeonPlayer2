@@ -266,7 +266,6 @@ public static partial class Fix
   public const int BASE_TIMER_DIV = 36;
   public const int TIMER_ICON_NUM = 8;
   public const int MAX_INSTANT_POINT = 1000;
-  public const int GLOBAL_INSTANT_MAX = 1000;
   public const int BOSS_AUTORECOVER = 30;
      
   #endregion
@@ -1379,10 +1378,6 @@ public static partial class Fix
 
   #region "Action Command"
   // GlobalCommand
-  public const string GLOBAL_ACTION_1 = "GlobalAction1";
-  public const string GLOBAL_ACTION_2 = "GlobalAction2";
-  public const string GLOBAL_ACTION_3 = "GlobalAction3";
-  public const string GLOBAL_ACTION_4 = "GlobalAction4";
   public const string READY_BUTTON = "ReadyButton";
   public const string GO_BUTTON = "GoButton";
   public const string STOP_BUTTON = "StopButton";
