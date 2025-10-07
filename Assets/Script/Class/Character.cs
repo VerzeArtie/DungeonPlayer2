@@ -2086,14 +2086,13 @@ public partial class Character : MonoBehaviour
 
   public int GetPotentialEnergy()
   {
-    return 100; // todo 係数化して変化があると良い。
+    return 100;
   }
   public void MaxGain()
   {
     _currentLife = MaxLife;
     _currentManaPoint = MaxManaPoint;
     _currentSkillPoint = MaxSkillPoint;
-    //_currentActionPoint = MaxActionPoint;
     //_currentEnergyPoint = MaxEnergyPoint;
   }
 
@@ -9461,7 +9460,6 @@ public partial class Character : MonoBehaviour
         this.Accessory1 = new Item(Fix.BLUE_WIZARD_HAT); // SINTYUU_RING_KUROHEBI);
         this.Accessory2 = new Item(Fix.WARRIOR_BRACER); // SINTYUU_RING_AKAHYOU);
         this.Artifact = new Item(Fix.YELLOW_PENDANT);
-        // todo Item保持リストが必要。回復ポーションなど
         break;
 
       case Fix.RUDE_WATCHDOG:

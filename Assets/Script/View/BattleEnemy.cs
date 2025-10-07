@@ -261,7 +261,6 @@ public partial class BattleEnemy : MotherBase
       if (ii == 0) { target = One.TF.BattlePlayer1; Debug.Log("target1 is " + target); }
       if (ii == 1) { target = One.TF.BattlePlayer2; Debug.Log("target2 is " + target); }
       if (ii == 2) { target = One.TF.BattlePlayer3; Debug.Log("target3 is " + target); }
-      //if (ii == 3) { target = One.TF.BattlePlayer4; Debug.Log("target4 is " + target); }
 
       int counter = 0;
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
@@ -354,7 +353,6 @@ public partial class BattleEnemy : MotherBase
       rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
       rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
 
-      //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
       AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], null, GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii], this.PanelPlayerField);
 
@@ -1062,7 +1060,6 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          //Debug.Log("NowTimeStop start !!!");
           this.NowTimeStop = true;
           tempTimeStop = true;
           break;
@@ -1087,7 +1084,6 @@ public partial class BattleEnemy : MotherBase
     }
     if ((this.NowTimeStop == false) && (this.Background.GetComponent<Image>().color == Color.black))
     {
-      //ExecPhaseElement(MethodType.TimeStopEnd, null);
       TimeStopEnd();
     }
     #endregion
@@ -1129,7 +1125,6 @@ public partial class BattleEnemy : MotherBase
                 // レベルアップの場合MAXで止めるアニメーションにする。
                 if (CharaExpList[ii].AfterExp <= CharaExpList[ii].BeforeExp)
                 {
-                  //Debug.Log("CharaExpList detect Levelup");
                   float div_value = (float)((float)CharaExpList[ii].BeforeExpThreshold - (float)CharaExpList[ii].BeforeExp + CharaExpList[ii].AfterExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
                   float current = (CharaExpList[ii].BeforeExp + div_value);
                   float dx = current / (float)(CharaExpList[ii].BeforeExpThreshold); // (float)CharaExpList[ii].SourceCharacter.GetNextExp();
@@ -2343,11 +2338,6 @@ public partial class BattleEnemy : MotherBase
     return null;
   }
 
-  private void CharacterLinkToGUI()
-  {
-
-  }
-
   /// <summary>
   /// アクションボタンのオブジェクト情報を設定します。
   /// </summary>
@@ -2627,17 +2617,6 @@ public partial class BattleEnemy : MotherBase
         return;
       }
     }
-
-    // アクションポイントが不足している場合、行動ミスとする。
-    //if (player.CurrentActionPoint < ActionCommand.GetCost(command_name))
-    //{
-    //  StartAnimation(player.objGroup.gameObject, Fix.BATTLE_AP_LESS, Fix.COLOR_NORMAL);
-    //  return;
-    //}
-    //else
-    //{
-    //  player.CurrentActionPoint -= ActionCommand.GetCost(command_name);
-    //}
 
     // ブラック・コントラクトがかかっていれば、消費コストをスキップ。
     if (player.IsBlackContract)
@@ -5732,8 +5711,6 @@ public partial class BattleEnemy : MotherBase
           ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 0.50f);
           ExecBuffMagicDefenseUp(player, target_list[ii], 5, 0.50f);
         }
-        // PlayerSpellAbsorbWater(player, player);
-        // PlayerSpellMirrorImage(player, player);
         break;
 
       case Fix.COMMAND_ANDATE_CHANT:
@@ -5766,8 +5743,6 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffBattleSpeedUp(player, target_list[ii], 5, 0.30f);
           ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.40f);
-          // Deflectionみたいな魔法はやはり欲しいか
-          // PlayerSpellDeflection(player, group[ii]);
         }
         break;
 
@@ -7396,7 +7371,6 @@ public partial class BattleEnemy : MotherBase
       }
       return list;
     }
-    //else if (player.Ally == Fix.Ally.Enemy)
     else
     {
       for (int ii = 0; ii < EnemyList.Count; ii++)
@@ -7436,7 +7410,6 @@ public partial class BattleEnemy : MotherBase
       }
       return list;
     }
-    //else if (player.Ally == Fix.Ally.Enemy)
     else
     {
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -7455,7 +7428,6 @@ public partial class BattleEnemy : MotherBase
     {
       return EnemyList;
     }
-    //else if (player.Ally == Fix.Ally.Enemy)
     else
     {
       return PlayerList;
@@ -7654,7 +7626,6 @@ public partial class BattleEnemy : MotherBase
 
         if (damageObj[ii].Timer <= 0)
         {
-          //EndAnimation(damageObj[ii].txtMessage);
           RectTransform rect2 = damageObj[ii].txtMessage.GetComponent<RectTransform>();
           rect2.position = new Vector3(0, rect.position.y, rect.position.z);
           damageObj[ii].txtMessage.gameObject.SetActive(false);
@@ -9258,7 +9229,7 @@ public partial class BattleEnemy : MotherBase
 
     // インスタント値が不足している場合、行動できない。
     if ((this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint) &&
-        (ActionCommand.GetTiming(sender.CommandName) != ActionCommand.TimingType.Archetype)) // todo Archetypeではない場合、すべて使用不可能かどうかは決まっていない。
+        (ActionCommand.GetTiming(sender.CommandName) != ActionCommand.TimingType.Archetype))
     {
       if (BattleType == Fix.BattleMode.Duel)
       {
@@ -13877,30 +13848,11 @@ public partial class BattleEnemy : MotherBase
     ExecBuffSyutyuDanzetsu(player, target, Fix.INFINITY, PrimaryLogic.Potential(player));
   }
 
-  private void ExecLanaPerfectSpell(Character player, Character target)
-  {
-    // todo
-  }
-
-  private void ExecEoneMuinSong(Character player, Character target)
-  {
-    // todo
-  }
-
-  private void ExecBillyVictoryStyle(Character player, Character target)
-  {
-    // todo
-  }
-
-  private void ExecAdelEndlessMemory(Character player, Character target)
-  {
-    // todo
-  }
-
-  private void ExecRoStanceOfMuni(Character player, Character target)
-  {
-    // todo
-  }
+  private void ExecLanaPerfectSpell(Character player, Character target) { }
+  private void ExecEoneMuinSong(Character player, Character target) { }
+  private void ExecBillyVictoryStyle(Character player, Character target) { }
+  private void ExecAdelEndlessMemory(Character player, Character target) { }
+  private void ExecRoStanceOfMuni(Character player, Character target) { }
   #endregion
 
   #region "General"
