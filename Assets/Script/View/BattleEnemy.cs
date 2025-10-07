@@ -9807,7 +9807,6 @@ public partial class BattleEnemy : MotherBase
       {
         if (AllList[ii].IsAbsolutePerfection)
         {
-          //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
           AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
         }
         else
@@ -9817,7 +9816,6 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
         AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
       }
 
@@ -9847,12 +9845,6 @@ public partial class BattleEnemy : MotherBase
           ExecPoisonDamage(AllList[ii], AllList[ii].IsPoison.EffectValue);
         }
       }
-
-      // ブラッド・サインの効果はアップキープではない。
-      //if (AllList[ii].IsBloodSign)
-      //{
-      //  ExecSlipDamage(AllList[ii], AllList[ii].IsBloodSign.EffectValue);
-      //}
 
       if (AllList[ii].IsBlackContract && AllList[ii].SearchFieldBuff(Fix.SHINING_HEAL) == null)
       {
@@ -10162,7 +10154,6 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].Area == Fix.MonsterArea.Boss64_2 ||
           EnemyList[ii].Area == Fix.MonsterArea.LastBoss)
       {
-        // Debug.Log("Boss AutoRecover " + EnemyList[ii].FullName);
         EnemyList[ii].AutoRecover();
       }
     }
@@ -10193,28 +10184,6 @@ public partial class BattleEnemy : MotherBase
     RectTransform rectMessage = node.GetComponent<RectTransform>();
     rect.sizeDelta = new Vector2(rect.sizeDelta.x, rect.sizeDelta.y + rectMessage.sizeDelta.y);
   }
-
-  //private void AddActionButton(Character character, GameObject group_action_button, string command_name)
-  //{
-  //  character.ActionCommandList.Add(command_name);
-
-  //  // インスタント限定でなければ、メインアクションに登録する。
-  //  if (ActionCommand.IsTarget(command_name) != ActionCommand.TargetType.InstantTarget)
-  //  {
-  //    NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
-  //    instant.BackColor.color = character.BattleForeColor;
-  //    instant.CommandName = command_name;
-  //    instant.name = command_name;
-  //    instant.OwnerName = character.FullName;
-  //    instant.ActionButton.name = command_name;
-  //    instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
-
-  //    instant.transform.SetParent(group_action_button.transform);
-  //    instant.gameObject.SetActive(true);
-  //  }
-
-  //  Debug.Log("character AC add: " + character.ActionCommandList.Count);
-  //}
 
   private void SetupFirstCommand(Character player, string command_name)
   {
@@ -10292,7 +10261,7 @@ public partial class BattleEnemy : MotherBase
     double damageValue = PhysicalDamageLogic(player, target, magnify, attr, ignore_target_defense, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
-    BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
+    BuffField panelField = target.objFieldPanel;
     if (panelField != null)
     {
       BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.DIVINE_CIRCLE);
@@ -10802,7 +10771,7 @@ public partial class BattleEnemy : MotherBase
     double damageValue = MagicDamageLogic(player, target, magnify, attr, ignore_target_defense, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
-    BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
+    BuffField panelField = target.objFieldPanel;
     if (panelField != null)
     {
       BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.DIVINE_CIRCLE);
@@ -11312,8 +11281,6 @@ public partial class BattleEnemy : MotherBase
 
     // 対象制限
     if (ActionCommand.GetAttribute(stack_list[num].StackName) != ActionCommand.Attribute.Magic) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
-    // BuffTypeを制限しようとしていた様だが、Neutralであってもカウンターの対象ではあるため、コメントアウト
-    // if (ActionCommand.GetBuffType(stack_list[num].StackName) != Fix.BuffType.Negative && ActionCommand.GetBuffType(stack_list[num].StackName) != Fix.BuffType.Positive) { StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL); return; }
 
     Character targetted = null;
     bool success = ExecCounterLogic(player, stack_list, Fix.FLASH_COUNTER, ref targetted);
