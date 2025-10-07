@@ -7369,7 +7369,6 @@ public partial class BattleEnemy : MotherBase
     {
       return PlayerList;
     }
-    //else if (player.Ally == Fix.Ally.Enemy)
     else
     {
       return EnemyList;
@@ -8676,30 +8675,6 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   private void UpdatePlayerArrow(Character player, float move_skip)
   {
-    //RectTransform rect = player.objArrow.GetComponent<RectTransform>();
-    //float speedValue = (float)PrimaryLogic.BattleSpeed(player);
-    ////Debug.Log("speedValue: " + speedValue);
-    //// 画面の枠の大きさに応じて、スピード倍率を調整する。(ベース100)
-    //// プレイヤーアローの大きさの分を画面枠から差し引いて調整する。
-    //float factor = BATTLE_GAUGE_WITDH / 100.0f;
-    ////Debug.Log("factor: " + factor);
-    //speedValue = speedValue * factor * SpeedFactor();
-    ////Debug.Log("speedValue2: " + speedValue);
-
-    //if (move_skip > 0)
-    //{
-    //  rect.position = new Vector3(rect.position.x + move_skip, rect.position.y, rect.position.z);
-    //}
-    //else
-    //{
-    //  rect.position = new Vector3(rect.position.x + speedValue, rect.position.y, rect.position.z);
-    //}
-
-    //if (rect.position.x >= BATTLE_GAUGE_WITDH)
-    //{
-    //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
-    //}
-
     if (player.IsFreeze || player.IsAstralGate)
     {
       if (player.IsAbsolutePerfection)
@@ -8731,7 +8706,6 @@ public partial class BattleEnemy : MotherBase
     else
     {
       player.BattleGaugeArrow += (float)PrimaryLogic.BattleSpeed(player);
-      //Debug.Log(player.FullName + " BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
       if (player.BattleGaugeArrow >= Fix.BATTLE_SPEED_MAX) { player.BattleGaugeArrow = Fix.BATTLE_SPEED_MAX; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
@@ -8999,9 +8973,6 @@ public partial class BattleEnemy : MotherBase
         targetType == ActionCommand.TargetType.AllMember)
     {
       ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectSrcPlayer.objMainButton.ActionButton, sender.CommandName);
-      //CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
-      //this.NowSelectSrcPlayer.CurrentActionCommand = sender.CommandName;
-      //this.NowSelectSrcPlayer.txtActionCommand.text = sender.CommandName;
       // 決定後、通常の戦闘モードに戻す。
       ClearSelectFilterGroup();
       return;
@@ -9197,7 +9168,6 @@ public partial class BattleEnemy : MotherBase
       // ポテンシャルゲージが不足している場合、行動できない。
       if (One.TF.PotentialEnergy < One.TF.MaxPotentialEnergy)
       {
-        //UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
         Debug.Log("Still not enough PotentialEnergy point. then no action.");
         return;
       }
@@ -9392,14 +9362,6 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Unknown Command, then no action.");
         break;
     }
-  }
-
-  public void TapPotentialAction(Button sender)
-  {
-    Debug.Log("TapPotentialAction(S)");
-
-    // todo プレイヤー毎に潜在奥義を出させるか、何か固定か？
-    Debug.Log("TapPotentialAction(S)");
   }
 
   /// <summary>
