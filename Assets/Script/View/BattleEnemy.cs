@@ -14728,30 +14728,6 @@ public partial class BattleEnemy : MotherBase
 
   private void TimeStopEnd()
   {
-    bool tempStop = false;
-    for (int ii = 0; ii < AllList.Count; ii++)
-    {
-//      for (int jj = 0; jj < AllList[ii].ActionCommandStackList.Count; jj++)
-//      {
-//        if (AllList[ii].FirstName == Database.ENEMY_BOSS_BYSTANDER_EMPTINESS)
-//        {
-//          if (tempStop == false)
-//          {
-//            tempStop = true;
-//            this.labelBattleTurnCount.color = Color.black;
-//            System.Threading.Thread.Sleep(1000);
-//            this.labelBattleTurn.color = Color.black;
-//          }
-//          PlayerAttackPhase(AllList[ii], AllList[ii].ActionCommandStackTarget[jj], TruthActionCommand.CheckPlayerActionFromString(ActiveList[ii].ActionCommandStackList[jj]), ActiveList[ii].ActionCommandStackList[jj], true, false, false);
-//        }
-//        else
-//        {
-////          ExecActionMethod(AllList[ii], AllList[ii].ActionCommandStackTarget[jj], TruthActionCommand.CheckPlayerActionFromString(ActiveList[ii].ActionCommandStackList[jj]), ActiveList[ii].ActionCommandStackList[jj]);
-//        }
-//      }
-//      AllList[ii].ActionCommandStackList.Clear();
-//      AllList[ii].ActionCommandStackTarget.Clear();
-    }
 
     this.Background.GetComponent<Image>().color = UnityColor.White;
     this.TimeStopText.gameObject.SetActive(false);
