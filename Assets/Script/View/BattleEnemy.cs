@@ -5052,8 +5052,6 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < 8; ii++)
         {
           Character current_target = target_list[AP.Math.RandomInteger(target_list.Count)];
-          // 強すぎるので物理攻撃はここでは与えない。
-          // ExecNormalAttack(player, current_target, 0.50f, Fix.DamageSource.Physical, false, critical);
           rand = AP.Math.RandomInteger(8);
           if (rand == 0)
           {
@@ -5077,11 +5075,6 @@ public partial class BattleEnemy : MotherBase
             {
               ExecBuffBattleSpeedUp(player, player, 8, 0.30f);
             }
-            // 戦闘反応が高すぎると、本コマンド自体のタイミングが早まってしまうため、対象外
-            // else if (player.IsBattleReponseUp == false)
-            // {
-            //   ExecBuffBattleSpeedUp(player, player, 8, 0.30f);
-            // }
             else
             {
               ExecMagicAttack(player, current_target, 0.50f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
@@ -5898,7 +5891,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_SOUL_FROZEN:
         UpdateMessage(player.FullName + "は剣を" + target.FullName + "の魂に突き立てるように切っ先を向けた！！\r\n");
-        //GroundOne.PlaySoundEffect(Database.SOUND_ABSOLUTE_ZERO);
         ExecAbsoluteZero(player, target);
         break;
 
@@ -5955,7 +5947,6 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          //GroundOne.PlaySoundEffect(Database.SOUND_ARCANE_DESTRUCTION);
           ExecLifeDownCurrent(target_list[ii], 0.50f);
         }
         break;
@@ -5980,12 +5971,6 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_BLACK_FLARE:
         UpdateMessage(player.FullName + "：太陽の影より出てし熱き炎よ、焼き尽くせ！\r\n");
         target_list = GetOpponentGroupAlive(player);
-        //GroundOne.PlaySoundEffect(Database.SOUND_BLACK_FLARE);
-        // 雑魚モンスターとしては強すぎるので撤廃
-        //for (int ii = 0; ii < target_list.Count; ii++)
-        //{
-        //  ExecMagicAttack(player, target_list[ii], 1.10f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
-        //}
         ExecVolcanicBlaze(player, target_list, target.objFieldPanel, critical);
         break;
 
@@ -6004,7 +5989,6 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecLifeOne(target_list[ii]);
-          // ExecBuffSlip(player, target_list[ii], 3, 9000); // 雑魚モンスターとしては強すぎるので撤廃
         }
         break;
 
@@ -6069,7 +6053,6 @@ public partial class BattleEnemy : MotherBase
         ExecBuffMagicDefenseDown(player, target, 3, 0.50f);
         ExecBuffBattleSpeedDown(player, target, 3, 0.50f);
         ExecBuffBattleResponseDown(player, target, 3, 0.50f);
-        //ExecBuffBattlePotentialDown(player, target, 3, 0.50f); 雑魚モンスターとしては強すぎるので撤廃
         break;
 
       case Fix.COMMAND_BONE_TORNADO:
@@ -6244,7 +6227,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_SPECTOR_VOICE:
         UpdateMessage(player.FullName + "のスペクター・ヴォイスが発動した！\r\n");
-        //GroundOne.PlaySoundEffect(Database.SOUND_ABSOLUTE_ZERO);
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 5; ii++)
         {
@@ -6969,8 +6951,6 @@ public partial class BattleEnemy : MotherBase
           player.CurrentManaPoint -= Fix.COST_VOICE_OF_ABYSS;
           player.UpdateManaPoint();
           target_list = GetOpponentGroupAlive(player);
-          // 【警告】敵だけ対象外なのは卑怯かもしれないので、要調整となる。
-          //SetupEnemyGroup(ref group);
           for (int ii = 0; ii < target_list.Count; ii++)
           {
             AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_ABYSS, Fix.BUFF_VOICE_OF_ABYSS, 2, 0, 0, 0);
