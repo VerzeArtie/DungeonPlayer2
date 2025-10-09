@@ -3055,6 +3055,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.ABSOLUTE_ZERO); }
   }
 
+  public BuffImage IsTimeStop
+  {
+    get { return SearchBuff(Fix.TIME_STOP); }
+  }
+
   public BuffImage IsPiercingArrow
   {
     get { return SearchBuff(Fix.PIERCING_ARROW); }

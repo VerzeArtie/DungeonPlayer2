@@ -1077,6 +1077,7 @@ public partial class BattleEnemy : MotherBase
       this.labelBattleTurn.color = Color.white;
       this.TimeSpeedLabel.color = Color.white;
       this.lblTimerCount.color = Color.white;
+      TimeStopStart();
     }
     if (this.NowTimeStop)
     {
@@ -1242,7 +1243,14 @@ public partial class BattleEnemy : MotherBase
     {
       if (this.NowTimeStop && AllList[ii].CurrentTimeStopValue <= 0 && (AllList[ii].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN &&
                                                                    AllList[ii].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP &&
-                                                                   AllList[ii].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW))
+                                                                   AllList[ii].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW &&
+                                                                   AllList[ii].FullName != Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN &&
+                                                                   AllList[ii].FullName != Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP &&
+                                                                   AllList[ii].FullName != Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW &&
+                                                                   AllList[ii].FullName != Fix.ROYAL_KING_AERMI_JORZT &&
+                                                                   AllList[ii].FullName != Fix.ROYAL_KING_AERMI_JORZT_JP &&
+                                                                   AllList[ii].FullName != Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW
+                                                                   ))
       {
         // 時間は飛ばされる
         continue;
@@ -14726,6 +14734,25 @@ public partial class BattleEnemy : MotherBase
     CharaExpList.Add(node_charaExp);
   }
 
+  private void TimeStopStart()
+  {
+    for (int ii = 0; ii < AllList.Count; ii++)
+    {
+      if (AllList[ii].IsTimeStop) { continue; }
+      if (AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
+          AllList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || AllList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || AllList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
+          AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW ||
+          AllList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || AllList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP || AllList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+      {
+        continue;
+      }
+      AllList[ii].objBackInstantGauge.color = Color.black;
+      AllList[ii].objCurrentInstantGauge.color = Color.black;
+      AllList[ii].txtLife.color = Color.white;
+      AllList[ii].txtName.color = Color.white;
+    }
+  }
+
   private void TimeStopEnd()
   {
 
@@ -14742,36 +14769,17 @@ public partial class BattleEnemy : MotherBase
 
   private void BackToNormalColor(Character player)
   {
-    //if (IsPlayerEnemy(player))
-    //{
-    //  if (((TruthEnemyCharacter)player).Rare == TruthEnemyCharacter.RareString.Gold)
-    //  {
-    //    player.labelName.color = UnityColor.DarkOrange;
-    //    player.labelCurrentInstantPoint.color = UnityColor.Gold;
-    //  }
-    //  else
-    //  {
-    //    player.labelName.color = Color.black;
-    //  }
-    //}
-    //else
-    //{
-    //  player.labelName.color = Color.black;
-    //}
-
-    //player.ActionLabel.color = Color.black;
-    //player.CriticalLabel.color = Color.black;
-    //player.DamageLabel.color = Color.black;
-    //player.BuffPanel.GetComponent<Image>().color = UnityColor.GhostWhite;
-
-    //if (player.CurrentLife >= player.MaxLife)
-    //{
-    //  player.labelCurrentLifePoint.color = Color.green;
-    //}
-    //else
-    //{
-    //  player.labelCurrentLifePoint.color = Color.black;
-    //}
+    player.objBackInstantGauge.color = player.BattleBackColor;
+    player.objCurrentInstantGauge.color = player.BattleForeColor;
+    player.txtName.color = Color.black;
+    if (player.CurrentLife >= player.MaxLife)
+    {
+      player.txtLife.color = Color.green;
+    }
+    else
+    {
+      player.txtLife.color = Color.black;
+    }
   }
 
   #endregion
