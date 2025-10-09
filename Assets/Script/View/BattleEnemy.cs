@@ -1180,6 +1180,7 @@ public partial class BattleEnemy : MotherBase
     if (NowNormalStack)
     {
       ExecNormalStack();
+      LogicInvalidate();
       return;
     }
     #endregion
