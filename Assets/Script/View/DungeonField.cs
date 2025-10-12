@@ -107,7 +107,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Wosm_Sea;
   public TileInformation prefab_Wosm_Grassfield;
   public TileInformation prefab_Wosm_Hometown;
-  public TextMeshPro prefab_AreaText;
+  public TextMesh prefab_AreaMeshText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
   public FieldObject prefab_TreasureOpen;
@@ -235,7 +235,7 @@ public class DungeonField : MotherBase
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
-  private List<TextMeshPro> TileAreaList = new List<TextMeshPro>();
+  private List<TextMesh> TileAreaList = new List<TextMesh>();
   private List<FieldObject> FieldObjList = new List<FieldObject>();
   private List<TileInformation> UnknownTileList = new List<TileInformation>();
   private List<Character> PlayerList = new List<Character>();
@@ -21626,9 +21626,9 @@ public class DungeonField : MotherBase
       //current.gameObject.SetActive(false);
       TileList.Add(current);
 
-      TextMeshPro instance = Instantiate(prefab_AreaText) as TextMeshPro;
+      TextMesh instance = Instantiate(prefab_AreaMeshText) as TextMesh;
       instance.gameObject.transform.SetParent(TileList[TileList.Count - 1].transform);
-      instance.gameObject.transform.localPosition = new Vector3(0, 0.70f, 0);
+      instance.gameObject.transform.localPosition = new Vector3(0, 0.10f, 0.20f);
       instance.text = ((int)(current.AreaInfo)).ToString();
       instance.gameObject.SetActive(false);
       TileAreaList.Add(instance);

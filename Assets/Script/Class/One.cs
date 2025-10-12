@@ -369,7 +369,6 @@ public static class One
     //TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     //TF.BattlePlayer2 = Fix.NAME_EONE_FULNEA;
     //TF.BattlePlayer3 = Fix.NAME_LANA_AMIRIA;
-    //TF.BattlePlayer4 = Fix.NAME_ADEL_BRIGANDY;
 
     int num = 0;
 
