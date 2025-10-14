@@ -1416,7 +1416,6 @@ public static partial class Fix
   public const string USE_GREEN_POTION_6 = "GreenPotion_6";
   public const string USE_GREEN_POTION_7 = "GreenPotion_7";
 
-  public const string DEFENSE_DISABLE = "Defense_Disable";
 
   // Delve I
   public const string FIRE_BALL = "Fire Ball";
