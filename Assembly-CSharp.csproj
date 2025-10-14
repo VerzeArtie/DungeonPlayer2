@@ -110,30 +110,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\MapData_Velgus.txt" />
-    <None Include="Assets\Map\MapData_GateOfDhal.txt" />
-    <None Include="Assets\Resources\MapData_GateOfDhal.txt" />
     <None Include="Assets\Resources\Mapdata_Goratrum_2.txt" />
     <None Include="Assets\Resources\MapData_Velgus_4.txt" />
-    <None Include="Assets\Map\MapData_OhranTower.txt" />
-    <None Include="Assets\Map\Mapdata_CaveOfSarun.txt" />
     <None Include="Assets\Resources\MapData_BaseField.txt" />
-    <None Include="Assets\Resources\mapdata_artharium.txt" />
     <None Include="Assets\Resources\MapData_EdelGarzen_2.txt" />
-    <None Include="Assets\Map\Mapdata_MysticForest.txt" />
-    <None Include="Assets\Map\Mapdata_Goratrum.txt" />
     <None Include="Assets\Resources\MapData_Velgus_3.txt" />
     <None Include="Assets\Resources\MapData_EdelGarzen_3.txt" />
-    <None Include="Assets\Resources\Mapdata_Saritan.txt" />
-    <None Include="Assets\Map\mapdata_artharium.txt" />
     <None Include="Assets\Resources\MapData_EsmiliaGrassField.txt" />
     <None Include="Assets\Resources\MapData_Wosm.txt" />
     <None Include="Assets\Resources\MapData_OhranTower.txt" />
     <None Include="Assets\Resources\MapData_EdelGarzen_4.txt" />
-    <None Include="Assets\Map\mapdata_BaseField.txt" />
     <None Include="Assets\Resources\Mapdata_Goratrum.txt" />
     <None Include="Assets\Resources\MapData_EdelGarzen.txt" />
     <None Include="Assets\Resources\MapData_Wosm_2.txt" />
-    <None Include="Assets\Map\Mapdata_Saritan.txt" />
     <None Include="Assets\Resources\MapData_Velgus_2.txt" />
     <None Include="Assets\Resources\Mapdata_MysticForest.txt" />
   </ItemGroup>
