@@ -540,7 +540,6 @@ public class NodeActionCommand : MonoBehaviour
       if (ActionButton.image.sprite == null)
       {
         ActionButton.image.sprite = Resources.Load<Sprite>(Fix.NORMAL_ATTACK);
-        //ActionButton.image.sprite = null; // Resources.Load<Sprite>(Fix.STAY_2);
       }
     }
   }

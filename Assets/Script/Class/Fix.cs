@@ -1393,7 +1393,6 @@ public static partial class Fix
   public const string DEFENSE_JP = "防御";
   public const string STAY = "Stay";
   public const string STAY_JP = "待機";
-  public const string STAY_2 = "Stay_2";
   public const string USE_RED_POTION_1 = "RedPotion_1";
   public const string USE_RED_POTION_2 = "RedPotion_2";
   public const string USE_RED_POTION_3 = "RedPotion_3";
