@@ -463,31 +463,6 @@ public partial class Character : MonoBehaviour
     set { _actionCommand9 = value; }
   }
 
-  [SerializeField] protected string _GlobalAction1 = string.Empty;
-  public string GlobalAction1
-  {
-    get { return _GlobalAction1; }
-    set { _GlobalAction1 = value; }
-  }
-  [SerializeField] protected string _GlobalAction2 = string.Empty;
-  public string GlobalAction2
-  {
-    get { return _GlobalAction2; }
-    set { _GlobalAction2 = value; }
-  }
-  [SerializeField] protected string _GlobalAction3 = string.Empty;
-  public string GlobalAction3
-  {
-    get { return _GlobalAction3; }
-    set { _GlobalAction3 = value; }
-  }
-  [SerializeField] protected string _GlobalAction4 = string.Empty;
-  public string GlobalAction4
-  {
-    get { return _GlobalAction4; }
-    set { _GlobalAction4 = value; }
-  }
-
   [SerializeField] protected bool _isDefense = false;
   public bool IsDefense
   {
@@ -5096,8 +5071,6 @@ public partial class Character : MonoBehaviour
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
@@ -5126,8 +5099,6 @@ public partial class Character : MonoBehaviour
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
-        this.GlobalAction1 = Fix.MAGIC_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ICE_NEEDLE;
@@ -5156,10 +5127,6 @@ public partial class Character : MonoBehaviour
         this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
-        this.GlobalAction1 = Fix.MAGIC_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.FRESH_HEAL;
-        this.GlobalAction4 = Fix.MAGIC_ATTACK;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.HUNTER_SHOT;
         this.ActionCommand2 = Fix.FRESH_HEAL;
@@ -5196,10 +5163,6 @@ public partial class Character : MonoBehaviour
         this.BattleForeColor = Fix.COLORFORE_FOURTH_CHARA;
         this.MainWeapon = new Item(Fix.SMART_CLAW);
         this.MainArmor = new Item(Fix.SMART_CROSS);
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.LEG_STRIKE;
-        this.GlobalAction4 = Fix.DEFENSE;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.LEG_STRIKE;
         this.ActionCommand2 = Fix.SPEED_STEP;
@@ -5257,10 +5220,6 @@ public partial class Character : MonoBehaviour
         this.ActionCommand7 = Fix.ORACLE_COMMAND;
         this.ActionCommand8 = Fix.FORTUNE_SPIRIT;
         this.ActionCommand9 = Fix.WORD_OF_POWER;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.NORMAL_ATTACK;
-        this.GlobalAction4 = Fix.MAGIC_ATTACK;
         this.AvailableVoidChant = true;
         this.AvailableTruth = true;
         this.AvailableForce = true;
@@ -5342,10 +5301,6 @@ public partial class Character : MonoBehaviour
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
         this.ShadowBlast = 1;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.SHADOW_BLAST;
-        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_SINIKIA_VEILHANZ:
@@ -5405,10 +5360,6 @@ public partial class Character : MonoBehaviour
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.HunterShot = 1;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.HUNTER_SHOT;
-        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_SUN_YU:
@@ -9593,8 +9544,6 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
         this.Accessory1 = new Item(Fix.RED_AMULET);
         this.Accessory2 = new Item(Fix.PURPLE_AMULET);
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
         this.Backpack.Add(Fix.NORMAL_RED_POTION);
         this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
         this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
@@ -9609,8 +9558,6 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
         this.Accessory1 = new Item(Fix.PURPLE_AMULET);
         this.Accessory2 = new Item(Fix.GREEN_AMULET);
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
         this.Backpack.Add(Fix.NORMAL_RED_POTION);
         this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
         this.Backpack.Add(Fix.NORMAL_GREEN_POTION);

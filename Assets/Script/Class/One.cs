@@ -484,7 +484,6 @@ public static class One
     //Characters[num].OathOfAegis = 31;
     //Characters[num].HunterShot = 30;
     //Characters[num].MultipleShot = 29;
-    //Characters[num].ReachableTarget = 28;
     //Characters[num].HawkEye = 27;
     //Characters[num].PiercingArrow = 26;
     //Characters[num].VenomSlash = 25;
