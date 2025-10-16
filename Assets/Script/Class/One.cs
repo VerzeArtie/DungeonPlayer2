@@ -492,7 +492,6 @@ public static class One
     //Characters[num].IrregularStep = 23;
     //Characters[num].DissensionRhythm = 22;
     //Characters[num].AssassinationHit = 21;
-    //Characters[num].AuraOfPower = 20;
     //Characters[num].SkyShield = 19;
     //Characters[num].StormArmor = 18;
     //Characters[num].AetherDrive = 17;
@@ -568,7 +567,7 @@ public static class One
     //List<string> actionList3 = new List<string>();
     //actionList3.Add(Fix.NORMAL_ATTACK);
     //actionList3.Add(Fix.DEFENSE);
-    //actionList3.Add(Fix.AIR_CUTTER);
+    //actionList3.Add(Fix.STRAIGHT_SMASH);
     //actionList3.Add(Fix.STRAIGHT_SMASH);
     //actionList3.Add(Fix.FORTUNE_SPIRIT);
     //actionList3.Add(Fix.STANCE_OF_THE_BLADE);
@@ -609,7 +608,7 @@ public static class One
     //actionList4.Add(Fix.DOUBLE_SLASH);
     //actionList4.Add(Fix.HEART_OF_LIFE);
     //actionList4.Add(Fix.SKY_SHIELD);
-    //actionList4.Add(Fix.AURA_OF_POWER);
+    //actionList4.Add(Fix.NORMAL_ATTACK);
     //actionList4.Add(Fix.VENOM_SLASH);
     //actionList4.Add(Fix.SHADOW_BLAST);
     //actionList4.Add(Fix.HUNTER_SHOT);
