@@ -1712,18 +1712,6 @@ public partial class Character : MonoBehaviour
     }
     get { return _WarSwing; }
   }
-  [SerializeField] protected int _ReachableTarget = 0;
-  public int ReachableTarget
-  {
-    set
-    {
-      if (value >= 0)
-      {
-        _ReachableTarget = value;
-      }
-    }
-    get { return _ReachableTarget; }
-  }
   [SerializeField] protected int _HawkEye = 0;
   public int HawkEye
   {
