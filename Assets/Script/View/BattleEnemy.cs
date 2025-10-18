@@ -104,7 +104,6 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupMessage;
 
   public GameObject SelectFilter;
-  public GameObject lblInstantAction;
   public GameObject btnCancelSelect;
 
   public GameObject GroupStackInTheCommand;
@@ -8830,7 +8829,6 @@ public partial class BattleEnemy : MotherBase
 
       SelectFilter.SetActive(true);
       btnCancelSelect.SetActive(true);
-      lblInstantAction.SetActive(false);
       GroupMainActionCommand.SetActive(true);
     }
     // それ以外はターゲット選定中
@@ -9069,6 +9067,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    Debug.Log(MethodBase.GetCurrentMethod() + " 1");
     // 対象元を検索する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
@@ -9079,12 +9078,14 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    Debug.Log(MethodBase.GetCurrentMethod() + " 2");
     // 対象元が存在しない場合、行動できない。
     if (this.NowSelectSrcPlayer == null)
     {
       Debug.Log(MethodBase.GetCurrentMethod() + " selectedPlayer is null, then no action.");
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 3");
 
     // 対象元が死んでいる場合、行動できない。
     if (this.NowSelectSrcPlayer.Dead)
@@ -9092,6 +9093,7 @@ public partial class BattleEnemy : MotherBase
       Debug.Log(MethodBase.GetCurrentMethod() + " selectedPlayer is already dead, then no action.");
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 4");
 
     // 対象元がタイム・ストップ対象者本人ではない場合、行動できない。
     if (this.NowTimeStop && this.NowSelectSrcPlayer.CurrentTimeStopValue <= 0)
@@ -9099,6 +9101,7 @@ public partial class BattleEnemy : MotherBase
       Debug.Log(MethodBase.GetCurrentMethod() + " CurrentTimeStopValue is less than 0, then no action.");
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 5");
 
     // スタン効果により、行動できない。
     if (this.NowSelectSrcPlayer.IsStun)
@@ -9113,6 +9116,7 @@ public partial class BattleEnemy : MotherBase
         return;
       }
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 6");
 
     // Normalタイミングのため、行動できない。
     if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
@@ -9133,6 +9137,7 @@ public partial class BattleEnemy : MotherBase
         return;
       }
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 7");
 
     // Sorceryタイミングのため、行動できない。
     if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
@@ -9148,6 +9153,7 @@ public partial class BattleEnemy : MotherBase
         return;
       }
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 8");
 
     // スタック・イン・ザ・コマンド専用のため、行動できない。
     if (this.NowStackInTheCommand == false && ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand)
@@ -9155,6 +9161,7 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("NowStackInTheCommand false, Command Timing is StackCommand, then no action.");
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 9");
 
     Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
 
@@ -9170,6 +9177,7 @@ public partial class BattleEnemy : MotherBase
       CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 10");
 
     // 元核の場合
     if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Archetype)
@@ -9185,6 +9193,7 @@ public partial class BattleEnemy : MotherBase
       ExecPlayerCommand(this.NowSelectSrcPlayer, this.NowSelectSrcPlayer, sender.CommandName);
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 11");
 
     // インスタント値が不足している場合、行動できない。
     if ((this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint) &&
@@ -9201,6 +9210,7 @@ public partial class BattleEnemy : MotherBase
         return;
       }
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 12");
 
     // スタック・イン・ザ・コマンドがまだ無い場合、Duelでなければターゲット選択へ
     if (this.NowStackInTheCommand == false && this.BattleType != Fix.BattleMode.Duel)
@@ -9209,11 +9219,11 @@ public partial class BattleEnemy : MotherBase
       SelectFilter.SetActive(true);
       btnCancelSelect.SetActive(true);
       this.NowInstantTarget = true;
-      lblInstantAction.SetActive(true);
 
       this.NowSelectActionCommandButton = sender.ActionButton;
       return;
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 13");
 
     // Duel スタック・イン・ザ・コマンド
     if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName))
@@ -9234,6 +9244,7 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("Duel this.NowSelectSrcPlayer.CurrentInstantPoint not enough... " + this.NowSelectSrcPlayer.CurrentInstantPoint + " " + this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName));
     }
+    Debug.Log(MethodBase.GetCurrentMethod() + " 14");
 
     return;
   }
@@ -9523,7 +9534,6 @@ public partial class BattleEnemy : MotherBase
   private void ClearSelectFilterGroup()
   {
     SelectFilter.SetActive(false);
-    lblInstantAction.SetActive(false);
     btnCancelSelect.SetActive(false);
 
     this.NowSelectSrcPlayer = null;
