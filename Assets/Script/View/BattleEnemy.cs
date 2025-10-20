@@ -579,7 +579,19 @@ public partial class BattleEnemy : MotherBase
     {
       for (int ii = 0; ii < One.EnemyList.Count; ii++)
       {
-        NodeBattleChara node = Instantiate(node_BattleChara_EnemyBoss) as NodeBattleChara;
+        NodeBattleChara node = null;
+        if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.GUARDIAN_ROYAL_NAGA || One.EnemyList[ii].FullName == Fix.GUARDIAN_ROYAL_NAGA_JP ||  One.EnemyList[ii].FullName == Fix.GUARDIAN_ROYAL_NAGA_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP || One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
+        {
+          node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
+        }
+        else
+        {
+          node = Instantiate(node_BattleChara_EnemyBoss) as NodeBattleChara;
+        }
         node.gameObject.SetActive(true);
         node.ParentPanel.SetActive(true);
         node.transform.SetParent(GroupParentEnemy.transform);

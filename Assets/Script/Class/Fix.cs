@@ -3613,7 +3613,7 @@ public static partial class Fix
   public const string SEA_STAR_KNIGHT_AMARA_JP_VIEW = "【　天秤を見据えし者　】\r\n海星騎士・アマラ";
   public const string ORIGIN_STAR_CORAL_QUEEN_1 = "Sea-Star-Queen Meril-Sieju ";
   public const string ORIGIN_STAR_CORAL_QUEEN_1_JP = "源星の女王：メリル・セイジュ　";
-  public const string ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW = "【源星の女王】\r\nメリル・セイジュ　";
+  public const string ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW = "【源星の女王】メリル・セイジュ　";
   public const string JELLY_EYE_BRIGHT_RED = "Jelly-Eye Bright-Red";
   public const string JELLY_EYE_BRIGHT_RED_JP = "ジェリーアイ・熱光";
   public const string JELLY_EYE_BRIGHT_RED_JP_VIEW = "【巨眼の監視者】\r\nジェリーアイ・熱光";
@@ -3622,13 +3622,13 @@ public static partial class Fix
   public const string JELLY_EYE_DEEP_BLUE_JP_VIEW = "【巨眼の監視者】\r\nジェリーアイ・流冷";
   public const string BRILLIANT_SEA_PRINCE = "Sea-Star-Prince Leva-Laul";
   public const string BRILLIANT_SEA_PRINCE_JP = "海星の王子：レーヴァ・ラウル";
-  public const string BRILLIANT_SEA_PRINCE_JP_VIEW = "【　海星の王子　】\r\nレーヴァ・ラウル";
+  public const string BRILLIANT_SEA_PRINCE_JP_VIEW = "【　海星の王子　】レーヴァ・ラウル";
   public const string ORIGIN_STAR_CORAL_QUEEN = "Sea-Star-Queen Meril-Sieju";
   public const string ORIGIN_STAR_CORAL_QUEEN_JP = "源星の女王：メリル・セイジュ";
-  public const string ORIGIN_STAR_CORAL_QUEEN_JP_VIEW = "【源星の女王】\r\nメリル・セイジュ";
+  public const string ORIGIN_STAR_CORAL_QUEEN_JP_VIEW = "【源星の女王】メリル・セイジュ";
   public const string VELGAS_THE_KING_OF_SEA_STAR = "Sea-Star-King Velgas-Olzeta";
   public const string VELGAS_THE_KING_OF_SEA_STAR_JP = "海星源の王：ヴェルガス・オルゼタ";
-  public const string VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW = "【　海星源の王】\r\nヴェルガス・オルゼタ";
+  public const string VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW = "【　海星源の王】ヴェルガス・オルゼタ";
   public const string GROUND_VORTEX_LEVIATHAN = "Ground-Vortex Leviathan";
   public const string GROUND_VORTEX_LEVIATHAN_JP = "大海蛇リヴィアサン";
   public const string GROUND_VORTEX_LEVIATHAN_JP_VIEW = "【　深獄淵の鳴動　】\r\n大海蛇リヴィアサン";
