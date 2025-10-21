@@ -942,7 +942,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【 " + Fix.FIELD_RESEARCH_LICENSE + " 】を獲得しました！", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, Fix.FIELD_RESEARCH_LICENSE, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.FIELD_RESEARCH_LICENSE, ActionEvent.GetPreciousItem);
 
     Message(ref m_list, ref e_list, "アイン：サンキュー！助かるぜ！", ActionEvent.None);
 
@@ -3520,7 +3520,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 " + Fix.ITEM_MATOCK + " 】を手に入れました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetPreciousItem);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_5 + " 】を達成しました！", ActionEvent.QuestComplete);
     }
@@ -3610,7 +3610,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：マジかよ。これがあるとスゲー助かるぜ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetPreciousItem);
 
     Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を手にいれました！", ActionEvent.MessageDisplay);
 
@@ -4392,7 +4392,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 " + Fix.UNKNOWN_OBJECT + " 】を獲得しました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.UNKNOWN_OBJECT, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.UNKNOWN_OBJECT, ActionEvent.GetPreciousItem);
 
       Message(ref m_list, ref e_list, "アイン：こ、これは・・・？", ActionEvent.None);
 
@@ -5558,7 +5558,7 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "アイン：これは・・・？", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "～　長老からアインへ【" + Fix.BLUESKY_STAR_FEATHER + "】が手渡された ～", ActionEvent.MessageDisplay);
-        Message(ref m_list, ref e_list, Fix.BLUESKY_STAR_FEATHER, ActionEvent.GetItem);
+        Message(ref m_list, ref e_list, Fix.BLUESKY_STAR_FEATHER, ActionEvent.GetPreciousItem);
 
         Message(ref m_list, ref e_list, "衛兵：ちょ、長老！　お言葉ながら、それはさすがに行き過ぎでは！！", ActionEvent.None);
 
@@ -5768,7 +5768,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 " + Fix.ZHALMAN_NECKLACE + " 】を獲得しました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.ZHALMAN_NECKLACE, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.ZHALMAN_NECKLACE, ActionEvent.GetPreciousItem);
 
       Message(ref m_list, ref e_list, "長老：受け取っていただけるかな？", ActionEvent.None);
 
@@ -6690,7 +6690,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは【" + Fix.REDCOMET_STAR_CHARM + "】を貰いました　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.REDCOMET_STAR_CHARM, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.REDCOMET_STAR_CHARM, ActionEvent.GetPreciousItem);
 
       Message(ref m_list, ref e_list, "アイン：これ、例の1000000Gするアイテムじゃないですか！？　いや、貰えないですよ！", ActionEvent.None);
 
@@ -10565,7 +10565,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン；ああ、そういえばそうだった。これを見てくれ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.ORIGIN_ROAD_KEY, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.ORIGIN_ROAD_KEY, ActionEvent.GetPreciousItem);
 
       Message(ref m_list, ref e_list, "～ アインは【" + Fix.ORIGIN_ROAD_KEY + "】をラナに見せた ～", ActionEvent.MessageDisplay);
 
@@ -38221,7 +38221,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、宝剣？？？を入手した　～", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.GetPreciousItem);
 
     Message(ref m_list, ref e_list, "アイン：じゃ、どことなり行くがいい。", ActionEvent.None);
 
