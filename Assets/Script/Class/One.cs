@@ -2167,7 +2167,93 @@ public static class One
         {
           current.AddJewelSocket5(listItemJewelSocket5[ii]);
         }
-        One.TF.AddBackPack(current);
+        // 貴重品が混入している場合は、貴重品リストへ追加
+        if (current.ImportantType == Item.Important.Precious)
+        {
+          One.TF.AddPreciousItem(current);
+        }
+        else
+        {
+          One.TF.AddBackPack(current);
+        }
+      }
+    }
+
+    // PreciousItem
+    List<string> listPreciousItemValue = new List<string>();
+    List<string> listPreciousItemStack = new List<string>();
+    List<string> listPreciousItemJewelSocket1 = new List<string>();
+    List<string> listPreciousItemJewelSocket2 = new List<string>();
+    List<string> listPreciousItemJewelSocket3 = new List<string>();
+    List<string> listPreciousItemJewelSocket4 = new List<string>();
+    List<string> listPreciousItemJewelSocket5 = new List<string>();
+    XmlNodeList parentPreciousItem = xml.GetElementsByTagName("PreciousItem");
+    for (int ii = 0; ii < parentPreciousItem.Count; ii++)
+    {
+      XmlNodeList current = parentPreciousItem[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].Name.Contains("Stack") == false && current[jj].Name.Contains("JewelSocket") == false)
+        {
+          listPreciousItemValue.Add(current[jj].InnerText);
+          XmlNodeList temp2 = xml.GetElementsByTagName(current[jj].Name + "_Stack");
+          listPreciousItemStack.Add(temp2[0]?.InnerText ?? String.Empty);
+
+          XmlNodeList temp3_1 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket1");
+          listPreciousItemJewelSocket1.Add(temp3_1[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_2 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket2");
+          listPreciousItemJewelSocket2.Add(temp3_2[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_3 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket3");
+          listPreciousItemJewelSocket3.Add(temp3_3[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_4 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket4");
+          listPreciousItemJewelSocket4.Add(temp3_4[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_5 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket5");
+          listPreciousItemJewelSocket5.Add(temp3_5[0]?.InnerText ?? string.Empty);
+        }
+      }
+    }
+
+    for (int ii = 0; ii < listPreciousItemValue.Count; ii++)
+    {
+      Debug.Log("listPreciousItemValue: " + listPreciousItemValue[ii]);
+      Debug.Log("listPreciousItemStack: " + listPreciousItemStack[ii]);
+      for (int jj = 0; jj < Convert.ToInt32(listPreciousItemStack[ii]); jj++)
+      {
+        Item current = new Item(listPreciousItemValue[ii]);
+        if (listPreciousItemJewelSocket1[ii] != string.Empty)
+        {
+          current.AddJewelSocket1(listPreciousItemJewelSocket1[ii]);
+        }
+        if (listPreciousItemJewelSocket2[ii] != string.Empty)
+        {
+          current.AddJewelSocket2(listPreciousItemJewelSocket2[ii]);
+        }
+        if (listPreciousItemJewelSocket3[ii] != string.Empty)
+        {
+          current.AddJewelSocket3(listPreciousItemJewelSocket3[ii]);
+        }
+        if (listPreciousItemJewelSocket4[ii] != string.Empty)
+        {
+          current.AddJewelSocket4(listPreciousItemJewelSocket4[ii]);
+        }
+        if (listPreciousItemJewelSocket5[ii] != string.Empty)
+        {
+          current.AddJewelSocket5(listPreciousItemJewelSocket5[ii]);
+        }
+
+        // 一般品が混入している場合は、一般品リストへ追加
+        if (current.ImportantType != Item.Important.Precious)
+        {
+          One.TF.AddBackPack(current);
+        }
+        else
+        {
+          One.TF.AddPreciousItem(current);
+        }
       }
     }
 

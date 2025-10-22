@@ -1186,7 +1186,16 @@ public class SaveLoad : MotherBase
         {
           current.AddJewelSocket5(listItemJewelSocket5[ii]);
         }
-        One.TF.AddBackPack(current);
+
+        // 貴重品が混入している場合は、貴重品リストへ追加
+        if (current.ImportantType == Item.Important.Precious)
+        {
+          One.TF.AddPreciousItem(current);
+        }
+        else
+        {
+          One.TF.AddBackPack(current);
+        }
       }
     }
 
@@ -1323,7 +1332,16 @@ public class SaveLoad : MotherBase
         {
           current.AddJewelSocket5(listPreciousItemJewelSocket5[ii]);
         }
-        One.TF.AddPreciousItem(current);
+
+        // 一般品が混入している場合は、一般品リストへ追加
+        if (current.ImportantType != Item.Important.Precious)
+        {
+          One.TF.AddBackPack(current);
+        }
+        else
+        {
+          One.TF.AddPreciousItem(current);
+        }
       }
     }
 
