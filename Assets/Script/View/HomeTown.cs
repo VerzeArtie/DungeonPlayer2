@@ -4125,12 +4125,11 @@ public partial class HomeTown : MotherBase
     shopItem.imgbackground.color = item.GetRareColor;
     shopItem.gameObject.SetActive(true);
 
-    const int WIDTH = 160;
     RectTransform rect = shopItem.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     //rect.sizeDelta = new Vector2(0, 0);
-    rect.localPosition = new Vector3(20 + num * WIDTH, 0, 0);
-    content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x + WIDTH, content.GetComponent<RectTransform>().sizeDelta.y);
+    rect.localPosition = new Vector3(20 + num * rect.sizeDelta.x, 0, 0);
+    content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x + rect.sizeDelta.x, content.GetComponent<RectTransform>().sizeDelta.y);
 
     return shopItem;
   }
@@ -4141,6 +4140,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(0, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
 
     ShopItemList.Clear();
     List<Item> shopList = GetShopItem(One.TF.CurrentAreaName);
@@ -4148,7 +4148,7 @@ public partial class HomeTown : MotherBase
     {
       ShopItemList.Add(CreateShopItem(contentShopItem, shopList[ii], ii, false));
     }
-    contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentShopItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
+    contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentShopItem.GetComponent<RectTransform>().sizeDelta.x + 40, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
     if (ShopItemList.Count > 0)
     {
       SelectShopItem(ShopItemList[0], ShopItemList);
@@ -4161,6 +4161,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta = new Vector2(0, contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.y);
 
     ShopSellItemList.Clear();
     List<Item> sellList = One.TF.BackpackList;
@@ -4168,7 +4169,7 @@ public partial class HomeTown : MotherBase
     {
       ShopSellItemList.Add(CreateShopItem(contentSellBackpackItem, sellList[ii], ii, true));
     }
-    contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.y);
+    contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.x + 40, contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.y);
 
     Debug.Log("ShopSellItemList.Count: " + ShopSellItemList.Count);
 
