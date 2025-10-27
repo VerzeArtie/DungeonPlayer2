@@ -1374,6 +1374,9 @@ public static partial class Fix
   public const string SHOPMENU_BUY = "購入";
   public const string SHOPMENU_SELL = "売却";
   #endregion
+
+  public const string GAME_EXIT_TITLE = "ゲームを終了しますか？";
+  public const string GAME_EXIT_DESCRIPTION = "セーブしていない場合、現在データは破棄されます。";
   #endregion
 
   #region "Action Command"

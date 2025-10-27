@@ -893,9 +893,19 @@ public partial class HomeTown : MotherBase
 
   public void TapExit()
   {
-    One.UpdateAkashicRecord();
-    One.RealWorldSave();
-    SceneDimension.JumpToTitle();
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      One.UpdateAkashicRecord();
+      One.RealWorldSave();
+      SceneDimension.JumpToTitle();
+    }
+    else
+    {
+      txtDecisionMessageTitle.text = Fix.GAME_EXIT_TITLE;
+      txtDecisionMessageDescription.text = Fix.GAME_EXIT_DESCRIPTION;
+      GroupDecisionMessage.SetActive(true);
+
+    }
     return;
   }
 
@@ -1869,7 +1879,11 @@ public partial class HomeTown : MotherBase
 
   public void TapDecisionMessageAccept()
   {
-    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    if (txtDecisionMessageTitle.text == Fix.GAME_EXIT_TITLE)
+    {
+      SceneDimension.JumpToTitle();
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
       this.DungeonMap = Fix.MAPFILE_MYSTIC_FOREST;
       this.DungeonCall = Fix.DUNGEON_MYSTIC_FOREST;
@@ -4689,16 +4703,6 @@ public partial class HomeTown : MotherBase
     btnParty.gameObject.SetActive(true);
     btnBlueSphere.gameObject.SetActive(false);
     btnSystem.gameObject.SetActive(true);
-
-    // ゲーム終了ボタン
-    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
-    {
-      btnGameExit.gameObject.SetActive(true);
-    }
-    else
-    {
-      btnGameExit.gameObject.SetActive(false);
-    }
 
     // エリア情報
     txtArea.text = One.TF.CurrentAreaName;
