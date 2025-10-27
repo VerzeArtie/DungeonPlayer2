@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Xml;
 using System.Text;
 using System.Reflection;
+using UnityEngine.UI;
 
 public static class One
 {
@@ -2037,60 +2038,26 @@ public static class One
 
   public static void RealWorldLoad()
   {
+
+    foreach (string currentFile in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))
+    {
+      string targetFileName;
+      if (currentFile.Contains(Fix.WorldSaveNum))
+      {
+        targetFileName = System.IO.Path.GetFileName(currentFile);
+        break;
+      }
+    }
     ExecLoad(Fix.WorldSaveNum, true);
   }
 
-  private static void ExecLoad(string targetFileName, bool forceLoad)
+  public static void ExecLoad(string targetFileName, bool forceLoad)
   {
-    //if (this.nowAutoKill) { return; }
-    //Debug.Log("ExecLoad 0 " + DateTime.Now);
-
+    Debug.Log("ExecLoad 0 " + DateTime.Now);
     One.ReInitializeGroundOne(true);
+    Debug.Log("ExecLoad 1 " + DateTime.Now);
 
     XmlDocument xml = new XmlDocument();
-    DateTime now = DateTime.Now;
-    string yearData = String.Empty;
-    string monthData = String.Empty;
-    string dayData = String.Empty;
-    string hourData = String.Empty;
-    string minuteData = String.Empty;
-    string secondData = String.Empty;
-    string gamedayData = String.Empty;
-    //string completeareaData = String.Empty;
-
-    Debug.Log("ExecLoad 1 " + DateTime.Now);
-    //if (((Text)sender) != null)
-    //{
-    //  yearData = ((Text)sender).text.Substring(0, 4);
-    //  monthData = ((Text)sender).text.Substring(5, 2);
-    //  dayData = ((Text)sender).text.Substring(8, 2);
-    //  hourData = ((Text)sender).text.Substring(11, 2);
-    //  minuteData = ((Text)sender).text.Substring(14, 2);
-    //  secondData = ((Text)sender).text.Substring(17, 2);
-    //  gamedayData = ((Text)sender).text.Substring(this.gameDayString.Length + 19, 3);
-    //  //completeareaData = ((Text)sender).text.Substring(this.gameDayString.Length + this.gameDayString2.Length + this.archiveAreaString.Length + 22, 1);
-
-    //  //if (completeareaData == "制")
-    //  //{
-    //  //  this.systemMessage.text = MESSAGE_1;
-    //  //  this.back_SystemMessage.SetActive(true);
-    //  //  this.Filter.SetActive(true);
-    //  //  return;
-    //  //}
-    //  targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + /* completeareaData + */ "1.xml";
-    //}
-    //else
-    {
-      foreach (string currentFile in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))
-      {
-        if (currentFile.Contains(Fix.WorldSaveNum))
-        {
-          targetFileName = System.IO.Path.GetFileName(currentFile);
-          break;
-        }
-      }
-    }
-
     xml.Load(One.pathForDocumentsFile(targetFileName));
     One.CurrentLoadFileName = targetFileName;
     Debug.Log("ExecLoad 2 " + DateTime.Now);
