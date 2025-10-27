@@ -2773,6 +2773,12 @@ public class DungeonField : MotherBase
 
   public void TapDecisionAccept()
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (txtDecisionTitle.text == Fix.GAME_EXIT_TITLE)
+    {
+      SceneDimension.JumpToTitle();
+      return;
+    }
     if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
     {
       this.HomeTownCall = One.TF.BeforeAreaName;
@@ -2812,6 +2818,12 @@ public class DungeonField : MotherBase
 
   public void TapDecisionCancel()
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (txtDecisionTitle.text == Fix.GAME_EXIT_TITLE)
+    {
+      GroupDecision.SetActive(false);
+      return;
+    }
     if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
     {
       GroupDecision.SetActive(false);
@@ -3272,9 +3284,21 @@ public class DungeonField : MotherBase
 
   public void TapExit()
   {
-    One.UpdateAkashicRecord();
-    One.RealWorldSave();
-    SceneDimension.JumpToTitle();
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      One.UpdateAkashicRecord();
+      One.RealWorldSave();
+      SceneDimension.JumpToTitle();
+    }
+    else
+    {
+      txtDecisionTitle.text = Fix.GAME_EXIT_TITLE;
+      txtDecisionMessage.text = Fix.GAME_EXIT_DESCRIPTION;
+      txtDecisionA.text = Fix.GAME_EXIT_OK;
+      txtDecisionB.text = Fix.GAME_EXIT_CANCEL;
+      txtDecisionC.text = "";
+      GroupDecision.SetActive(true);
+    }
     return;
   }
 
@@ -25604,16 +25628,6 @@ public class DungeonField : MotherBase
     btnParty.gameObject.SetActive(true);
     btnBlueSphere.gameObject.SetActive(true);
     btnSystem.gameObject.SetActive(true);
-
-    // ゲーム終了ボタン
-    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
-    {
-      btnGameExit.gameObject.SetActive(true);
-    }
-    else
-    {
-      btnGameExit.gameObject.SetActive(false);
-    }
 
     // プレイヤーリストの反映
     foreach (Transform n in GroupCharacterList.transform)

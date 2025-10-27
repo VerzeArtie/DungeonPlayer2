@@ -16504,7 +16504,9 @@ MonoBehaviour:
   txtDecisionMessageTitle: {fileID: 1020842256}
   txtDecisionMessageDescription: {fileID: 1397464533}
   btnDecisionMessageAccept: {fileID: 181282220}
+  txtDecisionMessageAccept: {fileID: 289005276}
   btnDecisionMessageCancel: {fileID: 549145991}
+  txtDecisionMessageCancel: {fileID: 1746705151}
   GroupLvupCharacter: {fileID: 171119813}
   txtLvupTitle: {fileID: 1094083706}
   txtLvupMaxLife: {fileID: 1564688063}

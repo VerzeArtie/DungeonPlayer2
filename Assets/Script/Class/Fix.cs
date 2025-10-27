@@ -1377,6 +1377,8 @@ public static partial class Fix
 
   public const string GAME_EXIT_TITLE = "ゲームを終了しますか？";
   public const string GAME_EXIT_DESCRIPTION = "セーブしていない場合、現在データは破棄されます。";
+  public const string GAME_EXIT_OK = "終了する";
+  public const string GAME_EXIT_CANCEL = "終了しない";
 
   public const string LOAD_DATA_COMPLETE = "ゲームデータの読み込みが完了しました。";
   #endregion

@@ -296,7 +296,9 @@ public partial class HomeTown : MotherBase
   public Text txtDecisionMessageTitle;
   public Text txtDecisionMessageDescription;
   public Button btnDecisionMessageAccept;
+  public Text txtDecisionMessageAccept;
   public Button btnDecisionMessageCancel;
+  public Text txtDecisionMessageCancel;
 
   // Level-UP Character
   public GameObject GroupLvupCharacter;
@@ -903,6 +905,8 @@ public partial class HomeTown : MotherBase
     {
       txtDecisionMessageTitle.text = Fix.GAME_EXIT_TITLE;
       txtDecisionMessageDescription.text = Fix.GAME_EXIT_DESCRIPTION;
+      txtDecisionMessageAccept.text = Fix.GAME_EXIT_OK;
+      txtDecisionMessageCancel.text = Fix.GAME_EXIT_CANCEL;
       GroupDecisionMessage.SetActive(true);
 
     }
@@ -1898,6 +1902,8 @@ public partial class HomeTown : MotherBase
     GroupDecisionMessage.SetActive(false);
     txtDecisionMessageTitle.text = string.Empty;
     txtDecisionMessageDescription.text = string.Empty;
+    txtDecisionMessageAccept.text = "Accept";
+    txtDecisionMessageCancel.text = "Cancel";
   }
 
   public void TapDungeon()
