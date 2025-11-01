@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class TruthAnswer : MotherBase
 {
@@ -58,6 +60,87 @@ public class TruthAnswer : MotherBase
 
     if (CurrentChantNumber >= 16)
     {
+      List<int> numberList = new List<int>();
+      numberList.Add(One.AR.Velgus_Chant_Sequence_1);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_2);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_3);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_4);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_5);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_6);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_7);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_8);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_9);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_10);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_11);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_12);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_13);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_14);
+      numberList.Add(One.AR.Velgus_Chant_Sequence_15);
+
+
+      // 最終判定前の補完処理：0 のままの要素に未使用の値をランダムに代入
+      List<int> remainingValues = Enumerable.Range(1, 15).Except(numberList.Where(v => v != 0)).ToList();
+      System.Random rand = new System.Random();
+      Shuffle(remainingValues, rand);
+
+      for (int i = 0, j = 0; i < numberList.Count; i++)
+      {
+        if (numberList[i] == 0)
+        {
+          numberList[i] = remainingValues[j++];
+        }
+      }
+
+      Debug.Log("Velgus_Chant_Sequence before");
+      Debug.Log("1: " + One.AR.Velgus_Chant_Sequence_1);
+      Debug.Log("2: " + One.AR.Velgus_Chant_Sequence_2);
+      Debug.Log("3: " + One.AR.Velgus_Chant_Sequence_3);
+      Debug.Log("4: " + One.AR.Velgus_Chant_Sequence_4);
+      Debug.Log("5: " + One.AR.Velgus_Chant_Sequence_5);
+      Debug.Log("6: " + One.AR.Velgus_Chant_Sequence_6);
+      Debug.Log("7: " + One.AR.Velgus_Chant_Sequence_7);
+      Debug.Log("8: " + One.AR.Velgus_Chant_Sequence_8);
+      Debug.Log("9: " + One.AR.Velgus_Chant_Sequence_9);
+      Debug.Log("10: " + One.AR.Velgus_Chant_Sequence_10);
+      Debug.Log("11: " + One.AR.Velgus_Chant_Sequence_11);
+      Debug.Log("12: " + One.AR.Velgus_Chant_Sequence_12);
+      Debug.Log("13: " + One.AR.Velgus_Chant_Sequence_13);
+      Debug.Log("14: " + One.AR.Velgus_Chant_Sequence_14);
+      Debug.Log("15: " + One.AR.Velgus_Chant_Sequence_15);
+
+
+      One.AR.Velgus_Chant_Sequence_1 = numberList[0];
+      One.AR.Velgus_Chant_Sequence_2 = numberList[1];
+      One.AR.Velgus_Chant_Sequence_3 = numberList[2];
+      One.AR.Velgus_Chant_Sequence_4 = numberList[3];
+      One.AR.Velgus_Chant_Sequence_5 = numberList[4];
+      One.AR.Velgus_Chant_Sequence_6 = numberList[5];
+      One.AR.Velgus_Chant_Sequence_7 = numberList[6];
+      One.AR.Velgus_Chant_Sequence_8 = numberList[7];
+      One.AR.Velgus_Chant_Sequence_9 = numberList[8];
+      One.AR.Velgus_Chant_Sequence_10 = numberList[9];
+      One.AR.Velgus_Chant_Sequence_11 = numberList[10];
+      One.AR.Velgus_Chant_Sequence_12 = numberList[11];
+      One.AR.Velgus_Chant_Sequence_13 = numberList[12];
+      One.AR.Velgus_Chant_Sequence_14 = numberList[13];
+      One.AR.Velgus_Chant_Sequence_15 = numberList[14];
+      Debug.Log("Velgus_Chant_Sequence result");
+      Debug.Log("1: " + One.AR.Velgus_Chant_Sequence_1);
+      Debug.Log("2: " + One.AR.Velgus_Chant_Sequence_2);
+      Debug.Log("3: " + One.AR.Velgus_Chant_Sequence_3);
+      Debug.Log("4: " + One.AR.Velgus_Chant_Sequence_4);
+      Debug.Log("5: " + One.AR.Velgus_Chant_Sequence_5);
+      Debug.Log("6: " + One.AR.Velgus_Chant_Sequence_6);
+      Debug.Log("7: " + One.AR.Velgus_Chant_Sequence_7);
+      Debug.Log("8: " + One.AR.Velgus_Chant_Sequence_8);
+      Debug.Log("9: " + One.AR.Velgus_Chant_Sequence_9);
+      Debug.Log("10: " + One.AR.Velgus_Chant_Sequence_10);
+      Debug.Log("11: " + One.AR.Velgus_Chant_Sequence_11);
+      Debug.Log("12: " + One.AR.Velgus_Chant_Sequence_12);
+      Debug.Log("13: " + One.AR.Velgus_Chant_Sequence_13);
+      Debug.Log("14: " + One.AR.Velgus_Chant_Sequence_14);
+      Debug.Log("15: " + One.AR.Velgus_Chant_Sequence_15);
+
       if ( txtChant[One.AR.Velgus_Chant_Sequence_1 - 1].text == "鳥" &&
            txtChant[One.AR.Velgus_Chant_Sequence_2 - 1].text == "天" &&
            txtChant[One.AR.Velgus_Chant_Sequence_3 - 1].text == "闇" &&
@@ -81,6 +164,16 @@ public class TruthAnswer : MotherBase
         One.TF.Event_Message1000040_VelgusChantSuccess = false;
       }
       this.nowAutoKill = true;
+    }
+  }
+
+  // Fisher-Yates シャッフル
+  static void Shuffle<T>(List<T> list, System.Random rand)
+  {
+    for (int i = list.Count - 1; i > 0; i--)
+    {
+      int j = rand.Next(i + 1);
+      (list[i], list[j]) = (list[j], list[i]);
     }
   }
 }
