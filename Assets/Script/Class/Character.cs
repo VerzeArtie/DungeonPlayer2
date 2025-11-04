@@ -9570,7 +9570,7 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    if (One.CONF.Difficulty == -1)
+    if (One.CONF.Difficulty <= 1)
     {
       this.Strength = 1;
       this.Agility = 1;
@@ -9578,6 +9578,44 @@ public partial class Character : MonoBehaviour
       this.Stamina = 1;
       this.Mind = 1;
       this.BaseLife = 1;
+    }
+    else
+    {
+      double difficultyMultiplier = GetDifficultyMultiplier(One.CONF.Difficulty);
+      int boostedStrength = (int)(this.Strength * difficultyMultiplier);
+      Debug.Log("boost  " + this.Strength + " " + boostedStrength);
+      this.Strength = boostedStrength;
+      if (this.Strength <= 1) { this.Strength = 1; }
+      if (this.Strength >= Fix.PARAMETER_MAX) { this.Strength = Fix.PARAMETER_MAX; }
+      Debug.Log("boosted " + this.Strength);
+
+      int boostedAgility = (int)(this.Agility * difficultyMultiplier);
+      Debug.Log("boost  " + this.Agility + " " + boostedAgility);
+      this.Agility = boostedAgility;
+      if (this.Agility <= 1) { this.Agility = 1; }
+      if (this.Agility >= Fix.PARAMETER_MAX) { this.Agility = Fix.PARAMETER_MAX; }
+      Debug.Log("boosted " + this.Agility);
+
+      int boostedIntelligence = (int)(this.Intelligence * difficultyMultiplier);
+      Debug.Log("boost  " + this.Intelligence + " " + boostedIntelligence);
+      this.Intelligence = boostedIntelligence;
+      if (this.Intelligence <= 1) { this.Intelligence = 1; }
+      if (this.Intelligence >= Fix.PARAMETER_MAX) { this.Intelligence = Fix.PARAMETER_MAX; }
+      Debug.Log("boosted " + this.Intelligence);
+
+      int boostedStamina = (int)(this.Stamina * difficultyMultiplier);
+      Debug.Log("boost  " + this.Stamina + " " + boostedStamina);
+      this.Stamina = boostedStamina;
+      if (this.Stamina <= 1) { this.Stamina = 1; }
+      //if (this.Stamina >= Fix.PARAMETER_MAX) { this.Stamina = Fix.PARAMETER_MAX; } // スタミナは9999を超えてもよい。
+      Debug.Log("boosted " + this.Stamina);
+
+      int boostedMind = (int)(this.Mind * difficultyMultiplier);
+      Debug.Log("boost  " + this.Mind + " " + boostedMind);
+      this.Mind = boostedMind;
+      if (this.Mind <= 1) { this.Mind = 1; }
+      if (this.Mind >= Fix.PARAMETER_MAX) { this.Mind = Fix.PARAMETER_MAX; }
+      Debug.Log("boosted " + this.Mind);
     }
 
     this.MaxGain();
@@ -9612,6 +9650,17 @@ public partial class Character : MonoBehaviour
     }
     this.CurrentImmediateCommand = string.Empty;
     this.Target2 = this;
+  }
+
+  private double GetDifficultyMultiplier(int difficulty)
+  {
+    switch (difficulty)
+    {
+      case 2: return 0.5;
+      case 3: return 1.0;
+      case 4: return 1.4;
+      default: return 1.0;
+    }
   }
 
   private int GetIndexValue(Dictionary<string, int> indexMap, string character_name)
