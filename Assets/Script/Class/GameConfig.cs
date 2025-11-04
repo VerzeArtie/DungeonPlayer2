@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameConfig : MonoBehaviour
 {
-  protected int _enableBGM = 0;
-  protected int _enableSound = 0;
-  protected int _difficulty = 0;
+  protected int _enableBGM = 100;
+  protected int _enableSound = 100;
+  protected int _difficulty = 3;
   protected bool _supportLog = true;
   protected string _account = string.Empty;
 

@@ -34,8 +34,6 @@ public class Title : MotherBase
   public Slider DifficultySilder = null;
   public Toggle ToggleSupportLog = null;
   public Text TextAccount = null;
-  // public Button LanguageEngligh = null;
-  // public Button LanguageJapanese = null;
   public Text SupportMessage = null;
   public InputField AccountInputField = null;
 
@@ -55,127 +53,6 @@ public class Title : MotherBase
   public override void Start()
   {
     base.Start();
-
-    // debug
-    XmlDocument xml2 = new XmlDocument();
-    xml2.Load(One.PathForRootFile(Fix.AR_FILE));
-    Type typeAR = One.AR.GetType();
-    foreach (PropertyInfo pi in typeAR.GetProperties())
-    {
-      if (pi.PropertyType == typeof(System.Int32))
-      {
-        try
-        {
-          pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.String))
-      {
-        try
-        {
-          pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.Double))
-      {
-        try
-        {
-          pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.Single))
-      {
-        try
-        {
-          pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.Boolean))
-      {
-        try
-        {
-          pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
-        }
-        catch { }
-      }
-    }
-
-    // Config
-    try
-    {
-      XmlDocument xmlConfig = new XmlDocument();
-      xmlConfig.Load(One.PathForRootFile(Fix.GameSettingFileName));
-
-      Type typeCONF = One.CONF.GetType();
-      foreach (PropertyInfo pi in typeCONF.GetProperties())
-      {
-        if (pi.PropertyType == typeof(System.Int32))
-        {
-          try
-          {
-            pi.SetValue(One.CONF, Convert.ToInt32(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
-          }
-          catch { }
-        }
-        else if (pi.PropertyType == typeof(System.String))
-        {
-          try
-          {
-            pi.SetValue(One.CONF, (xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
-          }
-          catch { }
-        }
-        else if (pi.PropertyType == typeof(System.Double))
-        {
-          try
-          {
-            pi.SetValue(One.CONF, Convert.ToDouble(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
-          }
-          catch { }
-        }
-        else if (pi.PropertyType == typeof(System.Single))
-        {
-          try
-          {
-            pi.SetValue(One.CONF, Convert.ToSingle(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
-          }
-          catch { }
-        }
-        else if (pi.PropertyType == typeof(System.Boolean))
-        {
-          try
-          {
-            pi.SetValue(One.CONF, Convert.ToBoolean(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
-          }
-          catch { }
-        }
-      }
-    }
-    catch (Exception ex)
-    {
-      Debug.Log("Title Exception: " + ex.ToString());
-    }
-
-    this.BGMSlider.value = (float)((float)One.CONF.EnableBGM);
-    this.SoundSlider.value = (float)((float)One.CONF.EnableSoundEffect);
-    //this.battleSpeedBar.Value = this.battleSpeed;
-    this.DifficultySilder.value = One.CONF.Difficulty;
-    this.ToggleSupportLog.isOn = One.CONF.SupportLog;
-    //if (One.Language == One.GameLanguage.English)
-    //{
-    //  LanguageEngligh.Select();
-    //}
-    //else
-    //{
-    //  LanguageJapanese.Select();
-    //}
-    Debug.Log("One.CONF.Account " + One.CONF.Account);
-    this.TextAccount.text = "AccountID: " + One.CONF.Account;
-    AccountInputField.text = One.CONF.Account;
   }
 
   // Update is called once per frame
@@ -186,6 +63,146 @@ public class Title : MotherBase
       this.firstAction = true;
       // 初期開始時、ファイルが無い場合準備しておく。
       One.MakeDirectory();
+
+      // Initialize AR and Config
+      if (System.IO.File.Exists(One.PathForRootFile(Fix.AR_FILE)) == false)
+      {
+        Debug.Log("PathForRootFile(Fix.AR_FILE no exist, then create it.: " + One.PathForRootFile(Fix.AR_FILE));
+        One.UpdateAkashicRecord();
+      }
+      else
+      {
+        Debug.Log("PathForRootFile(Fix.AR_FILE exist, then no action.: " + One.PathForRootFile(Fix.AR_FILE));
+      }
+
+      if (System.IO.File.Exists(One.PathForRootFile(Fix.CONF_FILE)) == false)
+      {
+        Debug.Log("PathForRootFile(Fix.CONF_FILE no exist, then create it.: " + One.PathForRootFile(Fix.CONF_FILE));
+        One.UpdateGameConfig();
+      }
+      else
+      {
+        Debug.Log("PathForRootFile(Fix.CONF_FILE exist, then no action.: " + One.PathForRootFile(Fix.CONF_FILE));
+      }
+
+      // AR Set
+      try
+      {
+        XmlDocument xml2 = new XmlDocument();
+        xml2.Load(One.PathForRootFile(Fix.AR_FILE));
+        Type typeAR = One.AR.GetType();
+        foreach (PropertyInfo pi in typeAR.GetProperties())
+        {
+          if (pi.PropertyType == typeof(System.Int32))
+          {
+            try
+            {
+              pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.String))
+          {
+            try
+            {
+              pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            try
+            {
+              pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            try
+            {
+              pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Boolean))
+          {
+            try
+            {
+              pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Debug.Log("Title(AR) Exception: " + ex.ToString());
+      }
+
+      // Config Set
+      try
+      {
+        XmlDocument xmlConfig = new XmlDocument();
+        xmlConfig.Load(One.PathForRootFile(Fix.CONF_FILE));
+
+        Type typeCONF = One.CONF.GetType();
+        foreach (PropertyInfo pi in typeCONF.GetProperties())
+        {
+          if (pi.PropertyType == typeof(System.Int32))
+          {
+            try
+            {
+              pi.SetValue(One.CONF, Convert.ToInt32(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.String))
+          {
+            try
+            {
+              pi.SetValue(One.CONF, (xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            try
+            {
+              pi.SetValue(One.CONF, Convert.ToDouble(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            try
+            {
+              pi.SetValue(One.CONF, Convert.ToSingle(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+          else if (pi.PropertyType == typeof(System.Boolean))
+          {
+            try
+            {
+              pi.SetValue(One.CONF, Convert.ToBoolean(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+            }
+            catch { }
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Debug.Log("Title(Config) Exception: " + ex.ToString());
+      }
+
+      this.BGMSlider.value = (float)((float)One.CONF.EnableBGM);
+      this.SoundSlider.value = (float)((float)One.CONF.EnableSoundEffect);
+      this.DifficultySilder.value = One.CONF.Difficulty;
+      this.ToggleSupportLog.isOn = One.CONF.SupportLog;
+      Debug.Log("One.CONF.Account " + One.CONF.Account);
+      this.TextAccount.text = "AccountID: " + One.CONF.Account;
+      AccountInputField.text = One.CONF.Account;
 
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
@@ -1150,40 +1167,7 @@ public class Title : MotherBase
   public void tapClose()
   {
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
-    try
-    {
-      //this.battleSpeed = battleSpeedBar.Value;
-      //this.difficulty = difficultyBar.Value;
-
-      XmlTextWriter xmlWriter = new XmlTextWriter(Fix.GameSettingFileName, System.Text.Encoding.UTF8);
-      xmlWriter.WriteStartDocument();
-      xmlWriter.WriteWhitespace("\r\n");
-
-      xmlWriter.WriteStartElement("Body");
-      xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("DateTime", DateTime.Now.ToString());
-      xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("EnableBGM", One.CONF.EnableBGM.ToString());
-      xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("EnableSoundEffect", One.CONF.EnableSoundEffect.ToString());
-      xmlWriter.WriteWhitespace("\r\n");
-      //xmlWriter.WriteElementString("BattleSpeed", this.battleSpeed.ToString());
-      //xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("Difficulty", One.CONF.Difficulty.ToString());
-      xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("SupportLog", One.CONF.SupportLog.ToString());
-      xmlWriter.WriteWhitespace("\r\n");
-      //xmlWriter.WriteElementString("GameLanguage", One.Language.ToString());
-      //xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteElementString("Account", One.CONF.Account);
-      xmlWriter.WriteWhitespace("\r\n");
-      xmlWriter.WriteEndElement();
-
-      xmlWriter.WriteEndDocument();
-      xmlWriter.Close();
-    }
-    catch { }
-
+    One.UpdateGameConfig();
     groupConfig.SetActive(false);
     groupSaveLoad.gameObject.SetActive(false);
   }

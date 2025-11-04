@@ -272,7 +272,7 @@ public static class One
     try
     {
       XmlDocument xmlConfig = new XmlDocument();
-      xmlConfig.Load(One.PathForRootFile(Fix.GameSettingFileName));
+      xmlConfig.Load(One.PathForRootFile(Fix.CONF_FILE));
 
       Type typeCONF = One.CONF.GetType();
       foreach (PropertyInfo pi in typeCONF.GetProperties())
@@ -321,7 +321,7 @@ public static class One
     }
     catch (Exception ex)
     {
-      Debug.Log("Title Exception: " + ex.ToString());
+      Debug.Log("InitializeGroundOne(Read Conf) Exception: " + ex.ToString());
     }
 
     TF.AvailableEinWolence = true;
@@ -5309,4 +5309,40 @@ public static class One
     }
   }
 
+  public static void UpdateGameConfig()
+  {
+    XmlTextWriter xmlWriter = null;
+    try
+    {
+      xmlWriter = new XmlTextWriter(PathForRootFile(Fix.CONF_FILE), System.Text.Encoding.UTF8);
+      xmlWriter.WriteStartDocument();
+      xmlWriter.WriteWhitespace("\r\n");
+
+      xmlWriter.WriteStartElement("Body");
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("DateTime", DateTime.Now.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("EnableBGM", One.CONF.EnableBGM.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("EnableSoundEffect", One.CONF.EnableSoundEffect.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("Difficulty", One.CONF.Difficulty.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("SupportLog", One.CONF.SupportLog.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("Account", One.CONF.Account);
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteEndElement();
+
+      xmlWriter.WriteEndDocument();
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("UpdateGameConfig exception: " + ex.ToString());
+    }
+    finally
+    {
+      xmlWriter?.Close();
+    }
+  }
 }
