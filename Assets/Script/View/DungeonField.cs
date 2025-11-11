@@ -9344,6 +9344,8 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_EsmiliaGrassField_00007 == false && location.x == Fix.ESMILIA_Treasure_7_X && location.y == Fix.ESMILIA_Treasure_7_Y && location.z == Fix.ESMILIA_Treasure_7_Z)
         {
           treasureName = Fix.ITEM_MATOCK;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          return;
         }
         if (One.TF.Treasure_EsmiliaGrassField_00008 == false && location.x == Fix.ESMILIA_Treasure_8_X && location.y == Fix.ESMILIA_Treasure_8_Y && location.z == Fix.ESMILIA_Treasure_8_Z)
         {
@@ -9375,7 +9377,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Goratrum_00001 == false && location.x == Fix.GORATRUM_Treasure_1_X && location.y == Fix.GORATRUM_Treasure_1_Y && location.z == Fix.GORATRUM_Treasure_1_Z)
         {
           treasureName = Fix.ITEM_WALKING_ROPE;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message600040(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9487,7 +9489,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_MysticForest_00004 == false && location.x == Fix.MYSTICFOREST_Treasure_4_X && location.y == Fix.MYSTICFOREST_Treasure_4_Y && location.z == Fix.MYSTICFOREST_Treasure_4_Z)
         {
           treasureName = Fix.KODAIEIJU_EDA;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message900435(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9527,7 +9529,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_MysticForest_00013 == false && location.x == Fix.MYSTICFOREST_Treasure_13_X && location.y == Fix.MYSTICFOREST_Treasure_13_Y && location.z == Fix.MYSTICFOREST_Treasure_13_Z)
         {
           treasureName = Fix.KIGAN_OFUDA;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message900440(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9749,6 +9751,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_OhranTower_00007 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
         {
           treasureName = Fix.SUN_BURST_KEY;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         // 宝箱８
         if (One.TF.Treasure_OhranTower_00008 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
@@ -9779,6 +9784,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_OhranTower_00013 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
         {
           treasureName = Fix.SHADOW_MOON_KEY;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         // 宝箱１４
         if (One.TF.Treasure_OhranTower_00014 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
@@ -9834,6 +9842,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_OhranTower_00024 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_24_X, Fix.OHRANTOWER_Treasure_24_Y, Fix.OHRANTOWER_Treasure_24_Z))
         {
           treasureName = Fix.MARBLE_STAR;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         // 宝箱２５
         if (One.TF.Treasure_OhranTower_00025 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_25_X, Fix.OHRANTOWER_Treasure_25_Y, Fix.OHRANTOWER_Treasure_25_Z))
@@ -9899,7 +9910,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_OhranTower_00037 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
         {
           treasureName = Fix.STAR_DUST_KEY;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message800053(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9942,7 +9953,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Velgus_00005 == false && location.x == Fix.VELGUS_TREASURE_5_X && location.y == Fix.VELGUS_TREASURE_5_Y && location.z == Fix.VELGUS_TREASURE_5_Z)
         {
           treasureName = Fix.VELGUS_KEY1;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000061(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9958,7 +9969,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Velgus_00008 == false && location.x == Fix.VELGUS_TREASURE_8_X && location.y == Fix.VELGUS_TREASURE_8_Y && location.z == Fix.VELGUS_TREASURE_8_Z)
         {
           treasureName = Fix.VELGUS_KEY2;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000153(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -9990,7 +10001,7 @@ public class DungeonField : MotherBase
           treasureName = Fix.VELGUS_KEY3;
           if (One.TF.Event_Message1000136 == false)
           {
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+            MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
             MessagePack.Message1000175(ref QuestMessageList, ref QuestEventList);
             TapOK();
             return;
@@ -10040,7 +10051,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Velgus2_00006 == false && location.x == Fix.VELGUS_2_TREASURE_6_X && location.y == Fix.VELGUS_2_TREASURE_6_Y && location.z == Fix.VELGUS_2_TREASURE_6_Z)
         {
           treasureName = Fix.VELGUS2_KEY2;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000260(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -10072,7 +10083,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Velgus2_00013 == false && location.x == Fix.VELGUS_2_TREASURE_13_X && location.y == Fix.VELGUS_2_TREASURE_13_Y && location.z == Fix.VELGUS_2_TREASURE_13_Z)
         {
           treasureName = Fix.VELGUS2_KEY1;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000233(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -10089,7 +10100,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Velgus2_00016 == false && location.x == Fix.VELGUS_2_TREASURE_16_X && location.y == Fix.VELGUS_2_TREASURE_16_Y && location.z == Fix.VELGUS_2_TREASURE_16_Z)
         {
           treasureName = Fix.VELGUS2_KEY3;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000259(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
@@ -10228,10 +10239,16 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Edelgarzen_00016 == false && location.x == Fix.EDELGARZEN_1_Treasure_16_X && location.y == Fix.EDELGARZEN_1_Treasure_16_Y && location.z == Fix.EDELGARZEN_1_Treasure_16_Z)
         {
           treasureName = Fix.EDELGARZEN_KEY1;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         if (One.TF.Treasure_Edelgarzen_00017 == false && location.x == Fix.EDELGARZEN_1_Treasure_17_X && location.y == Fix.EDELGARZEN_1_Treasure_17_Y && location.z == Fix.EDELGARZEN_1_Treasure_17_Z)
         {
           treasureName = Fix.EDELGARZEN_KEY;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         if (One.TF.Treasure_Edelgarzen_00018 == false && location.x == Fix.EDELGARZEN_1_Treasure_18_X && location.y == Fix.EDELGARZEN_1_Treasure_18_Y && location.z == Fix.EDELGARZEN_1_Treasure_18_Z)
         {
@@ -10248,6 +10265,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Edelgarzen_00021 == false && location.x == Fix.EDELGARZEN_1_Treasure_21_X && location.y == Fix.EDELGARZEN_1_Treasure_21_Y && location.z == Fix.EDELGARZEN_1_Treasure_21_Z)
         {
           treasureName = Fix.EDELGARZEN_KEY2;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
 
         if (treasureName == String.Empty)
@@ -10329,6 +10349,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Edelgarzen2_00017 == false && location.x == Fix.EDELGARZEN_2_Treasure_17_X && location.y == Fix.EDELGARZEN_2_Treasure_17_Y && location.z == Fix.EDELGARZEN_2_Treasure_17_Z)
         {
           treasureName = Fix.EDELGARZEN_KEY3;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
         if (One.TF.Treasure_Edelgarzen2_00018 == false && location.x == Fix.EDELGARZEN_2_Treasure_18_X && location.y == Fix.EDELGARZEN_2_Treasure_18_Y && location.z == Fix.EDELGARZEN_2_Treasure_18_Z)
         {
@@ -10337,6 +10360,9 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Edelgarzen2_00019 == false && location.x == Fix.EDELGARZEN_2_Treasure_19_X && location.y == Fix.EDELGARZEN_2_Treasure_19_Y && location.z == Fix.EDELGARZEN_2_Treasure_19_Z)
         {
           treasureName = Fix.EDELGARZEN_KEY4;
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
+          TapOK();
+          return;
         }
 
         if (treasureName == String.Empty)
