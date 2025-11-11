@@ -916,7 +916,11 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.MainWeapon != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.MainWeapon.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.MainWeapon != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.MainWeapon.ItemName);
+        }
 
         // バックパック数が最大の時、両手持ち装備に対するMain/Sub外しは、ブロック仕様とする。
         if (One.TF.BackpackList.Count >= Fix.MAX_BACKPACK_SIZE &&
@@ -935,7 +939,7 @@ public class GroupCharacterStatus : MonoBehaviour
         One.TF.RemoveItem(ShadowPlayer.MainWeapon);
 
         // 装備していたメイン武器をバックパックに入れる。
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           bool success = One.TF.AddBackPack(tempCurrent);
           if (success == false)
@@ -965,13 +969,17 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.SubWeapon != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.SubWeapon.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.SubWeapon != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.SubWeapon.ItemName);
+        }
 
         // サブ武器を入れ替える。
         CurrentPlayer.SubWeapon = new Item(ShadowPlayer.SubWeapon.ItemName);
         One.TF.RemoveItem(ShadowPlayer.SubWeapon);
 
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           // 装備していたサブ武器をバックパックに入れる。
           bool success = One.TF.AddBackPack(tempCurrent);
@@ -986,13 +994,17 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.MainArmor != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.MainArmor.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.MainArmor != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.MainArmor.ItemName);
+        }
 
         // 防具を入れ替える。
         CurrentPlayer.MainArmor = new Item(ShadowPlayer.MainArmor.ItemName);
         One.TF.RemoveItem(ShadowPlayer.MainArmor);
 
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           // 装備していた防具をバックパックに入れる。
           bool success = One.TF.AddBackPack(tempCurrent);
@@ -1007,13 +1019,17 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.Accessory1 != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.Accessory1.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.Accessory1 != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.Accessory1.ItemName);
+        }
 
         // アクセサリ１を入れ替える。
         CurrentPlayer.Accessory1 = new Item(ShadowPlayer.Accessory1.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Accessory1);
 
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           // 装備していたアクセサリ１をバックパックに入れる。
           bool success = One.TF.AddBackPack(tempCurrent);
@@ -1028,13 +1044,17 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.Accessory2 != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.Accessory2.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.Accessory2 != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.Accessory2.ItemName);
+        }
 
         // アクセサリ２を入れ替える。
         CurrentPlayer.Accessory2 = new Item(ShadowPlayer.Accessory2.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Accessory2);
 
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           // 装備していたアクセサリ２をバックパックに入れる。
           bool success = One.TF.AddBackPack(tempCurrent);
@@ -1049,13 +1069,17 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (ShadowPlayer.Artifact != null)
       {
-        Item tempCurrent = new Item(CurrentPlayer.Artifact.ItemName);
+        Item tempCurrent = null;
+        if (CurrentPlayer.Artifact != null)
+        {
+          tempCurrent = new Item(CurrentPlayer.Artifact.ItemName);
+        }
 
         // アーティファクトを入れ替える。
         CurrentPlayer.Artifact = new Item(ShadowPlayer.Artifact.ItemName);
         One.TF.RemoveItem(ShadowPlayer.Artifact);
 
-        if (tempCurrent.ItemType != Item.ItemTypes.None)
+        if (tempCurrent != null && tempCurrent.ItemType != Item.ItemTypes.None)
         {
           // 装備していたアーティファクトをバックパックに入れる。
           bool success = One.TF.AddBackPack(tempCurrent);
