@@ -12854,7 +12854,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "アーサリウム工場内で発見したマトック。だいぶ色が剥げているがまだまだ強度はあり、十分に使える。岩壁の近くで使えば、岩を崩す事ができるようになる。";
+        this._description = "エスミリア草原区域で発見したマトック。だいぶ色が剥げているがまだまだ強度はあり、十分に使える。岩壁の近くで使えば、岩を崩す事ができる。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12877,7 +12877,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "水晶の奥を深くのぞき込む事で、対象の地点へワープする事が出来る。ダンジョン内であれば、ダンジョン入口へ移動する事が出来、フィールド上では一度訪れた事のある地点へワープする事が出来る。";
+        this._description = "水晶の奥を深くのぞき込む事で、対象の地点へワープする事が出来る。ダンジョン内から町へ帰還する際に用いる。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
