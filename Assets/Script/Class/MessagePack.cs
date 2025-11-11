@@ -198,6 +198,12 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, item_name, ActionEvent.GetTreasure);
   }
+  public static void MessageX00003_2(ref List<string> m_list, ref List<ActionEvent> e_list, string item_name)
+  {
+    Message(ref m_list, ref e_list, "アイン：よっしゃ、宝箱発見！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, item_name, ActionEvent.GetPreciousItem);
+  }
 
   public static void MessageX00004(ref List<string> m_list, ref List<ActionEvent> e_list)
   {

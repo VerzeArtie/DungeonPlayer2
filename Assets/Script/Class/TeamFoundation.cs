@@ -3722,6 +3722,13 @@ public class TeamFoundation : MonoBehaviour
         return true;
       }
     }
+    for (int ii = 0; ii < this.BackpackList.Count; ii++)
+    {
+      if (PreciousItemList[ii] != null && PreciousItemList[ii].ItemName == itemName)
+      {
+        return true;
+      }
+    }
     return false;
   }
   #endregion

@@ -12758,7 +12758,18 @@ public class DungeonField : MotherBase
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           // 大事なアイテムの入手に上限はない。
           One.TF.AddPreciousItem(new Item(currentMessage));
-          continue; // 継続
+
+          FieldObject fieldObj = SearchObject(this.Player.transform.position);
+          Vector3 location = fieldObj.transform.position;
+          int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+          ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, number);
+          Debug.Log("GetPreciousItem 2");
+
+          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
+          this.panelSystemMessage.SetActive(true);
+          Debug.Log("GetPreciousItem 3");
+          UpdateTreasureFlag();
+          return; // 通常
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
         {
@@ -12787,1129 +12798,7 @@ public class DungeonField : MotherBase
           this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
           this.panelSystemMessage.SetActive(true);
           Debug.Log("GetTreasure 3");
-
-          #region "エスミリア草原区域"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_1_X, Fix.ESMILIA_Treasure_1_Y, Fix.ESMILIA_Treasure_1_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_2_X, Fix.ESMILIA_Treasure_2_Y, Fix.ESMILIA_Treasure_2_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_3_X, Fix.ESMILIA_Treasure_3_Y, Fix.ESMILIA_Treasure_3_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_4_X, Fix.ESMILIA_Treasure_4_Y, Fix.ESMILIA_Treasure_4_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_5_X, Fix.ESMILIA_Treasure_5_Y, Fix.ESMILIA_Treasure_5_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_6_X, Fix.ESMILIA_Treasure_6_Y, Fix.ESMILIA_Treasure_6_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_7_X, Fix.ESMILIA_Treasure_7_Y, Fix.ESMILIA_Treasure_7_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_8_X, Fix.ESMILIA_Treasure_8_Y, Fix.ESMILIA_Treasure_8_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_9_X, Fix.ESMILIA_Treasure_9_Y, Fix.ESMILIA_Treasure_9_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_10_X, Fix.ESMILIA_Treasure_10_Y, Fix.ESMILIA_Treasure_10_Z))
-            {
-              One.TF.Treasure_EsmiliaGrassField_00010 = true;
-            }
-          }
-          #endregion
-          #region "ゴラトラム洞窟"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_1_X, Fix.GORATRUM_Treasure_1_Y, Fix.GORATRUM_Treasure_1_Z))
-            {
-              One.TF.Treasure_Goratrum_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_2_X, Fix.GORATRUM_Treasure_2_Y, Fix.GORATRUM_Treasure_2_Z))
-            {
-              One.TF.Treasure_Goratrum_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_3_X, Fix.GORATRUM_Treasure_3_Y, Fix.GORATRUM_Treasure_3_Z))
-            {
-              One.TF.Treasure_Goratrum_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_4_X, Fix.GORATRUM_Treasure_4_Y, Fix.GORATRUM_Treasure_4_Z))
-            {
-              One.TF.Treasure_Goratrum_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_5_X, Fix.GORATRUM_Treasure_5_Y, Fix.GORATRUM_Treasure_5_Z))
-            {
-              One.TF.Treasure_Goratrum_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_6_X, Fix.GORATRUM_Treasure_6_Y, Fix.GORATRUM_Treasure_6_Z))
-            {
-              One.TF.Treasure_Goratrum_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_7_X, Fix.GORATRUM_Treasure_7_Y, Fix.GORATRUM_Treasure_7_Z))
-            {
-              One.TF.Treasure_Goratrum_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_8_X, Fix.GORATRUM_Treasure_8_Y, Fix.GORATRUM_Treasure_8_Z))
-            {
-              One.TF.Treasure_Goratrum_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_9_X, Fix.GORATRUM_Treasure_9_Y, Fix.GORATRUM_Treasure_9_Z))
-            {
-              One.TF.Treasure_Goratrum_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_10_X, Fix.GORATRUM_Treasure_10_Y, Fix.GORATRUM_Treasure_10_Z))
-            {
-              One.TF.Treasure_Goratrum_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_11_X, Fix.GORATRUM_Treasure_11_Y, Fix.GORATRUM_Treasure_11_Z))
-            {
-              One.TF.Treasure_Goratrum_00011 = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_1_X, Fix.GORATRUM_2_Treasure_1_Y, Fix.GORATRUM_2_Treasure_1_Z))
-            {
-              One.TF.Treasure_Goratrum2_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_2_X, Fix.GORATRUM_2_Treasure_2_Y, Fix.GORATRUM_2_Treasure_2_Z))
-            {
-              One.TF.Treasure_Goratrum2_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_3_X, Fix.GORATRUM_2_Treasure_3_Y, Fix.GORATRUM_2_Treasure_3_Z))
-            {
-              One.TF.Treasure_Goratrum2_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z))
-            {
-              One.TF.Treasure_Goratrum2_00004 = true;
-            }
-          }
-          #endregion
-          #region "神秘の森"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_1_X, Fix.MYSTICFOREST_Treasure_1_Y, Fix.MYSTICFOREST_Treasure_1_Z))
-            {
-              One.TF.Treasure_MysticForest_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_2_X, Fix.MYSTICFOREST_Treasure_2_Y, Fix.MYSTICFOREST_Treasure_2_Z))
-            {
-              One.TF.Treasure_MysticForest_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_3_X, Fix.MYSTICFOREST_Treasure_3_Y, Fix.MYSTICFOREST_Treasure_3_Z))
-            {
-              One.TF.Treasure_MysticForest_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_4_X, Fix.MYSTICFOREST_Treasure_4_Y, Fix.MYSTICFOREST_Treasure_4_Z))
-            {
-              One.TF.Treasure_MysticForest_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_5_X, Fix.MYSTICFOREST_Treasure_5_Y, Fix.MYSTICFOREST_Treasure_5_Z))
-            {
-              One.TF.Treasure_MysticForest_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_6_X, Fix.MYSTICFOREST_Treasure_6_Y, Fix.MYSTICFOREST_Treasure_6_Z))
-            {
-              One.TF.Treasure_MysticForest_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_7_X, Fix.MYSTICFOREST_Treasure_7_Y, Fix.MYSTICFOREST_Treasure_7_Z))
-            {
-              One.TF.Treasure_MysticForest_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_8_X, Fix.MYSTICFOREST_Treasure_8_Y, Fix.MYSTICFOREST_Treasure_8_Z))
-            {
-              One.TF.Treasure_MysticForest_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_9_X, Fix.MYSTICFOREST_Treasure_9_Y, Fix.MYSTICFOREST_Treasure_9_Z))
-            {
-              One.TF.Treasure_MysticForest_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_10_X, Fix.MYSTICFOREST_Treasure_10_Y, Fix.MYSTICFOREST_Treasure_10_Z))
-            {
-              One.TF.Treasure_MysticForest_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_11_X, Fix.MYSTICFOREST_Treasure_11_Y, Fix.MYSTICFOREST_Treasure_11_Z))
-            {
-              One.TF.Treasure_MysticForest_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_12_X, Fix.MYSTICFOREST_Treasure_12_Y, Fix.MYSTICFOREST_Treasure_12_Z))
-            {
-              One.TF.Treasure_MysticForest_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_13_X, Fix.MYSTICFOREST_Treasure_13_Y, Fix.MYSTICFOREST_Treasure_13_Z))
-            {
-              One.TF.Treasure_MysticForest_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_14_X, Fix.MYSTICFOREST_Treasure_14_Y, Fix.MYSTICFOREST_Treasure_14_Z))
-            {
-              One.TF.Treasure_MysticForest_00014 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_15_X, Fix.MYSTICFOREST_Treasure_15_Y, Fix.MYSTICFOREST_Treasure_15_Z))
-            {
-              One.TF.Treasure_MysticForest_00015 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_16_X, Fix.MYSTICFOREST_Treasure_16_Y, Fix.MYSTICFOREST_Treasure_16_Z))
-            {
-              One.TF.Treasure_MysticForest_00016 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_17_X, Fix.MYSTICFOREST_Treasure_17_Y, Fix.MYSTICFOREST_Treasure_17_Z))
-            {
-              One.TF.Treasure_MysticForest_00017 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_18_X, Fix.MYSTICFOREST_Treasure_18_Y, Fix.MYSTICFOREST_Treasure_18_Z))
-            {
-              One.TF.Treasure_MysticForest_00018 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_19_X, Fix.MYSTICFOREST_Treasure_19_Y, Fix.MYSTICFOREST_Treasure_19_Z))
-            {
-              One.TF.Treasure_MysticForest_00019 = true;
-            }
-          }
-          #endregion
-          #region "アーサリウム工場跡地"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
-          {
-            // 宝箱１
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y, Fix.ARTHARIUM_Treasure_2_Z))
-            {
-              One.TF.Treasure_Artharium_00001 = true;
-            }
-            // 宝箱２
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y, Fix.ARTHARIUM_Treasure_8_Z))
-            {
-              One.TF.Treasure_Artharium_00002 = true;
-            }
-            // 宝箱３
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y, Fix.ARTHARIUM_Treasure_9_Z))
-            {
-              One.TF.Treasure_Artharium_00003 = true;
-            }
-            // 宝箱４
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_10_X, Fix.ARTHARIUM_Treasure_10_Y, Fix.ARTHARIUM_Treasure_10_Z))
-            {
-              One.TF.Treasure_Artharium_00004 = true;
-            }
-            // 宝箱５
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_11_X, Fix.ARTHARIUM_Treasure_11_Y, Fix.ARTHARIUM_Treasure_11_Z))
-            {
-              One.TF.Treasure_Artharium_00005 = true;
-            }
-            // 宝箱６
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_12_X, Fix.ARTHARIUM_Treasure_12_Y, Fix.ARTHARIUM_Treasure_12_Z))
-            {
-              One.TF.Treasure_Artharium_00006 = true;
-            }
-            // 宝箱７
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_13_X, Fix.ARTHARIUM_Treasure_13_Y, Fix.ARTHARIUM_Treasure_13_Z))
-            {
-              One.TF.Treasure_Artharium_00007 = true;
-            }
-            // 宝箱８
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_14_X, Fix.ARTHARIUM_Treasure_14_Y, Fix.ARTHARIUM_Treasure_14_Z))
-            {
-              One.TF.Treasure_Artharium_00008 = true;
-            }
-            // 宝箱９
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z))
-            {
-              One.TF.Treasure_Artharium_00009 = true;
-            }
-            // 宝箱１０
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_15_X, Fix.ARTHARIUM_Treasure_15_Y, Fix.ARTHARIUM_Treasure_15_Z))
-            {
-              One.TF.Treasure_Artharium_00010 = true;
-            }
-            // 宝箱１１
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_16_X, Fix.ARTHARIUM_Treasure_16_Y, Fix.ARTHARIUM_Treasure_16_Z))
-            {
-              One.TF.Treasure_Artharium_00011 = true;
-            }
-            // 宝箱１２
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_17_X, Fix.ARTHARIUM_Treasure_17_Y, Fix.ARTHARIUM_Treasure_17_Z))
-            {
-              One.TF.Treasure_Artharium_00012 = true;
-            }
-            // 宝箱１３
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_18_X, Fix.ARTHARIUM_Treasure_18_Y, Fix.ARTHARIUM_Treasure_18_Z))
-            {
-              One.TF.Treasure_Artharium_00013 = true;
-            }
-            // 宝箱１４
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_19_X, Fix.ARTHARIUM_Treasure_19_Y, Fix.ARTHARIUM_Treasure_19_Z))
-            {
-              One.TF.Treasure_Artharium_00014 = true;
-            }
-            // 宝箱１５
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_20_X, Fix.ARTHARIUM_Treasure_20_Y, Fix.ARTHARIUM_Treasure_20_Z))
-            {
-              One.TF.Treasure_Artharium_00015 = true;
-            }
-            // 宝箱１６
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_21_X, Fix.ARTHARIUM_Treasure_21_Y, Fix.ARTHARIUM_Treasure_21_Z))
-            {
-              One.TF.Treasure_Artharium_00016 = true;
-            }
-            // 宝箱１７
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_22_X, Fix.ARTHARIUM_Treasure_22_Y, Fix.ARTHARIUM_Treasure_22_Z))
-            {
-              One.TF.Treasure_Artharium_00017 = true;
-            }
-            // 宝箱１８
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_23_X, Fix.ARTHARIUM_Treasure_23_Y, Fix.ARTHARIUM_Treasure_23_Z))
-            {
-              One.TF.Treasure_Artharium_00018 = true;
-            }
-            // 宝箱１９
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
-            {
-              One.TF.Treasure_Artharium_00019 = true;
-            }
-            // 宝箱２０
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
-            {
-              One.TF.Treasure_Artharium_00020 = true;
-            }
-            // 宝箱２１
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
-            {
-              One.TF.Treasure_Artharium_00021 = true;
-            }
-            // 宝箱２２
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
-            {
-              One.TF.Treasure_Artharium_00022 = true;
-            }
-            // 宝箱２３
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
-            {
-              One.TF.Treasure_Artharium_00023 = true;
-            }
-            // 宝箱２４
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
-            {
-              One.TF.Treasure_Artharium_00024 = true;
-            }
-            // 宝箱２５
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
-            {
-              One.TF.Treasure_Artharium_00025 = true;
-            }
-          }
-          #endregion
-          #region "オーランの塔"
-          else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
-          {
-            // 宝箱１
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
-            {
-              One.TF.Treasure_OhranTower_00001 = true;
-            }
-            // 宝箱２
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
-            {
-              One.TF.Treasure_OhranTower_00002 = true;
-            }
-            // 宝箱３
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
-            {
-              One.TF.Treasure_OhranTower_00003 = true;
-            }
-            // 宝箱４
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
-            {
-              One.TF.Treasure_OhranTower_00004 = true;
-            }
-            // 宝箱５
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
-            {
-              One.TF.Treasure_OhranTower_00005 = true;
-            }
-            // 宝箱６
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
-            {
-              One.TF.Treasure_OhranTower_00006 = true;
-            }
-            // 宝箱７
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
-            {
-              One.TF.Treasure_OhranTower_00007 = true;
-            }
-            // 宝箱８
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
-            {
-              One.TF.Treasure_OhranTower_00008 = true;
-            }
-            // 宝箱９
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
-            {
-              One.TF.Treasure_OhranTower_00009 = true;
-            }
-            // 宝箱１０
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
-            {
-              One.TF.Treasure_OhranTower_00010 = true;
-            }
-            // 宝箱１１
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
-            {
-              One.TF.Treasure_OhranTower_00011 = true;
-            }
-            // 宝箱１２
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
-            {
-              One.TF.Treasure_OhranTower_00012 = true;
-            }
-            // 宝箱１３
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
-            {
-              One.TF.Treasure_OhranTower_00013 = true;
-            }
-            // 宝箱１４
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
-            {
-              One.TF.Treasure_OhranTower_00014 = true;
-            }
-            // 宝箱１５
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
-            {
-              One.TF.Treasure_OhranTower_00015 = true;
-            }
-            // 宝箱１６
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
-            {
-              One.TF.Treasure_OhranTower_00016 = true;
-            }
-            // 宝箱１７
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
-            {
-              One.TF.Treasure_OhranTower_00017 = true;
-            }
-            // 宝箱１８
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
-            {
-              One.TF.Treasure_OhranTower_00018 = true;
-            }
-            // 宝箱１９
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
-            {
-              One.TF.Treasure_OhranTower_00019 = true;
-            }
-            // 宝箱２０
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
-            {
-              One.TF.Treasure_OhranTower_00020 = true;
-            }
-            // 宝箱２１
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
-            {
-              One.TF.Treasure_OhranTower_00021 = true;
-            }
-            // 宝箱２２
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
-            {
-              One.TF.Treasure_OhranTower_00022 = true;
-            }
-            // 宝箱２３
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
-            {
-              One.TF.Treasure_OhranTower_00023 = true;
-            }
-            // 宝箱２４
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_24_X, Fix.OHRANTOWER_Treasure_24_Y, Fix.OHRANTOWER_Treasure_24_Z))
-            {
-              One.TF.Treasure_OhranTower_00024 = true;
-            }
-            // 宝箱２５
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_25_X, Fix.OHRANTOWER_Treasure_25_Y, Fix.OHRANTOWER_Treasure_25_Z))
-            {
-              One.TF.Treasure_OhranTower_00025 = true;
-            }
-            // 宝箱２６
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_26_X, Fix.OHRANTOWER_Treasure_26_Y, Fix.OHRANTOWER_Treasure_26_Z))
-            {
-              One.TF.Treasure_OhranTower_00026 = true;
-            }
-            // 宝箱２７
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_27_X, Fix.OHRANTOWER_Treasure_27_Y, Fix.OHRANTOWER_Treasure_27_Z))
-            {
-              One.TF.Treasure_OhranTower_00027 = true;
-            }
-            // 宝箱２８
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_28_X, Fix.OHRANTOWER_Treasure_28_Y, Fix.OHRANTOWER_Treasure_28_Z))
-            {
-              One.TF.Treasure_OhranTower_00028 = true;
-            }
-            // 宝箱２９
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_29_X, Fix.OHRANTOWER_Treasure_29_Y, Fix.OHRANTOWER_Treasure_29_Z))
-            {
-              One.TF.Treasure_OhranTower_00029 = true;
-            }
-            // 宝箱３０
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_30_X, Fix.OHRANTOWER_Treasure_30_Y, Fix.OHRANTOWER_Treasure_30_Z))
-            {
-              One.TF.Treasure_OhranTower_00030 = true;
-            }
-            // 宝箱３１
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_31_X, Fix.OHRANTOWER_Treasure_31_Y, Fix.OHRANTOWER_Treasure_31_Z))
-            {
-              One.TF.Treasure_OhranTower_00031 = true;
-            }
-            // 宝箱３２
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_32_X, Fix.OHRANTOWER_Treasure_32_Y, Fix.OHRANTOWER_Treasure_32_Z))
-            {
-              One.TF.Treasure_OhranTower_00032 = true;
-            }
-            // 宝箱３３
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_33_X, Fix.OHRANTOWER_Treasure_33_Y, Fix.OHRANTOWER_Treasure_33_Z))
-            {
-              One.TF.Treasure_OhranTower_00033 = true;
-            }
-            // 宝箱３４
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_34_X, Fix.OHRANTOWER_Treasure_34_Y, Fix.OHRANTOWER_Treasure_34_Z))
-            {
-              One.TF.Treasure_OhranTower_00034 = true;
-            }
-            // 宝箱３５
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_35_X, Fix.OHRANTOWER_Treasure_35_Y, Fix.OHRANTOWER_Treasure_35_Z))
-            {
-              One.TF.Treasure_OhranTower_00035 = true;
-            }
-            // 宝箱３６
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z))
-            {
-              One.TF.Treasure_OhranTower_00036 = true;
-            }
-            // 宝箱３７
-            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
-            {
-              One.TF.Treasure_OhranTower_00037 = true;
-            }
-          }
-          #endregion
-          #region "ヴェルガスの海底神殿"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_1_X, Fix.VELGUS_TREASURE_1_Y, Fix.VELGUS_TREASURE_1_Z))
-            {
-              One.TF.Treasure_Velgus_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_2_X, Fix.VELGUS_TREASURE_2_Y, Fix.VELGUS_TREASURE_2_Z))
-            {
-              One.TF.Treasure_Velgus_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_3_X, Fix.VELGUS_TREASURE_3_Y, Fix.VELGUS_TREASURE_3_Z))
-            {
-              One.TF.Treasure_Velgus_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_4_X, Fix.VELGUS_TREASURE_4_Y, Fix.VELGUS_TREASURE_4_Z))
-            {
-              One.TF.Treasure_Velgus_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_5_X, Fix.VELGUS_TREASURE_5_Y, Fix.VELGUS_TREASURE_5_Z))
-            {
-              One.TF.Treasure_Velgus_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_6_X, Fix.VELGUS_TREASURE_6_Y, Fix.VELGUS_TREASURE_6_Z))
-            {
-              One.TF.Treasure_Velgus_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_7_X, Fix.VELGUS_TREASURE_7_Y, Fix.VELGUS_TREASURE_7_Z))
-            {
-              One.TF.Treasure_Velgus_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_8_X, Fix.VELGUS_TREASURE_8_Y, Fix.VELGUS_TREASURE_8_Z))
-            {
-              One.TF.Treasure_Velgus_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_9_X, Fix.VELGUS_TREASURE_9_Y, Fix.VELGUS_TREASURE_9_Z))
-            {
-              One.TF.Treasure_Velgus_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_10_X, Fix.VELGUS_TREASURE_10_Y, Fix.VELGUS_TREASURE_10_Z))
-            {
-              One.TF.Treasure_Velgus_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_11_X, Fix.VELGUS_TREASURE_11_Y, Fix.VELGUS_TREASURE_11_Z))
-            {
-              One.TF.Treasure_Velgus_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_12_X, Fix.VELGUS_TREASURE_12_Y, Fix.VELGUS_TREASURE_12_Z))
-            {
-              One.TF.Treasure_Velgus_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_13_X, Fix.VELGUS_TREASURE_13_Y, Fix.VELGUS_TREASURE_13_Z))
-            {
-              One.TF.Treasure_Velgus_00013 = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_1_X, Fix.VELGUS_2_TREASURE_1_Y, Fix.VELGUS_2_TREASURE_1_Z))
-            {
-              One.TF.Treasure_Velgus2_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_2_X, Fix.VELGUS_2_TREASURE_2_Y, Fix.VELGUS_2_TREASURE_2_Z))
-            {
-              One.TF.Treasure_Velgus2_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_3_X, Fix.VELGUS_2_TREASURE_3_Y, Fix.VELGUS_2_TREASURE_3_Z))
-            {
-              One.TF.Treasure_Velgus2_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_4_X, Fix.VELGUS_2_TREASURE_4_Y, Fix.VELGUS_2_TREASURE_4_Z))
-            {
-              One.TF.Treasure_Velgus2_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_5_X, Fix.VELGUS_2_TREASURE_5_Y, Fix.VELGUS_2_TREASURE_5_Z))
-            {
-              One.TF.Treasure_Velgus2_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_6_X, Fix.VELGUS_2_TREASURE_6_Y, Fix.VELGUS_2_TREASURE_6_Z))
-            {
-              One.TF.Treasure_Velgus2_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_7_X, Fix.VELGUS_2_TREASURE_7_Y, Fix.VELGUS_2_TREASURE_7_Z))
-            {
-              One.TF.Treasure_Velgus2_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_8_X, Fix.VELGUS_2_TREASURE_8_Y, Fix.VELGUS_2_TREASURE_8_Z))
-            {
-              One.TF.Treasure_Velgus2_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_9_X, Fix.VELGUS_2_TREASURE_9_Y, Fix.VELGUS_2_TREASURE_9_Z))
-            {
-              One.TF.Treasure_Velgus2_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_10_X, Fix.VELGUS_2_TREASURE_10_Y, Fix.VELGUS_2_TREASURE_10_Z))
-            {
-              One.TF.Treasure_Velgus2_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_11_X, Fix.VELGUS_2_TREASURE_11_Y, Fix.VELGUS_2_TREASURE_11_Z))
-            {
-              One.TF.Treasure_Velgus2_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_12_X, Fix.VELGUS_2_TREASURE_12_Y, Fix.VELGUS_2_TREASURE_12_Z))
-            {
-              One.TF.Treasure_Velgus2_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_13_X, Fix.VELGUS_2_TREASURE_13_Y, Fix.VELGUS_2_TREASURE_13_Z))
-            {
-              One.TF.Treasure_Velgus2_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_14_X, Fix.VELGUS_2_TREASURE_14_Y, Fix.VELGUS_2_TREASURE_14_Z))
-            {
-              One.TF.Treasure_Velgus2_00014 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_15_X, Fix.VELGUS_2_TREASURE_15_Y, Fix.VELGUS_2_TREASURE_15_Z))
-            {
-              One.TF.Treasure_Velgus2_00015 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_16_X, Fix.VELGUS_2_TREASURE_16_Y, Fix.VELGUS_2_TREASURE_16_Z))
-            {
-              One.TF.Treasure_Velgus2_00016 = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_1_X, Fix.VELGUS_3_TREASURE_1_Y, Fix.VELGUS_3_TREASURE_1_Z))
-            {
-              One.TF.Treasure_Velgus3_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_2_X, Fix.VELGUS_3_TREASURE_2_Y, Fix.VELGUS_3_TREASURE_2_Z))
-            {
-              One.TF.Treasure_Velgus3_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_3_X, Fix.VELGUS_3_TREASURE_3_Y, Fix.VELGUS_3_TREASURE_3_Z))
-            {
-              One.TF.Treasure_Velgus3_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_4_X, Fix.VELGUS_3_TREASURE_4_Y, Fix.VELGUS_3_TREASURE_4_Z))
-            {
-              One.TF.Treasure_Velgus3_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_5_X, Fix.VELGUS_3_TREASURE_5_Y, Fix.VELGUS_3_TREASURE_5_Z))
-            {
-              One.TF.Treasure_Velgus3_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_6_X, Fix.VELGUS_3_TREASURE_6_Y, Fix.VELGUS_3_TREASURE_6_Z))
-            {
-              One.TF.Treasure_Velgus3_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_7_X, Fix.VELGUS_3_TREASURE_7_Y, Fix.VELGUS_3_TREASURE_7_Z))
-            {
-              One.TF.Treasure_Velgus3_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_8_X, Fix.VELGUS_3_TREASURE_8_Y, Fix.VELGUS_3_TREASURE_8_Z))
-            {
-              One.TF.Treasure_Velgus3_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_9_X, Fix.VELGUS_3_TREASURE_9_Y, Fix.VELGUS_3_TREASURE_9_Z))
-            {
-              One.TF.Treasure_Velgus3_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_10_X, Fix.VELGUS_3_TREASURE_10_Y, Fix.VELGUS_3_TREASURE_10_Z))
-            {
-              One.TF.Treasure_Velgus3_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_11_X, Fix.VELGUS_3_TREASURE_11_Y, Fix.VELGUS_3_TREASURE_11_Z))
-            {
-              One.TF.Treasure_Velgus3_00011 = true;
-            }
-          }
-          #endregion
-          #region "エデルガイゼン城"
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_1_X, Fix.EDELGARZEN_1_Treasure_1_Y, Fix.EDELGARZEN_1_Treasure_1_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_2_X, Fix.EDELGARZEN_1_Treasure_2_Y, Fix.EDELGARZEN_1_Treasure_2_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_3_X, Fix.EDELGARZEN_1_Treasure_3_Y, Fix.EDELGARZEN_1_Treasure_3_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_4_X, Fix.EDELGARZEN_1_Treasure_4_Y, Fix.EDELGARZEN_1_Treasure_4_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_5_X, Fix.EDELGARZEN_1_Treasure_5_Y, Fix.EDELGARZEN_1_Treasure_5_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_6_X, Fix.EDELGARZEN_1_Treasure_6_Y, Fix.EDELGARZEN_1_Treasure_6_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_7_X, Fix.EDELGARZEN_1_Treasure_7_Y, Fix.EDELGARZEN_1_Treasure_7_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_8_X, Fix.EDELGARZEN_1_Treasure_8_Y, Fix.EDELGARZEN_1_Treasure_8_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_9_X, Fix.EDELGARZEN_1_Treasure_9_Y, Fix.EDELGARZEN_1_Treasure_9_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_10_X, Fix.EDELGARZEN_1_Treasure_10_Y, Fix.EDELGARZEN_1_Treasure_10_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_11_X, Fix.EDELGARZEN_1_Treasure_11_Y, Fix.EDELGARZEN_1_Treasure_11_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_12_X, Fix.EDELGARZEN_1_Treasure_12_Y, Fix.EDELGARZEN_1_Treasure_12_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_13_X, Fix.EDELGARZEN_1_Treasure_13_Y, Fix.EDELGARZEN_1_Treasure_13_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_14_X, Fix.EDELGARZEN_1_Treasure_14_Y, Fix.EDELGARZEN_1_Treasure_14_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00014 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_15_X, Fix.EDELGARZEN_1_Treasure_15_Y, Fix.EDELGARZEN_1_Treasure_15_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00015 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_16_X, Fix.EDELGARZEN_1_Treasure_16_Y, Fix.EDELGARZEN_1_Treasure_16_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00016 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_17_X, Fix.EDELGARZEN_1_Treasure_17_Y, Fix.EDELGARZEN_1_Treasure_17_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00017 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_18_X, Fix.EDELGARZEN_1_Treasure_18_Y, Fix.EDELGARZEN_1_Treasure_18_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00018 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_19_X, Fix.EDELGARZEN_1_Treasure_19_Y, Fix.EDELGARZEN_1_Treasure_19_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00019 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_20_X, Fix.EDELGARZEN_1_Treasure_20_Y, Fix.EDELGARZEN_1_Treasure_20_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00020 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_21_X, Fix.EDELGARZEN_1_Treasure_21_Y, Fix.EDELGARZEN_1_Treasure_21_Z))
-            {
-              One.TF.Treasure_Edelgarzen_00021 = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_1_X, Fix.EDELGARZEN_2_Treasure_1_Y, Fix.EDELGARZEN_2_Treasure_1_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_2_X, Fix.EDELGARZEN_2_Treasure_2_Y, Fix.EDELGARZEN_2_Treasure_2_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_3_X, Fix.EDELGARZEN_2_Treasure_3_Y, Fix.EDELGARZEN_2_Treasure_3_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_4_X, Fix.EDELGARZEN_2_Treasure_4_Y, Fix.EDELGARZEN_2_Treasure_4_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_5_X, Fix.EDELGARZEN_2_Treasure_5_Y, Fix.EDELGARZEN_2_Treasure_5_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_6_X, Fix.EDELGARZEN_2_Treasure_6_Y, Fix.EDELGARZEN_2_Treasure_6_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_7_X, Fix.EDELGARZEN_2_Treasure_7_Y, Fix.EDELGARZEN_2_Treasure_7_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_8_X, Fix.EDELGARZEN_2_Treasure_8_Y, Fix.EDELGARZEN_2_Treasure_8_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_9_X, Fix.EDELGARZEN_2_Treasure_9_Y, Fix.EDELGARZEN_2_Treasure_9_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_10_X, Fix.EDELGARZEN_2_Treasure_10_Y, Fix.EDELGARZEN_2_Treasure_10_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_11_X, Fix.EDELGARZEN_2_Treasure_11_Y, Fix.EDELGARZEN_2_Treasure_11_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_12_X, Fix.EDELGARZEN_2_Treasure_12_Y, Fix.EDELGARZEN_2_Treasure_12_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_13_X, Fix.EDELGARZEN_2_Treasure_13_Y, Fix.EDELGARZEN_2_Treasure_13_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_14_X, Fix.EDELGARZEN_2_Treasure_14_Y, Fix.EDELGARZEN_2_Treasure_14_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00014 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_15_X, Fix.EDELGARZEN_2_Treasure_15_Y, Fix.EDELGARZEN_2_Treasure_15_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00015 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_16_X, Fix.EDELGARZEN_2_Treasure_16_Y, Fix.EDELGARZEN_2_Treasure_16_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00016 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_17_X, Fix.EDELGARZEN_2_Treasure_17_Y, Fix.EDELGARZEN_2_Treasure_17_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00017 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_18_X, Fix.EDELGARZEN_2_Treasure_18_Y, Fix.EDELGARZEN_2_Treasure_18_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00018 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_19_X, Fix.EDELGARZEN_2_Treasure_19_Y, Fix.EDELGARZEN_2_Treasure_19_Z))
-            {
-              One.TF.Treasure_Edelgarzen2_00019 = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_1_X, Fix.EDELGARZEN_3_Treasure_1_Y, Fix.EDELGARZEN_3_Treasure_1_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_2_X, Fix.EDELGARZEN_3_Treasure_2_Y, Fix.EDELGARZEN_3_Treasure_2_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_3_X, Fix.EDELGARZEN_3_Treasure_3_Y, Fix.EDELGARZEN_3_Treasure_3_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_4_X, Fix.EDELGARZEN_3_Treasure_4_Y, Fix.EDELGARZEN_3_Treasure_4_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_5_X, Fix.EDELGARZEN_3_Treasure_5_Y, Fix.EDELGARZEN_3_Treasure_5_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_6_X, Fix.EDELGARZEN_3_Treasure_6_Y, Fix.EDELGARZEN_3_Treasure_6_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_7_X, Fix.EDELGARZEN_3_Treasure_7_Y, Fix.EDELGARZEN_3_Treasure_7_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_8_X, Fix.EDELGARZEN_3_Treasure_8_Y, Fix.EDELGARZEN_3_Treasure_8_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_9_X, Fix.EDELGARZEN_3_Treasure_9_Y, Fix.EDELGARZEN_3_Treasure_9_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_10_X, Fix.EDELGARZEN_3_Treasure_10_Y, Fix.EDELGARZEN_3_Treasure_10_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_11_X, Fix.EDELGARZEN_3_Treasure_11_Y, Fix.EDELGARZEN_3_Treasure_11_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_12_X, Fix.EDELGARZEN_3_Treasure_12_Y, Fix.EDELGARZEN_3_Treasure_12_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_13_X, Fix.EDELGARZEN_3_Treasure_13_Y, Fix.EDELGARZEN_3_Treasure_13_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_14_X, Fix.EDELGARZEN_3_Treasure_14_Y, Fix.EDELGARZEN_3_Treasure_14_Z))
-            {
-              One.TF.Treasure_Edelgarzen3_00014 = true;
-            }
-          }
-          #endregion
-          #region "ダルの門"
-          else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
-          {
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
-            {
-              One.TF.Treasure_GateDhal_00001 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
-            {
-              One.TF.Treasure_GateDhal_00002 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
-            {
-              One.TF.Treasure_GateDhal_00003 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
-            {
-              One.TF.Treasure_GateDhal_00004 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
-            {
-              One.TF.Treasure_GateDhal_00005 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
-            {
-              One.TF.Treasure_GateDhal_00006 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
-            {
-              One.TF.Treasure_GateDhal_00007 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
-            {
-              One.TF.Treasure_GateDhal_00008 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
-            {
-              One.TF.Treasure_GateDhal_00009 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
-            {
-              One.TF.Treasure_GateDhal_00010 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
-            {
-              One.TF.Treasure_GateDhal_00011 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
-            {
-              One.TF.Treasure_GateDhal_00012 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
-            {
-              One.TF.Treasure_GateDhal_00013 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
-            {
-              One.TF.Treasure_GateDhal_00014 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
-            {
-              One.TF.Treasure_GateDhal_00015 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
-            {
-              One.TF.Treasure_GateDhal_00016 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
-            {
-              One.TF.Treasure_GateDhal_00017 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
-            {
-              One.TF.Treasure_GateDhal_00018 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
-            {
-              One.TF.Treasure_GateDhal_00019 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
-            {
-              One.TF.Treasure_GateDhal_00020 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
-            {
-              One.TF.Treasure_GateDhal_00021 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
-            {
-              One.TF.Treasure_GateDhal_00022 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
-            {
-              One.TF.Treasure_GateDhal_00023 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
-            {
-              One.TF.Treasure_GateDhal_00024 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
-            {
-              One.TF.Treasure_GateDhal_00025 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
-            {
-              One.TF.Treasure_GateDhal_00026 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
-            {
-              One.TF.Treasure_GateDhal_00027 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
-            {
-              One.TF.Treasure_GateDhal_00028 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
-            {
-              One.TF.Treasure_GateDhal_00029 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
-            {
-              One.TF.Treasure_GateDhal_00030 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
-            {
-              One.TF.Treasure_GateDhal_00031 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
-            {
-              One.TF.Treasure_GateDhal_00032 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
-            {
-              One.TF.Treasure_GateDhal_00033 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
-            {
-              One.TF.Treasure_GateDhal_00034 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
-            {
-              One.TF.Treasure_GateDhal_00035 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
-            {
-              One.TF.Treasure_GateDhal_00036 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
-            {
-              One.TF.Treasure_GateDhal_00037 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
-            {
-              One.TF.Treasure_GateDhal_00038 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
-            {
-              One.TF.Treasure_GateDhal_00039 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
-            {
-              One.TF.Treasure_GateDhal_00040 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
-            {
-              One.TF.Treasure_GateDhal_00041 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
-            {
-              One.TF.Treasure_GateDhal_00042 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
-            {
-              One.TF.Treasure_GateDhal_00043 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
-            {
-              One.TF.Treasure_GateDhal_00044 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
-            {
-              One.TF.Treasure_GateDhal_00045 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
-            {
-              One.TF.Treasure_GateDhal_00046 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
-            {
-              One.TF.Treasure_GateDhal_00047 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
-            {
-              One.TF.Treasure_GateDhal_00048 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
-            {
-              One.TF.Treasure_GateDhal_00049 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
-            {
-              One.TF.Treasure_GateDhal_00050 = true;
-            }
-            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
-            {
-              One.TF.Treasure_GateDhal_00051 = true;
-            }
-          }
-          #endregion
-
+          UpdateTreasureFlag();
           return; // 通常
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
@@ -15171,6 +14060,1131 @@ public class DungeonField : MotherBase
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }
+  }
+
+  private void UpdateTreasureFlag()
+  {
+    #region "エスミリア草原区域"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_1_X, Fix.ESMILIA_Treasure_1_Y, Fix.ESMILIA_Treasure_1_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_2_X, Fix.ESMILIA_Treasure_2_Y, Fix.ESMILIA_Treasure_2_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_3_X, Fix.ESMILIA_Treasure_3_Y, Fix.ESMILIA_Treasure_3_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_4_X, Fix.ESMILIA_Treasure_4_Y, Fix.ESMILIA_Treasure_4_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_5_X, Fix.ESMILIA_Treasure_5_Y, Fix.ESMILIA_Treasure_5_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_6_X, Fix.ESMILIA_Treasure_6_Y, Fix.ESMILIA_Treasure_6_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_7_X, Fix.ESMILIA_Treasure_7_Y, Fix.ESMILIA_Treasure_7_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_8_X, Fix.ESMILIA_Treasure_8_Y, Fix.ESMILIA_Treasure_8_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_9_X, Fix.ESMILIA_Treasure_9_Y, Fix.ESMILIA_Treasure_9_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.ESMILIA_Treasure_10_X, Fix.ESMILIA_Treasure_10_Y, Fix.ESMILIA_Treasure_10_Z))
+      {
+        One.TF.Treasure_EsmiliaGrassField_00010 = true;
+      }
+    }
+    #endregion
+    #region "ゴラトラム洞窟"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_1_X, Fix.GORATRUM_Treasure_1_Y, Fix.GORATRUM_Treasure_1_Z))
+      {
+        One.TF.Treasure_Goratrum_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_2_X, Fix.GORATRUM_Treasure_2_Y, Fix.GORATRUM_Treasure_2_Z))
+      {
+        One.TF.Treasure_Goratrum_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_3_X, Fix.GORATRUM_Treasure_3_Y, Fix.GORATRUM_Treasure_3_Z))
+      {
+        One.TF.Treasure_Goratrum_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_4_X, Fix.GORATRUM_Treasure_4_Y, Fix.GORATRUM_Treasure_4_Z))
+      {
+        One.TF.Treasure_Goratrum_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_5_X, Fix.GORATRUM_Treasure_5_Y, Fix.GORATRUM_Treasure_5_Z))
+      {
+        One.TF.Treasure_Goratrum_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_6_X, Fix.GORATRUM_Treasure_6_Y, Fix.GORATRUM_Treasure_6_Z))
+      {
+        One.TF.Treasure_Goratrum_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_7_X, Fix.GORATRUM_Treasure_7_Y, Fix.GORATRUM_Treasure_7_Z))
+      {
+        One.TF.Treasure_Goratrum_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_8_X, Fix.GORATRUM_Treasure_8_Y, Fix.GORATRUM_Treasure_8_Z))
+      {
+        One.TF.Treasure_Goratrum_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_9_X, Fix.GORATRUM_Treasure_9_Y, Fix.GORATRUM_Treasure_9_Z))
+      {
+        One.TF.Treasure_Goratrum_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_10_X, Fix.GORATRUM_Treasure_10_Y, Fix.GORATRUM_Treasure_10_Z))
+      {
+        One.TF.Treasure_Goratrum_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_11_X, Fix.GORATRUM_Treasure_11_Y, Fix.GORATRUM_Treasure_11_Z))
+      {
+        One.TF.Treasure_Goratrum_00011 = true;
+      }
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_1_X, Fix.GORATRUM_2_Treasure_1_Y, Fix.GORATRUM_2_Treasure_1_Z))
+      {
+        One.TF.Treasure_Goratrum2_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_2_X, Fix.GORATRUM_2_Treasure_2_Y, Fix.GORATRUM_2_Treasure_2_Z))
+      {
+        One.TF.Treasure_Goratrum2_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_3_X, Fix.GORATRUM_2_Treasure_3_Y, Fix.GORATRUM_2_Treasure_3_Z))
+      {
+        One.TF.Treasure_Goratrum2_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z))
+      {
+        One.TF.Treasure_Goratrum2_00004 = true;
+      }
+    }
+    #endregion
+    #region "神秘の森"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_1_X, Fix.MYSTICFOREST_Treasure_1_Y, Fix.MYSTICFOREST_Treasure_1_Z))
+      {
+        One.TF.Treasure_MysticForest_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_2_X, Fix.MYSTICFOREST_Treasure_2_Y, Fix.MYSTICFOREST_Treasure_2_Z))
+      {
+        One.TF.Treasure_MysticForest_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_3_X, Fix.MYSTICFOREST_Treasure_3_Y, Fix.MYSTICFOREST_Treasure_3_Z))
+      {
+        One.TF.Treasure_MysticForest_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_4_X, Fix.MYSTICFOREST_Treasure_4_Y, Fix.MYSTICFOREST_Treasure_4_Z))
+      {
+        One.TF.Treasure_MysticForest_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_5_X, Fix.MYSTICFOREST_Treasure_5_Y, Fix.MYSTICFOREST_Treasure_5_Z))
+      {
+        One.TF.Treasure_MysticForest_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_6_X, Fix.MYSTICFOREST_Treasure_6_Y, Fix.MYSTICFOREST_Treasure_6_Z))
+      {
+        One.TF.Treasure_MysticForest_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_7_X, Fix.MYSTICFOREST_Treasure_7_Y, Fix.MYSTICFOREST_Treasure_7_Z))
+      {
+        One.TF.Treasure_MysticForest_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_8_X, Fix.MYSTICFOREST_Treasure_8_Y, Fix.MYSTICFOREST_Treasure_8_Z))
+      {
+        One.TF.Treasure_MysticForest_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_9_X, Fix.MYSTICFOREST_Treasure_9_Y, Fix.MYSTICFOREST_Treasure_9_Z))
+      {
+        One.TF.Treasure_MysticForest_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_10_X, Fix.MYSTICFOREST_Treasure_10_Y, Fix.MYSTICFOREST_Treasure_10_Z))
+      {
+        One.TF.Treasure_MysticForest_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_11_X, Fix.MYSTICFOREST_Treasure_11_Y, Fix.MYSTICFOREST_Treasure_11_Z))
+      {
+        One.TF.Treasure_MysticForest_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_12_X, Fix.MYSTICFOREST_Treasure_12_Y, Fix.MYSTICFOREST_Treasure_12_Z))
+      {
+        One.TF.Treasure_MysticForest_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_13_X, Fix.MYSTICFOREST_Treasure_13_Y, Fix.MYSTICFOREST_Treasure_13_Z))
+      {
+        One.TF.Treasure_MysticForest_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_14_X, Fix.MYSTICFOREST_Treasure_14_Y, Fix.MYSTICFOREST_Treasure_14_Z))
+      {
+        One.TF.Treasure_MysticForest_00014 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_15_X, Fix.MYSTICFOREST_Treasure_15_Y, Fix.MYSTICFOREST_Treasure_15_Z))
+      {
+        One.TF.Treasure_MysticForest_00015 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_16_X, Fix.MYSTICFOREST_Treasure_16_Y, Fix.MYSTICFOREST_Treasure_16_Z))
+      {
+        One.TF.Treasure_MysticForest_00016 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_17_X, Fix.MYSTICFOREST_Treasure_17_Y, Fix.MYSTICFOREST_Treasure_17_Z))
+      {
+        One.TF.Treasure_MysticForest_00017 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_18_X, Fix.MYSTICFOREST_Treasure_18_Y, Fix.MYSTICFOREST_Treasure_18_Z))
+      {
+        One.TF.Treasure_MysticForest_00018 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Treasure_19_X, Fix.MYSTICFOREST_Treasure_19_Y, Fix.MYSTICFOREST_Treasure_19_Z))
+      {
+        One.TF.Treasure_MysticForest_00019 = true;
+      }
+    }
+    #endregion
+    #region "アーサリウム工場跡地"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
+    {
+      // 宝箱１
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y, Fix.ARTHARIUM_Treasure_2_Z))
+      {
+        One.TF.Treasure_Artharium_00001 = true;
+      }
+      // 宝箱２
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y, Fix.ARTHARIUM_Treasure_8_Z))
+      {
+        One.TF.Treasure_Artharium_00002 = true;
+      }
+      // 宝箱３
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y, Fix.ARTHARIUM_Treasure_9_Z))
+      {
+        One.TF.Treasure_Artharium_00003 = true;
+      }
+      // 宝箱４
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_10_X, Fix.ARTHARIUM_Treasure_10_Y, Fix.ARTHARIUM_Treasure_10_Z))
+      {
+        One.TF.Treasure_Artharium_00004 = true;
+      }
+      // 宝箱５
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_11_X, Fix.ARTHARIUM_Treasure_11_Y, Fix.ARTHARIUM_Treasure_11_Z))
+      {
+        One.TF.Treasure_Artharium_00005 = true;
+      }
+      // 宝箱６
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_12_X, Fix.ARTHARIUM_Treasure_12_Y, Fix.ARTHARIUM_Treasure_12_Z))
+      {
+        One.TF.Treasure_Artharium_00006 = true;
+      }
+      // 宝箱７
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_13_X, Fix.ARTHARIUM_Treasure_13_Y, Fix.ARTHARIUM_Treasure_13_Z))
+      {
+        One.TF.Treasure_Artharium_00007 = true;
+      }
+      // 宝箱８
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_14_X, Fix.ARTHARIUM_Treasure_14_Y, Fix.ARTHARIUM_Treasure_14_Z))
+      {
+        One.TF.Treasure_Artharium_00008 = true;
+      }
+      // 宝箱９
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z))
+      {
+        One.TF.Treasure_Artharium_00009 = true;
+      }
+      // 宝箱１０
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_15_X, Fix.ARTHARIUM_Treasure_15_Y, Fix.ARTHARIUM_Treasure_15_Z))
+      {
+        One.TF.Treasure_Artharium_00010 = true;
+      }
+      // 宝箱１１
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_16_X, Fix.ARTHARIUM_Treasure_16_Y, Fix.ARTHARIUM_Treasure_16_Z))
+      {
+        One.TF.Treasure_Artharium_00011 = true;
+      }
+      // 宝箱１２
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_17_X, Fix.ARTHARIUM_Treasure_17_Y, Fix.ARTHARIUM_Treasure_17_Z))
+      {
+        One.TF.Treasure_Artharium_00012 = true;
+      }
+      // 宝箱１３
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_18_X, Fix.ARTHARIUM_Treasure_18_Y, Fix.ARTHARIUM_Treasure_18_Z))
+      {
+        One.TF.Treasure_Artharium_00013 = true;
+      }
+      // 宝箱１４
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_19_X, Fix.ARTHARIUM_Treasure_19_Y, Fix.ARTHARIUM_Treasure_19_Z))
+      {
+        One.TF.Treasure_Artharium_00014 = true;
+      }
+      // 宝箱１５
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_20_X, Fix.ARTHARIUM_Treasure_20_Y, Fix.ARTHARIUM_Treasure_20_Z))
+      {
+        One.TF.Treasure_Artharium_00015 = true;
+      }
+      // 宝箱１６
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_21_X, Fix.ARTHARIUM_Treasure_21_Y, Fix.ARTHARIUM_Treasure_21_Z))
+      {
+        One.TF.Treasure_Artharium_00016 = true;
+      }
+      // 宝箱１７
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_22_X, Fix.ARTHARIUM_Treasure_22_Y, Fix.ARTHARIUM_Treasure_22_Z))
+      {
+        One.TF.Treasure_Artharium_00017 = true;
+      }
+      // 宝箱１８
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_23_X, Fix.ARTHARIUM_Treasure_23_Y, Fix.ARTHARIUM_Treasure_23_Z))
+      {
+        One.TF.Treasure_Artharium_00018 = true;
+      }
+      // 宝箱１９
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
+      {
+        One.TF.Treasure_Artharium_00019 = true;
+      }
+      // 宝箱２０
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
+      {
+        One.TF.Treasure_Artharium_00020 = true;
+      }
+      // 宝箱２１
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
+      {
+        One.TF.Treasure_Artharium_00021 = true;
+      }
+      // 宝箱２２
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
+      {
+        One.TF.Treasure_Artharium_00022 = true;
+      }
+      // 宝箱２３
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
+      {
+        One.TF.Treasure_Artharium_00023 = true;
+      }
+      // 宝箱２４
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
+      {
+        One.TF.Treasure_Artharium_00024 = true;
+      }
+      // 宝箱２５
+      if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
+      {
+        One.TF.Treasure_Artharium_00025 = true;
+      }
+    }
+    #endregion
+    #region "オーランの塔"
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      // 宝箱１
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
+      {
+        One.TF.Treasure_OhranTower_00001 = true;
+      }
+      // 宝箱２
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
+      {
+        One.TF.Treasure_OhranTower_00002 = true;
+      }
+      // 宝箱３
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
+      {
+        One.TF.Treasure_OhranTower_00003 = true;
+      }
+      // 宝箱４
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
+      {
+        One.TF.Treasure_OhranTower_00004 = true;
+      }
+      // 宝箱５
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
+      {
+        One.TF.Treasure_OhranTower_00005 = true;
+      }
+      // 宝箱６
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
+      {
+        One.TF.Treasure_OhranTower_00006 = true;
+      }
+      // 宝箱７
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
+      {
+        One.TF.Treasure_OhranTower_00007 = true;
+      }
+      // 宝箱８
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
+      {
+        One.TF.Treasure_OhranTower_00008 = true;
+      }
+      // 宝箱９
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
+      {
+        One.TF.Treasure_OhranTower_00009 = true;
+      }
+      // 宝箱１０
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
+      {
+        One.TF.Treasure_OhranTower_00010 = true;
+      }
+      // 宝箱１１
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
+      {
+        One.TF.Treasure_OhranTower_00011 = true;
+      }
+      // 宝箱１２
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
+      {
+        One.TF.Treasure_OhranTower_00012 = true;
+      }
+      // 宝箱１３
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
+      {
+        One.TF.Treasure_OhranTower_00013 = true;
+      }
+      // 宝箱１４
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
+      {
+        One.TF.Treasure_OhranTower_00014 = true;
+      }
+      // 宝箱１５
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
+      {
+        One.TF.Treasure_OhranTower_00015 = true;
+      }
+      // 宝箱１６
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
+      {
+        One.TF.Treasure_OhranTower_00016 = true;
+      }
+      // 宝箱１７
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
+      {
+        One.TF.Treasure_OhranTower_00017 = true;
+      }
+      // 宝箱１８
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
+      {
+        One.TF.Treasure_OhranTower_00018 = true;
+      }
+      // 宝箱１９
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
+      {
+        One.TF.Treasure_OhranTower_00019 = true;
+      }
+      // 宝箱２０
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
+      {
+        One.TF.Treasure_OhranTower_00020 = true;
+      }
+      // 宝箱２１
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
+      {
+        One.TF.Treasure_OhranTower_00021 = true;
+      }
+      // 宝箱２２
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
+      {
+        One.TF.Treasure_OhranTower_00022 = true;
+      }
+      // 宝箱２３
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
+      {
+        One.TF.Treasure_OhranTower_00023 = true;
+      }
+      // 宝箱２４
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_24_X, Fix.OHRANTOWER_Treasure_24_Y, Fix.OHRANTOWER_Treasure_24_Z))
+      {
+        One.TF.Treasure_OhranTower_00024 = true;
+      }
+      // 宝箱２５
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_25_X, Fix.OHRANTOWER_Treasure_25_Y, Fix.OHRANTOWER_Treasure_25_Z))
+      {
+        One.TF.Treasure_OhranTower_00025 = true;
+      }
+      // 宝箱２６
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_26_X, Fix.OHRANTOWER_Treasure_26_Y, Fix.OHRANTOWER_Treasure_26_Z))
+      {
+        One.TF.Treasure_OhranTower_00026 = true;
+      }
+      // 宝箱２７
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_27_X, Fix.OHRANTOWER_Treasure_27_Y, Fix.OHRANTOWER_Treasure_27_Z))
+      {
+        One.TF.Treasure_OhranTower_00027 = true;
+      }
+      // 宝箱２８
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_28_X, Fix.OHRANTOWER_Treasure_28_Y, Fix.OHRANTOWER_Treasure_28_Z))
+      {
+        One.TF.Treasure_OhranTower_00028 = true;
+      }
+      // 宝箱２９
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_29_X, Fix.OHRANTOWER_Treasure_29_Y, Fix.OHRANTOWER_Treasure_29_Z))
+      {
+        One.TF.Treasure_OhranTower_00029 = true;
+      }
+      // 宝箱３０
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_30_X, Fix.OHRANTOWER_Treasure_30_Y, Fix.OHRANTOWER_Treasure_30_Z))
+      {
+        One.TF.Treasure_OhranTower_00030 = true;
+      }
+      // 宝箱３１
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_31_X, Fix.OHRANTOWER_Treasure_31_Y, Fix.OHRANTOWER_Treasure_31_Z))
+      {
+        One.TF.Treasure_OhranTower_00031 = true;
+      }
+      // 宝箱３２
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_32_X, Fix.OHRANTOWER_Treasure_32_Y, Fix.OHRANTOWER_Treasure_32_Z))
+      {
+        One.TF.Treasure_OhranTower_00032 = true;
+      }
+      // 宝箱３３
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_33_X, Fix.OHRANTOWER_Treasure_33_Y, Fix.OHRANTOWER_Treasure_33_Z))
+      {
+        One.TF.Treasure_OhranTower_00033 = true;
+      }
+      // 宝箱３４
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_34_X, Fix.OHRANTOWER_Treasure_34_Y, Fix.OHRANTOWER_Treasure_34_Z))
+      {
+        One.TF.Treasure_OhranTower_00034 = true;
+      }
+      // 宝箱３５
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_35_X, Fix.OHRANTOWER_Treasure_35_Y, Fix.OHRANTOWER_Treasure_35_Z))
+      {
+        One.TF.Treasure_OhranTower_00035 = true;
+      }
+      // 宝箱３６
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z))
+      {
+        One.TF.Treasure_OhranTower_00036 = true;
+      }
+      // 宝箱３７
+      if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
+      {
+        One.TF.Treasure_OhranTower_00037 = true;
+      }
+    }
+    #endregion
+    #region "ヴェルガスの海底神殿"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_1_X, Fix.VELGUS_TREASURE_1_Y, Fix.VELGUS_TREASURE_1_Z))
+      {
+        One.TF.Treasure_Velgus_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_2_X, Fix.VELGUS_TREASURE_2_Y, Fix.VELGUS_TREASURE_2_Z))
+      {
+        One.TF.Treasure_Velgus_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_3_X, Fix.VELGUS_TREASURE_3_Y, Fix.VELGUS_TREASURE_3_Z))
+      {
+        One.TF.Treasure_Velgus_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_4_X, Fix.VELGUS_TREASURE_4_Y, Fix.VELGUS_TREASURE_4_Z))
+      {
+        One.TF.Treasure_Velgus_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_5_X, Fix.VELGUS_TREASURE_5_Y, Fix.VELGUS_TREASURE_5_Z))
+      {
+        One.TF.Treasure_Velgus_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_6_X, Fix.VELGUS_TREASURE_6_Y, Fix.VELGUS_TREASURE_6_Z))
+      {
+        One.TF.Treasure_Velgus_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_7_X, Fix.VELGUS_TREASURE_7_Y, Fix.VELGUS_TREASURE_7_Z))
+      {
+        One.TF.Treasure_Velgus_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_8_X, Fix.VELGUS_TREASURE_8_Y, Fix.VELGUS_TREASURE_8_Z))
+      {
+        One.TF.Treasure_Velgus_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_9_X, Fix.VELGUS_TREASURE_9_Y, Fix.VELGUS_TREASURE_9_Z))
+      {
+        One.TF.Treasure_Velgus_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_10_X, Fix.VELGUS_TREASURE_10_Y, Fix.VELGUS_TREASURE_10_Z))
+      {
+        One.TF.Treasure_Velgus_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_11_X, Fix.VELGUS_TREASURE_11_Y, Fix.VELGUS_TREASURE_11_Z))
+      {
+        One.TF.Treasure_Velgus_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_12_X, Fix.VELGUS_TREASURE_12_Y, Fix.VELGUS_TREASURE_12_Z))
+      {
+        One.TF.Treasure_Velgus_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_13_X, Fix.VELGUS_TREASURE_13_Y, Fix.VELGUS_TREASURE_13_Z))
+      {
+        One.TF.Treasure_Velgus_00013 = true;
+      }
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_1_X, Fix.VELGUS_2_TREASURE_1_Y, Fix.VELGUS_2_TREASURE_1_Z))
+      {
+        One.TF.Treasure_Velgus2_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_2_X, Fix.VELGUS_2_TREASURE_2_Y, Fix.VELGUS_2_TREASURE_2_Z))
+      {
+        One.TF.Treasure_Velgus2_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_3_X, Fix.VELGUS_2_TREASURE_3_Y, Fix.VELGUS_2_TREASURE_3_Z))
+      {
+        One.TF.Treasure_Velgus2_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_4_X, Fix.VELGUS_2_TREASURE_4_Y, Fix.VELGUS_2_TREASURE_4_Z))
+      {
+        One.TF.Treasure_Velgus2_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_5_X, Fix.VELGUS_2_TREASURE_5_Y, Fix.VELGUS_2_TREASURE_5_Z))
+      {
+        One.TF.Treasure_Velgus2_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_6_X, Fix.VELGUS_2_TREASURE_6_Y, Fix.VELGUS_2_TREASURE_6_Z))
+      {
+        One.TF.Treasure_Velgus2_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_7_X, Fix.VELGUS_2_TREASURE_7_Y, Fix.VELGUS_2_TREASURE_7_Z))
+      {
+        One.TF.Treasure_Velgus2_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_8_X, Fix.VELGUS_2_TREASURE_8_Y, Fix.VELGUS_2_TREASURE_8_Z))
+      {
+        One.TF.Treasure_Velgus2_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_9_X, Fix.VELGUS_2_TREASURE_9_Y, Fix.VELGUS_2_TREASURE_9_Z))
+      {
+        One.TF.Treasure_Velgus2_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_10_X, Fix.VELGUS_2_TREASURE_10_Y, Fix.VELGUS_2_TREASURE_10_Z))
+      {
+        One.TF.Treasure_Velgus2_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_11_X, Fix.VELGUS_2_TREASURE_11_Y, Fix.VELGUS_2_TREASURE_11_Z))
+      {
+        One.TF.Treasure_Velgus2_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_12_X, Fix.VELGUS_2_TREASURE_12_Y, Fix.VELGUS_2_TREASURE_12_Z))
+      {
+        One.TF.Treasure_Velgus2_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_13_X, Fix.VELGUS_2_TREASURE_13_Y, Fix.VELGUS_2_TREASURE_13_Z))
+      {
+        One.TF.Treasure_Velgus2_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_14_X, Fix.VELGUS_2_TREASURE_14_Y, Fix.VELGUS_2_TREASURE_14_Z))
+      {
+        One.TF.Treasure_Velgus2_00014 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_15_X, Fix.VELGUS_2_TREASURE_15_Y, Fix.VELGUS_2_TREASURE_15_Z))
+      {
+        One.TF.Treasure_Velgus2_00015 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_16_X, Fix.VELGUS_2_TREASURE_16_Y, Fix.VELGUS_2_TREASURE_16_Z))
+      {
+        One.TF.Treasure_Velgus2_00016 = true;
+      }
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_1_X, Fix.VELGUS_3_TREASURE_1_Y, Fix.VELGUS_3_TREASURE_1_Z))
+      {
+        One.TF.Treasure_Velgus3_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_2_X, Fix.VELGUS_3_TREASURE_2_Y, Fix.VELGUS_3_TREASURE_2_Z))
+      {
+        One.TF.Treasure_Velgus3_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_3_X, Fix.VELGUS_3_TREASURE_3_Y, Fix.VELGUS_3_TREASURE_3_Z))
+      {
+        One.TF.Treasure_Velgus3_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_4_X, Fix.VELGUS_3_TREASURE_4_Y, Fix.VELGUS_3_TREASURE_4_Z))
+      {
+        One.TF.Treasure_Velgus3_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_5_X, Fix.VELGUS_3_TREASURE_5_Y, Fix.VELGUS_3_TREASURE_5_Z))
+      {
+        One.TF.Treasure_Velgus3_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_6_X, Fix.VELGUS_3_TREASURE_6_Y, Fix.VELGUS_3_TREASURE_6_Z))
+      {
+        One.TF.Treasure_Velgus3_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_7_X, Fix.VELGUS_3_TREASURE_7_Y, Fix.VELGUS_3_TREASURE_7_Z))
+      {
+        One.TF.Treasure_Velgus3_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_8_X, Fix.VELGUS_3_TREASURE_8_Y, Fix.VELGUS_3_TREASURE_8_Z))
+      {
+        One.TF.Treasure_Velgus3_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_9_X, Fix.VELGUS_3_TREASURE_9_Y, Fix.VELGUS_3_TREASURE_9_Z))
+      {
+        One.TF.Treasure_Velgus3_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_10_X, Fix.VELGUS_3_TREASURE_10_Y, Fix.VELGUS_3_TREASURE_10_Z))
+      {
+        One.TF.Treasure_Velgus3_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_11_X, Fix.VELGUS_3_TREASURE_11_Y, Fix.VELGUS_3_TREASURE_11_Z))
+      {
+        One.TF.Treasure_Velgus3_00011 = true;
+      }
+    }
+    #endregion
+    #region "エデルガイゼン城"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_1_X, Fix.EDELGARZEN_1_Treasure_1_Y, Fix.EDELGARZEN_1_Treasure_1_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_2_X, Fix.EDELGARZEN_1_Treasure_2_Y, Fix.EDELGARZEN_1_Treasure_2_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_3_X, Fix.EDELGARZEN_1_Treasure_3_Y, Fix.EDELGARZEN_1_Treasure_3_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_4_X, Fix.EDELGARZEN_1_Treasure_4_Y, Fix.EDELGARZEN_1_Treasure_4_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_5_X, Fix.EDELGARZEN_1_Treasure_5_Y, Fix.EDELGARZEN_1_Treasure_5_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_6_X, Fix.EDELGARZEN_1_Treasure_6_Y, Fix.EDELGARZEN_1_Treasure_6_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_7_X, Fix.EDELGARZEN_1_Treasure_7_Y, Fix.EDELGARZEN_1_Treasure_7_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_8_X, Fix.EDELGARZEN_1_Treasure_8_Y, Fix.EDELGARZEN_1_Treasure_8_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_9_X, Fix.EDELGARZEN_1_Treasure_9_Y, Fix.EDELGARZEN_1_Treasure_9_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_10_X, Fix.EDELGARZEN_1_Treasure_10_Y, Fix.EDELGARZEN_1_Treasure_10_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_11_X, Fix.EDELGARZEN_1_Treasure_11_Y, Fix.EDELGARZEN_1_Treasure_11_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_12_X, Fix.EDELGARZEN_1_Treasure_12_Y, Fix.EDELGARZEN_1_Treasure_12_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_13_X, Fix.EDELGARZEN_1_Treasure_13_Y, Fix.EDELGARZEN_1_Treasure_13_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_14_X, Fix.EDELGARZEN_1_Treasure_14_Y, Fix.EDELGARZEN_1_Treasure_14_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00014 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_15_X, Fix.EDELGARZEN_1_Treasure_15_Y, Fix.EDELGARZEN_1_Treasure_15_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00015 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_16_X, Fix.EDELGARZEN_1_Treasure_16_Y, Fix.EDELGARZEN_1_Treasure_16_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00016 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_17_X, Fix.EDELGARZEN_1_Treasure_17_Y, Fix.EDELGARZEN_1_Treasure_17_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00017 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_18_X, Fix.EDELGARZEN_1_Treasure_18_Y, Fix.EDELGARZEN_1_Treasure_18_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00018 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_19_X, Fix.EDELGARZEN_1_Treasure_19_Y, Fix.EDELGARZEN_1_Treasure_19_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00019 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_20_X, Fix.EDELGARZEN_1_Treasure_20_Y, Fix.EDELGARZEN_1_Treasure_20_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00020 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_21_X, Fix.EDELGARZEN_1_Treasure_21_Y, Fix.EDELGARZEN_1_Treasure_21_Z))
+      {
+        One.TF.Treasure_Edelgarzen_00021 = true;
+      }
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_1_X, Fix.EDELGARZEN_2_Treasure_1_Y, Fix.EDELGARZEN_2_Treasure_1_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_2_X, Fix.EDELGARZEN_2_Treasure_2_Y, Fix.EDELGARZEN_2_Treasure_2_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_3_X, Fix.EDELGARZEN_2_Treasure_3_Y, Fix.EDELGARZEN_2_Treasure_3_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_4_X, Fix.EDELGARZEN_2_Treasure_4_Y, Fix.EDELGARZEN_2_Treasure_4_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_5_X, Fix.EDELGARZEN_2_Treasure_5_Y, Fix.EDELGARZEN_2_Treasure_5_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_6_X, Fix.EDELGARZEN_2_Treasure_6_Y, Fix.EDELGARZEN_2_Treasure_6_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_7_X, Fix.EDELGARZEN_2_Treasure_7_Y, Fix.EDELGARZEN_2_Treasure_7_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_8_X, Fix.EDELGARZEN_2_Treasure_8_Y, Fix.EDELGARZEN_2_Treasure_8_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_9_X, Fix.EDELGARZEN_2_Treasure_9_Y, Fix.EDELGARZEN_2_Treasure_9_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_10_X, Fix.EDELGARZEN_2_Treasure_10_Y, Fix.EDELGARZEN_2_Treasure_10_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_11_X, Fix.EDELGARZEN_2_Treasure_11_Y, Fix.EDELGARZEN_2_Treasure_11_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_12_X, Fix.EDELGARZEN_2_Treasure_12_Y, Fix.EDELGARZEN_2_Treasure_12_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_13_X, Fix.EDELGARZEN_2_Treasure_13_Y, Fix.EDELGARZEN_2_Treasure_13_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_14_X, Fix.EDELGARZEN_2_Treasure_14_Y, Fix.EDELGARZEN_2_Treasure_14_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00014 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_15_X, Fix.EDELGARZEN_2_Treasure_15_Y, Fix.EDELGARZEN_2_Treasure_15_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00015 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_16_X, Fix.EDELGARZEN_2_Treasure_16_Y, Fix.EDELGARZEN_2_Treasure_16_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00016 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_17_X, Fix.EDELGARZEN_2_Treasure_17_Y, Fix.EDELGARZEN_2_Treasure_17_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00017 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_18_X, Fix.EDELGARZEN_2_Treasure_18_Y, Fix.EDELGARZEN_2_Treasure_18_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00018 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_19_X, Fix.EDELGARZEN_2_Treasure_19_Y, Fix.EDELGARZEN_2_Treasure_19_Z))
+      {
+        One.TF.Treasure_Edelgarzen2_00019 = true;
+      }
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_1_X, Fix.EDELGARZEN_3_Treasure_1_Y, Fix.EDELGARZEN_3_Treasure_1_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_2_X, Fix.EDELGARZEN_3_Treasure_2_Y, Fix.EDELGARZEN_3_Treasure_2_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_3_X, Fix.EDELGARZEN_3_Treasure_3_Y, Fix.EDELGARZEN_3_Treasure_3_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_4_X, Fix.EDELGARZEN_3_Treasure_4_Y, Fix.EDELGARZEN_3_Treasure_4_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_5_X, Fix.EDELGARZEN_3_Treasure_5_Y, Fix.EDELGARZEN_3_Treasure_5_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_6_X, Fix.EDELGARZEN_3_Treasure_6_Y, Fix.EDELGARZEN_3_Treasure_6_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_7_X, Fix.EDELGARZEN_3_Treasure_7_Y, Fix.EDELGARZEN_3_Treasure_7_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_8_X, Fix.EDELGARZEN_3_Treasure_8_Y, Fix.EDELGARZEN_3_Treasure_8_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_9_X, Fix.EDELGARZEN_3_Treasure_9_Y, Fix.EDELGARZEN_3_Treasure_9_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_10_X, Fix.EDELGARZEN_3_Treasure_10_Y, Fix.EDELGARZEN_3_Treasure_10_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_11_X, Fix.EDELGARZEN_3_Treasure_11_Y, Fix.EDELGARZEN_3_Treasure_11_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_12_X, Fix.EDELGARZEN_3_Treasure_12_Y, Fix.EDELGARZEN_3_Treasure_12_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_13_X, Fix.EDELGARZEN_3_Treasure_13_Y, Fix.EDELGARZEN_3_Treasure_13_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_3_Treasure_14_X, Fix.EDELGARZEN_3_Treasure_14_Y, Fix.EDELGARZEN_3_Treasure_14_Z))
+      {
+        One.TF.Treasure_Edelgarzen3_00014 = true;
+      }
+    }
+    #endregion
+    #region "ダルの門"
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
+      {
+        One.TF.Treasure_GateDhal_00001 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
+      {
+        One.TF.Treasure_GateDhal_00002 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
+      {
+        One.TF.Treasure_GateDhal_00003 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
+      {
+        One.TF.Treasure_GateDhal_00004 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
+      {
+        One.TF.Treasure_GateDhal_00005 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
+      {
+        One.TF.Treasure_GateDhal_00006 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
+      {
+        One.TF.Treasure_GateDhal_00007 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
+      {
+        One.TF.Treasure_GateDhal_00008 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
+      {
+        One.TF.Treasure_GateDhal_00009 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
+      {
+        One.TF.Treasure_GateDhal_00010 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
+      {
+        One.TF.Treasure_GateDhal_00011 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
+      {
+        One.TF.Treasure_GateDhal_00012 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
+      {
+        One.TF.Treasure_GateDhal_00013 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
+      {
+        One.TF.Treasure_GateDhal_00014 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
+      {
+        One.TF.Treasure_GateDhal_00015 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
+      {
+        One.TF.Treasure_GateDhal_00016 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
+      {
+        One.TF.Treasure_GateDhal_00017 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
+      {
+        One.TF.Treasure_GateDhal_00018 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
+      {
+        One.TF.Treasure_GateDhal_00019 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
+      {
+        One.TF.Treasure_GateDhal_00020 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
+      {
+        One.TF.Treasure_GateDhal_00021 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
+      {
+        One.TF.Treasure_GateDhal_00022 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
+      {
+        One.TF.Treasure_GateDhal_00023 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+      {
+        One.TF.Treasure_GateDhal_00024 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
+      {
+        One.TF.Treasure_GateDhal_00025 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
+      {
+        One.TF.Treasure_GateDhal_00026 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
+      {
+        One.TF.Treasure_GateDhal_00027 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
+      {
+        One.TF.Treasure_GateDhal_00028 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
+      {
+        One.TF.Treasure_GateDhal_00029 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
+      {
+        One.TF.Treasure_GateDhal_00030 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
+      {
+        One.TF.Treasure_GateDhal_00031 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
+      {
+        One.TF.Treasure_GateDhal_00032 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
+      {
+        One.TF.Treasure_GateDhal_00033 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
+      {
+        One.TF.Treasure_GateDhal_00034 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
+      {
+        One.TF.Treasure_GateDhal_00035 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
+      {
+        One.TF.Treasure_GateDhal_00036 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
+      {
+        One.TF.Treasure_GateDhal_00037 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
+      {
+        One.TF.Treasure_GateDhal_00038 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
+      {
+        One.TF.Treasure_GateDhal_00039 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
+      {
+        One.TF.Treasure_GateDhal_00040 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
+      {
+        One.TF.Treasure_GateDhal_00041 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
+      {
+        One.TF.Treasure_GateDhal_00042 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
+      {
+        One.TF.Treasure_GateDhal_00043 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
+      {
+        One.TF.Treasure_GateDhal_00044 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
+      {
+        One.TF.Treasure_GateDhal_00045 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
+      {
+        One.TF.Treasure_GateDhal_00046 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
+      {
+        One.TF.Treasure_GateDhal_00047 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
+      {
+        One.TF.Treasure_GateDhal_00048 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
+      {
+        One.TF.Treasure_GateDhal_00049 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
+      {
+        One.TF.Treasure_GateDhal_00050 = true;
+      }
+      if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
+      {
+        One.TF.Treasure_GateDhal_00051 = true;
+      }
+    }
+    #endregion
   }
 
   private void UnloadedSceneAdd(Scene arg0)
