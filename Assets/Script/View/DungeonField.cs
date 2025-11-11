@@ -9394,7 +9394,7 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Goratrum_00004 == false && location.x == Fix.GORATRUM_Treasure_4_X && location.y == Fix.GORATRUM_Treasure_4_Y && location.z == Fix.GORATRUM_Treasure_4_Z)
         {
           treasureName = Fix.ITEM_COPPER_KEY;
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.MessageX00003_2(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message600200(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
