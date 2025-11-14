@@ -333,7 +333,6 @@ public partial class BattleEnemy : MotherBase
     }
 
     // 味方グループの作成
-    float allyBaseStart = AP.Math.RandomInteger(30) + 30.0f;
     for (int ii = 0; ii < playerList.Count; ii++)
     {
       Debug.Log("playerList: " + ii.ToString() + " " + playerList[ii].FullName);
@@ -388,7 +387,7 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        playerList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (allyBaseStart - (10.0f * ii)));
+        playerList[ii].BattleGaugeArrow = AP.Math.RandomInteger((int)(BATTLE_GAUGE_WITDH / 4));
       }
       playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
@@ -498,9 +497,6 @@ public partial class BattleEnemy : MotherBase
     }
 
     // 敵グループの作成
-    float enemyBaseStart = AP.Math.RandomInteger(0) + (One.EnemyList.Count - 1) * 10.0f;
-    if (enemyBaseStart <= 0.0f) { enemyBaseStart = 0.0f; }
-
     if (BattleType == Fix.BattleMode.Normal || BattleType == Fix.BattleMode.Duel)
     {
       for (int ii = 0; ii < One.EnemyList.Count; ii++)
@@ -544,7 +540,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
+          One.EnemyList[ii].BattleGaugeArrow = AP.Math.RandomInteger((int)(BATTLE_GAUGE_WITDH / 4));
         }
         One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
