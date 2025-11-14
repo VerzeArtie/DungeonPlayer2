@@ -711,7 +711,7 @@ public partial class BattleEnemy : MotherBase
         }
 
         // 戦闘ゲージを設定
-        One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
+        One.EnemyList[ii].BattleGaugeArrow = AP.Math.RandomInteger((int)(BATTLE_GAUGE_WITDH / 4));
         One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / Fix.BATTLE_SPEED_MAX);
 
         // キャラクターグループのリストに追加
