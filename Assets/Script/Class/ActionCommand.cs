@@ -3544,6 +3544,31 @@ public static class ActionCommand
     #endregion
 
     #region "Other"
+    if (command_name == Fix.USE_RED_POTION_1 || command_name == Fix.SMALL_RED_POTION) { return (new Item(Fix.SMALL_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_2 || command_name == Fix.NORMAL_RED_POTION) { return (new Item(Fix.NORMAL_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_3 || command_name == Fix.LARGE_RED_POTION) { return (new Item(Fix.LARGE_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_4 || command_name == Fix.HUGE_RED_POTION) { return (new Item(Fix.HUGE_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_5 || command_name == Fix.HQ_RED_POTION) { return (new Item(Fix.HQ_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_6 || command_name == Fix.THQ_RED_POTION) { return (new Item(Fix.THQ_RED_POTION)).Description; }
+    if (command_name == Fix.USE_RED_POTION_7 || command_name == Fix.PERFECT_RED_POTION) { return (new Item(Fix.PERFECT_RED_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_1 || command_name == Fix.SMALL_BLUE_POTION) { return (new Item(Fix.SMALL_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_2 || command_name == Fix.NORMAL_BLUE_POTION) { return (new Item(Fix.NORMAL_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_3 || command_name == Fix.LARGE_BLUE_POTION) { return (new Item(Fix.LARGE_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_4 || command_name == Fix.HUGE_BLUE_POTION) { return (new Item(Fix.HUGE_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_5 || command_name == Fix.HQ_BLUE_POTION) { return (new Item(Fix.HQ_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_6 || command_name == Fix.THQ_BLUE_POTION) { return (new Item(Fix.THQ_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_BLUE_POTION_7 || command_name == Fix.PERFECT_BLUE_POTION) { return (new Item(Fix.PERFECT_BLUE_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_1 || command_name == Fix.SMALL_GREEN_POTION) { return (new Item(Fix.SMALL_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_2 || command_name == Fix.NORMAL_GREEN_POTION) { return (new Item(Fix.NORMAL_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_3 || command_name == Fix.LARGE_GREEN_POTION) { return (new Item(Fix.LARGE_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_4 || command_name == Fix.HUGE_GREEN_POTION) { return (new Item(Fix.HUGE_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_5 || command_name == Fix.HQ_GREEN_POTION) { return (new Item(Fix.HQ_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_6 || command_name == Fix.THQ_GREEN_POTION) { return (new Item(Fix.THQ_GREEN_POTION)).Description; }
+    if (command_name == Fix.USE_GREEN_POTION_7 || command_name == Fix.PERFECT_GREEN_POTION) { return (new Item(Fix.PERFECT_GREEN_POTION)).Description; }
+
+    if (command_name == Fix.PURE_SINSEISUI) { return (new Item(Fix.PURE_SINSEISUI)).Description; }
+    if (command_name == Fix.PURE_CLEAN_WATER) { return (new Item(Fix.PURE_CLEAN_WATER)).Description; }
+    if (command_name == Fix.PURE_VITALIRY_WATER) { return (new Item(Fix.PURE_VITALIRY_WATER)).Description; }
     #endregion
 
     return String.Empty;
