@@ -196,6 +196,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableFourthEssence; }
   }
 
+  [SerializeField] protected bool _availableFormation = false;
+  public bool AvailableFormation
+  {
+    set { _availableFormation = value; }
+    get { return _availableFormation; }
+  }
+
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
   {

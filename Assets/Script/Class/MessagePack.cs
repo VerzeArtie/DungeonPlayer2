@@ -87,6 +87,7 @@ public static class MessagePack
     HomeTownCallRestInn,
     HomeTownExecRestInn,
     HomeTownResetMenuView,
+    AvailableFormation,
     EnterSeekerMode,
     CallDungeonWosm,
     CallEnding,
@@ -6194,13 +6195,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.NAME_ADEL_BRIGANDY, ActionEvent.HomeTownAddNewCharacter);
 
-      Message(ref m_list, ref e_list, "　パーティ画面でサブ・グループが追加されました。", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "", ActionEvent.AvailableFormation);
 
-      Message(ref m_list, ref e_list, "　サブ・グループのメンバーは戦闘に参加する事はできませんが、経験値は入ります。", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "　パーティメニューに【隊列変更】が追加されました。", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "　また、サブ・グループメンバーは戦闘中のメンバが倒れた場合、入れ替わる事が出来ます。", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "　戦闘に参戦できるのは３人まで、それ以外戦闘に参加することはできません。", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "　メイン・グループと同じように装備を整えておく事をお勧めします。 ", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "　戦闘終了後、サブ・メンバーにも経験値は入ります。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　状況に応じて、【隊列変更】を駆使するようにしましょう。 ", ActionEvent.MessageDisplay);
 
       // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】を達成しました！", ActionEvent.QuestComplete);
 

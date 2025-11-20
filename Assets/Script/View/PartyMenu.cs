@@ -33,6 +33,7 @@ public class PartyMenu : MotherBase
   public Text txtCurrentName;
   public List<GameObject> objActionCommand;
   public Text txtBattleSettingCharacterName;
+  public Button btnFormation;
 
   // Battle-Setting
   public GameObject FilterForAll;
@@ -180,7 +181,6 @@ public class PartyMenu : MotherBase
   public void TapStatus()
   {
     SetupStayList();
-    //    CallGroupPartyStatus(this.CurrentPlayer); // 移行前はコメントアウトしていない。要精査
 
     groupCharacterStatus.gameObject.SetActive(true);
     groupPartyCommand.SetActive(false);
@@ -1269,6 +1269,9 @@ public class PartyMenu : MotherBase
 
     // ゴールドへの反映
     txtGold.text = One.TF.Gold.ToString();
+
+    // 隊列変更ボタンの表示
+    btnFormation.gameObject.SetActive(One.TF.AvailableFormation);
   }
 
   #region "private"

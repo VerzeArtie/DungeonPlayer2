@@ -3799,6 +3799,11 @@ public partial class HomeTown : MotherBase
           GroupItemBank.SetActive(false);
           continue;
         }
+        else if (currentEvent == MessagePack.ActionEvent.AvailableFormation)
+        {
+          One.TF.AvailableFormation = true;
+          continue;
+        }
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
         {
           One.CannotRunAway = true;
