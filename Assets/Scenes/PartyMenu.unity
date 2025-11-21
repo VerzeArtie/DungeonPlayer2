@@ -37905,7 +37905,6 @@ RectTransform:
   - {fileID: 506196365}
   - {fileID: 2111067312}
   - {fileID: 1729698247}
-  - {fileID: 1690904331}
   - {fileID: 2094389228}
   - {fileID: 1812302322}
   - {fileID: 490430667}
@@ -57154,6 +57153,7 @@ RectTransform:
   - {fileID: 739538208}
   - {fileID: 802774788}
   - {fileID: 1139636731}
+  - {fileID: 1690904331}
   - {fileID: 60625580}
   - {fileID: 1125915968}
   - {fileID: 964576692}
@@ -104566,12 +104566,12 @@ RectTransform:
   m_Children:
   - {fileID: 1909681931}
   - {fileID: 27864406}
-  m_Father: {fileID: 571420400}
+  m_Father: {fileID: 894262723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 85}
-  m_SizeDelta: {x: 195, y: 60}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1690904332
 MonoBehaviour:
@@ -122080,6 +122080,7 @@ MonoBehaviour:
   - {fileID: 1597451030}
   - {fileID: 1357237343}
   txtBattleSettingCharacterName: {fileID: 2146440546}
+  btnFormation: {fileID: 1690904333}
   FilterForAll: {fileID: 678283412}
   FilterForActionCommand: {fileID: 784670771}
   FilterForAvailableList: {fileID: 1236186495}
