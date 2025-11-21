@@ -13593,7 +13593,7 @@ public partial class Item
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 0;
-        this._importantType = Important.Precious;
+        this._importantType = Important.None;
         this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。アーティファクト枠に埋め込む事で、輝きは増す。力＋１０、心＋１０、【特殊効果】ターン経過毎に、スキルポイントが回復する。";
         this._strength = 5;
         this._agility = 0;
@@ -13616,7 +13616,7 @@ public partial class Item
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 0;
-        this._importantType = Important.Precious;
+        this._importantType = Important.None;
         this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、【特殊効果】ターン経過毎に、スキルポイントが回復する。";
         this._strength = 0;
         this._agility = 0;
@@ -13639,7 +13639,7 @@ public partial class Item
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 0;
-        this._importantType = Important.Precious;
+        this._importantType = Important.None;
         this._description = "十七宝珠の一つ「無双の宝珠」。王が民を守りし時、無双の構えにて闇を断ち斬らん。アーティファクト枠に埋め込む事で、輝きは増す。力＋１２０、技＋１２０、心＋１２０、物防率１０％【特殊効果】スキル行動を行った際、稀にそのスキル行動がもう一度発動する。";
         this._strength = 120;
         this._agility = 120;
@@ -13663,7 +13663,7 @@ public partial class Item
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 0;
-        this._importantType = Important.Normal;
+        this._importantType = Important.None;
         this._description = "炎授天使からの加護が得られる護符。炎に特化した耐性が付く。知＋３、心＋３、炎耐性＋２０％";
         this._strength = 0;
         this._agility = 0;
