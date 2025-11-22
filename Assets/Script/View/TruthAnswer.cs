@@ -41,7 +41,7 @@ public class TruthAnswer : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod().Name + " " + number.ToString());
 
-    if (CurrentChantNumber == 1) { txtChant[number-1].text = "鳥"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false);  CurrentChantNumber++; }
+    if (CurrentChantNumber == 1) { txtChant[number - 1].text = "鳥"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false);  CurrentChantNumber++; }
     else if (CurrentChantNumber == 2) { txtChant[number - 1].text = "天"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
     else if (CurrentChantNumber == 3) { txtChant[number - 1].text = "闇"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
     else if (CurrentChantNumber == 4) { txtChant[number - 1].text = "水"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
@@ -83,11 +83,13 @@ public class TruthAnswer : MotherBase
       System.Random rand = new System.Random();
       Shuffle(remainingValues, rand);
 
+      bool detect = false;
       for (int i = 0, j = 0; i < numberList.Count; i++)
       {
         if (numberList[i] == 0)
         {
           numberList[i] = remainingValues[j++];
+          detect = true;
         }
       }
 
@@ -108,60 +110,84 @@ public class TruthAnswer : MotherBase
       Debug.Log("14: " + One.AR.Velgus_Chant_Sequence_14);
       Debug.Log("15: " + One.AR.Velgus_Chant_Sequence_15);
 
-
-      One.AR.Velgus_Chant_Sequence_1 = numberList[0];
-      One.AR.Velgus_Chant_Sequence_2 = numberList[1];
-      One.AR.Velgus_Chant_Sequence_3 = numberList[2];
-      One.AR.Velgus_Chant_Sequence_4 = numberList[3];
-      One.AR.Velgus_Chant_Sequence_5 = numberList[4];
-      One.AR.Velgus_Chant_Sequence_6 = numberList[5];
-      One.AR.Velgus_Chant_Sequence_7 = numberList[6];
-      One.AR.Velgus_Chant_Sequence_8 = numberList[7];
-      One.AR.Velgus_Chant_Sequence_9 = numberList[8];
-      One.AR.Velgus_Chant_Sequence_10 = numberList[9];
-      One.AR.Velgus_Chant_Sequence_11 = numberList[10];
-      One.AR.Velgus_Chant_Sequence_12 = numberList[11];
-      One.AR.Velgus_Chant_Sequence_13 = numberList[12];
-      One.AR.Velgus_Chant_Sequence_14 = numberList[13];
-      One.AR.Velgus_Chant_Sequence_15 = numberList[14];
-      Debug.Log("Velgus_Chant_Sequence result");
-      Debug.Log("1: " + One.AR.Velgus_Chant_Sequence_1);
-      Debug.Log("2: " + One.AR.Velgus_Chant_Sequence_2);
-      Debug.Log("3: " + One.AR.Velgus_Chant_Sequence_3);
-      Debug.Log("4: " + One.AR.Velgus_Chant_Sequence_4);
-      Debug.Log("5: " + One.AR.Velgus_Chant_Sequence_5);
-      Debug.Log("6: " + One.AR.Velgus_Chant_Sequence_6);
-      Debug.Log("7: " + One.AR.Velgus_Chant_Sequence_7);
-      Debug.Log("8: " + One.AR.Velgus_Chant_Sequence_8);
-      Debug.Log("9: " + One.AR.Velgus_Chant_Sequence_9);
-      Debug.Log("10: " + One.AR.Velgus_Chant_Sequence_10);
-      Debug.Log("11: " + One.AR.Velgus_Chant_Sequence_11);
-      Debug.Log("12: " + One.AR.Velgus_Chant_Sequence_12);
-      Debug.Log("13: " + One.AR.Velgus_Chant_Sequence_13);
-      Debug.Log("14: " + One.AR.Velgus_Chant_Sequence_14);
-      Debug.Log("15: " + One.AR.Velgus_Chant_Sequence_15);
-
-      if ( txtChant[One.AR.Velgus_Chant_Sequence_1 - 1].text == "鳥" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_2 - 1].text == "天" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_3 - 1].text == "闇" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_4 - 1].text == "水" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_5 - 1].text == "火" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_6 - 1].text == "嵐" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_7 - 1].text == "死" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_8 - 1].text == "生" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_9 - 1].text == "神" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_10 - 1].text == "人" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_11 - 1].text == "理" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_12 - 1].text == "空" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_13 - 1].text == "相" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_14 - 1].text == "永" &&
-           txtChant[One.AR.Velgus_Chant_Sequence_15 - 1].text == "世")
+      if (detect)
       {
-        One.TF.Event_Message1000040_VelgusChantSuccess = true;
+        Debug.Log("Velgus_Chant_Sequence had 0 value(s), complemented randomly.");
+        One.AR.Velgus_Chant_Sequence_1 = numberList[0];
+        One.AR.Velgus_Chant_Sequence_2 = numberList[1];
+        One.AR.Velgus_Chant_Sequence_3 = numberList[2];
+        One.AR.Velgus_Chant_Sequence_4 = numberList[3];
+        One.AR.Velgus_Chant_Sequence_5 = numberList[4];
+        One.AR.Velgus_Chant_Sequence_6 = numberList[5];
+        One.AR.Velgus_Chant_Sequence_7 = numberList[6];
+        One.AR.Velgus_Chant_Sequence_8 = numberList[7];
+        One.AR.Velgus_Chant_Sequence_9 = numberList[8];
+        One.AR.Velgus_Chant_Sequence_10 = numberList[9];
+        One.AR.Velgus_Chant_Sequence_11 = numberList[10];
+        One.AR.Velgus_Chant_Sequence_12 = numberList[11];
+        One.AR.Velgus_Chant_Sequence_13 = numberList[12];
+        One.AR.Velgus_Chant_Sequence_14 = numberList[13];
+        One.AR.Velgus_Chant_Sequence_15 = numberList[14];
+        Debug.Log("Velgus_Chant_Sequence result");
+        Debug.Log("1: " + One.AR.Velgus_Chant_Sequence_1);
+        Debug.Log("2: " + One.AR.Velgus_Chant_Sequence_2);
+        Debug.Log("3: " + One.AR.Velgus_Chant_Sequence_3);
+        Debug.Log("4: " + One.AR.Velgus_Chant_Sequence_4);
+        Debug.Log("5: " + One.AR.Velgus_Chant_Sequence_5);
+        Debug.Log("6: " + One.AR.Velgus_Chant_Sequence_6);
+        Debug.Log("7: " + One.AR.Velgus_Chant_Sequence_7);
+        Debug.Log("8: " + One.AR.Velgus_Chant_Sequence_8);
+        Debug.Log("9: " + One.AR.Velgus_Chant_Sequence_9);
+        Debug.Log("10: " + One.AR.Velgus_Chant_Sequence_10);
+        Debug.Log("11: " + One.AR.Velgus_Chant_Sequence_11);
+        Debug.Log("12: " + One.AR.Velgus_Chant_Sequence_12);
+        Debug.Log("13: " + One.AR.Velgus_Chant_Sequence_13);
+        Debug.Log("14: " + One.AR.Velgus_Chant_Sequence_14);
+        Debug.Log("15: " + One.AR.Velgus_Chant_Sequence_15);
+        One.UpdateAkashicRecord();
+      }
+
+      // TapVelgusChantButton の最後の成功判定の直前に追加
+      int maxIndex = txtChant != null ? txtChant.Count : 0;
+      int[] seq = new[]
+      {
+        One.AR.Velgus_Chant_Sequence_1, One.AR.Velgus_Chant_Sequence_2, One.AR.Velgus_Chant_Sequence_3,
+        One.AR.Velgus_Chant_Sequence_4, One.AR.Velgus_Chant_Sequence_5, One.AR.Velgus_Chant_Sequence_6,
+        One.AR.Velgus_Chant_Sequence_7, One.AR.Velgus_Chant_Sequence_8, One.AR.Velgus_Chant_Sequence_9,
+        One.AR.Velgus_Chant_Sequence_10, One.AR.Velgus_Chant_Sequence_11, One.AR.Velgus_Chant_Sequence_12,
+        One.AR.Velgus_Chant_Sequence_13, One.AR.Velgus_Chant_Sequence_14, One.AR.Velgus_Chant_Sequence_15
+      };
+
+
+      if (maxIndex < 15 || seq.Any(v => v < 1 || v > maxIndex))
+      {
+        Debug.LogError("Velgus sequence index out of range or txtChant not fully populated. Aborting success check.");
+        One.TF.Event_Message1000040_VelgusChantSuccess = false;
       }
       else
       {
-        One.TF.Event_Message1000040_VelgusChantSuccess = false;
+        if (txtChant[One.AR.Velgus_Chant_Sequence_1 - 1].text == "鳥" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_2 - 1].text == "天" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_3 - 1].text == "闇" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_4 - 1].text == "水" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_5 - 1].text == "火" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_6 - 1].text == "嵐" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_7 - 1].text == "死" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_8 - 1].text == "生" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_9 - 1].text == "神" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_10 - 1].text == "人" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_11 - 1].text == "理" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_12 - 1].text == "空" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_13 - 1].text == "相" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_14 - 1].text == "永" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_15 - 1].text == "世")
+        {
+          One.TF.Event_Message1000040_VelgusChantSuccess = true;
+        }
+        else
+        {
+          One.TF.Event_Message1000040_VelgusChantSuccess = false;
+        }
       }
       this.nowAutoKill = true;
     }
