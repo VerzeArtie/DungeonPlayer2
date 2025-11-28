@@ -7025,6 +7025,7 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_189_X = 15.0f;
   public const float OHRANTOWER_FLOATINGTILE_189_Y = 56.0f;
   public const float OHRANTOWER_FLOATINGTILE_189_Z = -15.0f;
+  public const string OHRANTOWER_FLOATINGTILE_189_OBJID = "65";
 
   // ８層、中枢部、戻り
   public const string OHRANTOWER_FLOATINGTILE_190_C = "FloatingTile";
@@ -7067,6 +7068,7 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_195_X = 15.0f;
   public const float OHRANTOWER_FLOATINGTILE_195_Y = 0.0f;
   public const float OHRANTOWER_FLOATINGTILE_195_Z = -15.0f;
+  public const string OHRANTOWER_FLOATINGTILE_195_OBJID = "66";
 
   // ０層、始まりを示す浮遊石、戻り
   public const string OHRANTOWER_FLOATINGTILE_196_C = "FloatingTile";

@@ -1,16 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 using System.IO;
-using System.Xml;
-using System.Text;
-using System;
 using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
+using System.Xml;
 using System.Xml.XPath;
 using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DungeonField : MotherBase
 {
@@ -23881,8 +23882,8 @@ public class DungeonField : MotherBase
       }
       if (One.TF.FieldObject_OhranTower_00127)
       {
-        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_189_X, Fix.OHRANTOWER_FLOATINGTILE_189_Y, Fix.OHRANTOWER_FLOATINGTILE_189_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z));
-        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_195_X, Fix.OHRANTOWER_FLOATINGTILE_195_Y, Fix.OHRANTOWER_FLOATINGTILE_195_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z));
+        MoveFieldObjectByNumber(FieldObjList, Fix.OHRANTOWER_FLOATINGTILE_189_OBJID, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_189_X, Fix.OHRANTOWER_FLOATINGTILE_189_Y, Fix.OHRANTOWER_FLOATINGTILE_189_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z));
+        MoveFieldObjectByNumber(FieldObjList, Fix.OHRANTOWER_FLOATINGTILE_195_OBJID, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_195_X, Fix.OHRANTOWER_FLOATINGTILE_195_Y, Fix.OHRANTOWER_FLOATINGTILE_195_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z));
       }
       if (One.TF.FieldObject_OhranTower_00128)
       {
@@ -25567,7 +25568,22 @@ public class DungeonField : MotherBase
         return;
       }
     }
+  }
 
+  private void MoveFieldObjectByNumber(List<FieldObject> list, string object_id, Vector3 src, Vector3 dst)
+  {
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (list[ii].transform.position == src && list[ii].ObjectId == object_id)
+      {
+        FieldObject current = list[ii];
+        current.transform.position = dst;
+        Debug.Log("MoveFieldObjectByNumber detect " + list[ii].ObjectId + " " + current.transform.position.ToString());
+        return;
+      }
+    }
+    Debug.Log("MoveFieldObjectByNumber none... " + object_id);
+    return;
   }
 
   private void HideFieldObject(List<FieldObject> list, Vector3 position)
