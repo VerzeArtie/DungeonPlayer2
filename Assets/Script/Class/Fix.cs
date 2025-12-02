@@ -676,6 +676,54 @@ public static partial class Fix
   public const int MAPSIZE_Z_EDELGARZEN_4 = 41;
 
   #endregion
+  #region "BGM"
+  public static string BGM01 = @"01_town_silently";
+  public static int BGM01LoopBegin = 0;
+  public static string BGM02 = @"14_I_Will_Go_Dungeon"; // @"02_dungeon_seeking";
+  public static int BGM02LoopBegin = 0; // 106500;
+  public static string BGM03 = @"03_battle_warning";
+  public static int BGM03LoopBegin = 0;
+  public static string BGM04 = @"04_The_Flame";
+  public static int BGM04LoopBegin = 0;
+  public static string BGM05 = @"05_Finally_Bystander";
+  public static float BGM05LoopBegin = 33.7F;
+  public static string BGM06 = @"19_Silent_Moving"; // @"06_Refuse";
+  public static int BGM06LoopBegin = 0;
+  public static string BGM07 = @"07_Systematic_Dominance";
+  public static int BGM07LoopBegin = 0;
+  public static string BGM08 = @"02_dungeon_seeking";
+  public static int BGM08LoopBegin = 0;
+  //public static string BGM09 = @"09_Sea_Ground_Sky";
+  //public static int BGM09LoopBegin = 0;
+  public static string BGM10 = @"10_WindOfVerze";
+  public static int BGM10LoopBegin = 0;
+  public static string BGM11 = @"11_DUEL_FACE_AND_FACE";
+  public static int BGM11LoopBegin = 0;
+  public static string BGM12 = @"12_Opening_Live_and_Space";
+  public static int BGM12LoopBegin = 0;
+  public static string BGM13 = @"13_Entrance_And_Walls";
+  public static int BGM13LoopBegin = 0;
+  public static string BGM14 = @"14_I_Will_Go_Dungeon";
+  public static int BGM14LoopBegin = 0;
+  public static string BGM15 = @"15_The_Ear_Ring_Remember";
+  public static int BGM15LoopBegin = 0;
+  public static string BGM16 = @"16_Wanna_Understand";
+  public static int BGM16LoopBegin = 0;
+  //public static string BGM17 = @"17_wake_up_and_fight";
+  //public static int BGM17LoopBegin = 0;
+  public static string BGM18 = @"18_MatrixDragon";
+  public static int BGM18LoopBegin = 0;
+  public static string BGM19 = @"19_Silent_Moving";
+  public static int BGM19LoopBegin = 0;
+  //public static string BGM20 = @"20_TimeEnd_StartReason";
+  //public static int BGM20LoopBegin = 0;
+  public static string BGM21 = @"21_The_Best_Battle";
+  public static int BGM21LoopBegin = 0;
+  //public static string BGM22 = @"22_TimeEnd_FanFare";
+  //public static int BGM22LoopBegin = 0;
+  public static string BGM23 = @"23_Verze_StartReason";
+  public static int BGM23LoopBegin = 0;
+  #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
   public const string SOUND_FLAMEBLADE = @"FlameBlade";
@@ -3785,6 +3833,34 @@ public static partial class Fix
   public const string HELL_KERBEROS_JP_VIEW = "【地獄の番人】\r\nヘル・ケルベロス";
 
   public const string DUMMY_SUBURI = "ダミー素振り君";
+
+  #region "DP1(Fix宣言のみ、実装はしていない）"
+  // 最終戦闘の相手
+  public const string ENEMY_LAST_RANA_AMILIA = @"ラナ・アミリア "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string ENEMY_LAST_OL_LANDIS = @"オル・ランディス "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string ENEMY_LAST_SINIKIA_KAHLHANZ = @"シニキア・カールハンツ "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string ENEMY_LAST_VERZE_ARTIE = @"ヴェルゼ・アーティ "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string ENEMY_LAST_SIN_VERZE_ARTIE = @"【原罪】ヴェルゼ・アーティ";
+
+  // 元核習得時のシニキア・カールハンツ
+  public const string DUEL_SINIKIA_KAHLHANZ = @"シニキア・カールハンツ";
+  public const string LEGENDARY_DARKMAGIC_DEVIL_EYE = @"魔導デビルアイ";
+  public const string LEGENDARY_DARKMAGIC_DEVIL_EYE_REPLICA = @"魔導デビルアイ（レプリカ）";
+  public const string EPIC_YAMITUYUKUSA_MOON_ROBE = @"闇露草の円月衣";
+  public const string LEGENDARY_ZVELDOSE_DEVIL_FIRE_RING = @"Zveldose the Devil Fire Ring";
+  public const string LEGENDARY_ANASTELISA_INNOCENT_FIRE_RING = @"Anastelisa the Innocent Fire Ring";
+
+  public const string ENEMY_BOSS_KARAMITUKU_FLANSIS = @"一階の守護者：絡みつくフランシス";
+  public const string ENEMY_BOSS_LEVIATHAN = @"二階の守護者：大海蛇リヴィアサン";
+  public const string ENEMY_BOSS_HOWLING_SEIZER = @"恐鳴主ハウリング・シーザー";
+  public const string ENEMY_BOSS_LEGIN_ARZE = @"闇焔レギィン・アーゼ";
+  public const string ENEMY_BOSS_LEGIN_ARZE_1 = @"闇焔レギィン・アーゼ【瘴気】";
+  public const string ENEMY_BOSS_LEGIN_ARZE_2 = @"闇焔レギィン・アーゼ【無音】";
+  public const string ENEMY_BOSS_LEGIN_ARZE_3 = @"闇焔レギィン・アーゼ【深淵】";
+  public const string ENEMY_BOSS_BYSTANDER_EMPTINESS = @"支　配　竜";
+  public const string ENEMY_DRAGON_ALAKH_VES_T_ETULA = @"AlakhVes T Etula";
+
+  #endregion
   #endregion
 
   #region "Dungeon Event"

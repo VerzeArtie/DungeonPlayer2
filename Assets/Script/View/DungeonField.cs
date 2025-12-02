@@ -759,6 +759,7 @@ public class DungeonField : MotherBase
         if (One.TF.Event_EntryMysticForest == false)
         {
           One.TF.Event_EntryMysticForest = true;
+          One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin); // 若干綺麗ではないが、良しとする。
           return;
         }
 
@@ -931,6 +932,8 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
+      One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
       return;
     }
 
@@ -14027,6 +14030,106 @@ public class DungeonField : MotherBase
           {
             DungeonCallSetup(currentMessage, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
           }
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic01)
+        {
+          One.PlayDungeonMusic(Fix.BGM01, Fix.BGM01LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic02)
+        {
+          One.PlayDungeonMusic(Fix.BGM02, Fix.BGM02LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic03)
+        {
+          One.PlayDungeonMusic(Fix.BGM03, Fix.BGM03LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic04)
+        {
+          One.PlayDungeonMusic(Fix.BGM04, Fix.BGM04LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic05)
+        {
+          One.PlayDungeonMusic(Fix.BGM05, Fix.BGM05LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic06)
+        {
+          One.PlayDungeonMusic(Fix.BGM06, Fix.BGM06LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic07)
+        {
+          One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic08)
+        {
+          One.PlayDungeonMusic(Fix.BGM08, Fix.BGM08LoopBegin);
+          continue;
+        }
+        //else if (currentEvent == MessagePack.ActionEvent.PlayMusic09)
+        //{
+        //  One.PlayDungeonMusic(Fix.BGM15, Fix.BGM15LoopBegin);
+        //  continue;
+        //}
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic10)
+        {
+          One.PlayDungeonMusic(Fix.BGM10, Fix.BGM10LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic11)
+        {
+          One.PlayDungeonMusic(Fix.BGM11, Fix.BGM11LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic12)
+        {
+          One.PlayDungeonMusic(Fix.BGM12, Fix.BGM12LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic13)
+        {
+          One.PlayDungeonMusic(Fix.BGM13, Fix.BGM13LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic14)
+        {
+          One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic15)
+        {
+          One.PlayDungeonMusic(Fix.BGM15, Fix.BGM15LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic16)
+        {
+          One.PlayDungeonMusic(Fix.BGM16, Fix.BGM16LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic17)
+        {
+          One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic18)
+        {
+          One.PlayDungeonMusic(Fix.BGM18, Fix.BGM18LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic19)
+        {
+          One.PlayDungeonMusic(Fix.BGM19, Fix.BGM19LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.StopMusic)
+        {
+          One.StopDungeonMusic();
+          continue;
         }
         else if (currentEvent == MessagePack.ActionEvent.CallEnding)
         {

@@ -597,103 +597,6 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
-    {
-      if (One.TF.Event_Message100010 == false)
-      {
-        One.TF.Event_Message100010 = true;
-        One.TF.AlreadyRestInn = true;
-        UpdateBackgroundData(Fix.BACKGROUND_MORNING);
-        MessagePack.Message100010(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-
-        objBlackOut.SetActive(true);
-        GroupQuestMessage.SetActive(true);
-        return;
-      }
-    }
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
-    {
-      Debug.Log("Hometown: TOWN_FAZIL_CASTLE");
-      if (One.TF.Event_Message100020 == false)
-      {
-        Debug.Log("Message100020");
-        One.TF.Event_Message100020 = true;
-        MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
-
-      // 港町コチューシェからの帰還
-      if (One.TF.Event_Message500020 && One.TF.Event_Message700010 == false)
-      {
-        Debug.Log("Message700010");
-        MessagePack.Message700010(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-
-      // オーランの塔制覇後の帰還
-      if (One.TF.Event_Message800210 && One.TF.Event_Message800220 == false)
-      {
-        Debug.Log("Message800150");
-        MessagePack.Message800150(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-
-      // パルメテイシア神殿へ始めて向かった時のDUEL戦闘後の帰還
-      if (One.TF.DefeatSelmoiRo && One.TF.Event_Message2200000 == false)
-      {
-        MessagePack.Message2200000(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
-    {
-      if (One.TF.Event_Message200010 == false)
-      {
-        One.TF.Event_Message200010 = true;
-        MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
-    }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
-    {
-      if (One.TF.DefeatZatKon_1 && One.TF.EventCore_DefeatZatkon_1 == false)
-      {
-        One.TF.EventCore_DefeatZatkon_1 = true;
-        MessagePack.CoreScenario_DefeatZatkon_2(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
-      else if (One.TF.DefeatZatKon_2 && One.TF.EventCore_DefeatZatkon_2 == false)
-      {
-        One.TF.EventCore_DefeatZatkon_2 = true;
-        MessagePack.CoreScenario_DefeatZatkonEnd(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
-    }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
-    {
-      if (One.TF.Event_Message500010 == false)
-      {
-        MessagePack.Message500010(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
-    {
-      // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
-      if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
-      {
-        MessagePack.Message1010020(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
-
-    txtQuestMessage.text = "アイン：さて、何すっかな。";
-    txtMessage.text = "アイン：さて、何すっかな。";
   }
 
   // Update is called once per frame
@@ -708,6 +611,103 @@ public partial class HomeTown : MotherBase
     {
       this.FirstAction = true;
       Debug.Log("Update FirstAction Start");
+
+
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+      {
+        if (One.TF.Event_Message100010 == false)
+        {
+          One.TF.Event_Message100010 = true;
+          One.TF.AlreadyRestInn = true;
+          UpdateBackgroundData(Fix.BACKGROUND_MORNING);
+          MessagePack.Message100010(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+
+          objBlackOut.SetActive(true);
+          GroupQuestMessage.SetActive(true);
+          return;
+        }
+      }
+      if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+      {
+        Debug.Log("Hometown: TOWN_FAZIL_CASTLE");
+        if (One.TF.Event_Message100020 == false)
+        {
+          Debug.Log("Message100020");
+          One.TF.Event_Message100020 = true;
+          MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
+        }
+
+        // 港町コチューシェからの帰還
+        if (One.TF.Event_Message500020 && One.TF.Event_Message700010 == false)
+        {
+          Debug.Log("Message700010");
+          MessagePack.Message700010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        // オーランの塔制覇後の帰還
+        if (One.TF.Event_Message800210 && One.TF.Event_Message800220 == false)
+        {
+          Debug.Log("Message800150");
+          MessagePack.Message800150(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        // パルメテイシア神殿へ始めて向かった時のDUEL戦闘後の帰還
+        if (One.TF.DefeatSelmoiRo && One.TF.Event_Message2200000 == false)
+        {
+          MessagePack.Message2200000(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+      else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
+      {
+        if (One.TF.Event_Message200010 == false)
+        {
+          One.TF.Event_Message200010 = true;
+          MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
+        }
+      }
+      else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+      {
+        if (One.TF.DefeatZatKon_1 && One.TF.EventCore_DefeatZatkon_1 == false)
+        {
+          One.TF.EventCore_DefeatZatkon_1 = true;
+          MessagePack.CoreScenario_DefeatZatkon_2(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
+        }
+        else if (One.TF.DefeatZatKon_2 && One.TF.EventCore_DefeatZatkon_2 == false)
+        {
+          One.TF.EventCore_DefeatZatkon_2 = true;
+          MessagePack.CoreScenario_DefeatZatkonEnd(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
+        }
+      }
+      else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+      {
+        if (One.TF.Event_Message500010 == false)
+        {
+          MessagePack.Message500010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+      else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+      {
+        // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
+        if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
+        {
+          MessagePack.Message1010020(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
 
       // １日目終了時
       if (this.firstDay >= 1 && One.TF.AlreadyDungeon && One.TF.AvailableImmediateAction == false)
@@ -783,11 +783,12 @@ public partial class HomeTown : MotherBase
       }
 
       // ツァルマンの里、神秘の森から帰還
-      if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_EntryMysticForest && One.TF.Event_Message500024 == false)
-      {
-        MessagePack.Message500024(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
+      // ファースト・リリースで本シナリオは存在しないため削除。欠番扱いとする。
+      //if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_EntryMysticForest && One.TF.Event_Message500024 == false)
+      //{
+      //  MessagePack.Message500024(ref QuestMessageList, ref QuestEventList); TapOK();
+      //  return;
+      //}
 
       // Duelレネ・コルトス撃破後
       if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.DefeatLeneColtos && One.TF.Duel_LeneColtos_Complete == false)
@@ -804,6 +805,11 @@ public partial class HomeTown : MotherBase
         MessagePack.Message801010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+
+      txtQuestMessage.text = "アイン：さて、何すっかな。";
+      txtMessage.text = "アイン：さて、何すっかな。";
+      One.PlayDungeonMusic(Fix.BGM01, Fix.BGM01LoopBegin);
     }
 
     if (this.AlreadyDetectEncount)
@@ -3810,6 +3816,106 @@ public partial class HomeTown : MotherBase
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
           PrepareCallTruthBattleEnemy();
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic01)
+        {
+          One.PlayDungeonMusic(Fix.BGM01, Fix.BGM01LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic02)
+        {
+          One.PlayDungeonMusic(Fix.BGM02, Fix.BGM02LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic03)
+        {
+          One.PlayDungeonMusic(Fix.BGM03, Fix.BGM03LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic04)
+        {
+          One.PlayDungeonMusic(Fix.BGM04, Fix.BGM04LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic05)
+        {
+          One.PlayDungeonMusic(Fix.BGM05, Fix.BGM05LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic06)
+        {
+          One.PlayDungeonMusic(Fix.BGM06, Fix.BGM06LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic07)
+        {
+          One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic08)
+        {
+          One.PlayDungeonMusic(Fix.BGM08, Fix.BGM08LoopBegin);
+          continue;
+        }
+        //else if (currentEvent == MessagePack.ActionEvent.PlayMusic09)
+        //{
+        //  One.PlayDungeonMusic(Fix.BGM15, Fix.BGM15LoopBegin);
+        //  continue;
+        //}
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic10)
+        {
+          One.PlayDungeonMusic(Fix.BGM10, Fix.BGM10LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic11)
+        {
+          One.PlayDungeonMusic(Fix.BGM11, Fix.BGM11LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic12)
+        {
+          One.PlayDungeonMusic(Fix.BGM12, Fix.BGM12LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic13)
+        {
+          One.PlayDungeonMusic(Fix.BGM13, Fix.BGM13LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic14)
+        {
+          One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic15)
+        {
+          One.PlayDungeonMusic(Fix.BGM15, Fix.BGM15LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic16)
+        {
+          One.PlayDungeonMusic(Fix.BGM16, Fix.BGM16LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic17)
+        {
+          One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic18)
+        {
+          One.PlayDungeonMusic(Fix.BGM18, Fix.BGM18LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.PlayMusic19)
+        {
+          One.PlayDungeonMusic(Fix.BGM19, Fix.BGM19LoopBegin);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.StopMusic)
+        {
+          One.StopDungeonMusic();
+          continue;
         }
         else
         {

@@ -117,6 +117,24 @@ public static class MessagePack
     UpdateUnknownTile,
     StopMusic,
     PlayMusic01,
+    PlayMusic02,
+    PlayMusic03,
+    PlayMusic04,
+    PlayMusic05,
+    PlayMusic06,
+    PlayMusic07,
+    PlayMusic08,
+    PlayMusic09,
+    PlayMusic10,
+    PlayMusic11,
+    PlayMusic12,
+    PlayMusic13,
+    PlayMusic14,
+    PlayMusic15,
+    PlayMusic16,
+    PlayMusic17,
+    PlayMusic18,
+    PlayMusic19,
     PlaySound,
     YesNoGotoDungeon,
     YesNoBacktoDungeon,
@@ -435,6 +453,8 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぜ！", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
+
   }
 
   public static void Message000020(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -697,6 +717,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：そうだな、分かった。ファージル宮殿の方へ早く向かうとするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：ええ、頼んだわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -807,6 +829,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【　戦闘中にアイテム・アクションが使えるようになりました！　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "【　バトルコマンド設定画面でアイテム・アクションを設定してみてください。　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
   }
   #endregion
 
@@ -818,6 +842,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：え、ちょっとそれだけしか持っていかないワケ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
 
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_ANSHET + "にて ～", ActionEvent.MessageDisplay);
 
@@ -906,6 +932,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：宿屋ならハンナ叔母さんがやっているはずよ。さ、行ってみましょ♪", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：っしゃ、了解！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
   }
 
   public static void Message100021(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -2530,6 +2558,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：じゃ、その武器屋のおっちゃんの所へ行くとするか！", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     //}
     //public static void Message200020(ref List<string> m_list, ref List<ActionEvent> e_list)
     //{
@@ -2805,6 +2834,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：じゃ、きまりね♪　さっそく行ってみましょう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -3971,6 +4002,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "エオネ：い・・・いえ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：よし。じゃあ先へ進めるとするか！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void Message300130(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -4350,6 +4383,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よっしゃ、任せておけ！待ってろよ、お宝！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_9 + " 】を達成しました！", ActionEvent.QuestComplete);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -4666,6 +4701,8 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "ラナ：ええ、バッチリよ。ありがと♪", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：よし、それじゃあ、この港町で色々と調べてみるとするか！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
       }
     }
   }
@@ -5324,6 +5361,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：ッチ・・・面倒くせえ連中だな。挨拶してこいって事か。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そういう事だ。というわけで、長老宅に行ってみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -5880,6 +5919,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：じゃあ、アデル。俺達と一緒に来てくれ。よろしく頼む！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：うんー。よろしくねー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -7115,6 +7156,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：少しは気を付けるとするか・・・", ActionEvent.None);
     }
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void Message600070(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -7601,6 +7643,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：オーケー。このまま進めよう。", ActionEvent.None);
     }
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void Message600250(ref List<string> m_list, ref List<ActionEvent> e_list, int number, string event_number)
@@ -7753,6 +7796,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：オーケー。このまま進めよう。", ActionEvent.None);
     }
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void Message600300(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -7979,6 +8023,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：ねえ見て。向こう側にまだ通路があるわよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、行ってみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -8004,6 +8050,8 @@ public static class MessagePack
     if (One.TF.Event_Message700010 == false)
     {
       One.TF.Event_Message700010 = true;
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
 
       Message(ref m_list, ref e_list, "アイン：よし、着いたみたいだな。", ActionEvent.None);
 
@@ -8062,6 +8110,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
 
       if (One.TF.InscribeObsidianStone_1 == false || One.TF.InscribeObsidianStone_2 == false)
       {
@@ -8152,6 +8202,8 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
 
         Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.LastMessage);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
       }
     }
   }
@@ -9925,6 +9977,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：まあ、これで道が拓けたって所かしら。見る限り宝箱が一つあるわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：待ってました。ではさっそくお宝ゲットと行きますか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -10261,6 +10315,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：グッ・・・そりゃまあ・・・まあな・・・おうよ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあこの先の通路に進むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -10846,6 +10902,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
 
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
+
       Message(ref m_list, ref e_list, "アイン：よし、ラナおはよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：おはよう。バカアインも疲れの方はだいぶ取れたかしら？", ActionEvent.None);
@@ -11358,6 +11416,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "", ActionEvent.HometownNextDay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -17037,6 +17097,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "～　エオネはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ俺達もツァルマンの里に赴いて一休憩入れるとするか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -17261,6 +17323,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：看板が見えるわね。まずはそこを見てみましょうよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -20332,6 +20396,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：分かりました。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -23215,6 +23281,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：マジかよ。この区画だけでだいぶ歩かされた感じがするけどな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：次も同じとは限らないさ。まずは進めてみるとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
   #endregion
@@ -25864,6 +25932,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：まだ終わりじゃねーんだろ？とっとと、次の階層へ進もうぜ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、了解だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
   #endregion
@@ -26031,6 +26101,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：さすがにこのレベルを連戦ってのはきついぜ。賛成だな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、そうしたら一旦戻って休息を取ろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -26217,6 +26289,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：じゃ、とっとと戻ろうぜ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：悪い。そうしたら一旦戻るとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -26406,6 +26480,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：休憩は取っておきたい所だ。一度帰還するとしよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -26673,6 +26749,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アデル：ありがとー、良いよー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ今度こそ戻ろう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -26846,6 +26924,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：ああ、そうだった。なんか忘れてた！ッハッハッハ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、そしたらここで一旦戻るとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -27102,6 +27182,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、そうだな。じゃ、一旦戻るぞ。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -27466,6 +27547,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：分かったわ。でも十分に気を付けてね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -27704,6 +27787,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "エオネ：気付ける範囲でよろしければ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし。じゃあ、探索開始だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -28967,6 +29052,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_31 + " 】を達成しました！", ActionEvent.QuestComplete);
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_41 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -29107,6 +29194,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：ま、そういう事だ。まずは何はともあれ情報収集をしよう！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】が更新されました！", ActionEvent.QuestUpdate);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -29681,6 +29770,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：そ、そーかよ。・・・まあいいけどな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし。それじゃ、探索するとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
     else
     {
@@ -31539,6 +31630,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：ああ・・・大丈夫だ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：次へ・・・進むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -31686,6 +31779,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：ったく、無理すんじゃねーぞ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -31864,6 +31959,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -33171,6 +33268,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：おい、とっととパルメティシア神殿とやらに到着してしまおうぜ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -33215,6 +33314,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：おーし、じゃあ早速神殿に向かおうぜ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -38243,6 +38344,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：しかし・・・何だこれは？ラナのやつ、こんな物持ってたっけ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：まあいいか。後でラナに渡しておくとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
   }
 
   public static void CoreScenario_SeekMissingLinkInn(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
@@ -39053,6 +39156,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "【 Duel戦はストーリー進行の中で発生する可能性があります。 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "【 Duel戦に向けて、常に準備しておきましょう。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -39219,6 +39324,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：洞窟内で亡霊って何か嫌な感じよね・・・ま、準備は怠らないようにね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -39356,6 +39463,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ヨーゼン：大した代物ではない。気にするな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヨーゼン：では、行くがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -39473,6 +39582,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：そうか。じゃあ、ありがたく受け取っておく。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヴィオ：では、森の警護に戻る。また、どこかで会おう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
   }
 
@@ -39661,6 +39772,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：（まあ良しとするか。）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：（また機会があれば会うかも知れない。覚えておこう）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -39918,6 +40031,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
 
@@ -40151,6 +40266,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "カール：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "カール：笑止。好きにするがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
   }
   #endregion

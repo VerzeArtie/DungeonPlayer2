@@ -771,6 +771,152 @@ public partial class BattleEnemy : MotherBase
       SetupFirstCommand(EnemyList[ii], EnemyList[ii].ActionCommandMain);
     }
 
+
+    if (EnemyList[0] != null)
+    {
+      Character ec1 = EnemyList[0];
+      // ヴェルゼ最終戦闘２
+      if (ec1.FullName == Fix.ENEMY_LAST_SIN_VERZE_ARTIE)
+      {
+        One.PlayDungeonMusic(Fix.BGM23, Fix.BGM23LoopBegin);
+      }
+      // ヴェルゼ最終戦闘
+      else if (ec1.FullName == Fix.ENEMY_LAST_VERZE_ARTIE)
+      {
+        One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+      }
+      // DUEL最終戦
+      else if (ec1.FullName == Fix.ENEMY_LAST_RANA_AMILIA ||
+               ec1.FullName == Fix.ENEMY_LAST_SINIKIA_KAHLHANZ ||
+               ec1.FullName == Fix.ENEMY_LAST_OL_LANDIS)
+      {
+        One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+      }
+      // ボス
+      else if (
+          (ec1.FullName == Fix.SCREAMING_RAFFLESIA) ||
+          (ec1.FullName == Fix.SCREAMING_RAFFLESIA_JP) ||
+          (ec1.FullName == Fix.SCREAMING_RAFFLESIA_JP_VIEW) ||
+          (ec1.FullName == Fix.MAGICAL_HAIL_GUN) ||
+          (ec1.FullName == Fix.MAGICAL_HAIL_GUN_JP) ||
+          (ec1.FullName == Fix.MAGICAL_HAIL_GUN_JP_VIEW) ||
+          (ec1.FullName == Fix.THE_GALVADAZER) ||
+          (ec1.FullName == Fix.THE_GALVADAZER_JP) ||
+          (ec1.FullName == Fix.THE_GALVADAZER_JP_VIEW) ||
+          (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN) ||
+          (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP) ||
+          (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW) ||
+          (ec1.FullName == Fix.LIGHT_THUNDER_LANCEBOLTS) ||
+          (ec1.FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP) ||
+          (ec1.FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW) ||
+          (ec1.FullName == Fix.THE_YODIRIAN) ||
+          (ec1.FullName == Fix.THE_YODIRIAN_JP) ||
+          (ec1.FullName == Fix.THE_YODIRIAN_JP_VIEW) ||
+          (ec1.FullName == Fix.DEVIL_STAR_DEATH_FLODIETE) ||
+          (ec1.FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP) ||
+          (ec1.FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW) ||
+          (ec1.FullName == Fix.THE_BIGHAND_OF_KRAKEN) ||
+          (ec1.FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP) ||
+          (ec1.FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW) ||
+          (ec1.FullName == Fix.GUARDIAN_ROYAL_NAGA) ||
+          (ec1.FullName == Fix.GUARDIAN_ROYAL_NAGA_JP) ||
+          (ec1.FullName == Fix.GUARDIAN_ROYAL_NAGA_JP_VIEW) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE_1) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW) ||
+          (ec1.FullName == Fix.SHELL_THE_SWORD_KNIGHT) ||
+          (ec1.FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP) ||
+          (ec1.FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AEGIR) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AMARA) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP) ||
+          (ec1.FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW) ||
+          (ec1.FullName == Fix.JELLY_EYE_BRIGHT_RED) ||
+          (ec1.FullName == Fix.JELLY_EYE_BRIGHT_RED_JP) ||
+          (ec1.FullName == Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW) ||
+          (ec1.FullName == Fix.JELLY_EYE_DEEP_BLUE) ||
+          (ec1.FullName == Fix.JELLY_EYE_DEEP_BLUE_JP) ||
+          (ec1.FullName == Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE_JP) ||
+          (ec1.FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP) ||
+          (ec1.FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW) ||
+          (ec1.FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR) ||
+          (ec1.FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP) ||
+          (ec1.FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW) ||
+          (ec1.FullName == Fix.GROUND_VORTEX_LEVIATHAN) ||
+          (ec1.FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP) ||
+          (ec1.FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW) ||
+          (ec1.FullName == Fix.MASCLEWARRIOR_HARDIL) ||
+          (ec1.FullName == Fix.MASCLEWARRIOR_HARDIL_JP) ||
+          (ec1.FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW) ||
+          (ec1.FullName == Fix.HUGE_MAGICIAN_ZAGAN) ||
+          (ec1.FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP) ||
+          (ec1.FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_1) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_1_JP) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_1_JP_VIEW) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_2) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_2_JP) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_2_JP_VIEW) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_3) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_3_JP) ||
+          (ec1.FullName == Fix.LEGIN_ARZE_3_JP_VIEW) ||
+          (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN) ||
+          (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP) ||
+          (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW) ||
+          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT) ||
+          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP) ||
+          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+          )
+      {
+        One.PlayDungeonMusic(Fix.BGM04, Fix.BGM04LoopBegin);
+      }
+      // シニキア・カールハンツ
+      else if (ec1.FullName == Fix.DUEL_SINIKIA_KAHLHANZ)
+      {
+        One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+      }
+      // 初期DUELオル・ランディス
+      else if (ec1.FullName == Fix.DUEL_OL_LANDIS)
+      {
+        One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+      }
+      // 支配竜達の呼び声
+      else if (ec1.Rare == Fix.RareString.Purple)
+      {
+        One.PlayDungeonMusic(Fix.BGM18, Fix.BGM18LoopBegin);
+      }
+      // 最終ボス：支配竜
+      else if (ec1.FullName == Fix.ENEMY_BOSS_BYSTANDER_EMPTINESS)
+      {
+        One.PlayDungeonMusic(Fix.BGM05, Fix.BGM05LoopBegin);
+      }
+      // 通常バトル
+      else
+      {
+        One.PlayDungeonMusic(Fix.BGM03, Fix.BGM03LoopBegin);
+      }
+    }
+    // 万が一、敵の情報が取得できない場合、通常バトル
+    else
+    {
+      One.PlayDungeonMusic(Fix.BGM03, Fix.BGM03LoopBegin);
+    }
+
     LogicInvalidate();
   }
 
