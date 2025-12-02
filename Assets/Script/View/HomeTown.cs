@@ -777,7 +777,7 @@ public partial class HomeTown : MotherBase
         return;
       }
       // パルメティシア神殿、ヴェルガス海底神殿の？？？看板到達後
-      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1000081 == false)
+      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1000080 && One.TF.Event_Message1000081 == false)
       {
         MessagePack.Message1000081(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
