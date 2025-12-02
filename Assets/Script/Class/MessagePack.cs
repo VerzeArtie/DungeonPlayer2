@@ -33424,7 +33424,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "神官：私の導きはここまでとなります。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "神官：この先、法王の間に足をお運びください。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "神官：この先、教皇の間に足をお運びください。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "神官：それでは。", ActionEvent.None);
 
@@ -33600,7 +33600,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：エルミよ、そうか。。。そうであるか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　法王ツヴェルドーゼは心なしか、表情が少し和らいだ様に見えた　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～　教皇ツヴェルドーゼは心なしか、表情が少し和らいだ様に見えた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ツヴェル：ふむ。決めたぞ。", ActionEvent.None);
 
@@ -33687,7 +33687,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：私は良いけど。でも、ヴェルガスの海底神殿といえば神聖な場所としてゲートは常に封鎖されているはずよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：大丈夫だ。その辺りは、法王様が取り計らってくれると言ってた。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：大丈夫だ。その辺りは、教皇様が取り計らってくれると言ってた。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・　・・・っ・・・", ActionEvent.None);
 
