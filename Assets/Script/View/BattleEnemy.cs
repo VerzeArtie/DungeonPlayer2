@@ -885,6 +885,52 @@ public partial class BattleEnemy : MotherBase
       {
         One.PlayDungeonMusic(Fix.BGM04, Fix.BGM04LoopBegin);
       }
+      else if (ec1.FullName == Fix.DUEL_PLAYER_1 ||
+               ec1.FullName == Fix.DUEL_PLAYER_1_JP ||
+               ec1.FullName == Fix.DUEL_DUMMY_SUBURI ||
+               ec1.FullName == Fix.DUEL_DUMMY_SUBURI_JP ||
+               ec1.FullName == Fix.DUEL_EGALT_SANDY ||
+               ec1.FullName == Fix.DUEL_EGALT_SANDY_JP ||
+               ec1.FullName == Fix.DUEL_YORZEN_GORMEZ ||
+               ec1.FullName == Fix.DUEL_YORZEN_GORMEZ_JP ||
+               ec1.FullName == Fix.DUEL_GILMEL_SHTORF ||
+               ec1.FullName == Fix.DUEL_GILMEL_SHTORF_JP ||
+               ec1.FullName == Fix.DUEL_ALJINA_MEIRI ||
+               ec1.FullName == Fix.DUEL_ALJINA_MEIRI_JP ||
+               ec1.FullName == Fix.DUEL_ZATKON_MEMBER_1 ||
+               ec1.FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
+               ec1.FullName == Fix.DUEL_ZATKON_MEMBER_2 ||
+               ec1.FullName == Fix.DUEL_ZATKON_MEMBER_2_JP ||
+               ec1.FullName == Fix.DUEL_ARDAM_VIO ||
+               ec1.FullName == Fix.DUEL_ARDAM_VIO_JP ||
+               ec1.FullName == Fix.DUEL_WELK_ZADA ||
+               ec1.FullName == Fix.DUEL_WELK_ZADA_JP ||
+               ec1.FullName == Fix.DUEL_HERAL_JITTE ||
+               ec1.FullName == Fix.DUEL_HERAL_JITTE_JP ||
+               ec1.FullName == Fix.DUEL_LENE_COLTOS ||
+               ec1.FullName == Fix.DUEL_LENE_COLTOS_JP ||
+               ec1.FullName == Fix.DUEL_SCOTY_ZALGE ||
+               ec1.FullName == Fix.DUEL_SCOTY_ZALGE_JP ||
+               ec1.FullName == Fix.DUEL_SHLSTHS_DEMIGOR ||
+               ec1.FullName == Fix.DUEL_SHLSTHS_DEMIGOR_JP ||
+               ec1.FullName == Fix.DUEL_JEDA_ARUS ||
+               ec1.FullName == Fix.DUEL_JEDA_ARUS_JP ||
+               ec1.FullName == Fix.DUEL_SELMOI_RO ||
+               ec1.FullName == Fix.DUEL_SELMOI_RO_JP ||
+               ec1.FullName == Fix.DUEL_CALMANS_OHN ||
+               ec1.FullName == Fix.DUEL_CALMANS_OHN_JP ||
+               ec1.FullName == Fix.DUEL_EONE_FULNEA ||
+               ec1.FullName == Fix.DUEL_EONE_FULNEA_JP ||
+               ec1.FullName == Fix.DUEL_OL_LANDIS ||
+               ec1.FullName == Fix.DUEL_OL_LANDIS_Jp ||
+               ec1.FullName == Fix.DUEL_SHINIKIA_KAHLHANZ ||
+               ec1.FullName == Fix.DUEL_SHINIKIA_KAHLHANZ_JP ||
+               ec1.FullName == Fix.DUEL_SIN_OSCURETE ||
+               ec1.FullName == Fix.DUEL_SIN_OSCURETE_JP
+               )
+      {
+        One.PlayDungeonMusic(Fix.BGM21, Fix.BGM21LoopBegin);
+      }
       // シニキア・カールハンツ
       else if (ec1.FullName == Fix.DUEL_SINIKIA_KAHLHANZ)
       {
