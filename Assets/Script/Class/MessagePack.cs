@@ -11469,6 +11469,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　アインが後ろに振り返った瞬間、場全体は異様な気配に包まれた！　～", ActionEvent.MessageDisplay);
 
+      Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
       Message(ref m_list, ref e_list, "アイン：・・・ん？居ない・・・？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：っ！　しまった！！", ActionEvent.None);

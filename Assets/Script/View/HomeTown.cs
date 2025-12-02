@@ -612,6 +612,7 @@ public partial class HomeTown : MotherBase
       this.FirstAction = true;
       Debug.Log("Update FirstAction Start");
 
+      One.StopDungeonMusic();
 
       if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
       {
