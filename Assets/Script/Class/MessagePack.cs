@@ -20332,7 +20332,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：ああ、何か書いてあったな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ラナのメモしてもらっている。内容はこうだ", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ラナにメモしてもらっている内容はこうだ", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "『　力のみに非ず、技のみに非ず、知のみに非ず、心のみに非ず　』", ActionEvent.None);
       Message(ref m_list, ref e_list, "『　源泉なる知が、技の体現と成す　』", ActionEvent.None);
