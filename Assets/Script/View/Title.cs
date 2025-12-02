@@ -61,6 +61,9 @@ public class Title : MotherBase
     if (this.firstAction == false)
     {
       this.firstAction = true;
+
+      One.PlayDungeonMusic(Fix.BGM12, Fix.BGM12LoopBegin);
+
       // 初期開始時、ファイルが無い場合準備しておく。
       One.MakeDirectory();
 
