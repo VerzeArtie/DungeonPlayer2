@@ -21040,7 +21040,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
-            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door ||
+            field_obj != null && field_obj.content == FieldObject.Content.Esmilia_SecretWall)
         {
           // 可視化しない
         }
@@ -21168,7 +21169,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
-            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door ||
+            field_obj != null && field_obj.content == FieldObject.Content.Esmilia_SecretWall)
         {
           // 可視化しない
         }
@@ -21296,7 +21298,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
-            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door ||
+            field_obj != null && field_obj.content == FieldObject.Content.Esmilia_SecretWall)
         {
           // 可視化しない
         }
@@ -21424,7 +21427,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
-            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door ||
+            field_obj != null && field_obj.content == FieldObject.Content.Esmilia_SecretWall)
         {
           // 可視化しない
         }
