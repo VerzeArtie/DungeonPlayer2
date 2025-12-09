@@ -3974,6 +3974,19 @@ public static partial class Fix
   public const float ESMILIA_Rock_8_X = -6.0f;
   public const float ESMILIA_Rock_8_Y = 1.0f;
   public const float ESMILIA_Rock_8_Z = 2.0f;
+
+  public const string ESMILIA_SECRET_9_C = "SecretWall";
+  public const string ESMILIA_SECRET_9_O = "9";
+  public const float ESMILIA_SECRET_9_X = 24.0f;
+  public const float ESMILIA_SECRET_9_Y = 0.5f;
+  public const float ESMILIA_SECRET_9_Z = 3.0f;
+
+  public const string ESMILIA_MESSAGE_0_C = "MessageBoard";
+  public const string ESMILIA_MESSAGE_0_O = "0";
+  public const float ESMILIA_MESSAGE_0_X = 28.0f;
+  public const float ESMILIA_MESSAGE_0_Y = 1.0f;
+  public const float ESMILIA_MESSAGE_0_Z = 7.0f;
+
   #endregion
   #region "階段"
   public const string ESMILIA_1_DOWNSTAIR_1_C = "Downstair";

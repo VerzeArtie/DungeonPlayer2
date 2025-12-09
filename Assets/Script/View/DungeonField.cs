@@ -178,6 +178,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Edelgarzen_Mirror;
   public FieldObject prefab_Edelgarzen_Door;
   public FieldObject prefab_ObsidianPortal;
+  public FieldObject prefab_Esmilia_SecretWall;
 
   // Decision
   public GameObject GroupDecision;
@@ -533,6 +534,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Edelgarzen_Mirror");
     ObjectList.Add("Edelgarzen_Door");
     ObjectList.Add("ObsidianPortal");
+    ObjectList.Add("Esmilia_SecretWall");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -3947,6 +3949,10 @@ public class DungeonField : MotherBase
           {
             MessagePack.Message000095(ref QuestMessageList, ref QuestEventList); TapOK();
           }
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_MESSAGE_0_X, Fix.ESMILIA_MESSAGE_0_Y, Fix.ESMILIA_MESSAGE_0_Z))
+        {
+          MessagePack.Message2600000(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
@@ -9107,6 +9113,25 @@ public class DungeonField : MotherBase
         }
       }
       return;
+    }
+
+    // オブジェクト（イベント壁）の判定
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Esmilia_SecretWall)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_SECRET_9_X, Fix.ESMILIA_SECRET_9_Y, Fix.ESMILIA_SECRET_9_Z))
+      {
+        if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+        {
+          MessagePack.CoreScenario_GetWordOfSongWithZero(ref QuestMessageList, ref QuestEventList, direction);
+          TapOK();
+          return;
+        }
+        else
+        {
+          One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+          return;
+        }
+      }
     }
 
     tile = SearchNextTile(this.Player.transform.position, direction);
@@ -22368,6 +22393,14 @@ public class DungeonField : MotherBase
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+    }
+    else if (obj_name == "Esmilia_SecretWall")
+    {
+      current = Instantiate(prefab_Esmilia_SecretWall, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Esmilia_SecretWall;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else
     {

@@ -73,6 +73,7 @@ public class FieldObject : MonoBehaviour
     Edelgarzen_Door,
     Boss,
     ObsidianPortal,
+    Esmilia_SecretWall,
   }
 
   public Content content = Content.None;

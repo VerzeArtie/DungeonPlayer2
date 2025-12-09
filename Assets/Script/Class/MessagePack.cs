@@ -33911,6 +33911,73 @@ public static class MessagePack
   #endregion
 
   #region "天上界ジェネシスゲート／StartSeeker"
+  public static void Message2600000(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message2600000 == false)
+    {
+      One.TF.Event_Message2600000 = true;
+      Message(ref m_list, ref e_list, "（　ここに・・・看板があるとは・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　読んでみるか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　視認、知覚、認識する事なく、無なる地点へと回帰せよ。　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+      Message(ref m_list, ref e_list, "（　おかしい　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この草原区域で発生するイベントを示す内容とは思えない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ひょっとすると　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺がこの詩にたどり着いたのは　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　一体、いつの時点で・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　無なる地点・・・か・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　視認、近く、認識がないとなると、それはつまり・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　死か？　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "（　内容は覚えておこう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　他にいける箇所はなさそうだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　元の道へ戻ろう　）", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　視認、知覚、認識する事なく、無なる地点へと回帰せよ。　』", ActionEvent.None);
+    }
+  }
+
   public static void Message2600001(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message2600001 == false)
@@ -39018,6 +39085,56 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：気を付けて行かれるがよい。", ActionEvent.None);
 
+    }
+  }
+  public static void CoreScenario_GetWordOfSongWithZero(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction)
+  {
+    if (One.TF.Event_Message2600000_2 == false)
+    {
+      One.TF.Event_Message2600000_2 = true;
+      Message(ref m_list, ref e_list, "アイン：（　・・・ひょっとすると・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　獣道・・・か・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　普段なら人が通らないようなところだが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　少し身体をよじっていけば通れそうだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　よし　）", ActionEvent.None);
+
+      if (direction == Fix.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveTop);
+
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveTop);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveBottom);
+
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveBottom);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：（　どうやら潜れたみたいだな　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　進んでみよう　）", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：（　よし　）", ActionEvent.None);
+
+      if (direction == Fix.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveTop);
+
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveTop);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveBottom);
+
+        Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveBottom);
+      }
     }
   }
   #endregion

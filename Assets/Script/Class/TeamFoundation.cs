@@ -2391,6 +2391,11 @@ public class TeamFoundation : MonoBehaviour
   public bool InscribeObsidianStone_6 { set { _inscribeObsidianStone_6 = value; } get { return _inscribeObsidianStone_6; } }
 
   // Seeker Mode
+  [SerializeField] protected bool _event_message2600000 = false;
+  public bool Event_Message2600000 { get { return _event_message2600000; } set { _event_message2600000 = value; } } // エスミリア草原区域、隠し看板
+  [SerializeField] protected bool _event_message2600000_2 = false;
+  public bool Event_Message2600000_2 { get { return _event_message2600000_2; } set { _event_message2600000_2 = value; } } // エスミリア草原区域、獣道の発見
+
   [SerializeField] protected bool _event_message2600001 = false;
   public bool Event_Message2600001 { get { return _event_message2600001; } set { _event_message2600001 = value; } } // ゲーム開始時
   [SerializeField] protected bool _event_message2600003 = false;
