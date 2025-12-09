@@ -22256,7 +22256,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile2_8;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_1")
     {
@@ -22264,7 +22264,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_1;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_2")
     {
@@ -22272,7 +22272,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_2;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_3")
     {
@@ -22280,7 +22280,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_3;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_4")
     {
@@ -22288,7 +22288,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_4;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_5")
     {
@@ -22296,7 +22296,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_5;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_6")
     {
@@ -22304,7 +22304,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_6;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile3_7")
     {
@@ -22312,7 +22312,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile3_7;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile4_1")
     {
@@ -22320,7 +22320,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile4_1;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile4_2")
     {
@@ -22328,7 +22328,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile4_2;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile4_3")
     {
@@ -22336,7 +22336,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile4_3;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile4_4")
     {
@@ -22344,7 +22344,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile4_4;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_MovingTile4_5")
     {
@@ -22352,7 +22352,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_MovingTile4_5;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_RandomBall")
     {
@@ -22360,7 +22360,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_RandomBall;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Velgus_RandomBall2")
     {
@@ -22368,7 +22368,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Velgus_RandomBall2;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Edelgarzen_Mirror")
     {
@@ -22376,7 +22376,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Edelgarzen_Mirror;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Edelgarzen_Door")
     {
@@ -22384,7 +22384,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Edelgarzen_Door;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "ObsidianPortal")
     {
@@ -22392,7 +22392,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.ObsidianPortal;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);;
+      current.transform.rotation = Quaternion.Euler(q.x, q.y, q.z);
     }
     else if (obj_name == "Esmilia_SecretWall")
     {
