@@ -2038,17 +2038,17 @@ public static class One
 
   public static void RealWorldLoad()
   {
+    string targetFileName = String.Empty;
 
     foreach (string currentFile in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))
     {
-      string targetFileName;
       if (currentFile.Contains(Fix.WorldSaveNum))
       {
         targetFileName = System.IO.Path.GetFileName(currentFile);
         break;
       }
     }
-    ExecLoad(Fix.WorldSaveNum, true);
+    ExecLoad(targetFileName, true);
   }
 
   public static void ExecLoad(string targetFileName, bool forceLoad)
