@@ -3862,11 +3862,11 @@ public class TeamFoundation : MonoBehaviour
   /// <returns></returns>
   public int CheckItemBankExist(Item item, int ii)
   {
-    if (this._backpackList[ii] != null)
+    if (this._itemBankList[ii] != null)
     {
-      if (this._backpackList[ii].ItemName == item.ItemName)
+      if (this._itemBankList[ii].ItemName == item.ItemName)
       {
-        return this._backpackList[ii].StackValue;
+        return this._itemBankList[ii].StackValue;
       }
     }
     return 0;
