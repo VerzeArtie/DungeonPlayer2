@@ -18046,6 +18046,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_15_O, ActionEvent.RemoveFieldObject);
       Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_16_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "アイン：よし！", ActionEvent.None);

@@ -24359,7 +24359,7 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_7_X, Fix.VELGUS_DOOR_7_Y, Fix.VELGUS_DOOR_7_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_8_X, Fix.VELGUS_DOOR_8_Y, Fix.VELGUS_DOOR_8_Z));
       }
-      if (One.TF.Event_Message1000020_Complete)
+      if (One.TF.Event_Message1000020_Complete || One.TF.Event_Message1000020_2_Complete)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_15_X, Fix.VELGUS_DOOR_15_Y, Fix.VELGUS_DOOR_15_Z));
       }
