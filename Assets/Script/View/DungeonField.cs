@@ -2228,8 +2228,13 @@ public class DungeonField : MotherBase
     {
       direction = Fix.Direction.Bottom;
     }
-    
-    if (Input.GetKey(KeyCode.Keypad8) || Input.GetKey(KeyCode.UpArrow) || this.arrowUp)
+
+    if (this.arrowUp || this.arrowRight || this.arrowLeft || this.arrowDown)
+    {
+      movementTimer_Tick();
+    }
+
+    if (Input.GetKey(KeyCode.Keypad8) || Input.GetKey(KeyCode.UpArrow))
     {
       this.keyUp = true;
       this.keyDown = false;
@@ -2239,7 +2244,7 @@ public class DungeonField : MotherBase
       }
       movementTimer_Tick();
     }
-    if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow) || this.arrowDown)
+    if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow))
     {
       this.keyDown = true;
       this.keyUp = false;
@@ -2249,7 +2254,7 @@ public class DungeonField : MotherBase
       }
       movementTimer_Tick();
     }
-    if (Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.LeftArrow) || this.arrowLeft)
+    if (Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.LeftArrow))
     {
       this.keyLeft = true;
       this.keyRight = false;
@@ -2259,7 +2264,7 @@ public class DungeonField : MotherBase
       }
       movementTimer_Tick();
     }
-    if (Input.GetKey(KeyCode.Keypad6) || Input.GetKey(KeyCode.RightArrow) || this.arrowRight)
+    if (Input.GetKey(KeyCode.Keypad6) || Input.GetKey(KeyCode.RightArrow))
     {
       this.keyRight = true;
       this.keyLeft = false;
@@ -2306,17 +2311,26 @@ public class DungeonField : MotherBase
     //  Debug.Log("CancelKeyDownMovement call 1");
     //  CancelKeyDownMovement();
     //}
+    //if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
+    //{
+    //  if (this.keyUp == false && this.keyDown == false && this.keyLeft == false && this.keyRight == false)
+    //  {
+    //    Velgus_SpeedRun3_Timer = 0;
+    //    MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //}
+
     if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
     {
-      if (this.keyUp == false && this.keyDown == false && this.keyLeft == false && this.keyRight == false)
+      if (this.arrowUp == false && this.arrowDown == false && this.arrowLeft == false && this.arrowRight == false)
       {
         Velgus_SpeedRun3_Timer = 0;
         MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
-    
-    
+
     // [comment] イベント実行はUpdatePlayersKeyEventsで実施する。
 
     #region "カメラ移動"
@@ -3335,30 +3349,90 @@ public class DungeonField : MotherBase
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     this.arrowUp = true;
     this.arrowDown = false;
+    if (0 < this.FastKeyUpTimerTop && this.FastKeyUpTimerTop < 5)
+    {
+      this.detectFastKeyUpTop = true;
+    }
+  }
+  public void PointerUpArrowTop()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowUp = false;
+    this.FastKeyUpTimerTop = 0;
+    this.detectFastKeyUpTop = false;
+    PointerUpArrow();
   }
   public void PointerDownArrowBottom()
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     this.arrowUp = false;
     this.arrowDown = true;
+    if (0 < this.FastKeyUpTimerBottom && this.FastKeyUpTimerBottom < 5)
+    {
+      this.detectFastKeyUpBottom = true;
+    }
+  }
+  public void PointerUpArrowBottom()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowDown = false;
+    this.FastKeyUpTimerBottom = 0;
+    this.detectFastKeyUpBottom = false;
+    PointerUpArrow();
   }
   public void PointerDownArrowLeft()
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     this.arrowLeft = true;
     this.arrowRight = false;
+    if (0 < this.FastKeyUpTimerLeft && this.FastKeyUpTimerLeft < 5)
+    {
+      this.detectFastKeyUpLeft = true;
+    }
+  }
+  public void PointerUpArrowLeft()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowLeft = false;
+    this.FastKeyUpTimerLeft = 0;
+    this.detectFastKeyUpLeft = false;
+    PointerUpArrow();
   }
   public void PointerDownArrowRight()
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     this.arrowLeft = false;
     this.arrowRight = true;
+    if (0 < this.FastKeyUpTimerRight && this.FastKeyUpTimerRight < 5)
+    {
+      this.detectFastKeyUpRight = true;
+    }
+    movementTimer_Tick();
+  }
+  public void PointerUpArrowRight()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowRight = false;
+    this.FastKeyUpTimerRight = 0;
+    this.detectFastKeyUpRight = false;
+    PointerUpArrow();
   }
   public void PointerUpArrow()
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     Debug.Log("CancelKeyDownMovement call 2");
-    CancelKeyDownMovement();
+    this.interval = MOVE_INTERVAL;
+
+    if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
+    {
+      if (this.arrowUp == false && this.arrowDown == false && this.arrowLeft == false && this.arrowRight == false)
+      {
+        Velgus_SpeedRun3_Timer = 0;
+        MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    // CancelKeyDownMovement();
   }
 
   public void CancelKeyDownMovement()
@@ -3373,12 +3447,6 @@ public class DungeonField : MotherBase
     this.keyRight = false;
     this.interval = MOVE_INTERVAL;
 
-    if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
-    {
-      Velgus_SpeedRun3_Timer = 0;
-      MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
-    }
   }
 
   private void movementTimer_Tick()
@@ -3394,19 +3462,19 @@ public class DungeonField : MotherBase
     }
 
     TileInformation tile = null;
-    if (this.keyUp)
+    if (this.keyUp || this.arrowUp)
     {
       UpdatePlayersKeyEvents(Fix.Direction.Top, tile);
     }
-    else if (this.keyRight)
+    else if (this.keyRight || this.arrowRight)
     {
       UpdatePlayersKeyEvents(Fix.Direction.Right, tile);
     }
-    else if (this.keyDown)
+    else if (this.keyDown || this.arrowDown)
     {
       UpdatePlayersKeyEvents(Fix.Direction.Bottom, tile);
     }
-    else if (this.keyLeft)
+    else if (this.keyLeft || this.arrowLeft)
     {
       UpdatePlayersKeyEvents(Fix.Direction.Left, tile);
     }
