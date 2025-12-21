@@ -2840,20 +2840,20 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    // パルメティシア神殿、Duel戦：カルマンズ・オーン
-    if (One.TF.Event_Message1000292 && One.TF.Duel_CalmansOhn_Start == false)
-    {
-      Debug.Log("TapInnAccept Duel Calmans-Ohn");
-      MessagePack.DuelCall_CalmansOhn_Start(ref QuestMessageList, ref QuestEventList, sender.text);
-      TapOK();
-      return;
-    }
-
     // パルメテイシア神殿、エオネDUEL戦闘後
     if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
     {
       Debug.Log("TOWN_PARMETYSIA event Event_Message1010030");
       MessagePack.Message1010030(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
+    // パルメティシア神殿、Duel戦：カルマンズ・オーン
+    if (One.TF.Event_Message1000292 && One.TF.Duel_CalmansOhn_Start == false)
+    {
+      Debug.Log("TapInnAccept Duel Calmans-Ohn");
+      MessagePack.DuelCall_CalmansOhn_Start(ref QuestMessageList, ref QuestEventList, sender.text);
       TapOK();
       return;
     }
