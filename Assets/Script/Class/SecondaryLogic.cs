@@ -1559,6 +1559,85 @@ public static class SecondaryLogic
     return 100;
   }
 
+  public static double EtherealEdgeBlade_Effect(Character player)
+  {
+    return 500 + AP.Math.RandomInteger(200);
+  }
+  public static double EtherealEdgeBlade_Effect2(Character player)
+  {
+    return 4000 + AP.Math.RandomInteger(2000);
+  }
+  public static double EtherealEdgeBlade_Factor(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double EvilEliminateLance_Effect(Character player)
+  {
+    return 0.10f;
+  }
+  public static int EvilEliminateLance_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static int PrisonDestuctionAxe_Turn(Character player)
+  {
+    return 3;
+  }
+  public static double PrisonDestuctionAxe_Effect(Character player)
+  {
+    return 0.20f;
+  }
+
+  public static double ShingetsuenClaw_Effect(Character player)
+  {
+    return 4000 + AP.Math.RandomInteger(2000);
+  }
+
+  public static double ShingetsuenClaw_Factor(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double GarganBlazeRod_Effect(Character player)
+  {
+    return 3500 + AP.Math.RandomInteger(1500);
+  }
+  public static double GarganBlazeRod_Factor(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double JunkeiShikiBook_Effect(Character player)
+  {
+    return 0.15f;
+  }
+
+  public static double AllElementalOrb_Effect(Character player)
+  {
+    return 1.15f;
+  }
+
+  public static double SyokoPalestrideBow_Effect(Character player)
+  {
+    return 5000 + AP.Math.RandomInteger(3000);
+  }
+  public static double SyokoPalestrideBow_Factor(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double LabyrinthMageBlueStaff_Effect(Character player)
+  {
+    return 4500 + AP.Math.RandomInteger(2500);
+  }
+  public static double LabyrinthMageBlueStaff_Factor(Character player)
+  {
+    return 1.15f;
+  }
+
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

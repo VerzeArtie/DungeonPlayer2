@@ -9876,7 +9876,17 @@ public partial class BattleEnemy : MotherBase
           Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicDefenseUp " + effect);
           ExecBuffMagicDefenseUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
         }
-      }      
+      }
+
+      // 純景の四季本による効果
+      if (AllList[ii].IsEquip(Fix.JUNKEI_SHIKI_BOOK))
+      {
+        double effect = AllList[ii].MaxInstantPoint * SecondaryLogic.JunkeiShikiBook_Effect(AllList[ii]);
+        Debug.Log("Equip " + Fix.JUNKEI_SHIKI_BOOK + " Advance InstantGauge " + effect);
+        AllList[ii].CurrentInstantPoint += (int)(effect);
+        AllList[ii].UpdateInstantPointGauge();
+        StartAnimation(AllList[ii].objGroup.gameObject, Fix.EFFECT_GAIN_INSTANT, Fix.COLOR_NORMAL);
+      }
     }
     Debug.Log("UpdateTurnEnd(E)");
   }
@@ -10938,6 +10948,82 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // エスリアル・エッジ・ブレードによる効果
+    if (player.IsEquip(Fix.ETHEREAL_EDGE_BLADE))
+    {
+      double effectValue = SecondaryLogic.EtherealEdgeBlade_Effect(player);
+      AbstractHealCommand(player, player, effectValue, false);
+
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.EtherealEdgeBlade_Effect2(player) + MagicDamageLogic(player, target, SecondaryLogic.EtherealEdgeBlade_Factor(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.ETHEREAL_EDGE_BLADE + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Colorless, addDamageValue);
+    }
+
+    // イビル・エリミネーション・ランスによる効果
+    if (player.IsEquip(Fix.EVIL_ELIMINATION_LANCE))
+    {
+      double effectValue = SecondaryLogic.EvilEliminateLance_Effect(player);
+      Debug.Log("Equip " + Fix.EVIL_ELIMINATION_LANCE + " BattleSpeedUp effect " + effectValue.ToString());
+      ExecBuffBattleSpeedUp(player, player, SecondaryLogic.EvilEliminateLance_Turn(player), effectValue);
+
+      double effectValue2 = SecondaryLogic.EvilEliminateLance_Effect(player);
+      Debug.Log("Equip " + Fix.EVIL_ELIMINATION_LANCE + " BattleResponseUp effect " + effectValue2.ToString());
+      ExecBuffBattleResponseUp(player, player, SecondaryLogic.EvilEliminateLance_Turn(player), effectValue2);
+    }
+
+    // プリズン・デストラクション・アックスによる効果
+    if (player.IsEquip(Fix.PRISON_DESTRUCTION_AXE))
+    {
+      int rand = AP.Math.RandomInteger(3);
+      if (rand == 0)
+      {
+        double effectValue = SecondaryLogic.PrisonDestuctionAxe_Effect(player);
+        Debug.Log("Equip " + Fix.PRISON_DESTRUCTION_AXE + " PhysicalDefenseDown effect " + effectValue.ToString());
+        ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.PrisonDestuctionAxe_Turn(player), effectValue);
+      }
+      else if (rand == 1)
+      {
+        double effectValue = SecondaryLogic.PrisonDestuctionAxe_Effect(player);
+        Debug.Log("Equip " + Fix.PRISON_DESTRUCTION_AXE + " MagicDefenseDown effect " + effectValue.ToString());
+        ExecBuffMagicDefenseDown(player, target, SecondaryLogic.PrisonDestuctionAxe_Turn(player), effectValue);
+      }
+      else if (rand == 2)
+      {
+        double effectValue = SecondaryLogic.PrisonDestuctionAxe_Effect(player);
+        Debug.Log("Equip " + Fix.PRISON_DESTRUCTION_AXE + " BattleSpeedDown effect " + effectValue.ToString());
+        ExecBuffBattleSpeedDown(player, target, SecondaryLogic.PrisonDestuctionAxe_Turn(player), effectValue);
+      }
+    }
+
+    // 深月淵の爪による効果
+    if (player.IsEquip(Fix.SHINGETSUEN_CLAW))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.ShingetsuenClaw_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.ShingetsuenClaw_Factor(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.SHINGETSUEN_CLAW + " Additional Damage Ice " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Ice, addDamageValue);
+
+      bool resultCritical3 = false;
+      double addDamageValue3 = SecondaryLogic.ShingetsuenClaw_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.ShingetsuenClaw_Factor(player), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical, ref resultCritical3);
+      Debug.Log("Equip " + Fix.SHINGETSUEN_CLAW + " Additional Damage HolyLight " + addDamageValue3.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.HolyLight, addDamageValue3);
+    }
+
+    // 曙光・ペイルストライド・ボウによる効果
+    if (player.IsEquip(Fix.SYOKO_PALESTRIDE_BOW))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.SyokoPalestrideBow_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.SyokoPalestrideBow_Factor(player), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.SYOKO_PALESTRIDE_BOW + " Additional Damage HolyLight " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.HolyLight, addDamageValue);
+
+      bool resultCritical3 = false;
+      double addDamageValue3 = SecondaryLogic.SyokoPalestrideBow_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.SyokoPalestrideBow_Factor(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical, ref resultCritical3);
+      Debug.Log("Equip " + Fix.SYOKO_PALESTRIDE_BOW + " Additional Damage DarkMagic " + addDamageValue3.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.DarkMagic, addDamageValue3);
+    }
+
     // 神剣  フェルトゥーシュによる効果
     if (player.IsEquip(Fix.LEGENDARY_FELTUS))
     {
@@ -11210,6 +11296,30 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Equip " + Fix.SWIFTCROSS_OF_REDTHUNDER + " reflect damage " + effectValue.ToString());
         StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
         ApplyDamage(target, player, effectValue, false, animation_speed);
+      }
+    }
+
+    // ガルガン・ブレイズ・ロッドによる効果
+    if (player.IsEquip(Fix.GARGAN_BLAZE_ROD))
+    {
+      for (int ii = 0; ii < 2; ii++)
+      {
+        bool resultCritical2 = false;
+        double addDamageValue = SecondaryLogic.GarganBlazeRod_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.GarganBlazeRod_Factor(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ref resultCritical2);
+        Debug.Log("Equip " + Fix.GARGAN_BLAZE_ROD + " Additional Damage " + addDamageValue.ToString());
+        ExecElementalDamage(target, Fix.DamageSource.Fire, addDamageValue);
+      }
+    }
+
+    // 迷宮魔導士の蒼き大杖による効果
+    if (player.IsEquip(Fix.LABYRINTH_MAGE_BLUESTAFF))
+    {
+      for (int ii = 0; ii < 2; ii++)
+      {
+        bool resultCritical2 = false;
+        double addDamageValue = SecondaryLogic.LabyrinthMageBlueStaff_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.LabyrinthMageBlueStaff_Factor(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ref resultCritical2);
+        Debug.Log("Equip " + Fix.LABYRINTH_MAGE_BLUESTAFF + " Additional Damage " + addDamageValue.ToString());
+        ExecElementalDamage(target, Fix.DamageSource.Ice, addDamageValue);
       }
     }
 
@@ -14304,6 +14414,15 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
       }
 
+      // オール・エレメンタル・オーブによる効果
+      if (player.IsEquip(Fix.ALL_ELEMENTAL_ORB))
+      {
+        double addCritical = SecondaryLogic.AllElementalOrb_Effect(player);
+        Debug.Log("Equip " + Fix.ALL_ELEMENTAL_ORB + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.ALL_ELEMENTAL_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Random) ( " + rand.ToString() + " / " + current + " ) " + damageValue.ToString());
       UpdateMessage("クリティカル発生！");
@@ -14327,6 +14446,15 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (before) " + damageValue);
         damageValue *= addCritical;
         Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+      
+      // オール・エレメンタル・オーブによる効果
+      if (player.IsEquip(Fix.ALL_ELEMENTAL_ORB))
+      {
+        double addCritical = SecondaryLogic.AllElementalOrb_Effect(player);
+        Debug.Log("Equip " + Fix.ALL_ELEMENTAL_ORB + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.ALL_ELEMENTAL_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
       }
 
       result_critical = true;
