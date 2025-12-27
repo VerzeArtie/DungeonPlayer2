@@ -10151,7 +10151,12 @@ public partial class Item
         this._physicalAttackMax = 1800;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００。【特殊効果】物理攻撃がヒットする毎に、無属性の魔法ダメージを与え、自分自身のライフを回復する。";
+        this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００、力＋２５０、心＋５０【特殊効果】物理攻撃がヒットする毎に、無属性の魔法ダメージを与え、自分自身のライフを回復する。";
+        this._strength = 250;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 50;
         break;
 
       case Fix.MERGIZD_DAV_AGITATED_BLADE:
@@ -10185,7 +10190,12 @@ public partial class Item
         this._physicalAttackMax = 2100;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "諸悪の根源を抹消するために作成された槍。槍全体からは禍々しいオーラが放たれているが使用者には一切影響はなく、通常の武具として振る舞える。物理攻撃力１６００～２１００。【特殊効果】物理攻撃がヒットする度に、戦闘速度と戦闘反応が１０％上昇する。";
+        this._description = "諸悪の根源を抹消するために作成された槍。槍全体からは禍々しいオーラが放たれているが使用者には一切影響はなく、通常の武具として振る舞える。物理攻撃力１６００～２１００、力＋２００、技＋３００【特殊効果】物理攻撃がヒットする度に、戦闘速度と戦闘反応が10％上昇する。";
+        this._strength = 200;
+        this._agility = 300;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
         break;
 
       case Fix.PRISON_DESTRUCTION_AXE:
@@ -10196,7 +10206,12 @@ public partial class Item
         this._physicalAttackMax = 2600;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "どれだけ強固な監獄を築いても、この斧が存在する限り、監獄が絶対に破られないという事はありえない。想像を絶する破壊力はあらゆるものを打破する。物理攻撃力２０００～２６００。【特殊効果】物理攻撃が対象にヒットする度に、対象の物理防御／魔法防御／戦闘速度のいずれかが20%減少する。";
+        this._description = "どれだけ強固な監獄を築いても、この斧が存在する限り、監獄が絶対に破られないという事はありえない。想像を絶する破壊力はあらゆるものを打破する。物理攻撃力２０００～２６００、力＋４００、体＋２００【特殊効果】物理攻撃が対象にヒットする度に、対象の物理防御／魔法防御／戦闘速度のいずれかが20%減少する。";
+        this._strength = 400;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 200;
+        this._mind = 0;
         break;
 
       case Fix.SHINGETSUEN_CLAW:
@@ -10207,7 +10222,12 @@ public partial class Item
         this._physicalAttackMax = 1600;
         this._gold = 2000000;
         this._importantType = Important.None;
-        this._description = "月が描く曲線美を模倣しようとして作られた爪。全体的に曲がっており、攻撃ヒット時見た目以上のダメージを与える事に成功する。物理攻撃力１３００～１６００。【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージと【聖】ダメージが追加で発生する。";
+        this._description = "月が描く曲線美を模倣しようとして作られた爪。全体的に曲がっており、攻撃ヒット時見た目以上のダメージを与える事に成功する。物理攻撃力１３００～１６００、技＋２５０、心＋５０【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージと【聖】ダメージが追加で発生する。";
+        this._strength = 0;
+        this._agility = 250;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 50;
         break;
 
       case Fix.GARGAN_BLAZE_ROD:
@@ -10218,7 +10238,12 @@ public partial class Item
         this._magicAttackMax = 1800;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "ガルガンの山に住まう伝説の竜は、世界が危機に瀕した時、業火で不浄なる大地を浄化すると言われている。その時の業火を杖に魔力として込められている。魔法攻撃力１４００～１８００。【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で２回発生する。";
+        this._description = "ガルガンの山に住まう伝説の竜は、世界が危機に瀕した時、業火で不浄なる大地を浄化すると言われている。その時の業火を杖に魔力として込められている。魔法攻撃力１４００～１８００、知＋２５０、心＋５０【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で２回発生する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 250;
+        this._stamina = 0;
+        this._mind = 50;
         break;
 
       case Fix.JUNKEI_SHIKI_BOOK:
@@ -10229,7 +10254,12 @@ public partial class Item
         this._magicAttackMax = 2100;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "風景を示すイラストが描かれているが、実質的な魔力が込められている。その該当ページを開いて詠唱する事で、本来の威力以上の効果を発揮する事ができる。魔法攻撃力１６００～２１００。【特殊効果】ターン経過毎に、インスタントゲージが１５％進行する。";
+        this._description = "風景を示すイラストが描かれているが、実質的な魔力が込められている。その該当ページを開いて詠唱する事で、本来の威力以上の効果を発揮する事ができる。魔法攻撃力１６００～２１００、知＋４００、体＋２００【特殊効果】ターン経過毎に、インスタントゲージが１５％進行する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 400;
+        this._stamina = 200;
+        this._mind = 0;
         break;
 
       case Fix.SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK:
@@ -10240,12 +10270,12 @@ public partial class Item
         this._magicAttackMax = 3900;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "古代賢者シェズルは元々戦闘は好まず、純粋に知識のみを欲していた。知識を獲得するための道具として本は重要であるが、実戦的である必要性も常に感じ取っていた。とある事象を境にし、完全なる戦闘術を獲得する。この本はその軌跡の原点を示すものである。魔法攻撃力２７００～３９００、技＋２００，知＋５００、心＋１００、魔防率３０％、戦応率２０％、潜在率２０％、氷増幅４０％、闇増幅４０％";
+        this._description = "古代賢者シェズルは元々戦闘は好まず、純粋に知識のみを欲していた。知識を獲得するための道具として本は重要であるが、実戦的である必要性も常に感じ取っていた。とある事象を境にし、完全なる戦闘術を獲得する。この本はその軌跡の原点を示すものである。魔法攻撃力２７００～３９００、技＋２００，知＋５００、心＋３００、魔防率３０％、戦応率２０％、潜在率２０％、氷増幅４０％、闇増幅４０％";
         this._strength = 0;
         this._agility = 200;
         this._intelligence = 500;
         this._stamina = 0;
-        this._mind = 100;
+        this._mind = 300;
         this._amplifyMagicDefense = 1.30f;
         this._amplifyBattleResponse = 1.20f;
         this._amplifyPotential = 1.20f;
@@ -10261,7 +10291,12 @@ public partial class Item
         this._magicAttackMax = 1600;
         this._gold = 2000000;
         this._importantType = Important.None;
-        this._description = "全属性の魔力が込められた水晶。虹色に輝く時もあれば、特定の属性色になる時もある。魔法攻撃力１３００～１６００。【特殊効果】魔法攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１５％上昇する。";
+        this._description = "全属性の魔力が込められた水晶。虹色に輝く時もあれば、特定の属性色になる時もある。魔法攻撃力１３００～１６００、技＋２５０、知＋２５０【特殊効果】魔法攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１５％上昇する。";
+        this._strength = 0;
+        this._agility = 250;
+        this._intelligence = 250;
+        this._stamina = 0;
+        this._mind = 0;
         break;
 
       case Fix.SYOKO_PALESTRIDE_BOW:
@@ -10272,7 +10307,12 @@ public partial class Item
         this._physicalAttackMax = 3700;
         this._gold = 3000000;
         this._importantType = Important.None;
-        this._description = "質素な見た目と特徴の無い弓だが、一点、極小の光が矢の突出箇所に凝縮されている。ダメージを食らった時の威力はあらゆる想定を遥かに超えてくる。物理攻撃力３１００～３７００。【特殊効果】物理攻撃が対象にヒットする度に、【聖】ダメージと【闇】ダメージが追加で発生する。";
+        this._description = "質素な見た目と特徴の無い弓だが、一点、極小の光が矢の突出箇所に凝縮されている。ダメージを食らった時の威力はあらゆる想定を遥かに超えてくる。物理攻撃力３１００～３７００、力＋３５０、技＋３５０【特殊効果】物理攻撃が対象にヒットする度に、【聖】ダメージと【闇】ダメージが追加で発生する。";
+        this._strength = 350;
+        this._agility = 0;
+        this._intelligence = 350;
+        this._stamina = 0;
+        this._mind = 0;
         break;
 
       case Fix.LABYRINTH_MAGE_BLUESTAFF:
@@ -10283,7 +10323,12 @@ public partial class Item
         this._magicAttackMax = 3600;
         this._gold = 3100000;
         this._importantType = Important.None;
-        this._description = "迷宮を作り続ける魔導士は、年を取る事すら忘れ、ひたすらに深い階層を描き続ける。深淵に辿り着くころは、この蒼き大杖が唯一の道標となっている事だろう。魔法攻撃力３０００～３６００。【特殊能力】魔法攻撃が対象にヒットする度に、対象に【氷】ダメージが追加で２回発生する。";
+        this._description = "迷宮を作り続ける魔導士は、年を取る事すら忘れ、ひたすらに深い階層を描き続ける。深淵に辿り着くころは、この蒼き大杖が唯一の道標となっている事だろう。魔法攻撃力３０００～３６００、知＋３００、心＋１００【特殊能力】魔法攻撃が対象にヒットする度に、対象に【氷】ダメージが追加で２回発生する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 300;
+        this._stamina = 0;
+        this._mind = 100;
         break;
 
       case Fix.MAJESTIC_FORCE_SHIELD:
