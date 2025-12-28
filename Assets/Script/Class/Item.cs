@@ -8311,12 +8311,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０、力＋８４、心＋３６【特殊効果】戦闘開始時、自分自身に【スタンス・オブ・ブレイド】のBUFFが付与される。";
+        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０、力＋８４、心＋５６【特殊効果】戦闘開始時、自分自身に【スタンス・オブ・ブレイド】のBUFFが付与される。";
         this._strength = 84;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 36;
+        this._mind = 56;
         break;
 
       case Fix.MASTER_LANCE:
@@ -10151,12 +10151,12 @@ public partial class Item
         this._physicalAttackMax = 1800;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００、力＋２５０、心＋５０【特殊効果】物理攻撃がヒットする毎に、無属性の魔法ダメージを与え、自分自身のライフを回復する。";
+        this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００、力＋２５０、心＋１００【特殊効果】物理攻撃がヒットする毎に、無属性の魔法ダメージを与え、自分自身のライフを回復する。";
         this._strength = 250;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 50;
+        this._mind = 100;
         break;
 
       case Fix.MERGIZD_DAV_AGITATED_BLADE:
@@ -10169,12 +10169,12 @@ public partial class Item
         this._magicAttackMax = 2300;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "古代賢者メルギズドは、自我と武具において相性の観点が必要不可欠である事を見出していた。そのため、長く愛用していた剣を完全に捨て、この剣を作成するに至った。その威力は限界値を突破する事に成功している。物理攻撃力２４００～３５００、魔法攻撃力１６００～２３００、力＋５００、知＋２００、心＋１００、戦速率２５、戦応率２５％、潜在率２０％、炎増幅４０％、氷増幅４０％";
+        this._description = "古代賢者メルギズドは、自我と武具において相性の観点が必要不可欠である事を見出していた。そのため、長く愛用していた剣を完全に捨て、この剣を作成するに至った。その威力は限界値を突破する事に成功している。物理攻撃力２４００～３５００、魔法攻撃力１６００～２３００、力＋５００、知＋３００、心＋２００、戦速率２５、戦応率２５％、潜在率２０％、炎増幅４０％、氷増幅４０％";
         this._strength = 500;
-        this._agility = 200;
+        this._agility = 300;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 100;
+        this._mind = 200;
         this._amplifyBattleSpeed = 1.25f;
         this._amplifyBattleResponse = 1.25f;
         this._amplifyPotential = 1.20f;
@@ -10222,12 +10222,12 @@ public partial class Item
         this._physicalAttackMax = 1600;
         this._gold = 2000000;
         this._importantType = Important.None;
-        this._description = "月が描く曲線美を模倣しようとして作られた爪。全体的に曲がっており、攻撃ヒット時見た目以上のダメージを与える事に成功する。物理攻撃力１３００～１６００、技＋２５０、心＋５０【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージと【聖】ダメージが追加で発生する。";
+        this._description = "月が描く曲線美を模倣しようとして作られた爪。全体的に曲がっており、攻撃ヒット時見た目以上のダメージを与える事に成功する。物理攻撃力１３００～１６００、技＋２５０、心＋１００【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージと【聖】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 250;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 50;
+        this._mind = 100;
         break;
 
       case Fix.GARGAN_BLAZE_ROD:
@@ -10238,12 +10238,12 @@ public partial class Item
         this._magicAttackMax = 1800;
         this._gold = 2100000;
         this._importantType = Important.None;
-        this._description = "ガルガンの山に住まう伝説の竜は、世界が危機に瀕した時、業火で不浄なる大地を浄化すると言われている。その時の業火を杖に魔力として込められている。魔法攻撃力１４００～１８００、知＋２５０、心＋５０【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で２回発生する。";
+        this._description = "ガルガンの山に住まう伝説の竜は、世界が危機に瀕した時、業火で不浄なる大地を浄化すると言われている。その時の業火を杖に魔力として込められている。魔法攻撃力１４００～１８００、知＋２５０、心＋１００【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で２回発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 250;
         this._stamina = 0;
-        this._mind = 50;
+        this._mind = 100;
         break;
 
       case Fix.JUNKEI_SHIKI_BOOK:
