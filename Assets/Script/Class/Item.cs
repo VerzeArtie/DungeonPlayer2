@@ -6028,9 +6028,9 @@ public partial class Item
         this._description = "太陽をシンボルとして光を放ち続ける葉。葉に込められた魔力は聖なる輝きを周囲へ放つ。知＋４０、体＋２０、心＋１５、睡眠耐性、聖増幅＋５％";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 50;
+        this._intelligence = 40;
+        this._stamina = 20;
+        this._mind = 15;
         break;
 
       case Fix.SPIRIT_TUNOBUE:
