@@ -8311,12 +8311,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊効果】戦闘開始時、自分自身に【スタンス・オブ・ブレイド】のBUFFが付与される。";
-        this._strength = 0;
+        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０、力＋８４、心＋３６【特殊効果】戦闘開始時、自分自身に【スタンス・オブ・ブレイド】のBUFFが付与される。";
+        this._strength = 84;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 36;
         break;
 
       case Fix.MASTER_LANCE:
@@ -8357,9 +8357,9 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００【特殊効果】戦闘開始時、【スピード・ステップ】のBUFFが付与される。";
-        this._strength = 0;
-        this._agility = 0;
+        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００、力＋６０、技＋１００【特殊効果】戦闘開始時、【スピード・ステップ】のBUFFが付与される。";
+        this._strength = 60;
+        this._agility = 100;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -8403,11 +8403,11 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 330000;
         this._importantType = Important.None;
-        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０【特殊効果】戦闘開始時、味方フィールドに【ドミネーション・フィールド】のBUFFが付与される。";
-        this._strength = 0;
+        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０、力＋１００、体＋６０【特殊効果】戦闘開始時、味方フィールドに【ドミネーション・フィールド】のBUFFが付与される。";
+        this._strength = 100;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 60;
         this._mind = 0;
         break;
 
@@ -8449,12 +8449,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０【特殊効果】戦闘開始時、味方フィールドに【レイライン・スキーマ】のBUFFが付与される。";
+        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０、技＋１２０、心＋４０【特殊効果】戦闘開始時、味方フィールドに【レイライン・スキーマ】のBUFFが付与される。";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 120;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 40;
         break;
 
       case Fix.MASTER_ROD:
@@ -8495,12 +8495,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００【特殊効果】ターン経過毎に、自分にかかっている負のBUFFが１つ解除される。この効果で１つ負のBUFFが除去される毎に、自分自身の魔法攻撃力／魔法防御力が１０％上昇する。";
+        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００、知＋１２０、心＋４０【特殊効果】ターン経過毎に、自分にかかっている負のBUFFが１つ解除される。この効果で１つ負のBUFFが除去される毎に、自分自身の魔法攻撃力／魔法防御力が１０％上昇する。";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 120;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 40;
         break;
 
       case Fix.MASTER_BOOK:
@@ -8541,11 +8541,11 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００【特殊効果】魔法攻撃がヒットする度に、２０％の確率で沈黙／束縛／睡眠／鈍化／眩暈のいずれかのBUFFが付与される。";
+        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００、知＋１２０、体＋８０【特殊効果】魔法攻撃がヒットする度に、２０％の確率で沈黙／束縛／睡眠／鈍化／眩暈のいずれかのBUFFが付与される。";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
+        this._intelligence = 120;
+        this._stamina = 80;
         this._mind = 0;
         break;
 
@@ -8587,10 +8587,10 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０【特殊効果】魔法攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１０％上昇する。";
+        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０、技＋９０、知＋９０【特殊効果】魔法攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１０％上昇する。";
         this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
+        this._agility = 90;
+        this._intelligence = 90;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -8633,12 +8633,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 370000;
         this._importantType = Important.None;
-        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０【特殊効果】物理攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１０％上昇する。";
-        this._strength = 0;
+        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０、力＋１２０、心＋４０【特殊効果】物理攻撃がクリティカルでヒットした場合、クリティカルダメージ量が１０％上昇する。";
+        this._strength = 120;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 40;
         break;
 
       case Fix.MASTER_LARGE_LANCE:
@@ -8679,9 +8679,9 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 410000;
         this._importantType = Important.None;
-        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０【特殊効果】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が１０％上昇する。";
-        this._strength = 0;
-        this._agility = 0;
+        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０、力＋１００、技＋１２０【特殊効果】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が１０％上昇する。";
+        this._strength = 100;
+        this._agility = 120;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -8725,11 +8725,11 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０【特殊効果】物理攻撃がヒットする度に、２０％の確率でスタン／麻痺／恐怖／鈍化のいずれかのBUFFが付与される。";
-        this._strength = 0;
+        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０、力＋１００、体＋１４０【特殊効果】物理攻撃がヒットする度に、２０％の確率でスタン／麻痺／恐怖／鈍化のいずれかのBUFFが付与される。";
+        this._strength = 100;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 140;
         this._mind = 0;
         break;
 
@@ -8771,10 +8771,10 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 520000;
         this._importantType = Important.None;
-        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０【特殊効果】戦闘開始時、【フレイム・ブレイド】と【一心の眼】のBUFFが付与される。";
-        this._strength = 0;
+        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０、力＋１２０、知＋１２０【特殊効果】戦闘開始時、【フレイム・ブレイド】と【一心の眼】のBUFFが付与される。";
+        this._strength = 120;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 120;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -8817,12 +8817,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 510000;
         this._importantType = Important.None;
-        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０【特殊効果】戦闘開始時、味方フィールドに【エンジェリック・エコー】のBUFFが付与される。ライフ回復を伴う魔法を使用した時、ライフ回復量が２０%上昇する。";
+        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０、知＋１６０、心＋６０【特殊効果】戦闘開始時、味方フィールドに【エンジェリック・エコー】のBUFFが付与される。ライフ回復を伴う魔法を使用した時、ライフ回復量が２０%上昇する。";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 160;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 60;
         break;
 
       case Fix.MASTER_SHIELD:
