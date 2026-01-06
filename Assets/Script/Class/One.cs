@@ -1322,7 +1322,7 @@ public static class One
 
     bgmSource[BgmNumber].Stop();
     bgmSource[BgmNumber].clip = Resources.Load<AudioClip>(Fix.BaseMusicFolder + targetMusicName);
-    bgmSource[BgmNumber].loop = false;
+    bgmSource[BgmNumber].loop = true; // false
     bgmSource[BgmNumber].volume = (float)((float)One.CONF.EnableBGM / 100.0f);
     bgmSource[BgmNumber].time = 0;
     bgmSource[BgmNumber].Play();
@@ -2267,7 +2267,7 @@ public static class One
 
     for (int ii = 0; ii < listItemBankValue.Count; ii++)
     {
-      Debug.Log("listItemBankStack: " + listItemBankStack[ii]);
+      Debug.Log("listItemBankValue: " + listItemBankValue[ii]);
       for (int jj = 0; jj < Convert.ToInt32(listItemBankStack[ii]); jj++)
       {
         Item current = new Item(listItemBankValue[ii]);
