@@ -30708,6 +30708,15 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900116_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　・・・　待てよ　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　今は触れない方がいい気がする　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　先に進めてみよう　）", ActionEvent.None);
+  }
+
   public static void Message1900117(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "6", ActionEvent.UpdateUnknownTile);
