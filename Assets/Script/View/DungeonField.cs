@@ -935,7 +935,14 @@ public class DungeonField : MotherBase
         }
       }
 
-      One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
+      }
+      else
+      {
+        One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
+      }
       return;
     }
 
