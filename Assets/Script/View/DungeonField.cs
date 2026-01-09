@@ -9131,17 +9131,7 @@ public class DungeonField : MotherBase
           return;
         }
 
-        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_87_X, Fix.EDELGARZEN_3_MIRROR_87_Y, Fix.EDELGARZEN_3_MIRROR_87_Z))
-        {
-          ChooseDstMirror(88);
-          return;
-        }
-
-        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_87_X, Fix.EDELGARZEN_3_MIRROR_87_Y, Fix.EDELGARZEN_3_MIRROR_87_Z))
-        {
-          ChooseDstMirror(88);
-          return;
-        }
+        // 87は記述不要
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_88_X, Fix.EDELGARZEN_3_MIRROR_88_Y, Fix.EDELGARZEN_3_MIRROR_88_Z))
         {
@@ -9151,7 +9141,14 @@ public class DungeonField : MotherBase
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_89_X, Fix.EDELGARZEN_3_MIRROR_89_Y, Fix.EDELGARZEN_3_MIRROR_89_Z))
         {
-          ChooseDstMirror(0);
+          if (One.TF.FindBackPackItem(Fix.EDELGARZEN_KEY4))
+          {
+            ChooseDstMirror(0);
+          }
+          else
+          {
+            MessagePack.Message1900116_2(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
           return;
         }
 
