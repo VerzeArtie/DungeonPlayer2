@@ -939,6 +939,10 @@ public class DungeonField : MotherBase
       {
         One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
+      {
+        One.StopDungeonMusic(); // BGMなし
+      }
       else
       {
         One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
