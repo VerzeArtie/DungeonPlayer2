@@ -611,6 +611,11 @@ public class DungeonField : MotherBase
     {
       this.FirstAction = true;
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
+      {
+        One.StopDungeonMusic(); // BGMなし
+      }
+
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
