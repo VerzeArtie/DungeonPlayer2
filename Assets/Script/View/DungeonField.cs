@@ -611,9 +611,21 @@ public class DungeonField : MotherBase
     {
       this.FirstAction = true;
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
+      }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
       {
         One.StopDungeonMusic(); // BGMなし
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+      {
+        One.PlayDungeonMusic(Fix.BGM10, Fix.BGM10LoopBegin);
+      }
+      else
+      {
+        One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
       }
 
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
@@ -940,18 +952,6 @@ public class DungeonField : MotherBase
         }
       }
 
-      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
-      {
-        One.PlayDungeonMusic(Fix.BGM07, Fix.BGM07LoopBegin);
-      }
-      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
-      {
-        One.StopDungeonMusic(); // BGMなし
-      }
-      else
-      {
-        One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
-      }
       return;
     }
 
