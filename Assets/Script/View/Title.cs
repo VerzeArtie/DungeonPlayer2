@@ -62,8 +62,6 @@ public class Title : MotherBase
     {
       this.firstAction = true;
 
-      One.PlayDungeonMusic(Fix.BGM12, Fix.BGM12LoopBegin);
-
       // 初期開始時、ファイルが無い場合準備しておく。
       One.MakeDirectory();
 
@@ -210,6 +208,11 @@ public class Title : MotherBase
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
         groupSeekerMode.SetActive(true);
+        One.StopDungeonMusic();
+      }
+      else
+      {
+        One.PlayDungeonMusic(Fix.BGM12, Fix.BGM12LoopBegin);
       }
 
       TapMonsterData();
