@@ -2080,6 +2080,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "　§　　　　　　　　　　　　　　　　　　■　　　　　　　　　　　　　　　　　　§", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：ちょっと、身体を起こしなさいよ。", ActionEvent.None);
@@ -2145,6 +2147,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：うーん・・・じゃあ、【ラナ】と呼んでも問題ないか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：ご自由にどうぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic15);
 
       Message(ref m_list, ref e_list, "アイン：よし・・・じゃあ、改めまして・・・", ActionEvent.None);
 
@@ -2284,7 +2288,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：ええ、全然違うわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あれ・・・違うったか。ハハハ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：あれ・・・違ったか。ハハハ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：でもまあ良いわ。ラインの読み方自体は認めてあげる。", ActionEvent.None);
 
@@ -2318,7 +2322,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：その剣は因果律そのもの、時間律そのものよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ついでに言っておくと、存在その者が定義されていないという事自体が唯一の事象表現かしら。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ついでに言っておくと、存在そのものが定義されていないという事自体が唯一の事象表現かしら。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：え、ええとちょっと待ってくれ。さっき常にあり続けるって？", ActionEvent.None);
 
@@ -2463,6 +2467,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：じゃ、行ってらっしゃい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、球状の光に包まれ始めた！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
 
       Message(ref m_list, ref e_list, "アイン：っな！？", ActionEvent.None);
 
