@@ -623,6 +623,11 @@ public class DungeonField : MotherBase
       {
         One.PlayDungeonMusic(Fix.BGM10, Fix.BGM10LoopBegin);
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM ||
+               One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
+      {
+        One.PlayDungeonMusic(Fix.BGM10, Fix.BGM10LoopBegin);
+      }
       else
       {
         One.PlayDungeonMusic(Fix.BGM14, Fix.BGM14LoopBegin);
