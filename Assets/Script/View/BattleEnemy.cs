@@ -868,17 +868,8 @@ public partial class BattleEnemy : MotherBase
           (ec1.FullName == Fix.LEGIN_ARZE_2_JP_VIEW) ||
           (ec1.FullName == Fix.LEGIN_ARZE_3) ||
           (ec1.FullName == Fix.LEGIN_ARZE_3_JP) ||
-          (ec1.FullName == Fix.LEGIN_ARZE_3_JP_VIEW) ||
-          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN) ||
-          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP) ||
-          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW) ||
-          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT) ||
-          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP) ||
-          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW) ||
-          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT) ||
-          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP) ||
-          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
-          )
+          (ec1.FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
+        )
       {
         One.PlayDungeonMusic(Fix.BGM04, Fix.BGM04LoopBegin);
       }
@@ -950,9 +941,22 @@ public partial class BattleEnemy : MotherBase
       }
       else if ((ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN) ||
           (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP) ||
-          (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW))
+          (ec1.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP) ||
+          (ec1.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW))
       {
         One.PlayDungeonMusic(Fix.BGM05, Fix.BGM05LoopBegin);
+      }
+      else if ((ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT) ||
+          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP) ||
+          (ec1.FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP) ||
+          (ec1.FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+          )
+      {
+        One.PlayDungeonMusic(Fix.BGM23, Fix.BGM23LoopBegin);
       }
       // 通常バトル
       else
