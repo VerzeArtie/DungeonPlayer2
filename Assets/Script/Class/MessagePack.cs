@@ -35469,6 +35469,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
@@ -35476,6 +35478,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　俺はこの時どう考えていただろうか　）", ActionEvent.None);
 
@@ -35576,6 +35580,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void InscribeMatrixDragon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -35586,6 +35592,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
@@ -35593,6 +35601,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　確かに、許容される事象の境界というのは概念で形成化できるものでは無い。　）", ActionEvent.None);
 
@@ -35749,6 +35759,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
     // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void InscribeMatrixDragon_3(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -35759,6 +35771,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
@@ -35766,6 +35780,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　自分の感覚としては今、形容する事の出来ない空間と時間の狭間にいる　）", ActionEvent.None);
 
@@ -35858,6 +35874,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
     // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
   }
 
   public static void InscribeMatrixDragon_4(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -35868,6 +35886,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
@@ -35875,6 +35895,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　信念、想い、祈り　）", ActionEvent.None);
 
@@ -36057,6 +36079,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
     // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
+
+    // Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14); // メッセージ後のシーンとのつなぎを考えると、再生しなくてよい。
   }
 
 
@@ -36068,6 +36092,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：（ッグ・・・　・・・）", ActionEvent.None);
@@ -36075,6 +36101,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　触れた瞬間、石はそこに存在していないとも言える。　）", ActionEvent.None);
 
@@ -36291,6 +36319,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
     // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在意志＞を習得 】", ActionEvent.MessageDisplay);
+
+    // Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14); // メッセージ後のシーンとのつなぎを考えると、再生しなくてよい。
   }
 
   public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -36301,6 +36331,8 @@ public static class MessagePack
       One.UpdateAkashicRecord();
     }
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
@@ -36308,6 +36340,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic18);
 
     Message(ref m_list, ref e_list, "　　（　ココに訪れたのは何時だったか　）", ActionEvent.None);
 
@@ -36460,6 +36494,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "支配竜：何時いかなる時間律においても我は呼びかけに応じるだろう", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    // Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14); // メッセージ後のシーンとのつなぎを考えると、再生しなくてよい。
   }
 
   public static void MessageXXX(ref List<string> m_list, ref List<ActionEvent> e_list)
