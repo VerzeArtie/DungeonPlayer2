@@ -2543,9 +2543,12 @@ public class DungeonField : MotherBase
 
   public void TapFastTravel()
   {
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
     {
-      this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
+      // this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
+      return;
     }
     else
     {
