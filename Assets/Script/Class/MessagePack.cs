@@ -2148,7 +2148,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：ご自由にどうぞ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic15);
+      Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic16);
 
       Message(ref m_list, ref e_list, "アイン：よし・・・じゃあ、改めまして・・・", ActionEvent.None);
 
