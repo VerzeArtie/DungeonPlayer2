@@ -25,6 +25,9 @@ public class Ending : MotherBase
     if (this.FirstAction == false)
     {
       this.FirstAction = true;
+
+      One.PlayDungeonMusic(Fix.BGM15, Fix.BGM15LoopBegin);
+
       StartEnding(One.EndingNumber);
       return;
     }
