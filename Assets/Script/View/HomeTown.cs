@@ -1785,7 +1785,7 @@ public partial class HomeTown : MotherBase
         MessagePack.Message2200020(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      else if (One.TF.DefeatBighandKraken && One.TF.EventCore_AcknowledgeFeltus == false)
+      else if (One.TF.DefeatBighandKraken &&　One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM) && One.TF.FindBackPackItem(Fix.BLUESKY_STAR_FEATHER) && One.TF.EventCore_AcknowledgeFeltus == false)
       {
         MessagePack.CoreScenario_AcknowledgeFeltus(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -2815,7 +2815,7 @@ public partial class HomeTown : MotherBase
     }
 
     // 神秘の森で「祈願の御札」を入手した後、「宝剣？？？」について熟慮
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.EventCore_SeekMissingLinkInn == false)
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.FindBackPackItem(Fix.PRECIOUS_SWORD) && One.TF.EventCore_DefeatZatkonEnd && One.TF.EventCore_SeekMissingLinkInn == false)
     {
       MessagePack.CoreScenario_SeekMissingLinkInn(ref QuestMessageList, ref QuestEventList, sender.text);
       TapOK();
