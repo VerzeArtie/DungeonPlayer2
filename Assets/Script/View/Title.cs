@@ -205,6 +205,11 @@ public class Title : MotherBase
       this.TextAccount.text = "AccountID: " + One.CONF.Account;
       AccountInputField.text = One.CONF.Account;
 
+      if (One.AR.TrueEnding)
+      {
+        this.GameEndMessage.gameObject.SetActive(true);
+      }
+
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
         groupSeekerMode.SetActive(true);
