@@ -18011,6 +18011,12 @@ public static class MessagePack
 
   public static void Message1000028(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message1000020_2_Complete)
+    {
+      // すでにクリアしているなら何もしない。
+      return;
+    }
+
     if (One.TF.Event_Message1000020_Progress2 == false)
     {
       One.TF.Event_Message1000020_Progress2 = true;
@@ -18049,6 +18055,7 @@ public static class MessagePack
     {
       Debug.Log("Event_Message1000020_2_Complete == false");
       One.TF.Event_Message1000020_2_Complete = true;
+      One.TF.Event_Message1000020_Complete = true; // 合わせて完了扱いとする。
 
       Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
 
@@ -18067,17 +18074,40 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：その通りだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：でも、例の看板の余白の件は？", ActionEvent.None);
+      if (One.TF.Event_Message1000020_Progress3 == false)
+      {
+        Message(ref m_list, ref e_list, "ラナ：でも、どの辺りから目星を付けたのかしら？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：それはおそらくこの中央の間から外れた場所を指している。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：看板にあった余白だな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：今のタイル操作で、この区画で壁になっていた箇所が一つ開放されたはずだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ビリー：余白？？？　看板なんてちょっと文字があるだけで、余白がほとんどだろ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そこへ行けば、きっと新たな通路が開けるはずだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：そうじゃないんだ。余白は文字の少し後ろの所を指している。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：テメーのワケわかんねぇ考え方も、たまには役に立つな。驚いたぜ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "『　　　右上　右下　左上　左下　　　　　』", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：結構外れる時もあるけどな。今回は的中したって感じだな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：確かにあるわね。じゃあ、そこから何か考えついたって事かしら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうだ。余白は隠し場所がある事を示している。そこを狙えばいいって考えだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：テメーのワケわかんねぇ考え方も、たまには役に立つな。驚いたぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：結構外れる時もあるけどな。今回は的中したって感じだな。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：でも、例の看板の余白の件は？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それはおそらくこの中央の間から外れた場所を指している。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：今のタイル操作で、この区画で壁になっていた箇所が一つ開放されたはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そこへ行けば、きっと新たな通路が開けるはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：テメーのワケわかんねぇ考え方も、たまには役に立つな。驚いたぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：結構外れる時もあるけどな。今回は的中したって感じだな。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "エオネ：（・・・　・・・　・・・）", ActionEvent.None);
 
