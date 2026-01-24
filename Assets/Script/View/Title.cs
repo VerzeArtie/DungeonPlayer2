@@ -15,6 +15,7 @@ public class Title : MotherBase
   public GameObject groupSeekerMode;
   public GameObject GroupSystemMessage;
   public Text SystemMessageText;
+  public GameObject GroupMenu;
 
   // Config
   public GameObject groupAccount;
@@ -204,6 +205,19 @@ public class Title : MotherBase
       Debug.Log("One.CONF.Account " + One.CONF.Account);
       this.TextAccount.text = "AccountID: " + One.CONF.Account;
       AccountInputField.text = One.CONF.Account;
+
+      if (One.CONF.Account != null && One.CONF.Account != string.Empty)
+      {
+        groupAccount.SetActive(false);
+        supportMessage.gameObject.SetActive(false);
+        GroupMenu.SetActive(true);
+      }
+      else
+      {
+        groupAccount.SetActive(true);
+        supportMessage.gameObject.SetActive(true);
+        GroupMenu.SetActive(false);
+      }
 
       if (One.AR.TrueEnding)
       {
@@ -1165,8 +1179,8 @@ public class Title : MotherBase
       SupportMessage.gameObject.SetActive(true);
       return;
     }
-    One.SQL.ChangeOwnerName("ChangeAccountName", string.Empty, string.Empty, txt.text);
-    One.CONF.Account = txt.text;
+    One.SQL.ChangeOwnerName(string.Empty, string.Empty, string.Empty, txt.text);
+    One.UpdateAccountName(txt.text);
     // Method.AutoSaveTruthWorldEnvironment();
     this.TextAccount.text = "AccountID: " + One.CONF.Account;
 
@@ -1181,5 +1195,42 @@ public class Title : MotherBase
     One.UpdateGameConfig();
     groupConfig.SetActive(false);
     groupSaveLoad.gameObject.SetActive(false);
+  }
+
+  public void TapAccountOK(Text account)
+  {
+    System.Guid guid = System.Guid.NewGuid();
+    CreateAccount(account.text, guid);
+  }
+
+  public void TapAccountSkip(Text account)
+  {
+    System.Guid guid = System.Guid.NewGuid();
+    CreateAccount(guid.ToString(), guid);
+  }
+
+  private void CreateAccount(string accountName, System.Guid guid)
+  {
+    if (accountName.Length < 2)
+    {
+      supportMessage.text = "Please enter 2 or more characters.";
+      supportMessage.gameObject.SetActive(true);
+      return;
+    }
+
+    if (One.SQL.ExistOwnerName(accountName))
+    {
+      supportMessage.text = "A character with that name already exists.";
+      supportMessage.gameObject.SetActive(true);
+      return;
+    }
+
+    One.SQL.CreateOwner(accountName, guid);
+    One.CONF.Account = accountName;
+    this.AccountInputField.text = One.CONF.Account;
+    One.UpdateAccountName(accountName);
+    groupAccount.SetActive(false);
+    GroupMenu.SetActive(true);
+    supportMessage.gameObject.SetActive(false);
   }
 }
