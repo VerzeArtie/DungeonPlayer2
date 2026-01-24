@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Data;
-//using Npgsql;
-//using NpgsqlTypes;
+using Npgsql;
+using NpgsqlTypes;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -11,7 +11,7 @@ public class ControlSQL : MonoBehaviour
   public string connection = string.Empty;
 
   private string TABLE_CHARACTER = "character_data";
-  private string TABLE_OWNER_DATA = "owner_data";
+  private string TABLE_OWNER_DATA = "dp2_owner_data";
   private string TABLE_ARCHIVEMENT = "archivement";
   private string TABLE_SAVE_DATA = "save_data";
   private string TABLE_DUEL = "duel";
@@ -42,187 +42,183 @@ public class ControlSQL : MonoBehaviour
 
   public string SelectOwner(string name)
   {
-    // if (GroundOne.SupportLog == false) { return String.Empty; }
+    if (One.CONF.SupportLog == false) { return String.Empty; }
 
     string table = TABLE_OWNER_DATA;
     string jsonData = String.Empty;
-    //try
-    //{
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    //Debug.Log("SelectOwner timeout: " + con.ConnectionTimeout);
-    //    con.OpenAsync().Wait();
-    //    NpgsqlCommand cmd = new NpgsqlCommand(@"select to_json(" + table + ") from " + table + " where name = '" + name + "'", con);
-    //    var dataReader = cmd.ExecuteReaderAsync();
-    //    while (dataReader.Result.Read())
-    //    {
-    //      jsonData += dataReader.Result[0].ToString();
-    //    }
-    //  }
-    //}
-    //catch (Exception ex)
-    //{
-    //  Debug.Log("SelectOwner error... " + DateTime.Now + " " + ex.ToString());
-    //} // ログ失敗時は、そのまま進む
+    try
+    {
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        //Debug.Log("SelectOwner timeout: " + con.ConnectionTimeout);
+        con.OpenAsync().Wait();
+        NpgsqlCommand cmd = new NpgsqlCommand(@"select to_json(" + table + ") from " + table + " where name = '" + name + "'", con);
+        var dataReader = cmd.ExecuteReaderAsync();
+        while (dataReader.Result.Read())
+        {
+          jsonData += dataReader.Result[0].ToString();
+        }
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("SelectOwner error... " + DateTime.Now + " " + ex.ToString());
+    } // ログ失敗時は、そのまま進む
 
     return jsonData;
   }
 
   public void ChangeOwnerName(string main_event, string sub_event, string current_field, string name)
   {
-    // if (GroundOne.SupportLog == false) { return; }
+    if (One.CONF.SupportLog == false) { return; }
     if (One.SQL == null) { return; }
 
-    //try
-    //{
-    //  string main_level = String.Empty;
-    //  string guid = String.Empty;
+    try
+    {
+      string main_level = String.Empty;
+      string guid = String.Empty;
 
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    con.OpenAsync().Wait();
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        con.OpenAsync().Wait();
 
-    //    NpgsqlCommand cmd = new NpgsqlCommand(@"select guid from " + TABLE_OWNER_DATA + " where name = '" + GroundOne.WE2.Account + "'", con);
-    //    var dataReader = cmd.ExecuteReaderAsync();
-    //    while (dataReader.Result.Read())
-    //    {
-    //      guid += dataReader.Result[0].ToString();
-    //    }
-    //  }
-    //  if (guid == String.Empty)
-    //  {
-    //    return;
-    //  }
+        NpgsqlCommand cmd = new NpgsqlCommand(@"select guid from " + TABLE_OWNER_DATA + " where name = '" + One.CONF.Account + "'", con);
+        var dataReader = cmd.ExecuteReaderAsync();
+        while (dataReader.Result.Read())
+        {
+          guid += dataReader.Result[0].ToString();
+        }
+      }
+      if (guid == String.Empty)
+      {
+        return;
+      }
 
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    con.OpenAsync().Wait();
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        con.OpenAsync().Wait();
 
-    //    DateTime update_time = DateTime.Now;
-    //    string updateCommand = @"update " + TABLE_OWNER_DATA + " set update_time = :update_time";
-    //    if (name != string.Empty)
-    //    {
-    //      updateCommand += ", name = :name";
-    //    }
-    //    if (main_event != string.Empty)
-    //    {
-    //      updateCommand += ", main_event = :main_event";
-    //    }
-    //    if (sub_event != string.Empty)
-    //    {
-    //      updateCommand += ", sub_event = :sub_event";
-    //    }
-    //    if (current_field != string.Empty)
-    //    {
-    //      updateCommand += ", current_field = :current_field";
-    //    }
-    //    if (main_level != string.Empty)
-    //    {
-    //      updateCommand += ", main_level = :main_level";
-    //    }
-    //    string device_type = Application.platform.ToString();
-    //    updateCommand += ", device_type = :device_type";
-    //    updateCommand += " where guid = :guid";
+        DateTime update_time = DateTime.Now;
+        string updateCommand = @"update " + TABLE_OWNER_DATA + " set update_time = :update_time";
+        if (name != string.Empty)
+        {
+          updateCommand += ", name = :name";
+        }
+        if (main_event != string.Empty)
+        {
+          updateCommand += ", main_event = :main_event";
+        }
+        if (sub_event != string.Empty)
+        {
+          updateCommand += ", sub_event = :sub_event";
+        }
+        if (current_field != string.Empty)
+        {
+          updateCommand += ", current_field = :current_field";
+        }
+        if (main_level != string.Empty)
+        {
+          updateCommand += ", main_level = :main_level";
+        }
+        string device_type = Application.platform.ToString();
+        updateCommand += ", device_type = :device_type";
+        updateCommand += " where guid = :guid";
 
-    //    NpgsqlCommand command = new NpgsqlCommand(updateCommand, con);
-    //    command.Parameters.Add(new NpgsqlParameter("name", DbType.String) { Value = name });
-    //    command.Parameters.Add(new NpgsqlParameter("update_time", DbType.DateTime) { Value = update_time });
-    //    if (main_event != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("main_event", DbType.String) { Value = main_event });
-    //    }
-    //    if (sub_event != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("sub_event", DbType.String) { Value = sub_event });
-    //    }
-    //    if (current_field != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("current_field", DbType.String) { Value = current_field });
-    //    }
-    //    if (main_level != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("main_level", DbType.String) { Value = main_level });
-    //    }
-    //    command.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
-    //    command.Parameters.Add(new NpgsqlParameter("guid", DbType.String) { Value = guid });
-    //    command.ExecuteNonQueryAsync().Wait();
-    //  }
-    //}
-    //catch (Exception ex)
-    //{
-    //  Debug.Log("ChangeOwnerName error... " + DateTime.Now + " " + ex.ToString());
-    //} // ログ失敗時は、そのまま進む
+        NpgsqlCommand command = new NpgsqlCommand(updateCommand, con);
+        command.Parameters.Add(new NpgsqlParameter("name", DbType.String) { Value = name });
+        command.Parameters.Add(new NpgsqlParameter("update_time", NpgsqlDbType.Timestamp) { Value = update_time }); // Fix-Issue ( DbType.DateTime is incorrect )
+        if (main_event != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("main_event", DbType.String) { Value = main_event });
+        }
+        if (sub_event != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("sub_event", DbType.String) { Value = sub_event });
+        }
+        if (current_field != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("current_field", DbType.String) { Value = current_field });
+        }
+        if (main_level != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("main_level", DbType.String) { Value = main_level });
+        }
+        command.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
+        command.Parameters.Add(new NpgsqlParameter("guid", DbType.String) { Value = guid });
+        command.ExecuteNonQueryAsync().Wait();
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("ChangeOwnerName error... " + DateTime.Now + " " + ex.ToString());
+    } // ログ失敗時は、そのまま進む
   }
 
-  public void UpdateOwner(string main_event, string sub_event, string current_field)
+  public void UpdateOwner(string main_event, string sub_event, string current_field, string main_level)
   {
-    // if (GroundOne.SupportLog == false) { return; }
-    if (One.SQL == null) { return; }
+    Debug.Log("UpdateOwner(S)");
+    if (One.CONF.SupportLog == false) { Debug.Log("Support Log false"); return; }
+    if (One.SQL == null) { Debug.Log("SQL null"); return; }
 
-    //try
-    //{
-    //  //Debug.Log("UpdateOwner(S) " + DateTime.Now);
-    //  string name = GroundOne.WE2.Account;
-    //  string main_level = String.Empty;
+    try
+    {
+      //Debug.Log("UpdateOwner(S) " + DateTime.Now);
+      string name = One.CONF.Account;
 
-    //  if (GroundOne.MC != null)
-    //  {
-    //    main_level = GroundOne.MC.Level.ToString();
-    //  }
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        //Debug.Log("UpdateOwner timeout: " + con.ConnectionTimeout);
+        con.OpenAsync().Wait();
+        DateTime update_time = DateTime.Now;
+        string updateCommand = @"update " + TABLE_OWNER_DATA + " set update_time = :update_time";
+        if (main_event != string.Empty)
+        {
+          updateCommand += ", main_event = :main_event";
+        }
+        if (sub_event != string.Empty)
+        {
+          updateCommand += ", sub_event = :sub_event";
+        }
+        if (current_field != string.Empty)
+        {
+          updateCommand += ", current_field = :current_field";
+        }
+        if (main_level != string.Empty)
+        {
+          updateCommand += ", main_level = :main_level";
+        }
+        string device_type = Application.platform.ToString();
+        updateCommand += ", device_type = :device_type";
+        updateCommand += " where name = :name";
 
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    //Debug.Log("UpdateOwner timeout: " + con.ConnectionTimeout);
-    //    con.OpenAsync().Wait();
-    //    DateTime update_time = DateTime.Now;
-    //    string updateCommand = @"update " + TABLE_OWNER_DATA + " set update_time = :update_time";
-    //    if (main_event != string.Empty)
-    //    {
-    //      updateCommand += ", main_event = :main_event";
-    //    }
-    //    if (sub_event != string.Empty)
-    //    {
-    //      updateCommand += ", sub_event = :sub_event";
-    //    }
-    //    if (current_field != string.Empty)
-    //    {
-    //      updateCommand += ", current_field = :current_field";
-    //    }
-    //    if (main_level != string.Empty)
-    //    {
-    //      updateCommand += ", main_level = :main_level";
-    //    }
-    //    string device_type = Application.platform.ToString();
-    //    updateCommand += ", device_type = :device_type";
-    //    updateCommand += " where name = :name";
-
-    //    NpgsqlCommand command = new NpgsqlCommand(updateCommand, con);
-    //    command.Parameters.Add(new NpgsqlParameter("name", DbType.String) { Value = name });
-    //    command.Parameters.Add(new NpgsqlParameter("update_time", NpgsqlDbType.Timestamp) { Value = update_time }); // Fix-Issue ( DbType.DateTime is incorrect )
-    //    if (main_event != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("main_event", DbType.String) { Value = main_event });
-    //    }
-    //    if (sub_event != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("sub_event", DbType.String) { Value = sub_event });
-    //    }
-    //    if (current_field != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("current_field", DbType.String) { Value = current_field });
-    //    }
-    //    if (main_level != string.Empty)
-    //    {
-    //      command.Parameters.Add(new NpgsqlParameter("main_level", DbType.String) { Value = main_level });
-    //    }
-    //    command.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
-    //    command.ExecuteNonQuery();
-    //  }
-    //}
-    //catch (Exception ex)
-    //{
-    //  Debug.Log("UpdateOwner error... " + DateTime.Now + " " + ex.ToString());
-    //} // ログ失敗時は、そのまま進む
+        NpgsqlCommand command = new NpgsqlCommand(updateCommand, con);
+        command.Parameters.Add(new NpgsqlParameter("name", DbType.String) { Value = name });
+        command.Parameters.Add(new NpgsqlParameter("update_time", NpgsqlDbType.Timestamp) { Value = update_time }); // Fix-Issue ( DbType.DateTime is incorrect )
+        if (main_event != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("main_event", DbType.String) { Value = main_event });
+        }
+        if (sub_event != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("sub_event", DbType.String) { Value = sub_event });
+        }
+        if (current_field != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("current_field", DbType.String) { Value = current_field });
+        }
+        if (main_level != string.Empty)
+        {
+          command.Parameters.Add(new NpgsqlParameter("main_level", DbType.String) { Value = main_level });
+        }
+        command.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
+        command.ExecuteNonQuery();
+        Debug.Log("UpdateOwner(E)");
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("UpdateOwner error... " + DateTime.Now + " " + ex.ToString());
+    } // ログ失敗時は、そのまま進む
   }
 
   public void UpdateCharacter()
@@ -591,69 +587,69 @@ public class ControlSQL : MonoBehaviour
   {
     // if (GroundOne.SupportLog == false) { return; }
 
-    //try
-    //{
-    //  if (name == String.Empty)
-    //  {
-    //    name = guid.ToString();
-    //  }
+    try
+    {
+      if (name == String.Empty)
+      {
+        name = guid.ToString();
+      }
 
-    //  DateTime create_time = DateTime.Now;
-    //  string device_type = Application.platform.ToString();
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    Debug.Log("CreateOwner timeout: " + con.ConnectionTimeout);
-    //    con.OpenAsync().Wait();
-    //    string sqlCmd = "INSERT INTO " + TABLE_OWNER_DATA + " ( name, guid, create_time, device_type ) VALUES ( :name, :guid, :create_time, :device_type )";
-    //    var cmd = new NpgsqlCommand(sqlCmd, con);
-    //    //cmd.Prepare();
-    //    cmd.Parameters.Add(new NpgsqlParameter("name", NpgsqlDbType.Varchar) { Value = name });
-    //    cmd.Parameters.Add(new NpgsqlParameter("guid", NpgsqlDbType.Varchar) { Value = guid.ToString() }); // Fix-issue ( guid(direct) is incorrect )
-    //    cmd.Parameters.Add(new NpgsqlParameter("create_time", NpgsqlDbType.Timestamp) { Value = create_time });
-    //    cmd.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
-    //    cmd.ExecuteNonQueryAsync().Wait();
-    //  }
-    //}
-    //catch (Exception ex)
-    //{
-    //  Debug.Log("CreateOwner error... " + DateTime.Now + " " + ex.ToString());
-    //} // ログ失敗時は、そのまま進む
+      DateTime create_time = DateTime.Now;
+      string device_type = Application.platform.ToString();
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        Debug.Log("CreateOwner timeout: " + con.ConnectionTimeout);
+        con.OpenAsync().Wait();
+        string sqlCmd = "INSERT INTO " + TABLE_OWNER_DATA + " ( name, guid, create_time, device_type ) VALUES ( :name, :guid, :create_time, :device_type )";
+        var cmd = new NpgsqlCommand(sqlCmd, con);
+        //cmd.Prepare();
+        cmd.Parameters.Add(new NpgsqlParameter("name", NpgsqlDbType.Varchar) { Value = name });
+        cmd.Parameters.Add(new NpgsqlParameter("guid", NpgsqlDbType.Varchar) { Value = guid.ToString() }); // Fix-issue ( guid(direct) is incorrect )
+        cmd.Parameters.Add(new NpgsqlParameter("create_time", NpgsqlDbType.Timestamp) { Value = create_time });
+        cmd.Parameters.Add(new NpgsqlParameter("device_type", DbType.String) { Value = device_type });
+        cmd.ExecuteNonQueryAsync().Wait();
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("CreateOwner error... " + DateTime.Now + " " + ex.ToString());
+    } // ログ失敗時は、そのまま進む
   }
 
   public bool ExistOwnerName(string name)
   {
-    // if (GroundOne.SupportLog == false) { return false; }
-    //try
-    //{
-    //  string existName = String.Empty;
+    if (One.CONF.SupportLog == false) { return false; }
+    try
+    {
+      string existName = String.Empty;
 
-    //  using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
-    //  {
-    //    con.OpenAsync().Wait();
-    //    NpgsqlCommand cmd = new NpgsqlCommand(@"select name from " + TABLE_OWNER_DATA + " where name = '" + name + "'", con);
+      using (Npgsql.NpgsqlConnection con = new NpgsqlConnection(connection))
+      {
+        con.OpenAsync().Wait();
+        NpgsqlCommand cmd = new NpgsqlCommand(@"select name from " + TABLE_OWNER_DATA + " where name = '" + name + "'", con);
 
-    //    var dataReader = cmd.ExecuteReaderAsync();
-    //    while (dataReader.Result.Read())
-    //    {
-    //      existName += dataReader.Result[0].ToString();
-    //    }
-    //  }
+        var dataReader = cmd.ExecuteReaderAsync();
+        while (dataReader.Result.Read())
+        {
+          existName += dataReader.Result[0].ToString();
+        }
+      }
 
-    //  if (existName == name)
-    //  {
-    //    return true;
-    //  }
-    //  else
-    //  {
-    //    return false;
-    //  }
+      if (existName == name)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
 
-    //}
-    //catch (Exception ex)
-    //{
-    //  Debug.Log("ExistOwnerName error... " + DateTime.Now + " " + ex.ToString());
-    //  return false;
-    //} // 取得失敗時は名前がぶつかっている可能性があるが、ひとまず通しとする。
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("ExistOwnerName error... " + DateTime.Now + " " + ex.ToString());
+      return false;
+    } // 取得失敗時は名前がぶつかっている可能性があるが、ひとまず通しとする。
     return false;
   }
 }
