@@ -908,6 +908,22 @@ public class SaveLoad : MotherBase
       }
     }
 
+    // オーナーデータを更新する。
+    try
+    {
+      if (One.Characters != null)
+      {
+        string mainEvent = One.TF.GameDay.ToString() + " day";
+        string subEvent = One.TF.CurrentAreaName;
+        string currentField = ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
+        string mainLevel = "Level " + One.Characters[0].Level.ToString();
+        One.SQL.UpdateOwner(mainEvent, subEvent, currentField, mainLevel);
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("ExecSave UpdateOwner error: " + ex.ToString());
+    }
     // セーブデータをサーバーへ転送する。
     //try
     //{

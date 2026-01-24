@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using System.Xml;
-using System.Text;
 using System.Reflection;
+using System.Text;
+using UnityEngine;
 using UnityEngine.UI;
 
 public static class One
@@ -5307,6 +5307,12 @@ public static class One
     {
       xmlWriter2.Close();
     }
+  }
+
+  public static void UpdateAccountName(string new_account_name)
+  {
+    One.CONF.Account = new_account_name;
+    One.UpdateGameConfig();
   }
 
   public static void UpdateGameConfig()
