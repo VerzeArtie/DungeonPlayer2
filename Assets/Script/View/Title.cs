@@ -1197,6 +1197,19 @@ public class Title : MotherBase
     groupSaveLoad.gameObject.SetActive(false);
   }
 
+  public void PrivacyPolicy_Click()
+  {
+    if (SystemLanguage.Japanese == Application.systemLanguage)
+    {
+      Application.OpenURL(@"http://altomosoft.com/privacypolicy/Privacy.html");
+      return;
+    }
+    else
+    {
+      Application.OpenURL(@"http://altomosoft.com/privacypolicy/Privacy.html");
+    }
+  }
+
   public void TapAccountOK(Text account)
   {
     System.Guid guid = System.Guid.NewGuid();
