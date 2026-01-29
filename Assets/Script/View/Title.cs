@@ -1201,12 +1201,12 @@ public class Title : MotherBase
   {
     if (SystemLanguage.Japanese == Application.systemLanguage)
     {
-      Application.OpenURL(@"http://altomosoft.com/privacypolicy/Privacy.html");
+      Application.OpenURL(@"https://altomosoft.com/privacypolicy/Privacy.html");
       return;
     }
     else
     {
-      Application.OpenURL(@"http://altomosoft.com/privacypolicy/Privacy.html");
+      Application.OpenURL(@"https://altomosoft.com/privacypolicy/Privacy.html");
     }
   }
 
