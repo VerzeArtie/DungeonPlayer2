@@ -1479,6 +1479,13 @@ public partial class HomeTown : MotherBase
     // MessagePack.CommunicationLana_0(ref QuestMessageList, ref QuestEventList); TapOK();
     // return;
 
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      MessagePack.CommunicationLana_Zero(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
     Debug.Log("TapCommunicationLana(S)");
     if (One.TF.Event_Message000010 == false)
     {

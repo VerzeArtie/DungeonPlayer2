@@ -37940,6 +37940,13 @@ public static class MessagePack
     One.TF.AlreadyCommunicate = true;
   }
 
+  public static void CommunicationLana_Zero(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　ラナ　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・ ）", ActionEvent.None);
+  }
+
   public static void CommunicationLana_AlreadyCommunicate(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (!One.TF.AlreadyRestInn)
