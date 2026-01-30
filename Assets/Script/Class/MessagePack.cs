@@ -33978,7 +33978,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（　おかしい　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "（　この草原区域で発生するイベントを示す内容とは思えない　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　この草原区域で発生するイベント内容とは思えない　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
 
@@ -34002,7 +34002,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（　視認、近く、認識がないとなると、それはつまり・・・　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "（　死か？　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　死・・・？　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
 
@@ -34142,9 +34142,10 @@ public static class MessagePack
   {
     if (One.TF.InscribeObsidianStone_6 == false)
     {
-      One.TF.InscribeObsidianStone_6 = true;
-      One.UpdateAkashicRecord();
-      One.RealWorldSave();
+      // ストーリー、バッドエンドがある。ここでは更新しない。
+      //One.TF.InscribeObsidianStone_6 = true;
+      //One.UpdateAkashicRecord();
+      //One.RealWorldSave();
       Message(ref m_list, ref e_list, "（　あまり、意識してここへ来たわけではなかった　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　どちらかというと、少し練習の場が欲しかっただけだ　）", ActionEvent.None);
@@ -34190,6 +34191,62 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "（　その中枢に　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　触れたかっただけなんだと思う　）", ActionEvent.None);
+
+      if (One.TF.Event_Message2600000 == false)
+      {
+        Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+        Message(ref m_list, ref e_list, "アイン：（　触れてなお　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（　追い求める　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（　終わりもなく始まりもない地点にたどり着いてみせる　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そこからは、俺は何も捉えなくなっていた　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　意識ははっきりしているが焦点を定める機会を失ったともいえる　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　これまで、Obsidian Stoneに接触してきたと思えていたのだが　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　俺は・・・その感覚を失ってしまったようだ　）", ActionEvent.None);
+        
+        Message(ref m_list, ref e_list, "（　ひたすら訓練し続ける日々を送ろうと考えた　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　それは、つまり　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　誰とも遭遇しない世界　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　これで良かったんだろうか　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そういえば、エスミリア草原区域は探索し尽くしたんだっけ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そう考えて、俺は今ここに来ている　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　探索を怠るな　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　師匠によくそう言われていた気がするが　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（　鍛錬だ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（　鍛錬に専念しよう　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（　よし、再開だ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, " ～　THE　END　～　（終焉、変わりなき世界）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+        return;
+      }
+
+      One.TF.InscribeObsidianStone_6 = true;
+      One.UpdateAkashicRecord();
+      One.RealWorldSave();
 
       InscribeMatrixDragon_6(ref m_list, ref e_list);
 
