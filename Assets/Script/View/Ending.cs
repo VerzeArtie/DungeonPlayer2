@@ -18,6 +18,7 @@ public class Ending : MotherBase
 
   public override void Start()
   {
+    base.Start();
   }
 
   void Update()
@@ -269,9 +270,9 @@ public class Ending : MotherBase
     GameObject obj = new GameObject();
     Text element = obj.AddComponent<Text>();
     element.fontStyle = FontStyle.Normal;
-    Font ArialFont = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
+    Font fontdata = (Font)Resources.GetBuiltinResource(typeof(Font), "LegacyRuntime.ttf");
 
-    element.font = ArialFont;
+    element.font = fontdata;
     element.transform.SetParent(parent.transform);
     element.rectTransform.localScale = new Vector3(1, 1, 1);
     element.rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
