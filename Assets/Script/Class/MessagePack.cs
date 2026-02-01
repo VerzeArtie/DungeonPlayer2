@@ -34668,6 +34668,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
       Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+      Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
 
       Message(ref m_list, ref e_list, "？？？：ねえちょっと！！　ねえっ！アイン！！？", ActionEvent.None);
 
