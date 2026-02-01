@@ -314,6 +314,7 @@ public class Title : MotherBase
       Debug.Log("PathForRootFile(Fix.AR_FILE exist, then no action.: " + One.PathForRootFile(Fix.AR_FILE));
     }
 
+    One.ReInitializeGroundOne(false);
     One.TF.AvailableEinWolence = true;
     One.TF.AvailableLanaAmiria = true;
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
