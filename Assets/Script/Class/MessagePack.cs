@@ -48,6 +48,8 @@ public static class MessagePack
     MoveRightContinuous,
     MoveTopContinuous,
     MoveBottomContinuous,
+    Fountain,
+    MaxGain,
     VelgusBallReset,
     VelgusBallCheckComplete,
     VelgusCircleChange,
@@ -183,7 +185,6 @@ public static class MessagePack
     DungeonJumpToLocationRecollection4,
     DungeonSetupPlayerStatus,
     DungeonRemovePartyTC,
-    Fountain,
     RealWorldCallItemBank,
     AutoSaveWorldEnvironment,
     AutoMove,
@@ -236,6 +237,15 @@ public static class MessagePack
   public static void MessageX00004_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：回復の泉は、枯れている様だな。他をあたろう。", ActionEvent.None);
+  }
+
+  public static void MessageX00004_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　・・・遠見の青水晶から、不思議な生命力を感じる・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MaxGain);
+
+    Message(ref m_list, ref e_list, "【 パーティメンバーのステータスが全快しました 】", ActionEvent.None);
   }
 
   public static void MessageX00005(ref List<string> m_list, ref List<ActionEvent> e_list)

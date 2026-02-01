@@ -2547,6 +2547,7 @@ public class DungeonField : MotherBase
         One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM ||
         One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
     {
+      MessagePack.MessageX00004_3(ref QuestMessageList, ref QuestEventList); TapOK();
       // this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
       return;
     }
@@ -10989,6 +10990,12 @@ public class DungeonField : MotherBase
 
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.MaxGain)
+        {
+          Debug.Log("MessagePack.ActionEvent.MaxGain");
+          EventFountain();
+          continue; // 継続
+        }
         // 画面を再描画する。
         else if (currentEvent == MessagePack.ActionEvent.RefreshAllView)
         {
@@ -12912,7 +12919,7 @@ public class DungeonField : MotherBase
           bool success = One.TF.AddBackPack(new Item(currentMessage));
           if (success == false)
           {
-            this.txtSystemMessage.text = "バックパックがいっぱいのため、【 "+ currentMessage + " 】を入手できませんでした。";
+            this.txtSystemMessage.text = "バックパックがいっぱいのため、【 " + currentMessage + " 】を入手できませんでした。";
             this.panelSystemMessage.SetActive(true);
             return; // 通常
           }
