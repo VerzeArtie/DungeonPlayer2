@@ -5431,6 +5431,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　長老はまっすぐラナ・アミリアの方に眼を向けた　～", ActionEvent.MessageDisplay);
 
+      if (seek_missing_link == false)
+      {
       Message(ref m_list, ref e_list, "ラナ：わ、私？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ラナ、お前国王から何か授かっていたのか？", ActionEvent.None);
@@ -5451,8 +5453,6 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
 
-      if (seek_missing_link == false)
-      {
         Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "長老：これは、ただの宝剣じゃな。", ActionEvent.None);
@@ -5552,6 +5552,20 @@ public static class MessagePack
       else
       {
         One.TF.EventCore_LoreOfFeltus = true;
+
+        Message(ref m_list, ref e_list, "ラナ：わ、私？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ラナ、そういえば例の国王から預かっていたやつ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ええ、そうね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：確かに持っています。私が間者扱いというのはちょっとあれだけど。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：コレです。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　～　ラナは【法剣？？？】を長老へと差し出した　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
 
