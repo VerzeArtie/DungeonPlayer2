@@ -5433,25 +5433,25 @@ public static class MessagePack
 
       if (seek_missing_link == false)
       {
-      Message(ref m_list, ref e_list, "ラナ：わ、私？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：わ、私？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ラナ、お前国王から何か授かっていたのか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ラナ、お前国王から何か授かっていたのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：べ、べべ、別に隠してたとか、そういうのじゃないわよ！？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：べ、べべ、別に隠してたとか、そういうのじゃないわよ！？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：い、いやいや・・・悪い悪い。そういうつもりで聞いたわけじゃない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：い、いやいや・・・悪い悪い。そういうつもりで聞いたわけじゃない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：持ってないとは言わさぬぞ。ワシの目はごまかせん。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：持ってないとは言わさぬぞ。ワシの目はごまかせん。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：え、ええ・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：え、ええ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：確かに持っています。私が間者扱いというのはちょっとあれだけど。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：確かに持っています。私が間者扱いというのはちょっとあれだけど。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：コレです。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：コレです。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　ラナは【法剣？？？】を長老へと差し出した　～", ActionEvent.MessageDisplay);
+        Message(ref m_list, ref e_list, "　～　ラナは【法剣？？？】を長老へと差し出した　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
 
@@ -38957,7 +38957,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ヴァスタ：ふむ、こちらの鍵付き保管庫にしまっておくとしよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.RemoveItem);
+    // Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.RemoveItem); // ストーリーの構成上、削除しないのが筋。
 
     Message(ref m_list, ref e_list, "ヴァスタ：して、例の剣じゃが・・・　・・・　・・・", ActionEvent.None);
 
