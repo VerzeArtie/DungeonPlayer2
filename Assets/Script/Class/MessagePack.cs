@@ -37953,6 +37953,8 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：え、ええ。気を付けるわ。", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
@@ -37979,13 +37981,55 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：じゃあ、私ちょっと用事があるから失礼するわね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～　ラナ・アミリアはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "アイン：ちょっと待った。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アインはラナの片手をしっかりと掴んだ　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：あーーー！！！！っちょっちょっと！！！何して何考えてるワケ！！！？？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ウワ・・・うるさい音量だな。ちょっと待てって言ったんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：な、なななな。何よ、は、はっきり言うなら言いなさいよ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いやいや、そんな驚かなくても良いだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まったくもう・・・要件は何よ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：そうだな、さすがに気のせいだな。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：お前の事が・・・その・・・気になったんだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：さてと、じゃあ俺もそろそろ行くとするか。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：・・・っえ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、いや。なんていうんだ。ほら、そのイヤリングだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あっ、そういう意味・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今ので、バカアインを殴りたくなったわね。良いかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ちょっ、待て待て。今はダメだ。ちょっとだけ聞いてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ややこしわね。早く言いなさいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：スマン。また今度で良い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのフェイスフル・ブローがアインに炸裂）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　ラナ・アミリアはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ、ッグホォ・・・しまった・・・考えてからにすればよかった・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：イヤリング・・・ラナのイヤリング・・・か・・・なんであんな所に", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ・・・また、今度・・・考えてみよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
 
     One.AR.Record_EarringOfLana = true;
     One.UpdateAkashicRecord();
