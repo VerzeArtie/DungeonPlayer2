@@ -20745,7 +20745,8 @@ public class DungeonField : MotherBase
     }
     #endregion
     #region "離島ウォズム"
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
     {
       int random = 350 + NoEncountNumber - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
