@@ -1599,6 +1599,14 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    Debug.Log("One.TF.GameDay: " + One.TF.GameDay.ToString() + " " + One.TF.CommunicationLana_15.ToString());
+    if (One.TF.GameDay >= 45 && One.TF.CommunicationLana_15 == false && One.AR.Record_EarringOfLana == false)
+    {
+      MessagePack.CommunicationLana_15(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
     MessagePack.CommunicationLana_NoEvent(ref QuestMessageList, ref QuestEventList);
     TapOK();
     return;
