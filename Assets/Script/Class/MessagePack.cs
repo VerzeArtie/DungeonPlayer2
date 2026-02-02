@@ -5465,7 +5465,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：あ、ということは・・・強いだけって事ですか？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "長老：その通りじゃ。そして対して強くもない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：その通りじゃ。そして大して強くもない。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "長老：ただし、価値はあるの。おそらく金銭的に困った時のために手渡したんじゃろうな。", ActionEvent.None);
 
