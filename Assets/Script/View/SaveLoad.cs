@@ -924,6 +924,19 @@ public class SaveLoad : MotherBase
     {
       Debug.Log("ExecSave UpdateOwner error: " + ex.ToString());
     }
+    // ARデータを更新する。
+    try
+    {
+      if (One.AR != null)
+      {
+        One.SQL.CreateArData(One.CONF.Account);
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("ExecSave UpdateARData error: " + ex.ToString());
+    }
+
     // セーブデータをサーバーへ転送する。
     //try
     //{
