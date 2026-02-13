@@ -219,6 +219,7 @@ public class DungeonField : MotherBase
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
   public Image imgHidePanel;
+  public GameObject btnNext;
 
   // GameOver
   public GameObject panelGameOver;
@@ -10931,6 +10932,7 @@ public class DungeonField : MotherBase
       // メッセージが在る場合は、メッセージを進行する。
       if (QuestMessageList.Count > 0)
       {
+        this.btnNext.gameObject.SetActive(true);
         MessagePack.ActionEvent currentEvent = QuestEventList[0];
         string currentMessage = QuestMessageList[0];
         RemoveOneSentence();
@@ -14292,6 +14294,8 @@ public class DungeonField : MotherBase
       this.GroupQuestMessage.SetActive(false);
       this.panelSystemMessage.SetActive(false);
       this.txtSystemMessage.text = string.Empty;
+      this.btnNext.gameObject.SetActive(false);
+
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }

@@ -282,6 +282,7 @@ public partial class HomeTown : MotherBase
   public Text txtQuestMessage;
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
+  public GameObject btnNext;
 
   // Quest Complete
   public GameObject GroupQuestComplete;
@@ -624,7 +625,7 @@ public partial class HomeTown : MotherBase
           MessagePack.Message100010(ref QuestMessageList, ref QuestEventList);
           TapOK();
 
-          objBlackOut.SetActive(true);
+          // objBlackOut.SetActive(true);
           GroupQuestMessage.SetActive(true);
           return;
         }
@@ -3209,6 +3210,7 @@ public partial class HomeTown : MotherBase
       // メッセージが在る場合は、メッセージを進行する。
       if (QuestMessageList.Count > 0)
       {
+        btnNext.SetActive(true);
         MessagePack.ActionEvent currentEvent = QuestEventList[0];
         string currentMessage = QuestMessageList[0];
         RemoveOneSentence();
@@ -3972,6 +3974,7 @@ public partial class HomeTown : MotherBase
       HidePanelMessage.gameObject.SetActive(false);
       PanelTapMessage.gameObject.SetActive(false);
       panelSystemMessage.SetActive(false);
+      btnNext.SetActive(false);
 
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
