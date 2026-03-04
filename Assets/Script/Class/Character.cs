@@ -11233,8 +11233,25 @@ public partial class Character : MonoBehaviour
 
   private string RandomChoice(List<string> command_list)
   {
-    string result = string.Empty;
+    // null / empty guard
+    if (command_list == null || command_list.Count == 0)
+    {
+      return Fix.NORMAL_ATTACK;
+    }
+
+    // STAY を除去
     command_list.RemoveAll(s => s.Contains(Fix.STAY));
+
+    // 全て除去されていたらフォールバックを返す
+    if (command_list.Count == 0)
+    {
+      if (!string.IsNullOrEmpty(this.ActionCommandMain) && this.ActionCommandMain != Fix.STAY)
+      {
+        return this.ActionCommandMain;
+      }
+      return Fix.NORMAL_ATTACK;
+    }
+
     int random = AP.Math.RandomInteger(command_list.Count);
     return command_list[random];
   }
