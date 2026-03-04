@@ -514,12 +514,18 @@ public partial class BattleEnemy : MotherBase
             One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
         {
           Debug.Log("One.EnemyList[ii].FullName is legal-orphstein");
-          node.GroupTimeSequenceField.gameObject.SetActive(true);
+          if (node != null && node.GroupTimeSequenceField != null)
+          {
+            node.GroupTimeSequenceField.gameObject.SetActive(true);
+          }
         }
         else
         {
           Debug.Log("One.EnemyList[ii].FullName not ...");
-          node.GroupTimeSequenceField.gameObject.SetActive(false);
+          if (node != null && node.GroupTimeSequenceField != null)
+          {
+            node.GroupTimeSequenceField.gameObject.SetActive(false);
+          }
         }
 
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
@@ -608,15 +614,18 @@ public partial class BattleEnemy : MotherBase
             One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
         {
           Debug.Log("One.EnemyList[ii].FullName is legal-orphstein");
-          node.GroupTimeSequenceField.gameObject.SetActive(true);
+          if (node != null && node.GroupTimeSequenceField != null)
+          {
+            node.GroupTimeSequenceField.gameObject.SetActive(true);
+          }
         }
         else
         {
-          if (node.GroupTimeSequenceField != null)
+          Debug.Log("One.EnemyList[ii].FullName not ...");
+          if (node != null && node.GroupTimeSequenceField != null)
           {
             node.GroupTimeSequenceField.gameObject.SetActive(false);
           }
-          Debug.Log("One.EnemyList[ii].FullName not ...");
         }
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
 
