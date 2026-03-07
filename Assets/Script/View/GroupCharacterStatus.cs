@@ -187,6 +187,8 @@ public class GroupCharacterStatus : MonoBehaviour
   protected const string ITEMTYPE_ACCESSORY2 = "Accessory-2";
   protected const string ITEMTYPE_ARTIFACT = "Artifact";
 
+  private Item CurrentSelectedItem = null;
+
   public void Update()
   {
     if (InnerMessageTimer > 0)
@@ -881,6 +883,8 @@ public class GroupCharacterStatus : MonoBehaviour
       this.ShadowPlayer.Artifact = null;
       this.ShadowPlayer.Artifact = new Item(sender.text);
     }
+    this.CurrentSelectedItem = null;
+    this.CurrentSelectedItem = new Item(sender.text);
 
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStrength, CurrentPlayer.TotalStrength, ShadowPlayer.TotalStrength);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailAgility, CurrentPlayer.TotalAgility, ShadowPlayer.TotalAgility);
@@ -909,6 +913,15 @@ public class GroupCharacterStatus : MonoBehaviour
   /// </summary>
   public void TapAcceptChangeEquip()
   {
+    if (this.CurrentSelectedItem == null)
+    {
+      Debug.Log("Change Equip MainWeapon, failed... still not select target item. then, no action.");
+      GroupInnerMessage.SetActive(true);
+      txtInnerMessage.text = "装備対象が選択されていません。";
+      InnerMessageTimer = 100;
+      return;
+    }
+
     // ・バックパックに空きがあるかチェックする。空きが無い場合、装備変更は失敗とする。
     // ・選択アイテムを装備する。
     // ・現在装備アイテムをバックパックに戻す。
@@ -1261,6 +1274,12 @@ public class GroupCharacterStatus : MonoBehaviour
     foreach (Transform n in ContentChangeEquip.transform)
     {
       Destroy(n.gameObject);
+    }
+
+    // 選択中アイテムを解放する。
+    if (this.CurrentSelectedItem != null)
+    {
+      this.CurrentSelectedItem = null;
     }
   }
 
