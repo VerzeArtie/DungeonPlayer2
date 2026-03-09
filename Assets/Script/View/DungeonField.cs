@@ -4497,6 +4497,11 @@ public class DungeonField : MotherBase
           return;
         }
       }
+      else
+      {
+        MessagePack.Message000139(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
 
     // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。

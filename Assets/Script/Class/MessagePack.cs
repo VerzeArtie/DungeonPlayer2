@@ -771,6 +771,26 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：（しばらく、ここは無理そうだな・・・）", ActionEvent.None);
   }
 
+  public static void Message000139(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event__Message000139 == false)
+    {
+      One.TF.Event__Message000139 = true;
+      Message(ref m_list, ref e_list, "アイン：おっと、デカい岩があるな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：これはちょっと無理じゃないかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんかツール類があると行けそうな感じではあるが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：少し探してみましょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：（　今は無理だな。他を当たろう　）", ActionEvent.None);
+    }
+  }
   public static void Message000140(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.FieldObject_EsmiliaGrassField_00003 == false)
