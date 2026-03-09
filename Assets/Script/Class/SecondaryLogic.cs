@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public static class SecondaryLogic
 {
@@ -1760,4 +1761,37 @@ public static class SecondaryLogic
     return result;
   }
 
+  public static void ApplyImageIcon(Item item, UnityEngine.UI.Image image)
+  {
+    if (item.ItemName == Fix.SMALL_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_1); }
+    else if (item.ItemName == Fix.NORMAL_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_2); }
+    else if (item.ItemName == Fix.LARGE_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_3); }
+    else if (item.ItemName == Fix.HUGE_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_4); }
+    else if (item.ItemName == Fix.HQ_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_5); }
+    else if (item.ItemName == Fix.THQ_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_6); }
+    else if (item.ItemName == Fix.PERFECT_RED_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_RED_POTION_7); }
+    else if (item.ItemName == Fix.SMALL_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_1); }
+    else if (item.ItemName == Fix.NORMAL_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_2); }
+    else if (item.ItemName == Fix.LARGE_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_3); }
+    else if (item.ItemName == Fix.HUGE_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_4); }
+    else if (item.ItemName == Fix.HQ_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_5); }
+    else if (item.ItemName == Fix.THQ_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_6); }
+    else if (item.ItemName == Fix.PERFECT_BLUE_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_7); }
+    else if (item.ItemName == Fix.SMALL_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_1); }
+    else if (item.ItemName == Fix.NORMAL_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_2); }
+    else if (item.ItemName == Fix.LARGE_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_3); }
+    else if (item.ItemName == Fix.HUGE_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_4); }
+    else if (item.ItemName == Fix.HQ_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_5); }
+    else if (item.ItemName == Fix.THQ_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_6); }
+    else if (item.ItemName == Fix.PERFECT_GREEN_POTION) { image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_7); }
+    else if (item.ItemName == Fix.GROWTH_LIQUID_STRENGTH) { image.sprite = Resources.Load<Sprite>(Fix.USE_LIQUID_STRENGTH); }
+    else if (item.ItemName == Fix.GROWTH_LIQUID_AGILITY) { image.sprite = Resources.Load<Sprite>(Fix.USE_LIQUID_AGILITY); }
+    else if (item.ItemName == Fix.GROWTH_LIQUID_INTELLIGENCE) { image.sprite = Resources.Load<Sprite>(Fix.USE_LIQUID_INTELLIGENCE); }
+    else if (item.ItemName == Fix.GROWTH_LIQUID_STAMINA) { image.sprite = Resources.Load<Sprite>(Fix.USE_LIQUID_STAMINA); }
+    else if (item.ItemName == Fix.GROWTH_LIQUID_MIND) { image.sprite = Resources.Load<Sprite>(Fix.USE_LIQUID_MIND); }
+    else
+    {
+      image.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
+    }
+  }
 }

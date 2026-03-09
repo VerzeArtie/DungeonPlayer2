@@ -4262,7 +4262,7 @@ public partial class HomeTown : MotherBase
 
     shopItem.transform.SetParent(content.transform);
     shopItem.txtName.text = item.ItemName;
-    shopItem.imgItem.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
+    SecondaryLogic.ApplyImageIcon(item, shopItem.imgItem);
     shopItem.ItemSell = item_sell;
     if (item_sell)
     {

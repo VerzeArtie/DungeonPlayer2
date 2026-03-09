@@ -1469,6 +1469,11 @@ public static partial class Fix
   public const string USE_GREEN_POTION_5 = "GreenPotion_5";
   public const string USE_GREEN_POTION_6 = "GreenPotion_6";
   public const string USE_GREEN_POTION_7 = "GreenPotion_7";
+  public const string USE_LIQUID_STRENGTH = "LiquidPotion_Strength";
+  public const string USE_LIQUID_AGILITY = "LiquidPotion_Agility";
+  public const string USE_LIQUID_INTELLIGENCE = "LiquidPotion_Intelligence";
+  public const string USE_LIQUID_STAMINA = "LiquidPotion_Stamina";
+  public const string USE_LIQUID_MIND = "LiquidPotion_Mind";
 
 
   // Delve I

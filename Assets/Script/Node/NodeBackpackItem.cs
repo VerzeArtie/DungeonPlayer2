@@ -37,7 +37,7 @@ public class NodeBackpackItem : MonoBehaviour
 
     if (this.imgIcon != null)
     {
-      this.imgIcon.sprite = Resources.Load<Sprite>("Icon_" + current?.ItemType.ToString() ?? "");
+      SecondaryLogic.ApplyImageIcon(current, this.imgIcon);
     }
 
     Text[] txtList = this.GetComponentsInChildren<Text>();
