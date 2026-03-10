@@ -13662,7 +13662,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、【特殊効果】ターン経過毎に、スキルポイントが回復する。";
+        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、【特殊効果】ターン経過毎に、マナポイントが回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

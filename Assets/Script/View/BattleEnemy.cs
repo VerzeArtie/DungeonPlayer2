@@ -10260,43 +10260,27 @@ public partial class BattleEnemy : MotherBase
       // 古代の宝珠：厳正の効果
       if (AllList[ii].IsEquip(Fix.ARTIFACT_GENSEI))
       {
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player Mana (before) " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
+        // MaxSkillPointは基底１００から変わらない設計だが、特殊効果やルール改定で上限が増えていくなら効果があるので上昇できる様にしておく。
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (before) " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
 
-        int core = (AllList[ii].MaxManaPoint / 100); // １％回復をベースとする。
-        if (core <= 3) { core = 3; } // 最低でも3回復する事とする。
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana core       " + core);
+        int effect = (AllList[ii].MaxSkillPoint / 100); // １％回復をベースとする。
+        if (effect <= 2) { effect = 2; } // 最低でも2回復する事とする。
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint core       " + effect);
 
-        int additional = AllList[ii].MaxManaPoint / 100;
-        if (additional <= 7) { additional = 7; } // 最低でも7+する事とする。
-        additional = AP.Math.RandomInteger(additional);
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana additional " + additional);
-
-        int effect = core + additional;
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana total      " + effect);
-        AbstractGainManaPoint(AllList[ii], AllList[ii], effect);
-
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player Mana (after)  " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
+        AbstractGainSkillPoint(AllList[ii], AllList[ii], effect);
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (after)  " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
       }
 
       if (AllList[ii].IsEquip(Fix.ARTIFACT_ZIHI))
       {
-        // MaxSkillPointは基底１００から変わらない設計だが、特殊効果やルール改定で上限が増えていくなら効果があるので上昇できる様にしておく。
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (before) " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
+        Debug.Log("Equip " + Fix.ARTIFACT_ZIHI + " Player Mana (before) " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
 
-        int core = (AllList[ii].MaxSkillPoint / 100); // １％回復をベースとする。
-        if (core <= 2) { core = 2; } // 最低でも2回復する事とする。
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint core       " + core);
+        int effect = (AllList[ii].MaxManaPoint / 100); // １％回復をベースとする。
+        if (effect <= 5) { effect = 5; } // 最低でも5回復する事とする。
+        Debug.Log("Equip " + Fix.ARTIFACT_ZIHI + " Gain Mana core       " + effect);
 
-        int additional = AllList[ii].MaxSkillPoint / 100;
-        if (additional <= 5) { additional = 5; } // 最低でも5+する事とする。
-        additional = AP.Math.RandomInteger(additional);
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint additional " + additional);
-
-        int effect = core + additional;
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint total      " + effect);
-        AbstractGainSkillPoint(AllList[ii], AllList[ii], effect);
-
-        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (after)  " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
+        AbstractGainManaPoint(AllList[ii], AllList[ii], effect);
+        Debug.Log("Equip " + Fix.ARTIFACT_ZIHI + " Player Mana (after)  " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
       }
 
       AllList[ii].BuffCountdown();
