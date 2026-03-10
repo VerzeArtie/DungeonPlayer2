@@ -19025,7 +19025,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 64
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -20377,7 +20377,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 64
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -29838,7 +29838,7 @@ MonoBehaviour:
     m_FontStyle: 3
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 300
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -32763,7 +32763,7 @@ MonoBehaviour:
     m_FontStyle: 3
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 300
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -49967,7 +49967,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 64
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -54960,7 +54960,7 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
-  m_FlexibleHeight: 1
+  m_FlexibleHeight: 2
   m_LayoutPriority: 1
 --- !u!1 &1001340468
 GameObject:
@@ -59558,7 +59558,7 @@ MonoBehaviour:
     m_FontStyle: 3
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 300
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -65908,7 +65908,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 64
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -68201,7 +68201,7 @@ MonoBehaviour:
     m_FontStyle: 3
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 300
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -73836,7 +73836,7 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
-  m_FlexibleHeight: 7
+  m_FlexibleHeight: 6
   m_LayoutPriority: 1
 --- !u!1 &1342569821
 GameObject:
@@ -82969,7 +82969,7 @@ MonoBehaviour:
     m_FontStyle: 3
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 300
+    m_MaxSize: 36
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -88479,7 +88479,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 64
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

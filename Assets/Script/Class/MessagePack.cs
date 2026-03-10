@@ -8286,11 +8286,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン／ラナ：ありがとうございます！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【宿屋で夕飯のメニューが選べる様になりました。】", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "【宿屋で夕飯のメニューが選べる様になりました。】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【夕飯のメニューは次の日から加算されるパラメータの内容を決定します。】", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "【夕飯のメニューは次の日から加算されるパラメータの内容を決定します。】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【状況に応じた選択を行う事でより効果的なパラメタ調整を行って行くことをお勧めします。】", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "【状況に応じた選択を行う事でより効果的なパラメタ調整を行って行くことをお勧めします。】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownCallRestInn);
     }
