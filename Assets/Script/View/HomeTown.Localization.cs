@@ -10,6 +10,8 @@ public static class L10n
   static L10n()
   {
     Register("GameDay", "日目", "Day");
+    Register("lblSaveLoad", "ロード", "LOAD");
+    Register("txtClose", "閉じる", "Close");
   }
 
   public static void Register(string key, string japanese, string english)

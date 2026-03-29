@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 638000110}
   - component: {fileID: 638000109}
   m_Layer: 5
-  m_Name: TextClose
+  m_Name: txtClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5700,7 +5700,7 @@ MonoBehaviour:
   - {fileID: 199181379}
   - {fileID: 192862888}
   - {fileID: 789744120}
-  lblClose: {fileID: 638000109}
+  txtClose: {fileID: 638000109}
   yesnoSystemMessage: {fileID: 404996116}
   groupYesnoSystemMessage: {fileID: 2033173927}
   pbSandglass: {fileID: 239931697}

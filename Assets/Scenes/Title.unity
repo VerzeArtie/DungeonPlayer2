@@ -10484,7 +10484,7 @@ GameObject:
   - component: {fileID: 973916357}
   - component: {fileID: 973916358}
   m_Layer: 5
-  m_Name: TextClose
+  m_Name: txtClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10550,7 +10550,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Close
 --- !u!1 &990394717
 GameObject:
   m_ObjectHideFlags: 0
@@ -13302,6 +13302,7 @@ MonoBehaviour:
   lblLoad: {fileID: 0}
   lblConfig: {fileID: 0}
   lblExit: {fileID: 0}
+  txtGameLoadClose: {fileID: 973916358}
   BGMSlider: {fileID: 350409692}
   SoundSlider: {fileID: 1026025856}
   DifficultySilder: {fileID: 883515456}
@@ -18062,7 +18063,7 @@ GameObject:
   - component: {fileID: 1759504640}
   - component: {fileID: 1759504641}
   m_Layer: 5
-  m_Name: titleLabel
+  m_Name: lblSaveLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21218,7 +21219,7 @@ MonoBehaviour:
   - {fileID: 1334550606}
   - {fileID: 2140903959}
   - {fileID: 1846085539}
-  lblClose: {fileID: 973916358}
+  txtClose: {fileID: 973916358}
   yesnoSystemMessage: {fileID: 459416582}
   groupYesnoSystemMessage: {fileID: 1666065920}
   pbSandglass: {fileID: 56183614}

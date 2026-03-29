@@ -18,7 +18,7 @@ public class SaveLoad : MotherBase
   public Button[] back_button;
   public Text[] buttonText;
   public Button[] buttonPage;
-  public Text lblClose;
+  public Text txtClose;
   public Text yesnoSystemMessage = null;
   public GameObject groupYesnoSystemMessage = null;
 
@@ -113,8 +113,9 @@ public class SaveLoad : MotherBase
     else
     {
       this.Background.GetComponent<Image>().color = UnityColor.Aqua;
-      titleLabel.text = "LOAD";
+      titleLabel.text = L10n.Get(Fix.L10N_LBL_SAVELOAD);
     }
+    txtClose.text = L10n.Get(Fix.L10N_TXT_CLOSE);
 
     newDateTime = new DateTime(1, 1, 1, 0, 0, 0);
     newDateTimeAuto = new DateTime(1, 1, 1, 0, 0, 0);

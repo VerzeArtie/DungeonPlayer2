@@ -5338,6 +5338,8 @@ public static class One
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteElementString("Account", One.CONF.Account);
       xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("GameLanguage", One.CONF.GameLanguage.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteEndElement();
 
       xmlWriter.WriteEndDocument();
