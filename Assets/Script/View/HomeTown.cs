@@ -12,7 +12,6 @@ public partial class HomeTown : MotherBase
 {
   #region "Core"
 
-  // sample
   // MenuButton
   public Button btnParty;
   public Button btnBlueSphere;
