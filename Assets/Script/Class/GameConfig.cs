@@ -9,10 +9,12 @@ public class GameConfig : MonoBehaviour
   protected int _difficulty = 3;
   protected bool _supportLog = true;
   protected string _account = string.Empty;
+  protected int _gameLanguage = 0;
 
   public int EnableBGM { get { return _enableBGM; } set { _enableBGM = value; } }
   public int EnableSoundEffect { get { return _enableSound; } set { _enableSound = value; } }
   public int Difficulty { get { return _difficulty; } set { _difficulty = value; } }
   public bool SupportLog { get { return _supportLog; } set { _supportLog = value; } }
   public string Account { get { return _account; } set { _account = value; } }
+  public int GameLanguage { get { return _gameLanguage; } set { _gameLanguage = value; } }
 }

@@ -2939,10 +2939,10 @@ public partial class HomeTown : MotherBase
     One.TF.Fountain_Edelgarzen_2 = false;
 
     One.TF.GameDay += 1;
-    dayLabel.text = One.TF.GameDay.ToString() + "日目";
+    dayLabel.text = One.TF.GameDay.ToString() + " " + L10n.Get(Fix.L10N_GAMEDAY);
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      this.dayLabel.text = "？？？日目";
+      this.dayLabel.text = "？？？ " + L10n.Get(Fix.L10N_GAMEDAY);
     }
 
     RefreshAllView();
@@ -5043,10 +5043,10 @@ public partial class HomeTown : MotherBase
     //UpdateStayListCheckMark();
 
     // 背景と日数
-    this.dayLabel.text = One.TF.GameDay.ToString() + "日目";
+    dayLabel.text = One.TF.GameDay.ToString() + " " + L10n.Get(Fix.L10N_GAMEDAY);
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      this.dayLabel.text = "？？？日目";
+      this.dayLabel.text = "？？？ " + L10n.Get(Fix.L10N_GAMEDAY);
     }
 
     if (One.TF.AlreadyRestInn)

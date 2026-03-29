@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\Class\ControlSQL.cs" />
     <Compile Include="Assets\Script\Class\FieldObject.cs" />
     <Compile Include="Assets\Script\Class\PrimaryLogic.cs" />
+    <Compile Include="Assets\Script\View\HomeTown.Localization.cs" />
     <Compile Include="Assets\Script\Node\NodeACAttribute.cs" />
     <Compile Include="Assets\Script\Node\NodeCharaView.cs" />
     <Compile Include="Assets\Script\Class\Distributions.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Script\View\TruthAnswer.cs" />
     <Compile Include="Assets\Script\Node\NodeActionPanel.cs" />
     <Compile Include="Assets\Script\Node\NodeMiniChara.cs" />
+    <Compile Include="csharp Assets\Script\View\HomeTown.Localization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\MapData_Velgus.txt" />

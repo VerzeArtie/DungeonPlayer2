@@ -1429,6 +1429,8 @@ public static partial class Fix
   public const string GAME_EXIT_CANCEL = "終了しない";
 
   public const string LOAD_DATA_COMPLETE = "ゲームデータの読み込みが完了しました。";
+
+  public const string L10N_GAMEDAY = "GameDay";
   #endregion
 
   #region "Action Command"
