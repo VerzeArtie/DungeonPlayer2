@@ -95,7 +95,6 @@
     <Compile Include="Assets\Script\View\TruthAnswer.cs" />
     <Compile Include="Assets\Script\Node\NodeActionPanel.cs" />
     <Compile Include="Assets\Script\Node\NodeMiniChara.cs" />
-    <Compile Include="csharp Assets\Script\View\HomeTown.Localization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\MapData_Velgus.txt" />

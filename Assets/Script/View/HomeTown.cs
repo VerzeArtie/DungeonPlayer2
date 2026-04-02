@@ -28,6 +28,14 @@ public partial class HomeTown : MotherBase
   public Text txtMessage;
   public Image imgTownIcon;
 
+  public Text lblParty;
+  public Text lblSystem;
+  public Text lblDungeonPlayer;
+  public Text lblShop;
+  public Text lblInn;
+  public Text lblTalkLana;
+  public Text lblItemBank;
+
   // Config
   public GameObject GroupConfig;
 
@@ -4888,51 +4896,53 @@ public partial class HomeTown : MotherBase
       txtTactics.text = string.Empty;
     }
 
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    string area = One.TF.CurrentAreaName ?? string.Empty;
+
+    if (area == Fix.TOWN_ANSHET)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "中央噴水広場";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ANSHET);
       btnCustomEvent2.gameObject.SetActive(false);
       txtCustomEvent2.text = string.Empty;
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    if (area == Fix.TOWN_FAZIL_CASTLE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "ファージル宮殿";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_FAZIL_CASTLE);
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    if (area == Fix.TOWN_COTUHSYE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "船着き場";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_COTUHSYE);
       btnCustomEvent2.gameObject.SetActive(true);
-      txtCustomEvent2.text = "街はずれ";
+      txtCustomEvent2.text = L10n.Get(Fix.L10N_CUSTOMEVENT2_COTUHSYE);
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    else if (area == Fix.TOWN_ZHALMAN)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "長老の家";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ZHALMAN);
       btnCustomEvent2.gameObject.SetActive(true);
-      txtCustomEvent2.text = "ドルワッツの民芸品店";
+      txtCustomEvent2.text = L10n.Get(Fix.L10N_CUSTOMEVENT2_ZHALMAN);
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    else if (area == Fix.TOWN_ARCANEDINE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "中央噴水広場";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ARCANEDINE);
       btnCustomEvent2.gameObject.SetActive(true);
-      txtCustomEvent2.text = "ワッツの民芸品店";
+      txtCustomEvent2.text = L10n.Get(Fix.L10N_CUSTOMEVENT2_ARCANEDINE);
       btnCustomEvent3.gameObject.SetActive(true);
-      txtCustomEvent3.text = "占いの館：アミンダ";
+      txtCustomEvent3.text = L10n.Get(Fix.L10N_CUSTOMEVENT3_ARCANEDINE);
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    else if (area == Fix.TOWN_PARMETYSIA)
     {
       btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = "中央神殿";
+      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_PARMETYSIA);
       btnCustomEvent2.gameObject.SetActive(false);
       txtCustomEvent2.text = string.Empty;
       btnCustomEvent3.gameObject.SetActive(false);
@@ -5072,6 +5082,14 @@ public partial class HomeTown : MotherBase
     {
       UpdateBackgroundData(Fix.BACKGROUND_MORNING);
     }
+
+    if (lblParty != null) { lblParty.text = L10n.Get(Fix.L10N_PARTY); }
+    if (lblSystem != null) { lblSystem.text = L10n.Get(Fix.L10N_SYSTEM); }
+    if (lblDungeonPlayer != null) { lblDungeonPlayer.text = L10n.Get(Fix.L10N_DUNGEONPLAYER); }
+    if (lblShop != null) { lblShop.text = L10n.Get(Fix.L10N_SHOP); }
+    if (lblInn != null) { lblInn.text = L10n.Get(Fix.L10N_INN); }
+    if (lblTalkLana != null) { lblTalkLana.text = L10n.Get(Fix.L10N_TALK_LANA); }
+    if (lblItemBank != null) { lblItemBank.text = L10n.Get(Fix.L10N_ITEMBANK); }
   }
 
   private void UpdateStayListCheckMark()

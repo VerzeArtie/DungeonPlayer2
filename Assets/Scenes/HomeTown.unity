@@ -16351,6 +16351,13 @@ MonoBehaviour:
   txtObsidianStone: {fileID: 1944776277}
   txtMessage: {fileID: 1282959264}
   imgTownIcon: {fileID: 1435905892}
+  lblParty: {fileID: 1258270526}
+  lblSystem: {fileID: 955041105}
+  lblDungeonPlayer: {fileID: 891464062}
+  lblShop: {fileID: 116501520}
+  lblInn: {fileID: 1986715919}
+  lblTalkLana: {fileID: 1069228063}
+  lblItemBank: {fileID: 1755014330}
   GroupConfig: {fileID: 1285538928}
   GroupDungeonPlayer: {fileID: 1853687127}
   contentDungeonPlayer: {fileID: 1403580622}
@@ -100307,7 +100314,7 @@ MonoBehaviour:
   - {fileID: 1254321954}
   - {fileID: 744634708}
   - {fileID: 794060873}
-  lblClose: {fileID: 2138170428}
+  txtClose: {fileID: 2138170428}
   yesnoSystemMessage: {fileID: 1751569905}
   groupYesnoSystemMessage: {fileID: 1299817793}
   pbSandglass: {fileID: 1710657104}

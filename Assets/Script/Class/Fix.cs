@@ -1433,6 +1433,24 @@ public static partial class Fix
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_LBL_SAVELOAD = "lblSaveLoad";
   public const string L10N_TXT_CLOSE = "txtClose";
+  public const string L10N_PARTY = "lblParty";
+  public const string L10N_SYSTEM = "lblSystem";
+  public const string L10N_DUNGEONPLAYER = "lblDungeonPlayer";
+  public const string L10N_SHOP = "lblShop";
+  public const string L10N_INN = "lblInn";
+  public const string L10N_TALK_LANA = "lblTalkLana";
+  public const string L10N_ITEMBANK = "lblItemBank";
+  public const string L10N_CUSTOMEVENT1_ANSHET = "CustomEvent1_ANSHET";
+  public const string L10N_CUSTOMEVENT1_FAZIL_CASTLE = "CustomEvent1_FAZIL_CASTLE";
+  public const string L10N_CUSTOMEVENT1_COTUHSYE = "CustomEvent1_COTUHSYE";
+  public const string L10N_CUSTOMEVENT2_COTUHSYE = "CustomEvent2_COTUHSYE";
+  public const string L10N_CUSTOMEVENT1_ZHALMAN = "CustomEvent1_ZHALMAN";
+  public const string L10N_CUSTOMEVENT2_ZHALMAN = "CustomEvent2_ZHALMAN";
+  public const string L10N_CUSTOMEVENT1_ARCANEDINE = "CustomEvent1_ARCANEDINE";
+  public const string L10N_CUSTOMEVENT2_ARCANEDINE = "CustomEvent2_ARCANEDINE";
+  public const string L10N_CUSTOMEVENT3_ARCANEDINE = "CustomEvent3_ARCANEDINE";
+  public const string L10N_CUSTOMEVENT1_PARMETYSIA = "CustomEvent1_PARMETYSIA";
+
   #endregion
 
   #region "Action Command"
