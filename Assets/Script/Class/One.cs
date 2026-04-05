@@ -764,7 +764,6 @@ public static class One
     {
       List<Character> list = new List<Character>();
 
-      // If in SeekerMode (special case), only allow Ein Wolence if available
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
         if (TF.AvailableEinWolence)
@@ -775,8 +774,6 @@ public static class One
         return list;
       }
 
-      // Iterate through all registered characters and add those whose availability flag is set.
-      // This avoids relying on the hardcoded ordering of _characters and TF flags.
       foreach (var c in _characters)
       {
         if (c == null) continue;
