@@ -763,63 +763,29 @@ public static class One
     get
     {
       List<Character> list = new List<Character>();
-      int playerCounter = 0;
 
+      // If in SeekerMode (special case), only allow Ein Wolence if available
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
-        if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
+        if (TF.AvailableEinWolence)
+        {
+          var c = SelectCharacter(Fix.NAME_EIN_WOLENCE);
+          if (c != null) list.Add(c);
+        }
         return list;
       }
 
-      if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableLanaAmiria) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableEoneFulnea) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableSelmoiRo) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableKartinMai) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableJedaArus) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableIlzinaMeldiete) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-
-      if (TF.AvailableSinikiaVeilhanz) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailablePermaWaramy) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableKiltJorju) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableSunYu) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableRvelZelkis) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableVanHehgustel) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableLadaMystorus) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableSinOscurete) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
+      // Iterate through all registered characters and add those whose availability flag is set.
+      // This avoids relying on the hardcoded ordering of _characters and TF flags.
+      foreach (var c in _characters)
+      {
+        if (c == null) continue;
+        try
+        {
+          if (AvailableCharacterName(c.FullName)) list.Add(c);
+        }
+        catch { }
+      }
 
       return list;
     }
