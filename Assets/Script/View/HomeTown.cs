@@ -36,6 +36,11 @@ public partial class HomeTown : MotherBase
   public Text lblTalkLana;
   public Text lblItemBank;
 
+  public Text lblSystemSave;
+  public Text lblSystemLoad;
+  public Text lblSystemHelp;
+  public Text lblSystemExit;
+
   // Config
   public GameObject GroupConfig;
 
@@ -5090,6 +5095,10 @@ public partial class HomeTown : MotherBase
     if (lblInn != null) { lblInn.text = L10n.Get(Fix.L10N_INN); }
     if (lblTalkLana != null) { lblTalkLana.text = L10n.Get(Fix.L10N_TALK_LANA); }
     if (lblItemBank != null) { lblItemBank.text = L10n.Get(Fix.L10N_ITEMBANK); }
+    if (lblSystemSave != null) { lblSystemSave.text = L10n.Get(Fix.L10N_SYSTEM_SAVE); }
+    if (lblSystemLoad != null) { lblSystemLoad.text = L10n.Get(Fix.L10N_SYSTEM_LOAD); }
+    if (lblSystemHelp != null) { lblSystemHelp.text = L10n.Get(Fix.L10N_SYSTEM_HELP); }
+    if (lblSystemExit != null) { lblSystemExit.text = L10n.Get(Fix.L10N_SYSTEM_EXIT); }
   }
 
   private void UpdateStayListCheckMark()

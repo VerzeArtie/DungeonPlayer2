@@ -21,6 +21,11 @@ public static class L10n
     Register("lblInn", "宿屋", "Inn");
     Register("lblTalkLana", "幼なじみのラナと会話", "Talk to Lana");
     Register("lblItemBank", "アイテム保管庫", "ItemBank");
+    // HomeTown-System
+    Register("lblSystemSave", "セーブ", "Save");
+    Register("lblSystemLoad", "ロード", "Load");
+    Register("lblSystemHelp", "ヘルプ", "Help");
+    Register("lblSystemExit", "終了", "Exit");
     // HomeTown-Menu-Custom
     Register("CustomEvent1_ANSHET", "中央噴水広場", "Central Fountain");
     Register("CustomEvent1_FAZIL_CASTLE", "ファージル宮殿", "Fazil Castle");

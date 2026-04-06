@@ -20,6 +20,12 @@ public class DungeonField : MotherBase
   public Button btnBlueSphere;
   public Button btnSystem;
 
+  // SystemMenu
+  public Text lblSystemSave;
+  public Text lblSystemLoad;
+  public Text lblSystemHelp;
+  public Text lblSystemExit;
+
   // Blackout
   public GameObject objBlackOut;
   // Whiteout
@@ -26049,6 +26055,12 @@ public class DungeonField : MotherBase
 
     // 現在位置周辺の未探索タイル更新
     UpdateUnknownTile(Player.transform.position);
+
+    if (lblSystemSave != null) { lblSystemSave.text = L10n.Get(Fix.L10N_SYSTEM_SAVE); }
+    if (lblSystemLoad != null) { lblSystemLoad.text = L10n.Get(Fix.L10N_SYSTEM_LOAD); }
+    if (lblSystemHelp != null) { lblSystemHelp.text = L10n.Get(Fix.L10N_SYSTEM_HELP); }
+    if (lblSystemExit != null) { lblSystemExit.text = L10n.Get(Fix.L10N_SYSTEM_EXIT); }
+
   }
 
   private void RefreshQuestList()

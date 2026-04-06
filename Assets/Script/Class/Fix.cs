@@ -1440,6 +1440,11 @@ public static partial class Fix
   public const string L10N_INN = "lblInn";
   public const string L10N_TALK_LANA = "lblTalkLana";
   public const string L10N_ITEMBANK = "lblItemBank";
+  public const string L10N_SYSTEM_SAVE = "lblSystemSave";
+  public const string L10N_SYSTEM_LOAD = "lblSystemLoad";
+  public const string L10N_SYSTEM_HELP = "lblSystemHelp";
+  public const string L10N_SYSTEM_EXIT = "lblSystemExit";
+
   public const string L10N_CUSTOMEVENT1_ANSHET = "CustomEvent1_ANSHET";
   public const string L10N_CUSTOMEVENT1_FAZIL_CASTLE = "CustomEvent1_FAZIL_CASTLE";
   public const string L10N_CUSTOMEVENT1_COTUHSYE = "CustomEvent1_COTUHSYE";
