@@ -15,6 +15,7 @@ public static class L10n
     Register("GameDay", "日目", "Day");
     // HomeTown-Menu
     Register("lblParty", "パーティ", "Party");
+    Register("lblBlueSphere", "遠見の青水晶", "Far-Blue-Sphere");
     Register("lblSystem", "システム", "System");
     Register("lblDungeonPlayer", "DungeonPlayer", "DungeonPlayer"); // 日本語／英語で表記を変えない
     Register("lblShop", "ショップ", "Shop");

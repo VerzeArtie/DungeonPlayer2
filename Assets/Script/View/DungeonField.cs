@@ -21,6 +21,10 @@ public class DungeonField : MotherBase
   public Button btnSystem;
 
   // SystemMenu
+  public Text lblParty;
+  public Text lblBlueSphere;
+  public Text lblSystem;
+
   public Text lblSystemSave;
   public Text lblSystemLoad;
   public Text lblSystemHelp;
@@ -26055,6 +26059,10 @@ public class DungeonField : MotherBase
 
     // 現在位置周辺の未探索タイル更新
     UpdateUnknownTile(Player.transform.position);
+
+    if (lblParty != null) { lblParty.text = L10n.Get(Fix.L10N_PARTY); }
+    if (lblBlueSphere != null) { lblBlueSphere.text = L10n.Get(Fix.L10N_BLUESPHERE); }
+    if (lblSystem != null) { lblSystem.text = L10n.Get(Fix.L10N_SYSTEM); }
 
     if (lblSystemSave != null) { lblSystemSave.text = L10n.Get(Fix.L10N_SYSTEM_SAVE); }
     if (lblSystemLoad != null) { lblSystemLoad.text = L10n.Get(Fix.L10N_SYSTEM_LOAD); }

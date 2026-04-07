@@ -26556,7 +26556,7 @@ GameObject:
   - component: {fileID: 686138355}
   - component: {fileID: 686138354}
   m_Layer: 5
-  m_Name: txtParty
+  m_Name: lblParty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53404,7 +53404,7 @@ GameObject:
   - component: {fileID: 1387528874}
   - component: {fileID: 1387528873}
   m_Layer: 5
-  m_Name: txtBlueSphere
+  m_Name: lblBlueSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70573,7 +70573,7 @@ GameObject:
   - component: {fileID: 1852019667}
   - component: {fileID: 1852019666}
   m_Layer: 5
-  m_Name: txtSystem
+  m_Name: lblSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75899,6 +75899,9 @@ MonoBehaviour:
   btnParty: {fileID: 480268821}
   btnBlueSphere: {fileID: 1846054345}
   btnSystem: {fileID: 705659994}
+  lblParty: {fileID: 686138355}
+  lblBlueSphere: {fileID: 1387528874}
+  lblSystem: {fileID: 1852019667}
   lblSystemSave: {fileID: 1584919062}
   lblSystemLoad: {fileID: 1214412154}
   lblSystemHelp: {fileID: 1157963141}

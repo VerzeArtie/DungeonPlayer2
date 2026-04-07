@@ -1434,6 +1434,7 @@ public static partial class Fix
   public const string L10N_LBL_SAVELOAD = "lblSaveLoad";
   public const string L10N_TXT_CLOSE = "txtClose";
   public const string L10N_PARTY = "lblParty";
+  public const string L10N_BLUESPHERE = "lblBlueSphere";
   public const string L10N_SYSTEM = "lblSystem";
   public const string L10N_DUNGEONPLAYER = "lblDungeonPlayer";
   public const string L10N_SHOP = "lblShop";
