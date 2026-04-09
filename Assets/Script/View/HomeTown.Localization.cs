@@ -38,6 +38,14 @@ public static class L10n
     Register("CustomEvent2_ARCANEDINE", "ワッツの民芸品店", "Watts Handicraft");
     Register("CustomEvent3_ARCANEDINE", "占いの館：アミンダ", "Aminda's Fortune");
     Register("CustomEvent1_PARMETYSIA", "中央神殿", "Central Temple");
+    // PartyMenu-Top
+    Register(Fix.L10N_PARTYMENU_STATUS, "ステータス", "Status");
+    Register(Fix.L10N_PARTYMENU_BATTLESETTING, "バトル設定", "Battle");
+    Register(Fix.L10N_PARTYMENU_ESSENCETREE, "エッセンス", "Essence");
+    Register(Fix.L10N_PARTYMENU_ACTIONCOMMAND, "コマンド", "Command");
+    Register(Fix.L10N_PARTYMENU_ITEM, "アイテム", "Item");
+    Register(Fix.L10N_PARTYMENU_SWITCHFORMATION, "隊列変更", "Formation");
+    Register(Fix.L10N_PARTYMENU_CLOSEMENU, "閉じる", "Close");
   }
 
   public static void Register(string key, string japanese, string english)

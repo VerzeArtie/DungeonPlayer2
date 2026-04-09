@@ -19,6 +19,15 @@ public class PartyMenu : MotherBase
 
   public Text txtGold;
 
+  // Top-Menu
+  public Text lblStatus;
+  public Text lblBattleSetting;
+  public Text lblEssenceTree;
+  public Text lblActionCommand;
+  public Text lblItem;
+  public Text lblSwitchFormation;
+  public Text lblCloseMenu;
+
   // Party-StayList
   public List<Button> StayList;
   public List<Text> StayListName;
@@ -1272,6 +1281,14 @@ public class PartyMenu : MotherBase
 
     // 隊列変更ボタンの表示
     btnFormation.gameObject.SetActive(One.TF.AvailableFormation);
+
+    lblStatus.text = L10n.Get(Fix.L10N_PARTYMENU_STATUS);
+    lblBattleSetting.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLESETTING);
+    lblEssenceTree.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE);
+    lblActionCommand.text = L10n.Get(Fix.L10N_PARTYMENU_ACTIONCOMMAND);
+    lblItem.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM);
+    lblSwitchFormation.text = L10n.Get(Fix.L10N_PARTYMENU_SWITCHFORMATION);
+    lblCloseMenu.text = L10n.Get(Fix.L10N_PARTYMENU_CLOSEMENU);
   }
 
   #region "private"

@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 27864408}
   - component: {fileID: 27864407}
   m_Layer: 5
-  m_Name: btnSwitch
+  m_Name: lblSwitchFormation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10033,7 +10033,7 @@ GameObject:
   - component: {fileID: 152503903}
   - component: {fileID: 152503902}
   m_Layer: 5
-  m_Name: txtStatus
+  m_Name: lblStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23407,7 +23407,7 @@ GameObject:
   - component: {fileID: 354270299}
   - component: {fileID: 354270298}
   m_Layer: 5
-  m_Name: txtEssenceTree
+  m_Name: lblEssenceTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37525,7 +37525,7 @@ GameObject:
   - component: {fileID: 568053529}
   - component: {fileID: 568053528}
   m_Layer: 5
-  m_Name: txtItem
+  m_Name: lblItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64256,7 +64256,7 @@ GameObject:
   - component: {fileID: 1000178330}
   - component: {fileID: 1000178329}
   m_Layer: 5
-  m_Name: txtExit
+  m_Name: lblCloseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92974,7 +92974,7 @@ GameObject:
   - component: {fileID: 1510382070}
   - component: {fileID: 1510382069}
   m_Layer: 5
-  m_Name: txtCommand
+  m_Name: lblActionCommand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121979,6 +121979,13 @@ MonoBehaviour:
   groupPartyEssenceTree: {fileID: 1278514585}
   groupPartyItem: {fileID: 2111067311}
   txtGold: {fileID: 352393539}
+  lblStatus: {fileID: 152503903}
+  lblBattleSetting: {fileID: 2144647936}
+  lblEssenceTree: {fileID: 354270299}
+  lblActionCommand: {fileID: 1510382070}
+  lblItem: {fileID: 568053529}
+  lblSwitchFormation: {fileID: 27864408}
+  lblCloseMenu: {fileID: 1000178330}
   StayList:
   - {fileID: 956649418}
   - {fileID: 596034054}
@@ -133900,7 +133907,7 @@ GameObject:
   - component: {fileID: 2144647936}
   - component: {fileID: 2144647935}
   m_Layer: 5
-  m_Name: txtBattleSetting
+  m_Name: lblBattleSetting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1457,6 +1457,14 @@ public static partial class Fix
   public const string L10N_CUSTOMEVENT3_ARCANEDINE = "CustomEvent3_ARCANEDINE";
   public const string L10N_CUSTOMEVENT1_PARMETYSIA = "CustomEvent1_PARMETYSIA";
 
+  public const string L10N_PARTYMENU_STATUS = "lblPartyMenuStatus";
+  public const string L10N_PARTYMENU_BATTLESETTING = "lblPartyMenuBattleSetting";
+  public const string L10N_PARTYMENU_ESSENCETREE = "lblPartyMenuEssenceTree";
+  public const string L10N_PARTYMENU_ACTIONCOMMAND = "lblPartyMenuActionCommand";
+  public const string L10N_PARTYMENU_ITEM = "lblPartyMenuItem";
+  public const string L10N_PARTYMENU_SWITCHFORMATION = "lblPartyMenuSwitchFormation";
+  public const string L10N_PARTYMENU_CLOSEMENU = "lblPartyMenuCloseMenu";
+
   #endregion
 
   #region "Action Command"
