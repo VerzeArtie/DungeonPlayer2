@@ -19,7 +19,7 @@ public class PartyMenu : MotherBase
 
   public Text txtGold;
 
-  // Top-Menu
+  // Label
   public Text lblStatus;
   public Text lblBattleSetting;
   public Text lblEssenceTree;
@@ -27,6 +27,24 @@ public class PartyMenu : MotherBase
   public Text lblItem;
   public Text lblSwitchFormation;
   public Text lblCloseMenu;
+  public Text lblStatusDetail;
+  public Text lblLevelUpParameterAccept;
+  public Text lblLevelUpParameterReset;
+  public Text lblEquipChangeOK;
+  public Text lblEquipChangeDetach;
+  public Text lblEquipChangeCancel;
+  public Text lblBattleTypeBasic;
+  public Text lblBattleTypeSpellSkill;
+  public Text lblBattleTypeUseItem;
+  public Text lblBattleTypeArchetype;
+  // public Text lblBattleTypeViewMode;
+  public Text lblBattleTypeDescription;
+  public Text lblEssencePowerUp;
+  public Text lblItemBackpack;
+  public Text lblItemPrecious;
+  public Text lblItemUse;
+  public Text lblItemDetail;
+  public Text lblItemDelete;
 
   // Party-StayList
   public List<Button> StayList;
@@ -946,11 +964,11 @@ public class PartyMenu : MotherBase
     this.CommandSettingsViewMode = !this.CommandSettingsViewMode;
     if (CommandSettingsViewMode)
     {
-      txtCommandSettingsViewMode.text = "表示モード";
+      txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
     }
     else
     {
-      txtCommandSettingsViewMode.text = "設定モード";
+      txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT);
     }
   }
 
@@ -1282,6 +1300,16 @@ public class PartyMenu : MotherBase
     // 隊列変更ボタンの表示
     btnFormation.gameObject.SetActive(One.TF.AvailableFormation);
 
+    // バトル設定、編集モードの表示
+    if (CommandSettingsViewMode)
+    {
+      txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
+    }
+    else
+    {
+      txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT);
+    }
+
     lblStatus.text = L10n.Get(Fix.L10N_PARTYMENU_STATUS);
     lblBattleSetting.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLESETTING);
     lblEssenceTree.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE);
@@ -1289,6 +1317,25 @@ public class PartyMenu : MotherBase
     lblItem.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM);
     lblSwitchFormation.text = L10n.Get(Fix.L10N_PARTYMENU_SWITCHFORMATION);
     lblCloseMenu.text = L10n.Get(Fix.L10N_PARTYMENU_CLOSEMENU);
+    lblStatusDetail.text = L10n.Get(Fix.L10N_PARTYMENU_STATUS_DETAIL);
+    lblLevelUpParameterAccept.text = L10n.Get(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT);
+    lblLevelUpParameterReset.text = L10n.Get(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_RESET);
+    lblEquipChangeOK.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_OK);
+    lblEquipChangeDetach.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_DETACH);
+    lblEquipChangeCancel.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_CANCEL);
+    lblBattleTypeBasic.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_BASIC);
+    lblBattleTypeSpellSkill.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_SPELLSKILL);
+    lblBattleTypeUseItem.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_USEITEM);
+    lblBattleTypeArchetype.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_ARCHETYPE);
+    //lblBattleTypeViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT);
+    //lblBattleTypeViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
+    lblBattleTypeDescription.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_DESCRIPTION);
+    lblEssencePowerUp.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_POWERUP);
+    lblItemBackpack.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_BACKPACK);
+    lblItemPrecious.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_PRECIOUS);
+    lblItemUse.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_USE);
+    lblItemDetail.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DETAIL);
+    lblItemDelete.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DELETE);
   }
 
   #region "private"

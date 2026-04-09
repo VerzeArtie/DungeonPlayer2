@@ -46,6 +46,26 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ITEM, "アイテム", "Item");
     Register(Fix.L10N_PARTYMENU_SWITCHFORMATION, "隊列変更", "Formation");
     Register(Fix.L10N_PARTYMENU_CLOSEMENU, "閉じる", "Close");
+    // PartyMenu-Etc
+    Register(Fix.L10N_PARTYMENU_STATUS_DETAIL, "詳細", "Detail");
+    Register(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT, "確定", "Accept");
+    Register(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_RESET, "リセット", "Reset");
+    Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_OK, "装備", "Equip");
+    Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_DETACH, "外す", "Detach");
+    Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_CANCEL, "キャンセル", "Cancel");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_BASIC, "基本", "Basic");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_SPELLSKILL, "魔法/スキル", "Spell/Skill");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_USEITEM, "アイテム", "Item");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_ARCHETYPE, "元核", "Archetype");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT, "編集モード", "EditMode");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW, "表示モード", "ViewMode");
+    Register(Fix.L10N_PARTYMENU_BATTLETYPE_DESCRIPTION, "説明", "Description");
+    Register(Fix.L10N_PARTYMENU_ESSENCETREE_POWERUP, "強化", "Power-Up");
+    Register(Fix.L10N_PARTYMENU_ITEM_BACKPACK, "バックパック", "Backpack");
+    Register(Fix.L10N_PARTYMENU_ITEM_PRECIOUS, "貴重品", "Precious");
+    Register(Fix.L10N_PARTYMENU_ITEM_USE, "つかう", "Use");
+    Register(Fix.L10N_PARTYMENU_ITEM_DETAIL, "詳細", "Detail");
+    Register(Fix.L10N_PARTYMENU_ITEM_DELETE, "削除", "Delete");
   }
 
   public static void Register(string key, string japanese, string english)

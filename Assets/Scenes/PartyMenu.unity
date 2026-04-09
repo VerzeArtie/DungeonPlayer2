@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 11376401}
   - component: {fileID: 11376400}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblBattleTypeUseItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4583,7 +4583,7 @@ GameObject:
   - component: {fileID: 73795712}
   - component: {fileID: 73795711}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14307,7 +14307,7 @@ GameObject:
   - component: {fileID: 210102255}
   - component: {fileID: 210102254}
   m_Layer: 5
-  m_Name: txtUse
+  m_Name: lblItemUse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24740,7 +24740,7 @@ GameObject:
   - component: {fileID: 373341105}
   - component: {fileID: 373341104}
   m_Layer: 5
-  m_Name: txtReset
+  m_Name: lblLevelUpParameterReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29496,7 +29496,7 @@ GameObject:
   - component: {fileID: 453736906}
   - component: {fileID: 453736905}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblBattleTypeArchetype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33726,7 +33726,7 @@ GameObject:
   - component: {fileID: 498130820}
   - component: {fileID: 498130819}
   m_Layer: 5
-  m_Name: txtReset
+  m_Name: lblReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46840,7 +46840,7 @@ GameObject:
   - component: {fileID: 700828556}
   - component: {fileID: 700828555}
   m_Layer: 5
-  m_Name: txtPreciousItemName
+  m_Name: lblItemPrecious
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48867,7 +48867,7 @@ GameObject:
   - component: {fileID: 735539401}
   - component: {fileID: 735539400}
   m_Layer: 5
-  m_Name: txtBattleSetting
+  m_Name: lblStatusDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61644,7 +61644,7 @@ GameObject:
   - component: {fileID: 950758755}
   - component: {fileID: 950758754}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblBattleTypeSpellSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69142,7 +69142,7 @@ GameObject:
   - component: {fileID: 1108590261}
   - component: {fileID: 1108590260}
   m_Layer: 5
-  m_Name: txtDetach
+  m_Name: lblEquipChangeDetach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87965,7 +87965,7 @@ GameObject:
   - component: {fileID: 1413352978}
   - component: {fileID: 1413352977}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblLevelUpParameterAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88123,7 +88123,7 @@ GameObject:
   - component: {fileID: 1414890795}
   - component: {fileID: 1414890794}
   m_Layer: 5
-  m_Name: txtBackpackName
+  m_Name: lblItemBackpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90829,7 +90829,7 @@ GameObject:
   - component: {fileID: 1475363830}
   - component: {fileID: 1475363829}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblEquipChangeCancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94782,7 +94782,7 @@ GameObject:
   - component: {fileID: 1541094416}
   - component: {fileID: 1541094415}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblBattleTypeDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95154,7 +95154,7 @@ GameObject:
   - component: {fileID: 1548257451}
   - component: {fileID: 1548257450}
   m_Layer: 5
-  m_Name: txtDelete
+  m_Name: lblItemDelete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98614,7 +98614,7 @@ GameObject:
   - component: {fileID: 1598373140}
   - component: {fileID: 1598373139}
   m_Layer: 5
-  m_Name: txtDetail
+  m_Name: lblItemDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118276,7 +118276,7 @@ GameObject:
   - component: {fileID: 1906291779}
   - component: {fileID: 1906291778}
   m_Layer: 5
-  m_Name: txtOK
+  m_Name: lblEssencePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121986,6 +121986,24 @@ MonoBehaviour:
   lblItem: {fileID: 568053529}
   lblSwitchFormation: {fileID: 27864408}
   lblCloseMenu: {fileID: 1000178330}
+  lblStatusDetail: {fileID: 735539401}
+  lblLevelUpParameterAccept: {fileID: 1413352977}
+  lblLevelUpParameterReset: {fileID: 373341104}
+  lblEquipChangeOK: {fileID: 2117759381}
+  lblEquipChangeDetach: {fileID: 1108590260}
+  lblEquipChangeCancel: {fileID: 1475363829}
+  lblBattleTypeBasic: {fileID: 2106045215}
+  lblBattleTypeSpellSkill: {fileID: 950758754}
+  lblBattleTypeUseItem: {fileID: 11376400}
+  lblBattleTypeArchetype: {fileID: 453736905}
+  lblBattleTypeViewMode: {fileID: 0}
+  lblBattleTypeDescription: {fileID: 1541094415}
+  lblEssencePowerUp: {fileID: 1906291778}
+  lblItemBackpack: {fileID: 1414890794}
+  lblItemPrecious: {fileID: 700828555}
+  lblItemUse: {fileID: 210102254}
+  lblItemDetail: {fileID: 1598373139}
+  lblItemDelete: {fileID: 1548257450}
   StayList:
   - {fileID: 956649418}
   - {fileID: 596034054}
@@ -131218,7 +131236,7 @@ GameObject:
   - component: {fileID: 2106045216}
   - component: {fileID: 2106045215}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblBattleTypeBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132247,7 +132265,7 @@ GameObject:
   - component: {fileID: 2117759382}
   - component: {fileID: 2117759381}
   m_Layer: 5
-  m_Name: txtBack
+  m_Name: lblEquipChangeOK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

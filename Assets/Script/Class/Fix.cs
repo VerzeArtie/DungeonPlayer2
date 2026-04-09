@@ -1465,6 +1465,25 @@ public static partial class Fix
   public const string L10N_PARTYMENU_SWITCHFORMATION = "lblPartyMenuSwitchFormation";
   public const string L10N_PARTYMENU_CLOSEMENU = "lblPartyMenuCloseMenu";
 
+  public const string L10N_PARTYMENU_STATUS_DETAIL = "lblPartyMenuStatusDetail";
+  public const string L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT = "lblPartyMenuLevelUpParameterAccept";
+  public const string L10N_PARTYMENU_LEVELUP_PARAMETER_RESET = "lblPartyMenuLevelUpParameterReset";
+  public const string L10N_PARTYMENU_EQUIPCHANGE_OK = "lblPartyMenuEquipChangeOK";
+  public const string L10N_PARTYMENU_EQUIPCHANGE_DETACH = "lblPartyMenuEquipChangeDetach";
+  public const string L10N_PARTYMENU_EQUIPCHANGE_CANCEL = "lblPartyMenuEquipChangeCancel";
+  public const string L10N_PARTYMENU_BATTLETYPE_BASIC = "lblPartyMenuBattleTypeBasic";
+  public const string L10N_PARTYMENU_BATTLETYPE_SPELLSKILL = "lblPartyMenuBattleTypeSpellSkill";
+  public const string L10N_PARTYMENU_BATTLETYPE_USEITEM = "lblPartyMenuBattleTypeUseItem";
+  public const string L10N_PARTYMENU_BATTLETYPE_ARCHETYPE = "lblPartyMenuBattleTypeArchetype";
+  public const string L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT = "lblPartyMenuBattleTypeViewMode_Edit";
+  public const string L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW = "lblPartyMenuBattleTypeViewMode_View";
+  public const string L10N_PARTYMENU_BATTLETYPE_DESCRIPTION = "lblPartyMenuBattleTypeDescription";
+  public const string L10N_PARTYMENU_ESSENCETREE_POWERUP = "lblPartyMenuEssenceTreePowerUp";
+  public const string L10N_PARTYMENU_ITEM_BACKPACK = "lblPartyMenuItemBackpack";
+  public const string L10N_PARTYMENU_ITEM_PRECIOUS = "lblPartyMenuItemPrecious";
+  public const string L10N_PARTYMENU_ITEM_USE = "lblPartyMenuItemUse";
+  public const string L10N_PARTYMENU_ITEM_DETAIL = "lblPartyMenuItemDetail";
+  public const string L10N_PARTYMENU_ITEM_DELETE = "lblPartyMenuItemDelete";
   #endregion
 
   #region "Action Command"
