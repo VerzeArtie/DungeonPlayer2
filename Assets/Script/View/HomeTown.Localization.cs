@@ -74,6 +74,15 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
+    // Common-SecondParameter
+    Register(Fix.L10N_PHYSICAL_ATTACK, "物理攻撃", "Physical Attack");
+    Register(Fix.L10N_PHYSICAL_DEFENSE, "物理防御", "Physical Defense");
+    Register(Fix.L10N_MAGIC_ATTACK, "魔法攻撃", "Magic Attack");
+    Register(Fix.L10N_MAGIC_DEFENSE, "魔法防御", "Magic Defense");
+    Register(Fix.L10N_BATTLE_SPEED, "戦闘速度", "Battle Speed");
+    Register(Fix.L10N_BATTLE_RESPONSE, "戦闘反応", "Battle Response");
+    Register(Fix.L10N_POTENTIAL, "潜在能力", "Potential");
+
   }
 
   public static void Register(string key, string japanese, string english)

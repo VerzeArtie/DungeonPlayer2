@@ -1490,6 +1490,13 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT = "lblPartyMenuEssencePowerUpAccept";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL = "lblPartyMenuEssencePowerUpCancel";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_OK = "lblPartyMenuEssencePowerUpOK";
+  public const string L10N_PHYSICAL_ATTACK = "lblPhysicalAttack";
+  public const string L10N_PHYSICAL_DEFENSE = "lblPhysicalDefense";
+  public const string L10N_MAGIC_ATTACK = "lblMagicAttack";
+  public const string L10N_MAGIC_DEFENSE = "lblMagicDefense";
+  public const string L10N_BATTLE_SPEED = "lblBattleSpeed";
+  public const string L10N_BATTLE_RESPONSE = "lblBattleResponse";
+  public const string L10N_POTENTIAL = "lblPotential";
   #endregion
 
   #region "Action Command"

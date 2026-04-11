@@ -54,6 +54,20 @@ public class PartyMenu : MotherBase
   public Text lblEssencePowerUpAccept;
   public Text lblEssencePowerUpCancel;
   public Text lblEssencePowerUpOK;
+  public Text lblPhysicalAttack;
+  public Text lblPhysicalDefense;
+  public Text lblMagicAttack;
+  public Text lblMagicDefense;
+  public Text lblBattleSpeed;
+  public Text lblBattleResponse;
+  public Text lblPotential;
+  public Text lblDetailPhysicalAttack;
+  public Text lblDetailPhysicalDefense;
+  public Text lblDetailMagicAttack;
+  public Text lblDetailMagicDefense;
+  public Text lblDetailBattleSpeed;
+  public Text lblDetailBattleResponse;
+  public Text lblDetailPotential;
 
   // Party-StayList
   public List<Button> StayList;
@@ -1354,6 +1368,20 @@ public class PartyMenu : MotherBase
     lblEssencePowerUpAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT);
     lblEssencePowerUpCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL);
     lblEssencePowerUpOK.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK);
+    lblPhysicalAttack.text = L10n.Get(Fix.L10N_PHYSICAL_ATTACK);
+    lblPhysicalDefense.text = L10n.Get(Fix.L10N_PHYSICAL_DEFENSE);
+    lblMagicAttack.text = L10n.Get(Fix.L10N_MAGIC_ATTACK);
+    lblMagicDefense.text = L10n.Get(Fix.L10N_MAGIC_DEFENSE);
+    lblBattleSpeed.text = L10n.Get(Fix.L10N_BATTLE_SPEED);
+    lblBattleResponse.text = L10n.Get(Fix.L10N_BATTLE_RESPONSE);
+    lblPotential.text = L10n.Get(Fix.L10N_POTENTIAL);
+    lblDetailPhysicalAttack.text = L10n.Get(Fix.L10N_PHYSICAL_ATTACK);
+    lblDetailPhysicalDefense.text = L10n.Get(Fix.L10N_PHYSICAL_DEFENSE);
+    lblDetailMagicAttack.text = L10n.Get(Fix.L10N_MAGIC_ATTACK);
+    lblDetailMagicDefense.text = L10n.Get(Fix.L10N_MAGIC_DEFENSE);
+    lblDetailBattleSpeed.text = L10n.Get(Fix.L10N_BATTLE_SPEED);
+    lblDetailBattleResponse.text = L10n.Get(Fix.L10N_BATTLE_RESPONSE);
+    lblDetailPotential.text = L10n.Get(Fix.L10N_POTENTIAL);
   }
 
   #region "private"
