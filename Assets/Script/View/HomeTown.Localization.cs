@@ -66,6 +66,10 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ITEM_USE, "つかう", "Use");
     Register(Fix.L10N_PARTYMENU_ITEM_DETAIL, "詳細", "Detail");
     Register(Fix.L10N_PARTYMENU_ITEM_DELETE, "削除", "Delete");
+    // PartyMenu-Decision
+    Register(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT, "実行", "Accept");
+    Register(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL, "キャンセル", "Cancel");
+    Register(Fix.L10N_PARTYMENU_ITEM_DECISION_OK, "ＯＫ", "OK");
   }
 
   public static void Register(string key, string japanese, string english)

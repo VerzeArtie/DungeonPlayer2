@@ -30240,7 +30240,7 @@ GameObject:
   - component: {fileID: 456326891}
   - component: {fileID: 456326890}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblItemDecisionAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39705,7 +39705,7 @@ GameObject:
   - component: {fileID: 595457912}
   - component: {fileID: 595457911}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblItemDecisionCancel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72952,7 +72952,7 @@ GameObject:
   - component: {fileID: 1187026903}
   - component: {fileID: 1187026902}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblItemDecisionOK2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73695,7 +73695,7 @@ GameObject:
   - component: {fileID: 1195371478}
   - component: {fileID: 1195371477}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblItemDecisionAccept2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92296,7 +92296,7 @@ GameObject:
   - component: {fileID: 1498980640}
   - component: {fileID: 1498980639}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblItemDecisionCancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96854,7 +96854,7 @@ GameObject:
   - component: {fileID: 1573673967}
   - component: {fileID: 1573673966}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblItemDecisionOK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121996,7 +121996,6 @@ MonoBehaviour:
   lblBattleTypeSpellSkill: {fileID: 950758754}
   lblBattleTypeUseItem: {fileID: 11376400}
   lblBattleTypeArchetype: {fileID: 453736905}
-  lblBattleTypeViewMode: {fileID: 0}
   lblBattleTypeDescription: {fileID: 1541094415}
   lblEssencePowerUp: {fileID: 1906291778}
   lblItemBackpack: {fileID: 1414890794}
@@ -122004,6 +122003,9 @@ MonoBehaviour:
   lblItemUse: {fileID: 210102254}
   lblItemDetail: {fileID: 1598373139}
   lblItemDelete: {fileID: 1548257450}
+  lblItemDecisionAccept: {fileID: 456326890}
+  lblItemDecisionCancel: {fileID: 1498980639}
+  lblItemDecisionOK: {fileID: 1573673966}
   StayList:
   - {fileID: 956649418}
   - {fileID: 596034054}
