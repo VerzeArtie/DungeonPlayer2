@@ -30,6 +30,7 @@ public class PartyMenu : MotherBase
   public Text lblStatusDetail;
   public Text lblLevelUpParameterAccept;
   public Text lblLevelUpParameterReset;
+  public Text lblLevelUpCorePoint;
   public Text lblEquipChangeOK;
   public Text lblEquipChangeDetach;
   public Text lblEquipChangeCancel;
@@ -1354,6 +1355,7 @@ public class PartyMenu : MotherBase
     lblStatusDetail.text = L10n.Get(Fix.L10N_PARTYMENU_STATUS_DETAIL);
     lblLevelUpParameterAccept.text = L10n.Get(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT);
     lblLevelUpParameterReset.text = L10n.Get(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_RESET);
+    lblLevelUpCorePoint.text = L10n.Get(Fix.L10N_PARTYMENU_LEVELUP_COREPOINT);
     lblEquipChangeOK.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_OK);
     lblEquipChangeDetach.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_DETACH);
     lblEquipChangeCancel.text = L10n.Get(Fix.L10N_PARTYMENU_EQUIPCHANGE_CANCEL);

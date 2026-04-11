@@ -50,6 +50,7 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_STATUS_DETAIL, "詳細", "Detail");
     Register(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT, "確定", "Accept");
     Register(Fix.L10N_PARTYMENU_LEVELUP_PARAMETER_RESET, "リセット", "Reset");
+    Register(Fix.L10N_PARTYMENU_LEVELUP_COREPOINT, "コアポイント", "CORE Point");
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_OK, "装備", "Equip");
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_DETACH, "外す", "Detach");
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_CANCEL, "キャンセル", "Cancel");

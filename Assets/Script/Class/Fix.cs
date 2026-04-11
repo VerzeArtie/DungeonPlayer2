@@ -1466,6 +1466,7 @@ public static partial class Fix
   public const string L10N_PARTYMENU_CLOSEMENU = "lblPartyMenuCloseMenu";
 
   public const string L10N_PARTYMENU_STATUS_DETAIL = "lblPartyMenuStatusDetail";
+  public const string L10N_PARTYMENU_LEVELUP_COREPOINT = "lblPartyMenuLevelUpCorePoint";
   public const string L10N_PARTYMENU_LEVELUP_PARAMETER_ACCEPT = "lblPartyMenuLevelUpParameterAccept";
   public const string L10N_PARTYMENU_LEVELUP_PARAMETER_RESET = "lblPartyMenuLevelUpParameterReset";
   public const string L10N_PARTYMENU_EQUIPCHANGE_OK = "lblPartyMenuEquipChangeOK";

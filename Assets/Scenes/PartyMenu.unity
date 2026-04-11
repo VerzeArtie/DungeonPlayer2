@@ -12142,7 +12142,7 @@ GameObject:
   - component: {fileID: 178217242}
   - component: {fileID: 178217241}
   m_Layer: 5
-  m_Name: lblRemainPoint
+  m_Name: lblLevelUpCorePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122429,6 +122429,7 @@ MonoBehaviour:
   lblStatusDetail: {fileID: 735539401}
   lblLevelUpParameterAccept: {fileID: 1413352977}
   lblLevelUpParameterReset: {fileID: 373341104}
+  lblLevelUpCorePoint: {fileID: 178217242}
   lblEquipChangeOK: {fileID: 2117759381}
   lblEquipChangeDetach: {fileID: 1108590260}
   lblEquipChangeCancel: {fileID: 1475363829}
