@@ -75,6 +75,12 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
+    // Common-BasicParameter
+    Register(Fix.L10N_BASIC_LEVEL, "レベル", "Level");
+    Register(Fix.L10N_BASIC_EXPERIENCE, "経験値", "Exp");
+    Register(Fix.L10N_BASIC_LIFE, "ライフ", "Life");
+    Register(Fix.L10N_BASIC_MANA_POINT, "マナ", "MP");
+    Register(Fix.L10N_BASIC_SKILL_POINT, "スキル", "SP");
     // Common-CoreParameter
     Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
     Register(Fix.L10N_CORE_AGILITY, "技", "AGL");

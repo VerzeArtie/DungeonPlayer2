@@ -55,6 +55,11 @@ public class PartyMenu : MotherBase
   public Text lblEssencePowerUpAccept;
   public Text lblEssencePowerUpCancel;
   public Text lblEssencePowerUpOK;
+  public Text lblBasicLevel;
+  public Text lblBasicExperience;
+  public Text lblBasicLife;
+  public Text lblBasicManaPoint;
+  public Text lblBasicSkillPoint;
   public Text lblCoreStrength;
   public Text lblCoreAgility;
   public Text lblCoreIntelligence;
@@ -1381,6 +1386,11 @@ public class PartyMenu : MotherBase
     lblEssencePowerUpAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT);
     lblEssencePowerUpCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL);
     lblEssencePowerUpOK.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK);
+    lblBasicLevel.text = L10n.Get(Fix.L10N_BASIC_LEVEL);
+    lblBasicExperience.text = L10n.Get(Fix.L10N_BASIC_EXPERIENCE);
+    lblBasicLife.text = L10n.Get(Fix.L10N_BASIC_LIFE);
+    lblBasicManaPoint.text = L10n.Get(Fix.L10N_BASIC_MANA_POINT);
+    lblBasicSkillPoint.text = L10n.Get(Fix.L10N_BASIC_SKILL_POINT);
     lblCoreStrength.text = L10n.Get(Fix.L10N_CORE_STRENGTH);
     lblCoreAgility.text = L10n.Get(Fix.L10N_CORE_AGILITY);
     lblCoreIntelligence.text = L10n.Get(Fix.L10N_CORE_INTELLIGENCE);

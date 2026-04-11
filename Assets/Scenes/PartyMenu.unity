@@ -5335,7 +5335,7 @@ GameObject:
   - component: {fileID: 83505377}
   - component: {fileID: 83505376}
   m_Layer: 5
-  m_Name: lblSkillPoint
+  m_Name: lblBasicSkillPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102282,7 +102282,7 @@ GameObject:
   - component: {fileID: 1641129175}
   - component: {fileID: 1641129174}
   m_Layer: 5
-  m_Name: lblLife
+  m_Name: lblBasicLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105681,7 +105681,7 @@ GameObject:
   - component: {fileID: 1700474178}
   - component: {fileID: 1700474177}
   m_Layer: 5
-  m_Name: lblLevel
+  m_Name: lblBasicLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119789,7 +119789,7 @@ GameObject:
   - component: {fileID: 1919997474}
   - component: {fileID: 1919997473}
   m_Layer: 5
-  m_Name: lblManaPoint
+  m_Name: lblBasicManaPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122453,6 +122453,11 @@ MonoBehaviour:
   lblEssencePowerUpAccept: {fileID: 1673893594}
   lblEssencePowerUpCancel: {fileID: 1235617852}
   lblEssencePowerUpOK: {fileID: 415404166}
+  lblBasicLevel: {fileID: 1700474178}
+  lblBasicExperience: {fileID: 2112612461}
+  lblBasicLife: {fileID: 1641129175}
+  lblBasicManaPoint: {fileID: 1919997474}
+  lblBasicSkillPoint: {fileID: 83505377}
   lblCoreStrength: {fileID: 1625682914}
   lblCoreAgility: {fileID: 33114317}
   lblCoreIntelligence: {fileID: 1959548591}
@@ -132392,7 +132397,7 @@ GameObject:
   - component: {fileID: 2112612461}
   - component: {fileID: 2112612460}
   m_Layer: 5
-  m_Name: lblExp
+  m_Name: lblBasicExperience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
