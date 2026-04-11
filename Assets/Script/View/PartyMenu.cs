@@ -48,6 +48,9 @@ public class PartyMenu : MotherBase
   public Text lblItemDecisionAccept;
   public Text lblItemDecisionCancel;
   public Text lblItemDecisionOK;
+  public Text lblItemPreciousDecisionAccept;
+  public Text lblItemPreciousDecisionCancel;
+  public Text lblItemPreciousDecisionOK;
 
   // Party-StayList
   public List<Button> StayList;
@@ -1342,6 +1345,9 @@ public class PartyMenu : MotherBase
     lblItemDecisionAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT);
     lblItemDecisionCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL);
     lblItemDecisionOK.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_OK);
+    lblItemPreciousDecisionAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT);
+    lblItemPreciousDecisionCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL);
+    lblItemPreciousDecisionOK.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_OK);
   }
 
   #region "private"
