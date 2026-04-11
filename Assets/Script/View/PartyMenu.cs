@@ -54,6 +54,11 @@ public class PartyMenu : MotherBase
   public Text lblEssencePowerUpAccept;
   public Text lblEssencePowerUpCancel;
   public Text lblEssencePowerUpOK;
+  public Text lblCoreStrength;
+  public Text lblCoreAgility;
+  public Text lblCoreIntelligence;
+  public Text lblCoreStamina;
+  public Text lblCoreMind;
   public Text lblPhysicalAttack;
   public Text lblPhysicalDefense;
   public Text lblMagicAttack;
@@ -1374,6 +1379,11 @@ public class PartyMenu : MotherBase
     lblEssencePowerUpAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT);
     lblEssencePowerUpCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL);
     lblEssencePowerUpOK.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK);
+    lblCoreStrength.text = L10n.Get(Fix.L10N_CORE_STRENGTH);
+    lblCoreAgility.text = L10n.Get(Fix.L10N_CORE_AGILITY);
+    lblCoreIntelligence.text = L10n.Get(Fix.L10N_CORE_INTELLIGENCE);
+    lblCoreStamina.text = L10n.Get(Fix.L10N_CORE_STAMINA);
+    lblCoreMind.text = L10n.Get(Fix.L10N_CORE_MIND);
     lblPhysicalAttack.text = L10n.Get(Fix.L10N_PHYSICAL_ATTACK);
     lblPhysicalDefense.text = L10n.Get(Fix.L10N_PHYSICAL_DEFENSE);
     lblMagicAttack.text = L10n.Get(Fix.L10N_MAGIC_ATTACK);

@@ -1490,6 +1490,11 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT = "lblPartyMenuEssencePowerUpAccept";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL = "lblPartyMenuEssencePowerUpCancel";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_OK = "lblPartyMenuEssencePowerUpOK";
+  public const string L10N_CORE_STRENGTH = "lblCoreStrength";
+  public const string L10N_CORE_AGILITY = "lblCoreAgility";
+  public const string L10N_CORE_INTELLIGENCE = "lblCoreIntelligence";
+  public const string L10N_CORE_STAMINA = "lblCoreStamina";
+  public const string L10N_CORE_MIND = "lblCoreMind";
   public const string L10N_PHYSICAL_ATTACK = "lblPhysicalAttack";
   public const string L10N_PHYSICAL_DEFENSE = "lblPhysicalDefense";
   public const string L10N_MAGIC_ATTACK = "lblMagicAttack";

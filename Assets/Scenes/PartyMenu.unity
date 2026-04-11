@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 33114317}
   - component: {fileID: 33114316}
   m_Layer: 5
-  m_Name: lblAgility
+  m_Name: lblCoreAgility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20248,7 +20248,7 @@ GameObject:
   - component: {fileID: 309720217}
   - component: {fileID: 309720216}
   m_Layer: 5
-  m_Name: lblStamina
+  m_Name: lblCoreStamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101216,7 +101216,7 @@ GameObject:
   - component: {fileID: 1625682914}
   - component: {fileID: 1625682913}
   m_Layer: 5
-  m_Name: lblStrength
+  m_Name: lblCoreStrength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103346,7 +103346,7 @@ GameObject:
   - component: {fileID: 1656825776}
   - component: {fileID: 1656825775}
   m_Layer: 5
-  m_Name: lblMind
+  m_Name: lblCoreMind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121614,7 +121614,7 @@ GameObject:
   - component: {fileID: 1959548591}
   - component: {fileID: 1959548590}
   m_Layer: 5
-  m_Name: lblIntelligence
+  m_Name: lblCoreIntelligence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122452,6 +122452,11 @@ MonoBehaviour:
   lblEssencePowerUpAccept: {fileID: 1673893594}
   lblEssencePowerUpCancel: {fileID: 1235617852}
   lblEssencePowerUpOK: {fileID: 415404166}
+  lblCoreStrength: {fileID: 1625682914}
+  lblCoreAgility: {fileID: 33114317}
+  lblCoreIntelligence: {fileID: 1959548591}
+  lblCoreStamina: {fileID: 309720217}
+  lblCoreMind: {fileID: 1656825776}
   lblPhysicalAttack: {fileID: 1771102014}
   lblPhysicalDefense: {fileID: 1012676312}
   lblMagicAttack: {fileID: 990370432}

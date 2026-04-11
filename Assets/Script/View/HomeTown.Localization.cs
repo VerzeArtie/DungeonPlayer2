@@ -74,6 +74,12 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
+    // Common-CoreParameter
+    Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
+    Register(Fix.L10N_CORE_AGILITY, "技", "AGL");
+    Register(Fix.L10N_CORE_INTELLIGENCE, "知", "INT");
+    Register(Fix.L10N_CORE_STAMINA, "体", "STM");
+    Register(Fix.L10N_CORE_MIND, "心", "MND");
     // Common-SecondParameter
     Register(Fix.L10N_PHYSICAL_ATTACK, "物理攻撃", "Physical Attack");
     Register(Fix.L10N_PHYSICAL_DEFENSE, "物理防御", "Physical Defense");
