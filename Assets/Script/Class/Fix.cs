@@ -1487,6 +1487,9 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ITEM_DECISION_ACCEPT = "lblPartyMenuItemDecisionAccept";
   public const string L10N_PARTYMENU_ITEM_DECISION_CANCEL = "lblPartyMenuItemDecisionCancel";
   public const string L10N_PARTYMENU_ITEM_DECISION_OK = "lblPartyMenuItemDecisionOK";
+  public const string L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT = "lblPartyMenuEssencePowerUpAccept";
+  public const string L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL = "lblPartyMenuEssencePowerUpCancel";
+  public const string L10N_PARTYMENU_ESSENCE_POWERUP_OK = "lblPartyMenuEssencePowerUpOK";
   #endregion
 
   #region "Action Command"

@@ -51,6 +51,9 @@ public class PartyMenu : MotherBase
   public Text lblItemPreciousDecisionAccept;
   public Text lblItemPreciousDecisionCancel;
   public Text lblItemPreciousDecisionOK;
+  public Text lblEssencePowerUpAccept;
+  public Text lblEssencePowerUpCancel;
+  public Text lblEssencePowerUpOK;
 
   // Party-StayList
   public List<Button> StayList;
@@ -1348,6 +1351,9 @@ public class PartyMenu : MotherBase
     lblItemPreciousDecisionAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT);
     lblItemPreciousDecisionCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL);
     lblItemPreciousDecisionOK.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_OK);
+    lblEssencePowerUpAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT);
+    lblEssencePowerUpCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL);
+    lblEssencePowerUpOK.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK);
   }
 
   #region "private"

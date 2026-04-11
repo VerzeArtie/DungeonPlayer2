@@ -26910,7 +26910,7 @@ GameObject:
   - component: {fileID: 415404167}
   - component: {fileID: 415404166}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblEssencePowerUpOK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75731,7 +75731,7 @@ GameObject:
   - component: {fileID: 1235617853}
   - component: {fileID: 1235617852}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblEssencePowerUpCancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103964,7 +103964,7 @@ GameObject:
   - component: {fileID: 1673893595}
   - component: {fileID: 1673893594}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblEssencePowerUpAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122009,6 +122009,9 @@ MonoBehaviour:
   lblItemPreciousDecisionAccept: {fileID: 1195371477}
   lblItemPreciousDecisionCancel: {fileID: 595457911}
   lblItemPreciousDecisionOK: {fileID: 1187026902}
+  lblEssencePowerUpAccept: {fileID: 1673893594}
+  lblEssencePowerUpCancel: {fileID: 1235617852}
+  lblEssencePowerUpOK: {fileID: 415404166}
   StayList:
   - {fileID: 956649418}
   - {fileID: 596034054}
