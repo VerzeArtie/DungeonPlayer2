@@ -122466,6 +122466,12 @@ MonoBehaviour:
   lblDetailBattleSpeed: {fileID: 1027501253}
   lblDetailBattleResponse: {fileID: 974459141}
   lblDetailPotential: {fileID: 2012216124}
+  lblMainWeapon: {fileID: 2131559744}
+  lblSubWeapon: {fileID: 61869410}
+  lblArmor: {fileID: 1587287422}
+  lblAccessory1: {fileID: 1749728576}
+  lblAccessory2: {fileID: 450871274}
+  lblArtifact: {fileID: 1401943519}
   StayList:
   - {fileID: 956649418}
   - {fileID: 596034054}

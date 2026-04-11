@@ -1497,6 +1497,12 @@ public static partial class Fix
   public const string L10N_BATTLE_SPEED = "lblBattleSpeed";
   public const string L10N_BATTLE_RESPONSE = "lblBattleResponse";
   public const string L10N_POTENTIAL = "lblPotential";
+  public const string L10N_MAIN_WEAPON = "lblMainWeapon";
+  public const string L10N_SUB_WEAPON = "lblSubWeapon";
+  public const string L10N_ARMOR = "lblArmor";
+  public const string L10N_ACCESSORY1 = "lblAccessory1";
+  public const string L10N_ACCESSORY2 = "lblAccessory2";
+  public const string L10N_ARTIFACT = "lblArtifact";
   #endregion
 
   #region "Action Command"

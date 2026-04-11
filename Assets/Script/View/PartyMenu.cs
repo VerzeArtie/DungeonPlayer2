@@ -68,6 +68,12 @@ public class PartyMenu : MotherBase
   public Text lblDetailBattleSpeed;
   public Text lblDetailBattleResponse;
   public Text lblDetailPotential;
+  public Text lblMainWeapon;
+  public Text lblSubWeapon;
+  public Text lblArmor;
+  public Text lblAccessory1;
+  public Text lblAccessory2;
+  public Text lblArtifact;
 
   // Party-StayList
   public List<Button> StayList;
@@ -1382,6 +1388,12 @@ public class PartyMenu : MotherBase
     lblDetailBattleSpeed.text = L10n.Get(Fix.L10N_BATTLE_SPEED);
     lblDetailBattleResponse.text = L10n.Get(Fix.L10N_BATTLE_RESPONSE);
     lblDetailPotential.text = L10n.Get(Fix.L10N_POTENTIAL);
+    lblMainWeapon.text = L10n.Get(Fix.L10N_MAIN_WEAPON);
+    lblSubWeapon.text = L10n.Get(Fix.L10N_SUB_WEAPON);
+    lblArmor.text = L10n.Get(Fix.L10N_ARMOR);
+    lblAccessory1.text = L10n.Get(Fix.L10N_ACCESSORY1);
+    lblAccessory2.text = L10n.Get(Fix.L10N_ACCESSORY2);
+    lblArtifact.text = L10n.Get(Fix.L10N_ARTIFACT);
   }
 
   #region "private"

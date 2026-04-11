@@ -82,6 +82,13 @@ public static class L10n
     Register(Fix.L10N_BATTLE_SPEED, "戦闘速度", "Battle Speed");
     Register(Fix.L10N_BATTLE_RESPONSE, "戦闘反応", "Battle Response");
     Register(Fix.L10N_POTENTIAL, "潜在能力", "Potential");
+    // Common-Equip
+    Register(Fix.L10N_MAIN_WEAPON, "メイン武器", "Main Weapon");
+    Register(Fix.L10N_SUB_WEAPON, "サブ武器", "Sub Weapon");
+    Register(Fix.L10N_ARMOR, "防具", "Armor");
+    Register(Fix.L10N_ACCESSORY1, "アクセサリー1", "Accessory 1");
+    Register(Fix.L10N_ACCESSORY2, "アクセサリー2", "Accessory 2");
+    Register(Fix.L10N_ARTIFACT, "アーティファクト", "Artifact");
 
   }
 
