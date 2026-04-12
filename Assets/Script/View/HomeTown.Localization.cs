@@ -95,6 +95,33 @@ public static class L10n
     Register(Fix.L10N_BATTLE_SPEED, "戦闘速度", "Battle Speed");
     Register(Fix.L10N_BATTLE_RESPONSE, "戦闘反応", "Battle Response");
     Register(Fix.L10N_POTENTIAL, "潜在能力", "Potential");
+    // Common-DetailParameter
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_PA, "物攻率", "PA Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_PD, "物防率", "PD Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_MA, "魔攻率", "MA Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_MD, "魔防率", "MD Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_BS, "戦速率", "BS Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_BR, "戦応率", "BR Amplify");
+    Register(Fix.L10N_DETAIL_BATTLE_PERCENT_PO, "潜在率", "PO Amplify");
+    Register(Fix.L10N_DETAIL_FIRE_AMPLIFY, "炎増幅", "Fire Amplify");
+    Register(Fix.L10N_DETAIL_FIRE_RESIST, "炎耐性", "Fire Resist");
+    Register(Fix.L10N_DETAIL_ICE_AMPLIFY, "氷増幅", "Ice Amplify");
+    Register(Fix.L10N_DETAIL_ICE_RESIST, "氷耐性", "Ice Resist");
+    Register(Fix.L10N_DETAIL_LIGHT_AMPLIFY, "光増幅", "Light Amplify");
+    Register(Fix.L10N_DETAIL_LIGHT_RESIST, "光耐性", "Light Resist");
+    Register(Fix.L10N_DETAIL_SHADOW_AMPLIFY, "闇増幅", "Shadow Amplify");
+    Register(Fix.L10N_DETAIL_SHADOW_RESIST, "闇耐性", "Shadow Resist");
+    Register(Fix.L10N_DETAIL_RESIST_POISON, "猛毒耐性", "Poison Resist");
+    Register(Fix.L10N_DETAIL_RESIST_SILENCE, "沈黙耐性", "Silence Resist");
+    Register(Fix.L10N_DETAIL_RESIST_BIND, "束縛耐性", "Bind Resist");
+    Register(Fix.L10N_DETAIL_RESIST_SLEEP, "睡眠耐性", "Sleep Resist");
+    Register(Fix.L10N_DETAIL_RESIST_STUN, "スタン耐性", "Stun Resist");
+    Register(Fix.L10N_DETAIL_RESIST_PARALYZE, "麻痺耐性", "Paralyze Resist");
+    Register(Fix.L10N_DETAIL_RESIST_FROZEN, "凍結耐性", "Frozen Resist");
+    Register(Fix.L10N_DETAIL_RESIST_FEAR, "恐怖耐性", "Fear Resist");
+    Register(Fix.L10N_DETAIL_RESIST_SLOW, "鈍足耐性", "Slow Resist");
+    Register(Fix.L10N_DETAIL_RESIST_DIZZY, "眩暈耐性", "Dizzy Resist");
+    Register(Fix.L10N_DETAIL_RESIST_SLIP, "出血耐性", "Slip Resist");
     // Common-Equip
     Register(Fix.L10N_MAIN_WEAPON, "メイン武器", "Main Weapon");
     Register(Fix.L10N_SUB_WEAPON, "サブ武器", "Sub Weapon");

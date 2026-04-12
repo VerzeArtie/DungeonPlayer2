@@ -16250,7 +16250,7 @@ GameObject:
   - component: {fileID: 242768272}
   - component: {fileID: 242768271}
   m_Layer: 5
-  m_Name: lblAmplifyBattleResponse
+  m_Name: lblDetailBattlePercentBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27610,7 +27610,7 @@ GameObject:
   - component: {fileID: 423399384}
   - component: {fileID: 423399383}
   m_Layer: 5
-  m_Name: lblResistFreeze
+  m_Name: lblResistFrozen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36413,7 +36413,7 @@ GameObject:
   - component: {fileID: 549659060}
   - component: {fileID: 549659059}
   m_Layer: 5
-  m_Name: lblAmplifyBattleSpeed
+  m_Name: lblDetailBattlePercentBS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48783,7 +48783,7 @@ GameObject:
   - component: {fileID: 728757102}
   - component: {fileID: 728757101}
   m_Layer: 5
-  m_Name: lblAmplifyPhysicalDefense
+  m_Name: lblDetailBattlePercentPD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68862,7 +68862,7 @@ GameObject:
   - component: {fileID: 1092602498}
   - component: {fileID: 1092602497}
   m_Layer: 5
-  m_Name: lblAmplifyPotential
+  m_Name: lblDetailBattlePercentPO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97674,7 +97674,7 @@ GameObject:
   - component: {fileID: 1580002531}
   - component: {fileID: 1580002530}
   m_Layer: 5
-  m_Name: lblAmplifyMagicDefense
+  m_Name: lblDetailBattlePercentMD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122477,6 +122477,32 @@ MonoBehaviour:
   lblDetailBattleSpeed: {fileID: 1027501253}
   lblDetailBattleResponse: {fileID: 974459141}
   lblDetailPotential: {fileID: 2012216124}
+  lblDetailBattlePercentPA: {fileID: 1999878715}
+  lblDetailBattlePercentPD: {fileID: 728757102}
+  lblDetailBattlePercentMA: {fileID: 2134810508}
+  lblDetailBattlePercentMD: {fileID: 1580002531}
+  lblDetailBattlePercentBS: {fileID: 549659060}
+  lblDetailBattlePercentBR: {fileID: 242768272}
+  lblDetailBattlePercentPO: {fileID: 1092602498}
+  lblDetailFireAmplify: {fileID: 1964902532}
+  lblDetailFireResist: {fileID: 1296065536}
+  lblDetailIceAmplify: {fileID: 570368492}
+  lblDetailIceResist: {fileID: 739120879}
+  lblDetailLightAmplify: {fileID: 190146733}
+  lblDetailLightResist: {fileID: 163708235}
+  lblDetailShadowAmplify: {fileID: 1538362682}
+  lblDetailShadowResist: {fileID: 1979488799}
+  lblResistPoison: {fileID: 1190782607}
+  lblResistSilence: {fileID: 220018098}
+  lblResistBind: {fileID: 1125286913}
+  lblResistSleep: {fileID: 1287404935}
+  lblResistStun: {fileID: 152481196}
+  lblResistParalyze: {fileID: 454405300}
+  lblResistFrozen: {fileID: 423399384}
+  lblResistFear: {fileID: 1876884358}
+  lblResistSlow: {fileID: 1507843092}
+  lblResistDizzy: {fileID: 554577494}
+  lblResistSlip: {fileID: 1391404546}
   lblMainWeapon: {fileID: 2131559744}
   lblSubWeapon: {fileID: 61869410}
   lblArmor: {fileID: 1587287422}
@@ -125241,7 +125267,7 @@ GameObject:
   - component: {fileID: 1999878715}
   - component: {fileID: 1999878714}
   m_Layer: 5
-  m_Name: lblAmplifyPhysicalAttack
+  m_Name: lblDetailBattlePercentPA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134314,7 +134340,7 @@ GameObject:
   - component: {fileID: 2134810508}
   - component: {fileID: 2134810507}
   m_Layer: 5
-  m_Name: lblAmplifyMagicAttack
+  m_Name: lblDetailBattlePercentMA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
