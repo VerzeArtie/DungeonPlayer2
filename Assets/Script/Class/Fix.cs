@@ -1479,6 +1479,8 @@ public static partial class Fix
   public const string L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT = "lblPartyMenuBattleTypeViewMode_Edit";
   public const string L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW = "lblPartyMenuBattleTypeViewMode_View";
   public const string L10N_PARTYMENU_BATTLETYPE_DESCRIPTION = "lblPartyMenuBattleTypeDescription";
+  public const string L10N_PARTYMENU_BATTLE_LABEL_MAIN = "lblPartyMenuBattleLabelMain";
+  public const string L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND = "lblPartyMenuBattleLabelActionCommand";
   public const string L10N_PARTYMENU_ESSENCETREE_POWERUP = "lblPartyMenuEssenceTreePowerUp";
   public const string L10N_PARTYMENU_ITEM_BACKPACK = "lblPartyMenuItemBackpack";
   public const string L10N_PARTYMENU_ITEM_PRECIOUS = "lblPartyMenuItemPrecious";
@@ -14764,6 +14766,7 @@ public static partial class Fix
   public const string GUARDIAN_ANGEL_BLACK = "断罪天使";
   public const string GUARDIAN_ANGEL_WHITE = "珀流天使";
   #endregion
+
   #endregion
 
 }

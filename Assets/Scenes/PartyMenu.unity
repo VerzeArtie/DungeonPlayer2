@@ -38845,7 +38845,7 @@ GameObject:
   - component: {fileID: 584415938}
   - component: {fileID: 584415937}
   m_Layer: 5
-  m_Name: lblMain
+  m_Name: lblBattleLabelActionCommand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82466,7 +82466,7 @@ GameObject:
   - component: {fileID: 1337314540}
   - component: {fileID: 1337314539}
   m_Layer: 5
-  m_Name: lblMain
+  m_Name: lblBattleLabelMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122438,6 +122438,8 @@ MonoBehaviour:
   lblBattleTypeUseItem: {fileID: 11376400}
   lblBattleTypeArchetype: {fileID: 453736905}
   lblBattleTypeDescription: {fileID: 1541094415}
+  lblBattleLabelMain: {fileID: 1337314540}
+  lblBattleLabelActionCommand: {fileID: 584415938}
   lblEssencePowerUp: {fileID: 1906291778}
   lblItemBackpack: {fileID: 1414890794}
   lblItemPrecious: {fileID: 700828555}

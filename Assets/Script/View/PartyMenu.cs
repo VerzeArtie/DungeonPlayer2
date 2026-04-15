@@ -40,6 +40,8 @@ public class PartyMenu : MotherBase
   public Text lblBattleTypeArchetype;
   // public Text lblBattleTypeViewMode;
   public Text lblBattleTypeDescription;
+  public Text lblBattleLabelMain;
+  public Text lblBattleLabelActionCommand;
   public Text lblEssencePowerUp;
   public Text lblItemBackpack;
   public Text lblItemPrecious;
@@ -1397,6 +1399,8 @@ public class PartyMenu : MotherBase
     //lblBattleTypeViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_EDIT);
     //lblBattleTypeViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
     lblBattleTypeDescription.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_DESCRIPTION);
+    lblBattleLabelMain.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_MAIN);
+    lblBattleLabelActionCommand.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND);
     lblEssencePowerUp.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_POWERUP);
     lblItemBackpack.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_BACKPACK);
     lblItemPrecious.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_PRECIOUS);
