@@ -1481,6 +1481,8 @@ public static partial class Fix
   public const string L10N_PARTYMENU_BATTLETYPE_DESCRIPTION = "lblPartyMenuBattleTypeDescription";
   public const string L10N_PARTYMENU_BATTLE_LABEL_MAIN = "lblPartyMenuBattleLabelMain";
   public const string L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND = "lblPartyMenuBattleLabelActionCommand";
+  public const string L10N_PARTYMENU_ESSENCETREE_NOACQ = "lblPartyMenuEssenceTreeNoAcq";
+  public const string L10N_PARTYMENU_ESSENCETREE_REQUIRE = "lblPartyMenuEssenceTreeRequire";
   public const string L10N_PARTYMENU_ESSENCETREE_POWERUP = "lblPartyMenuEssenceTreePowerUp";
   public const string L10N_PARTYMENU_ITEM_BACKPACK = "lblPartyMenuItemBackpack";
   public const string L10N_PARTYMENU_ITEM_PRECIOUS = "lblPartyMenuItemPrecious";

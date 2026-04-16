@@ -42,6 +42,7 @@ public class PartyMenu : MotherBase
   public Text lblBattleTypeDescription;
   public Text lblBattleLabelMain;
   public Text lblBattleLabelActionCommand;
+  public Text lblEssenceNoAcq;
   public Text lblEssencePowerUp;
   public Text lblItemBackpack;
   public Text lblItemPrecious;
@@ -1401,6 +1402,7 @@ public class PartyMenu : MotherBase
     lblBattleTypeDescription.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_DESCRIPTION);
     lblBattleLabelMain.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_MAIN);
     lblBattleLabelActionCommand.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND);
+    // lblEssenceNoAcq.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ);
     lblEssencePowerUp.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_POWERUP);
     lblItemBackpack.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_BACKPACK);
     lblItemPrecious.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_PRECIOUS);
@@ -1885,7 +1887,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
+      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
     // level 1à»è„Ç»ÇÁâ¬éãâª
@@ -1906,7 +1908,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementList[number].text = label_text;
       txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
-      txtEssenceElementLevelList[number].text = "ñ¢èCìæ";
+      txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ);
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = true;
     }
@@ -1918,7 +1920,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
+      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
   }
