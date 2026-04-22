@@ -79,6 +79,14 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
+    // HelpBook
+    Register(Fix.L10N_HELPMENU_ACTIONCOMMAND, "アクションコマンド", "Action Command");
+    Register(Fix.L10N_HELPMENU_CLOSE_BUTTON, "閉じる", "Close");
+    Register(Fix.L10N_HELPMENU_NAME_EN, "名称(EN)", "Name(EN)");
+    Register(Fix.L10N_HELPMENU_NAME_JP, "名称(JP)", "Name(JP)");
+    Register(Fix.L10N_HELPMENU_COST, "コスト", "Cost");
+    Register(Fix.L10N_HELPMENU_TARGET, "対象", "Target");
+    Register(Fix.L10N_HELPMENU_TIMING, "タイミング", "Timing");
     // Common-BasicParameter
     Register(Fix.L10N_BASIC_LEVEL, "レベル", "Level");
     Register(Fix.L10N_BASIC_EXPERIENCE, "経験値", "Exp");

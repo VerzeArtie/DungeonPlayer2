@@ -1664,7 +1664,7 @@ GameObject:
   - component: {fileID: 256921573}
   - component: {fileID: 256921572}
   m_Layer: 5
-  m_Name: txtLoad
+  m_Name: lblCloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3374,7 +3374,7 @@ GameObject:
   - component: {fileID: 560669386}
   - component: {fileID: 560669385}
   m_Layer: 0
-  m_Name: lblCommandName
+  m_Name: lblName_JP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4790,7 +4790,7 @@ GameObject:
   - component: {fileID: 699900546}
   - component: {fileID: 699900545}
   m_Layer: 0
-  m_Name: lblCommandCost
+  m_Name: lblCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5655,7 +5655,7 @@ GameObject:
   - component: {fileID: 832581109}
   - component: {fileID: 832581108}
   m_Layer: 0
-  m_Name: lblCommandName_EN
+  m_Name: lblName_EN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7383,7 +7383,7 @@ GameObject:
   - component: {fileID: 1032556982}
   - component: {fileID: 1032556981}
   m_Layer: 5
-  m_Name: txtMenuAC
+  m_Name: lblActionCommand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8243,7 +8243,7 @@ GameObject:
   - component: {fileID: 1224663229}
   - component: {fileID: 1224663228}
   m_Layer: 0
-  m_Name: lblCommandTarget
+  m_Name: lblTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13058,6 +13058,13 @@ MonoBehaviour:
   CurrentDescription: {fileID: 318941077}
   backPanel: {fileID: 0}
   CloseButton: {fileID: 0}
+  lblActionCommand: {fileID: 1032556982}
+  lblCloseButton: {fileID: 256921573}
+  lblName_EN: {fileID: 832581108}
+  lblName_JP: {fileID: 560669385}
+  lblCost: {fileID: 699900545}
+  lblTarget: {fileID: 1224663228}
+  lblTiming: {fileID: 1546879293}
 --- !u!114 &1793267482
 MonoBehaviour:
   m_ObjectHideFlags: 0

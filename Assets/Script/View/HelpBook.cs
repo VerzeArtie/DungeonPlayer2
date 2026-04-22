@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using UnityEditor;
 
 public class HelpBook : MotherBase
 {
@@ -37,6 +38,16 @@ public class HelpBook : MotherBase
   public GameObject backPanel;
   public Button CloseButton;
 
+  public Text lblActionCommand;
+  public Text lblCloseButton;
+  public Text lblName_EN;
+  public Text lblName_JP;
+  public Text lblCost;
+  public Text lblTarget;
+  public Text lblTiming;
+
+  private bool FirstAction = false;
+
   // Use this for initialization
   public override void Start()
   {
@@ -65,6 +76,19 @@ public class HelpBook : MotherBase
   // Update is called once per frame
   void Update()
   {
+    if (this.FirstAction == false)
+    {
+      this.FirstAction = true;
+      
+      lblActionCommand.text = L10n.Get(Fix.L10N_HELPMENU_ACTIONCOMMAND);
+      lblCloseButton.text = L10n.Get(Fix.L10N_HELPMENU_CLOSE_BUTTON);
+      lblName_EN.text = L10n.Get(Fix.L10N_HELPMENU_NAME_EN);
+      lblName_JP.text = L10n.Get(Fix.L10N_HELPMENU_NAME_JP);
+      lblCost.text = L10n.Get(Fix.L10N_HELPMENU_COST);
+      lblTarget.text = L10n.Get(Fix.L10N_HELPMENU_TARGET);
+      lblTiming.text = L10n.Get(Fix.L10N_HELPMENU_TIMING);
+    }
+
     if (Input.GetKeyDown(KeyCode.Escape))
     {
       tapClose();
