@@ -45,6 +45,18 @@ public class HelpBook : MotherBase
   public Text lblCost;
   public Text lblTarget;
   public Text lblTiming;
+  public Text lblFire;
+  public Text lblIce;
+  public Text lblLight;
+  public Text lblShadow;
+  public Text lblForce;
+  public Text lblVoidChant;
+  public Text lblWarrior;
+  public Text lblGuardian;
+  public Text lblMartialArts;
+  public Text lblArchery;
+  public Text lblTruth;
+  public Text lblMindfulness;
 
   private bool FirstAction = false;
 
@@ -87,6 +99,19 @@ public class HelpBook : MotherBase
       lblCost.text = L10n.Get(Fix.L10N_HELPMENU_COST);
       lblTarget.text = L10n.Get(Fix.L10N_HELPMENU_TARGET);
       lblTiming.text = L10n.Get(Fix.L10N_HELPMENU_TIMING);
+      lblFire.text = L10n.Get(Fix.L10N_STANDARD_FIRE);
+      lblIce.text = L10n.Get(Fix.L10N_STANDARD_ICE);
+      lblLight.text = L10n.Get(Fix.L10N_STANDARD_LIGHT);
+      lblShadow.text = L10n.Get(Fix.L10N_STANDARD_SHADOW);
+      lblForce.text = L10n.Get(Fix.L10N_STANDARD_FORCE);
+      lblVoidChant.text = L10n.Get(Fix.L10N_STANDARD_VOIDCHANT);
+      lblWarrior.text = L10n.Get(Fix.L10N_STANDARD_WARRIOR);
+      lblGuardian.text = L10n.Get(Fix.L10N_STANDARD_GUARDIAN);
+      lblMartialArts.text = L10n.Get(Fix.L10N_STANDARD_MARTIALARTS);
+      lblArchery.text = L10n.Get(Fix.L10N_STANDARD_ARCHERY);
+      lblTruth.text = L10n.Get(Fix.L10N_STANDARD_TRUTH);
+      lblMindfulness.text = L10n.Get(Fix.L10N_STANDARD_MINDFULNESS);
+
     }
 
     if (Input.GetKeyDown(KeyCode.Escape))
