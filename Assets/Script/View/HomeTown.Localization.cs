@@ -89,13 +89,13 @@ public static class L10n
     Register(Fix.L10N_HELPMENU_TIMING, "タイミング", "Timing");
     Register(Fix.L10N_STANDARD_FIRE, "炎", "Fire");
     Register(Fix.L10N_STANDARD_ICE, "氷", "Ice");
-    Register(Fix.L10N_STANDARD_LIGHT, "聖", "Light");
-    Register(Fix.L10N_STANDARD_SHADOW, "闇", "Shadow");
+    Register(Fix.L10N_STANDARD_LIGHT, "聖", "HolyLight");
+    Register(Fix.L10N_STANDARD_SHADOW, "闇", "DarkMagic");
     Register(Fix.L10N_STANDARD_FORCE, "理", "Force");
-    Register(Fix.L10N_STANDARD_VOIDCHANT, "空唱", "Voidchant");
+    Register(Fix.L10N_STANDARD_VOIDCHANT, "空唱", "VoidChant");
     Register(Fix.L10N_STANDARD_WARRIOR, "戦士", "Warrior");
     Register(Fix.L10N_STANDARD_GUARDIAN, "護衛", "Guardian");
-    Register(Fix.L10N_STANDARD_MARTIALARTS, "格闘", "Martial Arts");
+    Register(Fix.L10N_STANDARD_MARTIALARTS, "格闘", "MartialArts");
     Register(Fix.L10N_STANDARD_ARCHERY, "弓術", "Archery");
     Register(Fix.L10N_STANDARD_TRUTH, "心眼", "Truth");
     Register(Fix.L10N_STANDARD_MINDFULNESS, "無心", "Mindfulness");

@@ -262,7 +262,7 @@ public class HelpBook : MotherBase
     //bool tutorialSkill = false;
     //Color targetColor = Color.white;
     int counter = 0;
-    if (sender.text == Fix.CLASS_WARRIOR_JP)
+    if (sender.text == Fix.CLASS_WARRIOR_JP || sender.text == Fix.CLASS_WARRIOR)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STRAIGHT_SMASH); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_BLADE); counter++;
@@ -272,7 +272,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_IAI); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.KINETIC_SMASH); counter++;
     }
-    else if (sender.text == Fix.CLASS_GUARDIAN_JP)
+    else if (sender.text == Fix.CLASS_GUARDIAN_JP || sender.text == Fix.CLASS_GUARDIAN)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SHIELD_BASH); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_GUARD); counter++;
@@ -282,7 +282,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ONE_IMMUNITY); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CATASTROPHE); counter++;
     }
-    else if (sender.text == Fix.CLASS_MARTIAL_ARTS_JP)
+    else if (sender.text == Fix.CLASS_MARTIAL_ARTS_JP || sender.text == Fix.CLASS_MARTIAL_ARTS)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LEG_STRIKE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SPEED_STEP); counter++;
@@ -292,7 +292,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_MUIN); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CARNAGE_RUSH); counter++;
     }
-    else if (sender.text == Fix.CLASS_ARCHERY_JP)
+    else if (sender.text == Fix.CLASS_ARCHERY_JP || sender.text == Fix.CLASS_ARCHERY)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.HUNTER_SHOT); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MULTIPLE_SHOT); counter++;
@@ -302,7 +302,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ETERNAL_CONCENTRATION); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PIERCING_ARROW); counter++;
     }
-    else if (sender.text == Fix.CLASS_FIRE_JP)
+    else if (sender.text == Fix.CLASS_FIRE_JP || sender.text == Fix.CLASS_FIRE)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FIRE_BALL); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FLAME_BLADE); counter++;
@@ -312,7 +312,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_THE_IGNITE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LAVA_ANNIHILATION); counter++;
     }
-    else if (sender.text == Fix.CLASS_ICE_JP)
+    else if (sender.text == Fix.CLASS_ICE_JP || sender.text == Fix.CLASS_ICE)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ICE_NEEDLE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PURE_PURIFICATION); counter++;
@@ -322,7 +322,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.WATER_PRESENCE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ABSOLUTE_ZERO); counter++;
     }
-    else if (sender.text == Fix.CLASS_HOLYLIGHT_JP)
+    else if (sender.text == Fix.CLASS_HOLYLIGHT_JP || sender.text == Fix.CLASS_HOLYLIGHT)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FRESH_HEAL); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DIVINE_CIRCLE); counter++;
@@ -332,7 +332,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.VALKYRIE_BLADE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.RESURRECTION); counter++;
     }
-    else if (sender.text == Fix.CLASS_DARK_MAGIC_JP)
+    else if (sender.text == Fix.CLASS_DARK_MAGIC_JP || sender.text == Fix.CLASS_DARK_MAGIC)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SHADOW_BLAST); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BLOOD_SIGN); counter++;
@@ -342,7 +342,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.THE_DARK_INTENSITY); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DEATH_SCYTHE); counter++;
     }
-    else if (sender.text == Fix.CLASS_FORCE_JP)
+    else if (sender.text == Fix.CLASS_FORCE_JP || sender.text == Fix.CLASS_FORCE)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ORACLE_COMMAND); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FORTUNE_SPIRIT); counter++;
@@ -352,7 +352,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FUTURE_VISION); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.GENESIS); counter++;
     }
-    else if (sender.text == Fix.CLASS_VOIDCHANT_JP)
+    else if (sender.text == Fix.CLASS_VOIDCHANT_JP || sender.text == Fix.CLASS_VOIDCHANT)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ENERGY_BOLT); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FLASH_COUNTER); counter++;
@@ -362,7 +362,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DETACHMENT_FAULT); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TIME_STOP); counter++;
     }
-    else if (sender.text == Fix.CLASS_TRUTH_JP)
+    else if (sender.text == Fix.CLASS_TRUTH_JP || sender.text == Fix.CLASS_TRUTH)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TRUE_SIGHT); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LEYLINE_SCHEMA); counter++;
@@ -372,7 +372,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SIGIL_OF_THE_FAITH); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_KOKOROE); counter++;
     }
-    else if (sender.text == Fix.CLASS_MINDFULNESS_JP)
+    else if (sender.text == Fix.CLASS_MINDFULNESS_JP || sender.text == Fix.CLASS_MINDFULNESS)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DISPEL_MAGIC); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SPIRITUAL_REST); counter++;
