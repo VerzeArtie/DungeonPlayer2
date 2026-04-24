@@ -1445,6 +1445,11 @@ public static partial class Fix
   public const string L10N_SYSTEM_LOAD = "lblSystemLoad";
   public const string L10N_SYSTEM_HELP = "lblSystemHelp";
   public const string L10N_SYSTEM_EXIT = "lblSystemExit";
+  public const string L10N_FASTTRAVEL_MESSAGE_TITLE = "lblFastTravelMessageTitle";
+  public const string L10N_FASTTRAVEL_MESSAGE = "lblFastTravelMessage";
+  public const string L10N_FASTTRAVEL_MESSAGE_ACCEPT = "lblFastTravelMessageAccept";
+  public const string L10N_FASTTRAVEL_MESSAGE_CANCEL = "lblFastTravelMessageCancel";
+  public const string L10N_FASTTRAVEL_MESSAGE_OK = "lblFastTravelMessageOK";
 
   public const string L10N_CUSTOMEVENT1_ANSHET = "CustomEvent1_ANSHET";
   public const string L10N_CUSTOMEVENT1_FAZIL_CASTLE = "CustomEvent1_FAZIL_CASTLE";

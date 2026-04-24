@@ -30,6 +30,12 @@ public class DungeonField : MotherBase
   public Text lblSystemHelp;
   public Text lblSystemExit;
 
+  public Text lblFastTravelMessageTitle;
+  public Text lblFastTravelMessage;
+  public Text lblFastTravelMessageAccept;
+  public Text lblFastTravelMessageCancel;
+  public Text lblFastTravelMessageOK;
+
   // Blackout
   public GameObject objBlackOut;
   // Whiteout
@@ -2818,10 +2824,10 @@ public class DungeonField : MotherBase
       }
 
       this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
-      txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
-      txtDecisionMessage.text = "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。";
-      txtDecisionA.text = "Accept";
-      txtDecisionB.text = "Cancel";
+      txtDecisionTitle.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_TITLE);
+      txtDecisionMessage.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE);
+      txtDecisionA.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_ACCEPT);
+      txtDecisionB.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_CANCEL);
       txtDecisionC.text = "";
       GroupDecision.SetActive(true);
     }
@@ -26069,6 +26075,11 @@ public class DungeonField : MotherBase
     if (lblSystemHelp != null) { lblSystemHelp.text = L10n.Get(Fix.L10N_SYSTEM_HELP); }
     if (lblSystemExit != null) { lblSystemExit.text = L10n.Get(Fix.L10N_SYSTEM_EXIT); }
 
+    if (lblFastTravelMessageTitle != null) { lblFastTravelMessageTitle.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_TITLE); }
+    if (lblFastTravelMessage != null) { lblFastTravelMessage.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE); }
+    if (lblFastTravelMessageAccept != null) { lblFastTravelMessageAccept.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_ACCEPT); }
+    if (lblFastTravelMessageCancel != null) { lblFastTravelMessageCancel.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_CANCEL); }
+    if (lblFastTravelMessageOK != null) { lblFastTravelMessageOK.text = L10n.Get(Fix.L10N_FASTTRAVEL_MESSAGE_OK); }
   }
 
   private void RefreshQuestList()

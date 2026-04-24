@@ -75906,6 +75906,11 @@ MonoBehaviour:
   lblSystemLoad: {fileID: 1214412154}
   lblSystemHelp: {fileID: 1157963141}
   lblSystemExit: {fileID: 60073911}
+  lblFastTravelMessageTitle: {fileID: 17654115}
+  lblFastTravelMessage: {fileID: 2139417320}
+  lblFastTravelMessageAccept: {fileID: 1886410211}
+  lblFastTravelMessageCancel: {fileID: 529465338}
+  lblFastTravelMessageOK: {fileID: 1740298177}
   objBlackOut: {fileID: 817848295}
   objWhiteOut: {fileID: 1459858946}
   objPurpleOut: {fileID: 774671344}
