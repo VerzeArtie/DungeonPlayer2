@@ -1507,6 +1507,9 @@ public static partial class Fix
   public const string L10N_HELPMENU_COST = "lblHelpMenuCost";
   public const string L10N_HELPMENU_TARGET = "lblHelpMenuTarget";
   public const string L10N_HELPMENU_TIMING = "lblHelpMenuTiming";
+  public const string L10N_BATTLE_GAMEOVER = "lblBattleGameOver";
+  public const string L10N_BATTLE_RETRY = "lblBattleRetry";
+  public const string L10N_BATTLE_SURRENDER = "lblBattleSurrender";
   public const string L10N_STANDARD_FIRE = "lblStandardFire";
   public const string L10N_STANDARD_ICE = "lblStandardIce";
   public const string L10N_STANDARD_LIGHT = "lblStandardLight";

@@ -16058,7 +16058,7 @@ GameObject:
   - component: {fileID: 792846368}
   - component: {fileID: 792846367}
   m_Layer: 5
-  m_Name: txtRetry
+  m_Name: lblBattleRetry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16137,7 +16137,7 @@ GameObject:
   - component: {fileID: 794121578}
   - component: {fileID: 794121577}
   m_Layer: 5
-  m_Name: txtSurrender
+  m_Name: lblBattleSurrender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18573,7 +18573,7 @@ GameObject:
   - component: {fileID: 934408487}
   - component: {fileID: 934408486}
   m_Layer: 5
-  m_Name: txtGameOverMessage
+  m_Name: lblBattleGameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34497,6 +34497,9 @@ MonoBehaviour:
   ParentArchetectMessage: {fileID: 581415159}
   txtArchetectMessage_Name: {fileID: 1773059039}
   txtArchetectMessage_Command: {fileID: 2137192198}
+  lblBattleGameOver: {fileID: 934408486}
+  lblBattleRetry: {fileID: 792846367}
+  lblBattleSurrender: {fileID: 794121577}
   debug1: {fileID: 1791075463}
   CannotRunAway: 0
   LifePointBattle: 0

@@ -93,6 +93,11 @@ public static class L10n
     Register(Fix.L10N_HELPMENU_COST, "コスト", "Cost");
     Register(Fix.L10N_HELPMENU_TARGET, "対象", "Target");
     Register(Fix.L10N_HELPMENU_TIMING, "タイミング", "Timing");
+    // BattleEnemy
+    Register(Fix.L10N_BATTLE_GAMEOVER, "パーティが全滅しました・・・\r\n戦闘を初めからやり直しますか？", "Your party has been defeated...\r\nDo you want to retry the battle from the beginning?");
+    Register(Fix.L10N_BATTLE_RETRY, "リトライ", "Retry");
+    Register(Fix.L10N_BATTLE_SURRENDER, "終了", "Surrender");
+    // Standard-Attribute
     Register(Fix.L10N_STANDARD_FIRE, "炎", "Fire");
     Register(Fix.L10N_STANDARD_ICE, "氷", "Ice");
     Register(Fix.L10N_STANDARD_LIGHT, "聖", "HolyLight");

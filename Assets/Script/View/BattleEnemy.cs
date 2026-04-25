@@ -115,6 +115,10 @@ public partial class BattleEnemy : MotherBase
   public Text txtArchetectMessage_Name;
   public Text txtArchetectMessage_Command;
 
+  public Text lblBattleGameOver;
+  public Text lblBattleRetry;
+  public Text lblBattleSurrender;
+
   // debug
   public Text debug1;
 
@@ -182,6 +186,9 @@ public partial class BattleEnemy : MotherBase
   protected bool DetectItemDrop = false;
 
   private bool NowTimeStop = false;
+
+  protected bool FirstAction = false;
+
   public GameObject back_labelBattleTurn;
   public Text labelBattleTurn;
   public Text TimeSpeedLabel;
@@ -1166,7 +1173,17 @@ public partial class BattleEnemy : MotherBase
   // Update is called once per frame
   void Update()
   {
-    if (One.BattleEnd == Fix.GameEndType.None && CheckGameEnd())
+    if (this.FirstAction == false)
+    {
+      this.FirstAction = true;
+      Debug.Log("Update FirstAction Start");
+
+      lblBattleGameOver.text = L10n.Get(Fix.L10N_BATTLE_GAMEOVER);
+      lblBattleRetry.text = L10n.Get(Fix.L10N_BATTLE_RETRY);
+      lblBattleSurrender.text = L10n.Get(Fix.L10N_BATTLE_SURRENDER);
+    }
+
+      if (One.BattleEnd == Fix.GameEndType.None && CheckGameEnd())
     {
       Debug.Log("Game End 1");
       return;
