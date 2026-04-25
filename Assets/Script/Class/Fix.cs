@@ -1431,7 +1431,8 @@ public static partial class Fix
   public const string LOAD_DATA_COMPLETE = "ゲームデータの読み込みが完了しました。";
 
   public const string L10N_GAMEDAY = "GameDay";
-  public const string L10N_LBL_SAVELOAD = "lblSaveLoad";
+  public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
+  public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";
   public const string L10N_TXT_CLOSE = "txtClose";
   public const string L10N_PARTY = "lblParty";
   public const string L10N_BLUESPHERE = "lblBlueSphere";

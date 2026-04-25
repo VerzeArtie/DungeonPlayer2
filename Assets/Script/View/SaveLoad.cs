@@ -107,13 +107,13 @@ public class SaveLoad : MotherBase
 
     if (One.SaveMode)
     {
-      titleLabel.text = "SAVE";
+      titleLabel.text = L10n.Get(Fix.L10N_SAVELOAD_TITLESAVE);
       this.Background.GetComponent<Image>().color = UnityColor.Salmon;
     }
     else
     {
       this.Background.GetComponent<Image>().color = UnityColor.Aqua;
-      titleLabel.text = L10n.Get(Fix.L10N_LBL_SAVELOAD);
+      titleLabel.text = L10n.Get(Fix.L10N_SAVELOAD_TITLELOAD);
     }
     txtClose.text = L10n.Get(Fix.L10N_TXT_CLOSE);
 

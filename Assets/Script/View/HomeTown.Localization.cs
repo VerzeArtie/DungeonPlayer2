@@ -10,7 +10,8 @@ public static class L10n
   static L10n()
   {
     // SaveLoad
-    Register("lblSaveLoad", "ロード", "LOAD");
+    Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
+    Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");
     Register("txtClose", "閉じる", "Close");
     Register("GameDay", "日目", "Day");
     // HomeTown-Menu
