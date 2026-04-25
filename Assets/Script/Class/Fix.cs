@@ -1500,6 +1500,9 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT = "lblPartyMenuEssencePowerUpAccept";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL = "lblPartyMenuEssencePowerUpCancel";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_OK = "lblPartyMenuEssencePowerUpOK";
+  public const string L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP = "lblCharaStatusCannotNoSelectEquip";
+  public const string L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP = "lblCharaStatusCannotExchangeEquip";
+  public const string L10N_CHARASTATUS_CANNOT_DETACH_EQUIP = "lblCharaStatusCannotDetachEquip";
   public const string L10N_HELPMENU_ACTIONCOMMAND = "lblHelpMenuActionCommand";
   public const string L10N_HELPMENU_CLOSE_BUTTON = "lblHelpMenuCloseButton";
   public const string L10N_HELPMENU_NAME_EN = "lblHelpMenuName_EN";

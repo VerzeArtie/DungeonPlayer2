@@ -179,6 +179,9 @@ public class GroupCharacterStatus : MonoBehaviour
   public GameObject GroupInnerMessage;
   public Text txtInnerMessage;
   protected int InnerMessageTimer = 0;
+  // public Text lblCharaStatusCannotNoSelectEquip;
+  // public Text lblCharaStatusCannotExchangeEquip;
+  // public Text lblCharaStatusCannotDetachEquip;
 
   protected const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
   protected const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
@@ -917,7 +920,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       Debug.Log("Change Equip MainWeapon, failed... still not select target item. then, no action.");
       GroupInnerMessage.SetActive(true);
-      txtInnerMessage.text = "装備対象が選択されていません。";
+      txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP);
       InnerMessageTimer = 100;
       return;
     }
@@ -942,7 +945,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("Change Equip MainWeapon, failed... Two-Hand and Backpack count is reach: " + One.TF.BackpackList.Count.ToString() + " then, no action.");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備変更できません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1136,7 +1139,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach MainWeapon, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1153,7 +1156,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach SubWeapon, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1170,7 +1173,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach MainArmor, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1187,7 +1190,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach Accessory1, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1204,7 +1207,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach Accessory2, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
@@ -1221,7 +1224,7 @@ public class GroupCharacterStatus : MonoBehaviour
         {
           Debug.Log("TapEquipDetach Artifact, failed...");
           GroupInnerMessage.SetActive(true);
-          txtInnerMessage.text = "装備を外す事ができません。バックパックの空きを増やす必要があります。";
+          txtInnerMessage.text = L10n.Get(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP);
           InnerMessageTimer = 100;
           return;
         }
