@@ -88,8 +88,8 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
     // GroupCharacterStatus
     Register(Fix.L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP, "装備対象が選択されていません。", "No equipment target selected.");
-    Register(Fix.L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP, "装備変更できません。バックパックの空きを増やす必要があります。", "Cannot change equipment. You need to increase the empty space in the backpack.");
-    Register(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP, "装備を外す事ができません。バックパックの空きを増やす必要があります。", "Cannot detach equipment. You need to increase the empty space in the backpack.");
+    Register(Fix.L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP, "装備変更できません。バックパックの空きを増やす必要があります。", "Can't change it. Increase backpack space.");
+    Register(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP, "装備を外す事ができません。バックパックの空きを増やす必要があります。", "Can't detach it. Increase backpack space.");
     // HelpBook
     Register(Fix.L10N_HELPMENU_ACTIONCOMMAND, "アクションコマンド", "Action Command");
     Register(Fix.L10N_HELPMENU_CLOSE_BUTTON, "閉じる", "Close");
