@@ -8600,7 +8600,7 @@ MonoBehaviour:
   - {fileID: 1897236217}
   - {fileID: 824107697}
   - {fileID: 643970235}
-  txtClose: {fileID: 0}
+  txtClose: {fileID: 968607957}
   yesnoSystemMessage: {fileID: 1106188042}
   groupYesnoSystemMessage: {fileID: 402354460}
   pbSandglass: {fileID: 41951700}
@@ -37080,7 +37080,7 @@ GameObject:
   - component: {fileID: 968607958}
   - component: {fileID: 968607957}
   m_Layer: 5
-  m_Name: TextClose
+  m_Name: txtClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
