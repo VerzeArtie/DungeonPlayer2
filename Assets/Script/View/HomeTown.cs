@@ -924,10 +924,10 @@ public partial class HomeTown : MotherBase
     }
     else
     {
-      txtDecisionMessageTitle.text = Fix.GAME_EXIT_TITLE;
-      txtDecisionMessageDescription.text = Fix.GAME_EXIT_DESCRIPTION;
-      txtDecisionMessageAccept.text = Fix.GAME_EXIT_OK;
-      txtDecisionMessageCancel.text = Fix.GAME_EXIT_CANCEL;
+      txtDecisionMessageTitle.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_TITLE);
+      txtDecisionMessageDescription.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_DESCRIPTION);
+      txtDecisionMessageAccept.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_OK);
+      txtDecisionMessageCancel.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_CANCEL);
       GroupDecisionMessage.SetActive(true);
 
     }
@@ -1919,7 +1919,7 @@ public partial class HomeTown : MotherBase
 
   public void TapDecisionMessageAccept()
   {
-    if (txtDecisionMessageTitle.text == Fix.GAME_EXIT_TITLE)
+    if (txtDecisionMessageTitle.text == L10n.Get(Fix.L10N_SYSTEM_EXIT_TITLE))
     {
       SceneDimension.JumpToTitle();
     }

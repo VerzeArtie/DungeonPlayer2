@@ -1423,17 +1423,18 @@ public static partial class Fix
   public const string SHOPMENU_SELL = "売却";
   #endregion
 
-  public const string GAME_EXIT_TITLE = "ゲームを終了しますか？";
-  public const string GAME_EXIT_DESCRIPTION = "セーブしていない場合、現在データは破棄されます。";
-  public const string GAME_EXIT_OK = "終了する";
-  public const string GAME_EXIT_CANCEL = "終了しない";
-
   public const string LOAD_DATA_COMPLETE = "ゲームデータの読み込みが完了しました。";
 
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
   public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";
   public const string L10N_TXT_CLOSE = "txtClose";
+
+  public const string L10N_SYSTEM_EXIT_TITLE = "lblSystemExitTitle";
+  public const string L10N_SYSTEM_EXIT_DESCRIPTION = "lblSystemExitDescription";
+  public const string L10N_SYSTEM_EXIT_OK = "lblSystemExitOK";
+  public const string L10N_SYSTEM_EXIT_CANCEL = "lblSystemExitCancel";
+
   public const string L10N_PARTY = "lblParty";
   public const string L10N_BLUESPHERE = "lblBlueSphere";
   public const string L10N_SYSTEM = "lblSystem";

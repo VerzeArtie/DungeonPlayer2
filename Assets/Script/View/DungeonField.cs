@@ -2836,7 +2836,7 @@ public class DungeonField : MotherBase
   public void TapDecisionAccept()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    if (txtDecisionTitle.text == Fix.GAME_EXIT_TITLE)
+    if (txtDecisionTitle.text == L10n.Get(Fix.L10N_SYSTEM_EXIT_TITLE))
     {
       SceneDimension.JumpToTitle();
       return;
@@ -2881,7 +2881,7 @@ public class DungeonField : MotherBase
   public void TapDecisionCancel()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    if (txtDecisionTitle.text == Fix.GAME_EXIT_TITLE)
+    if (txtDecisionTitle.text == L10n.Get(Fix.L10N_SYSTEM_EXIT_TITLE))
     {
       GroupDecision.SetActive(false);
       return;
@@ -3354,10 +3354,10 @@ public class DungeonField : MotherBase
     }
     else
     {
-      txtDecisionTitle.text = Fix.GAME_EXIT_TITLE;
-      txtDecisionMessage.text = Fix.GAME_EXIT_DESCRIPTION;
-      txtDecisionA.text = Fix.GAME_EXIT_OK;
-      txtDecisionB.text = Fix.GAME_EXIT_CANCEL;
+      txtDecisionTitle.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_TITLE);
+      txtDecisionMessage.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_DESCRIPTION);
+      txtDecisionA.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_OK);
+      txtDecisionB.text = L10n.Get(Fix.L10N_SYSTEM_EXIT_CANCEL);
       txtDecisionC.text = "";
       GroupDecision.SetActive(true);
     }
