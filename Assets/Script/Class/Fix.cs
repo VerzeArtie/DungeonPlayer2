@@ -1423,11 +1423,10 @@ public static partial class Fix
   public const string SHOPMENU_SELL = "売却";
   #endregion
 
-  public const string LOAD_DATA_COMPLETE = "ゲームデータの読み込みが完了しました。";
-
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
   public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";
+  public const string L10N_SAVELOAD_LOAD_COMPLETED = "lblSaveLoadLoadCompleted";
   public const string L10N_TXT_CLOSE = "txtClose";
 
   public const string L10N_SYSTEM_EXIT_TITLE = "lblSystemExitTitle";

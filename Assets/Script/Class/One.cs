@@ -2762,7 +2762,7 @@ public static class One
 
     //if (forceLoad == false)
     //{
-    //  this.systemMessage.text = "ゲームデータの読み込みが完了しました。";
+    //  this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_LOAD_COMPLETED);
     //  this.back_SystemMessage.SetActive(true);
     //  this.autoKillTimer = 0;
     //  this.nowAutoKill = true;

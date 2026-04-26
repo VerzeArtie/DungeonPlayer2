@@ -12,8 +12,9 @@ public static class L10n
     // SaveLoad
     Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
     Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");
-    Register("txtClose", "閉じる", "Close");
-    Register("GameDay", "日目", "Day");
+    Register(Fix.L10N_SAVELOAD_LOAD_COMPLETED, "ゲームデータの読み込みが完了しました。", "Game data loading is complete.");
+    Register(Fix.L10N_TXT_CLOSE, "閉じる", "Close");
+    Register(Fix.L10N_GAMEDAY, "日目", "Day");
     // SystemMenu
     Register(Fix.L10N_SYSTEM_EXIT_TITLE, "ゲームを終了しますか？", "Do you want to exit the game?");
     Register(Fix.L10N_SYSTEM_EXIT_DESCRIPTION, "セーブしていない場合、現在データは破棄されます。", "If you haven't saved, your current data will be lost.");

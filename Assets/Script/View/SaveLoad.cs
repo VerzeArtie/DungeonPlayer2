@@ -85,7 +85,7 @@ public class SaveLoad : MotherBase
       }
       else
       {
-        this.systemMessage.text = "ゲームデータの読み込みが完了しました。";
+        this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_LOAD_COMPLETED);
       }
       this.pbSandglass.gameObject.SetActive(false);
     }
@@ -402,7 +402,7 @@ public class SaveLoad : MotherBase
 
       One.ExecLoad(targetFileName, false);
 
-      this.systemMessage.text = Fix.LOAD_DATA_COMPLETE;
+      this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_LOAD_COMPLETED);
       this.back_SystemMessage.SetActive(true);
       this.autoKillTimer = 0;
       this.nowAutoKill = true;
