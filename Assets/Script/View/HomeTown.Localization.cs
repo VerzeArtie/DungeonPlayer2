@@ -12,7 +12,11 @@ public static class L10n
     // SaveLoad
     Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
     Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");
+    Register(Fix.L10N_SAVELOAD_NOWLOADING, "しばらくお待ちください...", "Now Loading...");
     Register(Fix.L10N_SAVELOAD_LOAD_COMPLETED, "ゲームデータの読み込みが完了しました。", "Game data loading is complete.");
+    Register(Fix.L10N_SAVELOAD_OVERWRITE, "既にデータが存在します。上書きしてセーブしますか？", "Data already exists. Do you want to overwrite and save?");
+    Register(Fix.L10N_SAVELOAD_SAVE_COMPLETED, "ゲームデータの保存が完了しました。", "Game data saving is complete.");
+    Register(Fix.L10N_SAVELOAD_CANNOTCLEARDATA, "DungeonPlayerクリアデータです。本編ではロードできません。", "This is DungeonPlayer clear data. It cannot be loaded in the main story.");
     Register(Fix.L10N_TXT_CLOSE, "閉じる", "Close");
     Register(Fix.L10N_GAMEDAY, "日目", "Day");
     // SystemMenu

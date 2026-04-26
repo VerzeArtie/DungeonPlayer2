@@ -29,11 +29,6 @@ public class SaveLoad : MotherBase
   private string archiveAreaString3 = @"制覇";
   private string saveDungeonAreaString = @"到達地点：";
 
-  private string MESSAGE_1 = @"DungeonPlayerクリアデータです。本編ではロードできません。";
-  private string MESSAGE_2 = @"保存が完了しました。";
-  private string MESSAGE_OVERWRITE = @"既にデータが存在します。上書きしてセーブしますか？";
-  private string MESSAGE_NOWLOADING = @"しばらくお待ちください...";
-
   private bool nowAutoKill = false;
   private int autoKillTimer = 0;
   private bool nowAutoKillEnd = false;
@@ -81,7 +76,7 @@ public class SaveLoad : MotherBase
     {
       if (One.SaveMode)
       {
-        this.systemMessage.text = MESSAGE_2;
+        this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_SAVE_COMPLETED);
       }
       else
       {
@@ -281,7 +276,7 @@ public class SaveLoad : MotherBase
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
 
     this.txtSender = sender;
-    this.systemMessage.text = MESSAGE_NOWLOADING;
+    this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_NOWLOADING);
     this.pbSandglass.sprite = this.imageSandglass;
 
     if (One.SaveMode)
@@ -390,7 +385,7 @@ public class SaveLoad : MotherBase
 
         //if (completeareaData == "制")
         //{
-        //  this.systemMessage.text = MESSAGE_1;
+        //  this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_CANNOTCLEARDATA);
         //  this.back_SystemMessage.SetActive(true);
         //  this.Filter.SetActive(true);
         //  return;
@@ -415,7 +410,7 @@ public class SaveLoad : MotherBase
   {
     groupYesnoSystemMessage.SetActive(false);
     HideAllChild();
-    this.systemMessage.text = MESSAGE_NOWLOADING;
+    this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_NOWLOADING);
     this.pbSandglass.sprite = this.imageSandglass;
     this.back_SystemMessage.SetActive(true);
     this.Filter.SetActive(true);
@@ -433,28 +428,10 @@ public class SaveLoad : MotherBase
 
   public void ExitYes()
   {
-    //base.ExitYes();
-    //if (this.yesnoSystemMessage.text == this.MESSAGE_OVERWRITE)
-    //{
-    //    HideAllChild();
-    //    this.systemMessage.text = MESSAGE_NOWLOADING;
-    //    this.pbSandglass.sprite = this.imageSandglass;
-    //    this.back_SystemMessage.SetActive(true);
-
-    //    this.forceSave = true;
-    //    StartCoroutine(WaitOnly());
-    //}
   }
 
   public void ExitNo()
   {
-    //base.ExitNo();
-    //if (this.yesnoSystemMessage.text == this.MESSAGE_OVERWRITE)
-    //{
-    //    HideAllChild();
-    //    this.currentSaveText = null;
-    //    this.currentTargetFileName = string.Empty;
-    //}
   }
 
   private bool TryExecSave(Text sender, string targetFileName)
@@ -465,7 +442,7 @@ public class SaveLoad : MotherBase
       {
         this.currentSaveText = sender;
         this.currentTargetFileName = targetFileName;
-        this.yesnoSystemMessage.text = this.MESSAGE_OVERWRITE;
+        this.yesnoSystemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_OVERWRITE);
         this.groupYesnoSystemMessage.SetActive(true);
         this.Filter.SetActive(true);
         return false;
@@ -486,7 +463,7 @@ public class SaveLoad : MotherBase
         {
           this.currentSaveText = sender;
           this.currentTargetFileName = targetFileName;
-          this.yesnoSystemMessage.text = this.MESSAGE_OVERWRITE;
+          this.yesnoSystemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_OVERWRITE);
           this.groupYesnoSystemMessage.SetActive(true);
           this.Filter.SetActive(true);
           return;
@@ -1067,7 +1044,7 @@ public class SaveLoad : MotherBase
   public void tapExit()
   {
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
-    if (this.systemMessage.text == this.MESSAGE_1 || this.systemMessage.text == this.MESSAGE_2)
+    if (this.systemMessage.text == L10n.Get(Fix.L10N_SAVELOAD_CANNOTCLEARDATA) || this.systemMessage.text == L10n.Get(Fix.L10N_SAVELOAD_SAVE_COMPLETED))
     {
       HideAllChild();
     }

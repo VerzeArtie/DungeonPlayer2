@@ -1549,7 +1549,7 @@ public static class One
         {
           //this.currentSaveText = sender;
           //this.currentTargetFileName = targetFileName;
-          //this.yesnoSystemMessage.text = this.MESSAGE_OVERWRITE;
+          //this.yesnoSystemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_OVERWRITE);
           //this.groupYesnoSystemMessage.SetActive(true);
           //this.Filter.SetActive(true);
           return;

@@ -1426,7 +1426,11 @@ public static partial class Fix
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
   public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";
+  public const string L10N_SAVELOAD_NOWLOADING = "lblSaveLoadNowLoading";
   public const string L10N_SAVELOAD_LOAD_COMPLETED = "lblSaveLoadLoadCompleted";
+  public const string L10N_SAVELOAD_SAVE_COMPLETED = "lblSaveLoadSaveCompleted";
+  public const string L10N_SAVELOAD_OVERWRITE = "lblSaveLoadOverwrite";
+  public const string L10N_SAVELOAD_CANNOTCLEARDATA = "lblSaveLoadCannotClearData";
   public const string L10N_TXT_CLOSE = "txtClose";
 
   public const string L10N_SYSTEM_EXIT_TITLE = "lblSystemExitTitle";
