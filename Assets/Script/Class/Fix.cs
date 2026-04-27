@@ -1450,6 +1450,8 @@ public static partial class Fix
   public const string L10N_SYSTEM_LOAD = "lblSystemLoad";
   public const string L10N_SYSTEM_HELP = "lblSystemHelp";
   public const string L10N_SYSTEM_EXIT = "lblSystemExit";
+  public const string L10N_SAVELOAD_YES = "lblSaveLoadYes";
+  public const string L10N_SAVELOAD_NO = "lblSaveLoadNo";
   public const string L10N_FASTTRAVEL_MESSAGE_TITLE = "lblFastTravelMessageTitle";
   public const string L10N_FASTTRAVEL_MESSAGE = "lblFastTravelMessage";
   public const string L10N_FASTTRAVEL_MESSAGE_ACCEPT = "lblFastTravelMessageAccept";

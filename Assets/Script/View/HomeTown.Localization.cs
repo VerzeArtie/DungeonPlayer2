@@ -38,6 +38,8 @@ public static class L10n
     Register("lblSystemLoad", "ロード", "Load");
     Register("lblSystemHelp", "ヘルプ", "Help");
     Register("lblSystemExit", "終了", "Exit");
+    Register(Fix.L10N_SAVELOAD_YES, "はい", "Yes");
+    Register(Fix.L10N_SAVELOAD_NO, "いいえ", "No");
     // HomeTown-Menu-Custom
     Register("CustomEvent1_ANSHET", "中央噴水広場", "Central Fountain");
     Register("CustomEvent1_FAZIL_CASTLE", "ファージル宮殿", "Fazil Castle");

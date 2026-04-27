@@ -69120,7 +69120,7 @@ GameObject:
   - component: {fileID: 1247692305}
   - component: {fileID: 1247692304}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblSaveLoadNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94086,7 +94086,7 @@ GameObject:
   - component: {fileID: 1712265980}
   - component: {fileID: 1712265979}
   m_Layer: 5
-  m_Name: Text
+  m_Name: lblSaveLoadYes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100241,6 +100241,8 @@ MonoBehaviour:
   txtClose: {fileID: 2138170428}
   yesnoSystemMessage: {fileID: 1751569905}
   groupYesnoSystemMessage: {fileID: 1299817793}
+  lblSaveLoadYes: {fileID: 1712265979}
+  lblSaveLoadNo: {fileID: 1247692304}
   pbSandglass: {fileID: 1710657104}
 --- !u!224 &1801230702
 RectTransform:

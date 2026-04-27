@@ -22,6 +22,9 @@ public class SaveLoad : MotherBase
   public Text yesnoSystemMessage = null;
   public GameObject groupYesnoSystemMessage = null;
 
+  public Text lblSaveLoadYes;
+  public Text lblSaveLoadNo;
+
   private string gameDayString = "\r\n経過日数：";
   private string gameDayString2 = @"日 ";
   private string archiveAreaString = @"到達階層：";
@@ -47,6 +50,8 @@ public class SaveLoad : MotherBase
   private Text txtSender;
   private bool forceSave = false;
 
+  private bool firstAction = false;
+
   private enum CurrentPhase
   {
     None,
@@ -64,6 +69,13 @@ public class SaveLoad : MotherBase
   // Update is called once per frame
   public void Update()
   {
+    if (this.firstAction == false)
+    {
+      this.firstAction = true;
+      if (lblSaveLoadYes != null) { lblSaveLoadYes.text = L10n.Get(Fix.L10N_SAVELOAD_YES); }
+      if (lblSaveLoadNo != null) { lblSaveLoadNo.text = L10n.Get(Fix.L10N_SAVELOAD_NO); }
+    }
+
     if (this.currentPhase == CurrentPhase.None)
     {
       // no action
