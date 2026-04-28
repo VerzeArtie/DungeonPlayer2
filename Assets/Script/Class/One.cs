@@ -68,7 +68,7 @@ public static class One
   public static int BgmNumber = 0;
 
   public static int BattleSpeed = 3;
-  public static GameLanguage Language = GameLanguage.English; // ゲームサポート言語
+  public static GameLanguage Language = GameLanguage.Japanese; // ゲームサポート言語
 
   public static bool AlreadyInitialize = false; // 既に一度InitializeGroundOneを呼んだかどうか
 

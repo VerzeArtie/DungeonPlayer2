@@ -193,7 +193,7 @@ public static class L10n
   {
     if (table.TryGetValue(key, out var v))
     {
-      string baseText = (One.CONF.GameLanguage == 1) ? v.ja : v.en;
+      string baseText = (One.CONF.GameLanguage == (int)(One.GameLanguage.English)) ? v.en : v.ja;
       if (args != null && args.Length > 0)
       {
         try { return string.Format(baseText, args); }

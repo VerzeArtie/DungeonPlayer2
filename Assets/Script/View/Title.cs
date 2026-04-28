@@ -33,6 +33,7 @@ public class Title : MotherBase
   public Slider BGMSlider = null;
   public Slider SoundSlider = null;
   public Slider DifficultySilder = null;
+  public Slider LanguageSlider = null;
   public Toggle ToggleSupportLog = null;
   public Text TextAccount = null;
   public Text SupportMessage = null;
@@ -202,6 +203,19 @@ public class Title : MotherBase
       this.SoundSlider.value = (float)((float)One.CONF.EnableSoundEffect);
       this.DifficultySilder.value = One.CONF.Difficulty;
       this.ToggleSupportLog.isOn = One.CONF.SupportLog;
+
+      Debug.Log("One.CONF.GameLanguage " + One.CONF.GameLanguage);
+      if (One.CONF.GameLanguage == 0)
+      {
+        this.LanguageSlider.value = 2; // Japaneseが2、デフォルト0値は規定外なので初期は日本語を選択
+      }
+      else
+      {
+        this.LanguageSlider.value = (int)(One.CONF.GameLanguage); // 上記以外はそのまま値を反映
+      }
+      One.Language = (One.GameLanguage)(Enum.Parse(typeof(One.GameLanguage), this.LanguageSlider.value.ToString()));
+      Debug.Log("this.LanguageSlider.value " + this.LanguageSlider.value);
+
       Debug.Log("One.CONF.Account " + One.CONF.Account);
       this.TextAccount.text = "AccountID: " + One.CONF.Account;
       AccountInputField.text = One.CONF.Account;
@@ -1145,24 +1159,31 @@ public class Title : MotherBase
     One.CONF.Difficulty = (int)sender.value;
   }
 
+  public void ChangeLanguage(Slider sender)
+  {
+    int lang = (int)sender.value;
+    Debug.Log("lang : " + lang);
+    One.CONF.GameLanguage = (int)(sender.value);
+    if (lang == 1)
+    {
+      One.Language = One.GameLanguage.English;
+    }
+    else if (lang == 2)
+    {
+      One.Language = One.GameLanguage.Japanese;
+    }
+    else
+    {
+      One.Language = One.GameLanguage.Japanese; // デフォルトではJapaneseとする。
+    }
+  }
+
   public void ChangeSupportLog(Toggle toggle)
   {
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
     One.CONF.SupportLog = toggle.isOn;
   }
 
-  //public void ChangeLanguage(int number)
-  //{
-  //  One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
-  //  if (number == 2)
-  //  {
-  //    One.Language = One.GameLanguage.English;
-  //  }
-  //  else
-  //  {
-  //    One.Language = One.GameLanguage.Japanese;
-  //  }
-  //}
 
   public void ChangeAccountName(Text txt)
   {
