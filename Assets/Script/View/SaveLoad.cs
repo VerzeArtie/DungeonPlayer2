@@ -29,8 +29,9 @@ public class SaveLoad : MotherBase
   private string gameDayString2 = @"日 ";
   private string archiveAreaString = @"到達階層：";
   private string archiveAreaString2 = @"階";
-  private string archiveAreaString3 = @"制覇";
+  private string archiveAreaString3 = @"制覇：";
   private string saveDungeonAreaString = @"到達地点：";
+  private string gameCompleteFlagNumber = "6";
 
   private bool nowAutoKill = false;
   private int autoKillTimer = 0;
@@ -220,14 +221,11 @@ public class SaveLoad : MotherBase
           }
 
 
-          //if (targetString.Substring(21, 1) == "6")
-          //{
-          //  targetButton.text += this.archiveAreaString3;
-          //}
-          //else
-          //{
-          //  targetButton.text += targetString.Substring(21, 1) + this.archiveAreaString2;
-          //}
+          string displayString = saveDungeonAreaString;
+          if (targetString.Substring(21, 1) == this.gameCompleteFlagNumber)
+          {
+            displayString = this.archiveAreaString3;
+          }
 
           string displayDungeonName = string.Empty;
           string displayAreaName = string.Empty;
@@ -237,22 +235,22 @@ public class SaveLoad : MotherBase
           {
             if (displayDungeonName != string.Empty)
             {
-              targetButton.text += displayDungeonName;
+              targetButton.text += displayString + displayDungeonName;
             }
             else
             {
-              targetButton.text += displayAreaName;
+              targetButton.text += displayString + displayAreaName;
             }
           }
           else
           {
             if (displayAreaName != string.Empty)
             {
-              targetButton.text += displayAreaName;
+              targetButton.text += displayString + displayAreaName;
             }
             else
             {
-              targetButton.text += displayDungeonName;
+              targetButton.text += displayString + displayDungeonName;
             }
           }
 
@@ -286,7 +284,7 @@ public class SaveLoad : MotherBase
     // Debug.Log(sender.text);
     //One.SQL.UpdateOwner(Fix.LOG_SAVELOAD_NUMBER, sender.text, String.Empty);
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
-
+    
     this.txtSender = sender;
     this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_NOWLOADING);
     this.pbSandglass.sprite = this.imageSandglass;
@@ -363,11 +361,13 @@ public class SaveLoad : MotherBase
       if ((this.txtSender).text == String.Empty) { return; }
 
       string targetFileName = String.Empty;
+      int number = 0;
       for (int ii = 0; ii < buttonText.Length; ii++)
       {
         if (this.txtSender.Equals(buttonText[ii]))
         {
-          targetFileName = (ii + 1 + ((this.pageNumber - 1) * buttonText.Length)).ToString("D3") + "_";
+          number = (ii + 1) + ((this.pageNumber - 1) * buttonText.Length);
+          targetFileName = number.ToString("D3") + "_";
           break;
         }
       }
@@ -395,14 +395,39 @@ public class SaveLoad : MotherBase
         gamedayData = ((Text)this.txtSender).text.Substring(this.gameDayString.Length + 19, 3);
         //completeareaData = ((Text)this.txtSender).text.Substring(this.gameDayString.Length + this.gameDayString2.Length + this.archiveAreaString.Length + 22, 1);
 
-        //if (completeareaData == "制")
-        //{
-        //  this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_CANNOTCLEARDATA);
-        //  this.back_SystemMessage.SetActive(true);
-        //  this.Filter.SetActive(true);
-        //  return;
-        //}
-        targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + /* completeareaData + */ "1.xml";
+        // Debug.Log("target number is " + number.ToString());
+        string foundFileName = string.Empty;
+        for (int ii = 0; ii < filenameList.Length; ii++)
+        {
+          if (filenameList[ii].Contains(number.ToString() + "_"))
+          {
+            // Debug.Log("found filenamelist: " + filenameList[ii]);
+
+            string targetClearNumber = Path.GetFileNameWithoutExtension(filenameList[ii]);
+            targetClearNumber = targetClearNumber.Substring(4 + 14 + 3, 1);
+            if (targetClearNumber == this.gameCompleteFlagNumber)
+            {
+              this.systemMessage.text = L10n.Get(Fix.L10N_SAVELOAD_CANNOTCLEARDATA);
+              this.back_SystemMessage.SetActive(true);
+              this.Filter.SetActive(true);
+              this.currentPhase = CurrentPhase.None;
+              return;
+            }
+
+            // targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + /* completeareaData + */ "1.xml";
+            foundFileName = Path.GetFileName(filenameList[ii]);
+            break;
+          }
+        }
+
+        if (string.IsNullOrEmpty(foundFileName))
+        {
+          Debug.Log("No matching save file found for number " + number);
+          this.currentPhase = CurrentPhase.None;
+          return;
+        }
+
+        targetFileName = foundFileName;
         Debug.Log("ExecLoad 1-3 " + targetFileName);
       }
       Debug.Log("ExecLoad 1-6 " + targetFileName);
@@ -958,6 +983,7 @@ public class SaveLoad : MotherBase
 
   private void ReadDisplaySaveString(string targetFileName, ref string currentDungeonName, ref string currentAreaName, ref bool saveByDungeon)
   {
+    // Debug.Log("ReadDisplaySaveString(S) " + targetFileName);
     XmlDocument xml = new XmlDocument();
     xml.Load(One.pathForDocumentsFile(targetFileName));
 
@@ -996,7 +1022,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentDungeonName = saveDungeonAreaString + ConvertMapFileToDungeonName(listDSDValue[jj]);
+                  currentDungeonName = ConvertMapFileToDungeonName(listDSDValue[jj]);
                 }
                 else
                 {
@@ -1007,7 +1033,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentAreaName = saveDungeonAreaString + listDSDValue[jj];
+                  currentAreaName = listDSDValue[jj];
                 }
                 else
                 {
