@@ -2773,6 +2773,8 @@ public partial class Item
         this._intelligence = 5;
         this._stamina = 0;
         this._mind = 0;
+        this._amplifyIce = 1.05f;
+        this._resistIcePercent = 0.10f;
         break;
 
       case Fix.FLAME_HAND_KEEPER:
@@ -2796,6 +2798,8 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
+        this._amplifyFire = 1.05f;
+        this._resistFirePercent = 0.10f;
         break;
 
       case Fix.RING_OF_OSCURETE:
