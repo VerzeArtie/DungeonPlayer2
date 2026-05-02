@@ -1246,8 +1246,8 @@ public class PartyMenu : MotherBase
     imgEssenceDecision.name = txtEssenceCurrentName.text;
     if (CurrentPlayer.SoulFragment <= 0)
     {
-      txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + " を獲得する事ができません。";
-      txtEssenceDecisionMessage.text = "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。";
+      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_TITLE, txtEssenceCurrentName.text);
+      txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_MESSAGE);
       btnEssenceDecisionAccept.gameObject.SetActive(false);
       btnEssenceDecisionCancel.gameObject.SetActive(false);
       btnEssenceDecisionOK.gameObject.SetActive(true);
@@ -1258,8 +1258,8 @@ public class PartyMenu : MotherBase
     // 強化の上限に達している場合、または「強化なし」の場合、獲得できない旨を表示する。
     if (CurrentPlayer.EssenceTreeMaxCap(txtEssenceCurrentName.text))
     {
-      txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + " はレベル上限に達しています。";
-      txtEssenceDecisionMessage.text = "本コマンドはレベル上限に達しているため、これ以上強化する事は出来ません。";
+      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, txtEssenceCurrentName.text);
+      txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_MESSAGE);
       btnEssenceDecisionAccept.gameObject.SetActive(false);
       btnEssenceDecisionCancel.gameObject.SetActive(false);
       btnEssenceDecisionOK.gameObject.SetActive(true);
@@ -1267,8 +1267,8 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + "を獲得しますか？";
-    txtEssenceDecisionMessage.text = "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。";
+    txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_TITLE, txtEssenceCurrentName.text);
+    txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_MESSAGE);
     btnEssenceDecisionAccept.gameObject.SetActive(true);
     btnEssenceDecisionCancel.gameObject.SetActive(true);
     btnEssenceDecisionOK.gameObject.SetActive(false);

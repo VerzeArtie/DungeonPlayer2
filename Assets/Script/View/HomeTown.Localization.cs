@@ -98,6 +98,13 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_OK, "ＯＫ", "OK");
+    // PartyMenu-Essence-GetNew
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_TITLE, "{0} を獲得しますか？", "Do you want to acquire {0}?");
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_MESSAGE, "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。", "You will consume 1 Essence Point to acquire it. This operation cannot be undone.");
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, "{0} はレベル上限に達しています。", "{0} has reached the level cap.");
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_MESSAGE, "本コマンドはレベル上限に達しているため、これ以上強化する事は出来ません。", "This command has reached the level cap and cannot be further enhanced.");
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_TITLE, "エッセンス・ポイントが不足しているため、{0} を獲得できません。", "Need more Essence Points to get {0}.");
+    Register(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_MESSAGE, "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。", "You don't have enough Essence Points. Please acquire Essence Points.");
     // GroupCharacterStatus
     Register(Fix.L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP, "装備対象が選択されていません。", "No equipment target selected.");
     Register(Fix.L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP, "装備変更できません。バックパックの空きを増やす必要があります。", "Can't change it. Increase backpack space.");
