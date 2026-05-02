@@ -336,7 +336,7 @@ public class NodeBackpackView : MonoBehaviour
 
     if (this.CurrentSelectBackpack.ImportantType == Item.Important.Precious)
     {
-      txtDeleteTitle.text = this.CurrentSelectBackpack.ItemName + "は捨てる事が出来ません。";
+      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_CANNOT), this.CurrentSelectBackpack.ItemName);
       txtDeleteMessage.text = "";
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(false);
@@ -345,8 +345,8 @@ public class NodeBackpackView : MonoBehaviour
     }
     else
     {
-      txtDeleteTitle.text = this.CurrentSelectBackpack.ItemName + "を捨てますか？";
-      txtDeleteMessage.text = "バックパックから削除した場合、そのアイテムは二度と戻す事ができません。";
+      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_TITLE), this.CurrentSelectBackpack.ItemName);
+      txtDeleteMessage.text = L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_MESSAGE);
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(true);
       btnCancel.gameObject.SetActive(true);

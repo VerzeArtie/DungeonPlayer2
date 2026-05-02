@@ -102,6 +102,10 @@ public static class L10n
     Register(Fix.L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP, "装備対象が選択されていません。", "No equipment target selected.");
     Register(Fix.L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP, "装備変更できません。バックパックの空きを増やす必要があります。", "Can't change it. Increase backpack space.");
     Register(Fix.L10N_CHARASTATUS_CANNOT_DETACH_EQUIP, "装備を外す事ができません。バックパックの空きを増やす必要があります。", "Can't detach it. Increase backpack space.");
+    // NodeBackpackView
+    Register(Fix.L10N_NODEBACKPACK_DELETE_TITLE, "{0}を捨てますか？", "Do you want to discard {0}?");
+    Register(Fix.L10N_NODEBACKPACK_DELETE_MESSAGE, "バックパックから削除した場合、そのアイテムは二度と戻す事ができません。", "Once you delete an item from the backpack, it cannot be restored.");
+    Register(Fix.L10N_NODEBACKPACK_DELETE_CANNOT, "{0}は捨てる事ができません。", "{0} cannot be discarded.");
     // HelpBook
     Register(Fix.L10N_HELPMENU_ACTIONCOMMAND, "アクションコマンド", "Action Command");
     Register(Fix.L10N_HELPMENU_CLOSE_BUTTON, "閉じる", "Close");

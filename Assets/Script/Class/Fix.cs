@@ -1510,6 +1510,9 @@ public static partial class Fix
   public const string L10N_CHARASTATUS_CANNOT_NOSELECT_EQUIP = "lblCharaStatusCannotNoSelectEquip";
   public const string L10N_CHARASTATUS_CANNOT_EXCHANGE_EQUIP = "lblCharaStatusCannotExchangeEquip";
   public const string L10N_CHARASTATUS_CANNOT_DETACH_EQUIP = "lblCharaStatusCannotDetachEquip";
+  public const string L10N_NODEBACKPACK_DELETE_TITLE = "lblNodeBackpackDeleteTitle";
+  public const string L10N_NODEBACKPACK_DELETE_MESSAGE = "lblNodeBackpackDeleteMessage";
+  public const string L10N_NODEBACKPACK_DELETE_CANNOT = "lblNodeBackpackDeleteCannot";
   public const string L10N_HELPMENU_ACTIONCOMMAND = "lblHelpMenuActionCommand";
   public const string L10N_HELPMENU_CLOSE_BUTTON = "lblHelpMenuCloseButton";
   public const string L10N_HELPMENU_NAME_EN = "lblHelpMenuName_EN";
