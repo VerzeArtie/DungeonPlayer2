@@ -1473,6 +1473,9 @@ public static partial class Fix
   public const string L10N_HOMETOWN_INN_ACCEPT = "lblHomeTownInnAccept";
   public const string L10N_HOMETOWN_INN_CANCEL = "lblHomeTownInnCancel";
 
+  public const string L10N_HOMETOWN_ITEMBANK_TITLE = "lblHomeTownItemBankTitle";
+  public const string L10N_HOMETOWN_ITEMBANK_WITHDRAW = "lblHomeTownItemBankWithdraw";
+
   public const string L10N_PARTYMENU_STATUS = "lblPartyMenuStatus";
   public const string L10N_PARTYMENU_BATTLESETTING = "lblPartyMenuBattleSetting";
   public const string L10N_PARTYMENU_ESSENCETREE = "lblPartyMenuEssenceTree";

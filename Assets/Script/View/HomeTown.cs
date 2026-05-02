@@ -284,6 +284,8 @@ public partial class HomeTown : MotherBase
   public GameObject GroupItemBank;
   public GameObject ContentItemBank;
   public NodeBackpackItem nodeItemBankItem;
+  public Text lblItemBankTitle;
+  public Text lblItemBankWithdraw;
 
   // New Available
   public GameObject GroupNewAvailable;
@@ -5105,6 +5107,8 @@ public partial class HomeTown : MotherBase
     if (lblInnTitle != null) { lblInnTitle.text = L10n.Get(Fix.L10N_HOMETOWN_INN_TITLE); }
     if (lblInnAccept != null) { lblInnAccept.text = L10n.Get(Fix.L10N_HOMETOWN_INN_ACCEPT); }
     if (lblInnCancel != null) { lblInnCancel.text = L10n.Get(Fix.L10N_HOMETOWN_INN_CANCEL); }
+    if (lblItemBankTitle != null) { lblItemBankTitle.text = L10n.Get(Fix.L10N_HOMETOWN_ITEMBANK_TITLE); }
+    if (lblItemBankWithdraw != null) { lblItemBankWithdraw.text = L10n.Get(Fix.L10N_HOMETOWN_ITEMBANK_WITHDRAW); }
   }
 
   private void UpdateStayListCheckMark()
