@@ -276,6 +276,9 @@ public partial class HomeTown : MotherBase
   public Text txtFoodMenuIntelligenceUp;
   public Text txtFoodMenuStaminaUp;
   public Text txtFoodMenuMindUp;
+  public Text lblInnTitle;
+  public Text lblInnAccept;
+  public Text lblInnCancel;
 
   // ItemBank
   public GameObject GroupItemBank;
@@ -5099,6 +5102,9 @@ public partial class HomeTown : MotherBase
     if (lblSystemLoad != null) { lblSystemLoad.text = L10n.Get(Fix.L10N_SYSTEM_LOAD); }
     if (lblSystemHelp != null) { lblSystemHelp.text = L10n.Get(Fix.L10N_SYSTEM_HELP); }
     if (lblSystemExit != null) { lblSystemExit.text = L10n.Get(Fix.L10N_SYSTEM_EXIT); }
+    if (lblInnTitle != null) { lblInnTitle.text = L10n.Get(Fix.L10N_HOMETOWN_INN_TITLE); }
+    if (lblInnAccept != null) { lblInnAccept.text = L10n.Get(Fix.L10N_HOMETOWN_INN_ACCEPT); }
+    if (lblInnCancel != null) { lblInnCancel.text = L10n.Get(Fix.L10N_HOMETOWN_INN_CANCEL); }
   }
 
   private void UpdateStayListCheckMark()

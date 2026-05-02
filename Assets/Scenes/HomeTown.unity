@@ -5018,7 +5018,7 @@ GameObject:
   - component: {fileID: 132322543}
   - component: {fileID: 132322542}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblInnAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16567,6 +16567,9 @@ MonoBehaviour:
   txtFoodMenuIntelligenceUp: {fileID: 1069734162}
   txtFoodMenuStaminaUp: {fileID: 1498182175}
   txtFoodMenuMindUp: {fileID: 551989645}
+  lblInnTitle: {fileID: 1420025807}
+  lblInnAccept: {fileID: 132322542}
+  lblInnCancel: {fileID: 1943296577}
   GroupItemBank: {fileID: 1726391882}
   ContentItemBank: {fileID: 2004547001}
   nodeItemBankItem: {fileID: 483323452}
@@ -78605,7 +78608,7 @@ GameObject:
   - component: {fileID: 1420025808}
   - component: {fileID: 1420025807}
   m_Layer: 5
-  m_Name: txtInnTitle
+  m_Name: lblInnTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108506,7 +108509,7 @@ GameObject:
   - component: {fileID: 1943296578}
   - component: {fileID: 1943296577}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblInnCancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

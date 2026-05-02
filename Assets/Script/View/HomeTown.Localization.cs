@@ -51,6 +51,10 @@ public static class L10n
     Register("CustomEvent2_ARCANEDINE", "ワッツの民芸品店", "Watts Handicraft");
     Register("CustomEvent3_ARCANEDINE", "占いの館：アミンダ", "Aminda's Fortune");
     Register("CustomEvent1_PARMETYSIA", "中央神殿", "Central Temple");
+    // HomeTown-Inn
+    Register(Fix.L10N_HOMETOWN_INN_TITLE, "休息に入りますか？", "Do you want to take a rest?");
+    Register(Fix.L10N_HOMETOWN_INN_ACCEPT, "休息する", "Rest");
+    Register(Fix.L10N_HOMETOWN_INN_CANCEL, "キャンセル", "Cancel");
     // DungeonField
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_TITLE, "ダンジョンの外へと帰還しますか？", "Do you want to return to the outside of the dungeon?");
     Register(Fix.L10N_FASTTRAVEL_MESSAGE, "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。", "If you leave the dungeon, you will not be able to enter the dungeon again that day.");
