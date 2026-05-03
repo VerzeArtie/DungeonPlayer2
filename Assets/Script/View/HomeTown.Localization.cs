@@ -56,6 +56,20 @@ public static class L10n
     Register(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL, "バックパック", "Backpack");
     Register(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_BUY, "購入", "Buy");
     Register(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_SELL, "売却", "Sell");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_BUY, "{0}を購入しますか？", "Do you want to buy {0}?");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_BUY, "{0} ゴールドを消費します。この操作は元に戻せません。", "You will consume {0} gold. This operation cannot be undone.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTBUY, "{0} を購入する事ができません。", "{0} cannot be bought.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTBUY, "{0} ゴールドが不足しているため、{1} を購入できません。", "You don't have enough {0} gold to buy {1}.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_BUY, "購入する", "Buy");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_BUY, "キャンセル", "Cancel");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_BUY, "ＯＫ", "OK");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_SELL, "{0} を売却しますか？", "Do you want to sell {0}?");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_SELL, "{0} Goldで売却した後、{1} を手元に戻す事はできません。", "Once you sell it for {0} gold, you cannot get {1} back.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTSELL, "{0} は売却する事ができません。", "{0} cannot be sold.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTSELL, "{0} は貴重品のため、売却することができません。", "{0} is a precious item and cannot be sold.");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_SELL, "売却する", "Sell");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_SELL, "キャンセル", "Cancel");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_SELL, "ＯＫ", "OK");
     // HomeTown-Inn
     Register(Fix.L10N_HOMETOWN_INN_TITLE, "休息に入りますか？", "Do you want to take a rest?");
     Register(Fix.L10N_HOMETOWN_INN_ACCEPT, "休息する", "Rest");

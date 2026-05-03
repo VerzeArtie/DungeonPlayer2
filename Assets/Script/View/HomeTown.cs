@@ -248,6 +248,12 @@ public partial class HomeTown : MotherBase
   public Text lblShopTitleSell;
   public Text lblShopDecisionBuy;
   public Text lblShopDecisionSell;
+  public Text lblShopMessageBoxAcceptBuy;
+  public Text lblShopMessageBoxCancelBuy;
+  public Text lblShopMessageBoxOKBuy;
+  public Text lblShopMessageBoxAcceptSell;
+  public Text lblShopMessageBoxCancelSell;
+  public Text lblShopMessageBoxOKSell;
 
   // Tactics
   public GameObject GroupTactics;
@@ -2432,16 +2438,16 @@ public partial class HomeTown : MotherBase
     imgSell.name = txt.text;
     if (current.ImportantType == Item.Important.Precious)
     {
-      txtSellTitle.text = txt.text + " は売却する事ができません。";
-      txtSellMessage.text = txt.text + " は貴重品のため、売却することができません。";
+      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTSELL, txt.text);
+      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTSELL, txt.text);
       btnSellAccept.gameObject.SetActive(false);
       btnSellCancel.gameObject.SetActive(false);
       btnSellOK.gameObject.SetActive(true);
     }
     else
     {
-      txtSellTitle.text = txt.text + " を売却しますか？";
-      txtSellMessage.text = (current.Gold / 2).ToString() + " Goldで売却した後、 " + txt.text + " を手元に戻す事はできません。";
+      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_SELL, txt.text);
+      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_SELL, (current.Gold / 2).ToString(), txt.text);
       btnSellAccept.gameObject.SetActive(true);
       btnSellCancel.gameObject.SetActive(true);
       btnSellOK.gameObject.SetActive(false);
@@ -2685,16 +2691,16 @@ public partial class HomeTown : MotherBase
     if (One.TF.Gold < current.Gold)
     {
       int diff = current.Gold - One.TF.Gold;
-      txtBuyTitle.text = txt.text + " を購入する事ができません。";
-      txtBuyMessage.text = "ゴールドがあと" + diff.ToString() + " 不足しています。ゴールドを入手してください。";
+      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTBUY, txt.text);
+      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTBUY, diff.ToString(), txt.text);
       btnBuyAccept.gameObject.SetActive(false);
       btnBuyCancel.gameObject.SetActive(false);
       btnBuyOK.gameObject.SetActive(true);
     }
     else
     {
-      txtBuyTitle.text = txt.text + " を購入しますか？";
-      txtBuyMessage.text = current.Gold.ToString() + " ゴールドを消費します。この操作は元に戻せません。";
+      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_BUY, txt.text);
+      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_BUY, current.Gold.ToString(), txt.text);
       btnBuyAccept.gameObject.SetActive(true);
       btnBuyCancel.gameObject.SetActive(true);
       btnBuyOK.gameObject.SetActive(false);
@@ -5117,6 +5123,12 @@ public partial class HomeTown : MotherBase
     if (lblShopTitleSell != null) { lblShopTitleSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL); }
     if (lblShopDecisionBuy != null) { lblShopDecisionBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_BUY); }
     if (lblShopDecisionSell != null) { lblShopDecisionSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_SELL); }
+    if (lblShopMessageBoxAcceptBuy != null) { lblShopMessageBoxAcceptBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_BUY); }
+    if (lblShopMessageBoxAcceptSell != null) { lblShopMessageBoxAcceptSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_SELL); }
+    if (lblShopMessageBoxCancelBuy != null) { lblShopMessageBoxCancelBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_BUY); }
+    if (lblShopMessageBoxCancelSell != null) { lblShopMessageBoxCancelSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_SELL); }
+    if (lblShopMessageBoxOKBuy != null) { lblShopMessageBoxOKBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_BUY); }
+    if (lblShopMessageBoxOKSell != null) { lblShopMessageBoxOKSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_SELL); }
   }
 
   private void UpdateStayListCheckMark()

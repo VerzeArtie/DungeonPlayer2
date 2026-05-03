@@ -1469,6 +1469,20 @@ public static partial class Fix
   public const string L10N_HOMETOWN_SHOPMENU_TITLE_SELL = "lblShopMenuTitleSell";
   public const string L10N_HOMETOWN_SHOPMENU_DECISION_BUY = "lblShopMenuDecisionBuy";
   public const string L10N_HOMETOWN_SHOPMENU_DECISION_SELL = "lblShopMenuDecisionSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_BUY = "lblShopMenuMessageBoxTitleBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_BUY = "lblShopMenuMessageBoxDescriptionBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTBUY = "lblShopMenuMessageBoxTitleCannotBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTBUY = "lblShopMenuMessageBoxDescriptionCannotBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_BUY = "lblShopMenuMessageBoxAcceptBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_BUY = "lblShopMenuMessageBoxCancelBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_BUY = "lblShopMenuMessageBoxOKBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_SELL = "lblShopMenuMessageBoxTitleSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_SELL = "lblShopMenuMessageBoxDescriptionSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTSELL = "lblShopMenuMessageBoxTitleCannotSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTSELL = "lblShopMenuMessageBoxDescriptionCannotSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_ACCEPT_SELL = "lblShopMenuMessageBoxAcceptSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_SELL = "lblShopMenuMessageBoxCancelSell";
+  public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_SELL = "lblShopMenuMessageBoxOKSell";
 
   public const string L10N_HOMETOWN_INN_TITLE = "lblHomeTownInnTitle";
   public const string L10N_HOMETOWN_INN_ACCEPT = "lblHomeTownInnAccept";

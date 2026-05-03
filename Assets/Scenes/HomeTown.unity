@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 49790694}
   - component: {fileID: 49790693}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblShopMessageBoxCancelSell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14693,7 +14693,7 @@ GameObject:
   - component: {fileID: 270934324}
   - component: {fileID: 270934323}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblShopMessageBoxAcceptBuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16555,6 +16555,12 @@ MonoBehaviour:
   lblShopTitleSell: {fileID: 2095379054}
   lblShopDecisionBuy: {fileID: 1711530994}
   lblShopDecisionSell: {fileID: 1128031832}
+  lblShopMessageBoxAcceptBuy: {fileID: 270934323}
+  lblShopMessageBoxCancelBuy: {fileID: 1029963976}
+  lblShopMessageBoxOKBuy: {fileID: 539356699}
+  lblShopMessageBoxAcceptSell: {fileID: 1744644102}
+  lblShopMessageBoxCancelSell: {fileID: 49790693}
+  lblShopMessageBoxOKSell: {fileID: 752925884}
   GroupTactics: {fileID: 1176450559}
   GroupInn: {fileID: 81049605}
   GroupInnDecision: {fileID: 1467050813}
@@ -28880,7 +28886,7 @@ GameObject:
   - component: {fileID: 539356700}
   - component: {fileID: 539356699}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblShopMessageBoxOKBuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41774,7 +41780,7 @@ GameObject:
   - component: {fileID: 752925885}
   - component: {fileID: 752925884}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblShopMessageBoxOKSell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56960,7 +56966,7 @@ GameObject:
   - component: {fileID: 1029963977}
   - component: {fileID: 1029963976}
   m_Layer: 5
-  m_Name: txtCancel
+  m_Name: lblShopMessageBoxCancelBuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96251,7 +96257,7 @@ GameObject:
   - component: {fileID: 1744644103}
   - component: {fileID: 1744644102}
   m_Layer: 5
-  m_Name: txtAccept
+  m_Name: lblShopMessageBoxAcceptSell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
