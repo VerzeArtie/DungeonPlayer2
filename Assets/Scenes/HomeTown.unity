@@ -16551,6 +16551,10 @@ MonoBehaviour:
   btnShopBuy: {fileID: 1189226031}
   btnShopSell: {fileID: 635834382}
   txtShopCurrentType: {fileID: 510407745}
+  lblShopTitleBuy: {fileID: 1727191427}
+  lblShopTitleSell: {fileID: 2095379054}
+  lblShopDecisionBuy: {fileID: 1711530994}
+  lblShopDecisionSell: {fileID: 1128031832}
   GroupTactics: {fileID: 1176450559}
   GroupInn: {fileID: 81049605}
   GroupInnDecision: {fileID: 1467050813}
@@ -62646,7 +62650,7 @@ GameObject:
   - component: {fileID: 1128031833}
   - component: {fileID: 1128031832}
   m_Layer: 5
-  m_Name: txtSellAccept
+  m_Name: lblShopDecisionSell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93933,7 +93937,7 @@ GameObject:
   - component: {fileID: 1711530995}
   - component: {fileID: 1711530994}
   m_Layer: 5
-  m_Name: txtBuyAccept
+  m_Name: lblShopDecisionBuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94635,7 +94639,7 @@ GameObject:
   - component: {fileID: 1727191428}
   - component: {fileID: 1727191427}
   m_Layer: 5
-  m_Name: txtShop
+  m_Name: lblShopTitleBuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116385,7 +116389,7 @@ GameObject:
   - component: {fileID: 2095379055}
   - component: {fileID: 2095379054}
   m_Layer: 5
-  m_Name: txtSell
+  m_Name: lblShopTitleSell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

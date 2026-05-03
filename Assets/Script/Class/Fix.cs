@@ -1418,11 +1418,7 @@ public static partial class Fix
   public const string HELPMENUL_BATTLE = "バトル関連";
   #endregion
 
-  #region "ホームタウンSHOPメニューラベル(JP)"
-  public const string SHOPMENU_BUY = "購入";
-  public const string SHOPMENU_SELL = "売却";
-  #endregion
-
+  #region "Language"
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
   public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";
@@ -1468,6 +1464,11 @@ public static partial class Fix
   public const string L10N_CUSTOMEVENT2_ARCANEDINE = "CustomEvent2_ARCANEDINE";
   public const string L10N_CUSTOMEVENT3_ARCANEDINE = "CustomEvent3_ARCANEDINE";
   public const string L10N_CUSTOMEVENT1_PARMETYSIA = "CustomEvent1_PARMETYSIA";
+
+  public const string L10N_HOMETOWN_SHOPMENU_TITLE_BUY = "lblShopMenuTitleBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_TITLE_SELL = "lblShopMenuTitleSell";
+  public const string L10N_HOMETOWN_SHOPMENU_DECISION_BUY = "lblShopMenuDecisionBuy";
+  public const string L10N_HOMETOWN_SHOPMENU_DECISION_SELL = "lblShopMenuDecisionSell";
 
   public const string L10N_HOMETOWN_INN_TITLE = "lblHomeTownInnTitle";
   public const string L10N_HOMETOWN_INN_ACCEPT = "lblHomeTownInnAccept";
@@ -1597,6 +1598,8 @@ public static partial class Fix
   public const string L10N_ACCESSORY1 = "lblAccessory1";
   public const string L10N_ACCESSORY2 = "lblAccessory2";
   public const string L10N_ARTIFACT = "lblArtifact";
+  #endregion
+
   #endregion
 
   #region "Action Command"

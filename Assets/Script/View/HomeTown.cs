@@ -244,6 +244,10 @@ public partial class HomeTown : MotherBase
   public Button btnShopBuy;
   public Button btnShopSell;
   public Text txtShopCurrentType;
+  public Text lblShopTitleBuy;
+  public Text lblShopTitleSell;
+  public Text lblShopDecisionBuy;
+  public Text lblShopDecisionSell;
 
   // Tactics
   public GameObject GroupTactics;
@@ -2393,7 +2397,7 @@ public partial class HomeTown : MotherBase
     GroupShopSell.SetActive(false);
     btnShopBuy.gameObject.SetActive(true);
     btnShopSell.gameObject.SetActive(false);
-    txtShopCurrentType.text = Fix.SHOPMENU_BUY;
+    txtShopCurrentType.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_BUY);
     bool result = FindAndSelectedShopItem(ShopItemList);
     if (result == false)
     {
@@ -2408,7 +2412,7 @@ public partial class HomeTown : MotherBase
     GroupShopSell.SetActive(true);
     btnShopBuy.gameObject.SetActive(false);
     btnShopSell.gameObject.SetActive(true);
-    txtShopCurrentType.text = Fix.SHOPMENU_SELL;
+    txtShopCurrentType.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL);
     bool result = FindAndSelectedShopItem(ShopSellItemList);
     if (result == false)
     {
@@ -5109,6 +5113,10 @@ public partial class HomeTown : MotherBase
     if (lblInnCancel != null) { lblInnCancel.text = L10n.Get(Fix.L10N_HOMETOWN_INN_CANCEL); }
     if (lblItemBankTitle != null) { lblItemBankTitle.text = L10n.Get(Fix.L10N_HOMETOWN_ITEMBANK_TITLE); }
     if (lblItemBankWithdraw != null) { lblItemBankWithdraw.text = L10n.Get(Fix.L10N_HOMETOWN_ITEMBANK_WITHDRAW); }
+    if (lblShopTitleBuy != null) { lblShopTitleBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_BUY); }
+    if (lblShopTitleSell != null) { lblShopTitleSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL); }
+    if (lblShopDecisionBuy != null) { lblShopDecisionBuy.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_BUY); }
+    if (lblShopDecisionSell != null) { lblShopDecisionSell.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_SELL); }
   }
 
   private void UpdateStayListCheckMark()

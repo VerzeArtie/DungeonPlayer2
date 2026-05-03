@@ -51,6 +51,11 @@ public static class L10n
     Register("CustomEvent2_ARCANEDINE", "ワッツの民芸品店", "Watts Handicraft");
     Register("CustomEvent3_ARCANEDINE", "占いの館：アミンダ", "Aminda's Fortune");
     Register("CustomEvent1_PARMETYSIA", "中央神殿", "Central Temple");
+    // HomeTown-Shop
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_BUY, "ショップ", "Shop");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL, "バックパック", "Backpack");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_BUY, "購入", "Buy");
+    Register(Fix.L10N_HOMETOWN_SHOPMENU_DECISION_SELL, "売却", "Sell");
     // HomeTown-Inn
     Register(Fix.L10N_HOMETOWN_INN_TITLE, "休息に入りますか？", "Do you want to take a rest?");
     Register(Fix.L10N_HOMETOWN_INN_ACCEPT, "休息する", "Rest");
