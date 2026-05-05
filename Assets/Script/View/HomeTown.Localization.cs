@@ -9,6 +9,18 @@ public static class L10n
 
   static L10n()
   {
+    // Title
+    Register(Fix.L10N_TITLE_GAMESTART, "ゲームスタート", "Game Start");
+    Register(Fix.L10N_TITLE_LOAD, "ロード", "Load Game");
+    Register(Fix.L10N_TITLE_CONFIG, "設定", "Config");
+    Register(Fix.L10N_TITLE_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
+    Register(Fix.L10N_TITLE_EXIT, "終了", "Exit");
+    Register(Fix.L10N_TITLE_OBSIDIAN_PORTAL, "オブシディアンポータル", "Obsidian Portal");
+    Register(Fix.L10N_TITLE_OP_GAMESTART, "ゲームスタート", "Game Start");
+    Register(Fix.L10N_TITLE_OP_LOAD, "ロード", "Load");
+    Register(Fix.L10N_TITLE_OP_CONFIG, "設定", "Config");
+    Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
+    Register(Fix.L10N_TITLE_OP_EXIT, "終了", "Exit");
     // SaveLoad
     Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
     Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");

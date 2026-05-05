@@ -1419,6 +1419,18 @@ public static partial class Fix
   #endregion
 
   #region "Language"
+  public const string L10N_TITLE_GAMESTART = "lblTitleGameStart";
+  public const string L10N_TITLE_LOAD = "lblTitleLoad";
+  public const string L10N_TITLE_CONFIG = "lblTitleConfig";
+  public const string L10N_TITLE_PRIVACYPOLICY = "lblTitlePrivacyPolicy";
+  public const string L10N_TITLE_EXIT = "lblTitleExit";
+  public const string L10N_TITLE_OBSIDIAN_PORTAL = "lblTitleObsidianPortal";
+  public const string L10N_TITLE_OP_GAMESTART = "lblTitleOPGameStart";
+  public const string L10N_TITLE_OP_LOAD = "lblTitleOPLoad";
+  public const string L10N_TITLE_OP_CONFIG = "lblTitleOPConfig";
+  public const string L10N_TITLE_OP_PRIVACYPOLICY = "lblTitleOPPrivacyPolicy";
+  public const string L10N_TITLE_OP_EXIT = "lblTitleOPExit";
+
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
   public const string L10N_SAVELOAD_TITLELOAD = "lblSaveLoadTitleLoad";

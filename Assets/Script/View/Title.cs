@@ -28,7 +28,14 @@ public class Title : MotherBase
   public Text lblSeeker;
   public Text lblLoad;
   public Text lblConfig;
+  public Text lblPrivacyPolicy;
   public Text lblExit;
+  public Text lblObsidianPortal;
+  public Text lblObsidianGameStart;
+  public Text lblObsidianLoad;
+  public Text lblObsidianConfig;
+  public Text lblObsidianPrivacyPolicy;
+  public Text lblObsidianExit;
 
   public Slider BGMSlider = null;
   public Slider SoundSlider = null;
@@ -219,6 +226,18 @@ public class Title : MotherBase
       Debug.Log("One.CONF.Account " + One.CONF.Account);
       this.TextAccount.text = "AccountID: " + One.CONF.Account;
       AccountInputField.text = One.CONF.Account;
+
+      if (lblGameStart != null) { lblGameStart.text = L10n.Get(Fix.L10N_TITLE_GAMESTART); }
+      if (lblLoad != null) { lblLoad.text = L10n.Get(Fix.L10N_TITLE_LOAD); }
+      if (lblConfig != null) { lblConfig.text = L10n.Get(Fix.L10N_TITLE_CONFIG); }
+      if (lblPrivacyPolicy != null) { lblPrivacyPolicy.text = L10n.Get(Fix.L10N_TITLE_PRIVACYPOLICY); }
+      if (lblExit != null) { lblExit.text = L10n.Get(Fix.L10N_TITLE_EXIT); }
+      if (lblObsidianPortal != null) { lblObsidianPortal.text = L10n.Get(Fix.L10N_TITLE_OBSIDIAN_PORTAL); }
+      if (lblObsidianGameStart != null) { lblObsidianGameStart.text = L10n.Get(Fix.L10N_TITLE_OP_GAMESTART); }
+      if (lblObsidianLoad != null) { lblObsidianLoad.text = L10n.Get(Fix.L10N_TITLE_OP_LOAD); }
+      if (lblObsidianConfig != null) { lblObsidianConfig.text = L10n.Get(Fix.L10N_TITLE_OP_CONFIG); }
+      if (lblObsidianPrivacyPolicy != null) { lblObsidianPrivacyPolicy.text = L10n.Get(Fix.L10N_TITLE_OP_PRIVACYPOLICY); }
+      if (lblObsidianExit != null) { lblObsidianExit.text = L10n.Get(Fix.L10N_TITLE_OP_EXIT); }
 
       if (One.CONF.Account != null && One.CONF.Account != string.Empty)
       {
