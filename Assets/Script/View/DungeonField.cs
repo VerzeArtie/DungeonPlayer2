@@ -12923,7 +12923,7 @@ public class DungeonField : MotherBase
           ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, number);
           Debug.Log("GetPreciousItem 2");
 
-          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
+          this.txtSystemMessage.text = string.Format(L10n.Get(Fix.L10N_DUNGEON_TREASURE_GET), currentMessage);
           this.panelSystemMessage.SetActive(true);
           Debug.Log("GetPreciousItem 3");
           UpdateTreasureFlag();
@@ -12953,7 +12953,7 @@ public class DungeonField : MotherBase
           ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, number);
           Debug.Log("GetTreasure 2");
 
-          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
+          this.txtSystemMessage.text = string.Format(L10n.Get(Fix.L10N_DUNGEON_TREASURE_GET), currentMessage);
           this.panelSystemMessage.SetActive(true);
           Debug.Log("GetTreasure 3");
           UpdateTreasureFlag();

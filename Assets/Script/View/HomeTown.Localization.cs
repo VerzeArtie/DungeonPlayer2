@@ -96,6 +96,7 @@ public static class L10n
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_OK, "ＯＫ", "OK");
     Register(Fix.L10N_DUNGEON_TREASURE_LIMIT, "バックパックがいっぱいのため、【 {0} 】を入手できませんでした。", "Your backpack is full, so you couldn't acquire 【 {0} 】.");
+    Register(Fix.L10N_DUNGEON_TREASURE_GET, "【 {0} 】を入手しました。", "You acquired 【 {0} 】.");
     // PartyMenu-Top
     Register(Fix.L10N_PARTYMENU_STATUS, "ステータス", "Status");
     Register(Fix.L10N_PARTYMENU_BATTLESETTING, "バトル設定", "Battle");
