@@ -1454,7 +1454,7 @@ public partial class HomeTown : MotherBase
   {
     this.txtNewTitle.text = content_name;
     this.txtNewDescription.text = description;
-    this.txtCloseButton.text = "【 " + content_name + " 】が追加されました！";
+    this.txtCloseButton.text = string.Format(L10n.Get(Fix.L10N_HOMETOWN_AVAILABLE), content_name);
     GroupNewAvailable.SetActive(true);
     One.UpdateAkashicRecord();
   }

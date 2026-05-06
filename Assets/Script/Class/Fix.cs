@@ -1502,6 +1502,7 @@ public static partial class Fix
 
   public const string L10N_HOMETOWN_ITEMBANK_TITLE = "lblHomeTownItemBankTitle";
   public const string L10N_HOMETOWN_ITEMBANK_WITHDRAW = "lblHomeTownItemBankWithdraw";
+  public const string L10N_HOMETOWN_AVAILABLE = "lblHomeTownAvailable";
 
   public const string L10N_DUNGEON_TREASURE_GET = "lblDungeonTreasureGet";
   public const string L10N_DUNGEON_TREASURE_LIMIT = "lblDungeonTreasureLimit";

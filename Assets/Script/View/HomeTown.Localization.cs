@@ -89,6 +89,8 @@ public static class L10n
     // HomeTown-ItemBank
     Register(Fix.L10N_HOMETOWN_ITEMBANK_TITLE, "アイテム保管庫", "Item Bank");
     Register(Fix.L10N_HOMETOWN_ITEMBANK_WITHDRAW, "取り出す", "Withdraw");
+    // HomeTown
+    Register(Fix.L10N_HOMETOWN_AVAILABLE, "【 {0} 】が追加されました！", "【 {0} 】 has been added!");
     // DungeonField
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_TITLE, "ダンジョンの外へと帰還しますか？", "Do you want to return to the outside of the dungeon?");
     Register(Fix.L10N_FASTTRAVEL_MESSAGE, "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。", "If you leave the dungeon, you will not be able to enter the dungeon again that day.");
