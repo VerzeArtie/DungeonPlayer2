@@ -9601,7 +9601,7 @@ public partial class BattleEnemy : MotherBase
         One.BattleEnd = Fix.GameEndType.RunAway;
         if (panelGameEnd.activeInHierarchy == false)
         {
-          txtGameEndMessage.text = PlayerList[0].FullName + "達は逃げ出した・・・";
+          txtGameEndMessage.text = string.Format(L10n.Get(Fix.L10N_BATTLE_RUNAWAY), PlayerList[0].FullName);
           panelGameEndExpList.SetActive(false);
           panelGameEnd.SetActive(true);
         }

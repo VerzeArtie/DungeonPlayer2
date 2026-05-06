@@ -1565,6 +1565,7 @@ public static partial class Fix
   public const string L10N_HELPMENU_TIMING = "lblHelpMenuTiming";
   public const string L10N_BATTLE_REWARD = "lblBattleReward";
   public const string L10N_BATTLE_GETITEM = "lblBattleGetItem";
+  public const string L10N_BATTLE_RUNAWAY = "lblBattleRunAway";
   public const string L10N_BATTLE_GAMEOVER = "lblBattleGameOver";
   public const string L10N_BATTLE_RETRY = "lblBattleRetry";
   public const string L10N_BATTLE_SURRENDER = "lblBattleSurrender";

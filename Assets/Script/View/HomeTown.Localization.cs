@@ -164,6 +164,7 @@ public static class L10n
     // BattleEnemy
     Register(Fix.L10N_BATTLE_REWARD, "敵を倒した。\r\n{0}経験値を獲得。\r\n{1}ゴールドを獲得", "You defeated the enemy.\r\nGain {0} EXP\r\nGain {1} Gold.");
     Register(Fix.L10N_BATTLE_GETITEM, "【 {0} 】を入手した！", "You got 【 {0} 】!");
+    Register(Fix.L10N_BATTLE_RUNAWAY, "{0}達は逃げ出した・・・", "{0} ran away...");
     Register(Fix.L10N_BATTLE_GAMEOVER, "パーティが全滅しました・・・\r\n戦闘を初めからやり直しますか？", "Your party has been defeated...\r\nDo you want to retry the battle from the beginning?");
     Register(Fix.L10N_BATTLE_RETRY, "リトライ", "Retry");
     Register(Fix.L10N_BATTLE_SURRENDER, "終了", "Surrender");
