@@ -2110,7 +2110,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.DetectItemDrop = true;
           Item current = new Item(targetItemName);
-          this.txtItemDrop.text = "【 " + targetItemName + " 】を入手した！";
+          this.txtItemDrop.text = string.Format(L10n.Get(Fix.L10N_BATTLE_GETITEM), targetItemName);
           this.imgItemDrop.sprite = Resources.Load<Sprite>("Icon_" + current?.ItemType.ToString() ?? "");
 
           Debug.Log("curren item Rare: " + current.Rare.ToString());
