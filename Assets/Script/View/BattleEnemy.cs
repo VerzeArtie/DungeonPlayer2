@@ -2101,7 +2101,7 @@ public partial class BattleEnemy : MotherBase
 
         One.TF.Gold += gainGold;
 
-        txtGameEndMessage.text = "敵を倒した。\r\n" + gainExp + "経験値を獲得。\r\n" + gainGold + "ゴールドを獲得";
+        txtGameEndMessage.text = string.Format(L10n.Get(Fix.L10N_BATTLE_REWARD), gainExp, gainGold);
         panelGameEnd.SetActive(true);
 
         // アイテムドロップ
