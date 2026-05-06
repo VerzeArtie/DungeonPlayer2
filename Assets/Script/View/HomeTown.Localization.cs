@@ -114,6 +114,7 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_OK, "装備", "Equip");
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_DETACH, "外す", "Detach");
     Register(Fix.L10N_PARTYMENU_EQUIPCHANGE_CANCEL, "キャンセル", "Cancel");
+    Register(Fix.L10N_PARTYMENU_NO_EQUIP, "( 装備なし )", "( No Equip )");
     Register(Fix.L10N_PARTYMENU_BATTLETYPE_BASIC, "基本", "Basic");
     Register(Fix.L10N_PARTYMENU_BATTLETYPE_SPELLSKILL, "魔法/スキル", "Spell/Skill");
     Register(Fix.L10N_PARTYMENU_BATTLETYPE_USEITEM, "アイテム", "Item");

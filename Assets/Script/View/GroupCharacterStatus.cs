@@ -273,32 +273,32 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailPotential.text = PrimaryLogic.Potential(player).ToString("F2");
     txtDetailRemainPoint.text = player.RemainPoint.ToString();
 
-    txtDetailMainWeapon.text = (player.MainWeapon?.ItemName ?? "( 装備なし )");
+    txtDetailMainWeapon.text = (player.MainWeapon?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.MainWeapon?.ItemType.ToString() ?? "");
     backDetailMainWeapon.GetComponent<Image>().color = player.MainWeapon?.GetRareColor ?? Color.white;
     txtDetailMainWeapon.GetComponent<Text>().color = player.MainWeapon?.GetRareTextColor ?? Color.white;
 
-    txtDetailSubWeapon.text = (player.SubWeapon?.ItemName ?? "( 装備なし )");
+    txtDetailSubWeapon.text = (player.SubWeapon?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailSubWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.SubWeapon?.ItemType.ToString() ?? "");
     backDetailSubWeapon.GetComponent<Image>().color = player.SubWeapon?.GetRareColor ?? Color.white;
     txtDetailSubWeapon.GetComponent<Text>().color = player.SubWeapon?.GetRareTextColor ?? Color.white;
 
-    txtDetailArmor.text = (player.MainArmor?.ItemName ?? "( 装備なし )");
+    txtDetailArmor.text = (player.MainArmor?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailArmor.sprite = Resources.Load<Sprite>("Icon_" + player.MainArmor?.ItemType.ToString() ?? "");
     backDetailArmor.GetComponent<Image>().color = player.MainArmor?.GetRareColor ?? Color.white;
     txtDetailArmor.GetComponent<Text>().color = player.MainArmor?.GetRareTextColor ?? Color.white;
 
-    txtDetailAccessory1.text = (player.Accessory1?.ItemName ?? "( 装備なし )");
+    txtDetailAccessory1.text = (player.Accessory1?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailAccessory1.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory1?.ItemType.ToString() ?? "");
     backDetailAccessory1.GetComponent<Image>().color = player.Accessory1?.GetRareColor ?? Color.white;
     txtDetailAccessory1.GetComponent<Text>().color = player.Accessory1?.GetRareTextColor ?? Color.white;
 
-    txtDetailAccessory2.text = (player.Accessory2?.ItemName ?? "( 装備なし )");
+    txtDetailAccessory2.text = (player.Accessory2?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailAccessory2.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory2?.ItemType.ToString() ?? "");
     backDetailAccessory2.GetComponent<Image>().color = player.Accessory2?.GetRareColor ?? Color.white;
     txtDetailAccessory2.GetComponent<Text>().color = player.Accessory2?.GetRareTextColor ?? Color.white;
 
-    txtDetailArtifact.text = (player.Artifact?.ItemName ?? "( 装備なし )");
+    txtDetailArtifact.text = (player.Artifact?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
     backDetailArtifact.GetComponent<Image>().color = player.Artifact?.GetRareColor ?? Color.white;
     txtDetailArtifact.GetComponent<Text>().color = player.Artifact?.GetRareTextColor ?? Color.white;

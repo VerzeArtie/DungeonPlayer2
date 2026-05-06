@@ -1522,6 +1522,7 @@ public static partial class Fix
   public const string L10N_PARTYMENU_EQUIPCHANGE_OK = "lblPartyMenuEquipChangeOK";
   public const string L10N_PARTYMENU_EQUIPCHANGE_DETACH = "lblPartyMenuEquipChangeDetach";
   public const string L10N_PARTYMENU_EQUIPCHANGE_CANCEL = "lblPartyMenuEquipChangeCancel";
+  public const string L10N_PARTYMENU_NO_EQUIP = "lblPartyMenuNoEquip";
   public const string L10N_PARTYMENU_BATTLETYPE_BASIC = "lblPartyMenuBattleTypeBasic";
   public const string L10N_PARTYMENU_BATTLETYPE_SPELLSKILL = "lblPartyMenuBattleTypeSpellSkill";
   public const string L10N_PARTYMENU_BATTLETYPE_USEITEM = "lblPartyMenuBattleTypeUseItem";
