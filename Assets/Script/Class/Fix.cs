@@ -1505,6 +1505,7 @@ public static partial class Fix
 
   public const string L10N_DUNGEON_TREASURE_GET = "lblDungeonTreasureGet";
   public const string L10N_DUNGEON_TREASURE_LIMIT = "lblDungeonTreasureLimit";
+  public const string L10N_DUNGEON_MISSIONFAIL = "lblDungeonMissionFail";
 
   public const string L10N_PARTYMENU_STATUS = "lblPartyMenuStatus";
   public const string L10N_PARTYMENU_BATTLESETTING = "lblPartyMenuBattleSetting";

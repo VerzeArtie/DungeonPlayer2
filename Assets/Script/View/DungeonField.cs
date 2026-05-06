@@ -10832,7 +10832,7 @@ public class DungeonField : MotherBase
     if (result)
     {
       this.GameOver = true;
-      txtGameOver.text = "ダンジョン攻略に失敗しました・・・最後に出たホームタウンへ帰還します。";
+      txtGameOver.text = string.Format(L10n.Get(Fix.L10N_DUNGEON_MISSIONFAIL));
       panelGameOver.SetActive(true);
       return;
     }

@@ -97,6 +97,7 @@ public static class L10n
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_OK, "ＯＫ", "OK");
     Register(Fix.L10N_DUNGEON_TREASURE_LIMIT, "バックパックがいっぱいのため、【 {0} 】を入手できませんでした。", "Your backpack is full, so you couldn't acquire 【 {0} 】.");
     Register(Fix.L10N_DUNGEON_TREASURE_GET, "【 {0} 】を入手しました。", "You acquired 【 {0} 】.");
+    Register(Fix.L10N_DUNGEON_MISSIONFAIL, "ダンジョン攻略に失敗しました・・・\r\n最後に出たホームタウンへ帰還します。", "You failed to clear the dungeon...\r\nYou will return to the last Home Town.");
     // PartyMenu-Top
     Register(Fix.L10N_PARTYMENU_STATUS, "ステータス", "Status");
     Register(Fix.L10N_PARTYMENU_BATTLESETTING, "バトル設定", "Battle");
