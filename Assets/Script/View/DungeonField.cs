@@ -12942,7 +12942,7 @@ public class DungeonField : MotherBase
           bool success = One.TF.AddBackPack(new Item(currentMessage));
           if (success == false)
           {
-            this.txtSystemMessage.text = "バックパックがいっぱいのため、【 " + currentMessage + " 】を入手できませんでした。";
+            this.txtSystemMessage.text = string.Format(L10n.Get(Fix.L10N_DUNGEON_TREASURE_LIMIT), currentMessage);
             this.panelSystemMessage.SetActive(true);
             return; // 通常
           }
