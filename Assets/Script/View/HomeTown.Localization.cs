@@ -91,6 +91,11 @@ public static class L10n
     Register(Fix.L10N_HOMETOWN_ITEMBANK_WITHDRAW, "取り出す", "Withdraw");
     // HomeTown
     Register(Fix.L10N_HOMETOWN_AVAILABLE, "【 {0} 】が追加されました！", "【 {0} 】 has been added!");
+    // HomeTown-Quest
+    Register(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, "{0} ゴールドを獲得しました！", "Gain {0} Gold!");
+    Register(Fix.L10N_QUESTCOMPLETE_EXPGAIN, "{0} 経験値を獲得しました！", "Gain {0} EXP!");
+    Register(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, "【 {0} 】を獲得しました！", "Gain 【 {0} 】!");
+    Register(Fix.L10N_QUESTCOMPLETE_PARTY_EONE, "エオネ・フルネアが仲間になりました！", "Eone Furnea has joined your party!");
     // DungeonField
     Register(Fix.L10N_FASTTRAVEL_MESSAGE_TITLE, "ダンジョンの外へと帰還しますか？", "Do you want to return to the outside of the dungeon?");
     Register(Fix.L10N_FASTTRAVEL_MESSAGE, "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。", "If you leave the dungeon, you will not be able to enter the dungeon again that day.");

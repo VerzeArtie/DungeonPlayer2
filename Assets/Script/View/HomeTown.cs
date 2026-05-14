@@ -3356,10 +3356,10 @@ public partial class HomeTown : MotherBase
               this.GetQuestItemFail = gainItem;
             }
 
-            this.txtQCGoldGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, gainGold);  // gainGold.ToString() + " ゴールドを獲得しました！";
             this.txtQCExpGain.text = "";// gainExp.ToString() + " 経験値を獲得しました！";
-            this.txtQCItemGain.text = gainItem + " を獲得しました";
-            this.txtQCSoulEssenceGain.text = "エオネ・フルネアが仲間になりました！";// "1 ソウル・エッセンスを獲得しました！";
+            this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, gainItem); // gainItem + " を獲得しました";
+            this.txtQCSoulEssenceGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_PARTY_EONE); // "エオネ・フルネアが仲間になりました！";
           }
           else if (currentMessage.Equals(Fix.QUEST_TITLE_2))
           {
