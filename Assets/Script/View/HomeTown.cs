@@ -3379,10 +3379,10 @@ public partial class HomeTown : MotherBase
               this.GetQuestItemFail = gainItem;
             }
 
-            this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
-            this.txtQCGoldGain.text = gainItem + " を獲得しました";
-            this.txtQCSoulEssenceGain.text = "新しいミッションが追加されました！";
-            this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+            this.txtQCExpGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, gainGold); // gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, gainItem); // gainItem + " を獲得しました";
+            this.txtQCSoulEssenceGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_NEWQUEST);
+            this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, gainSoulFragment); // gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
           }
           else if (currentMessage.Equals(Fix.QUEST_TITLE_21))
           {

@@ -1508,6 +1508,8 @@ public static partial class Fix
   public const string L10N_QUESTCOMPLETE_EXPGAIN = "lblQuestCompleteExpGain";
   public const string L10N_QUESTCOMPLETE_ITEMGAIN = "lblQuestCompleteItemGain";
   public const string L10N_QUESTCOMPLETE_PARTY_EONE = "lblQuestCompletePartyEone";
+  public const string L10N_QUESTCOMPLETE_NEWQUEST = "lblQuestCompleteNewQuest";
+  public const string L10N_QUESTCOMPLETE_SOULESSENCEGAIN = "lblQuestCompleteSoulEssenceGain";
 
   public const string L10N_DUNGEON_TREASURE_GET = "lblDungeonTreasureGet";
   public const string L10N_DUNGEON_TREASURE_LIMIT = "lblDungeonTreasureLimit";
