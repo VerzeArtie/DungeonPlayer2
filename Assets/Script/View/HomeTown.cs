@@ -3384,9 +3384,24 @@ public partial class HomeTown : MotherBase
             this.txtQCSoulEssenceGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_NEWQUEST);
             this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, gainSoulFragment); // gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
           }
-          else if (currentMessage.Equals(Fix.QUEST_TITLE_21))
+          else if (currentMessage.Equals(Fix.QUEST_TITLE_11))
           {
             int gainGold = 50000;
+            string gainItem = Fix.ARTIFACT_MUSOU;
+            One.TF.Gold += gainGold;
+            int gainSoulFragment = 1;
+            for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
+            {
+              One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
+            }
+            this.txtQCExpGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, gainGold); // gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, gainItem); // gainItem + " を獲得しました";
+            this.txtQCSoulEssenceGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_NEWQUEST); // "新しいミッションが追加されました！";
+            this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, gainSoulFragment); // gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+          }
+          else if (currentMessage.Equals(Fix.QUEST_TITLE_21))
+          {
+            int gainGold = 80000;
             One.TF.Gold += gainGold;
 
             int gainSoulFragment = 1;
@@ -3395,10 +3410,10 @@ public partial class HomeTown : MotherBase
               One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
             }
 
-            this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
-            this.txtQCGoldGain.text = "新しいミッションが追加されました！";
+            this.txtQCExpGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, gainGold); // gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_NEWQUEST); // "新しいミッションが追加されました！";
             this.txtQCSoulEssenceGain.text = "";
-            this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+            this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, gainSoulFragment); // gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
           }
           else if (currentMessage.Equals(Fix.QUEST_TITLE_31))
           {
@@ -3411,10 +3426,10 @@ public partial class HomeTown : MotherBase
               One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
             }
 
-            this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
-            this.txtQCGoldGain.text = "新しいミッションが追加されました！";
+            this.txtQCExpGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, gainGold); // gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_NEWQUEST); // "新しいミッションが追加されました！";
             this.txtQCSoulEssenceGain.text = "";
-            this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+            this.txtQCItemGain.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, gainSoulFragment); // gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
           }
           else
           {
