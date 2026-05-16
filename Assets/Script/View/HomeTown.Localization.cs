@@ -92,6 +92,7 @@ public static class L10n
     // HomeTown
     Register(Fix.L10N_HOMETOWN_AVAILABLE, "【 {0} 】が追加されました！", "【 {0} 】 has been added!");
     // HomeTown-Quest
+    Register(Fix.L10N_QUESTCOMPLETE_TITLE, "クエスト【 {0} 】を達成しました！", "Quest 【 {0} 】 completed!");
     Register(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, "{0} ゴールドを獲得しました！", "Gain {0} Gold!");
     Register(Fix.L10N_QUESTCOMPLETE_EXPGAIN, "{0} 経験値を獲得しました！", "Gain {0} EXP!");
     Register(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, "【 {0} 】を獲得しました！", "Gain 【 {0} 】!");

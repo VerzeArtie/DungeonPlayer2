@@ -3338,6 +3338,9 @@ public partial class HomeTown : MotherBase
 
           currentMessage = currentMessage.Replace("クエスト【 ", "");
           currentMessage = currentMessage.Replace(" 】を達成しました！", "");
+
+          this.txtQCTitle.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_TITLE, currentMessage); // "クエスト【 " + currentMessage + " 】を達成しました！";
+
           // todo
           if (currentMessage.Equals(Fix.QUEST_TITLE_1))
           {

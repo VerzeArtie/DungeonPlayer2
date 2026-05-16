@@ -1504,6 +1504,7 @@ public static partial class Fix
   public const string L10N_HOMETOWN_ITEMBANK_WITHDRAW = "lblHomeTownItemBankWithdraw";
   public const string L10N_HOMETOWN_AVAILABLE = "lblHomeTownAvailable";
 
+  public const string L10N_QUESTCOMPLETE_TITLE = "lblQuestCompleteTitle";
   public const string L10N_QUESTCOMPLETE_GOLDGAIN = "lblQuestCompleteGoldGain";
   public const string L10N_QUESTCOMPLETE_EXPGAIN = "lblQuestCompleteExpGain";
   public const string L10N_QUESTCOMPLETE_ITEMGAIN = "lblQuestCompleteItemGain";
