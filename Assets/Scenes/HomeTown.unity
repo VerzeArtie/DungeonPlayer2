@@ -13332,8 +13332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -16}
-  m_SizeDelta: {x: 121.8, y: 32}
+  m_AnchoredPosition: {x: 0, y: -32}
+  m_SizeDelta: {x: 121.8, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &248297960
 MonoBehaviour:
@@ -15454,8 +15454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487.2, y: -16}
-  m_SizeDelta: {x: 121.8, y: 32}
+  m_AnchoredPosition: {x: 487.2, y: -32}
+  m_SizeDelta: {x: 121.8, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &286065105
 MonoBehaviour:
@@ -16577,6 +16577,12 @@ MonoBehaviour:
   txtFoodMenuIntelligenceUp: {fileID: 1069734162}
   txtFoodMenuStaminaUp: {fileID: 1498182175}
   txtFoodMenuMindUp: {fileID: 551989645}
+  lblInnStrength: {fileID: 1202593485}
+  lblInnAgility: {fileID: 392433054}
+  lblInnIntelligence: {fileID: 912142996}
+  lblInnStamina: {fileID: 351250306}
+  lblInnMind: {fileID: 1591002383}
+  lblInnNowAccept: {fileID: 1872752670}
   lblInnTitle: {fileID: 1420025807}
   lblInnAccept: {fileID: 132322542}
   lblInnCancel: {fileID: 1943296577}
@@ -18985,7 +18991,7 @@ GameObject:
   - component: {fileID: 351250306}
   - component: {fileID: 351250305}
   m_Layer: 5
-  m_Name: lblStamina
+  m_Name: lblInnStamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20337,7 +20343,7 @@ GameObject:
   - component: {fileID: 392433054}
   - component: {fileID: 392433053}
   m_Layer: 5
-  m_Name: lblAgility
+  m_Name: lblInnAgility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47204,8 +47210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 243.6, y: -16}
-  m_SizeDelta: {x: 121.8, y: 32}
+  m_AnchoredPosition: {x: 243.6, y: -32}
+  m_SizeDelta: {x: 121.8, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &870968471
 MonoBehaviour:
@@ -49848,7 +49854,7 @@ GameObject:
   - component: {fileID: 912142996}
   - component: {fileID: 912142995}
   m_Layer: 5
-  m_Name: lblIntelligence
+  m_Name: lblInnIntelligence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54502,8 +54508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.8, y: -16}
-  m_SizeDelta: {x: 121.8, y: 32}
+  m_AnchoredPosition: {x: 121.8, y: -32}
+  m_SizeDelta: {x: 121.8, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &991964279
 MonoBehaviour:
@@ -54885,8 +54891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304.5, y: -304}
-  m_SizeDelta: {x: 609, y: 32}
+  m_AnchoredPosition: {x: 304.5, y: -288}
+  m_SizeDelta: {x: 609, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001029656
 MonoBehaviour:
@@ -65788,7 +65794,7 @@ GameObject:
   - component: {fileID: 1202593485}
   - component: {fileID: 1202593484}
   m_Layer: 5
-  m_Name: lblStrength
+  m_Name: lblInnStrength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73761,8 +73767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304.5, y: -176}
-  m_SizeDelta: {x: 609, y: 224}
+  m_AnchoredPosition: {x: 304.5, y: -160}
+  m_SizeDelta: {x: 609, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340430026
 MonoBehaviour:
@@ -88359,7 +88365,7 @@ GameObject:
   - component: {fileID: 1591002383}
   - component: {fileID: 1591002382}
   m_Layer: 5
-  m_Name: lblMind
+  m_Name: lblInnMind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103747,7 +103753,7 @@ GameObject:
   - component: {fileID: 1872752671}
   - component: {fileID: 1872752670}
   m_Layer: 5
-  m_Name: txtMenu1
+  m_Name: lblInnNowAccept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115860,8 +115866,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 365.40002, y: -16}
-  m_SizeDelta: {x: 121.8, y: 32}
+  m_AnchoredPosition: {x: 365.40002, y: -32}
+  m_SizeDelta: {x: 121.8, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2087632516
 MonoBehaviour:

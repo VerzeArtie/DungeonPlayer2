@@ -286,6 +286,12 @@ public partial class HomeTown : MotherBase
   public Text txtFoodMenuIntelligenceUp;
   public Text txtFoodMenuStaminaUp;
   public Text txtFoodMenuMindUp;
+  public Text lblInnStrength;
+  public Text lblInnAgility;
+  public Text lblInnIntelligence;
+  public Text lblInnStamina;
+  public Text lblInnMind;
+  public Text lblInnNowAccept;
   public Text lblInnTitle;
   public Text lblInnAccept;
   public Text lblInnCancel;
@@ -5132,6 +5138,12 @@ public partial class HomeTown : MotherBase
     if (lblSystemLoad != null) { lblSystemLoad.text = L10n.Get(Fix.L10N_SYSTEM_LOAD); }
     if (lblSystemHelp != null) { lblSystemHelp.text = L10n.Get(Fix.L10N_SYSTEM_HELP); }
     if (lblSystemExit != null) { lblSystemExit.text = L10n.Get(Fix.L10N_SYSTEM_EXIT); }
+    if (lblInnStrength != null) {  lblInnStrength.text = L10n.Get(Fix.L10N_HOMETOWN_INN_STRENGTH); }
+    if (lblInnAgility != null) { lblInnAgility.text = L10n.Get(Fix.L10N_HOMETOWN_INN_AGILITY); }
+    if (lblInnIntelligence != null) { lblInnIntelligence.text = L10n.Get(Fix.L10N_HOMETOWN_INN_INTELLIGENCE); }
+    if (lblInnStamina != null) { lblInnStamina.text = L10n.Get(Fix.L10N_HOMETOWN_INN_STAMINA); }
+    if (lblInnMind != null) { lblInnMind.text = L10n.Get(Fix.L10N_HOMETOWN_INN_MIND); }
+    if (lblInnNowAccept != null) { lblInnNowAccept.text = L10n.Get(Fix.L10N_HOMETOWN_INN_NOW_ACCEPT); }
     if (lblInnTitle != null) { lblInnTitle.text = L10n.Get(Fix.L10N_HOMETOWN_INN_TITLE); }
     if (lblInnAccept != null) { lblInnAccept.text = L10n.Get(Fix.L10N_HOMETOWN_INN_ACCEPT); }
     if (lblInnCancel != null) { lblInnCancel.text = L10n.Get(Fix.L10N_HOMETOWN_INN_CANCEL); }

@@ -83,6 +83,12 @@ public static class L10n
     Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_SELL, "キャンセル", "Cancel");
     Register(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_SELL, "ＯＫ", "OK");
     // HomeTown-Inn
+    Register(Fix.L10N_HOMETOWN_INN_STRENGTH, "力", "力"); // 変換しない。
+    Register(Fix.L10N_HOMETOWN_INN_AGILITY, "技", "技"); // 変換しない。
+    Register(Fix.L10N_HOMETOWN_INN_INTELLIGENCE, "知", "知"); // 変換しない。
+    Register(Fix.L10N_HOMETOWN_INN_STAMINA, "体", "体"); // 変換しない。
+    Register(Fix.L10N_HOMETOWN_INN_MIND, "心", "心"); // 変換しない。
+    Register(Fix.L10N_HOMETOWN_INN_NOW_ACCEPT, "決定", "Accept");
     Register(Fix.L10N_HOMETOWN_INN_TITLE, "休息に入りますか？", "Do you want to take a rest?");
     Register(Fix.L10N_HOMETOWN_INN_ACCEPT, "休息する", "Rest");
     Register(Fix.L10N_HOMETOWN_INN_CANCEL, "キャンセル", "Cancel");

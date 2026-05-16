@@ -1496,6 +1496,12 @@ public static partial class Fix
   public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_CANCEL_SELL = "lblShopMenuMessageBoxCancelSell";
   public const string L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_OK_SELL = "lblShopMenuMessageBoxOKSell";
 
+  public const string L10N_HOMETOWN_INN_STRENGTH = "lblHomeTownInnStrength";
+  public const string L10N_HOMETOWN_INN_AGILITY = "lblHomeTownInnAgility";
+  public const string L10N_HOMETOWN_INN_INTELLIGENCE = "lblHomeTownInnIntelligence";
+  public const string L10N_HOMETOWN_INN_STAMINA = "lblHomeTownInnStamina";
+  public const string L10N_HOMETOWN_INN_MIND = "lblHomeTownInnMind";
+  public const string L10N_HOMETOWN_INN_NOW_ACCEPT = "lblHomeTownInnNowAccept";
   public const string L10N_HOMETOWN_INN_TITLE = "lblHomeTownInnTitle";
   public const string L10N_HOMETOWN_INN_ACCEPT = "lblHomeTownInnAccept";
   public const string L10N_HOMETOWN_INN_CANCEL = "lblHomeTownInnCancel";
