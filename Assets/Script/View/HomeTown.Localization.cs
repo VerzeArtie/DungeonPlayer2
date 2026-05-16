@@ -146,6 +146,11 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_OK, "ＯＫ", "OK");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STRENGTH, "{0} の【力】パラメタが {1} 上昇した！", "{0} 's 【Strength】 parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_AGILITY, "{0} の【技】パラメタが {1} 上昇した！", "{0} 's 【Agility】 parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_INTELLIGENCE, "{0} の【知】パラメタが {1} 上昇した！", "{0} 's 【Intelligence】 parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STAMINA, "{0} の【体】パラメタが {1} 上昇した！", "{0} 's 【Stamina】 parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_MIND, "{0} の【心】パラメタが {1} 上昇した！", "{0} 's 【Mind】 parameter increased by {1}!");
     // PartyMenu-EssencePowerUp
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");

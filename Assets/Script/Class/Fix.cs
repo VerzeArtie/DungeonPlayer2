@@ -1552,6 +1552,11 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ITEM_DECISION_ACCEPT = "lblPartyMenuItemDecisionAccept";
   public const string L10N_PARTYMENU_ITEM_DECISION_CANCEL = "lblPartyMenuItemDecisionCancel";
   public const string L10N_PARTYMENU_ITEM_DECISION_OK = "lblPartyMenuItemDecisionOK";
+  public const string L10N_PARTYMENU_ITEM_LIQUID_STRENGTH = "lblPartyMenuItemLiquidStrength";
+  public const string L10N_PARTYMENU_ITEM_LIQUID_AGILITY = "lblPartyMenuItemLiquidAgility";
+  public const string L10N_PARTYMENU_ITEM_LIQUID_INTELLIGENCE = "lblPartyMenuItemLiquidIntelligence";
+  public const string L10N_PARTYMENU_ITEM_LIQUID_STAMINA = "lblPartyMenuItemLiquidStamina";
+  public const string L10N_PARTYMENU_ITEM_LIQUID_MIND = "lblPartyMenuItemLiquidMind";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT = "lblPartyMenuEssencePowerUpAccept";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL = "lblPartyMenuEssencePowerUpCancel";
   public const string L10N_PARTYMENU_ESSENCE_POWERUP_OK = "lblPartyMenuEssencePowerUpOK";

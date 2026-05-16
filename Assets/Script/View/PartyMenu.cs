@@ -596,7 +596,7 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Strength += effectValue;
-            txtSystemMessage.text = PlayerList[ii].FullName + "の【力】パラメタが " + effectValue + " 上昇した！";
+            txtSystemMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_LIQUID_STRENGTH, PlayerList[ii].FullName, effectValue);
             groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_AGILITY ||
@@ -611,7 +611,7 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Agility += effectValue;
-            txtSystemMessage.text = PlayerList[ii].FullName + "の【技】パラメタが " + effectValue + " 上昇した！";
+            txtSystemMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_LIQUID_AGILITY, PlayerList[ii].FullName, effectValue);
             groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_INTELLIGENCE ||
@@ -626,7 +626,7 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Intelligence += effectValue;
-            txtSystemMessage.text = PlayerList[ii].FullName + "の【知】パラメタが " + effectValue + " 上昇した！";
+            txtSystemMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_LIQUID_INTELLIGENCE, PlayerList[ii].FullName, effectValue);
             groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STAMINA ||
@@ -641,7 +641,7 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Stamina += effectValue;
-            txtSystemMessage.text = PlayerList[ii].FullName + "の【体】パラメタが " + effectValue + " 上昇した！";
+            txtSystemMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_LIQUID_STAMINA, PlayerList[ii].FullName, effectValue);
             groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_MIND ||
@@ -656,7 +656,7 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Mind += effectValue;
-            txtSystemMessage.text = PlayerList[ii].FullName + "の【心】パラメタが " + effectValue + " 上昇した！";
+            txtSystemMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_LIQUID_MIND, PlayerList[ii].FullName, effectValue);
             groupSystemMessage.SetActive(true);
           }
 
