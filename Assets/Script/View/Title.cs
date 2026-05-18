@@ -1209,14 +1209,14 @@ public class Title : MotherBase
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
     if (txt.text.Length < 2)
     {
-      SupportMessage.text = "Please enter 2 or more characters.";
+      SupportMessage.text = L10n.Get(Fix.L10N_TITLE_ACCOUNT_MESSAGE_LESS2);
       SupportMessage.gameObject.SetActive(true);
       return;
     }
 
     if (One.SQL.ExistOwnerName(txt.text))
     {
-      SupportMessage.text = "A character with that name already exists.";
+      SupportMessage.text = L10n.Get(Fix.L10N_TITLE_ACCOUNT_ALREADY_EXIST);
       SupportMessage.gameObject.SetActive(true);
       return;
     }
@@ -1225,7 +1225,7 @@ public class Title : MotherBase
     // Method.AutoSaveTruthWorldEnvironment();
     this.TextAccount.text = "AccountID: " + One.CONF.Account;
 
-    SupportMessage.text = "Account name has been changed.";
+    SupportMessage.text = L10n.Get(Fix.L10N_TITLE_ACCOUNT_NAME_CHANGED);
     SupportMessage.gameObject.SetActive(true);
   }
 
@@ -1267,14 +1267,14 @@ public class Title : MotherBase
   {
     if (accountName.Length < 2)
     {
-      supportMessage.text = "Please enter 2 or more characters.";
+      supportMessage.text = L10n.Get(Fix.L10N_TITLE_ACCOUNT_MESSAGE_LESS2);
       supportMessage.gameObject.SetActive(true);
       return;
     }
 
     if (One.SQL.ExistOwnerName(accountName))
     {
-      supportMessage.text = "A character with that name already exists.";
+      supportMessage.text = L10n.Get(Fix.L10N_TITLE_ACCOUNT_ALREADY_EXIST);
       supportMessage.gameObject.SetActive(true);
       return;
     }

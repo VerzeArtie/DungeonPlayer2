@@ -22,6 +22,9 @@ public static class L10n
     Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
     Register(Fix.L10N_TITLE_OP_EXIT, "終了", "Exit");
     Register(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD, "アイン・ウォーレンスは並行世界へと突入しており、選択不可。", "Ein-Wolence is in a parallel world and cannot be selected.");
+    Register(Fix.L10N_TITLE_ACCOUNT_MESSAGE_LESS2, "2文字以上を入力してください。", "Please enter 2 or more characters.");
+    Register(Fix.L10N_TITLE_ACCOUNT_ALREADY_EXIST, "その名前は既に存在します。", "A character with that name already exists.");
+    Register(Fix.L10N_TITLE_ACCOUNT_NAME_CHANGED, "アカウント名が変更されました。", "Account name has been changed.");
     // SaveLoad
     Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
     Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");

@@ -1431,6 +1431,9 @@ public static partial class Fix
   public const string L10N_TITLE_OP_PRIVACYPOLICY = "lblTitleOPPrivacyPolicy";
   public const string L10N_TITLE_OP_EXIT = "lblTitleOPExit";
   public const string L10N_TITLE_CANNOT_GAMESTARTLOAD = "lblTitleCannotGameStartLoad";
+  public const string L10N_TITLE_ACCOUNT_MESSAGE_LESS2 = "lblTitleAccountMessageLess2";
+  public const string L10N_TITLE_ACCOUNT_ALREADY_EXIST = "lblTitleAccountAlreadyExist";
+  public const string L10N_TITLE_ACCOUNT_NAME_CHANGED = "lblTitleAccountNameChanged";
 
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
