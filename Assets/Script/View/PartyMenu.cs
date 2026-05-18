@@ -452,7 +452,7 @@ public class PartyMenu : MotherBase
       }
       if (player.CurrentManaPoint < SecondaryLogic.CostControl(this.CurrentSelectHealCommand, ActionCommand.Cost(this.CurrentSelectHealCommand), player))
       {
-        txtActionCommandMessage.text = "‚l‚o‚ª‘«‚è‚È‚¢I";
+        txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA);
         return;
       }
 
@@ -1145,7 +1145,7 @@ public class PartyMenu : MotherBase
 
     if (player.CurrentManaPoint < SecondaryLogic.CostControl(txt_src.text, ActionCommand.Cost(txt_src.text), player))
     {
-      txtActionCommandMessage.text = "‚l‚o‚ª‘«‚è‚È‚¢I";
+      txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA);
       return;
     }
 
