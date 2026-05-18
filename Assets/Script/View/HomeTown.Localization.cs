@@ -21,6 +21,7 @@ public static class L10n
     Register(Fix.L10N_TITLE_OP_CONFIG, "設定", "Config");
     Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
     Register(Fix.L10N_TITLE_OP_EXIT, "終了", "Exit");
+    Register(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD, "アイン・ウォーレンスは並行世界へと突入しており、選択不可。", "Ein-Wolence is in a parallel world and cannot be selected.");
     // SaveLoad
     Register(Fix.L10N_SAVELOAD_TITLESAVE, "セーブ", "SAVE");
     Register(Fix.L10N_SAVELOAD_TITLELOAD, "ロード", "LOAD");

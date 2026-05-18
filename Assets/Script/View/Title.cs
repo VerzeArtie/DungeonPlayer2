@@ -332,7 +332,7 @@ public class Title : MotherBase
 
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      SystemMessageText.text = "アイン・ウォーレンスは並行世界へと突入しており、選択不可。";
+      SystemMessageText.text = L10n.Get(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD);
       GroupSystemMessage.SetActive(true);
       return;
     }
@@ -385,7 +385,7 @@ public class Title : MotherBase
   {
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      SystemMessageText.text = "アイン・ウォーレンスは並行世界へと突入しており、選択不可。";
+      SystemMessageText.text = L10n.Get(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD);
       GroupSystemMessage.SetActive(true);
       return;
     }

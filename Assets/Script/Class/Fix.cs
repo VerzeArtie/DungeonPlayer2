@@ -1430,6 +1430,7 @@ public static partial class Fix
   public const string L10N_TITLE_OP_CONFIG = "lblTitleOPConfig";
   public const string L10N_TITLE_OP_PRIVACYPOLICY = "lblTitleOPPrivacyPolicy";
   public const string L10N_TITLE_OP_EXIT = "lblTitleOPExit";
+  public const string L10N_TITLE_CANNOT_GAMESTARTLOAD = "lblTitleCannotGameStartLoad";
 
   public const string L10N_GAMEDAY = "GameDay";
   public const string L10N_SAVELOAD_TITLESAVE = "lblSaveLoadTitleSave";
@@ -1548,7 +1549,6 @@ public static partial class Fix
   public const string L10N_PARTYMENU_BATTLE_LABEL_MAIN = "lblPartyMenuBattleLabelMain";
   public const string L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND = "lblPartyMenuBattleLabelActionCommand";
   public const string L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA = "lblPartyMenuCommandNotEnoughMana";
-
   public const string L10N_PARTYMENU_ESSENCETREE_NOACQ = "lblPartyMenuEssenceTreeNoAcq";
   public const string L10N_PARTYMENU_ESSENCETREE_REQUIRE = "lblPartyMenuEssenceTreeRequire";
   public const string L10N_PARTYMENU_ESSENCETREE_POWERUP = "lblPartyMenuEssenceTreePowerUp";
