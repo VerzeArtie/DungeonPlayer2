@@ -447,7 +447,7 @@ public class PartyMenu : MotherBase
 
       if (target.Dead)
       {
-        txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
+        txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_TARGET_DEAD);
         return;
       }
       if (player.CurrentManaPoint < SecondaryLogic.CostControl(this.CurrentSelectHealCommand, ActionCommand.Cost(this.CurrentSelectHealCommand), player))
@@ -1148,6 +1148,11 @@ public class PartyMenu : MotherBase
       txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA);
       return;
     }
+    if (player.Dead)
+    {
+      txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_TARGET_DEAD);
+      return;
+    }
 
     if (txt_src.text == Fix.FRESH_HEAL)
     {
@@ -1193,7 +1198,7 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
-          txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
+          txtActionCommandMessage.text = L10n.Get(Fix.L10N_PARTYMENU_COMMAND_TARGET_DEAD);
           return;
         }
 
