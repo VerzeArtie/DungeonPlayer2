@@ -357,38 +357,38 @@ public static class ActionCommand
     return result;
   }
 
-  public static string GetAttribute_JP(string command_name)
+  public static string GetAttribute_Label(string command_name)
   {
     Attribute current = GetAttribute(command_name);
     if (current == Attribute.Basic)
     {
-      return Fix.ATTRIBUTE_BASIC;
+      return L10n.Get(Fix.L10N_STANDARD_BASIC);
     }
     else if (current == Attribute.Magic)
     {
-      return Fix.ATTRIBUTE_MAGIC;
+      return L10n.Get(Fix.L10N_STANDARD_SPELL);
     }
     else if (current == Attribute.Skill)
     {
-      return Fix.ATTRIBUTE_SKILL;
+      return L10n.Get(Fix.L10N_STANDARD_SKILL);
     }
     else if (current == Attribute.Archetype)
     {
-      return Fix.ATTRIBUTE_CORE;
+      return L10n.Get(Fix.L10N_STANDARD_CORE);
     }
     else if (current == Attribute.MonsterAction)
     {
-      return Fix.ATTRIBUTE_MONSTERACTION;
+      return L10n.Get(Fix.L10N_STANDARD_MONSTERACTION);
     }
     else if (current == Attribute.Other)
     {
-      return Fix.ATTRIBUTE_OTHER;
+      return L10n.Get(Fix.L10N_STANDARD_OTHER);
     }
     else if (current == Attribute.None)
     {
-      return Fix.ATTRIBUTE_NONE;
+      return L10n.Get(Fix.L10N_STANDARD_NONE);
     }
-    return Fix.ATTRIBUTE_BASIC; // デフォルトは基本行動とする。
+    return L10n.Get(Fix.L10N_STANDARD_BASIC); // デフォルトは基本行動とする。
   }
 
   public static string GetAttribute_Unit(string command_name)

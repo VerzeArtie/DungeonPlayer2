@@ -1551,6 +1551,8 @@ public static partial class Fix
   public const string L10N_PARTYMENU_BATTLETYPE_DESCRIPTION = "lblPartyMenuBattleTypeDescription";
   public const string L10N_PARTYMENU_BATTLE_LABEL_MAIN = "lblPartyMenuBattleLabelMain";
   public const string L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND = "lblPartyMenuBattleLabelActionCommand";
+  public const string L10N_PARTYMENU_BATTLE_LABEL_TYPE = "lblPartyMenuBattleLabelType";
+  public const string L10N_PARTYMENU_BATTLE_LABEL_COST = "lblPartyMenuBattleLabelCost";
   public const string L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA = "lblPartyMenuCommandNotEnoughMana";
   public const string L10N_PARTYMENU_COMMAND_TARGET_DEAD = "lblPartyMenuCommandTargetDead";
   public const string L10N_PARTYMENU_ESSENCETREE_NOACQ = "lblPartyMenuEssenceTreeNoAcq";
@@ -1597,6 +1599,13 @@ public static partial class Fix
   public const string L10N_BATTLE_GAMEOVER = "lblBattleGameOver";
   public const string L10N_BATTLE_RETRY = "lblBattleRetry";
   public const string L10N_BATTLE_SURRENDER = "lblBattleSurrender";
+  public const string L10N_STANDARD_BASIC = "lblStandardBasic";
+  public const string L10N_STANDARD_SPELL = "lblStandardSpell";
+  public const string L10N_STANDARD_SKILL = "lblStandardSkill";
+  public const string L10N_STANDARD_CORE = "lblStandardCore";
+  public const string L10N_STANDARD_MONSTERACTION = "lblStandardMonsterAction";
+  public const string L10N_STANDARD_OTHER = "lblStandardOther";
+  public const string L10N_STANDARD_NONE = "lblStandardNone";
   public const string L10N_STANDARD_FIRE = "lblStandardFire";
   public const string L10N_STANDARD_ICE = "lblStandardIce";
   public const string L10N_STANDARD_LIGHT = "lblStandardLight";

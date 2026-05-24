@@ -988,8 +988,8 @@ public class PartyMenu : MotherBase
 
     txtCommandTitle.text = action_command.CommandName;
     btnActionCommandTitle.ApplyImageIcon(action_command.CommandName);
-    txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(action_command.CommandName).ToString();
-    txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
+    txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(action_command.CommandName).ToString();
+    txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
 
     // 万が一選択状態が存在していない場合は再設定する。
@@ -1670,8 +1670,8 @@ public class PartyMenu : MotherBase
 
     txtCommandTitle.text = ListAvailableCommand[0].CommandName;
     btnActionCommandTitle.ApplyImageIcon(ListAvailableCommand[0].CommandName);
-    txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(ListAvailableCommand[0].CommandName).ToString();
-    txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
+    txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(ListAvailableCommand[0].CommandName).ToString();
+    txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
     this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }

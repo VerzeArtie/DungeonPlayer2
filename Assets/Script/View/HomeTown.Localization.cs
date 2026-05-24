@@ -144,6 +144,8 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_BATTLETYPE_DESCRIPTION, "説明", "Description");
     Register(Fix.L10N_PARTYMENU_BATTLE_LABEL_MAIN, "メイン", "Main");
     Register(Fix.L10N_PARTYMENU_BATTLE_LABEL_ACTIONCOMMAND, "アクション コマンド", "Action Command");
+    Register(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE, "タイプ：", "Type:");
+    Register(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST, "コスト：", "Cost:");
     Register(Fix.L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA, "ＭＰが足りない！", "Not enough mana !");
     Register(Fix.L10N_PARTYMENU_COMMAND_TARGET_DEAD, "対象は既に死んでいる！", "Target is already dead !");
     Register(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ, "未修得", "Ready");
@@ -198,6 +200,13 @@ public static class L10n
     Register(Fix.L10N_BATTLE_RETRY, "リトライ", "Retry");
     Register(Fix.L10N_BATTLE_SURRENDER, "終了", "Surrender");
     // Standard-Attribute
+    Register(Fix.L10N_STANDARD_BASIC, "基本行動", "Basic");
+    Register(Fix.L10N_STANDARD_SPELL, "魔法", "Spell");
+    Register(Fix.L10N_STANDARD_SKILL, "スキル", "Skill");
+    Register(Fix.L10N_STANDARD_CORE, "元核", "Archetype");
+    Register(Fix.L10N_STANDARD_MONSTERACTION, "モンスターアクション", "Monster Action");
+    Register(Fix.L10N_STANDARD_OTHER, "その他", "Other");
+    Register(Fix.L10N_STANDARD_NONE, "なし", "None");
     Register(Fix.L10N_STANDARD_FIRE, "炎", "Fire");
     Register(Fix.L10N_STANDARD_ICE, "氷", "Ice");
     Register(Fix.L10N_STANDARD_LIGHT, "聖", "HolyLight");
