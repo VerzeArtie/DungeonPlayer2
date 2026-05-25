@@ -1683,8 +1683,8 @@ public class PartyMenu : MotherBase
       txtEssenceElementList[ii].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[ii].text = "";
       imgEssenceElementList[ii].sprite = Resources.Load<Sprite>(Fix.STAY);
-      txtEssenceElementLevelList[ii].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[ii].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[ii];
+      txtEssenceElementLevelList[ii].text = ""; // L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
+      txtLockedEssenceElementList[ii].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + Fix.ESSENCE_TREE_REQUIRE_LIST[ii];
       objHideEssenceElementList[ii].SetActive(true);
     }
   }
