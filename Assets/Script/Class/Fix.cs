@@ -1481,6 +1481,7 @@ public static partial class Fix
   public const string L10N_CUSTOMEVENT3_ARCANEDINE = "CustomEvent3_ARCANEDINE";
   public const string L10N_CUSTOMEVENT1_PARMETYSIA = "CustomEvent1_PARMETYSIA";
 
+  public const string L10N_HOMETOWN_DUNGEONPLAYER_GOTO = "lblHomeTownDungeonPlayerGoTo";
   public const string L10N_HOMETOWN_SHOPMENU_TITLE_BUY = "lblShopMenuTitleBuy";
   public const string L10N_HOMETOWN_SHOPMENU_TITLE_SELL = "lblShopMenuTitleSell";
   public const string L10N_HOMETOWN_SHOPMENU_DECISION_BUY = "lblShopMenuDecisionBuy";

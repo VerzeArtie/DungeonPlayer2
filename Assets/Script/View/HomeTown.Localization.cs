@@ -67,6 +67,8 @@ public static class L10n
     Register("CustomEvent2_ARCANEDINE", "ワッツの民芸品店", "Watts Handicraft");
     Register("CustomEvent3_ARCANEDINE", "占いの館：アミンダ", "Aminda's Fortune");
     Register("CustomEvent1_PARMETYSIA", "中央神殿", "Central Temple");
+    // HomeTown-DungeonPlayer
+    Register(Fix.L10N_HOMETOWN_DUNGEONPLAYER_GOTO, " 【 {0} 】へ向かう", "Go to 【 {0} 】");
     // HomeTown-Shop
     Register(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_BUY, "ショップ", "Shop");
     Register(Fix.L10N_HOMETOWN_SHOPMENU_TITLE_SELL, "バックパック", "Backpack");

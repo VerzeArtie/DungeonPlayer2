@@ -5385,7 +5385,7 @@ public partial class HomeTown : MotherBase
   public void ViewSelectAreaEvent(string select_area_name)
   {
     txtEventTitle.text = select_area_name;
-    txtGoButton.text = "【 " +select_area_name + " 】へ向かう";
+    txtGoButton.text =  L10n.Get(Fix.L10N_HOMETOWN_DUNGEONPLAYER_GOTO, select_area_name);
     this.DungeonMap = select_area_name;
 
     if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = Fix.AREA_INFO_ANSHET; } 
