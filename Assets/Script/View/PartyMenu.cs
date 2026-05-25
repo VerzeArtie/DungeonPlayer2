@@ -1237,8 +1237,8 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = "Å`å¯â Å`Å@" + ActionCommand.GetDescription(txt_title.text);
-    txtEssenceCurrentDescEffect.text = "Å`ã≠âªÅ`Å@" + ActionCommand.GetDescReinforce(txt_title.text);
+    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */ActionCommand.GetDescription(txt_title.text);
+    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + ActionCommand.GetDescReinforce(txt_title.text);
 
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }

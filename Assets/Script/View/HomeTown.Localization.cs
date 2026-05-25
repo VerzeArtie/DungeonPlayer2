@@ -150,6 +150,8 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST, "コスト：", "Cost:");
     Register(Fix.L10N_PARTYMENU_COMMAND_NOT_ENOUGH_MANA, "ＭＰが足りない！", "Not enough mana !");
     Register(Fix.L10N_PARTYMENU_COMMAND_TARGET_DEAD, "対象は既に死んでいる！", "Target is already dead !");
+    // Register(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT, "～効果～", "～Effect～");
+    Register(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP, "～強化～", "～PowerUp～");
     Register(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ, "未修得", "Ready");
     Register(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE, "必要", "Require");
     Register(Fix.L10N_PARTYMENU_ESSENCETREE_POWERUP, "強化", "Power-Up");
