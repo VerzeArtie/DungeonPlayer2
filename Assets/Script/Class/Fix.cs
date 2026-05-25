@@ -1622,6 +1622,7 @@ public static partial class Fix
   public const string L10N_STANDARD_ARCHERY = "lblStandardArchery";
   public const string L10N_STANDARD_TRUTH = "lblStandardTruth";
   public const string L10N_STANDARD_MINDFULNESS = "lblStandardMindfulness";
+  public const string L10N_STANDARD_LABEL_LV = "lblStandardLabelLv";
   public const string L10N_BASIC_LEVEL = "lblBasicLevel";
   public const string L10N_BASIC_EXPERIENCE = "lblBasicExperience";
   public const string L10N_BASIC_LIFE = "lblBasicLife";

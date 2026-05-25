@@ -224,6 +224,7 @@ public static class L10n
     Register(Fix.L10N_STANDARD_ARCHERY, "弓術", "Archery");
     Register(Fix.L10N_STANDARD_TRUTH, "心眼", "Truth");
     Register(Fix.L10N_STANDARD_MINDFULNESS, "無心", "Mindfulness");
+    Register(Fix.L10N_STANDARD_LABEL_LV, "Lv", "Lv");
     // Common-BasicParameter
     Register(Fix.L10N_BASIC_LEVEL, "レベル", "Level");
     Register(Fix.L10N_BASIC_EXPERIENCE, "経験値", "Exp");

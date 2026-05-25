@@ -1891,8 +1891,8 @@ public class PartyMenu : MotherBase
       txtEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
-      txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
+      txtEssenceElementLevelList[number].text = ""; // L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
+      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
     // level 1à»è„Ç»ÇÁâ¬éãâª
@@ -1902,7 +1902,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementList[number].text = label_text;
       txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
-      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
+      txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = false;
     }
@@ -1924,8 +1924,8 @@ public class PartyMenu : MotherBase
       txtEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
-      txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
+      txtEssenceElementLevelList[number].text = ""; // L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
+      txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
   }
