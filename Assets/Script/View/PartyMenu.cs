@@ -814,18 +814,18 @@ public class PartyMenu : MotherBase
 
   private string GetCommandAttributeString(Fix.CommandAttribute attribute)
   {
-    if (attribute == Fix.CommandAttribute.Fire) { return Fix.CLASS_FIRE_JP; }
-    if (attribute == Fix.CommandAttribute.Ice) { return Fix.CLASS_ICE_JP; }
-    if (attribute == Fix.CommandAttribute.HolyLight) { return Fix.CLASS_HOLYLIGHT_JP; }
-    if (attribute == Fix.CommandAttribute.DarkMagic) { return Fix.CLASS_DARK_MAGIC_JP; }
-    if (attribute == Fix.CommandAttribute.Force) { return Fix.CLASS_FORCE_JP; }
-    if (attribute == Fix.CommandAttribute.VoidChant) { return Fix.CLASS_VOIDCHANT_JP; }
-    if (attribute == Fix.CommandAttribute.Warrior) { return Fix.CLASS_WARRIOR_JP; }
-    if (attribute == Fix.CommandAttribute.Guardian) { return Fix.CLASS_GUARDIAN_JP; }
-    if (attribute == Fix.CommandAttribute.MartialArts) { return Fix.CLASS_MARTIAL_ARTS_JP; }
-    if (attribute == Fix.CommandAttribute.Archery) { return Fix.CLASS_ARCHERY_JP; }
-    if (attribute == Fix.CommandAttribute.Truth) { return Fix.CLASS_TRUTH_JP; }
-    if (attribute == Fix.CommandAttribute.Mindfulness) { return Fix.CLASS_MINDFULNESS_JP; }
+    if (attribute == Fix.CommandAttribute.Fire) { return L10n.Get(Fix.L10N_STANDARD_FIRE); }
+    if (attribute == Fix.CommandAttribute.Ice) { return L10n.Get(Fix.L10N_STANDARD_ICE); }
+    if (attribute == Fix.CommandAttribute.HolyLight) { return L10n.Get(Fix.L10N_STANDARD_LIGHT); }
+    if (attribute == Fix.CommandAttribute.DarkMagic) { return L10n.Get(Fix.L10N_STANDARD_SHADOW); }
+    if (attribute == Fix.CommandAttribute.Force) { return L10n.Get(Fix.L10N_STANDARD_FORCE); }
+    if (attribute == Fix.CommandAttribute.VoidChant) { return L10n.Get(Fix.L10N_STANDARD_VOIDCHANT); }
+    if (attribute == Fix.CommandAttribute.Warrior) { return L10n.Get(Fix.L10N_STANDARD_WARRIOR); }
+    if (attribute == Fix.CommandAttribute.Guardian) { return L10n.Get(Fix.L10N_STANDARD_GUARDIAN); }
+    if (attribute == Fix.CommandAttribute.MartialArts) { return L10n.Get(Fix.L10N_STANDARD_MARTIALARTS); }
+    if (attribute == Fix.CommandAttribute.Archery) { return L10n.Get(Fix.L10N_STANDARD_ARCHERY); }
+    if (attribute == Fix.CommandAttribute.Truth) { return L10n.Get(Fix.L10N_STANDARD_TRUTH); }
+    if (attribute == Fix.CommandAttribute.Mindfulness) { return L10n.Get(Fix.L10N_STANDARD_MINDFULNESS); }
 
     return String.Empty;
   }
