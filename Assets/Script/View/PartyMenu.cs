@@ -1680,7 +1680,7 @@ public class PartyMenu : MotherBase
   {
     for (int ii = 0; ii < txtEssenceElementList.Count; ii++)
     {
-      txtEssenceElementList[ii].text = "？？？";
+      txtEssenceElementList[ii].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[ii].text = "";
       imgEssenceElementList[ii].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[ii].text = ""; // "Lv " + element_level.ToString();
@@ -1888,7 +1888,7 @@ public class PartyMenu : MotherBase
     if (detect_zero)
     {
       Debug.Log("SetupEssenceElement: detect_zero");
-      txtEssenceElementList[number].text = "？？？";
+      txtEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
@@ -1921,7 +1921,7 @@ public class PartyMenu : MotherBase
     else
     {
       Debug.Log("SetupEssenceElement: ELSE");
-      txtEssenceElementList[number].text = "？？？";
+      txtEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN);
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();

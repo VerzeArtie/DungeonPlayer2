@@ -1558,6 +1558,7 @@ public static partial class Fix
   public const string L10N_PARTYMENU_COMMAND_TARGET_DEAD = "lblPartyMenuCommandTargetDead";
   // public const string L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT = "lblPartyMenuEssenceTreeLabelEffect";
   public const string L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP = "lblPartyMenuEssenceTreeLabelPowerUp";
+  public const string L10N_PARTYMENU_ESSENCETREE_LABEL_UNKNOWN = "lblPartyMenuEssenceTreeLabelUnknown";
   public const string L10N_PARTYMENU_ESSENCETREE_NOACQ = "lblPartyMenuEssenceTreeNoAcq";
   public const string L10N_PARTYMENU_ESSENCETREE_REQUIRE = "lblPartyMenuEssenceTreeRequire";
   public const string L10N_PARTYMENU_ESSENCETREE_POWERUP = "lblPartyMenuEssenceTreePowerUp";
