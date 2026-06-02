@@ -225,6 +225,10 @@ public static class L10n
     Register(Fix.L10N_STANDARD_TRUTH, "心眼", "Truth");
     Register(Fix.L10N_STANDARD_MINDFULNESS, "無心", "Mindfulness");
     Register(Fix.L10N_STANDARD_LABEL_LV, "Lv", "Lv");
+    Register(Fix.L10N_STANDARD_LABEL_SAVE_DAYS, "経過日数", "Elapsed");
+    Register(Fix.L10N_STANDARD_LABEL_SAVE_DAYS2, "日", "Days");
+    Register(Fix.L10N_STANDARD_LABEL_SAVE_ARCHIVE_AREA3, "制覇", "Completed");
+    Register(Fix.L10N_STANDARD_LABEL_SAVE_DUNGEON_AREA, "到達地点", "Area");
     // Common-BasicParameter
     Register(Fix.L10N_BASIC_LEVEL, "レベル", "Level");
     Register(Fix.L10N_BASIC_EXPERIENCE, "経験値", "Exp");

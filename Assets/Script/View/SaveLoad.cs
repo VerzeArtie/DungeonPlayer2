@@ -27,8 +27,6 @@ public class SaveLoad : MotherBase
 
   private string gameDayString = "\r\n経過日数：";
   private string gameDayString2 = @"日 ";
-  private string archiveAreaString = @"到達階層：";
-  private string archiveAreaString2 = @"階";
   private string archiveAreaString3 = @"制覇：";
   private string saveDungeonAreaString = @"到達地点：";
   private string gameCompleteFlagNumber = "6";
@@ -64,6 +62,13 @@ public class SaveLoad : MotherBase
   // Use this for initialization
   public void Start()
   {
+    gameDayString = "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS) + ":";
+    gameDayString2 = L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS2) + " ";
+    archiveAreaString3 = L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_ARCHIVE_AREA3) + ":";
+    saveDungeonAreaString = L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DUNGEON_AREA) + ":";
+    if (lblSaveLoadYes != null) { lblSaveLoadYes.text = L10n.Get(Fix.L10N_SAVELOAD_YES); }
+    if (lblSaveLoadNo != null) { lblSaveLoadNo.text = L10n.Get(Fix.L10N_SAVELOAD_NO); }
+
     SceneLoading();
   }
 
@@ -73,8 +78,6 @@ public class SaveLoad : MotherBase
     if (this.firstAction == false)
     {
       this.firstAction = true;
-      if (lblSaveLoadYes != null) { lblSaveLoadYes.text = L10n.Get(Fix.L10N_SAVELOAD_YES); }
-      if (lblSaveLoadNo != null) { lblSaveLoadNo.text = L10n.Get(Fix.L10N_SAVELOAD_NO); }
     }
 
     if (this.currentPhase == CurrentPhase.None)
@@ -206,7 +209,6 @@ public class SaveLoad : MotherBase
           // セーブデータが示す表示文字はセーブファイルの中に埋め込んである
           // ダンジョン名、ホームタウン名を取り出すしかない。
           // 処理が重たくなる点は改善はしたい所ではあるが、現状このままとする。
-          // targetButton.text = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2) + this.gameDayString + targetString.Substring(18, 3) + this.gameDayString2 + archiveAreaString;
           targetButton.text = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2) + this.gameDayString + targetString.Substring(18, 3) + this.gameDayString2;
           
           string DateTimeString = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2);
@@ -893,7 +895,7 @@ public class SaveLoad : MotherBase
 
       if ((Text)sender != null) // if 後編追加
       {
-        ((Text)sender).text = DateTime.Now.ToString() + "\r\n経過日数：" + One.TF.GameDay.ToString("D3") + "日 ";
+        ((Text)sender).text = DateTime.Now.ToString() + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS) + "：" + One.TF.GameDay.ToString("D3") + "日 ";
         if (One.TF.SaveByDungeon)
         {
           ((Text)sender).text += ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
