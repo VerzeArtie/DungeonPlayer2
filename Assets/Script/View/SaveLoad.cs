@@ -895,7 +895,7 @@ public class SaveLoad : MotherBase
 
       if ((Text)sender != null) // if 後編追加
       {
-        ((Text)sender).text = DateTime.Now.ToString() + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS) + "：" + One.TF.GameDay.ToString("D3") + "日 ";
+        ((Text)sender).text = DateTime.Now.ToString() + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS) + ":" + One.TF.GameDay.ToString("D3") + gameDayString2;
         if (One.TF.SaveByDungeon)
         {
           ((Text)sender).text += ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
