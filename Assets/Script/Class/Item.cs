@@ -6505,7 +6505,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 31000;
         this._importantType = Important.None;
-        this._description = "この聖杯の中には眼には見えないが人の心が埋め込まれていると謳われる。装着者には得たいの知れない源泉のパワーが溢れてくる。心＋３０、物攻率５％、魔攻率５％";
+        this._description = "この聖杯の中には眼には見えないが人の心が埋め込まれていると謳われる。装着者には得たいの知れない源泉のパワーが溢れてくる。心＋７０、物攻率５％、魔攻率５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
