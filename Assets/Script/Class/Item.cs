@@ -9118,7 +9118,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1000000;
         this._importantType = Important.None;
-        this._description = "雪原の大樹【ラタ】の紋様が施されたリング。装備した者に不思議な青白の発行が与えられ、加護が約束される。体＋４００、心＋２００、猛毒耐性、スタン耐性、出血耐性";
+        this._description = "雪原の大樹【ラタ】の紋様が施されたリング。装備した者に不思議な青白の発光が与えられ、加護が約束される。体＋４００、心＋２００、猛毒耐性、スタン耐性、出血耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
