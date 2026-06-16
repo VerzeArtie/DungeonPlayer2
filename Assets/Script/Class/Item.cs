@@ -2799,6 +2799,30 @@ public partial class Item
         this._resistPoison = true;
         break;
 
+      case Fix.SPIRIT_BRANCH:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "精霊達が生成してくれた枝。やわらかい波動が伝わってくる。知＋２、体＋２\r\n睡眠耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 2;
+        this._mind = 0;
+        this.ResistSleep = true;
+        break;
+
       case Fix.BLUE_WIZARD_HAT:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Accessory;

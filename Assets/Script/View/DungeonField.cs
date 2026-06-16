@@ -9504,7 +9504,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_EsmiliaGrassField_00009 == false && location.x == Fix.ESMILIA_Treasure_9_X && location.y == Fix.ESMILIA_Treasure_9_Y && location.z == Fix.ESMILIA_Treasure_9_Z)
         {
-          treasureName = Fix.FINE_ARMOR;
+          treasureName = Fix.SPIRIT_BRANCH; // change 2026/06/17 Fix.FINE_ARMOR;
         }
         if (One.TF.Treasure_EsmiliaGrassField_00010 == false && location.x == Fix.ESMILIA_Treasure_10_X && location.y == Fix.ESMILIA_Treasure_10_Y && location.z == Fix.ESMILIA_Treasure_10_Z)
         {
