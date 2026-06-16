@@ -2775,6 +2775,30 @@ public partial class Item
         this.ResistDizzy = true;
         break;
 
+      case Fix.ANTIDOTE_STONE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "なんの変哲もない石のように見えるが、所持しているだけで解毒効果が得られる。体＋４\r\n猛毒耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 4;
+        this._mind = 0;
+        this._resistPoison = true;
+        break;
+
       case Fix.BLUE_WIZARD_HAT:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Accessory;

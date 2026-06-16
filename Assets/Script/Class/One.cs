@@ -3807,7 +3807,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              int randomValue4 = rd.Next(1, 17);
+              int randomValue4 = rd.Next(1, 21);
               Debug.Log("randomValue4: " + randomValue4);
               switch (randomValue4)
               {
@@ -3858,6 +3858,18 @@ public static class One
                   break;
                 case 16:
                   targetItemName = Fix.COTTON_ROBE;
+                  break;
+                case 17:
+                  targetItemName = Fix.WARRIOR_BRACER;
+                  break;
+                case 18:
+                  targetItemName = Fix.STARDUST_CHARM;
+                  break;
+                case 19:
+                  targetItemName = Fix.BOLT_STONE;
+                  break;
+                case 20:
+                  targetItemName = Fix.ANTIDOTE_STONE;
                   break;
               }
             }

@@ -2746,6 +2746,7 @@ public static partial class Fix
   public const string WARRIOR_BRACER = "ウォーリア・ブレーサー";
   public const string STARDUST_CHARM = "星屑のお守り";
   public const string BOLT_STONE = "電流石";
+  public const string ANTIDOTE_STONE = "解毒石";
 
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
