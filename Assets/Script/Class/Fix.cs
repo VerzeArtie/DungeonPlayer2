@@ -2731,6 +2731,7 @@ public static partial class Fix
   public const string REFRESHED_MANTLE = "スッキリしたマント";
   public const string COOL_CROWN = "品性ある王冠";
   public const string FLAT_SHOES = "フラット・シューズ";
+  public const string AETHER_BALL = "エーテル・ボール";
   public const string COMPACT_EARRING = "コンパクト・イヤリング";
   public const string POWER_BANDANA = "パワー・バンダナ";
   public const string CHERRY_CHOKER = "チェリー・チョーカー";

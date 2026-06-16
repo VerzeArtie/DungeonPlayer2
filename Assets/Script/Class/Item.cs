@@ -2387,6 +2387,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.AETHER_BALL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "エーテル力を備えた宙に浮かぶボール。装着者に少しだけパワーを与える。力＋１、知＋１、心＋１";
+        this._strength = 1;
+        this._agility = 0;
+        this._intelligence = 1;
+        this._stamina = 0;
+        this._mind = 1;
+        break;
+
       case Fix.COMPACT_EARRING:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;

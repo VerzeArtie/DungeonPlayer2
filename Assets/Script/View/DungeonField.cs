@@ -9470,7 +9470,7 @@ public class DungeonField : MotherBase
 
         if (One.TF.Treasure_EsmiliaGrassField_00001 == false && location.x == Fix.ESMILIA_Treasure_1_X && location.y == Fix.ESMILIA_Treasure_1_Y && location.z == Fix.ESMILIA_Treasure_1_Z)
         {
-          treasureName = Fix.FINE_SWORD;
+          treasureName = Fix.AETHER_BALL; // change 2026/06/17 Fix.FINE_SWORD;
         }
         if (One.TF.Treasure_EsmiliaGrassField_00002 == false && location.x == Fix.ESMILIA_Treasure_2_X && location.y == Fix.ESMILIA_Treasure_2_Y && location.z == Fix.ESMILIA_Treasure_2_Z)
         {

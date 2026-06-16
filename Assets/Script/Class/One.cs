@@ -3256,7 +3256,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              int randomValue3 = rd.Next(1, 23);
+              int randomValue3 = rd.Next(1, 24);
               Debug.Log("randomValue3: " + randomValue3);
               switch (randomValue3)
               {
@@ -3325,6 +3325,9 @@ public static class One
                   break;
                 case 22:
                   targetItemName = Fix.FINE_ROBE;
+                  break;
+                case 23:
+                  targetItemName = Fix.AETHER_BALL;
                   break;
               }
             }
