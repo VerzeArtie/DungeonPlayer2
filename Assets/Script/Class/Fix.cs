@@ -2154,6 +2154,7 @@ public static partial class Fix
   public const string COMMAND_POISON_RINPUN = "毒の鱗粉";
   public const string COMMAND_YOUEN_FIRE = "妖艶なる炎";
   public const string COMMAND_BLAZE_DANCE = "ブレイズ・ダンス";
+  public const string COMMAND_SCREAMING_CHARGE = "発狂突撃";
   public const string COMMAND_DRILL_CYCLONE = "ドリル・サイクロン";
   public const string COMMAND_RUMBLE_MACHINEGUN = "ランブル・マシンガン";
   public const string COMMAND_STRUGGLE_VOICE = "威圧する怒声";

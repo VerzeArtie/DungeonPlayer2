@@ -1557,6 +1557,13 @@ public partial class BattleEnemy : MotherBase
         if ((this.BattleType == Fix.BattleMode.Boss || this.BattleType == Fix.BattleMode.Duel) &&
             AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
         {
+          if (AllList[ii].FullName == Fix.SCREAMING_RAFFLESIA || AllList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP || AllList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP_VIEW)
+          {
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_SCREAMING_CHARGE);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_SCREAMING_CHARGE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
           if (AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN || AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP || AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP_VIEW)
           {
             AllList[ii].UseInstantPoint(false, Fix.COMMAND_SUPER_RANDOM_CANNON);
@@ -3730,7 +3737,16 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BLAZE_DANCE:
-        BuffUpFire(player, player, 5, 1.20f);
+        BuffUpFire(player, player, 5, 1.50f);
+        break;
+
+      case Fix.COMMAND_SCREAMING_CHARGE:
+        success = ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffDizzy(player, target, 2, 0.30f);
+          ExecBuffSleep(player, target, 2, 0);
+        }
         break;
 
       case Fix.COMMAND_DRILL_CYCLONE:
@@ -10524,6 +10540,7 @@ public partial class BattleEnemy : MotherBase
         return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
       }
     }
+
     // モンスター専用：FAITH_SIGHTによる効果
     if (panelField != null)
     {
@@ -14571,7 +14588,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ApplyDamage(Character player, Character target, double damageValue, bool critical, int animation_speed)
   {
-    Debug.Log(MethodBase.GetCurrentMethod());
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + damageValue);
     int beforeTargetLife = target.CurrentLife;
 
     if (damageValue <= 0) { damageValue = 0; }

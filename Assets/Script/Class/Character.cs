@@ -6931,6 +6931,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss1;
         this.CannotCritical = false;
+        this._baseInstantPoint = 4000;
         break;
       #endregion
 
@@ -9779,7 +9780,14 @@ public partial class Character : MonoBehaviour
         }
         else if (random == 2)
         {
-          current.Add(Fix.COMMAND_BLAZE_DANCE);
+          if (this.IsUpFire == null)
+          {
+            current.Add(Fix.COMMAND_BLAZE_DANCE);
+          }
+          else
+          {
+            current.Add(Fix.FIRE_BALL);
+          }
         }
         else
         {
