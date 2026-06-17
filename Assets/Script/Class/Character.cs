@@ -1262,7 +1262,7 @@ public partial class Character : MonoBehaviour
   public bool DetectDeath
   {
     get { return _detectDeath; }
-    set { _detectDeath = true; }
+    set { _detectDeath = value; }
   }
 
   // 皇帝リガール「舞踏・一閃」専用フラグ
@@ -1270,7 +1270,7 @@ public partial class Character : MonoBehaviour
   public bool NowStackDamageIsZero
   {
     get { return _nowStackDamageIsZero; }
-    set { _nowStackDamageIsZero = true; }
+    set { _nowStackDamageIsZero = value; }
   }
 
   // ボス負の影響自動リカバー
