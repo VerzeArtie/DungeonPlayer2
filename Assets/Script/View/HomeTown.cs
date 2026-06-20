@@ -4894,6 +4894,12 @@ public partial class HomeTown : MotherBase
 
     // エリア情報
     txtArea.text = One.TF.CurrentAreaName;
+    string areaName = One.TF.CurrentAreaName;
+    if (areaName == Fix.TOWN_ANSHET) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ANSHET); }
+    else if (areaName == Fix.TOWN_FAZIL_CASTLE) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
+    else if (areaName == Fix.TOWN_COTUHSYE) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
+    else if (areaName == Fix.TOWN_ZHALMAN) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
+    else if (areaName == Fix.TOWN_PARMETYSIA) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
 
     // アイコンの反映
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ANSHET_ICON); }

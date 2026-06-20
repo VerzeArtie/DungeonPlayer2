@@ -898,11 +898,11 @@ public class SaveLoad : MotherBase
         ((Text)sender).text = DateTime.Now.ToString() + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_SAVE_DAYS) + ":" + One.TF.GameDay.ToString("D3") + gameDayString2;
         if (One.TF.SaveByDungeon)
         {
-          ((Text)sender).text += ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
+          ((Text)sender).text += ConvertMapFileToAreaName(One.TF.CurrentDungeonField);
         }
         else
         {
-          ((Text)sender).text += saveDungeonAreaString + One.TF.CurrentAreaName;
+          ((Text)sender).text += saveDungeonAreaString + ConvertTownNameToAreaName(One.TF.CurrentAreaName);
         }
 
         if (!((Text)sender).Equals(buttonText[0])) back_button[0].GetComponent<Image>().sprite = null;
@@ -1024,7 +1024,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentDungeonName = ConvertMapFileToDungeonName(listDSDValue[jj]);
+                  currentDungeonName = ConvertMapFileToAreaName(listDSDValue[jj]);
                 }
                 else
                 {
@@ -1035,7 +1035,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentAreaName = listDSDValue[jj];
+                  currentAreaName = ConvertTownNameToAreaName(listDSDValue[jj]);
                 }
                 else
                 {
@@ -1154,5 +1154,39 @@ public class SaveLoad : MotherBase
     else if (map_file == Fix.MAPFILE_GENESISGATE) { return Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
 
     return map_file;
+  }
+
+  private string ConvertMapFileToAreaName(string area_name)
+  {
+    if (area_name == null) { return null; }
+
+    else if (area_name == Fix.MAPFILE_ESMILIA_GRASSFIELD) { return L10n.Get(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD); }
+    else if (area_name == Fix.MAPFILE_GORATRUM) { return L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE); }
+    else if (area_name == Fix.MAPFILE_GORATRUM_2) { return L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE_2); }
+    else if (area_name == Fix.MAPFILE_MYSTIC_FOREST) { return L10n.Get(Fix.L10N_AREANAME_MYSTIC_FOREST); }
+    else if (area_name == Fix.MAPFILE_OHRAN_TOWER) { return L10n.Get(Fix.L10N_AREANAME_OHRAN_TOWER); }
+    else if (area_name == Fix.MAPFILE_VELGUS) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE); }
+    else if (area_name == Fix.MAPFILE_VELGUS_2) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2); }
+    else if (area_name == Fix.MAPFILE_VELGUS_3) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3); }
+    else if (area_name == Fix.MAPFILE_VELGUS_4) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_2) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_3) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_4) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4); }
+
+    return area_name;
+  }
+
+  private string ConvertTownNameToAreaName(string area_name)
+  {
+    if (area_name == null) { return null; }
+
+    else if (area_name == Fix.TOWN_ANSHET) { return L10n.Get(Fix.L10N_AREANAME_ANSHET); }
+    else if (area_name == Fix.TOWN_FAZIL_CASTLE) { return L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
+    else if (area_name == Fix.TOWN_COTUHSYE) { return L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
+    else if (area_name == Fix.TOWN_ZHALMAN) { return L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
+    else if (area_name == Fix.TOWN_PARMETYSIA) { return L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
+
+    return area_name;
   }
 }

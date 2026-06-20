@@ -1676,6 +1676,25 @@ public static partial class Fix
   public const string L10N_ACCESSORY1 = "lblAccessory1";
   public const string L10N_ACCESSORY2 = "lblAccessory2";
   public const string L10N_ARTIFACT = "lblArtifact";
+  public const string L10N_AREANAME_ANSHET = "lblAreaNameAnshet";
+  public const string L10N_AREANAME_FAZIL_CASTLE = "lblAreaNameFazilCastle";
+  public const string L10N_AREANAME_COTUHSYE = "lblAreaNameCotuhsye";
+  public const string L10N_AREANAME_ZHALMAN = "lblAreaNameZhalman";
+  public const string L10N_AREANAME_PARMETYSIA = "lblAreaNameParmetysia";
+  public const string L10N_AREANAME_ESMILIA_GRASSFIELD = "lblAreaNameEsmiliaGrassField";
+  public const string L10N_AREANAME_GORATRUM_CAVE = "lblAreaNameGoratrumCave";
+  public const string L10N_AREANAME_GORATRUM_CAVE_2 = "lblAreaNameGoratrumCave_2";
+  public const string L10N_AREANAME_MYSTIC_FOREST = "lblAreaNameMysticForest";
+  public const string L10N_AREANAME_OHRAN_TOWER = "lblAreaNameOhranTower";
+  public const string L10N_AREANAME_VELGUS_SEA_TEMPLE = "lblAreaNameVelgusSeaTemple";
+  public const string L10N_AREANAME_VELGUS_SEA_TEMPLE_2 = "lblAreaNameVelgusSeaTemple_2";
+  public const string L10N_AREANAME_VELGUS_SEA_TEMPLE_3 = "lblAreaNameVelgusSeaTemple_3";
+  public const string L10N_AREANAME_VELGUS_SEA_TEMPLE_4 = "lblAreaNameVelgusSeaTemple_4";
+  public const string L10N_AREANAME_EDELGARZEN_CASTLE = "lblAreaNameEdelgarzenCastle";
+  public const string L10N_AREANAME_EDELGARZEN_CASTLE_2 = "lblAreaNameEdelgarzenCastle_2";
+  public const string L10N_AREANAME_EDELGARZEN_CASTLE_3 = "lblAreaNameEdelgarzenCastle_3";
+  public const string L10N_AREANAME_EDELGARZEN_CASTLE_4 = "lblAreaNameEdelgarzenCastle_4";
+  // rito wosm
   #endregion
 
   #endregion

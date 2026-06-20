@@ -283,7 +283,25 @@ public static class L10n
     Register(Fix.L10N_ACCESSORY1, "アクセサリー1", "Accessory 1");
     Register(Fix.L10N_ACCESSORY2, "アクセサリー2", "Accessory 2");
     Register(Fix.L10N_ARTIFACT, "アーティファクト", "Artifact");
-
+    // Common-AreaName
+    Register(Fix.L10N_AREANAME_ANSHET, "アンシェット街", "Ansthet Town");
+    Register(Fix.L10N_AREANAME_FAZIL_CASTLE, "ファージル宮殿", "Fazil Castle");
+    Register(Fix.L10N_AREANAME_COTUHSYE, "港町コチューシェ", "Cotuhsye Town");
+    Register(Fix.L10N_AREANAME_ZHALMAN, "ツァルマンの里", "Zhalman Village");
+    Register(Fix.L10N_AREANAME_PARMETYSIA, "パルメティシア神殿", "Parmetysia Temple");
+    Register(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD, "エスミリア草原区域", "Esmilia Grassfield");
+    Register(Fix.L10N_AREANAME_GORATRUM_CAVE, "ゴラトラム洞窟(１層)", "Goratrum Cave (1F)");
+    Register(Fix.L10N_AREANAME_GORATRUM_CAVE_2, "ゴラトラム洞窟（２層）", "Goratrum Cave (2F)");
+    Register(Fix.L10N_AREANAME_MYSTIC_FOREST, "神秘の森", "Mystic Forest");
+    Register(Fix.L10N_AREANAME_OHRAN_TOWER, "オーランの塔", "Tower of Ohran");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE, "ヴェルガス海底神殿 第一階層", "Velgus Sea Temple First-Layer");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2, "ヴェルガス海底神殿 第二階層", "Velgus Sea Temple Second-Layer");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3, "ヴェルガス海底神殿 第三階層", "Velgus Sea Temple Third-Layer");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4, "ヴェルガス海底神殿 最深部", "Velgus Sea Temple Deepest");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE, "エデルガルゼン城 第一階層", "Edelgarzen Castle First-Layer");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2, "エデルガルゼン城 第二階層", "Edelgarzen Castle Second-Layer");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガルゼン城 第三階層", "Edelgarzen Castle Third-Layer");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガルゼン城 最上階", "Edelgarzen Castle Top");
   }
 
   public static void Register(string key, string japanese, string english)
@@ -296,6 +314,22 @@ public static class L10n
     if (table.TryGetValue(key, out var v))
     {
       string baseText = (One.CONF.GameLanguage == (int)(One.GameLanguage.English)) ? v.en : v.ja;
+      if (args != null && args.Length > 0)
+      {
+        try { return string.Format(baseText, args); }
+        catch { return baseText; }
+      }
+      return baseText;
+    }
+
+    return string.Empty;
+  }
+
+  public static string Get_EN(string key, params object[] args)
+  {
+    if (table.TryGetValue(key, out var v))
+    {
+      string baseText = v.en;
       if (args != null && args.Length > 0)
       {
         try { return string.Format(baseText, args); }
