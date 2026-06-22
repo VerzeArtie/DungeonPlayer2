@@ -41,32 +41,32 @@ public static class L10n
     Register(Fix.L10N_SYSTEM_EXIT_OK, "終了する", "Exit");
     Register(Fix.L10N_SYSTEM_EXIT_CANCEL, "終了しない", "Cancel");
     // HomeTown-Menu
-    Register("lblParty", "パーティ", "Party");
-    Register("lblBlueSphere", "遠見の青水晶", "Far-Blue-Sphere");
-    Register("lblSystem", "システム", "System");
-    Register("lblDungeonPlayer", "DungeonPlayer", "DungeonPlayer"); // 日本語／英語で表記を変えない
-    Register("lblShop", "ショップ", "Shop");
-    Register("lblInn", "宿屋", "Inn");
-    Register("lblTalkLana", "幼なじみのラナと会話", "Talk to Lana");
-    Register("lblItemBank", "アイテム保管庫", "ItemBank");
+    Register(Fix.L10N_PARTY, "パーティ", "Party");
+    Register(Fix.L10N_BLUESPHERE, "遠見の青水晶", "Far-Blue-Sphere");
+    Register(Fix.L10N_SYSTEM, "システム", "System");
+    Register(Fix.L10N_DUNGEONPLAYER, "DungeonPlayer", "DungeonPlayer"); // 日本語／英語で表記を変えない
+    Register(Fix.L10N_SHOP, "ショップ", "Shop");
+    Register(Fix.L10N_INN, "宿屋", "Inn");
+    Register(Fix.L10N_TALK_LANA, "幼なじみのラナと会話", "Talk to Lana");
+    Register(Fix.L10N_ITEMBANK, "アイテム保管庫", "ItemBank");
     // HomeTown-System
-    Register("lblSystemSave", "セーブ", "Save");
-    Register("lblSystemLoad", "ロード", "Load");
-    Register("lblSystemHelp", "ヘルプ", "Help");
-    Register("lblSystemExit", "終了", "Exit");
+    Register(Fix.L10N_SYSTEM_SAVE, "セーブ", "Save");
+    Register(Fix.L10N_SYSTEM_LOAD, "ロード", "Load");
+    Register(Fix.L10N_SYSTEM_HELP, "ヘルプ", "Help");
+    Register(Fix.L10N_SYSTEM_EXIT, "終了", "Exit");
     Register(Fix.L10N_SAVELOAD_YES, "はい", "Yes");
     Register(Fix.L10N_SAVELOAD_NO, "いいえ", "No");
     // HomeTown-Menu-Custom
-    Register("CustomEvent1_ANSHET", "中央噴水広場", "Central Fountain");
-    Register("CustomEvent1_FAZIL_CASTLE", "ファージル宮殿", "Fazil Castle");
-    Register("CustomEvent1_COTUHSYE", "船着き場", "Dock");
-    Register("CustomEvent2_COTUHSYE", "街はずれ", "Outskirts");
-    Register("CustomEvent1_ZHALMAN", "長老の家", "Elder's House");
-    Register("CustomEvent2_ZHALMAN", "ドルワッツの民芸品店", "Dorwatts Handicraft");
-    Register("CustomEvent1_ARCANEDINE", "中央噴水広場", "Central Fountain");
-    Register("CustomEvent2_ARCANEDINE", "ワッツの民芸品店", "Watts Handicraft");
-    Register("CustomEvent3_ARCANEDINE", "占いの館：アミンダ", "Aminda's Fortune");
-    Register("CustomEvent1_PARMETYSIA", "中央神殿", "Central Temple");
+    Register(Fix.L10N_CUSTOMEVENT1_ANSHET, "中央噴水広場", "Central Fountain");
+    Register(Fix.L10N_CUSTOMEVENT1_FAZIL_CASTLE, "ファージル宮殿", "Fazil Castle");
+    Register(Fix.L10N_CUSTOMEVENT1_COTUHSYE, "船着き場", "Dock");
+    Register(Fix.L10N_CUSTOMEVENT2_COTUHSYE, "街はずれ", "Outskirts");
+    Register(Fix.L10N_CUSTOMEVENT1_ZHALMAN, "長老の家", "Elder's House");
+    Register(Fix.L10N_CUSTOMEVENT2_ZHALMAN, "ドルワッツの民芸品店", "Dorwatts Handicraft");
+    Register(Fix.L10N_CUSTOMEVENT1_ARCANEDINE, "中央噴水広場", "Central Fountain");
+    Register(Fix.L10N_CUSTOMEVENT2_ARCANEDINE, "ワッツの民芸品店", "Watts Handicraft");
+    Register(Fix.L10N_CUSTOMEVENT3_ARCANEDINE, "占いの館：アミンダ", "Aminda's Fortune");
+    Register(Fix.L10N_CUSTOMEVENT1_PARMETYSIA, "中央神殿", "Central Temple");
     // HomeTown-DungeonPlayer
     Register(Fix.L10N_HOMETOWN_DUNGEONPLAYER_GOTO, " 【 {0} 】へ向かう", "Go to 【 {0} 】");
     // HomeTown-Shop
