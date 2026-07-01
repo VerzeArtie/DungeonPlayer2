@@ -1181,11 +1181,11 @@ public class SaveLoad : MotherBase
   {
     if (area_name == null) { return null; }
 
-    else if (area_name == Fix.TOWN_ANSHET) { return L10n.Get(Fix.L10N_AREANAME_ANSHET); }
-    else if (area_name == Fix.TOWN_FAZIL_CASTLE) { return L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
-    else if (area_name == Fix.TOWN_COTUHSYE) { return L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
-    else if (area_name == Fix.TOWN_ZHALMAN) { return L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
-    else if (area_name == Fix.TOWN_PARMETYSIA) { return L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
+    else if (One.CurrentAreaAnshet(area_name)) { return L10n.Get(Fix.L10N_AREANAME_ANSHET); }
+    else if (One.CurrentAreaFazilCastle(area_name)) { return L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
+    else if (One.CurrentAreaCotuhsye(area_name)) { return L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
+    else if (One.CurrentAreaZhalman(area_name)) { return L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
+    else if (One.CurrentAreaParmetysia(area_name)) { return L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
 
     return area_name;
   }

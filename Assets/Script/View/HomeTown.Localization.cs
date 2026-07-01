@@ -284,24 +284,25 @@ public static class L10n
     Register(Fix.L10N_ACCESSORY2, "アクセサリー2", "Accessory 2");
     Register(Fix.L10N_ARTIFACT, "アーティファクト", "Artifact");
     // Common-AreaName
-    Register(Fix.L10N_AREANAME_ANSHET, "アンシェット街", "Ansthet Town");
+    Register(Fix.L10N_AREANAME_ANSHET, "アンシェット街", "Anshet Town");
     Register(Fix.L10N_AREANAME_FAZIL_CASTLE, "ファージル宮殿", "Fazil Castle");
     Register(Fix.L10N_AREANAME_COTUHSYE, "港町コチューシェ", "Cotuhsye Town");
     Register(Fix.L10N_AREANAME_ZHALMAN, "ツァルマンの里", "Zhalman Village");
-    Register(Fix.L10N_AREANAME_PARMETYSIA, "パルメティシア神殿", "Parmetysia Temple");
+    Register(Fix.L10N_AREANAME_PARMETYSIA, "パルメテイシア神殿", "Parmetysia Temple");
     Register(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD, "エスミリア草原区域", "Esmilia Grassfield");
-    Register(Fix.L10N_AREANAME_GORATRUM_CAVE, "ゴラトラム洞窟(１層)", "Goratrum Cave (1F)");
+    Register(Fix.L10N_AREANAME_GORATRUM_CAVE, "ゴラトラム洞窟", "Goratrum Cave");
     Register(Fix.L10N_AREANAME_GORATRUM_CAVE_2, "ゴラトラム洞窟（２層）", "Goratrum Cave (2F)");
     Register(Fix.L10N_AREANAME_MYSTIC_FOREST, "神秘の森", "Mystic Forest");
     Register(Fix.L10N_AREANAME_OHRAN_TOWER, "オーランの塔", "Tower of Ohran");
-    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE, "ヴェルガス海底神殿 第一階層", "Velgus Sea Temple First-Layer");
-    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2, "ヴェルガス海底神殿 第二階層", "Velgus Sea Temple Second-Layer");
-    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3, "ヴェルガス海底神殿 第三階層", "Velgus Sea Temple Third-Layer");
-    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4, "ヴェルガス海底神殿 最深部", "Velgus Sea Temple Deepest");
-    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE, "エデルガルゼン城 第一階層", "Edelgarzen Castle First-Layer");
-    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2, "エデルガルゼン城 第二階層", "Edelgarzen Castle Second-Layer");
-    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガルゼン城 第三階層", "Edelgarzen Castle Third-Layer");
-    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガルゼン城 最上階", "Edelgarzen Castle Top");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE, "ヴェルガス海底神殿", "Velgus Sea Temple");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2, "ヴェルガス海底神殿 第二階層", "Velgus Sea Temple (2F)");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3, "ヴェルガス海底神殿 第三階層", "Velgus Sea Temple (3F)");
+    Register(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4, "ヴェルガス海底神殿 最深部", "Velgus Sea Temple (DEEP)");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE, "エデルガイゼン城", "Edelgarzen Castle");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2, "エデルガイゼン城 第二階層", "Edelgarzen Castle (2F)");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガイゼン城 第三階層", "Edelgarzen Castle (3F)");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガイゼン城 最上階", "Edelgarzen Castle (TOP)");
+    Register(Fix.L10N_AREANAME_EDELGARZEN_CENTER, "エデルガイゼン城 正面ゲート", "Edelgarzen Castle (CENTER)");
   }
 
   public static void Register(string key, string japanese, string english)

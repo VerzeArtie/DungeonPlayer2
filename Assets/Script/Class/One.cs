@@ -5334,4 +5334,95 @@ public static class One
       xmlWriter?.Close();
     }
   }
+  public static bool CurrentAreaAnshet(string area_name)
+  {
+    if (area_name == Fix.TOWN_ANSHET || area_name == Fix.TOWN_ANSHET_EN) { return true; }
+    return false;
+  }
+
+  public static bool CurrentAreaFazilCastle(string area_name)
+  {
+    if (area_name == Fix.TOWN_FAZIL_CASTLE || area_name == Fix.TOWN_FAZIL_CASTLE_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaCotuhsye(string area_name)
+  {
+    if (area_name == Fix.TOWN_COTUHSYE || area_name == Fix.TOWN_COTUHSYE_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaZhalman(string area_name)
+  {
+    if (area_name == Fix.TOWN_ZHALMAN || area_name == Fix.TOWN_ZHALMAN_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaParmetysia(string area_name)
+  {
+    if (area_name == Fix.TOWN_PARMETYSIA || area_name == Fix.TOWN_PARMETYSIA_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEsmiliaGrassfield(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD || area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaGoratrumCave(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_GORATRUM_CAVE || area_name == Fix.DUNGEON_GORATRUM_CAVE_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaMysticForest(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_MYSTIC_FOREST || area_name == Fix.DUNGEON_MYSTIC_FOREST_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaOhranTower(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_OHRAN_TOWER || area_name == Fix.DUNGEON_OHRAN_TOWER_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaVelgusSeaTemple(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE || area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaVelgusSeaTemple_2(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2 || area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaVelgusSeaTemple_3(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3 || area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaVelgusSeaTemple_4(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4 || area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEdelgarzenCastle(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_EDELGARZEN_CASTLE || area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEdelgarzenCastle_2(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_2 || area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_2_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEdelgarzenCastle_3(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_3 || area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_3_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEdelgarzenCastle_4(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_4 || area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_4_EN) { return true; }
+    return false;
+  }
+  public static bool CurrentAreaEdelgarzenCastle_Center(string area_name)
+  {
+    if (area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER || area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER_EN) { return true; }
+    return false;
+  }
 }

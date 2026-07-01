@@ -16248,7 +16248,7 @@ public class DungeonField : MotherBase
         return true;
       }
 
-      // キルクード山脈→パルメティシア神殿方向（ビュー）
+      // キルクード山脈→パルメテイシア神殿方向（ビュー）
       if (LocationDetect(tile, Fix.BASEFIELD_EVENT_7_X, Fix.BASEFIELD_EVENT_7_Y, Fix.BASEFIELD_EVENT_7_Z))
       {
         MessagePack.Message_BaseField_5(ref QuestMessageList, ref QuestEventList); TapOK();

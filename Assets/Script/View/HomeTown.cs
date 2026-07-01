@@ -649,7 +649,7 @@ public partial class HomeTown : MotherBase
 
       One.StopDungeonMusic();
 
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+      if (One.CurrentAreaAnshet(One.TF.CurrentAreaName))
       {
         if (One.TF.Event_Message100010 == false)
         {
@@ -664,7 +664,7 @@ public partial class HomeTown : MotherBase
           return;
         }
       }
-      if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+      if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName))
       {
         Debug.Log("Hometown: TOWN_FAZIL_CASTLE");
         if (One.TF.Event_Message100020 == false)
@@ -699,17 +699,17 @@ public partial class HomeTown : MotherBase
           return;
         }
       }
-      else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
-      {
-        if (One.TF.Event_Message200010 == false)
-        {
-          One.TF.Event_Message200010 = true;
-          MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
-          TapOK();
-          return;
-        }
-      }
-      else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+      //else if (CurrentAreaQvelta(One.TF.CurrentAreaName)) // == Fix.TOWN_QVELTA_TOWN)
+      //{
+      //  if (One.TF.Event_Message200010 == false)
+      //  {
+      //    One.TF.Event_Message200010 = true;
+      //    MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
+      //    TapOK();
+      //    return;
+      //  }
+      //}
+      else if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName))
       {
         if (One.TF.DefeatZatKon_1 && One.TF.EventCore_DefeatZatkon_1 == false)
         {
@@ -726,7 +726,7 @@ public partial class HomeTown : MotherBase
           return;
         }
       }
-      else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+      else if (One.CurrentAreaZhalman(One.TF.CurrentAreaName))
       {
         if (One.TF.Event_Message500010 == false)
         {
@@ -734,7 +734,7 @@ public partial class HomeTown : MotherBase
           return;
         }
       }
-      else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+      else if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName))
       {
         // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
         if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
@@ -805,13 +805,13 @@ public partial class HomeTown : MotherBase
         MessagePack.Message1100010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      // パルメティシア神殿に到着直後
+      // パルメテイシア神殿に到着直後
       if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message2200010 == false)
       {
         MessagePack.Message2200010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      // パルメティシア神殿、ヴェルガス海底神殿の？？？看板到達後
+      // パルメテイシア神殿、ヴェルガス海底神殿の？？？看板到達後
       if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1000080 && One.TF.Event_Message1000081 == false)
       {
         MessagePack.Message1000081(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1091,17 +1091,17 @@ public partial class HomeTown : MotherBase
       // return;
     }
 
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    if (One.CurrentAreaAnshet(One.TF.CurrentAreaName))
     {
     }
 
-    if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
-    {
-      MessagePack.Message200050(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
-    }
+    //if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
+    //{
+    //  MessagePack.Message200050(ref QuestMessageList, ref QuestEventList); TapOK();
+    //  return;
+    //}
 
-    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message2200020 == false)
       {
@@ -1386,7 +1386,7 @@ public partial class HomeTown : MotherBase
       }
     }
     #endregion
-    #region "パルメティシア神殿"
+    #region "パルメテイシア神殿"
     if (call_from == CallFrom.Shop)
     {
       if ((One.AR.EquipAvailable_51 == false) && (One.AR.EquipMixtureDay_51 != 0) && (One.TF.GameDay > One.AR.EquipMixtureDay_51))
@@ -1727,7 +1727,9 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent1()
   {
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    Debug.Log("TapCustomEvent1: " + One.TF.CurrentAreaName);
+
+    if (One.CurrentAreaAnshet(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message000010 == false)
       {
@@ -1736,7 +1738,13 @@ public partial class HomeTown : MotherBase
         return;
       }
 
-      if (One.AR.Record_EarringOfLana && One.AR.NormalEnding)
+      // アンシェット街で始めてダミー・素振り君と対戦する時
+      if (One.TF.Duel_DummySuburi && One.TF.Duel_DummySuburi_Start == false)
+      {
+        MessagePack.DuelCall_DummySuburi_Start(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (One.AR.Record_EarringOfLana && One.AR.NormalEnding)
       {
         MessagePack.CoreScenario_ContactLana(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -1746,19 +1754,13 @@ public partial class HomeTown : MotherBase
         MessagePack.CoreScenario_ContactLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      // アンシェット街で始めてダミー・素振り君と対戦する時
-      else if (One.TF.Duel_DummySuburi && One.TF.Duel_DummySuburi_Start == false)
-      {
-        MessagePack.DuelCall_DummySuburi_Start(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
       else
       {
         MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message700030 == false)
       {
@@ -1783,7 +1785,7 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message400020 == false)
       {
@@ -1796,7 +1798,7 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    if (One.CurrentAreaZhalman(One.TF.CurrentAreaName))
     {
       if (One.TF.QuestMain_00022)
       {
@@ -1815,20 +1817,20 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
-    {
-      if (One.TF.Event_Message1100020 == false)
-      {
-        MessagePack.Message1100020(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else
-      {
-        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
-    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    //if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    //{
+    //  if (One.TF.Event_Message1100020 == false)
+    //  {
+    //    MessagePack.Message1100020(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //  else
+    //  {
+    //    MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //}
+    if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message2200020 == false)
       {
@@ -1850,7 +1852,7 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent2()
   {
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message400030 == false)
       {
@@ -1868,7 +1870,7 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(One.TF.CurrentAreaName))
     {
       if (One.TF.Event_Message500050 == false)
       {
@@ -1886,19 +1888,19 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
-    {
-      if (One.TF.Event_Message1100030 == false)
-      {
-        MessagePack.Message1100030(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else
-      {
-        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
+    //else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    //{
+    //  if (One.TF.Event_Message1100030 == false)
+    //  {
+    //    MessagePack.Message1100030(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //  else
+    //  {
+    //    MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //}
     else
     {
       MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1908,29 +1910,29 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent3()
   {
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName))
     {
       MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(One.TF.CurrentAreaName))
     {
       MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
-    {
-      if (One.TF.Event_Message1100040 == false)
-      {
-        MessagePack.Message1100040(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else
-      {
-        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-    }
+    //else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    //{
+    //  if (One.TF.Event_Message1100040 == false)
+    //  {
+    //    MessagePack.Message1100040(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //  else
+    //  {
+    //    MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+    //    return;
+    //  }
+    //}
     else
     {
       MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1944,7 +1946,7 @@ public partial class HomeTown : MotherBase
     {
       SceneDimension.JumpToTitle();
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(One.TF.CurrentAreaName))
     {
       this.DungeonMap = Fix.MAPFILE_MYSTIC_FOREST;
       this.DungeonCall = Fix.DUNGEON_MYSTIC_FOREST;
@@ -1994,18 +1996,18 @@ public partial class HomeTown : MotherBase
     }
 
     // 行き先がホームタウンの場合
-    if (this.DungeonMap == Fix.TOWN_ANSHET ||
-      this.DungeonMap == Fix.TOWN_FAZIL_CASTLE ||
-      this.DungeonMap == Fix.TOWN_COTUHSYE ||
-      this.DungeonMap == Fix.TOWN_ZHALMAN ||
-      this.DungeonMap == Fix.TOWN_ARCANEDINE ||
-      this.DungeonMap == Fix.TOWN_PARMETYSIA ||
-      this.DungeonMap == Fix.TOWN_DALE ||
-      this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
-      this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
+    if (One.CurrentAreaAnshet(this.DungeonMap) ||
+      One.CurrentAreaFazilCastle(this.DungeonMap) ||
+      One.CurrentAreaCotuhsye(this.DungeonMap) ||
+      One.CurrentAreaZhalman(this.DungeonMap) ||
+      // this.DungeonMap == Fix.TOWN_ARCANEDINE || this.DungeonMap == Fix.TOWN_ARCANEDINE_EN ||
+      // this.DungeonMap == Fix.TOWN_DALE || this.DungeonMap == Fix.TOWN_DALE_EN ||
+      // this.DungeonMap == Fix.TOWN_LATA_HOUSE || this.DungeonMap == Fix.TOWN_LATA_HOUSE_EN ||
+      //this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND || this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND_EN)
+      One.CurrentAreaParmetysia(this.DungeonMap))
     {
-      // パルメティシア神殿へ向かう際、Duel遭遇
-      if (this.DungeonMap == Fix.TOWN_PARMETYSIA && One.TF.Event_Message700060 && One.TF.Event_Message801030 == false)
+      // パルメテイシア神殿へ向かう際、Duel遭遇
+      if (One.CurrentAreaParmetysia(this.DungeonMap) && One.TF.Event_Message700060 && One.TF.Event_Message801030 == false)
       {
         MessagePack.Message801030(ref QuestMessageList, ref QuestEventList); TapOK();
       }
@@ -2015,9 +2017,9 @@ public partial class HomeTown : MotherBase
       }
     }
     // 行き先がダンジョンの場合
-    else if (this.DungeonMap == Fix.DUNGEON_ESMILIA_GRASSFIELD)
+    else if (One.CurrentAreaEsmiliaGrassfield(this.DungeonMap))
     {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+      if (One.CurrentAreaAnshet(One.TF.CurrentAreaName))
       {
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_ESMILIA_GRASSFIELD, 28.0f, 1.0f, 9.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
@@ -2026,10 +2028,10 @@ public partial class HomeTown : MotherBase
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_ESMILIA_GRASSFIELD, -9.0f, 1.0f, -4.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
+    else if (One.CurrentAreaGoratrumCave(this.DungeonMap))
     {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
-          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+      if (One.CurrentAreaAnshet(One.TF.CurrentAreaName) ||
+          One.CurrentAreaFazilCastle(One.TF.CurrentAreaName))
       {
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 5.0f, 1.0f, -1.0f);
       }
@@ -2038,11 +2040,11 @@ public partial class HomeTown : MotherBase
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 1.0f, 1.0f, -5.0f);
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_MYSTIC_FOREST)
+    else if (One.CurrentAreaMysticForest(this.DungeonMap))
     {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
-          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
-          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+      if (One.CurrentAreaAnshet(One.TF.CurrentAreaName) ||
+          One.CurrentAreaFazilCastle(One.TF.CurrentAreaName) ||
+          One.CurrentAreaCotuhsye(One.TF.CurrentAreaName))
       {
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_MYSTIC_FOREST, 0.0f, 1.0f, -9.0f);
       }
@@ -2051,7 +2053,7 @@ public partial class HomeTown : MotherBase
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_MYSTIC_FOREST, 48.0f, 1.0f, -26.0f);
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_OHRAN_TOWER)
+    else if (One.CurrentAreaOhranTower(this.DungeonMap))
     {
       if (One.TF.Event_Message800220 && One.TF.Event_Message800230 == false)
       {
@@ -2063,14 +2065,14 @@ public partial class HomeTown : MotherBase
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 15.0f, 1.0f, -30.0f);
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_VELGUS_SEA_TEMPLE)
+    else if (One.CurrentAreaVelgusSeaTemple(this.DungeonMap))
     {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
-          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
-          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
-          One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN ||
-          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
-          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+      if (One.CurrentAreaAnshet(One.TF.CurrentAreaName) ||
+          One.CurrentAreaFazilCastle(One.TF.CurrentAreaName) ||
+          One.CurrentAreaCotuhsye(One.TF.CurrentAreaName) ||
+          One.CurrentAreaZhalman(One.TF.CurrentAreaName) ||
+          // One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+          One.CurrentAreaParmetysia(One.TF.CurrentAreaName))
       {
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_VELGUS, 14.0f, 1.0f, -12.0f);
       }
@@ -2078,42 +2080,42 @@ public partial class HomeTown : MotherBase
       {
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4)
+    else if (One.CurrentAreaVelgusSeaTemple_4(this.DungeonMap))
     {
       CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_VELGUS_4, 26.0f, 1.0f, -15.0f);
     }
-    else if (this.DungeonMap == Fix.DUNGEON_GATE_OF_DHAL)
+    //else if (this.DungeonMap == Fix.DUNGEON_GATE_OF_DHAL)
+    //{
+    //  if (CurrentAreaAnshet(One.TF.CurrentAreaName) ||
+    //      CurrentAreaFazilCastle(One.TF.CurrentAreaName) ||
+    //      CurrentAreaCotuhsye(One.TF.CurrentAreaName) ||
+    //      CurrentAreaZhalman(One.TF.CurrentAreaName) ||
+    //      // One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+    //      CurrentAreaParmetysia(One.TF.CurrentAreaName))
+    //  {
+    //  }
+    //  else
+    //  {
+    //  }
+    //}
+    //else if (this.DungeonMap == Fix.DUNGEON_DISKEL_BATTLE_FIELD)
+    //{
+    //  if (CurrentAreaAnshet(One.TF.CurrentAreaName) ||
+    //      CurrentAreaFazilCastle(One.TF.CurrentAreaName) ||
+    //      CurrentAreaCotuhsye(One.TF.CurrentAreaName) ||
+    //      CurrentAreaZhalman(One.TF.CurrentAreaName) ||
+    //      // One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+    //      CurrentAreaParmetysia(One.TF.CurrentAreaName))
+    //      // One.TF.CurrentAreaName == Fix.TOWN_DALE)
+    //  {
+    //  }
+    //  else
+    //  {
+    //  }
+    //}
+    else if (One.CurrentAreaEdelgarzenCastle(this.DungeonMap))
     {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
-          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
-          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
-          One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN ||
-          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
-          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
-      {
-      }
-      else
-      {
-      }
-    }
-    else if (this.DungeonMap == Fix.DUNGEON_DISKEL_BATTLE_FIELD)
-    {
-      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
-          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
-          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
-          One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN ||
-          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
-          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA ||
-          One.TF.CurrentAreaName == Fix.TOWN_DALE)
-      {
-      }
-      else
-      {
-      }
-    }
-    else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE)
-    {
-      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010030 && One.TF.EventCore_AcknowledgeFeltus && One.TF.EventCore_ProphecySaga_Oracle == false)
+      if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName) && One.TF.Event_Message1010030 && One.TF.EventCore_AcknowledgeFeltus && One.TF.EventCore_ProphecySaga_Oracle == false)
       {
         MessagePack.CoreScenario_ProphecySaga_Oracle(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -2129,18 +2131,18 @@ public partial class HomeTown : MotherBase
         CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_EDELGARZEN, 6.0f, 1.0f, -39.0f);
       }
     }
-    else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER)
+    else if (One.CurrentAreaEdelgarzenCastle_Center(this.DungeonMap))
     {
       CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_EDELGARZEN, 30.0f, 1.0f, -39.0f);
     }
-    else if (this.DungeonMap == Fix.DUNGEON_SNOWTREE_LATA)
-    {
-      // 入口・出口の分岐はない
-    }
-    else if (this.DungeonMap == Fix.DUNGEON_HEAVENS_GENESIS_GATE)
-    {
-      // 入口・出口の分岐はない
-    }
+    //else if (this.DungeonMap == Fix.DUNGEON_SNOWTREE_LATA)
+    //{
+    //  // 入口・出口の分岐はない
+    //}
+    //else if (this.DungeonMap == Fix.DUNGEON_HEAVENS_GENESIS_GATE)
+    //{
+    //  // 入口・出口の分岐はない
+    //}
   }
 
   private void CallDungeon(string source, string destination, float x, float y, float z)
@@ -2622,7 +2624,7 @@ public partial class HomeTown : MotherBase
     if (current.ItemName == Fix.COMMON_APLITOS_BONE) { One.AR.FoodMaterial_46 += stack; }
     if (One.AR.FoodMaterial_45 >= 1 && One.AR.FoodMaterial_46 >= 1 && One.AR.FoodMixtureDay_43 <= 0) { One.AR.FoodMixtureDay_43 = One.TF.GameDay; }
     #endregion
-    #region "パルメティシア神殿"
+    #region "パルメテイシア神殿"
     if (current.ItemName == Fix.COMMON_DAGGERFISH_UROKO) { One.AR.EquipMaterial_51 += stack; }
     if (current.ItemName == Fix.COMMON_WASI_BLUE_FEATHER) { One.AR.EquipMaterial_52 += stack; }
     if (current.ItemName == Fix.COMMON_BIGAXE_TOP) { One.AR.EquipMaterial_53 += stack; }
@@ -2814,7 +2816,7 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
 
     // アンシェット街、DUEL戦
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET && One.TF.GameDay >= 3 && One.TF.Duel_DummySuburi == false)
+    if (One.CurrentAreaAnshet(One.TF.CurrentAreaName) && One.TF.GameDay >= 3 && One.TF.Duel_DummySuburi == false)
     {
       Debug.Log("TapInnAccept Duel Dummy-Suburi");
       MessagePack.DuelCall_DummySuburi(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2823,7 +2825,7 @@ public partial class HomeTown : MotherBase
     }
 
     // ファージル宮殿、DUEL戦
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.Event_Message600001 && One.TF.Duel_EgaltSandy_Start == false)
+    if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName) && One.TF.Event_Message600001 && One.TF.Duel_EgaltSandy_Start == false)
     {
       Debug.Log("TapInnAccept Duel Egalt-Sandy");
       MessagePack.DuelCall_EgaltSandy_Start(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2832,7 +2834,7 @@ public partial class HomeTown : MotherBase
     }
 
     // ファージル宮殿、エオネ参戦後、第三属性の開放
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AvailableEoneFulnea && One.TF.AvailableFirstEssence == false)
+    if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName) && One.TF.AvailableEoneFulnea && One.TF.AvailableFirstEssence == false)
     {
       Debug.Log("TOWN_FAZIL_CASTLE event 1");
       MessagePack.Message700045(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2850,13 +2852,13 @@ public partial class HomeTown : MotherBase
     }
 
     // ゴラトラム洞窟で特定区画到達後、アイン、ラナのイヤリングについて考察
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AlreadyRestInn == false && One.TF.EventCore_GoratrumAndEarring && One.TF.EventCore_GoratrumAndEarring2 == false)
+    if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName) && One.TF.AlreadyRestInn == false && One.TF.EventCore_GoratrumAndEarring && One.TF.EventCore_GoratrumAndEarring2 == false)
     {
       MessagePack.CoreScenario_GoratrumAndEarring2(ref QuestMessageList, ref QuestEventList);
     }
 
     // 港町コチューシェ、ビリー参戦＋エオネ離脱後、第四属性の開放
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence == false)
+    if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName) && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence == false)
     {
       Debug.Log("TOWN_COTUHSYE event 1");
       MessagePack.Message400050(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2865,7 +2867,7 @@ public partial class HomeTown : MotherBase
     }
 
     // 神秘の森で「祈願の御札」を入手した後、「宝剣？？？」について熟慮
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.FindBackPackItem(Fix.PRECIOUS_SWORD) && One.TF.EventCore_DefeatZatkonEnd && One.TF.EventCore_SeekMissingLinkInn == false)
+    if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName) && One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.FindBackPackItem(Fix.PRECIOUS_SWORD) && One.TF.EventCore_DefeatZatkonEnd && One.TF.EventCore_SeekMissingLinkInn == false)
     {
       MessagePack.CoreScenario_SeekMissingLinkInn(ref QuestMessageList, ref QuestEventList, sender.text);
       TapOK();
@@ -2873,7 +2875,7 @@ public partial class HomeTown : MotherBase
     }
 
     // ツァルマンの里、アデル参戦後、第五属性の開放
-    if ((One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN || One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE) && One.TF.AvailableAdelBrigandy && One.TF.AvailableThirdEssence == false)
+    if ((One.CurrentAreaZhalman(One.TF.CurrentAreaName) || One.CurrentAreaFazilCastle(One.TF.CurrentAreaName)) && One.TF.AvailableAdelBrigandy && One.TF.AvailableThirdEssence == false)
     {
       Debug.Log("TOWN_ZHALMAN event 1");
       MessagePack.Message500040(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2882,7 +2884,7 @@ public partial class HomeTown : MotherBase
     }
 
     // ツァルマンの里、Duel戦：レネ・コルトス
-    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.FindBackPackItem(Fix.SHADOW_MOON_KEY) && One.TF.FindBackPackItem(Fix.SUN_BURST_KEY) && One.TF.Duel_LeneColtos_Start == false)
+    if (One.CurrentAreaZhalman(One.TF.CurrentAreaName) && One.TF.FindBackPackItem(Fix.SHADOW_MOON_KEY) && One.TF.FindBackPackItem(Fix.SUN_BURST_KEY) && One.TF.Duel_LeneColtos_Start == false)
     {
       Debug.Log("TapInnAccept Duel Lene-Coltos");
       MessagePack.DuelCall_LeneColtos_Start(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2891,7 +2893,7 @@ public partial class HomeTown : MotherBase
     }
 
     // パルメテイシア神殿、エオネDUEL戦闘後
-    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
+    if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName) && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
     {
       Debug.Log("TOWN_PARMETYSIA event Event_Message1010030");
       MessagePack.Message1010030(ref QuestMessageList, ref QuestEventList, sender.text);
@@ -2899,7 +2901,7 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    // パルメティシア神殿、Duel戦：カルマンズ・オーン
+    // パルメテイシア神殿、Duel戦：カルマンズ・オーン
     if (One.TF.Event_Message1000292 && One.TF.Duel_CalmansOhn_Start == false)
     {
       Debug.Log("TapInnAccept Duel Calmans-Ohn");
@@ -4895,18 +4897,18 @@ public partial class HomeTown : MotherBase
     // エリア情報
     txtArea.text = One.TF.CurrentAreaName;
     string areaName = One.TF.CurrentAreaName;
-    if (areaName == Fix.TOWN_ANSHET) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ANSHET); }
-    else if (areaName == Fix.TOWN_FAZIL_CASTLE) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
-    else if (areaName == Fix.TOWN_COTUHSYE) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
-    else if (areaName == Fix.TOWN_ZHALMAN) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
-    else if (areaName == Fix.TOWN_PARMETYSIA) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
+    if (One.CurrentAreaAnshet(areaName)) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ANSHET); }
+    else if (One.CurrentAreaFazilCastle(areaName)) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
+    else if (One.CurrentAreaCotuhsye(areaName)) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
+    else if (One.CurrentAreaZhalman(areaName)) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
+    else if (One.CurrentAreaParmetysia(areaName)) { txtArea.text = L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
 
     // アイコンの反映
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ANSHET_ICON); }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_FAZIL_CASTLE_ICON); }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_COTUHSYE_ICON); }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ZHALMAN_ICON); }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_PARMETYSIA_ICON); }
+    if (One.CurrentAreaAnshet(One.TF.CurrentAreaName)) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ANSHET_ICON); }
+    else if (One.CurrentAreaFazilCastle(One.TF.CurrentAreaName)) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_FAZIL_CASTLE_ICON); }
+    else if (One.CurrentAreaCotuhsye(One.TF.CurrentAreaName)) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_COTUHSYE_ICON); }
+    else if (One.CurrentAreaZhalman(One.TF.CurrentAreaName)) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ZHALMAN_ICON); }
+    else if (One.CurrentAreaParmetysia(One.TF.CurrentAreaName)) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_PARMETYSIA_ICON); }
     else { imgTownIcon.sprite = null; }
 
     // DungeonPlayerのクエストリストを設定
@@ -4917,7 +4919,7 @@ public partial class HomeTown : MotherBase
     // SeekerModeではエスミリア草原区域のみを見せる
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      ViewSelectAreaEvent(Fix.DUNGEON_ESMILIA_GRASSFIELD);
+      ViewSelectAreaEvent(L10n.Get(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD));
     }
 
     // debug
@@ -4948,7 +4950,7 @@ public partial class HomeTown : MotherBase
 
     string area = One.TF.CurrentAreaName ?? string.Empty;
 
-    if (area == Fix.TOWN_ANSHET)
+    if (One.CurrentAreaAnshet(area))
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ANSHET);
@@ -4957,12 +4959,12 @@ public partial class HomeTown : MotherBase
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    if (area == Fix.TOWN_FAZIL_CASTLE)
+    if (One.CurrentAreaFazilCastle(area))
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_FAZIL_CASTLE);
     }
-    if (area == Fix.TOWN_COTUHSYE)
+    if (One.CurrentAreaCotuhsye(area))
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_COTUHSYE);
@@ -4971,7 +4973,7 @@ public partial class HomeTown : MotherBase
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    else if (area == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(area))
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ZHALMAN);
@@ -4980,16 +4982,16 @@ public partial class HomeTown : MotherBase
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }
-    else if (area == Fix.TOWN_ARCANEDINE)
-    {
-      btnCustomEvent1.gameObject.SetActive(true);
-      txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ARCANEDINE);
-      btnCustomEvent2.gameObject.SetActive(true);
-      txtCustomEvent2.text = L10n.Get(Fix.L10N_CUSTOMEVENT2_ARCANEDINE);
-      btnCustomEvent3.gameObject.SetActive(true);
-      txtCustomEvent3.text = L10n.Get(Fix.L10N_CUSTOMEVENT3_ARCANEDINE);
-    }
-    else if (area == Fix.TOWN_PARMETYSIA)
+    //else if (area == Fix.TOWN_ARCANEDINE || area == Fix.TOWN_ARCANEDINE_EN)
+    //{
+    //  btnCustomEvent1.gameObject.SetActive(true);
+    //  txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_ARCANEDINE);
+    //  btnCustomEvent2.gameObject.SetActive(true);
+    //  txtCustomEvent2.text = L10n.Get(Fix.L10N_CUSTOMEVENT2_ARCANEDINE);
+    //  btnCustomEvent3.gameObject.SetActive(true);
+    //  txtCustomEvent3.text = L10n.Get(Fix.L10N_CUSTOMEVENT3_ARCANEDINE);
+    //}
+    else if (One.CurrentAreaParmetysia(area))
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = L10n.Get(Fix.L10N_CUSTOMEVENT1_PARMETYSIA);
@@ -5302,23 +5304,23 @@ public partial class HomeTown : MotherBase
 
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, 0);
+      AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_ESMILIA_GRASSFIELD), true, 0);
       return;
     }
 
-    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
-    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, counter); counter++; }
-    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
-    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
-    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
-    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
-    if (One.TF.Event_Message500010) { AddSelectArea(Fix.TOWN_ZHALMAN, true, counter); counter++; }
-    if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
-    if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
-    if (One.TF.Event_Message2200020) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE, true, counter); counter++; }
-    if (One.TF.Event_Message1000292) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE_4, true, counter); counter++; }
-    if (One.TF.Event_Message1010030) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE, true, counter); counter++; }
-    if (One.TF.Event_Message1900157) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER, true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(ConvertTownNameToAreaName(Fix.TOWN_ANSHET), true, counter); counter++; }
+    if (One.TF.QuestMain_00001) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_ESMILIA_GRASSFIELD), true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(ConvertTownNameToAreaName(Fix.TOWN_FAZIL_CASTLE), true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_GORATRUM_CAVE), true, counter); counter++; }
+    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(ConvertTownNameToAreaName(Fix.TOWN_COTUHSYE), true, counter); counter++; }
+    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_MYSTIC_FOREST), true, counter); counter++; }
+    if (One.TF.Event_Message500010) { AddSelectArea(ConvertTownNameToAreaName(Fix.TOWN_ZHALMAN), true, counter); counter++; }
+    if (One.TF.Event_Message700050) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_OHRAN_TOWER), true, counter); counter++; }
+    if (One.TF.Event_Message700060) { AddSelectArea(ConvertTownNameToAreaName(Fix.TOWN_PARMETYSIA), true, counter); counter++; }
+    if (One.TF.Event_Message2200020) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_VELGUS_SEA_TEMPLE), true, counter); counter++; }
+    if (One.TF.Event_Message1000292) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_VELGUS_SEA_TEMPLE_4), true, counter); counter++; }
+    if (One.TF.Event_Message1010030) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_EDELGARZEN_CASTLE), true, counter); counter++; }
+    if (One.TF.Event_Message1900157) { AddSelectArea(ConvertTownNameToAreaName(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER), true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -5351,21 +5353,21 @@ public partial class HomeTown : MotherBase
     button.txtName.text = select_area_name;
 
     // アイコンの反映
-    if (select_area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD) { button.ApplyImageIcon(Fix.DUNGEON_ESMILIA_GRASSFIELD_ICON); }
-    else if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { button.ApplyImageIcon(Fix.DUNGEON_GORATRUM_CAVE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { button.ApplyImageIcon(Fix.DUNGEON_MYSTIC_FOREST_ICON); }
-    else if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { button.ApplyImageIcon(Fix.DUNGEON_OHRAN_TOWER_ICON); }
-    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_ICON); }
-    else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON); }
-    else if (select_area_name == Fix.TOWN_ANSHET) { button.ApplyImageIcon(Fix.TOWN_ANSHET_ICON); }
-    else if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { button.ApplyImageIcon(Fix.TOWN_FAZIL_CASTLE_ICON); }
-    else if (select_area_name == Fix.TOWN_COTUHSYE) { button.ApplyImageIcon(Fix.TOWN_COTUHSYE_ICON); }
-    else if (select_area_name == Fix.TOWN_ZHALMAN) { button.ApplyImageIcon(Fix.TOWN_ZHALMAN_ICON); }
-    else if (select_area_name == Fix.TOWN_PARMETYSIA) { button.ApplyImageIcon(Fix.TOWN_PARMETYSIA_ICON); }
+    if (One.CurrentAreaEsmiliaGrassfield(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD)) { button.ApplyImageIcon(Fix.DUNGEON_ESMILIA_GRASSFIELD_ICON); }
+    else if (One.CurrentAreaGoratrumCave(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE)) { button.ApplyImageIcon(Fix.DUNGEON_GORATRUM_CAVE_ICON); }
+    else if (One.CurrentAreaMysticForest(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_MYSTIC_FOREST)) { button.ApplyImageIcon(Fix.DUNGEON_MYSTIC_FOREST_ICON); }
+    else if (One.CurrentAreaOhranTower(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_OHRAN_TOWER)) { button.ApplyImageIcon(Fix.DUNGEON_OHRAN_TOWER_ICON); }
+    else if (One.CurrentAreaVelgusSeaTemple(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE)) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (One.CurrentAreaVelgusSeaTemple_2(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2)) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (One.CurrentAreaVelgusSeaTemple_3(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3)) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (One.CurrentAreaVelgusSeaTemple_4(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4)) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (One.CurrentAreaEdelgarzenCastle(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE)) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_ICON); }
+    else if (One.CurrentAreaEdelgarzenCastle_Center(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CENTER)) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON); }
+    else if (One.CurrentAreaAnshet(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_ANSHET)) { button.ApplyImageIcon(Fix.TOWN_ANSHET_ICON); }
+    else if (One.CurrentAreaFazilCastle(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE)) { button.ApplyImageIcon(Fix.TOWN_FAZIL_CASTLE_ICON); }
+    else if (One.CurrentAreaCotuhsye(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_COTUHSYE)) { button.ApplyImageIcon(Fix.TOWN_COTUHSYE_ICON); }
+    else if (One.CurrentAreaZhalman(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_ZHALMAN)) { button.ApplyImageIcon(Fix.TOWN_ZHALMAN_ICON); }
+    else if (One.CurrentAreaParmetysia(select_area_name) || select_area_name == L10n.Get(Fix.L10N_AREANAME_PARMETYSIA)) { button.ApplyImageIcon(Fix.TOWN_PARMETYSIA_ICON); }
     else { /* 何もしない */ }
 
     if (available)
@@ -5391,25 +5393,26 @@ public partial class HomeTown : MotherBase
   public void ViewSelectAreaEvent(string select_area_name)
   {
     txtEventTitle.text = select_area_name;
-    txtGoButton.text =  L10n.Get(Fix.L10N_HOMETOWN_DUNGEONPLAYER_GOTO, select_area_name);
+    txtEventTitle.text = ConvertTownNameToAreaName(select_area_name);
+    txtGoButton.text =  L10n.Get(Fix.L10N_HOMETOWN_DUNGEONPLAYER_GOTO, ConvertTownNameToAreaName(select_area_name));
     this.DungeonMap = select_area_name;
 
-    if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = Fix.AREA_INFO_ANSHET; } 
-    if (select_area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD) { txtEventDescription.text = Fix.AREA_INFO_ESMILIA_GRASSFIELD; }
-    if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { txtEventDescription.text = Fix.AREA_INFO_FAZIL_CASTLE; }
-    if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = Fix.AREA_INFO_GORATRUM_CAVE; }
-    if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
-    if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
-    if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
-    if (select_area_name == Fix.TOWN_PARMETYSIA) { txtEventDescription.text = Fix.AREA_INFO_PARMETYSIA; }
-    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
-    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
-    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
-    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
-    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
-    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_2) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
-    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_3) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
-    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_4) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (One.CurrentAreaAnshet(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_ANSHET; } 
+    if (One.CurrentAreaEsmiliaGrassfield(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_ESMILIA_GRASSFIELD; }
+    if (One.CurrentAreaFazilCastle(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_FAZIL_CASTLE; }
+    if (One.CurrentAreaGoratrumCave(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_GORATRUM_CAVE; }
+    if (One.CurrentAreaCotuhsye(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
+    if (One.CurrentAreaMysticForest(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
+    if (One.CurrentAreaOhranTower(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
+    if (One.CurrentAreaParmetysia(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_PARMETYSIA; }
+    if (One.CurrentAreaVelgusSeaTemple(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (One.CurrentAreaVelgusSeaTemple_2(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (One.CurrentAreaVelgusSeaTemple_3(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (One.CurrentAreaVelgusSeaTemple_4(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (One.CurrentAreaEdelgarzenCastle(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (One.CurrentAreaEdelgarzenCastle_2(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (One.CurrentAreaEdelgarzenCastle_3(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (One.CurrentAreaEdelgarzenCastle_4(select_area_name)) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
   }
   
   private void ViewQuestEvent(string quest_name)
@@ -5631,7 +5634,7 @@ public partial class HomeTown : MotherBase
   private List<Item> GetShopItem(string area_name)
   {
     List<Item> shopList = new List<Item>();
-    if (area_name == Fix.TOWN_ANSHET)
+    if (One.CurrentAreaAnshet(area_name))
     {
       shopList.Add(new Item(Fix.FINE_SWORD));
       shopList.Add(new Item(Fix.FINE_CLAW));
@@ -5657,7 +5660,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_12) { shopList.Add(new Item(Fix.CURE_SEAL)); }
       if (One.AR.PotionAvailable_13) { shopList.Add(new Item(Fix.POTION_MAGIC_SEAL)); }
     }
-    if (area_name == Fix.TOWN_FAZIL_CASTLE)
+    if (One.CurrentAreaFazilCastle(area_name))
     {
       shopList.Add(new Item(Fix.CLASSICAL_SWORD));
       shopList.Add(new Item(Fix.CLASSICAL_CLAW));
@@ -5705,7 +5708,7 @@ public partial class HomeTown : MotherBase
       //  shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
       //}
     }
-    else if (area_name == Fix.TOWN_COTUHSYE)
+    else if (One.CurrentAreaCotuhsye(area_name))
     {
       shopList.Add(new Item(Fix.SMART_SWORD));
       shopList.Add(new Item(Fix.SMART_CLAW));
@@ -5739,7 +5742,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_33) { shopList.Add(new Item(Fix.GOD_YORISHIRO_SOSEI)); }
       if (One.AR.PotionAvailable_34) { shopList.Add(new Item(Fix.OLDTREE_GUARDIAN_MARK)); }
     }
-    else if (area_name == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(area_name))
     {
       shopList.Add(new Item(Fix.SUPERIOR_SWORD));
       shopList.Add(new Item(Fix.SUPERIOR_LANCE));
@@ -5781,7 +5784,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.PotionAvailable_43) { shopList.Add(new Item(Fix.LEKS_MYSTICAL_POTION)); }
       if (One.AR.PotionAvailable_44) { shopList.Add(new Item(Fix.TEN_ON_MORI_MEGUMI)); }
     }
-    else if (area_name == Fix.TOWN_PARMETYSIA)
+    else if (One.CurrentAreaParmetysia(area_name))
     {
       shopList.Add(new Item(Fix.MASTER_SWORD));
       shopList.Add(new Item(Fix.MASTER_LANCE));
@@ -5822,7 +5825,7 @@ public partial class HomeTown : MotherBase
   public List<string> GetFoodMenu(string area_name)
   {
     List<string> foodList = new List<string>();
-    if (area_name == Fix.TOWN_ANSHET)
+    if (One.CurrentAreaAnshet(area_name))
     {
       foodList.Add(Fix.FOOD_BALANCE_SET);
       foodList.Add(Fix.FOOD_LARGE_GOHAN_SET);
@@ -5830,7 +5833,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.FoodAvailable_12) { foodList.Add(Fix.FOOD_ZUNOU_FLY_SET); }
       if (One.AR.FoodAvailable_13) { foodList.Add(Fix.FOOD_SPEED_SOBA); }
     }
-    else if (area_name == Fix.TOWN_FAZIL_CASTLE)
+    else if (One.CurrentAreaFazilCastle(area_name))
     {
       foodList.Add(Fix.FOOD_KATUCARRY);
       foodList.Add(Fix.FOOD_OLIVE_AND_ONION);
@@ -5838,7 +5841,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.FoodAvailable_22) { foodList.Add(Fix.FOOD_USAGI); }
       if (One.AR.FoodAvailable_23) { foodList.Add(Fix.FOOD_SANMA); }
     }
-    else if (area_name == Fix.TOWN_COTUHSYE)
+    else if (One.CurrentAreaCotuhsye(area_name))
     {
       foodList.Add(Fix.FOOD_FISH_GURATAN);
       foodList.Add(Fix.FOOD_SEA_TENPURA);
@@ -5846,7 +5849,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.FoodAvailable_32) { foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN); }
       if (One.AR.FoodAvailable_33) { foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI); }
     }
-    else if (area_name == Fix.TOWN_ZHALMAN)
+    else if (One.CurrentAreaZhalman(area_name))
     {
       foodList.Add(Fix.FOOD_TOBIUSAGI_ROAST);
       foodList.Add(Fix.FOOD_WATARI_KAMONABE);
@@ -5854,7 +5857,7 @@ public partial class HomeTown : MotherBase
       if (One.AR.FoodAvailable_42) { foodList.Add(Fix.FOOD_NEGIYAKI_DON); }
       if (One.AR.FoodAvailable_43) { foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE); }
     }
-    else if (area_name == Fix.TOWN_PARMETYSIA)
+    else if (One.CurrentAreaParmetysia(area_name))
     {
       foodList.Add(Fix.FOOD_HINYARI_YASAI);
       foodList.Add(Fix.FOOD_AZARASI_SHIOYAKI);
@@ -5898,6 +5901,53 @@ public partial class HomeTown : MotherBase
       this.backgroundData.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
       this.backgroundData.gameObject.SetActive(true);
     }
+  }
+
+  private string ConvertMapFileToAreaName(string area_name)
+  {
+    if (area_name == null) { return null; }
+
+    else if (area_name == Fix.MAPFILE_ESMILIA_GRASSFIELD) { return L10n.Get(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD); }
+    else if (area_name == Fix.MAPFILE_GORATRUM) { return L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE); }
+    else if (area_name == Fix.MAPFILE_GORATRUM_2) { return L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE_2); }
+    else if (area_name == Fix.MAPFILE_MYSTIC_FOREST) { return L10n.Get(Fix.L10N_AREANAME_MYSTIC_FOREST); }
+    else if (area_name == Fix.MAPFILE_OHRAN_TOWER) { return L10n.Get(Fix.L10N_AREANAME_OHRAN_TOWER); }
+    else if (area_name == Fix.MAPFILE_VELGUS) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE); }
+    else if (area_name == Fix.MAPFILE_VELGUS_2) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2); }
+    else if (area_name == Fix.MAPFILE_VELGUS_3) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3); }
+    else if (area_name == Fix.MAPFILE_VELGUS_4) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_2) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_3) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3); }
+    else if (area_name == Fix.MAPFILE_EDELGARZEN_4) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4); }
+
+    return area_name;
+  }
+
+  private string ConvertTownNameToAreaName(string area_name)
+  { 
+    if (area_name == null) { return null; }
+
+    else if (One.CurrentAreaAnshet(area_name)) { return L10n.Get(Fix.L10N_AREANAME_ANSHET); }
+    else if (One.CurrentAreaFazilCastle(area_name)) { return L10n.Get(Fix.L10N_AREANAME_FAZIL_CASTLE); }
+    else if (One.CurrentAreaCotuhsye(area_name)) { return L10n.Get(Fix.L10N_AREANAME_COTUHSYE); }
+    else if (One.CurrentAreaZhalman(area_name)) { return L10n.Get(Fix.L10N_AREANAME_ZHALMAN); }
+    else if (One.CurrentAreaParmetysia(area_name)) { return L10n.Get(Fix.L10N_AREANAME_PARMETYSIA); }
+    else if (One.CurrentAreaEsmiliaGrassfield(area_name)) { return L10n.Get(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD); }
+    else if (One.CurrentAreaGoratrumCave(area_name)) { return L10n.Get(Fix.L10N_AREANAME_GORATRUM_CAVE); }
+    // ゴラトラム洞窟2層から開始はない
+    else if (One.CurrentAreaMysticForest(area_name)) { return L10n.Get(Fix.L10N_AREANAME_MYSTIC_FOREST); }
+    else if (One.CurrentAreaOhranTower(area_name)) { return L10n.Get(Fix.L10N_AREANAME_OHRAN_TOWER); }
+    else if (One.CurrentAreaVelgusSeaTemple(area_name)) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE); }
+    else if (One.CurrentAreaVelgusSeaTemple_2(area_name)) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_2); }
+    else if (One.CurrentAreaVelgusSeaTemple_3(area_name)) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_3); }
+    else if (One.CurrentAreaVelgusSeaTemple_4(area_name)) { return L10n.Get(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE_4); }
+    else if (One.CurrentAreaEdelgarzenCastle(area_name)) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE); }
+    else if (One.CurrentAreaEdelgarzenCastle_2(area_name)) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_2); }
+    else if (One.CurrentAreaEdelgarzenCastle_3(area_name)) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3); }
+    else if (One.CurrentAreaEdelgarzenCastle_4(area_name)) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4); }
+    else if (One.CurrentAreaEdelgarzenCastle_Center(area_name)) { return L10n.Get(Fix.L10N_AREANAME_EDELGARZEN_CENTER); }
+    return area_name;
   }
 
 

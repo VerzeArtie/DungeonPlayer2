@@ -1099,8 +1099,8 @@ public static partial class Fix
   //  "「フィオーネの湖」中央に位置するヴェルガスの神殿は普段歩いては行けない箇所であるが、閉鎖されていた「洗状橋」が何者かによって可動させられているとの報告が入った。ヴェルガスの神殿には多くの未知なるモンスターが住んでおり、非常に危険である事が知られている。ヴェルガスの神殿へ赴き、神殿の状況を確認する事となった。",
   //  "ヴェルガスの神殿にて遭遇した人物から、中立国：ムーンフォーダー区域への入国許可証を得た。ムーンフォーダー区域内において、現在もなお不穏な出来事が発生しているため、その正体を突き止めるべく、まずは「清信者」達が集うアーケンダイン街へ入り情報を収集して欲しいとの依頼を連絡を受けた。",
   //  "アーケンダイン街の人々から聞いた情報によると、今は人が住んでいない廃墟サリタンにたびたび出入りしている不審な人物が目撃されている。廃墟サリタンに出入りしている人物を突き止めよう。",
-  //  "廃墟サリタンで遭遇した人物は、神話王国の首都を収める国王本人だった。国王はつい先刻実施した神聖儀式により、凶兆のお告げを得ており、そこでは海底神殿ヴェルガスと廃墟サリタンに古来より封印せしObisidianStoneに関連する事象であるとの見解を得たとのこと。そのため、現在保持しているObisidianStoneを持って今すぐ神話王国の首都パルメティシアに訪れるように依頼された。",
-  //  "ObisidianStoneに関する歴史をより深く紐解くため、ヴィンスガルデ王国へと続く「ダルの門」を開く事が必要である事をパルメティシア王より告げられた。王より受け取った鍵を用いて「ダルの門」を開き、ヴィンスガルデ王国にあるディル街へ訪問してほしいとの依頼を受けた。",
+  //  "廃墟サリタンで遭遇した人物は、神話王国の首都を収める国王本人だった。国王はつい先刻実施した神聖儀式により、凶兆のお告げを得ており、そこでは海底神殿ヴェルガスと廃墟サリタンに古来より封印せしObisidianStoneに関連する事象であるとの見解を得たとのこと。そのため、現在保持しているObisidianStoneを持って今すぐ神話王国の首都パルメテイシアに訪れるように依頼された。",
+  //  "ObisidianStoneに関する歴史をより深く紐解くため、ヴィンスガルデ王国へと続く「ダルの門」を開く事が必要である事をパルメテイシア王より告げられた。王より受け取った鍵を用いて「ダルの門」を開き、ヴィンスガルデ王国にあるディル街へ訪問してほしいとの依頼を受けた。",
   //  "ディル街の人々は酷く荒んでいた。街が荒廃した理由は過去に起きた「戦乱ウォズム」により「主要都市ディスケル」が壊滅状態にさせられた事に起因する事が明らかとなった。ディスケルの跡地に赴き、まずは死者達の元へ酒と花を持っていき、弔いの儀式を行って欲しいようだ。",
   //  "死者の弔いを行い、ディル街に住む人々へその行いを伝えた。その結果、ディル街の人々は今の圧政に苦しむ事を嘆く事を止め、捨て身の決起を行い、ガンロー要塞への突撃を決意した。ガンロー要塞に向かい、ディル街の人々と共にガンロー要塞の総指揮官を打ち倒そう。",
   //  "ガンロー要塞より得た情報によると、エデルガイゼン城へ向かうまでの間、水面上を通過する事の出来る幻のルートが存在する事が判明している。そのルートを抜けた先には、未踏の地下洞窟ロスロンがあると言われている。幻のルートを探し、洞窟ロスロンを探索してみよう。",
@@ -1159,11 +1159,11 @@ public static partial class Fix
   public const string QUEST_DESC_20 = "オーランの塔最上階へと上る階段にて、流れ込んでくる異質な風をパーティ全員は感じ取った。この先、何かが待ち受けている事だけは間違いない。準備を万全にして挑んだ方が良いだろう。";
 
   public const string QUEST_TITLE_21 = "国王エルミからの依頼３";
-  public const string QUEST_DESC_21 = "オーランの塔から見えた内容について国王へ報告を行った。国王エルミからは次の指令としてムーンフォーダー方面にあるパルメティシア神殿を目指すよう依頼を受けた。準備を整えたアイン達は、パルメティシア神殿へと向かう。";
+  public const string QUEST_DESC_21 = "オーランの塔から見えた内容について国王へ報告を行った。国王エルミからは次の指令としてムーンフォーダー方面にあるパルメテイシア神殿を目指すよう依頼を受けた。準備を整えたアイン達は、パルメテイシア神殿へと向かう。";
   public const string QUEST_DESC_21_2 = "アーケンダイン街に到着したアイン達は、早速聞き込みを開始する事とした。アーケンダイン街を一通り回り、街の人と会話しよう。";
 
   public const string QUEST_TITLE_31 = "教皇ツヴェルドーゼからの依頼";
-  public const string QUEST_DESC_31 = "パルメティシア神殿の教皇からヴェルガスの海底神殿に赴き、【天の名】を獲得してくる事を依頼された。アインは意を決してヴェルガス海底神殿へと赴く。ヴェルガス海底神殿で【天の名】を授かる事でアインはこれまで感じてきた違和感の正体について一定の理解を得る事が出来る。そう信じて歩を進める。";
+  public const string QUEST_DESC_31 = "パルメテイシア神殿の教皇からヴェルガスの海底神殿に赴き、【天の名】を獲得してくる事を依頼された。アインは意を決してヴェルガス海底神殿へと赴く。ヴェルガス海底神殿で【天の名】を授かる事でアインはこれまで感じてきた違和感の正体について一定の理解を得る事が出来る。そう信じて歩を進める。";
 
   public const string QUEST_TITLE_41 = "教皇ツヴェルドーゼからの依頼２";
   public const string QUEST_DESC_41 = "【天の名】を授かったアインは、教皇ツヴェルドーゼとの謁見を経て、ヴィンスガルデ王国のエデルガイゼン城に向かうよう依頼された。アインはこれまでのObsidianStoneとの接触を通じて、一つの結論に辿り着こうとしている。エデルガイゼン城で待ち受ける事象を全て受け止める覚悟で、アインは足を進め始めた。";
@@ -1198,7 +1198,7 @@ public static partial class Fix
   public const string AREA_INFO_COTUHSYE = "この港町には様々な職業の者が行き来している。国王エルミは本エリアを交流の場の一つとして制定しており、出入りについて制限は設けていないため交易が盛んである。だが、現在は船の出航制限がかかっており、ここからヴィンスガルデ王国行きの船は出ていない。";
   public const string AREA_INFO_MYSTIC_FOREST = "立ち入る人々を深淵なる濃霧へと誘う【神秘の森】。その場の見通しの悪さに加え、モンスターからの襲撃が繰り返し行われるため、方向感覚を失い、そのまま行方不明となる者が後を絶えない。進むためには入念なる準備が必要となるだろう。";
   public const string AREA_INFO_OHRAN_TOWER = "塔の頂上からは大陸全土を見渡す事ができる。【オーランの塔】が建設された時期は依然として不明であるが、少なくともファージル王国が栄えるよりも前から存在している。今では観光として訪れる者はおらず、モンスターが蔓延る場所と化しており、戦闘経験を積んだ者達が腕試しとして挑む場所に指定されている。塔の頂きに到達したければ、一定の力量、状況判断を持って挑む必要があるだろう。";
-  public const string AREA_INFO_PARMETYSIA = "ムーンフォーダー方面を統括するパルメティシア神殿。その方面は雪原地域であり、ファージルエリアからは特別な事情が無い限り行くことはないとされている。また、そのエリア一帯はムーンフォーダー教団の一員達が定期的な監視を行っており、迂闊に出歩く事も許されていない。";
+  public const string AREA_INFO_PARMETYSIA = "ムーンフォーダー方面を統括するパルメテイシア神殿。その方面は雪原地域であり、ファージルエリアからは特別な事情が無い限り行くことはないとされている。また、そのエリア一帯はムーンフォーダー教団の一員達が定期的な監視を行っており、迂闊に出歩く事も許されていない。";
   public const string AREA_INFO_VELGUS_SEA_TEMPLE = "遥か古代から存在する海底神殿ヴェルガス。その名は教団がこの神殿を発見した当時の人物「ヴェルセリウス・ガーランド・アルトリウス」の名にちなんで命名された。この世に生まれし生命は等しく神から寵愛を受ける事が約束されており、それは「天の名」という形で示される。海底神殿には幾つもの紋様が刻まれており、紋様が示す意図はムーンフォーダー教団の力を持ってしても、未だ解明されていない。「天の名」が授けられると言われる海底神殿ではあるが、実質は魔物の巣窟となっている。海底神殿へ挑むには相当の力量が必要となるだろう。";
   public const string AREA_INFO_EDELGARZEN = "ヴィンスガルデ王国に悠然とそびえ立つエデルガイゼン城。他国からの侵略から守る事、他地域への監視を強化するため、キルクード山脈地帯の頂上にその城は建設された。難攻不落であるため、この城へ攻めこむ者は存在せず、圧倒的な存在感を放っている。城に向かう際は入念な準備と実行する力だけでは足りない。一定の器と、そして真の気質が必要となるだろう。";
   #endregion
@@ -1233,7 +1233,7 @@ public static partial class Fix
   public const string FOOD_NEGIYAKI_DON = "ネギ焼き丼";
   public const string FOOD_NANAIRO_BUNA_NITSUKE = "七色ブナの煮つけ";
 
-  // パルメティシア神殿
+  // パルメテイシア神殿
   public const string FOOD_HINYARI_YASAI = @"ヒンヤリ・カリっと野菜定食";
   public const string FOOD_AZARASI_SHIOYAKI = @"白アザラシの塩焼き";
   public const string FOOD_WINTER_BEEF_CURRY = @"ウィンター・ビーフカレー";
@@ -1694,6 +1694,7 @@ public static partial class Fix
   public const string L10N_AREANAME_EDELGARZEN_CASTLE_2 = "lblAreaNameEdelgarzenCastle_2";
   public const string L10N_AREANAME_EDELGARZEN_CASTLE_3 = "lblAreaNameEdelgarzenCastle_3";
   public const string L10N_AREANAME_EDELGARZEN_CASTLE_4 = "lblAreaNameEdelgarzenCastle_4";
+  public const string L10N_AREANAME_EDELGARZEN_CENTER = "lblAreaNameEdelgarzenCastle_Center";
   // rito wosm
   #endregion
 
@@ -3133,7 +3134,7 @@ public static partial class Fix
   public const string FLOW_FUNNEL_OF_THE_ZVELDOZE = @"Flow Funnel of the Zveldose";
 
   #endregion
-  #region "パルメティシア神殿(武具合成)"
+  #region "パルメテイシア神殿(武具合成)"
   public const string HIGH_RANGER_BATTLE_BOW = "ハイレンジャー・バトルボウ";
   public const string DARMEKIUS_HARD_PLATE = "ダルメキアス・ハード・プレート";
   public const string HATENA_BIG_BOX = "ハテナ・ビッグ・ボックス";
@@ -3353,7 +3354,7 @@ public static partial class Fix
   public const string LEKS_MYSTICAL_POTION = "レクス・ミスティカル・ポーション";
   public const string TEN_ON_MORI_MEGUMI = "天の恩・森の恵";
   #endregion
-  #region "パルメティシア神殿(ポーション合成)"
+  #region "パルメテイシア神殿(ポーション合成)"
   public const string KINDAN_TOKKOUYAKU = "禁断の特効薬";
   public const string SEAL_OF_ARCPOWER = "シール・オブ・アークパワー";
   public const string SEAL_OF_CHOSEN_POWER = "シール・オブ・チューズン・パワー";
@@ -14714,7 +14715,7 @@ public static partial class Fix
   public const float BASEFIELD_EVENT_6_Y = 15.5f;
   public const float BASEFIELD_EVENT_6_Z = 53.0f;
 
-  // キルクード山脈→パルメティシア神殿方向（ビュー）
+  // キルクード山脈→パルメテイシア神殿方向（ビュー）
   public const string BASEFIELD_EVENT_7_C = "Event";
   public const string BASEFIELD_EVENT_7_O = "7";
   public const float BASEFIELD_EVENT_7_X = 4.0f;
@@ -14845,11 +14846,14 @@ public static partial class Fix
   #endregion
   #region "Hometown"
   public const string TOWN_ANSHET = "アンシェット街";
+  public const string TOWN_ANSHET_EN = "Ansthet Town";
   public const string TOWN_ANSHET_ICON = "TownIcon_AnshetTown";
   public const string TOWN_QVELTA_TOWN = "クヴェルタ街";
   public const string TOWN_COTUHSYE = "港町コチューシェ";
+  public const string TOWN_COTUHSYE_EN = "Cotuhsye Town";
   public const string TOWN_COTUHSYE_ICON = "TownIcon_CotusyeTown";
   public const string TOWN_ZHALMAN = "ツァルマンの里";
+  public const string TOWN_ZHALMAN_EN = "Zhalman Village";
   public const string TOWN_ZHALMAN_ICON = "TownIcon_ZhalmanVillage";
   public const string TOWN_WOSM = "ウォズム村";
   public const string TOWN_ARCANEDINE = "アーケンダイン街";
@@ -14859,42 +14863,57 @@ public static partial class Fix
   public const string TOWN_ZELMAN = "ゼールマンの里";
   public const string TOWER_FRAN = "フーランの塔";
   public const string TOWN_FAZIL_CASTLE = "ファージル宮殿";
+  public const string TOWN_FAZIL_CASTLE_EN = "Fazil Castle";
   public const string TOWN_FAZIL_CASTLE_ICON = "TownIcon_FazilCastle";
   public const string TOWN_PARMETYSIA = "パルメテイシア神殿";
+  public const string TOWN_PARMETYSIA_EN = "Parmetysia Temple";
   public const string TOWN_PARMETYSIA_ICON = "TownIcon_ParmetysiaTemple";
   public const string TOWN_EDELGARZEN_CASTLE = "エデルガイゼン城";
   public const string TOWN_FAZIL_UNDERGROUND = "ファージル宮殿地下";
   #endregion
   #region "Dungeon"
   public const string DUNGEON_ESMILIA_GRASSFIELD = "エスミリア草原区域";
+  public const string DUNGEON_ESMILIA_GRASSFIELD_EN = "Esmilia Grassfield";
   public const string DUNGEON_ESMILIA_GRASSFIELD_ICON = "Dungeon_EsmiliaGrassfield";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトラムの洞窟";
+  public const string DUNGEON_GORATRUM_CAVE_EN = "Goratrum Cave";
   public const string DUNGEON_GORATRUM_CAVE_ICON = "Dungeon_GoratrumCave";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
+  public const string DUNGEON_OHRAN_TOWER_EN = "Tower of Ohran";
   public const string DUNGEON_OHRAN_TOWER_ICON = "Dungeon_OhranTower";
-  public const string DUNGEON_VELGUS_SEA_TEMPLE = "ヴェルガス海底神殿 第一階層";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE = "ヴェルガス海底神殿";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE_EN = "Velgus Sea Temple";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_ICON = "Dungeon_VelgusSeaTemple";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_2 = "ヴェルガス海底神殿 第二階層";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE_2_EN = "Velgus Sea Temple (2F)";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_3 = "ヴェルガス海底神殿 第三階層";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE_3_EN = "Velgus Sea Temple (3F)";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_4 = "ヴェルガス海底神殿 最深部";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE_4_EN = "Velgus Sea Temple (DEEP)";
   public const string DUNGEON_MYSTIC_FOREST = "神秘の森";
+  public const string DUNGEON_MYSTIC_FOREST_EN = "Mystic Forest";
   public const string DUNGEON_MYSTIC_FOREST_ICON = "Dungeon_MysticForest";
   public const string DUNGEON_GATE_OF_DHAL = "ダルの門";
   public const string DUNGEON_RUINS_OF_SARITAN = "廃墟サリタン";
   public const string DUNGEON_SNOWTREE_LATA = "雪原の大樹ラタ";
   public const string DUNGEON_DISKEL_BATTLE_FIELD = "ディスケル戦場跡地";
-  public const string DUNGEON_EDELGARZEN_CASTLE = "エデルガイゼン城 第一階層";
+  public const string DUNGEON_EDELGARZEN_CASTLE = "エデルガイゼン城";
+  public const string DUNGEON_EDELGARZEN_CASTLE_EN = "Edelgarzen Castle";
   public const string DUNGEON_EDELGARZEN_CASTLE_ICON = "Dungeon_Edelgarzen";
   public const string DUNGEON_EDELGARZEN_CASTLE_2 = "エデルガイゼン城 第二階層";
+  public const string DUNGEON_EDELGARZEN_CASTLE_2_EN = "Edelgarzen Castle (2F)";
   public const string DUNGEON_EDELGARZEN_CASTLE_3 = "エデルガイゼン城 第三階層";
+  public const string DUNGEON_EDELGARZEN_CASTLE_3_EN = "Edelgarzen Castle (3F)";
   public const string DUNGEON_EDELGARZEN_CASTLE_4 = "エデルガイゼン城 最上階";
+  public const string DUNGEON_EDELGARZEN_CASTLE_4_EN = "Edelgarzen Castle (TOP)";
   public const string DUNGEON_SITH_GRAVEYARD = "シスの墓標";
   public const string DUNGEON_GANRO_FORTRESS = "ガンロー要塞";
   public const string DUNGEON_LOSLON_CAVE = "ロスロンの洞窟";
   public const string DUNGEON_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
 
   public const string DUNGEON_EDELGARZEN_CASTLE_CENTER = "エデルガイゼン城 正面ゲート";
+  public const string DUNGEON_EDELGARZEN_CASTLE_CENTER_EN = "Edelgarzen Castle (CENTER)";
   public const string DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON = "Dungeon_Edelgarzen";
   #endregion
   #region "Field"

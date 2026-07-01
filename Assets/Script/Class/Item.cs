@@ -9164,7 +9164,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 700000;
         this._importantType = Important.None;
-        this._description = "パルメティシア神殿の祈りが込められている聖なる盾。神々しさを常に放っており、所持者には聖なる加護が付与される。物理防御力４００、魔法防御力３６０、体＋１００、聖耐性３０％、闇耐性３０％";
+        this._description = "パルメテイシア神殿の祈りが込められている聖なる盾。神々しさを常に放っており、所持者には聖なる加護が付与される。物理防御力４００、魔法防御力３６０、体＋１００、聖耐性３０％、闇耐性３０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -9979,7 +9979,7 @@ public partial class Item
         this._resistSlip = true;
         break;
       #endregion
-      #region "パルメティシア神殿"
+      #region "パルメテイシア神殿"
       case Fix.HIGH_RANGER_BATTLE_BOW:
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Twohand_Bow;
@@ -11553,7 +11553,7 @@ public partial class Item
         break;
 
       #endregion
-      #region "パルメティシア神殿"
+      #region "パルメテイシア神殿"
       case Fix.KINDAN_TOKKOUYAKU:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Potion;

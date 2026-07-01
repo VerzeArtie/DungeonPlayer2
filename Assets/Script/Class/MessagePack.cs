@@ -1667,15 +1667,15 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveLeft);
   }
 
-  // キルクード山脈→パルメティシア神殿方向（ビュー）
+  // キルクード山脈→パルメテイシア神殿方向（ビュー）
   public static void Message_BaseField_5(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.LastField_Event_5 == false)
     {
       One.TF.LastField_Event_5 = true;
-      Message(ref m_list, ref e_list, "アイン：（　ここからだと・・・パルメティシア神殿が見えるな　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　ここからだと・・・パルメテイシア神殿が見えるな　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（　あ。パルメティシア神殿の方で少しだけ光っている区画が見えるな・・・あれは・・・　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　あ。パルメテイシア神殿の方で少しだけ光っている区画が見えるな・・・あれは・・・　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：（　何かの紋様に見える・・・解読は出来ないが、ただ・・・　）", ActionEvent.None);
 
@@ -1687,7 +1687,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（　リガール王も、エルミ様も・・・天の民なのかもしれない　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（　となると、パルメティシア神殿とのコンタクトもひょっとしてこれで・・・　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　となると、パルメテイシア神殿とのコンタクトもひょっとしてこれで・・・　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
 
@@ -1707,7 +1707,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（　ここまで来ると大陸全土が見渡せるな　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（　ツァルマンの里とパルメティシア神殿、そして、ファージル宮殿とエデルガイゼン城　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　ツァルマンの里とパルメテイシア神殿、そして、ファージル宮殿とエデルガイゼン城　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：（　リガール王の言っていた【交点】とはおそらくここの事だろう　）", ActionEvent.None);
 
@@ -9283,11 +9283,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：王よ。深き配慮、感謝いたします。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：では、アイン君。ムーンフォーダー方面に行ったら、パルメティシア神殿へ行くと良いだろう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：では、アイン君。ムーンフォーダー方面に行ったら、パルメテイシア神殿へ行くと良いだろう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：パルメテイシア神殿？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：ムーンフォーダー方面はパルメティシア神殿にいる教皇が統治を行ってくれている。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：ムーンフォーダー方面はパルメテイシア神殿にいる教皇が統治を行ってくれている。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エルミ：ただし、ムーンフォーダーは正直開放された国交が無いため、情報は入手しにくい状況なんだ。", ActionEvent.None);
 
@@ -9331,7 +9331,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：アハハー、アリガト☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、じゃあ皆！早速ムーンフォーダーにあるパルメティシア神殿へ向かうとしよう！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ皆！早速ムーンフォーダーにあるパルメテイシア神殿へ向かうとしよう！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】を達成しました！", ActionEvent.QuestComplete);
 
@@ -20344,7 +20344,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿に赴いてみようと思う。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：パルメテイシア神殿に赴いてみようと思う。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・　っ　・・・", ActionEvent.None);
 
@@ -20352,7 +20352,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、青水晶で一旦出るとしよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アインは遠見の青水晶を用いてパルメティシア神殿へと帰還した 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 アインは遠見の青水晶を用いてパルメテイシア神殿へと帰還した 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, Fix.TOWN_PARMETYSIA, ActionEvent.GotoHomeTownForce);
     }
@@ -20367,7 +20367,7 @@ public static class MessagePack
     if (One.TF.Event_Message1000081 == false)
     {
       One.TF.Event_Message1000081 = true;
-      Message(ref m_list, ref e_list, "～　パルメティシア神殿にて　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～　パルメテイシア神殿にて　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ツヴェル：ふむ・・・そのような看板があるとは・・・", ActionEvent.None);
 
@@ -28749,7 +28749,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：す、すまねえ。とにかく話は後だ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿に帰還して治療してもらうぞ。良いな？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：パルメテイシア神殿に帰還して治療してもらうぞ。良いな？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：ッ・・・", ActionEvent.None);
 
@@ -28757,7 +28757,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（ よし、俺も急ごう ）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アインは遠見の青水晶を用いてパルメティシア神殿へと帰還した 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 アインは遠見の青水晶を用いてパルメテイシア神殿へと帰還した 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, Fix.TOWN_PARMETYSIA, ActionEvent.GotoHomeTownForce);
     }
@@ -28769,7 +28769,7 @@ public static class MessagePack
     {
       One.TF.Event_Message1010020 = true;
 
-      Message(ref m_list, ref e_list, "（ パルメティシア神殿へと帰還した俺はまず ）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（ パルメテイシア神殿へと帰還した俺はまず ）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（ エオネ・フルネアの事を最優先とした )", ActionEvent.None);
 
@@ -28921,7 +28921,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：ここは・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：パルメティシア神殿の医療室よ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：パルメテイシア神殿の医療室よ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
 
@@ -29057,7 +29057,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：（・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～ パルメティシア神殿：食堂にて ～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～ パルメテイシア神殿：食堂にて ～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、ごちそうさまでした！", ActionEvent.None);
 
@@ -29167,7 +29167,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：朝か・・・よし。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アインはパルメティシア神殿の就寝室から外へと出た 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 アインはパルメテイシア神殿の就寝室から外へと出た 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "？？？：お、遅かったじゃねーか！！", ActionEvent.None);
 
@@ -29419,11 +29419,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あ、ああ。そうか言ってなかったな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：黙っていたが・・・第三候補は、パルメティシア神殿だ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：黙っていたが・・・第三候補は、パルメテイシア神殿だ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：まあ、場所についてはこれからだが・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：パルメティシア神殿の事ね。それなら、ここから少し北に行けばあるみたいよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：パルメテイシア神殿の事ね。それなら、ここから少し北に行けばあるみたいよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なに、マジかよ！？", ActionEvent.None);
 
@@ -32214,7 +32214,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：パルメティシア神殿の教皇様から聞いたんだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：パルメテイシア神殿の教皇様から聞いたんだ。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：【赤の吉兆は偽り】", ActionEvent.None);
 
@@ -32246,7 +32246,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "リガール：エデルガイゼン城", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "リガール：パルメティシア神殿", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：パルメテイシア神殿", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "リガール：その交点の頂に【解】は存在する", ActionEvent.None);
 
@@ -33249,7 +33249,7 @@ public static class MessagePack
   }
   #endregion
 
-  #region "パルメティシア神殿"
+  #region "パルメテイシア神殿"
   public static void Message2200000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message2200000 == false)
@@ -33357,7 +33357,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：いや、それでも次からは本当に気を付ける。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：おい、とっととパルメティシア神殿とやらに到着してしまおうぜ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：おい、とっととパルメテイシア神殿とやらに到着してしまおうぜ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
 
@@ -33371,7 +33371,7 @@ public static class MessagePack
     {
       One.TF.Event_Message2200010 = true;
 
-      Message(ref m_list, ref e_list, "アイン：よし、パルメティシア神殿に到着っと。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、パルメテイシア神殿に到着っと。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：何かファージルのエリアとは雰囲気が違うわね。", ActionEvent.None);
 
@@ -33962,7 +33962,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：神殿からの武具販売の事だけど許可が出たって言われたよー☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【パルメティシア神殿の武具屋が解放されました！】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【パルメテイシア神殿の武具屋が解放されました！】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ビリー：おっしゃ、早速行ってみようぜ！", ActionEvent.None);
 
@@ -34972,11 +34972,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "　アイン：（　死体はパルメテイシア神殿にある雪原の大樹ラタの元に安置される事となった　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　アイン：（　パルメティシア神殿の教皇たっての願いであった　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　アイン：（　パルメテイシア神殿の教皇たっての願いであった　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　アイン：（　不思議な事に誰もそれを反対する事なく、受け入れた　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　アイン：（　エオネ・フルネアは今もパルメティシア神殿で従事している　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　アイン：（　エオネ・フルネアは今もパルメテイシア神殿で従事している　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　アイン：（　リガール王との約束を果たすため、たまに謁見という名目で会話しに行っている　）", ActionEvent.None);
 
@@ -35504,11 +35504,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "　アイン：（　死体は離島ウォズムに雪原の大樹ラタの葉を届け、そこに安置される事となった　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　アイン：（　これはパルメティシア神殿の教皇からの取り計らいであった　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　アイン：（　これはパルメテイシア神殿の教皇からの取り計らいであった　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　アイン：（　不思議な事に誰もそれを反対する事なく、受け入れた　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　アイン：（　エオネ・フルネアは今もパルメティシア神殿で従事している　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　アイン：（　エオネ・フルネアは今もパルメテイシア神殿で従事している　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　アイン：（　リガール王との約束を果たすため、たまに謁見という名目で会話しに行っている　）", ActionEvent.None);
 
@@ -39085,7 +39085,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあちょっと無謀かもしれないが行ってみよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　パルメティシア神殿、教皇の間にて　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～　パルメテイシア神殿、教皇の間にて　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ツヴェル：子よ。いかがなされたかな。", ActionEvent.None);
 
@@ -39308,7 +39308,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：今のが・・・オラクルの預言？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：そーだよー。でもパルメティシア神殿の教皇様、本当によろしかったのですか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：そーだよー。でもパルメテイシア神殿の教皇様、本当によろしかったのですか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：良いのだ。ワシはこの者に託してみたいと思ったのだ。", ActionEvent.None);
 
@@ -40441,7 +40441,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "カール：答える事は出来ぬ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿の教皇とは知り合いなのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：パルメテイシア神殿の教皇とは知り合いなのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "カール：知ってどうする。", ActionEvent.None);
 
@@ -40571,7 +40571,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：分かった。ありがとう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：この事をパルメティシア神殿の教皇はご存じなのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：この事をパルメテイシア神殿の教皇はご存じなのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "カール：認識しておる。", ActionEvent.None);
 
