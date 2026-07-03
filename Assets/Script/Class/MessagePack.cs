@@ -36781,7 +36781,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：そうなのか？動き自体は良いからスタミナは大丈夫そうだが。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：だーかーらー、そうじゃなって言ってるのよ！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：だーかーらー、そうじゃないって言ってるのよ！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのフォースフル・ブローがアインに炸裂）", ActionEvent.None);
 
