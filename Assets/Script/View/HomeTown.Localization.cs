@@ -160,7 +160,7 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ITEM_PRECIOUS, "貴重品", "Precious");
     Register(Fix.L10N_PARTYMENU_ITEM_USE, "つかう", "Use");
     Register(Fix.L10N_PARTYMENU_ITEM_DETAIL, "詳細", "Detail");
-    Register(Fix.L10N_PARTYMENU_ITEM_DELETE, "削除", "Delete");
+    Register(Fix.L10N_PARTYMENU_ITEM_DELETE, "捨てる", "Remove");
     // PartyMenu-Decision
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL, "キャンセル", "Cancel");
