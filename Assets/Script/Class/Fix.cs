@@ -14876,7 +14876,7 @@ public static partial class Fix
   public const string DUNGEON_ESMILIA_GRASSFIELD_EN = "Esmilia Grassfield";
   public const string DUNGEON_ESMILIA_GRASSFIELD_ICON = "Dungeon_EsmiliaGrassfield";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
-  public const string DUNGEON_GORATRUM_CAVE = "ゴラトラムの洞窟";
+  public const string DUNGEON_GORATRUM_CAVE = "ゴラトラム洞窟";
   public const string DUNGEON_GORATRUM_CAVE_EN = "Goratrum Cave";
   public const string DUNGEON_GORATRUM_CAVE_ICON = "Dungeon_GoratrumCave";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
