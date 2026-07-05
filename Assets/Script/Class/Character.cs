@@ -9564,6 +9564,25 @@ public partial class Character : MonoBehaviour
         this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
         break;
 
+      case Fix.DUEL_EONE_FULNEA:
+      case Fix.DUEL_EONE_FULNEA_JP:
+        SetupParameter(400, 150, 400, 250, 70, 0, 0, 0);
+        this.BaseLife = 37629;
+        this.BaseManaPoint = 2683;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.WHITE_FIRE_CROSSBOW);
+        this.MainArmor = new Item(Fix.SWIFTCROSS_OF_REDTHUNDER);
+        this.Accessory1 = new Item(Fix.SILVER_ETERNAL_SEED);
+        this.Accessory2 = new Item(Fix.RAINBOW_MOON_COMPASS);
+        this.FreshHeal = 5;
+        this.IceNeedle = 5;
+        this.HunterShot = 5;
+        this.PenetrationArrow = 3; // 少し弱め
+        this.CircleOfSerenity = 3;
+        this.InnerInspiration = 5; // 少し弱め
+        list.Add(Fix.NORMAL_ATTACK);
+        break;
+
       default:
         SetupParameter(10, 10, 10, 10, 10, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
@@ -11058,6 +11077,58 @@ public partial class Character : MonoBehaviour
 
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
+        break;
+
+      case Fix.DUEL_EONE_FULNEA:
+      case Fix.DUEL_EONE_FULNEA_JP:
+        if (this.AI_Phase == 0)
+        {
+          if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.PENETRATION_ARROW, ActionCommand.Cost(Fix.PENETRATION_ARROW), this))
+          {
+            result = Fix.NORMAL_ATTACK;// PENETRATION_ARROW;
+          }
+          else if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.HUNTER_SHOT, ActionCommand.Cost(Fix.HUNTER_SHOT), this))
+          {
+            result = Fix.HUNTER_SHOT;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+        else if (this.AI_Phase == 1)
+        {
+          if (this.CurrentLife <= this.MaxLife * 0.50f && this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), this))
+          {
+            result = Fix.FRESH_HEAL;
+          }
+          else if (this.CurrentInstantPoint <= 40)
+          {
+            result = Fix.INNER_INSPIRATION;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }        
+        }
+        else
+        {
+          if (this.IsValkyrieBlade == false && this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.VALKYRIE_BLADE, ActionCommand.Cost(Fix.VALKYRIE_BLADE), this))
+          {
+            result = Fix.VALKYRIE_BLADE;
+          }
+          else if (this.IsPhantomOboro == null && this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.PHANTOM_OBORO, ActionCommand.Cost(Fix.PHANTOM_OBORO), this))
+          {
+            result = Fix.PHANTOM_OBORO;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
         break;
 
       case Fix.DUEL_SHINIKIA_KAHLHANZ:

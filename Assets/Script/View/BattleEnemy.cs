@@ -431,14 +431,6 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(playerList[ii]), SecondaryLogic.LeylineSchema_Effect1(playerList[ii]), 0, 0);
       }
 
-      // ホワイト・ファイア・クロスボウによる効果
-      if (playerList[ii].IsEquip(Fix.WHITE_FIRE_CROSSBOW))
-      {
-        Debug.Log("Equip " + Fix.WHITE_FIRE_CROSSBOW + " Setup FlameBlade and EyeOftheIsshin " + playerList[ii].FullName);
-        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(playerList[ii]), SecondaryLogic.FlameBlade(playerList[ii]), SecondaryLogic.FlameBlade_BaseDamage(playerList[ii]), 0);
-        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(playerList[ii]), SecondaryLogic.EyeOfTheIsshin_Effect1(playerList[ii]), 0, 0);
-      }
-
       // エルダースタッフ・オブ・ライフブルームによる効果
       if (playerList[ii].IsEquip(Fix.ELDERSTAFF_OF_LIFEBLOOM))
       {
@@ -734,6 +726,17 @@ public partial class BattleEnemy : MotherBase
         One.EnemyList[ii].Ally = Fix.Ally.Enemy;
         EnemyList.Add(One.EnemyList[ii]);
         AllList.Add(One.EnemyList[ii]);
+      }
+    }
+
+    for (int ii = 0; ii < AllList.Count; ii++)
+    {
+      // ホワイト・ファイア・クロスボウによる効果
+      if (AllList[ii].IsEquip(Fix.WHITE_FIRE_CROSSBOW))
+      {
+        Debug.Log("Equip " + Fix.WHITE_FIRE_CROSSBOW + " Setup FlameBlade and EyeOftheIsshin " + AllList[ii].FullName);
+        AbstractAddBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(AllList[ii]), SecondaryLogic.FlameBlade(AllList[ii]), SecondaryLogic.FlameBlade_BaseDamage(AllList[ii]), 0);
+        AbstractAddBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(AllList[ii]), SecondaryLogic.EyeOfTheIsshin_Effect1(AllList[ii]), 0, 0);
       }
     }
 
@@ -1554,6 +1557,20 @@ public partial class BattleEnemy : MotherBase
 
         // 敵プレイヤー側がインスタントが溜まった場合、スタックインザコマンドを発動する。
         // ボス戦、Duel戦が対象
+        if (this.BattleType == Fix.BattleMode.Duel)
+        {
+          if (AllList[ii].FullName == Fix.DUEL_EONE_FULNEA || AllList[ii].FullName == Fix.DUEL_EONE_FULNEA_JP)
+          {
+            if (AllList[ii].IsStun && AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint * ActionCommand.InstantGaugeCost(Fix.CIRCLE_OF_SERENITY))
+            {
+              AllList[ii].UseInstantPoint(false, Fix.CIRCLE_OF_SERENITY);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii], Fix.CIRCLE_OF_SERENITY, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
+              return;
+            }
+          }
+        }
+
         if ((this.BattleType == Fix.BattleMode.Boss || this.BattleType == Fix.BattleMode.Duel) &&
             AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
         {
@@ -2256,7 +2273,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatKingOfVelgus = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_EONE_FULNEA ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_EONE_FULNEA_JP)
         {
           One.TF.DefeatEoneFulnea = true;
         }
@@ -8190,6 +8209,22 @@ public partial class BattleEnemy : MotherBase
         }
       }
       #endregion
+      #region "エオネ・フルネア"
+      if (EnemyList[ii].FullName == Fix.DUEL_EONE_FULNEA || EnemyList[ii].FullName == Fix.DUEL_EONE_FULNEA_JP)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint * ActionCommand.InstantGaugeCost(Fix.PRECISION_STRIKE))
+          {
+            EnemyList[ii].UseInstantPoint(false, Fix.PRECISION_STRIKE);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.PRECISION_STRIKE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+      #endregion
       #region "リガール・オルフシュタイン"
       if (EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
           EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
@@ -9480,7 +9515,8 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Duel this.NowSelectSrcPlayer.CurrentInstantPoint ok routne " + this.NowSelectSrcPlayer.CurrentInstantPoint + " " + this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName));
       this.NowSelectSrcPlayer.UseInstantPoint(false, sender.CommandName);
       this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-      if (sender.CommandName == Fix.HARDEST_PARRY)
+      if (sender.CommandName == Fix.HARDEST_PARRY || sender.CommandName == Fix.HARDEST_PARRY_JP ||
+          sender.CommandName == Fix.CIRCLE_OF_SERENITY || sender.CommandName == Fix.CIRCLE_OF_SERENITY_JP)
       {
         CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
       }

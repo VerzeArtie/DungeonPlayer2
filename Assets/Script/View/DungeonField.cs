@@ -15523,6 +15523,7 @@ public class DungeonField : MotherBase
                character.FullName == Fix.DUEL_ARDAM_VIO || character.FullName == Fix.DUEL_ARDAM_VIO_JP ||
                character.FullName == Fix.NAME_EONE_FULNEA ||
                character.FullName == Fix.DUEL_SELMOI_RO ||
+               character.FullName == Fix.DUEL_EONE_FULNEA || character.FullName == Fix.DUEL_EONE_FULNEA_JP ||
                character.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
                character.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN ||
                character.FullName == Fix.ROYAL_KING_AERMI_JORZT ||

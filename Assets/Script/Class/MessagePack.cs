@@ -28589,7 +28589,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ック・・・！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.EncountDuel);
+      Message(ref m_list, ref e_list, Fix.DUEL_EONE_FULNEA, ActionEvent.EncountDuel);
     }
   }
   #endregion
