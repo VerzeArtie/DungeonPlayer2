@@ -18363,12 +18363,12 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, 29.0f, 0, 9.0f))
         {
-          this.HomeTownCall = Fix.TOWN_ANSHET;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_ANSHET);
           return true;
         }
         if (LocationDetect(tile, -10.0f, 0, -4.0f))
         {
-          this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_FAZIL_CASTLE);
           return true;
           //DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -43, 2, -2);
         }
@@ -18377,12 +18377,12 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.GORATRUM_Upstair_1_X, Fix.GORATRUM_Upstair_1_Y, Fix.GORATRUM_Upstair_1_Z))
         {
-          this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_FAZIL_CASTLE);
           return true;
         }
         if (LocationDetect(tile, Fix.GORATRUM_Upstair_2_X, Fix.GORATRUM_Upstair_2_Y, Fix.GORATRUM_Upstair_2_Z))
         {
-          this.HomeTownCall = Fix.TOWN_COTUHSYE;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_COTUHSYE);
           return true;
         }
       }
@@ -18483,12 +18483,12 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.MYSTICFOREST_UPSTAIR_1_X, Fix.MYSTICFOREST_UPSTAIR_1_Y, Fix.MYSTICFOREST_UPSTAIR_1_Z))
         {
-          this.HomeTownCall = Fix.TOWN_COTUHSYE;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_COTUHSYE);
           return true;
         }
         if (LocationDetect(tile, Fix.MYSTICFOREST_UPSTAIR_2_X, Fix.MYSTICFOREST_UPSTAIR_2_Y, Fix.MYSTICFOREST_UPSTAIR_2_Z))
         {
-          this.HomeTownCall = Fix.TOWN_ZHALMAN;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_ZHALMAN);
           return true;
         }
       }
@@ -18496,7 +18496,7 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.VELGUS_UPSTAIR_1_X, Fix.VELGUS_UPSTAIR_1_Y, Fix.VELGUS_UPSTAIR_1_Z))
         {
-          this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_PARMETYSIA);
           return true;
         }
       }
@@ -18687,7 +18687,7 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.OHRANTOWER_DOWNSTAIR_1_X, Fix.OHRANTOWER_DOWNSTAIR_1_Y, Fix.OHRANTOWER_DOWNSTAIR_1_Z))
         {
-          this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_FAZIL_CASTLE);
           return true;
         }
       }
@@ -18723,13 +18723,13 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.EDELGARZEN_1_DOWNSTAIR_1_X, Fix.EDELGARZEN_1_DOWNSTAIR_1_Y, Fix.EDELGARZEN_1_DOWNSTAIR_1_Z))
         {
-          this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_PARMETYSIA);
           return true;
         }
 
         if (LocationDetect(tile, Fix.EDELGARZEN_1_DOWNSTAIR_8_X, Fix.EDELGARZEN_1_DOWNSTAIR_8_Y, Fix.EDELGARZEN_1_DOWNSTAIR_8_Z))
         {
-          this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+          this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_PARMETYSIA);
           return true;
         }
       }
@@ -18829,67 +18829,67 @@ public class DungeonField : MotherBase
     {
       if (tile.transform.position.x == -44 && tile.transform.position.y == 1 && tile.transform.position.z == 4)
       {
-        this.HomeTownCall = Fix.TOWN_ANSHET;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_ANSHET);
         return true;
       }
       else if (tile.transform.position.x == -49 && tile.transform.position.y == 4 && tile.transform.position.z == 17)
       {
-        this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_FAZIL_CASTLE);
         return true;
       }
-      else if (tile.transform.position.x == 24 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
-      {
-        this.HomeTownCall = Fix.TOWN_QVELTA_TOWN;
-        return true;
-      }
+      //else if (tile.transform.position.x == 24 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_QVELTA_TOWN;
+      //  return true;
+      //}
       else if (tile.transform.position.x == 65 && tile.transform.position.y == 0 && tile.transform.position.z == -6)
       {
-        this.HomeTownCall = Fix.TOWN_COTUHSYE;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_COTUHSYE);
         return true;
       }
       else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 43)
       {
-        this.HomeTownCall = Fix.TOWN_ZHALMAN;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_ZHALMAN);
         return true;
       }
-      else if (tile.transform.position.x == -99 && tile.transform.position.y == 0 && tile.transform.position.z == 2)
-      {
-        this.HomeTownCall = Fix.TOWN_WOSM;
-        return true;
-      }
-      else if (tile.transform.position.x == -85 && tile.transform.position.y == 0.5 && tile.transform.position.z == 49)
-      {
-        this.HomeTownCall = Fix.TOWN_ARCANEDINE;
-        return true;
-      }
-      else if (tile.transform.position.x == -32 && tile.transform.position.y == 0.5 && tile.transform.position.z == 67)
-      {
-        this.HomeTownCall = Fix.TOWN_DALE;
-        return true;
-      }
-      else if (tile.transform.position.x == 59 && tile.transform.position.y == 0.5 && tile.transform.position.z == 92)
-      {
-        this.HomeTownCall = Fix.TOWN_LATA_HOUSE;
-        return true;
-      }
-      else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 49)
-      {
-        this.HomeTownCall = Fix.TOWN_ZELMAN;
-        return true;
-      }
-      else if (tile.transform.position.x == 24 && tile.transform.position.y == 13 && tile.transform.position.z == 53)
-      {
-        this.HomeTownCall = Fix.TOWER_FRAN;
-        return true;
-      }
+      //else if (tile.transform.position.x == -99 && tile.transform.position.y == 0 && tile.transform.position.z == 2)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_WOSM;
+      //  return true;
+      //}
+      //else if (tile.transform.position.x == -85 && tile.transform.position.y == 0.5 && tile.transform.position.z == 49)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_ARCANEDINE;
+      //  return true;
+      //}
+      //else if (tile.transform.position.x == -32 && tile.transform.position.y == 0.5 && tile.transform.position.z == 67)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_DALE;
+      //  return true;
+      //}
+      //else if (tile.transform.position.x == 59 && tile.transform.position.y == 0.5 && tile.transform.position.z == 92)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_LATA_HOUSE;
+      //  return true;
+      //}
+      //else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 49)
+      //{
+      //  this.HomeTownCall = Fix.TOWN_ZELMAN;
+      //  return true;
+      //}
+      //else if (tile.transform.position.x == 24 && tile.transform.position.y == 13 && tile.transform.position.z == 53)
+      //{
+      //  this.HomeTownCall = Fix.TOWER_FRAN;
+      //  return true;
+      //}
       else if (tile.transform.position.x == -100 && tile.transform.position.y == 2 && tile.transform.position.z == 77)
       {
-        this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_PARMETYSIA);
         return true;
       }
       else if (tile.transform.position.x == 19 && tile.transform.position.y == 8 && tile.transform.position.z == 77)
       {
-        this.HomeTownCall = Fix.TOWN_EDELGARZEN_CASTLE;
+        this.HomeTownCall = L10n.Get_EN(Fix.L10N_AREANAME_EDELGARZEN_CASTLE);
         return true;
       }
       else
