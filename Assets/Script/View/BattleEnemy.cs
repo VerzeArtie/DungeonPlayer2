@@ -10632,15 +10632,18 @@ public partial class BattleEnemy : MotherBase
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
+      Debug.Log("damageValue 0 factor by PhantomOboro");
       damageValue = 0;
     }
     // ハーデスト・パリィによる効果
     if (target.IsHardestParry != null && this.NowStackInTheCommand == false)
     {
+      Debug.Log("damageValue 0 factor by HardestParry");
       damageValue = 0;
     }
     if (target.NowStackDamageIsZero && this.NowStackInTheCommand)
     {
+      Debug.Log("damageValue 0 factor by NowStackDamageIsZero");
       damageValue = 0;
     }
 
@@ -10661,6 +10664,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
+    Debug.Log("ExecNormalAttack, ApplyDamage Call: " + damageValue);
     ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
@@ -11207,6 +11211,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
+    Debug.Log("ExecMagicAttack, ApplyDamage Call: " + damageValue);
     ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
