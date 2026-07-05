@@ -5388,7 +5388,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ハハハ、そいつはそうかも知れないな。見つけてくれてサンキュー。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：いきなりその長老宅に行くわけ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：いきなりそこに行くわけ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：まあそうだな。ここに住んでいる人達の目線もそれを望んでいるようだし。", ActionEvent.None);
 
@@ -5396,7 +5396,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：ッチ・・・面倒くせえ連中だな。挨拶してこいって事か。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そういう事だ。というわけで、長老宅に行ってみよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：そういう事だ。というわけで、まずはそこに行ってみよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
