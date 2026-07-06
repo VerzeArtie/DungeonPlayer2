@@ -10,17 +10,17 @@ public static class L10n
   static L10n()
   {
     // Title
-    Register(Fix.L10N_TITLE_GAMESTART, "ゲームスタート", "Game Start");
-    Register(Fix.L10N_TITLE_LOAD, "ロード", "Load Game");
-    Register(Fix.L10N_TITLE_CONFIG, "設定", "Config");
-    Register(Fix.L10N_TITLE_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
-    Register(Fix.L10N_TITLE_EXIT, "終了", "Exit");
-    Register(Fix.L10N_TITLE_OBSIDIAN_PORTAL, "オブシディアンポータル", "Obsidian Portal");
-    Register(Fix.L10N_TITLE_OP_GAMESTART, "ゲームスタート", "Game Start");
-    Register(Fix.L10N_TITLE_OP_LOAD, "ロード", "Load");
-    Register(Fix.L10N_TITLE_OP_CONFIG, "設定", "Config");
-    Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "プライバシーポリシー", "Privacy Policy");
-    Register(Fix.L10N_TITLE_OP_EXIT, "終了", "Exit");
+    Register(Fix.L10N_TITLE_GAMESTART, "Game Start", "Game Start"); // Fix
+    Register(Fix.L10N_TITLE_LOAD, "Load Game", "Load Game"); // Fix
+    Register(Fix.L10N_TITLE_CONFIG, "Config", "Config"); // Fix
+    Register(Fix.L10N_TITLE_PRIVACYPOLICY, "Privacy Policy", "Privacy Policy"); // Fix
+    Register(Fix.L10N_TITLE_EXIT, "Exit", "Exit"); // Fix
+    Register(Fix.L10N_TITLE_OBSIDIAN_PORTAL, "Obsidian Portal", "Obsidian Portal"); // Fix
+    Register(Fix.L10N_TITLE_OP_GAMESTART, "Game Start", "Game Start"); // Fix
+    Register(Fix.L10N_TITLE_OP_LOAD, "Load Game", "Load Game"); // Fix
+    Register(Fix.L10N_TITLE_OP_CONFIG, "Config", "Config"); // Fix
+    Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "Privacy Policy", "Privacy Policy"); // Fix
+    Register(Fix.L10N_TITLE_OP_EXIT, "Exit", "Exit"); // Fix
     Register(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD, "アイン・ウォーレンスは並行世界へと突入しており、選択不可。", "Ein-Wolence is in a parallel world and cannot be selected.");
     Register(Fix.L10N_TITLE_ACCOUNT_MESSAGE_LESS2, "2文字以上を入力してください。", "Please enter 2 or more characters.");
     Register(Fix.L10N_TITLE_ACCOUNT_ALREADY_EXIST, "その名前は既に存在します。", "A character with that name already exists.");
