@@ -373,6 +373,304 @@ public static class L10n
     if (itemNameTableReady) { return; }
     itemNameTableReady = true;
 
+    // ---------------------------------------------------------------
+    // Explicit JP→EN item name translations
+    // Items whose field-name auto-generation produces Japanese-romanization
+    // tokens or otherwise misleading English are registered here first.
+    // The reflection loop below skips keys that are already present.
+    // ---------------------------------------------------------------
+
+    // --- Phase I-1: Esmilia Grassfield (weapons / accessories) ---
+    itemNameTable[Fix.MUMYOU_BOW] = "Bow of Obscurity";
+    itemNameTable[Fix.RED_PILLER_ORB] = "Flame Pillar Crystal";
+    itemNameTable[Fix.MUIN_BOOK] = "Blank Grimoire";
+    itemNameTable[Fix.HINJAKU_RING] = "Feeble Bangle";
+    itemNameTable[Fix.USUYOGORETA_FEATHER] = "Grimy Feather Ornament";
+    itemNameTable[Fix.KUKEI_BANGLE] = "Rectangular Bangle";
+    itemNameTable[Fix.SUTERARESHI_EMBLEM] = "Forsaken Emblem";
+    itemNameTable[Fix.SHAPED_FINGERRING] = "Well-Shaped Ring";
+
+    // Copper bangles (COPPERRING_*)
+    itemNameTable[Fix.COPPERRING_TIGER] = "Copper Bangle 'Tiger'";
+    itemNameTable[Fix.COPPERRING_DORPHINE] = "Copper Bangle 'Dolphin'";
+    itemNameTable[Fix.COPPERRING_HORSE] = "Copper Bangle 'Horse'";
+    itemNameTable[Fix.COPPERRING_BEAR] = "Copper Bangle 'Bear'";
+    itemNameTable[Fix.COPPERRING_HAYABUSA] = "Copper Bangle 'Falcon'";
+    itemNameTable[Fix.COPPERRING_OCTOPUS] = "Copper Bangle 'Octopus'";
+    itemNameTable[Fix.COPPERRING_RABBIT] = "Copper Bangle 'Rabbit'";
+    itemNameTable[Fix.COPPERRING_SPIDER] = "Copper Bangle 'Spider'";
+    itemNameTable[Fix.COPPERRING_DEER] = "Copper Bangle 'Deer'";
+    itemNameTable[Fix.COPPERRING_ELEPHANT] = "Copper Bangle 'Elephant'";
+
+    // --- Phase I-1: Anshet synthesis ---
+    itemNameTable[Fix.KOUKAKU_ARMOR] = "Chitin Armor";
+
+    // --- Phase I-2: Goratrum Cave ---
+    itemNameTable[Fix.SEKISOUJU_ROD] = "Red Twin-Wielded Rod";
+    itemNameTable[Fix.MADAN_SHOOTING_STAR] = "Magic Shot: Shooting Star";
+    itemNameTable[Fix.HUANTEI_RING] = "Unstable Ring";
+    itemNameTable[Fix.USED_HQ_BOOTS] = "Worn High-Quality Boots";
+
+    // Bronze bangles (BRONZE_RING_*)
+    itemNameTable[Fix.BRONZE_RING_KIBA] = "Bronze Bangle 'Fang'";
+    itemNameTable[Fix.BRONZE_RING_SASU] = "Bronze Bangle 'Pierce'";
+    itemNameTable[Fix.BRONZE_RING_KU] = "Bronze Bangle 'Run'";
+    itemNameTable[Fix.BRONZE_RING_NAGURI] = "Bronze Bangle 'Strike'";
+    itemNameTable[Fix.BRONZE_RING_TOBI] = "Bronze Bangle 'Fly'";
+    itemNameTable[Fix.BRONZE_RING_KARAMU] = "Bronze Bangle 'Entwine'";
+    itemNameTable[Fix.BRONZE_RING_HANERU] = "Bronze Bangle 'Leap'";
+    itemNameTable[Fix.BRONZE_RING_TORU] = "Bronze Bangle 'Capture'";
+    itemNameTable[Fix.BRONZE_RING_MIRU] = "Bronze Bangle 'See'";
+    itemNameTable[Fix.BRONZE_RING_KATAI] = "Bronze Bangle 'Sturdy'";
+
+    // Color brands
+    itemNameTable[Fix.RED_KOKUIN] = "Red Brand";
+    itemNameTable[Fix.BLUE_KOKUIN] = "Blue Brand";
+    itemNameTable[Fix.PURPLE_KOKUIN] = "Purple Brand";
+    itemNameTable[Fix.GREEN_KOKUIN] = "Green Brand";
+    itemNameTable[Fix.YELLOW_KOKUIN] = "Yellow Brand";
+
+    // Misc accessories (Goratrum)
+    itemNameTable[Fix.CLEAN_HEARBAND] = "Clean Hair Band";
+    itemNameTable[Fix.FIVECOLOR_COMPASS] = "Five-Color Compass";
+    itemNameTable[Fix.BURIED_DANZAIANGEL_STATUE] = "Statue of the Buried Judgment Angel";
+    itemNameTable[Fix.LIGHT_HAKURUANGEL_STATUE] = "Statue of the Radiant Jade Angel";
+
+    // --- Phase I-2: Fazil synthesis ---
+    itemNameTable[Fix.DENDO_DRILL_AXE] = "Electromagnetic Drill Axe";
+    itemNameTable[Fix.TETRA_EYE_BIGROD] = "Tetra-Style Stacked-Eye Staff";
+
+    // --- Phase II-1: Mystic Forest ---
+    itemNameTable[Fix.ENSHOUTOU] = "Flame-Soaring Blade";
+
+    // Junk talismans
+    itemNameTable[Fix.JUNK_TARISMAN_POISON] = "Junk Talisman [Poison]";
+    itemNameTable[Fix.JUNK_TARISMAN_SILENCE] = "Junk Talisman [Silence]";
+    itemNameTable[Fix.JUNK_TARISMAN_BIND] = "Junk Talisman [Bind]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLEEP] = "Junk Talisman [Sleep]";
+    itemNameTable[Fix.JUNK_TARISMAN_STUN] = "Junk Talisman [Stun]";
+    itemNameTable[Fix.JUNK_TARISMAN_PARALYZE] = "Junk Talisman [Paralyze]";
+    itemNameTable[Fix.JUNK_TARISMAN_FROZEN] = "Junk Talisman [Frozen]";
+    itemNameTable[Fix.JUNK_TARISMAN_FEAR] = "Junk Talisman [Fear]";
+    itemNameTable[Fix.JUNK_TARISMAN_TEMPTATION] = "Junk Talisman [Temptation]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLOW] = "Junk Talisman [Slow]";
+    itemNameTable[Fix.JUNK_TARISMAN_DIZZY] = "Junk Talisman [Dizzy]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLIP] = "Junk Talisman [Bleed]";
+
+    // Misc drop items (Mystic Forest)
+    itemNameTable[Fix.SIHAIRYU_SIKOTU] = "Dragon Lord's Finger Bone";
+    itemNameTable[Fix.OLDGLORY_TREE_KAREHA] = "Ancient Great Tree Dead Leaf";
+    itemNameTable[Fix.GALEWIND_KONSEKI] = "Gale Wind's Trace";
+    itemNameTable[Fix.SIN_CRYSTAL_KAKERA] = "Sin Crystal Fragment";
+    itemNameTable[Fix.EVERMIND_ZANSHI] = "Ever-Mind Lingering Thought";
+
+    // Misc accessories (Mystic Forest)
+    itemNameTable[Fix.SPIRIT_TUNOBUE] = "Spirits' Horn Flute";
+    itemNameTable[Fix.ENSEMBLE_FEATHER_HUT] = "Ensemble Feather Hat";
+    itemNameTable[Fix.MEIUN_PRISM_BOX] = "Prism Box of Fate";
+    itemNameTable[Fix.SQUARE_SINNEN] = "Square [Faith]";
+    itemNameTable[Fix.SQUARE_BLESTAR] = "Square [Deliberation]";
+    itemNameTable[Fix.SQUARE_CHISEI] = "Square [Wisdom]";
+    itemNameTable[Fix.SQUARE_SENREN] = "Square [Refinement]";
+    itemNameTable[Fix.SQUARE_SAIKI] = "Square [Brilliance]";
+    itemNameTable[Fix.SQUARE_TANREN] = "Square [Tempering]";
+    itemNameTable[Fix.SQUARE_KOKOH] = "Square [Solitude]";
+
+    // --- Phase II-2: Tower of Ohran ---
+    itemNameTable[Fix.KODAIEIJU_GREEN_LEAF] = "Ancient Great Tree Evergreen Leaf";
+    itemNameTable[Fix.TYORENSOU_ZANKYO_LANCE] = "Twin-Butterfly Resonance Lance";
+
+    // Magic stones
+    itemNameTable[Fix.RED_MASEKI] = "Red Magic Stone";
+    itemNameTable[Fix.BLUE_MASEKI] = "Blue Magic Stone";
+    itemNameTable[Fix.PURPLE_MASEKI] = "Purple Magic Stone";
+    itemNameTable[Fix.GREEN_MASEKI] = "Green Magic Stone";
+    itemNameTable[Fix.YELLOW_MASEKI] = "Yellow Magic Stone";
+
+    // Misc accessories (Tower of Ohran)
+    itemNameTable[Fix.STARAIR_FLOATING_STONE] = "Starry Sky Floating Stone";
+    itemNameTable[Fix.LIGHTBRIGHT_FLOATING_STONE] = "Holy Light Floating Stone";
+
+    // --- Phase III-1: Velgus Sea Temple ---
+    itemNameTable[Fix.STRONG_FIRE_HELL_BASTARDAXE] = "Forged Flame Hell Bastard Axe";
+    itemNameTable[Fix.GOLDWILL_DESCENT_SOWRD] = "Gold Will Descent Sword";
+
+    // Silver bangles (SILVER_RING_*)
+    itemNameTable[Fix.SILVER_RING_GOUKA] = "Silver Bangle [Hellfire]";
+    itemNameTable[Fix.SILVER_RING_TSUNAMI] = "Silver Bangle [Tsunami]";
+    itemNameTable[Fix.SILVER_RING_AKISAME] = "Silver Bangle [Autumn Rain]";
+    itemNameTable[Fix.SILVER_RING_NEPPA] = "Silver Bangle [Heat Wave]";
+    itemNameTable[Fix.SILVER_RING_RAIMEI] = "Silver Bangle [Thunder]";
+    itemNameTable[Fix.SILVER_RING_FUBUKI] = "Silver Bangle [Blizzard]";
+    itemNameTable[Fix.SILVER_RING_GENJITSU] = "Silver Bangle [Parhelion]";
+    itemNameTable[Fix.SILVER_RING_TATSUMAKI] = "Silver Bangle [Tornado]";
+    itemNameTable[Fix.SILVER_RING_SYUNIJI] = "Silver Bangle [Primary Rainbow]";
+    itemNameTable[Fix.SILVER_RING_KAGEROU] = "Silver Bangle [Heat Shimmer]";
+
+    // Brillistones
+    itemNameTable[Fix.REDLIGHT_BRIGHTSTONE] = "Red-Light Brillistone";
+    itemNameTable[Fix.BLUELIGHT_BRIGHTSTONE] = "Blue-Light Brillistone";
+    itemNameTable[Fix.PURPLELIGHT_BRIGHTSTONE] = "Purple-Light Brillistone";
+    itemNameTable[Fix.GREENLIGHT_BRIGHTSTONE] = "Green-Light Brillistone";
+    itemNameTable[Fix.YELLOWLIGHT_BRIGHTSTONE] = "Yellow-Light Brillistone";
+
+    // Misc accessories (Velgus)
+    itemNameTable[Fix.ANGEL_CONTRACT_SHEET] = "Angel's Contract";
+
+    // --- Palmetysia synthesis ---
+    itemNameTable[Fix.HATENA_BIG_BOX] = "Mystery Big Box";
+
+    // --- Phase IV-2: Edelgarzen Castle ---
+    itemNameTable[Fix.SHINGETSUEN_CLAW] = "Deep Moon Abyss Claw";
+    itemNameTable[Fix.JUNKEI_SHIKI_BOOK] = "Pure Vista Four Seasons Book";
+    itemNameTable[Fix.SYOKO_PALESTRIDE_BOW] = "Dawn Pale-Stride Bow";
+    itemNameTable[Fix.SHISO_GENSUI_KING_CROSS] = "Founding Marshal's Garb [Royal]";
+    itemNameTable[Fix.DANZAI_ANGEL_TALISMAN] = "Judgment Angel's Talisman";
+
+    // Platinum bangles (PLATINUM_RING_*)
+    itemNameTable[Fix.PLATINUM_RING_1] = "Platinum Bangle [White Tiger]";
+    itemNameTable[Fix.PLATINUM_RING_2] = "Platinum Bangle [Valkyrie]";
+    itemNameTable[Fix.PLATINUM_RING_3] = "Platinum Bangle [Nightmare]";
+    itemNameTable[Fix.PLATINUM_RING_4] = "Platinum Bangle [Narasimha]";
+    itemNameTable[Fix.PLATINUM_RING_5] = "Platinum Bangle [Vermilion Bird]";
+    itemNameTable[Fix.PLATINUM_RING_6] = "Platinum Bangle [Ouroboros]";
+    itemNameTable[Fix.PLATINUM_RING_7] = "Platinum Bangle [Nine-Tails]";
+    itemNameTable[Fix.PLATINUM_RING_8] = "Platinum Bangle [Behemoth]";
+    itemNameTable[Fix.PLATINUM_RING_9] = "Platinum Bangle [Azure Dragon]";
+    itemNameTable[Fix.PLATINUM_RING_10] = "Platinum Bangle [Black Tortoise]";
+
+    // Misc accessories (Edelgarzen)
+    itemNameTable[Fix.DARKNESS_COIN] = "Dark Currency";
+    itemNameTable[Fix.BLACK_DRAGON_FEATHER] = "Black Wing Dragon's Feather";
+
+    // --- Quest / key items ---
+    itemNameTable[Fix.ITEM_MATOCK] = "Mattock";
+    itemNameTable[Fix.ITEM_TOOMI_AOSUISYOU] = "Far-Seeing Blue Crystal";
+    itemNameTable[Fix.ITEM_WALKING_ROPE] = "Tightrope";
+    itemNameTable[Fix.ITEM_COPPER_KEY] = "Copper Key";
+    itemNameTable[Fix.PURE_SINSEISUI] = "Holy Water";
+    itemNameTable[Fix.PURE_VITALIRY_WATER] = "Vitality Water";
+    itemNameTable[Fix.KODAIEIJU_EDA] = "Ancient Great Tree Branch";
+    itemNameTable[Fix.KIGAN_OFUDA] = "Prayer Talisman";
+    itemNameTable[Fix.VELGUS_KEY1] = "Velgus Sea Temple Key [1]";
+    itemNameTable[Fix.VELGUS_KEY2] = "Velgus Sea Temple Key [2]";
+    itemNameTable[Fix.VELGUS_KEY3] = "Velgus Sea Temple Key [3]";
+    itemNameTable[Fix.VELGUS2_KEY1] = "Velgus Sea Temple Key [Stillness]";
+    itemNameTable[Fix.VELGUS2_KEY2] = "Velgus Sea Temple Key [Sprint]";
+    itemNameTable[Fix.VELGUS2_KEY3] = "Velgus Sea Temple Key [Adaptation]";
+    itemNameTable[Fix.EDELGARZEN_KEY] = "Edelgarzen Castle: Front Gate Key";
+    itemNameTable[Fix.EDELGARZEN_KEY1] = "Edelgarzen Castle Key [Tenacity]";
+    itemNameTable[Fix.EDELGARZEN_KEY2] = "Edelgarzen Castle Key [Will]";
+    itemNameTable[Fix.EDELGARZEN_KEY3] = "Edelgarzen Castle Key [Non-Action]";
+    itemNameTable[Fix.EDELGARZEN_KEY4] = "Edelgarzen Castle Key [Omniscience]";
+    itemNameTable[Fix.ZEMULGEARS] = "Supreme Blade: Zemulgears";
+    itemNameTable[Fix.ARTIFACT_GENSEI] = "Ancient Orb: Integrity";
+    itemNameTable[Fix.ARTIFACT_ZIHI] = "Ancient Orb: Mercy";
+    itemNameTable[Fix.ARTIFACT_MUSOU] = "Ancient Orb: Peerless";
+    itemNameTable[Fix.LEGENDARY_FELTUS] = "Divine Blade: Feltusch";
+
+    // --- Potions ---
+    itemNameTable[Fix.TOTAL_HIYAKU_KASSEI] = "Composite Elixir [Activation]";
+    itemNameTable[Fix.TOTAL_HIYAKU_JOUSEI] = "Composite Elixir [Purification]";
+    itemNameTable[Fix.SOUKAI_DRINK_SS] = "Refreshing Drink [S&S]";
+    itemNameTable[Fix.TUUKAI_DRINK_DD] = "Exhilarating Drink [D&D]";
+    itemNameTable[Fix.GOD_YORISHIRO_SOSEI] = "God's Vessel [Resurrection]";
+    itemNameTable[Fix.TRADITIONAL_POTION_DATTOU] = "Traditional Elixir [Escape]";
+    itemNameTable[Fix.TRADITIONAL_POTION_HEIGAN] = "Traditional Elixir [Closed Eyes]";
+    itemNameTable[Fix.TEN_ON_MORI_MEGUMI] = "Heaven's Grace, Forest's Blessing";
+    itemNameTable[Fix.KINDAN_TOKKOUYAKU] = "Forbidden Special Medicine";
+    itemNameTable[Fix.SOUIN_HIYAKU_DISENCHANT] = "Monastery Elixir [Dispel]";
+
+    // --- Material drop items ---
+    itemNameTable[Fix.COMMON_MANTIS_TAIEKI] = "Mantis Fluid";
+    itemNameTable[Fix.COMMON_GREEN_SIKISO] = "Green Pigment";
+    itemNameTable[Fix.COMMON_KOKYU_LETHER_MATERIAL] = "Kokyuu Leather Material";
+    itemNameTable[Fix.COMMON_KATAME_TREE] = "Solid Wood Branch";
+    itemNameTable[Fix.COMMON_WARM_NO_KOUKAKU] = "Worm Carapace";
+    itemNameTable[Fix.COMMON_YELLOW_TAIEKI] = "Yellow Bodily Fluid";
+    itemNameTable[Fix.COMMON_TOGETOGE_GRASS] = "Prickly Grass";
+    itemNameTable[Fix.COMMON_RED_HOUSI] = "Red Spore";
+    itemNameTable[Fix.COMMON_DOKUSO_NEEDLE] = "Poison-Component Needle";
+    itemNameTable[Fix.COMMON_HORSE_HIZUME] = "Horse Hoof";
+    itemNameTable[Fix.COMMON_COLORFUL_BALL] = "Chromatic Ball";
+    itemNameTable[Fix.COMMON_SHARP_HAHEN] = "Sharp Fragment";
+    itemNameTable[Fix.COMMON_NEBARIKE_EKITAI] = "Viscous Liquid";
+    itemNameTable[Fix.COMMON_USUGATA_ENBAN] = "Thin Disk";
+    itemNameTable[Fix.COMMON_HASSYADAI] = "Launch Platform";
+    itemNameTable[Fix.COMMON_KYOUTEN_X] = "Scripture X";
+    itemNameTable[Fix.COMMON_BUYOBUYO_MOEKASU] = "Soggy Ash Residue";
+    itemNameTable[Fix.COMMON_BAKUHA_CHAKKAZAI] = "Explosive Igniter";
+    itemNameTable[Fix.COMMON_SEKKAIKOU] = "Limestone Ore";
+    itemNameTable[Fix.COMMON_SANKAKU_STEEL] = "Triangular Steel";
+    itemNameTable[Fix.COMMON_PURPLE_BOTTOLE] = "Purple Vial";
+    itemNameTable[Fix.COMMON_BOAR_MOMONIKU] = "Boar Thigh Meat";
+    itemNameTable[Fix.COMMON_SNAKE_EMPTYSHELL] = "Snake Shed Skin";
+    itemNameTable[Fix.COMMON_DRYAD_RINPUN] = "Dryad Scale Powder";
+    itemNameTable[Fix.COMMON_ELEMENTAL_KONA] = "Spirit Powder";
+    itemNameTable[Fix.COMMON_DORO_YOUKAIEKI] = "Thick Corrosive Liquid";
+    itemNameTable[Fix.COMMON_YOUKAI_MIKI] = "Aura-Wreathed Trunk";
+    itemNameTable[Fix.COMMON_DANPEN_OF_GOFU] = "Talisman Scrap";
+    itemNameTable[Fix.COMMON_GOTUGOTU_BIGTREE] = "Rugged Large Tree";
+    itemNameTable[Fix.COMMON_HUGE_HOHONIKU] = "Large Cheek Meat";
+    itemNameTable[Fix.COMMON_THREE_FEATHER] = "Three-Blade Feather";
+    itemNameTable[Fix.COMMON_YELLOW_DOROTSUCHI] = "Yellow Muddy Soil";
+    itemNameTable[Fix.COMMON_RED_DOROTSUCHI] = "Red Muddy Soil";
+    itemNameTable[Fix.COMMON_AIRORIGIN_KIHO] = "Void-Origin Air Bubble";
+    itemNameTable[Fix.COMMON_HENSYOKU_KOKE] = "Discolored Moss";
+    itemNameTable[Fix.COMMON_KIRAMEKU_GOLDHORN] = "Gleaming Golden Horn";
+    itemNameTable[Fix.COMMON_BIRD_OUGI] = "Bird Fan";
+    itemNameTable[Fix.COMMON_MEGANE_MATERIAL] = "Scholar's Glasses Material";
+    itemNameTable[Fix.COMMON_KITSUNE_TAIL] = "Fox Tail";
+    itemNameTable[Fix.COMMON_WHITE_HIDUME] = "White Hoof";
+    itemNameTable[Fix.COMMON_TOUMEI_KESSYO] = "Colorless Crystal";
+    itemNameTable[Fix.COMMON_MUKAKOU_SEKIEI] = "Unprocessed Quartz";
+    itemNameTable[Fix.COMMON_HOUDAN_SHARD] = "Cannonball Fragment";
+    itemNameTable[Fix.COMMON_DAGGERFISH_UROKO] = "Daggerfish Scale";
+    itemNameTable[Fix.COMMON_MANTA_HARA] = "Manta Belly";
+    itemNameTable[Fix.COMMON_BLUE_MAGATAMA] = "Blue Magatama";
+    itemNameTable[Fix.COMMON_KURIONE_ZOUMOTU] = "Clione Innards";
+    itemNameTable[Fix.COMMON_RENEW_AKAMI] = "Fresh Red Meat";
+    itemNameTable[Fix.COMMON_ROSE_SEKKAI] = "Rose Limestone";
+    itemNameTable[Fix.COMMON_WASI_BLUE_FEATHER] = "Eagle's Blue Feather";
+    itemNameTable[Fix.COMMON_HANTOUMEI_ROCK] = "Semi-Transparent Pretty Stone";
+    itemNameTable[Fix.COMMON_EIGHTEIGHT_KUROSUMI] = "Eight-Eight's Black Ink";
+    itemNameTable[Fix.COMMON_BLACK_GESO] = "Blackened Squid Tentacle";
+    itemNameTable[Fix.COMMON_BIGAXE_TOP] = "Tip of Giant Axe";
+    itemNameTable[Fix.COMMON_GANGAME_EGG] = "Hardy Tortoise Egg";
+    itemNameTable[Fix.COMMON_KYOZIN_MUNENIKU] = "Resilient Breast Meat";
+    itemNameTable[Fix.COMMON_NANAIRO_SYOKUSYU] = "Seven-Colored Tentacle";
+    itemNameTable[Fix.COMMON_SEA_MO] = "Deep-Sea Seaweed";
+    itemNameTable[Fix.COMMON_SERPENT_UROKO] = "Serpent Scale";
+    itemNameTable[Fix.COMMON_AYASHII_NENNEKI_ITO] = "Suspicious Viscous Thread";
+    itemNameTable[Fix.COMMON_GOTUGOTU_KARA] = "Rugged Shell";
+    itemNameTable[Fix.COMMON_SOFT_BIG_HIRE] = "Soft Large Fin";
+    itemNameTable[Fix.COMMON_TAIRYO_FISH] = "Large School of Fish";
+    itemNameTable[Fix.COMMON_PUREWHITE_KIMO] = "Pure White Liver";
+    itemNameTable[Fix.COMMON_SHRIMP_DOTAI] = "Shrimp Body";
+    itemNameTable[Fix.COMMON_KOUSITUKA_MATERIAL] = "Hardened Material";
+    itemNameTable[Fix.COMMON_AOSAME_UROKO] = "Blue Shark Scale";
+    itemNameTable[Fix.COMMON_EMBLEM_KNIGHT] = "Knights' Emblem";
+    itemNameTable[Fix.COMMON_BLACKSAME_TOOTH] = "Black Shark Sword-Tooth";
+    itemNameTable[Fix.COMMON_MYSTERIOUS_KARA] = "Mysteriously-Shaped Shell";
+    itemNameTable[Fix.COMMON_CURSED_ITO] = "Cursed Thread";
+    itemNameTable[Fix.COMMON_CHINMI_FISH] = "Exotic Seafood";
+    itemNameTable[Fix.COMMON_HUNTER_SEVEN_TOOL] = "Hunter's Seven Tools";
+    itemNameTable[Fix.COMMON_BEAST_KEGAWA] = "Wild Beast Hide";
+    itemNameTable[Fix.RARE_BLOOD_DAGGER_KAKERA] = "Bloodstained Dagger Fragment";
+    itemNameTable[Fix.COMMON_SABI_BUGU] = "Rusted Junk Weapon";
+    itemNameTable[Fix.COMMON_STEAM_POMP] = "Steam Pump";
+    itemNameTable[Fix.COMMON_GOUKIN_MATERIAL] = "Alloy Material";
+    itemNameTable[Fix.COMMON_KUMITATE_TENBIN_DOU] = "Assembly Material: Scale Weight";
+    itemNameTable[Fix.COMMON_ONRYOU_HAKO] = "Vengeful Spirit Box";
+    itemNameTable[Fix.RARE_CHAOS_SIZUKU] = "Chaos Drop";
+    itemNameTable[Fix.RARE_DOOMBRINGER_KAKERA] = "Doombringer Fragment";
+    itemNameTable[Fix.COMMON_KOKU_THUNDER_SIRUSI] = "Engraved Thunder Mark";
+    itemNameTable[Fix.COMMON_TENNEN_JISYAKU] = "Natural Magnet";
+    itemNameTable[Fix.COMMON_VOID_BOU] = "Void Staff";
+    itemNameTable[Fix.COMMON_JUNKAN_MAHU_GU] = "Circular Magic Sealing Tool";
+
+    // ---------------------------------------------------------------
+
     FieldInfo[] fields = typeof(Fix).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
     for (int ii = 0; ii < fields.Length; ii++)
     {
