@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
 public static class L10n
 {
   private static Dictionary<string, (string ja, string en)> table = new Dictionary<string, (string ja, string en)>(StringComparer.OrdinalIgnoreCase);
+  private static Dictionary<string, string> itemNameTable = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+  private static bool itemNameTableReady = false;
 
   static L10n()
   {
@@ -340,5 +343,113 @@ public static class L10n
     }
 
     return string.Empty;
+  }
+
+  public static string GetItemName(string key)
+  {
+    if (string.IsNullOrEmpty(key)) { return string.Empty; }
+
+    if (table.ContainsKey(key))
+    {
+      return Get(key);
+    }
+
+    if (One.CONF.GameLanguage != (int)(One.GameLanguage.English))
+    {
+      return key;
+    }
+
+    EnsureItemNameTable();
+    if (itemNameTable.TryGetValue(key, out string english))
+    {
+      return english;
+    }
+
+    return key;
+  }
+
+  private static void EnsureItemNameTable()
+  {
+    if (itemNameTableReady) { return; }
+    itemNameTableReady = true;
+
+    FieldInfo[] fields = typeof(Fix).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
+    for (int ii = 0; ii < fields.Length; ii++)
+    {
+      FieldInfo field = fields[ii];
+      if (field.FieldType != typeof(string)) { continue; }
+      if (field.IsLiteral == false || field.IsInitOnly) { continue; }
+
+      string key = field.GetRawConstantValue() as string;
+      if (string.IsNullOrEmpty(key)) { continue; }
+      if (itemNameTable.ContainsKey(key)) { continue; }
+
+      itemNameTable[key] = HasJapaneseCharacter(key) ? HumanizeItemIdentifier(field.Name) : key;
+    }
+  }
+
+  private static bool HasJapaneseCharacter(string value)
+  {
+    for (int ii = 0; ii < value.Length; ii++)
+    {
+      char current = value[ii];
+      if ((current >= '\u3040' && current <= '\u30ff') || (current >= '\u3400' && current <= '\u9fff'))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static string HumanizeItemIdentifier(string identifier)
+  {
+    if (string.IsNullOrEmpty(identifier)) { return string.Empty; }
+
+    string[] rawTokens = identifier.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
+    List<string> tokens = new List<string>();
+    for (int ii = 0; ii < rawTokens.Length; ii++)
+    {
+      string token = rawTokens[ii];
+      int splitIndex = token.Length;
+      while (splitIndex > 0 && char.IsDigit(token[splitIndex - 1]))
+      {
+        splitIndex--;
+      }
+
+      if (splitIndex > 0)
+      {
+        tokens.Add(token.Substring(0, splitIndex));
+      }
+      if (splitIndex < token.Length)
+      {
+        tokens.Add(token.Substring(splitIndex));
+      }
+    }
+
+    HashSet<string> lowerWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+    {
+      "A", "AN", "AND", "AS", "AT", "BY", "FOR", "FROM", "IN", "OF", "ON", "OR", "THE", "TO", "WITH"
+    };
+
+    for (int ii = 0; ii < tokens.Count; ii++)
+    {
+      string token = tokens[ii];
+      if (string.IsNullOrEmpty(token)) { continue; }
+      if (char.IsDigit(token[0])) { continue; }
+      if (token.Length == 1)
+      {
+        tokens[ii] = token.ToUpperInvariant();
+      }
+      else if (ii > 0 && lowerWords.Contains(token))
+      {
+        tokens[ii] = token.ToLowerInvariant();
+      }
+      else
+      {
+        tokens[ii] = char.ToUpperInvariant(token[0]) + token.Substring(1).ToLowerInvariant();
+      }
+    }
+
+    return string.Join(" ", tokens.ToArray());
   }
 }

@@ -273,32 +273,38 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailPotential.text = PrimaryLogic.Potential(player).ToString("F2");
     txtDetailRemainPoint.text = player.RemainPoint.ToString();
 
-    txtDetailMainWeapon.text = (player.MainWeapon?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailMainWeapon.text = (player.MainWeapon?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailMainWeapon.name = player.MainWeapon?.ItemName ?? string.Empty;
     imgDetailMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.MainWeapon?.ItemType.ToString() ?? "");
     backDetailMainWeapon.GetComponent<Image>().color = player.MainWeapon?.GetRareColor ?? Color.white;
     txtDetailMainWeapon.GetComponent<Text>().color = player.MainWeapon?.GetRareTextColor ?? Color.white;
 
-    txtDetailSubWeapon.text = (player.SubWeapon?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailSubWeapon.text = (player.SubWeapon?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailSubWeapon.name = player.SubWeapon?.ItemName ?? string.Empty;
     imgDetailSubWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.SubWeapon?.ItemType.ToString() ?? "");
     backDetailSubWeapon.GetComponent<Image>().color = player.SubWeapon?.GetRareColor ?? Color.white;
     txtDetailSubWeapon.GetComponent<Text>().color = player.SubWeapon?.GetRareTextColor ?? Color.white;
 
-    txtDetailArmor.text = (player.MainArmor?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailArmor.text = (player.MainArmor?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailArmor.name = player.MainArmor?.ItemName ?? string.Empty;
     imgDetailArmor.sprite = Resources.Load<Sprite>("Icon_" + player.MainArmor?.ItemType.ToString() ?? "");
     backDetailArmor.GetComponent<Image>().color = player.MainArmor?.GetRareColor ?? Color.white;
     txtDetailArmor.GetComponent<Text>().color = player.MainArmor?.GetRareTextColor ?? Color.white;
 
-    txtDetailAccessory1.text = (player.Accessory1?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailAccessory1.text = (player.Accessory1?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailAccessory1.name = player.Accessory1?.ItemName ?? string.Empty;
     imgDetailAccessory1.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory1?.ItemType.ToString() ?? "");
     backDetailAccessory1.GetComponent<Image>().color = player.Accessory1?.GetRareColor ?? Color.white;
     txtDetailAccessory1.GetComponent<Text>().color = player.Accessory1?.GetRareTextColor ?? Color.white;
 
-    txtDetailAccessory2.text = (player.Accessory2?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailAccessory2.text = (player.Accessory2?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailAccessory2.name = player.Accessory2?.ItemName ?? string.Empty;
     imgDetailAccessory2.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory2?.ItemType.ToString() ?? "");
     backDetailAccessory2.GetComponent<Image>().color = player.Accessory2?.GetRareColor ?? Color.white;
     txtDetailAccessory2.GetComponent<Text>().color = player.Accessory2?.GetRareTextColor ?? Color.white;
 
-    txtDetailArtifact.text = (player.Artifact?.ItemName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailArtifact.text = (player.Artifact?.DisplayName ?? L10n.Get(Fix.L10N_PARTYMENU_NO_EQUIP));
+    txtDetailArtifact.name = player.Artifact?.ItemName ?? string.Empty;
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
     backDetailArtifact.GetComponent<Image>().color = player.Artifact?.GetRareColor ?? Color.white;
     txtDetailArtifact.GetComponent<Text>().color = player.Artifact?.GetRareTextColor ?? Color.white;
@@ -507,7 +513,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_MAIN_WEAPON;
     lblChangeEquipType.text = ITEMTYPE_MAIN_WEAPON;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -543,7 +550,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_SUB_WEAPON;
     lblChangeEquipType.text = ITEMTYPE_SUB_WEAPON;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -579,7 +587,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_ARMOR;
     lblChangeEquipType.text = ITEMTYPE_ARMOR;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -615,7 +624,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_ACCESSORY1;
     lblChangeEquipType.text = ITEMTYPE_ACCESSORY1;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -651,7 +661,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_ACCESSORY2;
     lblChangeEquipType.text = ITEMTYPE_ACCESSORY2;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -687,7 +698,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentItemType = ITEMTYPE_ARTIFACT;
     lblChangeEquipType.text = ITEMTYPE_ARTIFACT;
     txtChangeEquipName.text = sender.text;
-    Item temp = new Item(sender.text);
+    txtChangeEquipName.name = sender.name;
+    Item temp = new Item(sender.name);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
 
     // バックパックから装備可能なアイテムを設定
@@ -796,36 +808,36 @@ public class GroupCharacterStatus : MonoBehaviour
   /// <param name="sender"></param>
   public void TapNodeCurrentEquip(Text sender)
   {
-    txtEquipChangeDescription.text = new Item(sender.text).Description;
+    txtEquipChangeDescription.text = new Item(sender.name).Description;
     if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       this.ShadowPlayer.MainWeapon = null;
-      this.ShadowPlayer.MainWeapon = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.MainWeapon = new Item(txtChangeEquipName.name);
     }
     else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
       this.ShadowPlayer.SubWeapon = null;
-      this.ShadowPlayer.SubWeapon = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.SubWeapon = new Item(txtChangeEquipName.name);
     }
     else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
       this.ShadowPlayer.MainArmor = null;
-      this.ShadowPlayer.MainArmor = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.MainArmor = new Item(txtChangeEquipName.name);
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
       this.ShadowPlayer.Accessory1 = null;
-      this.ShadowPlayer.Accessory1 = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.Accessory1 = new Item(txtChangeEquipName.name);
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
       this.ShadowPlayer.Accessory2 = null;
-      this.ShadowPlayer.Accessory2 = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.Accessory2 = new Item(txtChangeEquipName.name);
     }
     else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
       this.ShadowPlayer.Artifact = null;
-      this.ShadowPlayer.Artifact = new Item(txtChangeEquipName.text);
+      this.ShadowPlayer.Artifact = new Item(txtChangeEquipName.name);
     }
 
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStrength, CurrentPlayer.TotalStrength, ShadowPlayer.TotalStrength);
@@ -859,35 +871,35 @@ public class GroupCharacterStatus : MonoBehaviour
     if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       this.ShadowPlayer.MainWeapon = null;
-      this.ShadowPlayer.MainWeapon = new Item(sender.text);
+      this.ShadowPlayer.MainWeapon = new Item(sender.name);
     }
     else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
       this.ShadowPlayer.SubWeapon = null;
-      this.ShadowPlayer.SubWeapon = new Item(sender.text);
+      this.ShadowPlayer.SubWeapon = new Item(sender.name);
     }
     else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
       this.ShadowPlayer.MainArmor = null;
-      this.ShadowPlayer.MainArmor = new Item(sender.text);
+      this.ShadowPlayer.MainArmor = new Item(sender.name);
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
       this.ShadowPlayer.Accessory1 = null;
-      this.ShadowPlayer.Accessory1 = new Item(sender.text);
+      this.ShadowPlayer.Accessory1 = new Item(sender.name);
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
       this.ShadowPlayer.Accessory2 = null;
-      this.ShadowPlayer.Accessory2 = new Item(sender.text);
+      this.ShadowPlayer.Accessory2 = new Item(sender.name);
     }
     else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
       this.ShadowPlayer.Artifact = null;
-      this.ShadowPlayer.Artifact = new Item(sender.text);
+      this.ShadowPlayer.Artifact = new Item(sender.name);
     }
     this.CurrentSelectedItem = null;
-    this.CurrentSelectedItem = new Item(sender.text);
+    this.CurrentSelectedItem = new Item(sender.name);
 
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStrength, CurrentPlayer.TotalStrength, ShadowPlayer.TotalStrength);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailAgility, CurrentPlayer.TotalAgility, ShadowPlayer.TotalAgility);
@@ -908,7 +920,7 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
 
-    txtEquipChangeDescription.text = new Item(sender.text).Description;
+    txtEquipChangeDescription.text = new Item(sender.name).Description;
   }
 
   /// <summary>

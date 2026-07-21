@@ -2440,22 +2440,22 @@ public partial class HomeTown : MotherBase
     if (txt == null) { MessagePack.MessageX00009(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
     if (txt.text == String.Empty || txt.text == "" || txt.text == null) { MessagePack.MessageX00009(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
 
-    Item current = new Item(txt.text);
+    Item current = new Item(txt.name);
     Debug.Log("itemSell ItemType: " + current.ItemType.ToString());
     imgSell.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
-    imgSell.name = txt.text;
+    imgSell.name = txt.name;
     if (current.ImportantType == Item.Important.Precious)
     {
-      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTSELL, txt.text);
-      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTSELL, txt.text);
+      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTSELL, current.DisplayName);
+      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTSELL, current.DisplayName);
       btnSellAccept.gameObject.SetActive(false);
       btnSellCancel.gameObject.SetActive(false);
       btnSellOK.gameObject.SetActive(true);
     }
     else
     {
-      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_SELL, txt.text);
-      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_SELL, (current.Gold / 2).ToString(), txt.text);
+      txtSellTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_SELL, current.DisplayName);
+      txtSellMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_SELL, (current.Gold / 2).ToString(), current.DisplayName);
       btnSellAccept.gameObject.SetActive(true);
       btnSellCancel.gameObject.SetActive(true);
       btnSellOK.gameObject.SetActive(false);
@@ -2692,23 +2692,23 @@ public partial class HomeTown : MotherBase
     if (txt == null) { MessagePack.MessageX00010(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
     if (txt.text == String.Empty || txt.text == "" || txt.text == null) { MessagePack.MessageX00010(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
 
-    Item current = new Item(txt.text);
+    Item current = new Item(txt.name);
     Debug.Log("itemBuy ItemType: " + current.ItemType.ToString());
     imgBuy.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
-    imgBuy.name = txt.text;
+    imgBuy.name = txt.name;
     if (One.TF.Gold < current.Gold)
     {
       int diff = current.Gold - One.TF.Gold;
-      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTBUY, txt.text);
-      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTBUY, diff.ToString(), txt.text);
+      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_CANNOTBUY, current.DisplayName);
+      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_CANNOTBUY, diff.ToString(), current.DisplayName);
       btnBuyAccept.gameObject.SetActive(false);
       btnBuyCancel.gameObject.SetActive(false);
       btnBuyOK.gameObject.SetActive(true);
     }
     else
     {
-      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_BUY, txt.text);
-      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_BUY, current.Gold.ToString(), txt.text);
+      txtBuyTitle.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_TITLE_BUY, current.DisplayName);
+      txtBuyMessage.text = L10n.Get(Fix.L10N_HOMETOWN_SHOPMENU_MESSAGEBOX_DESCRIPTION_BUY, current.Gold.ToString(), current.DisplayName);
       btnBuyAccept.gameObject.SetActive(true);
       btnBuyCancel.gameObject.SetActive(true);
       btnBuyOK.gameObject.SetActive(false);
@@ -2729,7 +2729,7 @@ public partial class HomeTown : MotherBase
     {
       One.TF.Gold -= current.Gold;
       txtItemGoldCost.text = One.TF.Gold.ToString();
-      MessagePack.MessageX00015_3(ref QuestMessageList, ref QuestEventList, current.ItemName, current.Gold); TapOK();
+      MessagePack.MessageX00015_3(ref QuestMessageList, ref QuestEventList, current.DisplayName, current.Gold); TapOK();
     }
 
     ConstructBackpackView();
@@ -3213,7 +3213,7 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    MessagePack.MessageX00018_2(ref QuestMessageList, ref QuestEventList, this.CurrentSelectItemBank.ItemName); TapOK();
+    MessagePack.MessageX00018_2(ref QuestMessageList, ref QuestEventList, this.CurrentSelectItemBank.DisplayName); TapOK();
     One.TF.RemoveItemBank(CurrentSelectItemBank);
     this.CurrentSelectItemBank = null;
     ConstructItemBankView();
@@ -4315,7 +4315,9 @@ public partial class HomeTown : MotherBase
     NodeShopItem shopItem = Instantiate(nodeShopItem) as NodeShopItem;
 
     shopItem.transform.SetParent(content.transform);
-    shopItem.txtName.text = item.ItemName;
+    shopItem.name = item.ItemName;
+    shopItem.txtName.text = item.DisplayName;
+    shopItem.txtName.name = item.ItemName;
     SecondaryLogic.ApplyImageIcon(item, shopItem.imgItem);
     shopItem.ItemSell = item_sell;
     if (item_sell)
@@ -4454,7 +4456,7 @@ public partial class HomeTown : MotherBase
     {
       if (shop_item_list[ii].imgSelect.gameObject.activeInHierarchy)
       {
-        Item item = new Item(shop_item_list[ii].txtName.text);
+        Item item = new Item(shop_item_list[ii].name);
         SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
         txtItemGoldCost.text = One.TF.Gold.ToString();
         //if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
@@ -4487,7 +4489,7 @@ public partial class HomeTown : MotherBase
 
   private void SelectShopItem(NodeShopItem shopItem, List<NodeShopItem> shop_item_list)
   {
-    Item item = new Item(shopItem.txtName.text);
+    Item item = new Item(shopItem.name);
 
     for (int ii = 0; ii < shop_item_list.Count; ii++)
     {
@@ -4557,7 +4559,7 @@ public partial class HomeTown : MotherBase
                                Image img_pa, Image img_pa_max, Image img_pd, Image img_ma, Image img_ma_max, Image img_md, Image img_acc, Image img_spd, Image img_rsp, Image img_po)
   {
     img_item.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
-    txt_name.text = item.ItemName;
+    txt_name.text = item.DisplayName;
     txt_type.text = item.ItemType_JP;
     txt_desc.text = item.Description;
     txt_str.text = item.Strength.ToString();
@@ -4684,7 +4686,7 @@ public partial class HomeTown : MotherBase
     imgDeleteItem.sprite = Resources.Load<Sprite>("Icon_" + this.CurrentSelectBackpack?.ItemType.ToString() ?? "");
     if (this.CurrentSelectBackpack.ImportantType == Item.Important.Precious)
     {
-      txtDeleteTitle.text = this.CurrentSelectBackpack.ItemName + "は捨てる事が出来ません。";
+      txtDeleteTitle.text = L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_CANNOT, this.CurrentSelectBackpack.DisplayName);
       txtDeleteMessage.text = "";
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(false);
@@ -4693,8 +4695,8 @@ public partial class HomeTown : MotherBase
     }
     else
     {
-      txtDeleteTitle.text = this.CurrentSelectBackpack.ItemName + "を捨てますか？";
-      txtDeleteMessage.text = "バックパックから削除した場合、そのアイテムは二度と戻す事ができません。";
+      txtDeleteTitle.text = L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_TITLE, this.CurrentSelectBackpack.DisplayName);
+      txtDeleteMessage.text = L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_MESSAGE);
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(true);
       btnCancel.gameObject.SetActive(true);
@@ -4750,7 +4752,7 @@ public partial class HomeTown : MotherBase
 
     if (current != null)
     {
-      txtEquipJewelSocketName.text = current.ItemName;
+      txtEquipJewelSocketName.text = current.DisplayName;
       imgEquipJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
     }
     else
@@ -5476,7 +5478,7 @@ public partial class HomeTown : MotherBase
     {
       Debug.Log("CurrentSelectBackpack: " + this.CurrentSelectBackpack.ItemName);
       Item current = this.CurrentSelectBackpack;
-      txtJewelSocketName.text = current.ItemName;
+      txtJewelSocketName.text = current.DisplayName;
       txtJewelSocketType.text = current.ItemType.ToString();
       imgJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
 
@@ -5490,7 +5492,7 @@ public partial class HomeTown : MotherBase
         if (item != null)
         {
           img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
-          txt.text = item.ItemName;
+          txt.text = item.DisplayName;
         }
         else
         {
@@ -5519,7 +5521,7 @@ public partial class HomeTown : MotherBase
         if (item != null)
         {
           img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
-          txt.text = item.ItemName;
+          txt.text = item.DisplayName;
         }
         else
         {
@@ -5548,7 +5550,7 @@ public partial class HomeTown : MotherBase
         if (item != null)
         {
           img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
-          txt.text = item.ItemName;
+          txt.text = item.DisplayName;
         }
         else
         {
@@ -5577,7 +5579,7 @@ public partial class HomeTown : MotherBase
         if (item != null)
         {
           img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
-          txt.text = item.ItemName;
+          txt.text = item.DisplayName;
         }
         else
         {
@@ -5606,7 +5608,7 @@ public partial class HomeTown : MotherBase
         if (item != null)
         {
           img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
-          txt.text = item.ItemName;
+          txt.text = item.DisplayName;
         }
         else
         {

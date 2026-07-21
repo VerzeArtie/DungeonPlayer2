@@ -25,7 +25,8 @@ public class NodeBackpackItem : MonoBehaviour
     this.name = item_name;
     if (this.txtName != null)
     {
-      this.txtName.text = item_name;
+      this.txtName.text = current.DisplayName;
+      this.txtName.name = item_name;
       this.txtName.color = current.GetRareTextColor;
     }
     if (this.txtItemNum != null)
@@ -45,7 +46,8 @@ public class NodeBackpackItem : MonoBehaviour
     {
       if (txtList[ii].name == "txtEquipItem")
       {
-        txtList[ii].text = item_name;
+        txtList[ii].text = current.DisplayName;
+        txtList[ii].name = item_name;
       }
     }
     this.gameObject.SetActive(true);

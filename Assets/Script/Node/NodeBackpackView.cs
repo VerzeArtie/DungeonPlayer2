@@ -168,7 +168,7 @@ public class NodeBackpackView : MonoBehaviour
   public void TapBackpackSelect(NodeBackpackItem backpack)
   {
     Debug.Log("TapBackpackSelect(S)");
-    this.CurrentSelectBackpack = new Item(backpack.txtName.text);
+    this.CurrentSelectBackpack = new Item(backpack.name);
 
     for (int ii = 0; ii < BackpackList.Count; ii++)
     {
@@ -188,7 +188,7 @@ public class NodeBackpackView : MonoBehaviour
     }
     backpack.imgSelect.gameObject.SetActive(true);
 
-    txtPreciousDescription.text = new Item(backpack.txtName.text).Description;
+    txtPreciousDescription.text = new Item(backpack.name).Description;
   }
 
   public void TapCancelUse()
@@ -226,7 +226,7 @@ public class NodeBackpackView : MonoBehaviour
                              Image img_resist_poison, Image img_resist_silence, Image img_resist_bind, Image img_resist_sleep, Image img_resist_stun, Image img_resist_paralyze, Image img_resist_freeze, Image img_resist_fear, Image img_resist_slow, Image img_resist_dizzy, Image img_resist_slip)
   {
     img_item.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
-    txt_name.text = item.ItemName;
+    txt_name.text = item.DisplayName;
     txt_type.text = item.ItemType_JP;
     txt_desc.text = item.Description;
     txt_str.text = item.Strength.ToString();
@@ -336,7 +336,7 @@ public class NodeBackpackView : MonoBehaviour
 
     if (this.CurrentSelectBackpack.ImportantType == Item.Important.Precious)
     {
-      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_CANNOT), this.CurrentSelectBackpack.ItemName);
+      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_CANNOT), this.CurrentSelectBackpack.DisplayName);
       txtDeleteMessage.text = "";
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(false);
@@ -345,7 +345,7 @@ public class NodeBackpackView : MonoBehaviour
     }
     else
     {
-      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_TITLE), this.CurrentSelectBackpack.ItemName);
+      txtDeleteTitle.text = string.Format(L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_TITLE), this.CurrentSelectBackpack.DisplayName);
       txtDeleteMessage.text = L10n.Get(Fix.L10N_NODEBACKPACK_DELETE_MESSAGE);
       GroupDeleteDecision.SetActive(true);
       btnDelete.gameObject.SetActive(true);
