@@ -688,10 +688,15 @@ public static class L10n
 
   private static bool HasJapaneseCharacter(string value)
   {
+    if (string.IsNullOrEmpty(value)) { return false; }
+
     for (int ii = 0; ii < value.Length; ii++)
     {
       char current = value[ii];
-      if ((current >= '\u3040' && current <= '\u30ff') || (current >= '\u3400' && current <= '\u9fff'))
+      // Hiragana / Katakana / CJK unified ideographs / Halfwidth katakana.
+      if ((current >= '\u3040' && current <= '\u30ff') ||
+          (current >= '\u3400' && current <= '\u9fff') ||
+          (current >= '\uff66' && current <= '\uff9f'))
       {
         return true;
       }
