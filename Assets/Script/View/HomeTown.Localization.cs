@@ -1386,6 +1386,21 @@ public static class L10n
     itemNameTable[Fix.DESCRIPTION_POTION] = "Consumable";
     itemNameTable[Fix.DESCRIPTION_BLUEORB] = "Exclusive Item";
 
+    // --- Special named items (already English values) ---
+    itemNameTable[Fix.RING_OF_OSCURETE] = "Ring of the Oscurete";
+    itemNameTable[Fix.MERGIZD_SOL_BLADE] = "Mergizd Sol Blade";
+    itemNameTable[Fix.ADILORB_OF_THE_GARVANDI] = "AdilOrb of the Garvandi";
+    itemNameTable[Fix.MAXCARN_X_BUSTER] = "Maxcarn the X-BUSTER";
+    itemNameTable[Fix.GATUH_HAWL_OF_GREAT] = "Gatuh Hawl of Great";
+    itemNameTable[Fix.JUZA_ARESTINE_SLICER] = "Arestine-Slicer of Juza";
+    itemNameTable[Fix.ADILRING_OF_BLUE_BURN] = "AdilRing of the Blue Burn";
+    itemNameTable[Fix.SHEZL_MYSTIC_FORTUNE] = "Shezl the Mystic Fortune";
+    itemNameTable[Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE] = "Flow Funnel of the Zveldose";
+    itemNameTable[Fix.EZEKRIEL_IMPRINT_SIGIL_ARMOR] = "Ezekriel the Imprinted-Armor of Sigil";
+    itemNameTable[Fix.MERGIZD_DAV_AGITATED_BLADE] = "Mergizd DAV-Agitated Blade";
+    itemNameTable[Fix.SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK] = "Shezl the Ventiel-DarkMirage Book";
+    itemNameTable[Fix.XEXXER_WORLD_MASTERY_GLOBE] = "Xexxer the World-Mastery Globe";
+
     // ---------------------------------------------------------------
 
     FieldInfo[] fields = typeof(Fix).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
