@@ -396,7 +396,7 @@ public static class ActionCommand
     Attribute current = GetAttribute(command_name);
     if (current == Attribute.Basic)
     {
-      return "(なし)";
+      return L10n.LocalizeGeneratedText("(なし)");
     }
     else if (current == Attribute.Magic)
     {
@@ -408,21 +408,21 @@ public static class ActionCommand
     }
     else if (current == Attribute.Archetype)
     {
-      return "(なし)";
+      return L10n.LocalizeGeneratedText("(なし)");
     }
     else if (current == Attribute.MonsterAction)
     {
-      return "(なし)";
+      return L10n.LocalizeGeneratedText("(なし)");
     }
     else if (current == Attribute.Other)
     {
-      return "(なし)";
+      return L10n.LocalizeGeneratedText("(なし)");
     }
     else if (current == Attribute.None)
     {
-      return "(なし)";
+      return L10n.LocalizeGeneratedText("(なし)");
     }
-    return "(なし)"; // デフォルトは(なし)とする。
+    return L10n.LocalizeGeneratedText("(なし)"); // デフォルトは(なし)とする。
   }
 
   public static Attribute GetAttribute(string command_name)

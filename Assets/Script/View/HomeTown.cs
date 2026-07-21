@@ -1458,9 +1458,10 @@ public partial class HomeTown : MotherBase
 
   private void AvailableNewContent(string content_name, string description)
   {
-    this.txtNewTitle.text = content_name;
-    this.txtNewDescription.text = description;
-    this.txtCloseButton.text = string.Format(L10n.Get(Fix.L10N_HOMETOWN_AVAILABLE), content_name);
+    string localizedContentName = L10n.GetDisplayName(content_name);
+    this.txtNewTitle.text = localizedContentName;
+    this.txtNewDescription.text = L10n.LocalizeGeneratedText(description);
+    this.txtCloseButton.text = string.Format(L10n.Get(Fix.L10N_HOMETOWN_AVAILABLE), localizedContentName);
     GroupNewAvailable.SetActive(true);
     One.UpdateAkashicRecord();
   }
@@ -4561,7 +4562,7 @@ public partial class HomeTown : MotherBase
     img_item.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
     txt_name.text = item.DisplayName;
     txt_type.text = item.ItemType_JP;
-    txt_desc.text = item.Description;
+    txt_desc.text = L10n.LocalizeGeneratedText(item.Description);
     txt_str.text = item.Strength.ToString();
     txt_agl.text = item.Agility.ToString();
     txt_int.text = item.Intelligence.ToString();

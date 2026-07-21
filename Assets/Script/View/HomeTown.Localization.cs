@@ -345,7 +345,7 @@ public static class L10n
     return string.Empty;
   }
 
-  public static string GetItemName(string key)
+  public static string GetDisplayName(string key)
   {
     if (string.IsNullOrEmpty(key)) { return string.Empty; }
 
@@ -366,6 +366,106 @@ public static class L10n
     }
 
     return key;
+  }
+
+  public static string GetItemName(string key)
+  {
+    return GetDisplayName(key);
+  }
+
+  public static string LocalizeGeneratedText(string text)
+  {
+    if (string.IsNullOrEmpty(text)) { return string.Empty; }
+    if (One.CONF == null || One.CONF.GameLanguage != (int)(One.GameLanguage.English)) { return text; }
+
+    string result = text.Replace("　", " ");
+
+    string[][] replacements = new string[][]
+    {
+      new string[] { "敵一体、または味方一体を対象とする。", "Targets one enemy or one ally. " },
+      new string[] { "敵味方全員を対象とする。", "Targets all combatants. " },
+      new string[] { "敵グループを対象とする。", "Targets an enemy group. " },
+      new string[] { "敵一体を対象とする。", "Targets one enemy. " },
+      new string[] { "味方一体を対象とする。", "Targets one ally. " },
+      new string[] { "自分自身を対象とする。", "Targets self. " },
+      new string[] { "自分自身を対象として", "Targets self and " },
+      new string[] { "敵全体に対して", "Deals damage to all enemies and " },
+      new string[] { "敵全体に", "To all enemies " },
+      new string[] { "味方全員に", "To all allies " },
+      new string[] { "味方全員の", "All allies' " },
+      new string[] { "敵全員に", "To all enemies " },
+      new string[] { "敵単体 / 味方単体", "Single Enemy / Single Ally" },
+      new string[] { "敵味方全体", "All Combatants" },
+      new string[] { "敵フィールド", "Enemy Field" },
+      new string[] { "味方フィールド", "Ally Field" },
+      new string[] { "敵全体", "All Enemies" },
+      new string[] { "味方全体", "All Allies" },
+      new string[] { "敵単体", "Single Enemy" },
+      new string[] { "味方単体", "Single Ally" },
+      new string[] { "インスタント対象", "Instant Target" },
+      new string[] { "自分自身", "Self" },
+      new string[] { "インスタント", "Instant" },
+      new string[] { "ノーマル", "Normal" },
+      new string[] { "ソーサリー", "Sorcery" },
+      new string[] { "(なし)", "(None)" },
+      new string[] { "なし", "None" },
+      new string[] { "威力 ", "Power " },
+      new string[] { "追加【炎】の威力 ", "Extra [Fire] Power " },
+      new string[] { "ライフの回復量 ", "Life Recovery " },
+      new string[] { "ライフ回復量 ", "Life Recovery " },
+      new string[] { "最大ライフの増加量 ", "Max Life Increase " },
+      new string[] { "最大ライフ", "Max Life" },
+      new string[] { "回復量 ", "Recovery " },
+      new string[] { "増加量 ", "Increase " },
+      new string[] { "減少量 ", "Reduction " },
+      new string[] { "継続ターン数 ", "Duration " },
+      new string[] { "ターン持続数 ", "Duration " },
+      new string[] { "攻撃回数 ", "Hits " },
+      new string[] { "累積カウンター数 ", "Stack Count " },
+      new string[] { "ＭＰ消費 ", "MP Cost " },
+      new string[] { "ＭＰ消費　", "MP Cost " },
+      new string[] { "ＳＰ消費 ", "SP Cost " },
+      new string[] { "ＳＰ回復量 ", "SP Recovery " },
+      new string[] { "インスタンスゲージ進行 ", "Instant Gauge " },
+      new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge " },
+      new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Gauge Down " },
+      new string[] { "物理攻撃／魔法攻撃の増加量 ", "Physical Attack / Magic Attack Increase " },
+      new string[] { "物理防御／魔法防御／戦闘反応の減少量 ", "Physical Defense / Magic Defense / Battle Response Reduction " },
+      new string[] { "物理／魔法防御の増加量 ", "Physical / Magic Defense Increase " },
+      new string[] { "物理防御を無視する量 ", "Physical Defense Ignore " },
+      new string[] { "物理防御ＤＯＷＮ影響 ", "Physical Defense Down Effect " },
+      new string[] { "物理防御の増加量 ", "Physical Defense Increase " },
+      new string[] { "物理防御の減少量 ", "Physical Defense Reduction " },
+      new string[] { "物理攻撃の減少量 ", "Physical Attack Reduction " },
+      new string[] { "魔法防御の減少量 ", "Magic Defense Reduction " },
+      new string[] { "戦闘速度の増加量 ", "Battle Speed Increase " },
+      new string[] { "戦闘反応の増加量 ", "Battle Response Increase " },
+      new string[] { "潜在能力の増加量 ", "Potential Increase " },
+      new string[] { "クリティカル発生率 +", "Critical Rate +" },
+      new string[] { "対象へのダメージの威力 ", "Target Damage Power " },
+      new string[] { "周囲全体への威力 ", "Surrounding Damage Power " },
+      new string[] { "【力】", "[Strength]" },
+      new string[] { "【技】", "[Agility]" },
+      new string[] { "【知】", "[Intelligence]" },
+      new string[] { "【体】", "[Stamina]" },
+      new string[] { "【心】", "[Mind]" },
+      new string[] { "【炎】", "[Fire]" },
+      new string[] { "【氷】", "[Ice]" },
+      new string[] { "【聖】", "[Holy]" },
+      new string[] { "【闇】", "[Dark]" },
+      new string[] { "【理】", "[Force]" },
+      new string[] { "【物理】", "[Physical]" },
+      new string[] { "【魔法】", "[Magic]" },
+      new string[] { "【有益】", "[Beneficial]" },
+      new string[] { "【有害】", "[Harmful]" }
+    };
+
+    for (int ii = 0; ii < replacements.Length; ii++)
+    {
+      result = result.Replace(replacements[ii][0], replacements[ii][1]);
+    }
+
+    return result;
   }
 
   private static void EnsureItemNameTable()

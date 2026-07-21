@@ -188,7 +188,7 @@ public class NodeBackpackView : MonoBehaviour
     }
     backpack.imgSelect.gameObject.SetActive(true);
 
-    txtPreciousDescription.text = new Item(backpack.name).Description;
+    txtPreciousDescription.text = L10n.LocalizeGeneratedText(new Item(backpack.name).Description);
   }
 
   public void TapCancelUse()
@@ -228,7 +228,7 @@ public class NodeBackpackView : MonoBehaviour
     img_item.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
     txt_name.text = item.DisplayName;
     txt_type.text = item.ItemType_JP;
-    txt_desc.text = item.Description;
+    txt_desc.text = L10n.LocalizeGeneratedText(item.Description);
     txt_str.text = item.Strength.ToString();
     txt_agl.text = item.Agility.ToString();
     txt_int.text = item.Intelligence.ToString();
