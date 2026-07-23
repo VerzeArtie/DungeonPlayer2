@@ -428,66 +428,66 @@ public class HelpBook : MotherBase
     CurrentLabel_EN.text = command;
     CurrentLabel_JP.text = ActionCommand.To_JP(command);
     CurrentImage.sprite = Resources.Load<Sprite>(command);
-    CurrentDescription.text = ActionCommand.GetDescription(command); 
+    CurrentDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(command)); 
     CurrentCost.text = ActionCommand.Cost(command).ToString();
 
 
     if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.Enemy)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ENEMY;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ENEMY);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.Ally)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ALLY;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ALLY);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.EnemyGroup)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ENEMYGROUP;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ENEMYGROUP);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.AllyGroup)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ALLYGROUP;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ALLYGROUP);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.EnemyField)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ENEMYGROUP;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ENEMYFIELD);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.AllyField)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ALLYGROUP;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ALLYFIELD);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.AllMember)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ALLMEMBER;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ALLMEMBER);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.EnemyOrAlly)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_ENEMYORALLY;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_ENEMYORALLY);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.InstantTarget)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_INSTANTTARGET;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_INSTANTTARGET);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.Own)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_OWN;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_OWN);
     }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.None)
     {
-      CurrentTarget.text = Fix.TARGET_TYPE_NONE;
+      CurrentTarget.text = L10n.LocalizeGeneratedText(Fix.TARGET_TYPE_NONE);
     }
 
     if (ActionCommand.GetTiming(sender.text) == ActionCommand.TimingType.Instant)
     {
-      CurrentTiming.text = Fix.TIMING_TYPE_INSTANT;
+      CurrentTiming.text = L10n.LocalizeGeneratedText(Fix.TIMING_TYPE_INSTANT);
     }
     else if (ActionCommand.GetTiming(sender.text) == ActionCommand.TimingType.Normal)
     {
-      CurrentTiming.text = Fix.TIMING_TYPE_NORMAL;
+      CurrentTiming.text = L10n.LocalizeGeneratedText(Fix.TIMING_TYPE_NORMAL);
     }
     else if (ActionCommand.GetTiming(sender.text) == ActionCommand.TimingType.Sorcery)
     {
-      CurrentTiming.text = Fix.TIMING_TYPE_SORCERY;
+      CurrentTiming.text = L10n.LocalizeGeneratedText(Fix.TIMING_TYPE_SORCERY);
     }
   }
 

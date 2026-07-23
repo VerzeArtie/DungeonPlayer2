@@ -90,6 +90,11 @@ public partial class Item
     get { return _itemName; }
   }
 
+  public string DisplayName
+  {
+    get { return L10n.GetItemName(_itemName); }
+  }
+
   protected int _stackValue = 0;
   public int StackValue
   {

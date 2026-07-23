@@ -358,7 +358,7 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    // ‘à—ñ•ÏX
+    // ï¿½ï¿½ï¿½ï¿½ÏX
     if (panelHideOther.activeInHierarchy)
     {
       Debug.Log("panelHideOther.activeInHierarchy is true, switch phase");
@@ -370,12 +370,12 @@ public class PartyMenu : MotherBase
       else if (this.SwitchCharacter == txt_name.text)
       {
         Debug.Log("SwitchCharacter is save, then cancel it: " + txt_name.text);
-        // “¯‚¶ê‡‚ÍƒLƒƒƒ“ƒZƒ‹ˆµ‚¢
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍƒLï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         this.SwitchCharacter = String.Empty;
       }
       else
       {
-        // ‚à‚¤­‚µ—Ç‚¢‘‚«•û‚ª‚ ‚é‚Í‚¸Bï–¡‚È‚Ì‚Å’T‚µ‚Ä‚İ‚ÄÅ“K‰»‚·‚é–B
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Bï¿½ï–¡ï¿½È‚Ì‚Å’Tï¿½ï¿½ï¿½Ä‚İ‚ÄÅ“Kï¿½ï¿½ï¿½ï¿½ï¿½é–ï¿½B
         Debug.Log("SwitchCharacter start: " + this.SwitchCharacter + " -> " + txt_name.text);
         // Swap
         if (One.TF.BattlePlayer1 == txt_name.text)
@@ -439,7 +439,7 @@ public class PartyMenu : MotherBase
     }
     Debug.Log("panelHideOther.activeInHierarchy is false...");
 
-    // ƒRƒ}ƒ“ƒhÀs
+    // ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½s
     if (objCancelActionCommand.activeInHierarchy)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
@@ -495,7 +495,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // ƒAƒCƒeƒ€Às
+    // ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½s
     if (ParentBackpackView.objBlockFilter.activeInHierarchy)
     {
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -557,7 +557,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // ‰½‚©ƒƒbƒZ[ƒW‚ğ“ü‚ê‚È‚¢‚Æg‚¦‚È‚¢–‚ª•ª‚©‚ç‚È‚¢B
+              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ægï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_SINSEISUI)
@@ -569,7 +569,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // ‰½‚©ƒƒbƒZ[ƒW‚ğ“ü‚ê‚È‚¢‚Æg‚¦‚È‚¢–‚ª•ª‚©‚ç‚È‚¢B
+              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ægï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_VITALIRY_WATER)
@@ -581,7 +581,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // ‰½‚©ƒƒbƒZ[ƒW‚ğ“ü‚ê‚È‚¢‚Æg‚¦‚È‚¢–‚ª•ª‚©‚ç‚È‚¢B
+              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Ægï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
@@ -671,7 +671,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // ’Êí‘I‘ğ
+    // ï¿½Êï¿½Iï¿½ï¿½
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
       if (txt_name.text == PlayerList[ii].FullName)
@@ -679,7 +679,7 @@ public class PartyMenu : MotherBase
         this.CurrentPlayer = PlayerList[ii];
         if (this.groupCharacterStatus.gameObject.activeInHierarchy)
         {
-          CallGroupPartyStatus(PlayerList[ii]); // ˆÚs‘O‚ÍƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‚¢‚È‚¢B—v¸¸
+          CallGroupPartyStatus(PlayerList[ii]); // ï¿½Úsï¿½Oï¿½ÍƒRï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Aï¿½Eï¿½gï¿½ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½Bï¿½vï¿½ï¿½ï¿½ï¿½
         }
         break;
       }
@@ -704,11 +704,11 @@ public class PartyMenu : MotherBase
       else { objActionCommand[3].SetActive(false); }
     }
 
-    // ƒRƒ}ƒ“ƒhİ’è‰æ–Ê‚Ö‚Ì”½‰f
+    // ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½İ’ï¿½ï¿½Ê‚Ö‚Ì”ï¿½ï¿½f
     Character player3 = One.SelectCharacter(txt_name.text);
-    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [Šî–{s“®]‚ªˆê”Ô¶‚ÅÅ‰‚¾‚ªAƒfƒtƒHƒ‹ƒg‚ÍƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh‚ğ•\¦
+    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [ï¿½ï¿½{ï¿½sï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ÅÅï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ÍƒAï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½\ï¿½ï¿½
 
-    // ƒGƒbƒZƒ“ƒXƒcƒŠ[‚Ö‚Ì”½‰f
+    // ï¿½Gï¿½bï¿½Zï¿½ï¿½ï¿½Xï¿½cï¿½ï¿½ï¿½[ï¿½Ö‚Ì”ï¿½ï¿½f
     for (int ii = 0; ii < txtEssenceCategoryList.Count; ii++)
     {
       txtEssenceCategoryList[ii].text = String.Empty;
@@ -733,15 +733,15 @@ public class PartyMenu : MotherBase
     SetupCategoryColor(player3.FifthCommandAttribute, imgBackEssenceCategoryList[4], txtEssenceCategoryList[4]);
     SetupCategoryColor(player3.SixthCommandAttribute, imgBackEssenceCategoryList[5], txtEssenceCategoryList[5]);
 
-    // ‘®«ƒ{ƒ^ƒ“‚Ì•\¦
-    btnEssenceCategoryList[0].gameObject.SetActive(true); // í‚É—LŒø
-    btnEssenceCategoryList[1].gameObject.SetActive(true); // í‚É—LŒø
+    // ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½
+    btnEssenceCategoryList[0].gameObject.SetActive(true); // ï¿½ï¿½É—Lï¿½ï¿½
+    btnEssenceCategoryList[1].gameObject.SetActive(true); // ï¿½ï¿½É—Lï¿½ï¿½
     btnEssenceCategoryList[2].gameObject.SetActive(One.TF.AvailableFirstEssence);
     btnEssenceCategoryList[3].gameObject.SetActive(One.TF.AvailableSecondEssence);
     btnEssenceCategoryList[4].gameObject.SetActive(One.TF.AvailableThirdEssence);
     btnEssenceCategoryList[5].gameObject.SetActive(One.TF.AvailableFourthEssence);
-    btnEssenceCategoryList[6].gameObject.SetActive(false); // «—ˆŠg’£
-    btnEssenceCategoryList[7].gameObject.SetActive(false); // «—ˆŠg’£
+    btnEssenceCategoryList[6].gameObject.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½
+    btnEssenceCategoryList[7].gameObject.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½
 
     PreConstructEssenceList(player3);
     SetupEssenceList(player3, 0);
@@ -961,7 +961,7 @@ public class PartyMenu : MotherBase
     ParentBackpackView.GroupCategoryPrecious.SetActive(true);
   }
 
-  // ƒoƒgƒ‹İ’è
+  // ï¿½oï¿½gï¿½ï¿½ï¿½İ’ï¿½
   public void TapCommandTypeBasic()
   {
     SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Basic);
@@ -990,28 +990,28 @@ public class PartyMenu : MotherBase
     btnActionCommandTitle.ApplyImageIcon(action_command.CommandName);
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(action_command.CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
-    txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
+    txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(action_command.CommandName));
 
-    // –œ‚ªˆê‘I‘ğó‘Ô‚ª‘¶İ‚µ‚Ä‚¢‚È‚¢ê‡‚ÍÄİ’è‚·‚éB
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ÍÄİ’è‚·ï¿½ï¿½B
     if (this.CurrentSelectCommand == null)
     {
       this.CurrentSelectCommand = action_command;
       return;
     }
-    // Œ»İ‘I‘ğ‚Æˆá‚¤ƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh‚Ìê‡‚Í‚»‚ê‚ğ‘I‘ğ‚·‚éB
+    // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½Æˆá‚¤ï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Ìê‡ï¿½Í‚ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
     if (this.CurrentSelectCommand != action_command)
     {
       this.CurrentSelectCommand = action_command;
       // return;
     }
 
-    // •\¦ƒ‚[ƒh‚È‚çİ’èƒ‚[ƒh‚É‚¢‚©‚È‚¢B
+    // ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½È‚ï¿½İ’èƒ‚ï¿½[ï¿½hï¿½É‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
     if (this.CommandSettingsViewMode)
     {
       return;
     }
 
-    // İ’èƒ‚[ƒh‚Ö‚ÌˆÚs
+    // ï¿½İ’èƒ‚ï¿½[ï¿½hï¿½Ö‚ÌˆÚs
     if (FilterForAll.activeInHierarchy == false)
     {
       if (action_command.CommandName == "" || action_command.CommandName == Fix.STAY)
@@ -1072,7 +1072,7 @@ public class PartyMenu : MotherBase
     FilterForAll.SetActive(false);
     FilterForActionCommand.SetActive(false);
     FilterForAvailableList.SetActive(false);
-    // this.CurrentSelectCommand = null; // ƒLƒƒƒ“ƒZƒ‹AŒ»İ‘I‘ğ‚µ‚Ä‚¢‚éƒRƒ}ƒ“ƒh‚ÍƒNƒŠƒA‚µ‚È‚­‚Ä—Ç‚¢GUI‚Æ‚È‚Á‚½B
+    // this.CurrentSelectCommand = null; // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ÍƒNï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½È‚ï¿½ï¿½Ä—Ç‚ï¿½GUIï¿½Æ‚È‚ï¿½ï¿½ï¿½ï¿½B
   }
 
   public void TapBattleSettingPageNext()
@@ -1136,7 +1136,7 @@ public class PartyMenu : MotherBase
     }
   }
 
-  #region "ƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh"
+  #region "ï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½h"
   public void TapActionCommand(Text txt_src)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + txt_src.text);
@@ -1179,7 +1179,7 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
-          // ‘Sˆõ‚ª‘ÎÛ‚É‚È‚é‚Ì‚ÅAƒƒ“ƒo[‚Pl€‚ñ‚Å‚¢‚Ä‚àˆ—Œp‘±‚·‚éB
+          // ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ÎÛ‚É‚È‚ï¿½Ì‚ÅAï¿½ï¿½ï¿½ï¿½ï¿½oï¿½[ï¿½Pï¿½lï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
           continue;
         }
 
@@ -1219,7 +1219,7 @@ public class PartyMenu : MotherBase
   }
   #endregion
 
-  #region "ƒGƒbƒZƒ“ƒXEƒcƒŠ[İ’è"
+  #region "ï¿½Gï¿½bï¿½Zï¿½ï¿½ï¿½Xï¿½Eï¿½cï¿½ï¿½ï¿½[ï¿½İ’ï¿½"
   public void TapEssenceCategory(int number)
   {
     CurrentEssenceSelectNumber = number;
@@ -1237,8 +1237,8 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */ActionCommand.GetDescription(txt_title.text);
-    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + ActionCommand.GetDescReinforce(txt_title.text);
+    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */L10n.LocalizeGeneratedText(ActionCommand.GetDescription(txt_title.text));
+    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + L10n.LocalizeGeneratedText(ActionCommand.GetDescReinforce(txt_title.text));
 
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
@@ -1260,7 +1260,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // ‹­‰»‚ÌãŒÀ‚É’B‚µ‚Ä‚¢‚éê‡A‚Ü‚½‚Íu‹­‰»‚È‚µv‚Ìê‡AŠl“¾‚Å‚«‚È‚¢|‚ğ•\¦‚·‚éB
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½É’Bï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½Aï¿½Ü‚ï¿½ï¿½Íuï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½vï¿½Ìê‡ï¿½Aï¿½lï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½|ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
     if (CurrentPlayer.EssenceTreeMaxCap(txtEssenceCurrentName.text))
     {
       txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, txtEssenceCurrentName.text);
@@ -1305,7 +1305,7 @@ public class PartyMenu : MotherBase
     groupSystemMessage.SetActive(false);
   }
 
-  // •Â‚¶‚é
+  // ï¿½Â‚ï¿½ï¿½ï¿½
   public void TapExit()
   {
     SceneDimension.SceneClose(Fix.SCENE_PARTY_MENU);
@@ -1313,10 +1313,10 @@ public class PartyMenu : MotherBase
 
   public override void RefreshAllView()
   {
-    // ƒGƒbƒZƒ“ƒXƒcƒŠ[ƒ{ƒ^ƒ“
+    // ï¿½Gï¿½bï¿½Zï¿½ï¿½ï¿½Xï¿½cï¿½ï¿½ï¿½[ï¿½{ï¿½^ï¿½ï¿½
     btnEssenceTree.SetActive(One.TF.AvailableEssenceTree);
 
-    // ƒvƒŒƒCƒ„[ƒŠƒXƒg‚Ì”½‰f
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½gï¿½Ì”ï¿½ï¿½f
     PlayerList.Clear();
 
     List<Character> list = One.AvailableCharacters;
@@ -1345,36 +1345,36 @@ public class PartyMenu : MotherBase
       if (One.TF.BattlePlayer6 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
     }
 
-    // ‘I‘ğ’†‚ÌƒvƒŒƒCƒ„[‰Šúİ’èB
+    // ï¿½Iï¿½ğ’†‚Ìƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½B
     if (this.CurrentPlayer == null)
     {
       this.CurrentPlayer = PlayerList[0];
     }
 
-    // •s—v‚ÈƒtƒBƒ‹ƒ^‚ğ”rœ
+    // ï¿½sï¿½vï¿½Èƒtï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½rï¿½ï¿½
     panelHideOther.SetActive(false);
 
-    // ƒp[ƒeƒBƒXƒe[ƒ^ƒX‰æ–Ê‚Ö‚Ì”½‰f
+    // ï¿½pï¿½[ï¿½eï¿½Bï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½Ê‚Ö‚Ì”ï¿½ï¿½f
     SetupStayList();
 
-    // ƒRƒ}ƒ“ƒhİ’è‰æ–Ê‚Ö‚Ì”½‰f
-    SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [Šî–{s“®]‚ªˆê”Ô¶‚ÅÅ‰‚¾‚ªAƒfƒtƒHƒ‹ƒg‚ÍƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh‚ğ•\¦
+    // ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½İ’ï¿½ï¿½Ê‚Ö‚Ì”ï¿½ï¿½f
+    SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [ï¿½ï¿½{ï¿½sï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ÅÅï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ÍƒAï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ï¿½\ï¿½ï¿½
 
-    // ƒGƒbƒZƒ“ƒX‰æ–Ê‚Ö‚Ì”½‰f
+    // ï¿½Gï¿½bï¿½Zï¿½ï¿½ï¿½Xï¿½ï¿½Ê‚Ö‚Ì”ï¿½ï¿½f
     PreConstructEssenceList(PlayerList[0]);
     SetupEssenceList(this.CurrentPlayer, 0);
     CurrentEssenceSelectNumber = 0;
 
-    // ƒoƒbƒNƒpƒbƒNî•ñ‚ğ‰æ–Ê‚Ö”½‰f
+    // ï¿½oï¿½bï¿½Nï¿½pï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚Ö”ï¿½ï¿½f
     ParentBackpackView.ConstructBackpackView(this);
 
-    // ƒS[ƒ‹ƒh‚Ö‚Ì”½‰f
+    // ï¿½Sï¿½[ï¿½ï¿½ï¿½hï¿½Ö‚Ì”ï¿½ï¿½f
     txtGold.text = One.TF.Gold.ToString();
 
-    // ‘à—ñ•ÏXƒ{ƒ^ƒ“‚Ì•\¦
+    // ï¿½ï¿½ï¿½ï¿½ÏXï¿½{ï¿½^ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½
     btnFormation.gameObject.SetActive(One.TF.AvailableFormation);
 
-    // ƒoƒgƒ‹İ’èA•ÒWƒ‚[ƒh‚Ì•\¦
+    // ï¿½oï¿½gï¿½ï¿½ï¿½İ’ï¿½Aï¿½ÒWï¿½ï¿½ï¿½[ï¿½hï¿½Ì•\ï¿½ï¿½
     if (CommandSettingsViewMode)
     {
       txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
@@ -1525,7 +1525,7 @@ public class PartyMenu : MotherBase
   {
     Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
 
-    // ƒLƒƒƒ‰ƒNƒ^[‚ÌƒƒCƒ“ƒRƒ}ƒ“ƒhAƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh‚Ìİ’è
+    // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½Cï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Aï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Ìİ’ï¿½
     ActionCommandMain.BackColor.color = player.BattleForeColor;
     ActionCommandMain.OwnerName = player.FullName;
     ActionCommandMain.CommandName = player.ActionCommandMain;
@@ -1553,7 +1553,7 @@ public class PartyMenu : MotherBase
       ListActionCommandSet[ii].ApplyImageIcon(actionList[ii]);
     }
 
-    // ƒAƒNƒVƒ‡ƒ“‰Â”\‚ÈƒRƒ}ƒ“ƒhˆê——‚Ìİ’è
+    // ï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Â”\ï¿½ÈƒRï¿½}ï¿½ï¿½ï¿½hï¿½ê——ï¿½Ìİ’ï¿½
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       ListAvailableCommand[ii].CommandName = String.Empty;
@@ -1562,7 +1562,7 @@ public class PartyMenu : MotherBase
       ListAvailableCommandText[ii].text = String.Empty;
     }
 
-    // todo (ƒJƒeƒSƒŠ‚ª‘‚¦‚½ê‡A’Ç‰ÁÀ‘•‚ª•K—vj
+    // todo (ï¿½Jï¿½eï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Aï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½j
     groupCommandCategory.SetActive(true);
     btnCommandCategoryAction.gameObject.SetActive(true);
     btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
@@ -1608,7 +1608,7 @@ public class PartyMenu : MotherBase
     }
     else if (category_type == ActionCommand.CommandCategory.Archetype)
     {
-      // todo ƒXƒg[ƒŠ[is or ƒŒƒxƒ‹ƒAƒbƒv‚È‚Ç‚ÅƒŠƒXƒg’Ç‰Á
+      // todo ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½[ï¿½iï¿½s or ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Aï¿½bï¿½vï¿½È‚Ç‚Åƒï¿½ï¿½Xï¿½gï¿½Ç‰ï¿½
       List<string> list = new List<string>();
       if (player.FullName == Fix.NAME_EIN_WOLENCE && One.TF.AvailableArchetype_EinWolence)
       {
@@ -1638,10 +1638,10 @@ public class PartyMenu : MotherBase
     }
     else
     {
-      currentList = player.GetAvailableBasicAction(); // –œ‚ªˆêŒ©‚Â‚©‚ç‚È‚¢ê‡‚ÍBasic‚Å•\¦
+      currentList = player.GetAvailableBasicAction(); // ï¿½ï¿½ï¿½ï¿½ï¿½êŒ©ï¿½Â‚ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ï¿½Basicï¿½Å•\ï¿½ï¿½
     }
 
-    this.CurrentBattleSettingPageNumber = 0; // ‰Šú•\¦‚Ì‚½‚ßA0‚ÉÄİ’è
+    this.CurrentBattleSettingPageNumber = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßA0ï¿½ÉÄİ’ï¿½
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
@@ -1672,8 +1672,8 @@ public class PartyMenu : MotherBase
     btnActionCommandTitle.ApplyImageIcon(ListAvailableCommand[0].CommandName);
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
-    txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
-    this.CurrentSelectCommand = ListAvailableCommand[0]; // ‰Šúİ’è‚ÅŒ»İ‘I‘ğ‚µ‚Ä‚¢‚éƒRƒ}ƒ“ƒh‚Í‚O”Ô–Ú‚ğİ’è‚µ‚Ä‚¢‚é‚Ì‚Å”½‰f‚µ‚Ä‚¨‚­GUIƒNƒŠƒA‚µ‚È‚­‚Ä—Ç‚¢GUI‚Æ‚È‚Á‚½B
+    txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(ListAvailableCommand[0].CommandName));
+    this.CurrentSelectCommand = ListAvailableCommand[0]; // ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½ÅŒï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½Í‚Oï¿½Ô–Ú‚ï¿½İ’è‚µï¿½Ä‚ï¿½ï¿½ï¿½Ì‚Å”ï¿½ï¿½fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½GUIï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½È‚ï¿½ï¿½Ä—Ç‚ï¿½GUIï¿½Æ‚È‚ï¿½ï¿½ï¿½ï¿½B
   }
 
   private void PreConstructEssenceList(Character player)
@@ -1882,9 +1882,9 @@ public class PartyMenu : MotherBase
 
   private void SetupEssenceElement(Character player, int element_level, string label_text, bool available, int number, ref bool detect_zero)
   {
-    // available‚Í«—ˆ“I‚ÉƒAƒJƒVƒbƒNƒŒƒR[ƒh‘Î‰‚Å•\¦‚¾‚¯‚ÍŒ©‚¦‚é—l‚É‚µ‚Ä‚à‚æ‚¢BŒ»ó‚Í‰½‚àˆ—‚µ‚È‚¢B
+    // availableï¿½Íï¿½ï¿½ï¿½ï¿½Iï¿½ÉƒAï¿½Jï¿½Vï¿½bï¿½Nï¿½ï¿½ï¿½Rï¿½[ï¿½hï¿½Î‰ï¿½ï¿½Å•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍŒï¿½ï¿½ï¿½ï¿½ï¿½lï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½æ‚¢ï¿½Bï¿½ï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
     Debug.Log("SetupEssenceElement: " + player.Level);
-    // ‘O‰ñ–¢C“¾‚ª‚ ‚Á‚½‚È‚çA”ñ•\¦‚Æ‚·‚éB
+    // ï¿½Oï¿½ñ–¢Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½Aï¿½ï¿½\ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½B
     if (detect_zero)
     {
       Debug.Log("SetupEssenceElement: detect_zero");
@@ -1895,29 +1895,29 @@ public class PartyMenu : MotherBase
       txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
-    // level 1ˆÈã‚È‚ç‰Â‹‰»
+    // level 1ï¿½Èï¿½È‚ï¿½Âï¿½ï¿½ï¿½
     else if (element_level >= 1)
     {
       Debug.Log("SetupEssenceElement: element_level over 1" + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
-      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
+      txtEssenceElementFactor[number].text = L10n.LocalizeGeneratedText(player.GetEssenceFactor(label_text));
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = false;
     }
-    // level 0‚Å‚ ‚Á‚Ä‚àARequireLV‚ÌğŒ‚ğ–‚½‚¹‚Î‰Â‹‰»B‚½‚¾‚µ–¢C“¾‚ğ•\Œ»‚·‚éB
+    // level 0ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ARequireLVï¿½Ìï¿½ï¿½ï¿½ï¿½ğ–‚ï¿½ï¿½ï¿½ï¿½Î‰Âï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
     else if (player.Level >= Fix.ESSENCE_TREE_REQUIRE_LIST[number])
     {
       Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
-      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
+      txtEssenceElementFactor[number].text = L10n.LocalizeGeneratedText(player.GetEssenceFactor(label_text));
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ);
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = true;
     }
-    // ‚»‚êˆÈŠO‚Í”ñ•\¦‚Æ‚·‚éB
+    // ï¿½ï¿½ï¿½ï¿½ÈŠOï¿½Í”ï¿½\ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½B
     else
     {
       Debug.Log("SetupEssenceElement: ELSE");

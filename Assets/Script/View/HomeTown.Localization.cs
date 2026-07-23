@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
 public static class L10n
 {
   private static Dictionary<string, (string ja, string en)> table = new Dictionary<string, (string ja, string en)>(StringComparer.OrdinalIgnoreCase);
+  private static Dictionary<string, string> itemNameTable = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+  private static bool itemNameTableReady = false;
 
   static L10n()
   {
@@ -340,5 +343,1148 @@ public static class L10n
     }
 
     return string.Empty;
+  }
+
+  public static string GetDisplayName(string key)
+  {
+    if (string.IsNullOrEmpty(key)) { return string.Empty; }
+
+    if (table.ContainsKey(key))
+    {
+      return Get(key);
+    }
+
+    if (One.CONF.GameLanguage != (int)(One.GameLanguage.English))
+    {
+      return key;
+    }
+
+    EnsureItemNameTable();
+    if (itemNameTable.TryGetValue(key, out string english))
+    {
+      return english;
+    }
+
+    return key;
+  }
+
+  public static string GetItemName(string key)
+  {
+    return GetDisplayName(key);
+  }
+
+  public static string LocalizeGeneratedText(string text)
+  {
+    if (string.IsNullOrEmpty(text)) { return string.Empty; }
+    if (One.CONF == null || One.CONF.GameLanguage != (int)(One.GameLanguage.English)) { return text; }
+
+    string result = text.Replace("　", " ");
+
+    string[][] replacements = new string[][]
+    {
+      new string[] { "敵一体、または味方一体を対象とする。", "Targets one enemy or one ally. " },
+      new string[] { "敵味方全員を対象とする。", "Targets all combatants. " },
+      new string[] { "敵グループを対象とする。", "Targets an enemy group. " },
+      new string[] { "敵一体を対象とする。", "Targets one enemy. " },
+      new string[] { "味方一体を対象とする。", "Targets one ally. " },
+      new string[] { "自分自身を対象とする。", "Targets self. " },
+      new string[] { "自分自身を対象として", "Targets self and " },
+      new string[] { "敵全体に対して", "Deals damage to all enemies and " },
+      new string[] { "敵全体に", "To all enemies " },
+      new string[] { "味方全員に", "To all allies " },
+      new string[] { "味方全員の", "All allies' " },
+      new string[] { "敵全員に", "To all enemies " },
+      new string[] { "敵単体 / 味方単体", "Single Enemy / Single Ally" },
+      new string[] { "敵味方全体", "All Combatants" },
+      new string[] { "敵フィールド", "Enemy Field" },
+      new string[] { "味方フィールド", "Ally Field" },
+      new string[] { "敵全体", "All Enemies" },
+      new string[] { "味方全体", "All Allies" },
+      new string[] { "敵単体", "Single Enemy" },
+      new string[] { "味方単体", "Single Ally" },
+      new string[] { "インスタント対象", "Instant Target" },
+      new string[] { "自分自身", "Self" },
+      new string[] { "インスタント", "Instant" },
+      new string[] { "ノーマル", "Normal" },
+      new string[] { "ソーサリー", "Sorcery" },
+      new string[] { "(なし)", "(None)" },
+      new string[] { "なし", "None" },
+      new string[] { "威力 ", "Power " },
+      new string[] { "追加【炎】の威力 ", "Extra [Fire] Power " },
+      new string[] { "ライフの回復量 ", "Life Recovery " },
+      new string[] { "ライフ回復量 ", "Life Recovery " },
+      new string[] { "最大ライフの増加量 ", "Max Life Increase " },
+      new string[] { "最大ライフ", "Max Life" },
+      new string[] { "回復量 ", "Recovery " },
+      new string[] { "増加量 ", "Increase " },
+      new string[] { "減少量 ", "Reduction " },
+      new string[] { "継続ターン数 ", "Duration " },
+      new string[] { "ターン持続数 ", "Duration " },
+      new string[] { "攻撃回数 ", "Hits " },
+      new string[] { "累積カウンター数 ", "Stack Count " },
+      new string[] { "ＭＰ消費 ", "MP Cost " },
+      new string[] { "ＭＰ消費　", "MP Cost " },
+      new string[] { "ＳＰ消費 ", "SP Cost " },
+      new string[] { "ＳＰ回復量 ", "SP Recovery " },
+      new string[] { "インスタンスゲージ進行 ", "Instant Gauge " },
+      new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge " },
+      new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Gauge Down " },
+      new string[] { "物理攻撃／魔法攻撃の増加量 ", "Physical Attack / Magic Attack Increase " },
+      new string[] { "物理防御／魔法防御／戦闘反応の減少量 ", "Physical Defense / Magic Defense / Battle Response Reduction " },
+      new string[] { "物理／魔法防御の増加量 ", "Physical / Magic Defense Increase " },
+      new string[] { "物理防御を無視する量 ", "Physical Defense Ignore " },
+      new string[] { "物理防御ＤＯＷＮ影響 ", "Physical Defense Down Effect " },
+      new string[] { "物理防御の増加量 ", "Physical Defense Increase " },
+      new string[] { "物理防御の減少量 ", "Physical Defense Reduction " },
+      new string[] { "物理攻撃の減少量 ", "Physical Attack Reduction " },
+      new string[] { "魔法防御の減少量 ", "Magic Defense Reduction " },
+      new string[] { "戦闘速度の増加量 ", "Battle Speed Increase " },
+      new string[] { "戦闘反応の増加量 ", "Battle Response Increase " },
+      new string[] { "潜在能力の増加量 ", "Potential Increase " },
+      new string[] { "クリティカル発生率 +", "Critical Rate +" },
+      new string[] { "対象へのダメージの威力 ", "Target Damage Power " },
+      new string[] { "周囲全体への威力 ", "Surrounding Damage Power " },
+      new string[] { "【力】", "[Strength]" },
+      new string[] { "【技】", "[Agility]" },
+      new string[] { "【知】", "[Intelligence]" },
+      new string[] { "【体】", "[Stamina]" },
+      new string[] { "【心】", "[Mind]" },
+      new string[] { "【炎】", "[Fire]" },
+      new string[] { "【氷】", "[Ice]" },
+      new string[] { "【聖】", "[Holy]" },
+      new string[] { "【闇】", "[Dark]" },
+      new string[] { "【理】", "[Force]" },
+      new string[] { "【物理】", "[Physical]" },
+      new string[] { "【魔法】", "[Magic]" },
+      new string[] { "【有益】", "[Beneficial]" },
+      new string[] { "【有害】", "[Harmful]" }
+    };
+
+    for (int ii = 0; ii < replacements.Length; ii++)
+    {
+      result = result.Replace(replacements[ii][0], replacements[ii][1]);
+    }
+
+    return result;
+  }
+
+  private static void EnsureItemNameTable()
+  {
+    if (itemNameTableReady) { return; }
+    itemNameTableReady = true;
+
+    // ---------------------------------------------------------------
+    // Explicit JP→EN item name translations
+    // Items whose field-name auto-generation produces Japanese-romanization
+    // tokens or otherwise misleading English are registered here first.
+    // The reflection loop below skips keys that are already present.
+    // ---------------------------------------------------------------
+
+    // --- Phase I-1: Esmilia Grassfield (weapons / accessories) ---
+    itemNameTable[Fix.MUMYOU_BOW] = "Bow of Obscurity";
+    itemNameTable[Fix.RED_PILLER_ORB] = "Flame Pillar Crystal";
+    itemNameTable[Fix.MUIN_BOOK] = "Blank Grimoire";
+    itemNameTable[Fix.HINJAKU_RING] = "Feeble Bangle";
+    itemNameTable[Fix.USUYOGORETA_FEATHER] = "Grimy Feather Ornament";
+    itemNameTable[Fix.KUKEI_BANGLE] = "Rectangular Bangle";
+    itemNameTable[Fix.SUTERARESHI_EMBLEM] = "Forsaken Emblem";
+    itemNameTable[Fix.SHAPED_FINGERRING] = "Well-Shaped Ring";
+
+    // Copper bangles (COPPERRING_*)
+    itemNameTable[Fix.COPPERRING_TIGER] = "Copper Bangle 'Tiger'";
+    itemNameTable[Fix.COPPERRING_DORPHINE] = "Copper Bangle 'Dolphin'";
+    itemNameTable[Fix.COPPERRING_HORSE] = "Copper Bangle 'Horse'";
+    itemNameTable[Fix.COPPERRING_BEAR] = "Copper Bangle 'Bear'";
+    itemNameTable[Fix.COPPERRING_HAYABUSA] = "Copper Bangle 'Falcon'";
+    itemNameTable[Fix.COPPERRING_OCTOPUS] = "Copper Bangle 'Octopus'";
+    itemNameTable[Fix.COPPERRING_RABBIT] = "Copper Bangle 'Rabbit'";
+    itemNameTable[Fix.COPPERRING_SPIDER] = "Copper Bangle 'Spider'";
+    itemNameTable[Fix.COPPERRING_DEER] = "Copper Bangle 'Deer'";
+    itemNameTable[Fix.COPPERRING_ELEPHANT] = "Copper Bangle 'Elephant'";
+
+    // --- Phase I-1: Anshet synthesis ---
+    itemNameTable[Fix.KOUKAKU_ARMOR] = "Chitin Armor";
+
+    // --- Phase I-2: Goratrum Cave ---
+    itemNameTable[Fix.SEKISOUJU_ROD] = "Red Twin-Wielded Rod";
+    itemNameTable[Fix.MADAN_SHOOTING_STAR] = "Magic Shot: Shooting Star";
+    itemNameTable[Fix.HUANTEI_RING] = "Unstable Ring";
+    itemNameTable[Fix.USED_HQ_BOOTS] = "Worn High-Quality Boots";
+
+    // Bronze bangles (BRONZE_RING_*)
+    itemNameTable[Fix.BRONZE_RING_KIBA] = "Bronze Bangle 'Fang'";
+    itemNameTable[Fix.BRONZE_RING_SASU] = "Bronze Bangle 'Pierce'";
+    itemNameTable[Fix.BRONZE_RING_KU] = "Bronze Bangle 'Run'";
+    itemNameTable[Fix.BRONZE_RING_NAGURI] = "Bronze Bangle 'Strike'";
+    itemNameTable[Fix.BRONZE_RING_TOBI] = "Bronze Bangle 'Fly'";
+    itemNameTable[Fix.BRONZE_RING_KARAMU] = "Bronze Bangle 'Entwine'";
+    itemNameTable[Fix.BRONZE_RING_HANERU] = "Bronze Bangle 'Leap'";
+    itemNameTable[Fix.BRONZE_RING_TORU] = "Bronze Bangle 'Capture'";
+    itemNameTable[Fix.BRONZE_RING_MIRU] = "Bronze Bangle 'See'";
+    itemNameTable[Fix.BRONZE_RING_KATAI] = "Bronze Bangle 'Sturdy'";
+
+    // Color brands
+    itemNameTable[Fix.RED_KOKUIN] = "Red Brand";
+    itemNameTable[Fix.BLUE_KOKUIN] = "Blue Brand";
+    itemNameTable[Fix.PURPLE_KOKUIN] = "Purple Brand";
+    itemNameTable[Fix.GREEN_KOKUIN] = "Green Brand";
+    itemNameTable[Fix.YELLOW_KOKUIN] = "Yellow Brand";
+
+    // Misc accessories (Goratrum)
+    itemNameTable[Fix.CLEAN_HEARBAND] = "Clean Hair Band";
+    itemNameTable[Fix.FIVECOLOR_COMPASS] = "Five-Color Compass";
+    itemNameTable[Fix.BURIED_DANZAIANGEL_STATUE] = "Statue of the Buried Judgment Angel";
+    itemNameTable[Fix.LIGHT_HAKURUANGEL_STATUE] = "Statue of the Radiant Jade Angel";
+
+    // --- Phase I-2: Fazil synthesis ---
+    itemNameTable[Fix.DENDO_DRILL_AXE] = "Electromagnetic Drill Axe";
+    itemNameTable[Fix.TETRA_EYE_BIGROD] = "Tetra-Style Stacked-Eye Staff";
+
+    // --- Phase II-1: Mystic Forest ---
+    itemNameTable[Fix.ENSHOUTOU] = "Flame-Soaring Blade";
+
+    // Junk talismans
+    itemNameTable[Fix.JUNK_TARISMAN_POISON] = "Junk Talisman [Poison]";
+    itemNameTable[Fix.JUNK_TARISMAN_SILENCE] = "Junk Talisman [Silence]";
+    itemNameTable[Fix.JUNK_TARISMAN_BIND] = "Junk Talisman [Bind]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLEEP] = "Junk Talisman [Sleep]";
+    itemNameTable[Fix.JUNK_TARISMAN_STUN] = "Junk Talisman [Stun]";
+    itemNameTable[Fix.JUNK_TARISMAN_PARALYZE] = "Junk Talisman [Paralyze]";
+    itemNameTable[Fix.JUNK_TARISMAN_FROZEN] = "Junk Talisman [Frozen]";
+    itemNameTable[Fix.JUNK_TARISMAN_FEAR] = "Junk Talisman [Fear]";
+    itemNameTable[Fix.JUNK_TARISMAN_TEMPTATION] = "Junk Talisman [Temptation]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLOW] = "Junk Talisman [Slow]";
+    itemNameTable[Fix.JUNK_TARISMAN_DIZZY] = "Junk Talisman [Dizzy]";
+    itemNameTable[Fix.JUNK_TARISMAN_SLIP] = "Junk Talisman [Bleed]";
+
+    // Misc drop items (Mystic Forest)
+    itemNameTable[Fix.SIHAIRYU_SIKOTU] = "Dragon Lord's Finger Bone";
+    itemNameTable[Fix.OLDGLORY_TREE_KAREHA] = "Ancient Great Tree Dead Leaf";
+    itemNameTable[Fix.GALEWIND_KONSEKI] = "Gale Wind's Trace";
+    itemNameTable[Fix.SIN_CRYSTAL_KAKERA] = "Sin Crystal Fragment";
+    itemNameTable[Fix.EVERMIND_ZANSHI] = "Ever-Mind Lingering Thought";
+
+    // Misc accessories (Mystic Forest)
+    itemNameTable[Fix.SPIRIT_TUNOBUE] = "Spirits' Horn Flute";
+    itemNameTable[Fix.ENSEMBLE_FEATHER_HUT] = "Ensemble Feather Hat";
+    itemNameTable[Fix.MEIUN_PRISM_BOX] = "Prism Box of Fate";
+    itemNameTable[Fix.SQUARE_SINNEN] = "Square [Faith]";
+    itemNameTable[Fix.SQUARE_BLESTAR] = "Square [Deliberation]";
+    itemNameTable[Fix.SQUARE_CHISEI] = "Square [Wisdom]";
+    itemNameTable[Fix.SQUARE_SENREN] = "Square [Refinement]";
+    itemNameTable[Fix.SQUARE_SAIKI] = "Square [Brilliance]";
+    itemNameTable[Fix.SQUARE_TANREN] = "Square [Tempering]";
+    itemNameTable[Fix.SQUARE_KOKOH] = "Square [Solitude]";
+
+    // --- Phase II-2: Tower of Ohran ---
+    itemNameTable[Fix.KODAIEIJU_GREEN_LEAF] = "Ancient Great Tree Evergreen Leaf";
+    itemNameTable[Fix.TYORENSOU_ZANKYO_LANCE] = "Twin-Butterfly Resonance Lance";
+
+    // Magic stones
+    itemNameTable[Fix.RED_MASEKI] = "Red Magic Stone";
+    itemNameTable[Fix.BLUE_MASEKI] = "Blue Magic Stone";
+    itemNameTable[Fix.PURPLE_MASEKI] = "Purple Magic Stone";
+    itemNameTable[Fix.GREEN_MASEKI] = "Green Magic Stone";
+    itemNameTable[Fix.YELLOW_MASEKI] = "Yellow Magic Stone";
+
+    // Misc accessories (Tower of Ohran)
+    itemNameTable[Fix.STARAIR_FLOATING_STONE] = "Starry Sky Floating Stone";
+    itemNameTable[Fix.LIGHTBRIGHT_FLOATING_STONE] = "Holy Light Floating Stone";
+
+    // --- Phase III-1: Velgus Sea Temple ---
+    itemNameTable[Fix.STRONG_FIRE_HELL_BASTARDAXE] = "Forged Flame Hell Bastard Axe";
+    itemNameTable[Fix.GOLDWILL_DESCENT_SOWRD] = "Gold Will Descent Sword";
+
+    // Silver bangles (SILVER_RING_*)
+    itemNameTable[Fix.SILVER_RING_GOUKA] = "Silver Bangle [Hellfire]";
+    itemNameTable[Fix.SILVER_RING_TSUNAMI] = "Silver Bangle [Tsunami]";
+    itemNameTable[Fix.SILVER_RING_AKISAME] = "Silver Bangle [Autumn Rain]";
+    itemNameTable[Fix.SILVER_RING_NEPPA] = "Silver Bangle [Heat Wave]";
+    itemNameTable[Fix.SILVER_RING_RAIMEI] = "Silver Bangle [Thunder]";
+    itemNameTable[Fix.SILVER_RING_FUBUKI] = "Silver Bangle [Blizzard]";
+    itemNameTable[Fix.SILVER_RING_GENJITSU] = "Silver Bangle [Parhelion]";
+    itemNameTable[Fix.SILVER_RING_TATSUMAKI] = "Silver Bangle [Tornado]";
+    itemNameTable[Fix.SILVER_RING_SYUNIJI] = "Silver Bangle [Primary Rainbow]";
+    itemNameTable[Fix.SILVER_RING_KAGEROU] = "Silver Bangle [Heat Shimmer]";
+
+    // Brillistones
+    itemNameTable[Fix.REDLIGHT_BRIGHTSTONE] = "Red-Light Brillistone";
+    itemNameTable[Fix.BLUELIGHT_BRIGHTSTONE] = "Blue-Light Brillistone";
+    itemNameTable[Fix.PURPLELIGHT_BRIGHTSTONE] = "Purple-Light Brillistone";
+    itemNameTable[Fix.GREENLIGHT_BRIGHTSTONE] = "Green-Light Brillistone";
+    itemNameTable[Fix.YELLOWLIGHT_BRIGHTSTONE] = "Yellow-Light Brillistone";
+
+    // Misc accessories (Velgus)
+    itemNameTable[Fix.ANGEL_CONTRACT_SHEET] = "Angel's Contract";
+
+    // --- Palmetysia synthesis ---
+    itemNameTable[Fix.HATENA_BIG_BOX] = "Mystery Big Box";
+
+    // --- Phase IV-2: Edelgarzen Castle ---
+    itemNameTable[Fix.SHINGETSUEN_CLAW] = "Deep Moon Abyss Claw";
+    itemNameTable[Fix.JUNKEI_SHIKI_BOOK] = "Pure Vista Four Seasons Book";
+    itemNameTable[Fix.SYOKO_PALESTRIDE_BOW] = "Dawn Pale-Stride Bow";
+    itemNameTable[Fix.SHISO_GENSUI_KING_CROSS] = "Founding Marshal's Garb [Royal]";
+    itemNameTable[Fix.DANZAI_ANGEL_TALISMAN] = "Judgment Angel's Talisman";
+
+    // Platinum bangles (PLATINUM_RING_*)
+    itemNameTable[Fix.PLATINUM_RING_1] = "Platinum Bangle [White Tiger]";
+    itemNameTable[Fix.PLATINUM_RING_2] = "Platinum Bangle [Valkyrie]";
+    itemNameTable[Fix.PLATINUM_RING_3] = "Platinum Bangle [Nightmare]";
+    itemNameTable[Fix.PLATINUM_RING_4] = "Platinum Bangle [Narasimha]";
+    itemNameTable[Fix.PLATINUM_RING_5] = "Platinum Bangle [Vermilion Bird]";
+    itemNameTable[Fix.PLATINUM_RING_6] = "Platinum Bangle [Ouroboros]";
+    itemNameTable[Fix.PLATINUM_RING_7] = "Platinum Bangle [Nine-Tails]";
+    itemNameTable[Fix.PLATINUM_RING_8] = "Platinum Bangle [Behemoth]";
+    itemNameTable[Fix.PLATINUM_RING_9] = "Platinum Bangle [Azure Dragon]";
+    itemNameTable[Fix.PLATINUM_RING_10] = "Platinum Bangle [Black Tortoise]";
+
+    // Misc accessories (Edelgarzen)
+    itemNameTable[Fix.DARKNESS_COIN] = "Dark Currency";
+    itemNameTable[Fix.BLACK_DRAGON_FEATHER] = "Black Wing Dragon's Feather";
+
+    // --- Quest / key items ---
+    itemNameTable[Fix.ITEM_MATOCK] = "Mattock";
+    itemNameTable[Fix.ITEM_TOOMI_AOSUISYOU] = "Far-Seeing Blue Crystal";
+    itemNameTable[Fix.ITEM_WALKING_ROPE] = "Tightrope";
+    itemNameTable[Fix.ITEM_COPPER_KEY] = "Copper Key";
+    itemNameTable[Fix.PURE_SINSEISUI] = "Holy Water";
+    itemNameTable[Fix.PURE_VITALIRY_WATER] = "Vitality Water";
+    itemNameTable[Fix.KODAIEIJU_EDA] = "Ancient Great Tree Branch";
+    itemNameTable[Fix.KIGAN_OFUDA] = "Prayer Talisman";
+    itemNameTable[Fix.VELGUS_KEY1] = "Velgus Sea Temple Key [1]";
+    itemNameTable[Fix.VELGUS_KEY2] = "Velgus Sea Temple Key [2]";
+    itemNameTable[Fix.VELGUS_KEY3] = "Velgus Sea Temple Key [3]";
+    itemNameTable[Fix.VELGUS2_KEY1] = "Velgus Sea Temple Key [Stillness]";
+    itemNameTable[Fix.VELGUS2_KEY2] = "Velgus Sea Temple Key [Sprint]";
+    itemNameTable[Fix.VELGUS2_KEY3] = "Velgus Sea Temple Key [Adaptation]";
+    itemNameTable[Fix.EDELGARZEN_KEY] = "Edelgarzen Castle: Front Gate Key";
+    itemNameTable[Fix.EDELGARZEN_KEY1] = "Edelgarzen Castle Key [Tenacity]";
+    itemNameTable[Fix.EDELGARZEN_KEY2] = "Edelgarzen Castle Key [Will]";
+    itemNameTable[Fix.EDELGARZEN_KEY3] = "Edelgarzen Castle Key [Non-Action]";
+    itemNameTable[Fix.EDELGARZEN_KEY4] = "Edelgarzen Castle Key [Omniscience]";
+    itemNameTable[Fix.ZEMULGEARS] = "Supreme Blade: Zemulgears";
+    itemNameTable[Fix.ARTIFACT_GENSEI] = "Ancient Orb: Integrity";
+    itemNameTable[Fix.ARTIFACT_ZIHI] = "Ancient Orb: Mercy";
+    itemNameTable[Fix.ARTIFACT_MUSOU] = "Ancient Orb: Peerless";
+    itemNameTable[Fix.LEGENDARY_FELTUS] = "Divine Blade: Feltusch";
+
+    // --- Potions ---
+    itemNameTable[Fix.TOTAL_HIYAKU_KASSEI] = "Composite Elixir [Activation]";
+    itemNameTable[Fix.TOTAL_HIYAKU_JOUSEI] = "Composite Elixir [Purification]";
+    itemNameTable[Fix.SOUKAI_DRINK_SS] = "Refreshing Drink [S&S]";
+    itemNameTable[Fix.TUUKAI_DRINK_DD] = "Exhilarating Drink [D&D]";
+    itemNameTable[Fix.GOD_YORISHIRO_SOSEI] = "God's Vessel [Resurrection]";
+    itemNameTable[Fix.TRADITIONAL_POTION_DATTOU] = "Traditional Elixir [Escape]";
+    itemNameTable[Fix.TRADITIONAL_POTION_HEIGAN] = "Traditional Elixir [Closed Eyes]";
+    itemNameTable[Fix.TEN_ON_MORI_MEGUMI] = "Heaven's Grace, Forest's Blessing";
+    itemNameTable[Fix.KINDAN_TOKKOUYAKU] = "Forbidden Special Medicine";
+    itemNameTable[Fix.SOUIN_HIYAKU_DISENCHANT] = "Monastery Elixir [Dispel]";
+
+    // --- Material drop items ---
+    itemNameTable[Fix.COMMON_MANTIS_TAIEKI] = "Mantis Fluid";
+    itemNameTable[Fix.COMMON_GREEN_SIKISO] = "Green Pigment";
+    itemNameTable[Fix.COMMON_KOKYU_LETHER_MATERIAL] = "Kokyuu Leather Material";
+    itemNameTable[Fix.COMMON_KATAME_TREE] = "Solid Wood Branch";
+    itemNameTable[Fix.COMMON_WARM_NO_KOUKAKU] = "Worm Carapace";
+    itemNameTable[Fix.COMMON_YELLOW_TAIEKI] = "Yellow Bodily Fluid";
+    itemNameTable[Fix.COMMON_TOGETOGE_GRASS] = "Prickly Grass";
+    itemNameTable[Fix.COMMON_RED_HOUSI] = "Red Spore";
+    itemNameTable[Fix.COMMON_DOKUSO_NEEDLE] = "Poison-Component Needle";
+    itemNameTable[Fix.COMMON_HORSE_HIZUME] = "Horse Hoof";
+    itemNameTable[Fix.COMMON_COLORFUL_BALL] = "Chromatic Ball";
+    itemNameTable[Fix.COMMON_SHARP_HAHEN] = "Sharp Fragment";
+    itemNameTable[Fix.COMMON_NEBARIKE_EKITAI] = "Viscous Liquid";
+    itemNameTable[Fix.COMMON_USUGATA_ENBAN] = "Thin Disk";
+    itemNameTable[Fix.COMMON_HASSYADAI] = "Launch Platform";
+    itemNameTable[Fix.COMMON_KYOUTEN_X] = "Scripture X";
+    itemNameTable[Fix.COMMON_BUYOBUYO_MOEKASU] = "Soggy Ash Residue";
+    itemNameTable[Fix.COMMON_BAKUHA_CHAKKAZAI] = "Explosive Igniter";
+    itemNameTable[Fix.COMMON_SEKKAIKOU] = "Limestone Ore";
+    itemNameTable[Fix.COMMON_SANKAKU_STEEL] = "Triangular Steel";
+    itemNameTable[Fix.COMMON_PURPLE_BOTTOLE] = "Purple Vial";
+    itemNameTable[Fix.COMMON_BOAR_MOMONIKU] = "Boar Thigh Meat";
+    itemNameTable[Fix.COMMON_SNAKE_EMPTYSHELL] = "Snake Shed Skin";
+    itemNameTable[Fix.COMMON_DRYAD_RINPUN] = "Dryad Scale Powder";
+    itemNameTable[Fix.COMMON_ELEMENTAL_KONA] = "Spirit Powder";
+    itemNameTable[Fix.COMMON_DORO_YOUKAIEKI] = "Thick Corrosive Liquid";
+    itemNameTable[Fix.COMMON_YOUKAI_MIKI] = "Aura-Wreathed Trunk";
+    itemNameTable[Fix.COMMON_DANPEN_OF_GOFU] = "Talisman Scrap";
+    itemNameTable[Fix.COMMON_GOTUGOTU_BIGTREE] = "Rugged Large Tree";
+    itemNameTable[Fix.COMMON_HUGE_HOHONIKU] = "Large Cheek Meat";
+    itemNameTable[Fix.COMMON_THREE_FEATHER] = "Three-Blade Feather";
+    itemNameTable[Fix.COMMON_YELLOW_DOROTSUCHI] = "Yellow Muddy Soil";
+    itemNameTable[Fix.COMMON_RED_DOROTSUCHI] = "Red Muddy Soil";
+    itemNameTable[Fix.COMMON_AIRORIGIN_KIHO] = "Void-Origin Air Bubble";
+    itemNameTable[Fix.COMMON_HENSYOKU_KOKE] = "Discolored Moss";
+    itemNameTable[Fix.COMMON_KIRAMEKU_GOLDHORN] = "Gleaming Golden Horn";
+    itemNameTable[Fix.COMMON_BIRD_OUGI] = "Bird Fan";
+    itemNameTable[Fix.COMMON_MEGANE_MATERIAL] = "Scholar's Glasses Material";
+    itemNameTable[Fix.COMMON_KITSUNE_TAIL] = "Fox Tail";
+    itemNameTable[Fix.COMMON_WHITE_HIDUME] = "White Hoof";
+    itemNameTable[Fix.COMMON_TOUMEI_KESSYO] = "Colorless Crystal";
+    itemNameTable[Fix.COMMON_MUKAKOU_SEKIEI] = "Unprocessed Quartz";
+    itemNameTable[Fix.COMMON_HOUDAN_SHARD] = "Cannonball Fragment";
+    itemNameTable[Fix.COMMON_DAGGERFISH_UROKO] = "Daggerfish Scale";
+    itemNameTable[Fix.COMMON_MANTA_HARA] = "Manta Belly";
+    itemNameTable[Fix.COMMON_BLUE_MAGATAMA] = "Blue Magatama";
+    itemNameTable[Fix.COMMON_KURIONE_ZOUMOTU] = "Clione Innards";
+    itemNameTable[Fix.COMMON_RENEW_AKAMI] = "Fresh Red Meat";
+    itemNameTable[Fix.COMMON_ROSE_SEKKAI] = "Rose Limestone";
+    itemNameTable[Fix.COMMON_WASI_BLUE_FEATHER] = "Eagle's Blue Feather";
+    itemNameTable[Fix.COMMON_HANTOUMEI_ROCK] = "Semi-Transparent Pretty Stone";
+    itemNameTable[Fix.COMMON_EIGHTEIGHT_KUROSUMI] = "Eight-Eight's Black Ink";
+    itemNameTable[Fix.COMMON_BLACK_GESO] = "Blackened Squid Tentacle";
+    itemNameTable[Fix.COMMON_BIGAXE_TOP] = "Tip of Giant Axe";
+    itemNameTable[Fix.COMMON_GANGAME_EGG] = "Hardy Tortoise Egg";
+    itemNameTable[Fix.COMMON_KYOZIN_MUNENIKU] = "Resilient Breast Meat";
+    itemNameTable[Fix.COMMON_NANAIRO_SYOKUSYU] = "Seven-Colored Tentacle";
+    itemNameTable[Fix.COMMON_SEA_MO] = "Deep-Sea Seaweed";
+    itemNameTable[Fix.COMMON_SERPENT_UROKO] = "Serpent Scale";
+    itemNameTable[Fix.COMMON_AYASHII_NENNEKI_ITO] = "Suspicious Viscous Thread";
+    itemNameTable[Fix.COMMON_GOTUGOTU_KARA] = "Rugged Shell";
+    itemNameTable[Fix.COMMON_SOFT_BIG_HIRE] = "Soft Large Fin";
+    itemNameTable[Fix.COMMON_TAIRYO_FISH] = "Large School of Fish";
+    itemNameTable[Fix.COMMON_PUREWHITE_KIMO] = "Pure White Liver";
+    itemNameTable[Fix.COMMON_SHRIMP_DOTAI] = "Shrimp Body";
+    itemNameTable[Fix.COMMON_KOUSITUKA_MATERIAL] = "Hardened Material";
+    itemNameTable[Fix.COMMON_AOSAME_UROKO] = "Blue Shark Scale";
+    itemNameTable[Fix.COMMON_EMBLEM_KNIGHT] = "Knights' Emblem";
+    itemNameTable[Fix.COMMON_BLACKSAME_TOOTH] = "Black Shark Sword-Tooth";
+    itemNameTable[Fix.COMMON_MYSTERIOUS_KARA] = "Mysteriously-Shaped Shell";
+    itemNameTable[Fix.COMMON_CURSED_ITO] = "Cursed Thread";
+    itemNameTable[Fix.COMMON_CHINMI_FISH] = "Exotic Seafood";
+    itemNameTable[Fix.COMMON_HUNTER_SEVEN_TOOL] = "Hunter's Seven Tools";
+    itemNameTable[Fix.COMMON_BEAST_KEGAWA] = "Wild Beast Hide";
+    itemNameTable[Fix.RARE_BLOOD_DAGGER_KAKERA] = "Bloodstained Dagger Fragment";
+    itemNameTable[Fix.COMMON_SABI_BUGU] = "Rusted Junk Weapon";
+    itemNameTable[Fix.COMMON_STEAM_POMP] = "Steam Pump";
+    itemNameTable[Fix.COMMON_GOUKIN_MATERIAL] = "Alloy Material";
+    itemNameTable[Fix.COMMON_KUMITATE_TENBIN_DOU] = "Assembly Material: Scale Weight";
+    itemNameTable[Fix.COMMON_ONRYOU_HAKO] = "Vengeful Spirit Box";
+    itemNameTable[Fix.RARE_CHAOS_SIZUKU] = "Chaos Drop";
+    itemNameTable[Fix.RARE_DOOMBRINGER_KAKERA] = "Doombringer Fragment";
+    itemNameTable[Fix.COMMON_KOKU_THUNDER_SIRUSI] = "Engraved Thunder Mark";
+    itemNameTable[Fix.COMMON_TENNEN_JISYAKU] = "Natural Magnet";
+    itemNameTable[Fix.COMMON_VOID_BOU] = "Void Staff";
+    itemNameTable[Fix.COMMON_JUNKAN_MAHU_GU] = "Circular Magic Sealing Tool";
+
+    // --- Practice weapons ---
+    itemNameTable[Fix.PRACTICE_SWORD] = "Practice Sword";
+    itemNameTable[Fix.PRACTICE_LANCE] = "Practice Lance";
+    itemNameTable[Fix.PRACTICE_AXE] = "Practice Axe";
+    itemNameTable[Fix.PRACTICE_CLAW] = "Practice Claw";
+    itemNameTable[Fix.PRACTICE_ROD] = "Practice Rod";
+    itemNameTable[Fix.PRACTICE_BOOK] = "Practice Book";
+    itemNameTable[Fix.PRACTICE_ORB] = "Practice Orb";
+    itemNameTable[Fix.PRACTICE_SHIELD] = "Practice Shield";
+
+    // --- Fine series ---
+    itemNameTable[Fix.FINE_SWORD] = "Fine Sword";
+    itemNameTable[Fix.FINE_LANCE] = "Fine Lance";
+    itemNameTable[Fix.FINE_AXE] = "Fine Axe";
+    itemNameTable[Fix.FINE_CLAW] = "Fine Claw";
+    itemNameTable[Fix.FINE_ROD] = "Fine Rod";
+    itemNameTable[Fix.FINE_BOOK] = "Fine Book";
+    itemNameTable[Fix.FINE_ORB] = "Fine Orb";
+    itemNameTable[Fix.FINE_LARGE_SWORD] = "Fine Greatsword";
+    itemNameTable[Fix.FINE_LARGE_LANCE] = "Fine Grand Lance";
+    itemNameTable[Fix.FINE_LARGE_AXE] = "Fine Grand Axe";
+    itemNameTable[Fix.FINE_BOW] = "Fine Bow";
+    itemNameTable[Fix.FINE_LARGE_STAFF] = "Fine Grand Staff";
+    itemNameTable[Fix.FINE_SHIELD] = "Fine Shield";
+    itemNameTable[Fix.FINE_ARMOR] = "Fine Armor";
+    itemNameTable[Fix.FINE_CROSS] = "Fine Cross";
+    itemNameTable[Fix.FINE_ROBE] = "Fine Robe";
+
+    // --- Basic armor types ---
+    itemNameTable[Fix.HEAVY_ARMOR] = "Heavy Armor";
+    itemNameTable[Fix.LEATHER_CROSS] = "Leather Cross";
+    itemNameTable[Fix.COTTON_ROBE] = "Cotton Robe";
+
+    // --- Named early-game weapons and armor ---
+    itemNameTable[Fix.SURVIVAL_CLAW] = "Survival Claw";
+    itemNameTable[Fix.RISING_FORCE_CLAW] = "Rising Force Claw";
+    itemNameTable[Fix.LIGHTNING_CLAW] = "Lightning Claw";
+    itemNameTable[Fix.BRONZE_SWORD] = "Bronze Sword";
+    itemNameTable[Fix.SWORD_OF_LIFE] = "Sword of Life";
+    itemNameTable[Fix.AERO_BLADE] = "Gale Wind Blade";
+    itemNameTable[Fix.SHARP_LANCE] = "Sharp Lance";
+    itemNameTable[Fix.WHITE_PARGE_LANCE] = "White Purge Lance";
+    itemNameTable[Fix.ICE_SPIRIT_LANCE] = "Ice Soul Lance";
+    itemNameTable[Fix.ICICLE_LONGBOW] = "Icicle Longbow";
+    itemNameTable[Fix.VIKING_AXE] = "Viking Axe";
+    itemNameTable[Fix.EARTH_POWER_AXE] = "Earth Power Axe";
+    itemNameTable[Fix.WARWOLF_AXE] = "Warwolf Axe";
+    itemNameTable[Fix.ENERGY_ORB] = "Energy Orb";
+    itemNameTable[Fix.LIVING_GROWTH_ORB] = "Living Growth Orb";
+    itemNameTable[Fix.WOOD_ROD] = "Wood Rod";
+    itemNameTable[Fix.TOUGH_TREE_ROD] = "Sturdy Oak Rod";
+    itemNameTable[Fix.BLACK_SORCERER_ROD] = "Black Sorcerer's Rod";
+    itemNameTable[Fix.KINDNESS_BOOK] = "Kindness Book";
+    itemNameTable[Fix.SAINT_FAITHFUL_BOOK] = "Saint's Faithful Book";
+    itemNameTable[Fix.KITE_SHIELD] = "Kite Shield";
+    itemNameTable[Fix.SUPERIOR_FLAME_SHIELD] = "Superior Flame Shield";
+    itemNameTable[Fix.BEGINNER_ARMOR] = "Novice's Armor";
+    itemNameTable[Fix.BEGINNER_CROSS] = "Novice's Dance Garb";
+    itemNameTable[Fix.BEGINNER_ROBE] = "Novice's Robe";
+
+    // --- Early accessories ---
+    itemNameTable[Fix.NON_BRIGHT_ORB] = "Dull Round Orb";
+    itemNameTable[Fix.ADJUSTABLE_BELT] = "Adjusted Belt";
+    itemNameTable[Fix.BIRD_STATUE] = "Bird Statue";
+    itemNameTable[Fix.REFRESHED_MANTLE] = "Refreshing Mantle";
+    itemNameTable[Fix.COOL_CROWN] = "Distinguished Crown";
+    itemNameTable[Fix.FLAT_SHOES] = "Flat Shoes";
+    itemNameTable[Fix.AETHER_BALL] = "Aether Ball";
+    itemNameTable[Fix.COMPACT_EARRING] = "Compact Earring";
+    itemNameTable[Fix.POWER_BANDANA] = "Power Bandana";
+    itemNameTable[Fix.CHERRY_CHOKER] = "Cherry Choker";
+    itemNameTable[Fix.FIT_BANGLE] = "Fit Bangle";
+    itemNameTable[Fix.PRISM_EMBLEM] = "Prism Emblem";
+    itemNameTable[Fix.RED_PENDANT] = "Red Pendant";
+    itemNameTable[Fix.BLUE_PENDANT] = "Blue Pendant";
+    itemNameTable[Fix.PURPLE_PENDANT] = "Purple Pendant";
+    itemNameTable[Fix.GREEN_PENDANT] = "Green Pendant";
+    itemNameTable[Fix.YELLOW_PENDANT] = "Yellow Pendant";
+    itemNameTable[Fix.WARRIOR_BRACER] = "Warrior Bracer";
+    itemNameTable[Fix.STARDUST_CHARM] = "Stardust Charm";
+    itemNameTable[Fix.BOLT_STONE] = "Lightning Stone";
+    itemNameTable[Fix.ANTIDOTE_STONE] = "Antidote Stone";
+    itemNameTable[Fix.SPIRIT_BRANCH] = "Spirit Branch";
+    itemNameTable[Fix.BLUE_WIZARD_HAT] = "Blue Wizard Hat";
+    itemNameTable[Fix.FLAME_HAND_KEEPER] = "Flame Hand Keeper";
+    itemNameTable[Fix.WOLF_CROSS] = "Wolf-Crafted Dance Garb";
+    itemNameTable[Fix.STRIDE_WAR_SWORD] = "Stride War Sword";
+
+    // --- Classical series ---
+    itemNameTable[Fix.CLASSICAL_SWORD] = "Classical Sword";
+    itemNameTable[Fix.CLASSICAL_LANCE] = "Classical Lance";
+    itemNameTable[Fix.CLASSICAL_AXE] = "Classical Axe";
+    itemNameTable[Fix.CLASSICAL_CLAW] = "Classical Claw";
+    itemNameTable[Fix.CLASSICAL_ROD] = "Classical Rod";
+    itemNameTable[Fix.CLASSICAL_BOOK] = "Classical Book";
+    itemNameTable[Fix.CLASSICAL_ORB] = "Classical Orb";
+    itemNameTable[Fix.CLASSICAL_LARGE_SWORD] = "Classical Greatsword";
+    itemNameTable[Fix.CLASSICAL_LARGE_LANCE] = "Classical Grand Lance";
+    itemNameTable[Fix.CLASSICAL_LARGE_AXE] = "Classical Grand Axe";
+    itemNameTable[Fix.CLASSICAL_BOW] = "Classical Bow";
+    itemNameTable[Fix.CLASSICAL_LARGE_STAFF] = "Classical Grand Staff";
+    itemNameTable[Fix.CLASSICAL_SHIELD] = "Classical Shield";
+    itemNameTable[Fix.CLASSICAL_ARMOR] = "Classical Armor";
+    itemNameTable[Fix.CLASSICAL_CROSS] = "Classical Cross";
+    itemNameTable[Fix.CLASSICAL_ROBE] = "Classical Robe";
+
+    // --- Named mid-tier weapons and armor ---
+    itemNameTable[Fix.SMASH_BLADE] = "Smash Blade";
+    itemNameTable[Fix.STYLISH_LANCE] = "Stylish Lance";
+    itemNameTable[Fix.LAND_AXE] = "Land Axe";
+    itemNameTable[Fix.SAVAGE_CLAW] = "Savage Claw";
+    itemNameTable[Fix.WINGED_ROD] = "Winged Rod";
+    itemNameTable[Fix.EXPERT_BOOK] = "Expert Book";
+    itemNameTable[Fix.FLOATING_ORB] = "Floating Orb";
+    itemNameTable[Fix.ELVISH_BOW] = "Elvish Bow";
+    itemNameTable[Fix.IRON_SHIELD] = "Iron Shield";
+    itemNameTable[Fix.IRON_ARMOR] = "Iron Armor";
+    itemNameTable[Fix.CROSSCHAIN_MAIL] = "Crosschain Mail";
+    itemNameTable[Fix.CHIFFON_ROBE] = "Chiffon Robe";
+
+    // --- Named upper-tier weapons and armor ---
+    itemNameTable[Fix.BLUE_LIGHTNING_SWORD] = "Blue Lightning Sword";
+    itemNameTable[Fix.ASH_EXCLUDE_LANCE] = "Ash Exclude Lance";
+    itemNameTable[Fix.BONE_CRUSH_AXE] = "Bone Crush Axe";
+    itemNameTable[Fix.COLD_SPLASH_CLAW] = "Cold Splash Claw";
+    itemNameTable[Fix.GORGON_EYES_BOOK] = "Gorgon Eyes Book";
+    itemNameTable[Fix.STAR_FUSION_ORB] = "Star Fusion Orb";
+    itemNameTable[Fix.SILVER_EARTH_SHIELD] = "Silver Earth Shield";
+    itemNameTable[Fix.ROIZ_IMPERIAL_ARMOR] = "Roiz Imperial Armor";
+    itemNameTable[Fix.SWIFT_THUNDER_CROSS] = "Swift Thunder Cross";
+    itemNameTable[Fix.CROWD_DIRGE_ROBE] = "Crowd Dirge Robe";
+    itemNameTable[Fix.DEPRESS_FEATHER] = "Depress Feather";
+    itemNameTable[Fix.STIFF_BELT] = "Tight Belt";
+    itemNameTable[Fix.LOST_NAME_EMBLEM] = "Emblem of the Lost Name";
+    itemNameTable[Fix.DAMAGED_STATUE] = "Damaged Statue";
+    itemNameTable[Fix.MAGICLIGHT_FIRE] = "Magiclight [Fire]";
+    itemNameTable[Fix.MAGICLIGHT_ICE] = "Magiclight [Ice]";
+    itemNameTable[Fix.MAGICLIGHT_SHADOW] = "Magiclight [Shadow]";
+    itemNameTable[Fix.MAGICLIGHT_LIGHT] = "Magiclight [Light]";
+    itemNameTable[Fix.RED_AMULET] = "Red Amulet";
+    itemNameTable[Fix.BLUE_AMULET] = "Blue Amulet";
+    itemNameTable[Fix.PURPLE_AMULET] = "Purple Amulet";
+    itemNameTable[Fix.GREEN_AMULET] = "Green Amulet";
+    itemNameTable[Fix.YELLOW_AMULET] = "Yellow Amulet";
+    itemNameTable[Fix.STEEL_ANKLET] = "Steel Anklet";
+    itemNameTable[Fix.TRUTH_GLASSES] = "Glasses of Truth";
+    itemNameTable[Fix.ZEPHYR_FEATHER_BLUE] = "Zephyr Feather [Blue]";
+    itemNameTable[Fix.CRIMSON_GAUNTLET] = "Crimson Gauntlet";
+    itemNameTable[Fix.JADE_NOBLE_CIRCLET] = "Jade Noble Circlet";
+    itemNameTable[Fix.ATTACH_SPIRAL_ORB] = "Wearable Spiral Orb";
+    itemNameTable[Fix.THIN_STEEL_BUCKLER] = "Thin Steel Buckler";
+
+    // --- Smart series ---
+    itemNameTable[Fix.SMART_SWORD] = "Smart Sword";
+    itemNameTable[Fix.SMART_LANCE] = "Smart Lance";
+    itemNameTable[Fix.SMART_AXE] = "Smart Axe";
+    itemNameTable[Fix.SMART_CLAW] = "Smart Claw";
+    itemNameTable[Fix.SMART_ROD] = "Smart Rod";
+    itemNameTable[Fix.SMART_BOOK] = "Smart Book";
+    itemNameTable[Fix.SMART_ORB] = "Smart Orb";
+    itemNameTable[Fix.SMART_LARGE_SWORD] = "Smart Greatsword";
+    itemNameTable[Fix.SMART_LARGE_LANCE] = "Smart Grand Lance";
+    itemNameTable[Fix.SMART_LARGE_AXE] = "Smart Grand Axe";
+    itemNameTable[Fix.SMART_BOW] = "Smart Bow";
+    itemNameTable[Fix.SMART_LARGE_STAFF] = "Smart Grand Staff";
+    itemNameTable[Fix.SMART_SHIELD] = "Smart Shield";
+    itemNameTable[Fix.SMART_ARMOR] = "Smart Armor";
+    itemNameTable[Fix.SMART_CROSS] = "Smart Cross";
+    itemNameTable[Fix.SMART_ROBE] = "Smart Robe";
+
+    // --- Named weapons and armor (second tier) ---
+    itemNameTable[Fix.DANCING_CLAW] = "Dancing Claw";
+    itemNameTable[Fix.CUTTING_BLADE] = "Cutting Blade";
+    itemNameTable[Fix.SWIFT_SPEAR] = "Swift Spear";
+    itemNameTable[Fix.POWERED_AXE] = "Powered Axe";
+    itemNameTable[Fix.LONG_BOW] = "Longbow";
+    itemNameTable[Fix.AUTUMN_ROD] = "Autumn Rod";
+    itemNameTable[Fix.BULKY_BOOK] = "Bulky Book";
+    itemNameTable[Fix.FOCUS_ORB] = "Focus Orb";
+    itemNameTable[Fix.WIDE_BUCKLER] = "Wide Buckler";
+    itemNameTable[Fix.GOTHIC_PLATE] = "Gothic Plate";
+    itemNameTable[Fix.FITNESS_CROSS] = "Fitness Cross";
+    itemNameTable[Fix.SILK_ROBE] = "Silk Robe";
+    itemNameTable[Fix.GALLANT_FEATHER_LANCE] = "Gallant Feather Lance";
+    itemNameTable[Fix.THUNDER_BREAK_AXE] = "Thunder Break Axe";
+    itemNameTable[Fix.WRATH_SABEL_CLAW] = "Wrath Saber Claw";
+    itemNameTable[Fix.DORN_NAMELESS_ROD] = "Dorn Nameless Rod";
+    itemNameTable[Fix.FINESSE_IMPERIAL_BOOK] = "Finesse Imperial Book";
+    itemNameTable[Fix.INTRINSIC_FROZEN_ORB] = "Intrinsic Frozen Orb";
+    itemNameTable[Fix.FORCEFUL_BASTARD_SWORD] = "Forceful Bastard Sword";
+    itemNameTable[Fix.SHARPNEL_ARC_LANCER] = "Shrapnel Arc Lancer";
+    itemNameTable[Fix.OGRE_KILL_BUSTER] = "Ogre Kill Buster";
+    itemNameTable[Fix.EXPLODING_ASH_BOW] = "Exploding Ash Bow";
+    itemNameTable[Fix.EARTH_POWERED_STAFF] = "Earth Powered Staff";
+    itemNameTable[Fix.BLACK_REFLECTOR_SHIELD] = "Black Reflector Shield";
+    itemNameTable[Fix.ARANDEL_FORCE_ARMOR] = "Arandel Force Armor";
+    itemNameTable[Fix.WONDERING_BLESSED_CROSS] = "Wandering Blessed Cross";
+    itemNameTable[Fix.SERANA_BRILLIANT_ROBE] = "Serana Brilliant Robe";
+    itemNameTable[Fix.SUNLEAF_SEAL] = "Sunleaf Seal";
+    itemNameTable[Fix.DEPLETH_SEED_PIERCE] = "Depleth Seed Pierce";
+    itemNameTable[Fix.SPARKLINE_EMBLEM] = "Sparkline Emblem";
+    itemNameTable[Fix.CHAINSHIFT_BOOTS] = "Chainshift Boots";
+    itemNameTable[Fix.ASHED_COMPASS] = "Ashed Compass";
+    itemNameTable[Fix.MIRAGE_PLASMA_EARRING] = "Mirage Plasma Earring";
+    itemNameTable[Fix.PHOTON_ZEAL_CROWN] = "Photon Zeal Crown";
+    itemNameTable[Fix.DEMONS_STAR_BRACELET] = "Demon's Star Bracelet";
+    itemNameTable[Fix.MIST_WAVE_GAUNTLET] = "Mist Wave Gauntlet";
+    itemNameTable[Fix.SPIRIT_CHALICE_OF_HEART] = "Spirit Chalice of Heart";
+    itemNameTable[Fix.VIRGIRANTE_HELLGATE_LANCE] = "Virgirante Hellgate Lance";
+    itemNameTable[Fix.MULLERHAIZEN_AGARTA_BOOK] = "Mullerhaizen Book of Agarta";
+    itemNameTable[Fix.SILENT_OLGA_CLAW] = "Silent Olga Claw";
+    itemNameTable[Fix.IRIDESCENT_CLOUD_FEATHER] = "Iridescent Cloud Feather";
+    itemNameTable[Fix.BRINSCALE_WAR_CROSS] = "Brinscale War Cross";
+    itemNameTable[Fix.GREAT_COMPOSITE_LANCE] = "Great Composite Lance";
+
+    // --- Superior series ---
+    itemNameTable[Fix.SUPERIOR_SWORD] = "Superior Sword";
+    itemNameTable[Fix.SUPERIOR_LANCE] = "Superior Lance";
+    itemNameTable[Fix.SUPERIOR_AXE] = "Superior Axe";
+    itemNameTable[Fix.SUPERIOR_CLAW] = "Superior Claw";
+    itemNameTable[Fix.SUPERIOR_ROD] = "Superior Rod";
+    itemNameTable[Fix.SUPERIOR_BOOK] = "Superior Book";
+    itemNameTable[Fix.SUPERIOR_ORB] = "Superior Orb";
+    itemNameTable[Fix.SUPERIOR_LARGE_SWORD] = "Superior Greatsword";
+    itemNameTable[Fix.SUPERIOR_LARGE_LANCE] = "Superior Grand Lance";
+    itemNameTable[Fix.SUPERIOR_LARGE_AXE] = "Superior Grand Axe";
+    itemNameTable[Fix.SUPERIOR_BOW] = "Superior Bow";
+    itemNameTable[Fix.SUPERIOR_LARGE_STAFF] = "Superior Grand Staff";
+    itemNameTable[Fix.SUPERIOR_SHIELD] = "Superior Shield";
+    itemNameTable[Fix.SUPERIOR_ARMOR] = "Superior Armor";
+    itemNameTable[Fix.SUPERIOR_CROSS] = "Superior Cross";
+    itemNameTable[Fix.SUPERIOR_ROBE] = "Superior Robe";
+
+    // --- Named high-tier weapons and armor ---
+    itemNameTable[Fix.FULLMETAL_ASTRAL_BLADE] = "Fullmetal Astral Blade";
+    itemNameTable[Fix.STORM_FURY_LANCER] = "Storm Fury Lancer";
+    itemNameTable[Fix.WARLOAD_BASTARD_AXE] = "Warlord Bastard Axe";
+    itemNameTable[Fix.EARTH_SHARD_CLAW] = "Earth Shard Claw";
+    itemNameTable[Fix.ENGAGED_FUTURE_ROD] = "Engaged Future Rod";
+    itemNameTable[Fix.ANCIENT_FAITHFUL_BOOK] = "Ancient Faithful Book";
+    itemNameTable[Fix.BLUE_SKY_ORB] = "Blue Sky Orb";
+    itemNameTable[Fix.PRISMATIC_SOUL_BREAKER] = "Prismatic Soul Breaker";
+    itemNameTable[Fix.BLOOD_STUBBORN_SPEAR] = "Blood Stubborn Spear";
+    itemNameTable[Fix.ELEMENTAL_DISRUPT_AXE] = "Elemental Disrupt Axe";
+    itemNameTable[Fix.LINGERING_FROST_SHOOTER] = "Lingering Frost Shooter";
+    itemNameTable[Fix.INFERNAL_IMMORTAL_STAFF] = "Infernal Immortal Staff";
+    itemNameTable[Fix.GRACEFUL_KINGS_BUCKLER] = "Graceful King's Buckler";
+    itemNameTable[Fix.HARDED_INTENSITY_PLATE] = "Hardened Intensity Plate";
+    itemNameTable[Fix.SOLDIER_HATRED_CROSS] = "Soldier Vigor Cross";
+    itemNameTable[Fix.WONDERERS_INVISIBLE_ROBE] = "Wanderer's Invisible Robe";
+    itemNameTable[Fix.ZELMAN_THE_ONSLAUGHT_BASTER] = "Zelman the Onslaught Buster";
+    itemNameTable[Fix.LIFEGRACE_FORTUNE_STAFF] = "Lifegrace Fortune Staff";
+    itemNameTable[Fix.WHITEVEIL_QUEENS_ROBE] = "Whiteveil Queen's Robe";
+
+    // --- Steel bangles ---
+    itemNameTable[Fix.STEEL_RING_POWER] = "Steel Bangle 'Power'";
+    itemNameTable[Fix.STEEL_RING_SENSE] = "Steel Bangle 'Sense'";
+    itemNameTable[Fix.STEEL_RING_TOUGH] = "Steel Bangle 'Tough'";
+    itemNameTable[Fix.STEEL_RING_ROCK] = "Steel Bangle 'Rock'";
+    itemNameTable[Fix.STEEL_RING_FAST] = "Steel Bangle 'Fast'";
+    itemNameTable[Fix.STEEL_RING_SHARP] = "Steel Bangle 'Sharp'";
+    itemNameTable[Fix.STEEL_RING_HIGH] = "Steel Bangle 'High'";
+    itemNameTable[Fix.STEEL_RING_DEEP] = "Steel Bangle 'Deep'";
+    itemNameTable[Fix.STEEL_RING_BOUND] = "Steel Bangle 'Bound'";
+    itemNameTable[Fix.STEEL_RING_EMOTE] = "Steel Bangle 'Emote'";
+
+    // --- Powersteel bangles ---
+    itemNameTable[Fix.POWER_STEEL_RING_SOLID] = "Powersteel Bangle 'Solid'";
+    itemNameTable[Fix.POWER_STEEL_RING_VAPOUR] = "Powersteel Bangle 'Vapour'";
+    itemNameTable[Fix.POWER_STEEL_RING_STRAIN] = "Powersteel Bangle 'Strain'";
+    itemNameTable[Fix.POWER_STEEL_RING_TOLERANCE] = "Powersteel Bangle 'Tolerance'";
+    itemNameTable[Fix.POWER_STEEL_RING_ASCEND] = "Powersteel Bangle 'Ascend'";
+    itemNameTable[Fix.POWER_STEEL_RING_INTERCEPT] = "Powersteel Bangle 'Intercept'";
+
+    // --- Unique accessories ---
+    itemNameTable[Fix.LUMINOUS_REFLECT_MIRROR] = "Luminous Reflect Mirror";
+    itemNameTable[Fix.BLACK_SPIRAL_NEEDLE] = "Black Spiral Needle";
+    itemNameTable[Fix.EMBLEM_OF_VALKYRIE] = "Emblem of Valkyrie";
+    itemNameTable[Fix.EMBLEM_OF_NECROMANCY] = "Emblem of Necromancy";
+    itemNameTable[Fix.OHRAN_REDIAN_ROD] = "Ohran Redian Rod";
+    itemNameTable[Fix.VIGILANT_FENCER_ROBE] = "Vigilant Fencer's Robe";
+    itemNameTable[Fix.LION_EYES_BLADE] = "Lion Eyes Blade";
+
+    // --- Master series ---
+    itemNameTable[Fix.MASTER_SWORD] = "Master Sword";
+    itemNameTable[Fix.MASTER_LANCE] = "Master Lance";
+    itemNameTable[Fix.MASTER_AXE] = "Master Axe";
+    itemNameTable[Fix.MASTER_CLAW] = "Master Claw";
+    itemNameTable[Fix.MASTER_ROD] = "Master Rod";
+    itemNameTable[Fix.MASTER_BOOK] = "Master Book";
+    itemNameTable[Fix.MASTER_ORB] = "Master Orb";
+    itemNameTable[Fix.MASTER_LARGE_SWORD] = "Master Greatsword";
+    itemNameTable[Fix.MASTER_LARGE_LANCE] = "Master Grand Lance";
+    itemNameTable[Fix.MASTER_LARGE_AXE] = "Master Grand Axe";
+    itemNameTable[Fix.MASTER_BOW] = "Master Bow";
+    itemNameTable[Fix.MASTER_LARGE_STAFF] = "Master Grand Staff";
+    itemNameTable[Fix.MASTER_SHIELD] = "Master Shield";
+    itemNameTable[Fix.MASTER_ARMOR] = "Master Armor";
+    itemNameTable[Fix.MASTER_CROSS] = "Master Cross";
+    itemNameTable[Fix.MASTER_ROBE] = "Master Robe";
+
+    // --- Named elite weapons and armor ---
+    itemNameTable[Fix.SOLEMN_EMPERORS_SWORD] = "Solemn Emperor's Sword";
+    itemNameTable[Fix.MYSTIC_BLUE_JAVELIN] = "Mystic Blue Javelin";
+    itemNameTable[Fix.AURA_BURN_CLAW] = "Aura Burn Claw";
+    itemNameTable[Fix.MIND_STONEFEAR_ROD] = "Mind Stonefear Rod";
+    itemNameTable[Fix.DARKSUN_TRAGEDIC_BOOK] = "Darksun Tragedic Book";
+    itemNameTable[Fix.CHROMATIC_FORGE_ORB] = "Chromatic Forge Orb";
+    itemNameTable[Fix.FLASH_VANISH_SPEAR] = "Flash Vanish Spear";
+    itemNameTable[Fix.VOLCANIC_BATTLE_BASTER] = "Volcanic Battle Buster";
+    itemNameTable[Fix.WHITE_FIRE_CROSSBOW] = "White Fire Crossbow";
+    itemNameTable[Fix.ELDERSTAFF_OF_LIFEBLOOM] = "Elderstaff of Lifebloom";
+    itemNameTable[Fix.DIMENSION_ZERO_SHIELD] = "Dimension Zero Shield";
+    itemNameTable[Fix.HIGHWARRIOR_DRAGONMAIL] = "High Warrior Dragonmail";
+    itemNameTable[Fix.SWIFTCROSS_OF_REDTHUNDER] = "Swiftcross of Red Thunder";
+    itemNameTable[Fix.BLADESHADOW_CROWDED_DRESS] = "Bladeshadow Crowded Dress";
+    itemNameTable[Fix.BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER] = "Blackrogue Ambidexterity Dagger";
+    itemNameTable[Fix.HOLY_BLESSING_SHIELD] = "Holy Blessing Shield";
+    itemNameTable[Fix.LATA_GUARDIAN_RING] = "Guardian Ring [Lata's Guidance]";
+    itemNameTable[Fix.BLUEEYE_TEMPLE_PENDANT] = "Temple Knight's Pendant [Blue Eye]";
+    itemNameTable[Fix.REDEYE_TEMPLE_PENDANT] = "Temple Knight's Pendant [Red Eye]";
+    itemNameTable[Fix.SEAL_OF_REDEYE] = "Seal of Red Eye";
+    itemNameTable[Fix.SEAL_OF_BLUEEYE] = "Seal of Blue Eye";
+    itemNameTable[Fix.WINGED_LIGHTNING_BOOTS] = "Winged Lightning Boots";
+    itemNameTable[Fix.SPELLCASTERS_LENS] = "Spellcaster's Lens";
+    itemNameTable[Fix.PEACEFUL_REBIRTH_CANDLE] = "Peaceful Rebirth Candle";
+    itemNameTable[Fix.DESPAIR_BLACKANGEL_RING] = "Despair Black Angel Ring";
+    itemNameTable[Fix.PHANTASMAL_INSIGHT_RUNE] = "Phantasmal Insight Rune";
+    itemNameTable[Fix.SILVER_ETERNAL_SEED] = "Silver Eternal Seed";
+    itemNameTable[Fix.FIRELIEGE_AETHER_TALISMAN] = "Fireliege Aether Talisman";
+    itemNameTable[Fix.RAINBOW_MOON_COMPASS] = "Rainbow Moon Compass";
+    itemNameTable[Fix.HIGH_RANGER_BATTLE_BOW] = "High Ranger Battle Bow";
+    itemNameTable[Fix.DARMEKIUS_HARD_PLATE] = "Darmekius Hard Plate";
+    itemNameTable[Fix.SEE_SONG_FEBRIOL_BOOK] = "See Song Febriol Book";
+
+    // --- Marvelous series ---
+    itemNameTable[Fix.MARVELOUS_SWORD] = "Marvelous Sword";
+    itemNameTable[Fix.MARVELOUS_LANCE] = "Marvelous Lance";
+    itemNameTable[Fix.MARVELOUS_AXE] = "Marvelous Axe";
+    itemNameTable[Fix.MARVELOUS_CLAW] = "Marvelous Claw";
+    itemNameTable[Fix.MARVELOUS_ROD] = "Marvelous Rod";
+    itemNameTable[Fix.MARVELOUS_BOOK] = "Marvelous Book";
+    itemNameTable[Fix.MARVELOUS_ORB] = "Marvelous Orb";
+    itemNameTable[Fix.MARVELOUS_LARGE_SWORD] = "Marvelous Greatsword";
+    itemNameTable[Fix.MARVELOUS_LARGE_LANCE] = "Marvelous Grand Lance";
+    itemNameTable[Fix.MARVELOUS_LARGE_AXE] = "Marvelous Grand Axe";
+    itemNameTable[Fix.MARVELOUS_BOW] = "Marvelous Bow";
+    itemNameTable[Fix.MARVELOUS_LARGE_STAFF] = "Marvelous Grand Staff";
+    itemNameTable[Fix.MARVELOUS_SHIELD] = "Marvelous Shield";
+    itemNameTable[Fix.MARVELOUS_ARMOR] = "Marvelous Armor";
+    itemNameTable[Fix.MARVELOUS_CROSS] = "Marvelous Cross";
+    itemNameTable[Fix.MARVELOUS_ROBE] = "Marvelous Robe";
+
+    // --- Excellent series ---
+    itemNameTable[Fix.EXCELLENT_SWORD] = "Excellent Sword";
+    itemNameTable[Fix.EXCELLENT_LANCE] = "Excellent Lance";
+    itemNameTable[Fix.EXCELLENT_AXE] = "Excellent Axe";
+    itemNameTable[Fix.EXCELLENT_CLAW] = "Excellent Claw";
+    itemNameTable[Fix.EXCELLENT_ROD] = "Excellent Rod";
+    itemNameTable[Fix.EXCELLENT_BOOK] = "Excellent Book";
+    itemNameTable[Fix.EXCELLENT_ORB] = "Excellent Orb";
+    itemNameTable[Fix.EXCELLENT_LARGE_SWORD] = "Excellent Greatsword";
+    itemNameTable[Fix.EXCELLENT_LARGE_LANCE] = "Excellent Grand Lance";
+    itemNameTable[Fix.EXCELLENT_LARGE_AXE] = "Excellent Grand Axe";
+    itemNameTable[Fix.EXCELLENT_BOW] = "Excellent Bow";
+    itemNameTable[Fix.EXCELLENT_LARGE_STAFF] = "Excellent Grand Staff";
+    itemNameTable[Fix.EXCELLENT_SHIELD] = "Excellent Shield";
+    itemNameTable[Fix.EXCELLENT_ARMOR] = "Excellent Armor";
+    itemNameTable[Fix.EXCELLENT_CROSS] = "Excellent Cross";
+    itemNameTable[Fix.EXCELLENT_ROBE] = "Excellent Robe";
+
+    // --- Extreme series ---
+    itemNameTable[Fix.EXTREME_SWORD] = "Extreme Sword";
+    itemNameTable[Fix.EXTREME_LANCE] = "Extreme Lance";
+    itemNameTable[Fix.EXTREME_AXE] = "Extreme Axe";
+    itemNameTable[Fix.EXTREME_CLAW] = "Extreme Claw";
+    itemNameTable[Fix.EXTREME_ROD] = "Extreme Rod";
+    itemNameTable[Fix.EXTREME_BOOK] = "Extreme Book";
+    itemNameTable[Fix.EXTREME_ORB] = "Extreme Orb";
+    itemNameTable[Fix.EXTREME_BOW] = "Extreme Bow";
+    itemNameTable[Fix.EXTREME_LARGE_STAFF] = "Extreme Grand Staff";
+    itemNameTable[Fix.EXTREME_SHIELD] = "Extreme Shield";
+    itemNameTable[Fix.EXTREME_ARMOR] = "Extreme Armor";
+    itemNameTable[Fix.EXTREME_CROSS] = "Extreme Cross";
+    itemNameTable[Fix.EXTREME_ROBE] = "Extreme Robe";
+
+    // --- Named legendary weapons and armor ---
+    itemNameTable[Fix.ETHEREAL_EDGE_BLADE] = "Ethereal Edge Blade";
+    itemNameTable[Fix.EVIL_ELIMINATION_LANCE] = "Evil Elimination Lance";
+    itemNameTable[Fix.PRISON_DESTRUCTION_AXE] = "Prison Destruction Axe";
+    itemNameTable[Fix.GARGAN_BLAZE_ROD] = "Gargan Blaze Rod";
+    itemNameTable[Fix.ALL_ELEMENTAL_ORB] = "All Elemental Orb";
+    itemNameTable[Fix.LABYRINTH_MAGE_BLUESTAFF] = "Labyrinth Mage's Blue Grand Staff";
+    itemNameTable[Fix.MAJESTIC_FORCE_SHIELD] = "Majestic Force Shield";
+    itemNameTable[Fix.ROBE_OF_COLORSTREAMING] = "Robe of Colorstreaming";
+
+    // --- Crystals ---
+    itemNameTable[Fix.RED_CRYSTAL] = "Crimson Crystal";
+    itemNameTable[Fix.BLUE_CRYSTAL] = "Lapis Crystal";
+    itemNameTable[Fix.PURPLE_CRYSTAL] = "Violet Crystal";
+    itemNameTable[Fix.GREEN_CRYSTAL] = "Jade Crystal";
+    itemNameTable[Fix.YELLOW_CRYSTAL] = "Amber Crystal";
+
+    // --- Late-game accessories ---
+    itemNameTable[Fix.RAGING_RESONANCE_RING] = "Raging Resonance Ring";
+    itemNameTable[Fix.LAGINA_DISTORTED_BRACER] = "Lagina Distorted Bracer";
+    itemNameTable[Fix.RIGID_WAVE_METALGUNTLET] = "Rigid Wave Metal Gauntlet";
+    itemNameTable[Fix.ISOCHRON_FATED_LENS] = "Isochron Fated Lens";
+    itemNameTable[Fix.HEART_SEEKERS_STONE] = "Heart Seeker's Stone";
+    itemNameTable[Fix.SUN_BREAKERS_STONE] = "Sun Breaker's Stone";
+
+    // --- Incredible series ---
+    itemNameTable[Fix.INCREDIBLE_SWORD] = "Incredible Sword";
+    itemNameTable[Fix.INCREDIBLE_LANCE] = "Incredible Lance";
+    itemNameTable[Fix.INCREDIBLE_AXE] = "Incredible Axe";
+    itemNameTable[Fix.INCREDIBLE_CLAW] = "Incredible Claw";
+    itemNameTable[Fix.INCREDIBLE_ROD] = "Incredible Rod";
+    itemNameTable[Fix.INCREDIBLE_BOOK] = "Incredible Book";
+    itemNameTable[Fix.INCREDIBLE_ORB] = "Incredible Orb";
+    itemNameTable[Fix.INCREDIBLE_LARGE_SWORD] = "Incredible Greatsword";
+    itemNameTable[Fix.INCREDIBLE_LARGE_LANCE] = "Incredible Grand Lance";
+    itemNameTable[Fix.INCREDIBLE_LARGE_AXE] = "Incredible Grand Axe";
+    itemNameTable[Fix.INCREDIBLE_BOW] = "Incredible Bow";
+    itemNameTable[Fix.INCREDIBLE_LARGE_STAFF] = "Incredible Grand Staff";
+    itemNameTable[Fix.INCREDIBLE_SHIELD] = "Incredible Shield";
+    itemNameTable[Fix.INCREDIBLE_ARMOR] = "Incredible Armor";
+    itemNameTable[Fix.INCREDIBLE_CROSS] = "Incredible Cross";
+    itemNameTable[Fix.INCREDIBLE_ROBE] = "Incredible Robe";
+
+    // --- Key / quest items ---
+    itemNameTable[Fix.ZETANIUM_STONE] = "Zetanium Ore";
+    itemNameTable[Fix.FIELD_RESEARCH_LICENSE] = "Expedition Permit";
+    itemNameTable[Fix.PURE_CLEAN_WATER] = "Pure Clear Water";
+    itemNameTable[Fix.SHADOW_MOON_KEY] = "Shadow Moon Key";
+    itemNameTable[Fix.SUN_BURST_KEY] = "Sun Burst Key";
+    itemNameTable[Fix.STAR_DUST_KEY] = "Star Dust Key";
+    itemNameTable[Fix.ORIGIN_ROAD_KEY] = "Origin Road Key";
+    itemNameTable[Fix.RESIST_POISON_SUIT] = "Poison-Resistant Suit";
+    itemNameTable[Fix.ARTHARIUM_KEY] = "Artharium Factory Key";
+    itemNameTable[Fix.UNKNOWN_OBJECT] = "Strange Object";
+    itemNameTable[Fix.MARBLE_STAR] = "Marble Star";
+    itemNameTable[Fix.ZHALMAN_NECKLACE] = "Zhalman Village Necklace";
+    itemNameTable[Fix.FIRE_ANGEL_TALISMAN] = "Flame-Blessed Angel's Talisman";
+    itemNameTable[Fix.EARRING_OF_LANA] = "Lana's Earring";
+    itemNameTable[Fix.PRECIOUS_SWORD] = "Precious Sword ???";
+    itemNameTable[Fix.BLUESKY_STAR_FEATHER] = "Blue Starlit Heaven Feather";
+    itemNameTable[Fix.REDCOMET_STAR_CHARM] = "Red Comet Star Charm";
+
+    // --- Black Materials ---
+    itemNameTable[Fix.POOR_BLACK_MATERIAL] = "Black Material";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL2] = "Black Material [Revised]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL3] = "Black Material [Ash]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL4] = "Black Material [Dense]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL5] = "Black Material [Dust]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL6] = "Black Material [Trial]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL7] = "Black Material [Ruin]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL8] = "Black Material [Return]";
+    itemNameTable[Fix.POOR_BLACK_MATERIAL9] = "Black Material [Void]";
+
+    // --- Potions ---
+    itemNameTable[Fix.SMALL_RED_POTION] = "Small Red Potion";
+    itemNameTable[Fix.SMALL_BLUE_POTION] = "Small Blue Potion";
+    itemNameTable[Fix.SMALL_GREEN_POTION] = "Small Green Potion";
+    itemNameTable[Fix.NORMAL_RED_POTION] = "Red Potion";
+    itemNameTable[Fix.NORMAL_BLUE_POTION] = "Blue Potion";
+    itemNameTable[Fix.NORMAL_GREEN_POTION] = "Green Potion";
+    itemNameTable[Fix.LARGE_RED_POTION] = "Large Red Potion";
+    itemNameTable[Fix.LARGE_BLUE_POTION] = "Large Blue Potion";
+    itemNameTable[Fix.LARGE_GREEN_POTION] = "Large Green Potion";
+    itemNameTable[Fix.HUGE_RED_POTION] = "Huge Red Potion";
+    itemNameTable[Fix.HUGE_BLUE_POTION] = "Huge Blue Potion";
+    itemNameTable[Fix.HUGE_GREEN_POTION] = "Huge Green Potion";
+    itemNameTable[Fix.HQ_RED_POTION] = "High-Quality Red Potion";
+    itemNameTable[Fix.HQ_BLUE_POTION] = "High-Quality Blue Potion";
+    itemNameTable[Fix.HQ_GREEN_POTION] = "High-Quality Green Potion";
+    itemNameTable[Fix.THQ_RED_POTION] = "Supreme Red Potion";
+    itemNameTable[Fix.THQ_BLUE_POTION] = "Supreme Blue Potion";
+    itemNameTable[Fix.THQ_GREEN_POTION] = "Supreme Green Potion";
+    itemNameTable[Fix.PERFECT_RED_POTION] = "Perfect Red Potion";
+    itemNameTable[Fix.PERFECT_BLUE_POTION] = "Perfect Blue Potion";
+    itemNameTable[Fix.PERFECT_GREEN_POTION] = "Perfect Green Potion";
+    itemNameTable[Fix.POTION_RESIST_FIRE] = "Heat Resist Potion";
+    itemNameTable[Fix.CURE_SEAL] = "Cure Seal";
+    itemNameTable[Fix.POTION_MAGIC_SEAL] = "Magic Seal Potion";
+    itemNameTable[Fix.POTION_RESIST_PLUS] = "Resist Potion Plus";
+    itemNameTable[Fix.PATERMA_DISMAGIC_DRINK] = "Paterma Anti-Magic Drink";
+    itemNameTable[Fix.OLDTREE_GUARDIAN_MARK] = "Ancient Great Tree Guardian Seal";
+    itemNameTable[Fix.LEKS_MYSTICAL_POTION] = "Leks Mystical Potion";
+    itemNameTable[Fix.SEAL_OF_ARCPOWER] = "Seal of Arc Power";
+    itemNameTable[Fix.SEAL_OF_CHOSEN_POWER] = "Seal of Chosen Power";
+
+    // --- Growth Elixirs ---
+    itemNameTable[Fix.GROWTH_LIQUID_STRENGTH] = "Growth Elixir [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID_AGILITY] = "Growth Elixir [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID_INTELLIGENCE] = "Growth Elixir [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID_STAMINA] = "Growth Elixir [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID_MIND] = "Growth Elixir [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID2_STRENGTH] = "Growth Elixir II [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID2_AGILITY] = "Growth Elixir II [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID2_INTELLIGENCE] = "Growth Elixir II [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID2_STAMINA] = "Growth Elixir II [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID2_MIND] = "Growth Elixir II [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID3_STRENGTH] = "Growth Elixir III [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID3_AGILITY] = "Growth Elixir III [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID3_INTELLIGENCE] = "Growth Elixir III [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID3_STAMINA] = "Growth Elixir III [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID3_MIND] = "Growth Elixir III [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID4_STRENGTH] = "Growth Elixir IV [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID4_AGILITY] = "Growth Elixir IV [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID4_INTELLIGENCE] = "Growth Elixir IV [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID4_STAMINA] = "Growth Elixir IV [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID4_MIND] = "Growth Elixir IV [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID5_STRENGTH] = "Growth Elixir V [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID5_AGILITY] = "Growth Elixir V [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID5_INTELLIGENCE] = "Growth Elixir V [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID5_STAMINA] = "Growth Elixir V [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID5_MIND] = "Growth Elixir V [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID6_STRENGTH] = "Growth Elixir VI [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID6_AGILITY] = "Growth Elixir VI [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID6_INTELLIGENCE] = "Growth Elixir VI [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID6_STAMINA] = "Growth Elixir VI [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID6_MIND] = "Growth Elixir VI [Spirit]";
+    itemNameTable[Fix.GROWTH_LIQUID7_STRENGTH] = "Growth Elixir VII [Strength]";
+    itemNameTable[Fix.GROWTH_LIQUID7_AGILITY] = "Growth Elixir VII [Agility]";
+    itemNameTable[Fix.GROWTH_LIQUID7_INTELLIGENCE] = "Growth Elixir VII [Intelligence]";
+    itemNameTable[Fix.GROWTH_LIQUID7_STAMINA] = "Growth Elixir VII [Stamina]";
+    itemNameTable[Fix.GROWTH_LIQUID7_MIND] = "Growth Elixir VII [Spirit]";
+
+    // --- Common material drops ---
+    itemNameTable[Fix.COMMON_MANDORAGORA_ROOT] = "Mandragora Root";
+    itemNameTable[Fix.COMMON_WOLF_FUR] = "Wolf Pelt";
+    itemNameTable[Fix.COMMON_ANT_ESSENCE] = "Ant Essence";
+    itemNameTable[Fix.COMMON_SUN_LEAF] = "Sun Leaf";
+    itemNameTable[Fix.COMMON_RABBIT_MEAT] = "Rabbit Meat";
+    itemNameTable[Fix.COMMON_ORANGE_MATERIAL] = "Orange Material";
+    itemNameTable[Fix.COMMON_ASH_EGG] = "Pale Gray Egg";
+    itemNameTable[Fix.COMMON_PLANTNOID_SEED] = "Plantnoid Seed";
+    itemNameTable[Fix.COMMON_MACHINE_PARTS] = "Machine Parts";
+    itemNameTable[Fix.COMMON_BAT_FEATHER] = "Bat Wing";
+    itemNameTable[Fix.COMMON_GLASS_SHARD] = "Glass Shard";
+    itemNameTable[Fix.COMMON_MECHANICAL_SHAFT] = "Mechanical Shaft";
+    itemNameTable[Fix.COMMON_AMBER_MATERIAL] = "Amber Material";
+    itemNameTable[Fix.COMMON_SOLIDSTONE_MATERIAL] = "Hard Stone Material";
+    itemNameTable[Fix.COMMON_JUNK_PARTS] = "Junk Parts";
+    itemNameTable[Fix.COMMON_ELECT_BOLT] = "Electromagnetic Bolt";
+    itemNameTable[Fix.COMMON_GARGOYLE_EYE] = "Gargoyle Eyeball";
+    itemNameTable[Fix.COMMON_WATCHDOG_TONGUE] = "Watchdog Tongue";
+    itemNameTable[Fix.COMMON_CHROTIUM_MATERIAL] = "Chrotium Material";
+    itemNameTable[Fix.COMMON_MIST_LEAF] = "Mist Grass";
+    itemNameTable[Fix.COMMON_NORMAL_SPORE_ESSENCE] = "Unprocessed Spore Extract";
+    itemNameTable[Fix.COMMON_FROG_FRONTLEG] = "Frog Foreleg";
+    itemNameTable[Fix.COMMON_BEAR_LARGE_CLAW] = "Bear's Great Claw";
+    itemNameTable[Fix.COMMON_FAIRY_POWDER] = "Fairy Powder";
+    itemNameTable[Fix.COMMON_BEAUTY_WHITEFEATHER] = "Beautiful White Feather";
+    itemNameTable[Fix.COMMON_HUNTER_TOOL] = "Hunter's Tool Bag";
+    itemNameTable[Fix.COMMON_BLACK_MIST_ESSENCE] = "Black Mist Extract";
+    itemNameTable[Fix.COMMON_ELEPHANT_LEGS] = "Elephant's Massive Legs";
+    itemNameTable[Fix.COMMON_LAPTOR_FUR] = "Raptor Pelt";
+    itemNameTable[Fix.COMMON_SHARPNESS_TIGER_TOOTH] = "Razor-Sharp Tiger Fang";
+    itemNameTable[Fix.COMMON_THORN_ELEMENT] = "Thorn Crown Material";
+    itemNameTable[Fix.COMMON_MARY_KISS] = "Mary Kiss";
+    itemNameTable[Fix.COMMON_MAGIC_HORN] = "Magic Horn";
+    itemNameTable[Fix.COMMON_WINDMAN_SEAL] = "Wind Folk's Seal";
+    itemNameTable[Fix.COMMON_MYSTERY_SCROLL] = "Mysterious Scroll";
+    itemNameTable[Fix.COMMON_BLUECOLOR_EYE] = "Blue Eyeball";
+    itemNameTable[Fix.COMMON_WHITECOLOR_EYE] = "White Eyeball";
+    itemNameTable[Fix.COMMON_CURTAIN_MATERIAL] = "Curtain Material";
+    itemNameTable[Fix.COMMON_ARTHARIUM_JEWEL] = "Artharium Jewel";
+    itemNameTable[Fix.COMMON_LION_FUR] = "Lion Pelt";
+    itemNameTable[Fix.COMMON_PARTIMIUM_MATERIAL] = "Partimium Material";
+    itemNameTable[Fix.COMMON_HUGE_BOOK] = "Thick Tome";
+    itemNameTable[Fix.COMMON_GUNPOWDER] = "Gunpowder";
+    itemNameTable[Fix.COMMON_SILENT_WHISTLE] = "Silent Whistle";
+    itemNameTable[Fix.COMMON_STEEL_BATON] = "Steel Baton";
+    itemNameTable[Fix.COMMON_PURE_SILVER] = "Pure Silver";
+    itemNameTable[Fix.COMMON_SPEEDARROW_TOOL] = "Swift Arrow Crafting Tool";
+    itemNameTable[Fix.COMMON_OVAL_GEAR] = "Oval Gear";
+    itemNameTable[Fix.COMMON_APLITOS_BONE] = "Aplitos Cartilage";
+    itemNameTable[Fix.COMMON_DEATH_CLOVER] = "Death Clover";
+    itemNameTable[Fix.COMMON_JUMP_MATERIAL] = "Jumping Material";
+    itemNameTable[Fix.COMMON_BIG_STONE] = "Big Stone";
+    itemNameTable[Fix.COMMON_UNKNOWN_BOX] = "Unidentified Box";
+    itemNameTable[Fix.RARE_JOE_TONGUE] = "Joe's Tongue";
+    itemNameTable[Fix.COMMON_SEA_WATER] = "Pure Seawater";
+    itemNameTable[Fix.COMMON_SEA_MUSICBOX] = "Sea Music Box";
+    itemNameTable[Fix.RARE_MEPHISTO_BLACKLIGHT] = "Mephisto's Black Flame";
+    itemNameTable[Fix.COMMON_SEEKER_HEAD] = "Seeker's Skull";
+    itemNameTable[Fix.RARE_ESSENCE_OF_DARK] = "Essence of Dark";
+    itemNameTable[Fix.COMMON_EXECUTIONER_ROBE] = "Executioner's Tattered Robe";
+    itemNameTable[Fix.COMMON_NEMESIS_ESSENCE] = "Nemesis Essence";
+    itemNameTable[Fix.RARE_MASTERBLADE_FIRE] = "Masterblade's Embers";
+    itemNameTable[Fix.COMMON_GREAT_JEWELCROWN] = "Grand Jewel Crown";
+    itemNameTable[Fix.RARE_ESSENCE_OF_SHINE] = "Essence of Shine";
+    itemNameTable[Fix.RARE_DEMON_HORN] = "Demon Horn";
+    itemNameTable[Fix.COMMON_WYVERN_BONE] = "Wyvern Bone";
+    itemNameTable[Fix.RARE_ESSENCE_OF_FLAME] = "Essence of Flame";
+    itemNameTable[Fix.RARE_BLACK_SEAL_IMPRESSION] = "Black Seal Imprint";
+    itemNameTable[Fix.COMMON_HIGH_ESTORMIUM_MATERIAL] = "High-Purity Estormium Material";
+    itemNameTable[Fix.RARE_ANGEL_SILK] = "Angel's Silk";
+    itemNameTable[Fix.RARE_DREAD_EXTRACT] = "Dread Extract";
+    itemNameTable[Fix.COMMON_ESSENCE_OF_WIND] = "Essence of Wind";
+    itemNameTable[Fix.COMMON_INNOCENCE_ESSENCE] = "Innocence Essence";
+    itemNameTable[Fix.COMMON_UNRESOLVED_MATERIAL] = "Unidentified Substance";
+
+    // --- Item category labels ---
+    itemNameTable[Fix.DESCRIPTION_SELL_ONLY] = "For Sale Only";
+    itemNameTable[Fix.DESCRIPTION_BATTLE_ONLY] = "Battle Use Only";
+    itemNameTable[Fix.DESCRIPTION_EQUIP_MATERIAL] = "Weapon Material";
+    itemNameTable[Fix.DESCRIPTION_POTION_MATERIAL] = "Potion Material";
+    itemNameTable[Fix.DESCRIPTION_FOOD_MATERIAL] = "Food Ingredient";
+    itemNameTable[Fix.DESCRIPTION_WEAPON] = "Weapon";
+    itemNameTable[Fix.DESCRIPTION_SHIELD] = "Shield";
+    itemNameTable[Fix.DESCRIPTION_ARMOR] = "Armor";
+    itemNameTable[Fix.DESCRIPTION_ACCESSORY] = "Accessory";
+    itemNameTable[Fix.DESCRIPTION_POTION] = "Consumable";
+    itemNameTable[Fix.DESCRIPTION_BLUEORB] = "Exclusive Item";
+
+    // --- Special named items (already English values) ---
+    itemNameTable[Fix.RING_OF_OSCURETE] = "Ring of the Oscurete";
+    itemNameTable[Fix.MERGIZD_SOL_BLADE] = "Mergizd Sol Blade";
+    itemNameTable[Fix.ADILORB_OF_THE_GARVANDI] = "AdilOrb of the Garvandi";
+    itemNameTable[Fix.MAXCARN_X_BUSTER] = "Maxcarn the X-BUSTER";
+    itemNameTable[Fix.GATUH_HAWL_OF_GREAT] = "Gatuh Hawl of Great";
+    itemNameTable[Fix.JUZA_ARESTINE_SLICER] = "Arestine-Slicer of Juza";
+    itemNameTable[Fix.ADILRING_OF_BLUE_BURN] = "AdilRing of the Blue Burn";
+    itemNameTable[Fix.SHEZL_MYSTIC_FORTUNE] = "Shezl the Mystic Fortune";
+    itemNameTable[Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE] = "Flow Funnel of the Zveldose";
+    itemNameTable[Fix.EZEKRIEL_IMPRINT_SIGIL_ARMOR] = "Ezekriel the Imprinted-Armor of Sigil";
+    itemNameTable[Fix.MERGIZD_DAV_AGITATED_BLADE] = "Mergizd DAV-Agitated Blade";
+    itemNameTable[Fix.SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK] = "Shezl the Ventiel-DarkMirage Book";
+    itemNameTable[Fix.XEXXER_WORLD_MASTERY_GLOBE] = "Xexxer the World-Mastery Globe";
+
+    // ---------------------------------------------------------------
+
+    FieldInfo[] fields = typeof(Fix).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
+    for (int ii = 0; ii < fields.Length; ii++)
+    {
+      FieldInfo field = fields[ii];
+      if (field.FieldType != typeof(string)) { continue; }
+      if (field.IsLiteral == false || field.IsInitOnly) { continue; }
+
+      string key = field.GetRawConstantValue() as string;
+      if (string.IsNullOrEmpty(key)) { continue; }
+      if (itemNameTable.ContainsKey(key)) { continue; }
+
+      itemNameTable[key] = HasJapaneseCharacter(key) ? HumanizeItemIdentifier(field.Name) : key;
+    }
+  }
+
+  private static bool HasJapaneseCharacter(string value)
+  {
+    if (string.IsNullOrEmpty(value)) { return false; }
+
+    for (int ii = 0; ii < value.Length; ii++)
+    {
+      char current = value[ii];
+      // Hiragana / Katakana / CJK unified ideographs / Halfwidth katakana.
+      if ((current >= '\u3040' && current <= '\u30ff') ||
+          (current >= '\u3400' && current <= '\u9fff') ||
+          (current >= '\uff66' && current <= '\uff9f'))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static string HumanizeItemIdentifier(string identifier)
+  {
+    if (string.IsNullOrEmpty(identifier)) { return string.Empty; }
+
+    string[] rawTokens = identifier.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
+    List<string> tokens = new List<string>();
+    for (int ii = 0; ii < rawTokens.Length; ii++)
+    {
+      string token = rawTokens[ii];
+      int splitIndex = token.Length;
+      while (splitIndex > 0 && char.IsDigit(token[splitIndex - 1]))
+      {
+        splitIndex--;
+      }
+
+      if (splitIndex > 0)
+      {
+        tokens.Add(token.Substring(0, splitIndex));
+      }
+      if (splitIndex < token.Length)
+      {
+        tokens.Add(token.Substring(splitIndex));
+      }
+    }
+
+    HashSet<string> lowerWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+    {
+      "A", "AN", "AND", "AS", "AT", "BY", "FOR", "FROM", "IN", "OF", "ON", "OR", "THE", "TO", "WITH"
+    };
+
+    for (int ii = 0; ii < tokens.Count; ii++)
+    {
+      string token = tokens[ii];
+      if (string.IsNullOrEmpty(token)) { continue; }
+      if (char.IsDigit(token[0])) { continue; }
+      if (token.Length == 1)
+      {
+        tokens[ii] = token.ToUpperInvariant();
+      }
+      else if (ii > 0 && lowerWords.Contains(token))
+      {
+        tokens[ii] = token.ToLowerInvariant();
+      }
+      else
+      {
+        tokens[ii] = char.ToUpperInvariant(token[0]) + token.Substring(1).ToLowerInvariant();
+      }
+    }
+
+    return string.Join(" ", tokens.ToArray());
   }
 }
