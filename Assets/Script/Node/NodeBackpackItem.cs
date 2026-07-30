@@ -17,7 +17,7 @@ public class NodeBackpackItem : MonoBehaviour
 
   public void Construct(GameObject content, string item_name, int item_num, int num, int counter)
   {
-    this.transform.SetParent(content.transform);
+    this.transform.SetParent(content.transform, false);
     this.BackpackNumber = num;
 
     Item current = new Item(item_name);
