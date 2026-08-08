@@ -15465,10 +15465,7 @@ public class DungeonField : MotherBase
     if (this.ignoreCreateShadow == false)
     {
       One.CreateShadowData();
-      for (int ii = 0; ii < One.EnemyList.Count; ii++)
-      {
-        UnityEngine.Object.DontDestroyOnLoad(One.ShadowPlayerList[ii]);
-      }
+      One.MarkShadowPlayerListPersistent();
     }
 
     One.EnemyList.Clear();
@@ -15539,10 +15536,7 @@ public class DungeonField : MotherBase
       }
     }
 
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
+    One.MarkEnemyListPersistent();
     //    SceneDimension.CallBattleEnemy();
 
 

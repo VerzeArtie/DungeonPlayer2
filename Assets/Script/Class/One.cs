@@ -1037,6 +1037,24 @@ public static class One
     }
   }
 
+  // シーン遷移時にShadowPlayerList/EnemyListをDontDestroyOnLoadで永続化する処理。
+  // DungeonField.cs / HomeTown.cs / Title.cs に同一ロジックが重複していたためここに集約。
+  public static void MarkShadowPlayerListPersistent()
+  {
+    for (int ii = 0; ii < ShadowPlayerList.Count; ii++)
+    {
+      UnityEngine.Object.DontDestroyOnLoad(ShadowPlayerList[ii]);
+    }
+  }
+
+  public static void MarkEnemyListPersistent()
+  {
+    for (int ii = 0; ii < EnemyList.Count; ii++)
+    {
+      UnityEngine.Object.DontDestroyOnLoad(EnemyList[ii]);
+    }
+  }
+
   public static void CopyShadowToMain()
   {
     Debug.Log("ShadowPlayer.Count " + One.ShadowPlayerList.Count.ToString());

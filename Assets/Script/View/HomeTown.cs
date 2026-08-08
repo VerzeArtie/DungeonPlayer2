@@ -4060,10 +4060,7 @@ public partial class HomeTown : MotherBase
     {
       this.ignoreCreateShadow = true;
       One.CreateShadowData();
-      for (int ii = 0; ii < One.EnemyList.Count; ii++)
-      {
-        UnityEngine.Object.DontDestroyOnLoad(One.ShadowPlayerList[ii]);
-      }
+      One.MarkShadowPlayerListPersistent();
     }
     Debug.Log(MethodBase.GetCurrentMethod() + "2");
 
@@ -4107,11 +4104,8 @@ public partial class HomeTown : MotherBase
       }
     }
 
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      Debug.Log(MethodBase.GetCurrentMethod() + "5");
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
+    Debug.Log(MethodBase.GetCurrentMethod() + "5");
+    One.MarkEnemyListPersistent();
 
     //this.GroupQuestMessage.SetActive(true);
     Debug.Log(MethodBase.GetCurrentMethod() + "6");

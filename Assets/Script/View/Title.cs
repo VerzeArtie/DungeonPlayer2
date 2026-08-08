@@ -749,10 +749,7 @@ public class Title : MotherBase
       One.EnemyList.Add(character);
     }
 
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
+    One.MarkEnemyListPersistent();
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Normal;
@@ -865,10 +862,7 @@ public class Title : MotherBase
       One.EnemyList.Add(character);
     }
 
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
+    One.MarkEnemyListPersistent();
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Duel;
@@ -966,10 +960,7 @@ public class Title : MotherBase
       One.EnemyList.Add(character);
     }
 
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
+    One.MarkEnemyListPersistent();
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Boss;
