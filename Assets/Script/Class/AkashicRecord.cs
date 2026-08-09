@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AkashicRecord : MonoBehaviour
 {
-  // V‹KƒQ[ƒ€Aƒ[ƒhAƒŠƒ[ƒh‚ÉŠÖ‚í‚ç‚¸í‚É‹L‰¯‚³‚ê‚éƒNƒ‰ƒX
+  // æ–°è¦ã‚²ãƒ¼ãƒ ã€ãƒ­ãƒ¼ãƒ‰ã€ãƒªãƒ­ãƒ¼ãƒ‰ã«é–¢ã‚ã‚‰ãšå¸¸ã«è¨˜æ†¶ã•ã‚Œã‚‹ã‚¯ãƒ©ã‚¹
 
   // SeekerMode
   [SerializeField] protected bool _enter_seeker_mode = false;
@@ -14,17 +14,17 @@ public class AkashicRecord : MonoBehaviour
   public bool LeaveSeekerMode { set { _leave_seeker_mode = value; } get { return _leave_seeker_mode; } }
 
   [SerializeField] protected bool _normal_ending = false;
-  public bool NormalEnding { get { return _normal_ending; } set { _normal_ending = value; } } // ƒm[ƒ}ƒ‹EƒGƒ“ƒh
+  public bool NormalEnding { get { return _normal_ending; } set { _normal_ending = value; } } // ãƒãƒ¼ãƒãƒ«ãƒ»ã‚¨ãƒ³ãƒ‰
 
   [SerializeField] protected bool _true_ending = false;
-  public bool TrueEnding { get { return _true_ending; } set { _true_ending = value; } } // ƒgƒDƒ‹[EƒGƒ“ƒh
+  public bool TrueEnding { get { return _true_ending; } set { _true_ending = value; } } // ãƒˆã‚¥ãƒ«ãƒ¼ãƒ»ã‚¨ãƒ³ãƒ‰
 
-  // ƒRƒAEƒVƒiƒŠƒI
+  // ã‚³ã‚¢ãƒ»ã‚·ãƒŠãƒªã‚ª
   [SerializeField] protected bool _record_earring_of_lana = false;
-  public bool Record_EarringOfLana { get { return _record_earring_of_lana; } set { _record_earring_of_lana = value; } } // ƒ‰ƒi‚ÌƒCƒ„ƒŠƒ“ƒO‚ğ“üè‚µ‚½–‚ª‚ ‚éB
+  public bool Record_EarringOfLana { get { return _record_earring_of_lana; } set { _record_earring_of_lana = value; } } // ãƒ©ãƒŠã®ã‚¤ãƒ¤ãƒªãƒ³ã‚°ã‚’å…¥æ‰‹ã—ãŸäº‹ãŒã‚ã‚‹ã€‚
 
   // Item Shop
-  // •‹ï‡¬
+  // æ­¦å…·åˆæˆ
   [SerializeField] protected bool _equip_available_11 = false;
   public bool EquipAvailable_11
   {
@@ -144,7 +144,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_available_54; }
   }
 
-  // ƒ|[ƒVƒ‡ƒ“‡¬
+  // ãƒãƒ¼ã‚·ãƒ§ãƒ³åˆæˆ
   [SerializeField] protected bool _potion_available_11 = false;
   public bool PotionAvailable_11
   {
@@ -264,7 +264,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_available_54; }
   }
 
-  // H–‡¬
+  // é£Ÿäº‹åˆæˆ
   [SerializeField] protected bool _food_available_11 = false;
   public bool FoodAvailable_11
   {
@@ -360,7 +360,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _food_available_53; }
   }
 
-  // •‹ï‡¬
+  // æ­¦å…·åˆæˆ
   [SerializeField] protected int _equip_mixtureDay_11 = 0;
   public int EquipMixtureDay_11
   {
@@ -480,7 +480,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_mixtureDay_54; }
   }
 
-  // ƒ|[ƒVƒ‡ƒ“‡¬
+  // ãƒãƒ¼ã‚·ãƒ§ãƒ³åˆæˆ
   [SerializeField] protected int _potion_mixtureDay_11 = 0;
   public int PotionMixtureDay_11
   {
@@ -600,7 +600,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_mixtureDay_54; }
   }
 
-  // H–‡¬
+  // é£Ÿäº‹åˆæˆ
   [SerializeField] protected int _food_mixtureDay_11 = 0;
   public int FoodMixtureDay_11
   {
@@ -696,7 +696,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _food_mixtureDay_53; }
   }
 
-  // •‹ï‡¬
+  // æ­¦å…·åˆæˆ
   [SerializeField] protected int _equip_material_11 = 0;
   public int EquipMaterial_11
   {
@@ -990,7 +990,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _equip_material_513; }
   }
 
-  // ƒ|[ƒVƒ‡ƒ“‡¬
+  // ãƒãƒ¼ã‚·ãƒ§ãƒ³åˆæˆ
   [SerializeField] protected int _potion_material_11 = 0;
   public int PotionMaterial_11
   {
@@ -1277,7 +1277,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _potion_material_513; }
   }
 
-  // H–‡¬
+  // é£Ÿäº‹åˆæˆ
   [SerializeField] protected int _food_material_11 = 0;
   public int FoodMaterial_11
   {
@@ -1481,7 +1481,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _food_material_59; }
   }
 
-  // ƒAƒNƒVƒ‡ƒ“ƒRƒ}ƒ“ƒh‚Ìˆóiˆê“x’N‚©‚ª‹L‰¯‚µ‚½‚È‚çA”ñ•\¦‚Æ‚µ‚È‚¢‚½‚ß‚Ìƒtƒ‰ƒOj
+  // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒãƒ³ãƒ‰ã®åˆ»å°ï¼ˆä¸€åº¦èª°ã‹ãŒè¨˜æ†¶ã—ãŸãªã‚‰ã€éè¡¨ç¤ºã¨ã—ãªã„ãŸã‚ã®ãƒ•ãƒ©ã‚°ï¼‰
   [SerializeField] protected bool _FireBall = false;
   public bool FireBall
   {
@@ -2070,7 +2070,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _TranscendenceReached; }
   }
 
-  // ƒGƒIƒlEƒtƒ‹ƒlƒA‚ğ’‡ŠÔ‚É‚µ‚½–‚ª‚ ‚éB
+  // ã‚¨ã‚ªãƒãƒ»ãƒ•ãƒ«ãƒã‚¢ã‚’ä»²é–“ã«ã—ãŸäº‹ãŒã‚ã‚‹ã€‚
   [SerializeField] protected bool _partyjoin_EoneFulnea = false;
   public bool PartyJoin_EoneFulnea
   {
@@ -2078,7 +2078,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _partyjoin_EoneFulnea; }
   }
 
-  // ƒrƒŠ[Eƒ‰ƒL‚ğ’‡ŠÔ‚É‚µ‚½–‚ª‚ ‚éB
+  // ãƒ“ãƒªãƒ¼ãƒ»ãƒ©ã‚­ã‚’ä»²é–“ã«ã—ãŸäº‹ãŒã‚ã‚‹ã€‚
   [SerializeField] protected bool _partyjoin_BillyRaki = false;
   public bool PartyJoin_BillyRaki
   {
@@ -2086,7 +2086,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _partyjoin_BillyRaki; }
   }
 
-  // ƒAƒfƒ‹EƒuƒŠƒKƒ“ƒfƒB‚ğ’‡ŠÔ‚É‚µ‚½ŒãAh‰®‚Å‹x‚ñ‚¾–‚ª‚ ‚éB
+  // ã‚¢ãƒ‡ãƒ«ãƒ»ãƒ–ãƒªã‚¬ãƒ³ãƒ‡ã‚£ã‚’ä»²é–“ã«ã—ãŸå¾Œã€å®¿å±‹ã§ä¼‘ã‚“ã äº‹ãŒã‚ã‚‹ã€‚
   [SerializeField] protected bool _partyjoin_AdelBrigandy = false;
   public bool PartyJoin_AdelBrigandy
   {
@@ -2094,7 +2094,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _partyjoin_AdelBrigandy; }
   }
 
-  // ƒpƒ‹ƒƒeƒCƒVƒA_“a‚Å_Œ¾‚ğö‚©‚éB
+  // ãƒ‘ãƒ«ãƒ¡ãƒ†ã‚¤ã‚·ã‚¢ç¥æ®¿ã§ç¥è¨€ã‚’æˆã‹ã‚‹ã€‚
   [SerializeField] protected bool _gift_ParmetysiaWord = false;
   public bool GiftParmetysiaWord
   {
@@ -2102,7 +2102,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _gift_ParmetysiaWord; }
   }
 
-  // i‚RjƒSƒ‰ƒgƒ‰ƒ€“´ŒA‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼“ï¼‰ã‚´ãƒ©ãƒˆãƒ©ãƒ æ´çªŸã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_1 = false;
   public bool InscribeObsidianStone_1
   {
@@ -2110,7 +2110,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_1; }
   }
 
-  // i‚Tj_”é‚ÌX‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼•ï¼‰ç¥ç§˜ã®æ£®ã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_2 = false;
   public bool InscribeObsidianStone_2
   {
@@ -2118,7 +2118,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_2; }
   }
 
-  // i‚QjƒI[ƒ‰ƒ“‚Ì“ƒ‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼’ï¼‰ã‚ªãƒ¼ãƒ©ãƒ³ã®å¡”ã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_3 = false;
   public bool InscribeObsidianStone_3
   {
@@ -2126,7 +2126,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_3; }
   }
 
-  // i‚Pjƒ”ƒFƒ‹ƒKƒXŠC’ê_“a‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼‘ï¼‰ãƒ´ã‚§ãƒ«ã‚¬ã‚¹æµ·åº•ç¥æ®¿ã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_4 = false;
   public bool InscribeObsidianStone_4
   {
@@ -2134,7 +2134,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_4; }
   }
 
-  // i‚SjƒGƒfƒ‹ƒKƒCƒ[ƒ“é‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼”ï¼‰ã‚¨ãƒ‡ãƒ«ã‚¬ã‚¤ã‚¼ãƒ³åŸã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_5 = false;
   public bool InscribeObsidianStone_5
   {
@@ -2142,7 +2142,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_5; }
   }
 
-  // i‚OjƒGƒXƒ~ƒŠƒA‘Œ´‹æˆæ‚ÌObsidianStone‚ÆÚG‚·‚éB
+  // ï¼ˆï¼ï¼‰ã‚¨ã‚¹ãƒŸãƒªã‚¢è‰åŸåŒºåŸŸã®ObsidianStoneã¨æ¥è§¦ã™ã‚‹ã€‚
   [SerializeField] protected bool _inscribeObsidianStone_6 = false;
   public bool InscribeObsidianStone_6
   {
@@ -2150,9 +2150,9 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_6; }
   }
 
-  // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“aA‰E•û‚ÌŠÔA‚Ìß‚Q`‚P‚T‚Ì‹L˜^ƒiƒ“ƒo[
-  // ‚Ìß‚P‚Æ‚P‚U‚ÍŒÅ’è’li•ÏX‚³‚ê‚È‚¢j‚¾‚ª•ª‚©‚è“ï‚­‚È‚é‚Ì‚ÅA‹L˜^‚É‚Í“ü‚ê‚Ä‚¨‚­B
-  [SerializeField] protected int _velgus_chant_sequence_1 = 1; // 1‰ŠúŒÅ’è
+  // ãƒ´ã‚§ãƒ«ã‚¬ã‚¹ã®æµ·åº•ç¥æ®¿ã€å³æ–¹ã®é–“ã€è©©ã®ç¯€ï¼’ï½ï¼‘ï¼•ã®è¨˜éŒ²ãƒŠãƒ³ãƒãƒ¼
+  // è©©ã®ç¯€ï¼‘ã¨ï¼‘ï¼–ã¯å›ºå®šå€¤ï¼ˆå¤‰æ›´ã•ã‚Œãªã„ï¼‰ã ãŒåˆ†ã‹ã‚Šé›£ããªã‚‹ã®ã§ã€è¨˜éŒ²ã«ã¯å…¥ã‚Œã¦ãŠãã€‚
+  [SerializeField] protected int _velgus_chant_sequence_1 = 1; // 1åˆæœŸå›ºå®š
   public int Velgus_Chant_Sequence_1
   {
     set { _velgus_chant_sequence_1 = value; }
@@ -2242,7 +2242,7 @@ public class AkashicRecord : MonoBehaviour
     set { _velgus_chant_sequence_15 = value; }
     get { return _velgus_chant_sequence_15; }
   }
-  [SerializeField] protected int _velgus_chant_sequence_16 = 16; // 16‰ŠúŒÅ’è
+  [SerializeField] protected int _velgus_chant_sequence_16 = 16; // 16åˆæœŸå›ºå®š
   public int Velgus_Chant_Sequence_16
   {
     set { _velgus_chant_sequence_16 = value; }
@@ -2441,7 +2441,7 @@ public class AkashicRecord : MonoBehaviour
         number == One.AR.Velgus_Chant_Sequence_14 ||
         number == One.AR.Velgus_Chant_Sequence_15)
     {
-      // Šù‚ÉƒŒƒR[ƒh‚µ‚½‰ÓŠ‚ª‚ ‚éê‡‚ÍXV‚µ‚È‚¢B
+      // æ—¢ã«ãƒ¬ã‚³ãƒ¼ãƒ‰ã—ãŸç®‡æ‰€ãŒã‚ã‚‹å ´åˆã¯æ›´æ–°ã—ãªã„ã€‚
       Debug.Log("AkashicRecord has been already recorded, then no action: " + number.ToString());
       return;
     }

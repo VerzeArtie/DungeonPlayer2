@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,7 +11,7 @@ public class TruthAnswer : MotherBase
   public List<GameObject> objListMessage;
   public List<Text> txtChant;
 
-  public int CurrentChantNumber = 1; // ‰Šú’l‚P‚Å—Ç‚¢B
+  public int CurrentChantNumber = 1; // åˆæœŸå€¤ï¼‘ã§è‰¯ã„ã€‚
 
   public bool nowAutoKill = false;
   public int nowAutoKillTimer = 0;
@@ -41,21 +41,21 @@ public class TruthAnswer : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod().Name + " " + number.ToString());
 
-    if (CurrentChantNumber == 1) { txtChant[number - 1].text = "’¹"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false);  CurrentChantNumber++; }
-    else if (CurrentChantNumber == 2) { txtChant[number - 1].text = "“V"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 3) { txtChant[number - 1].text = "ˆÅ"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 4) { txtChant[number - 1].text = "…"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 5) { txtChant[number - 1].text = "‰Î"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 6) { txtChant[number - 1].text = "—’"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 7) { txtChant[number - 1].text = "€"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 8) { txtChant[number - 1].text = "¶"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 9) { txtChant[number - 1].text = "_"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 10) { txtChant[number - 1].text = "l"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 11) { txtChant[number - 1].text = "—"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 12) { txtChant[number - 1].text = "‹ó"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 13) { txtChant[number - 1].text = "‘Š"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 14) { txtChant[number - 1].text = "‰i"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 15) { txtChant[number - 1].text = "¢"; txtChant[number - 1].gameObject.SetActive(true);/*objListMessage[CurrentChantNumber - 1].SetActive(false);*/ CurrentChantNumber++; }
+    if (CurrentChantNumber == 1) { txtChant[number - 1].text = "é³¥"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false);  CurrentChantNumber++; }
+    else if (CurrentChantNumber == 2) { txtChant[number - 1].text = "å¤©"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 3) { txtChant[number - 1].text = "é—‡"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 4) { txtChant[number - 1].text = "æ°´"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 5) { txtChant[number - 1].text = "ç«"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 6) { txtChant[number - 1].text = "åµ"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 7) { txtChant[number - 1].text = "æ­»"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 8) { txtChant[number - 1].text = "ç”Ÿ"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 9) { txtChant[number - 1].text = "ç¥"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 10) { txtChant[number - 1].text = "äºº"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 11) { txtChant[number - 1].text = "ç†"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 12) { txtChant[number - 1].text = "ç©º"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 13) { txtChant[number - 1].text = "ç›¸"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 14) { txtChant[number - 1].text = "æ°¸"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 15) { txtChant[number - 1].text = "ä¸–"; txtChant[number - 1].gameObject.SetActive(true);/*objListMessage[CurrentChantNumber - 1].SetActive(false);*/ CurrentChantNumber++; }
     else { Debug.Log("Wrong Chant Sequence...please debug it"); }
 
     if (CurrentChantNumber >= 16)
@@ -78,7 +78,7 @@ public class TruthAnswer : MotherBase
       numberList.Add(One.AR.Velgus_Chant_Sequence_15);
 
 
-      // ÅI”»’è‘O‚Ì•âŠ®ˆ—F0 ‚Ì‚Ü‚Ü‚Ì—v‘f‚É–¢g—p‚Ì’l‚ğƒ‰ƒ“ƒ_ƒ€‚É‘ã“ü
+      // æœ€çµ‚åˆ¤å®šå‰ã®è£œå®Œå‡¦ç†ï¼š0 ã®ã¾ã¾ã®è¦ç´ ã«æœªä½¿ç”¨ã®å€¤ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«ä»£å…¥
       List<int> remainingValues = Enumerable.Range(1, 15).Except(numberList.Where(v => v != 0)).ToList();
       System.Random rand = new System.Random();
       Shuffle(remainingValues, rand);
@@ -147,7 +147,7 @@ public class TruthAnswer : MotherBase
         One.UpdateAkashicRecord();
       }
 
-      // TapVelgusChantButton ‚ÌÅŒã‚Ì¬Œ÷”»’è‚Ì’¼‘O‚É’Ç‰Á
+      // TapVelgusChantButton ã®æœ€å¾Œã®æˆåŠŸåˆ¤å®šã®ç›´å‰ã«è¿½åŠ 
       int maxIndex = txtChant != null ? txtChant.Count : 0;
       int[] seq = new[]
       {
@@ -166,21 +166,21 @@ public class TruthAnswer : MotherBase
       }
       else
       {
-        if (txtChant[One.AR.Velgus_Chant_Sequence_1 - 1].text == "’¹" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_2 - 1].text == "“V" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_3 - 1].text == "ˆÅ" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_4 - 1].text == "…" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_5 - 1].text == "‰Î" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_6 - 1].text == "—’" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_7 - 1].text == "€" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_8 - 1].text == "¶" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_9 - 1].text == "_" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_10 - 1].text == "l" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_11 - 1].text == "—" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_12 - 1].text == "‹ó" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_13 - 1].text == "‘Š" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_14 - 1].text == "‰i" &&
-             txtChant[One.AR.Velgus_Chant_Sequence_15 - 1].text == "¢")
+        if (txtChant[One.AR.Velgus_Chant_Sequence_1 - 1].text == "é³¥" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_2 - 1].text == "å¤©" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_3 - 1].text == "é—‡" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_4 - 1].text == "æ°´" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_5 - 1].text == "ç«" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_6 - 1].text == "åµ" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_7 - 1].text == "æ­»" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_8 - 1].text == "ç”Ÿ" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_9 - 1].text == "ç¥" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_10 - 1].text == "äºº" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_11 - 1].text == "ç†" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_12 - 1].text == "ç©º" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_13 - 1].text == "ç›¸" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_14 - 1].text == "æ°¸" &&
+             txtChant[One.AR.Velgus_Chant_Sequence_15 - 1].text == "ä¸–")
         {
           One.TF.Event_Message1000040_VelgusChantSuccess = true;
         }
@@ -193,7 +193,7 @@ public class TruthAnswer : MotherBase
     }
   }
 
-  // Fisher-Yates ƒVƒƒƒbƒtƒ‹
+  // Fisher-Yates ã‚·ãƒ£ãƒƒãƒ•ãƒ«
   static void Shuffle<T>(List<T> list, System.Random rand)
   {
     for (int i = list.Count - 1; i > 0; i--)

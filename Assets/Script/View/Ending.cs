@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,8 +33,8 @@ public class Ending : MotherBase
       return;
     }
 
-    // ƒGƒ“ƒfƒBƒ“ƒOƒ[ƒ‹
-    #region "ƒGƒ“ƒfƒBƒ“ƒO"
+    // ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒ­ãƒ¼ãƒ«
+    #region "ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°"
     if (this.nowAnimationEnding)
     {
       if (this.panelEnding.GetComponent<Image>().color.a < 1.0f)

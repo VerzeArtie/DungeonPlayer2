@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -33,10 +33,10 @@ public class TileInformation : MonoBehaviour
     WasteWall = 22,
     Upstair = 23,
     Downstair = 24,
-    // ƒSƒ‰ƒgƒ‰ƒ€“´ŒA
+    // ã‚´ãƒ©ãƒˆãƒ©ãƒ æ´çªŸ
     Goratrum_Hole = 101,
 
-    // ƒA[ƒTƒŠƒEƒ€HêÕ’n
+    // ã‚¢ãƒ¼ã‚µãƒªã‚¦ãƒ å·¥å ´è·¡åœ°
     Artharium_Normal = 1001,
     Artharium_Wall = 1002,
     Artharium_Debris = 1003,
@@ -45,12 +45,12 @@ public class TileInformation : MonoBehaviour
     Artharium_Bridge2 = 1006,
     Artharium_Gate = 1007,
     Artharium_Hole = 1008,
-    // ƒI[ƒ‰ƒ“‚Ì“ƒ
+    // ã‚ªãƒ¼ãƒ©ãƒ³ã®å¡”
     Ohran_Normal = 2001,
     Ohran_Wall = 2002,
     Ohran_FloatTile = 2003,
     Ohran_WarpHole = 2004,
-    // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“a
+    // ãƒ´ã‚§ãƒ«ã‚¬ã‚¹ã®æµ·åº•ç¥æ®¿
     Velgus_Normal = 3001,
     Velgus_Wall = 3002,
     Velgus_Sea = 3003,
@@ -66,23 +66,23 @@ public class TileInformation : MonoBehaviour
     Velgus_CircleGreen = 3013,
     Velgus_CircleYellow = 3014,
     // 3000
-    // ƒ_ƒ‹‚Ì–å
+    // ãƒ€ãƒ«ã®é–€
     Dhal_Normal = 4001,
     Dhal_Wall = 4002,
     Dhal_NormalObj = 4003,
     Dhal_WallObj = 4004,
     
-    // _”é‚ÌX
+    // ç¥ç§˜ã®æ£®
     MysticForest_Normal = 5001,
     MysticForest_Wall = 5002,
 
-    // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
+    // ã‚¨ãƒ‡ãƒ«ã‚¬ã‚¤ã‚¼ãƒ³åŸ
     Edelgarzen_Normal = 6001,
     Edelgarzen_Wall = 6002,
     Edelgarzen_Cloud = 6003,
     Edelgarzen_Cloud_Secret = 6004,
 
-    // —£“‡ƒEƒHƒYƒ€
+    // é›¢å³¶ã‚¦ã‚©ã‚ºãƒ 
     Wosm_Normal = 7001,
     Wosm_Wall = 7002,
     Wosm_Sea = 7003,
@@ -140,10 +140,10 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Upstair) { return 1; }
       if (field == Field.Downstair) { return 1; }
 
-      // ƒSƒ‰ƒgƒ‰ƒ€“´ŒA
+      // ã‚´ãƒ©ãƒˆãƒ©ãƒ æ´çªŸ
       if (field == Field.Goratrum_Hole) { return 1; }
 
-      // ƒA[ƒTƒŠƒEƒ€HêÕ’n
+      // ã‚¢ãƒ¼ã‚µãƒªã‚¦ãƒ å·¥å ´è·¡åœ°
       if (field == Field.Artharium_Normal) { return 1; }
       if (field == Field.Artharium_Debris) { return 1; }
       if (field == Field.Artharium_Poison) { return 1; }
@@ -153,23 +153,23 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Artharium_Wall) { return 999; }
       if (field == Field.Artharium_Hole) { return 999; }
 
-      // ƒI[ƒ‰ƒ“‚Ì“ƒ
+      // ã‚ªãƒ¼ãƒ©ãƒ³ã®å¡”
       if (field == Field.Ohran_Normal) { return 1; }
       if (field == Field.Ohran_Wall) { return 999; }
       if (field == Field.Ohran_FloatTile) { return 1; }
       if (field == Field.Ohran_WarpHole) { return 1; }
 
-      // ƒ_ƒ‹‚Ì–å
+      // ãƒ€ãƒ«ã®é–€
       if (field == Field.Dhal_Normal) { return 1; }
       if (field == Field.Dhal_Wall) { return 999; }
       if (field == Field.Dhal_NormalObj) { return 1; }
       if (field == Field.Dhal_WallObj) { return 999; }
 
-      // _”é‚ÌX
+      // ç¥ç§˜ã®æ£®
       if (field == Field.MysticForest_Normal) { return 1; }
       if (field == Field.MysticForest_Wall) { return 999; }
 
-      // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“a
+      // ãƒ´ã‚§ãƒ«ã‚¬ã‚¹ã®æµ·åº•ç¥æ®¿
       if (field == Field.Velgus_Normal) { return 1; }
       if (field == Field.Velgus_Number1) { return 1; }
       if (field == Field.Velgus_Number2) { return 1; }
@@ -185,13 +185,13 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Velgus_Wall) { return 999; }
       if (field == Field.Velgus_Sea) { return 999; }
 
-      // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
+      // ã‚¨ãƒ‡ãƒ«ã‚¬ã‚¤ã‚¼ãƒ³åŸ
       if (field == Field.Edelgarzen_Normal) { return 1; }
       if (field == Field.Edelgarzen_Wall) { return 999; }
       if (field == Field.Edelgarzen_Cloud) { return 999; }
       if (field == Field.Edelgarzen_Cloud_Secret) { return 1; }
 
-      // —£“‡ƒEƒHƒYƒ€
+      // é›¢å³¶ã‚¦ã‚©ã‚ºãƒ 
       if (field == Field.Wosm_Normal) { return 1; }
       if (field == Field.Wosm_Wall) { return 999; }
       if (field == Field.Wosm_Sea) { return 999; }
@@ -206,6 +206,6 @@ public class TileInformation : MonoBehaviour
 
   public List<TileInformation> connectNode = new List<TileInformation>();
 
-  public int cost = -1; //’Tõ‚É—v‚µ‚½ƒRƒXƒgB-1‚Ì‚Í‚»‚Ìƒm[ƒh‚ğ–¢’Tõ‚Æ‚µ‚Ä‚¢‚Ü‚·B
-  public TileInformation toGoal = null; //ƒS[ƒ‹‚Ö‚ÌÅ’Zƒ‹[ƒg‚É‚Â‚È‚ª‚éƒm[ƒh
+  public int cost = -1; //æ¢ç´¢ã«è¦ã—ãŸã‚³ã‚¹ãƒˆã€‚-1ã®æ™‚ã¯ãã®ãƒãƒ¼ãƒ‰ã‚’æœªæ¢ç´¢ã¨ã—ã¦ã„ã¾ã™ã€‚
+  public TileInformation toGoal = null; //ã‚´ãƒ¼ãƒ«ã¸ã®æœ€çŸ­ãƒ«ãƒ¼ãƒˆã«ã¤ãªãŒã‚‹ãƒãƒ¼ãƒ‰
 }
