@@ -277,13 +277,18 @@ public static class One
       Type typeCONF = One.CONF.GetType();
       foreach (PropertyInfo pi in typeCONF.GetProperties())
       {
+        // setter が無いプロパティ、および設定ファイルに該当要素が無い項目は正常系。
+        // 未設定項目は既定値で動くのが仕様なので、警告の対象にしない。
+        if (pi.CanWrite == false) { continue; }
+        if (HasXmlElement(xmlConfig, pi.Name) == false) { continue; }
+
         if (pi.PropertyType == typeof(System.Int32))
         {
           try
           {
             pi.SetValue(One.CONF, Convert.ToInt32(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("GameConfig", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.String))
         {
@@ -291,7 +296,7 @@ public static class One
           {
             pi.SetValue(One.CONF, (xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("GameConfig", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.Double))
         {
@@ -299,7 +304,7 @@ public static class One
           {
             pi.SetValue(One.CONF, Convert.ToDouble(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("GameConfig", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.Single))
         {
@@ -307,7 +312,7 @@ public static class One
           {
             pi.SetValue(One.CONF, Convert.ToSingle(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("GameConfig", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.Boolean))
         {
@@ -315,7 +320,7 @@ public static class One
           {
             pi.SetValue(One.CONF, Convert.ToBoolean(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("GameConfig", pi.Name, ex); }
         }
       }
     }
@@ -2033,9 +2038,39 @@ public static class One
     ExecLoad(targetFileName, true);
   }
 
+  /// <summary>
+  /// 直近のロードで復元できなかった項目数。ExecLoad の開始時に 0 へ戻る。
+  /// 0 より大きい場合、該当項目は既定値のままセーブデータが読み込まれている。
+  /// </summary>
+  public static int LoadWarningCount = 0;
+
+  /// <summary>
+  /// セーブデータの項目を復元できなかったことを記録し、警告として可視化する。
+  /// ロード自体は中断しない。既存セーブが読めなくなる事態を避けるため。
+  /// </summary>
+  private static void WarnLoadFailure(string ownerName, string propertyName, Exception ex)
+  {
+    LoadWarningCount++;
+    Debug.LogWarning("Failed to restore " + ownerName + "." + propertyName
+                     + " (keeping default value and continuing): "
+                     + ex.GetType().Name + " " + ex.Message);
+  }
+
+  /// <summary>
+  /// XML に該当要素が存在するかを確認する。
+  /// 要素が無いのは「保存時に存在しなかった項目」であり正常系なので、
+  /// 呼び出し側はこれを false のとき警告せず読み飛ばす。
+  /// </summary>
+  private static bool HasXmlElement(XmlDocument doc, string elementName)
+  {
+    XmlNodeList nodes = doc.GetElementsByTagName(elementName);
+    return nodes != null && nodes.Count > 0;
+  }
+
   public static void ExecLoad(string targetFileName, bool forceLoad)
   {
     Debug.Log("ExecLoad 0 " + DateTime.Now);
+    LoadWarningCount = 0;
     One.ReInitializeGroundOne(true);
     Debug.Log("ExecLoad 1 " + DateTime.Now);
 
@@ -2070,7 +2105,13 @@ public static class One
     {
       // Debug.Log("TF: " + tempTF[ii].Name);
       PropertyInfo pi = tempTF[ii];
-      // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+
+      // 旧コードは catch { } で全てを握り潰しており、
+      // 「setterが無い」正常系と「値が壊れている」異常系が区別できなかった。
+      // setterの有無はここで先に判定し、正常系を除外しておく。
+      // 残った例外は本物のデータ異常なので、WarnLoadFailure で必ず可視化する。
+      if (pi.CanWrite == false) { continue; }
+
       if (pi.PropertyType == typeof(System.Int32))
       {
         try
@@ -2084,7 +2125,7 @@ public static class One
             }
           }
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("TeamFoundation", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.Single))
       {
@@ -2099,7 +2140,7 @@ public static class One
             }
           }
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("TeamFoundation", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.String))
       {
@@ -2114,7 +2155,7 @@ public static class One
             }
           }
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("TeamFoundation", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.Boolean))
       {
@@ -2129,9 +2170,10 @@ public static class One
             }
           }
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("TeamFoundation", pi.Name, ex); }
       }
     }
+
 
     // Backpack
     List<string> listItemValue = new List<string>();
@@ -2389,7 +2431,11 @@ public static class One
       {
         // Debug.Log("character: " + tempCharacter[jj].Name);
         PropertyInfo pi = tempCharacter[jj];
-        // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+
+        // setter が無いプロパティは正常系なので警告対象から外す（TeamFoundation と同方針）。
+        // 残った例外はセーブデータ側の異常なので WarnLoadFailure で可視化する。
+        if (pi.CanWrite == false) { continue; }
+
         if (pi.PropertyType == typeof(System.Int32))
         {
           try
@@ -2403,7 +2449,7 @@ public static class One
               }
             }
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("Character", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.String))
         {
@@ -2418,7 +2464,7 @@ public static class One
               }
             }
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("Character", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(System.Boolean))
         {
@@ -2433,7 +2479,7 @@ public static class One
               }
             }
           }
-          catch { }
+          catch (Exception ex) { WarnLoadFailure("Character", pi.Name, ex); }
         }
         else if (pi.PropertyType == typeof(Item))
         {
@@ -2528,13 +2574,19 @@ public static class One
     Type typeAR = One.AR.GetType();
     foreach (PropertyInfo pi in typeAR.GetProperties())
     {
+      // setter が無いプロパティ、および XML に該当要素が無い項目は正常系。
+      // ここで先に除外しないと、GetElementsByTagName(...)[0] の例外が
+      // 「読み込めなかった異常」と区別できなくなる。
+      if (pi.CanWrite == false) { continue; }
+      if (HasXmlElement(xml2, pi.Name) == false) { continue; }
+
       if (pi.PropertyType == typeof(System.Int32))
       {
         try
         {
           pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("AkashicRecord", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.String))
       {
@@ -2542,7 +2594,7 @@ public static class One
         {
           pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("AkashicRecord", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.Double))
       {
@@ -2550,7 +2602,7 @@ public static class One
         {
           pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("AkashicRecord", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.Single))
       {
@@ -2558,7 +2610,7 @@ public static class One
         {
           pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("AkashicRecord", pi.Name, ex); }
       }
       else if (pi.PropertyType == typeof(System.Boolean))
       {
@@ -2566,7 +2618,7 @@ public static class One
         {
           pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
         }
-        catch { }
+        catch (Exception ex) { WarnLoadFailure("AkashicRecord", pi.Name, ex); }
       }
     }
 
@@ -2787,6 +2839,14 @@ public static class One
     //  this.nowAutoKill = true;
     //  this.Filter.SetActive(true);
     //}
+    // ロードの全工程（TeamFoundation / Character / AkashicRecord など）を通した集計。
+    // 個別の警告は既に出ているが、まとめて件数を示すことで見落としを防ぐ。
+    if (LoadWarningCount > 0)
+    {
+      Debug.LogWarning("Load completed with " + LoadWarningCount.ToString()
+                       + " item(s) not restored. Those items keep their default values.");
+    }
+
     Debug.Log("ExecLoad end");
   }
 
