@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Reflection;
 using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices.WindowsRuntime;
+using DungeonPlayer.Core.Animation;
 
 public partial class BattleEnemy : MotherBase
 {
@@ -170,7 +171,9 @@ public partial class BattleEnemy : MotherBase
   protected bool NowAnimationArchetect;
   protected int AnimationArchetectProgress;
 
-  protected int GlobalAnimationChain = 0; // アニメーション実行の際、ひとまとめで表示したい箇所についてナンバーを宣言し、同一ナンバーの場合はまとめてアニメーション実行するためのフラグ
+  // 同一チェインIDの演出はまとめて再生、ID 0 は1つずつ再生。旧 GlobalAnimationChain の置き換え。
+  protected readonly AnimationChainAllocator AnimationChain = new AnimationChainAllocator();
+
 
   bool nowAnimationSandGlass = false;
   int nowAnimationSandGlassCounter = 0;
@@ -1187,6 +1190,13 @@ public partial class BattleEnemy : MotherBase
       lblBattleGameOver.text = L10n.Get(Fix.L10N_BATTLE_GAMEOVER);
       lblBattleRetry.text = L10n.Get(Fix.L10N_BATTLE_RETRY);
       lblBattleSurrender.text = L10n.Get(Fix.L10N_BATTLE_SURRENDER);
+    }
+
+    // 早期 return で閉じ損ねた演出チェインのスコープを毎フレーム回収する。
+    int leakedAnimationChainDepth = this.AnimationChain.ResetScopes();
+    if (leakedAnimationChainDepth > 0)
+    {
+      Debug.LogWarning("AnimationChain: recovered " + leakedAnimationChainDepth + " unclosed scope(s).");
     }
 
       if (One.BattleEnd == Fix.GameEndType.None && CheckGameEnd())
@@ -3021,7 +3031,8 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
-    this.GlobalAnimationChain++; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
+    this.AnimationChain.Begin(AnimationChainPolicy.ResolveMode(command_name));
+
     #region "コマンド実行"
     List<Character> target_list = null;
     Character currentTarget = null;
@@ -7608,7 +7619,7 @@ public partial class BattleEnemy : MotherBase
         break;
     }
     #endregion
-    this.GlobalAnimationChain--; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
+    this.AnimationChain.End();
   }
 
   private List<Character> GetAllMember()
@@ -7784,14 +7795,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, -AP.Math.RandomInteger(5) * 20.0f);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    if (this.GlobalAnimationChain > 0)
-    {
-      damageObj.Construct(message, this.GlobalAnimationChain, color, animation_speed);
-    }
-    else
-    {
-      damageObj.Construct(message, 0, color, animation_speed);
-    }
+    damageObj.Construct(message, this.AnimationChain.CurrentChainId, color, animation_speed);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -7811,14 +7815,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    if (this.GlobalAnimationChain > 0)
-    {
-      damageObj.Construct(message, this.GlobalAnimationChain, color, animation_speed);
-    }
-    else
-    {
-      damageObj.Construct(message, 0, color, animation_speed);
-    }
+    damageObj.Construct(message, this.AnimationChain.CurrentChainId, color, animation_speed);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -8324,7 +8321,20 @@ public partial class BattleEnemy : MotherBase
     stackList[num] = null;
   }
 
+  /// <summary>
+  /// スタックに積まれたコマンドを解決します。
+  /// 演出のまとめ方はコマンド単位で宣言する。本体には早期 return が複数あるため
+  /// using で括り、どの経路を通ってもスコープが閉じるようにしている。
+  /// </summary>
   private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
+  {
+    using (this.AnimationChain.BeginScope(AnimationChainPolicy.ResolveMode(command_name)))
+    {
+      ExecCommandFromNormalStack_Origin(player, target, command_name, stack_obj);
+    }
+  }
+
+  private void ExecCommandFromNormalStack_Origin(Character player, Character target, string command_name, StackObject stack_obj)
   {
     // より抽象化できたのかも知れない。1stリリースではこのままでいく。
     if (command_name == Fix.FIRE_BALL)
@@ -8465,9 +8475,8 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_MULTIPLE_SHOT);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
-        this.GlobalAnimationChain++;
+        // 敵全体に1回ずつ当たる確定攻撃。コマンド単位の一括スコープに委ねる。
         ExecNormalAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
-        this.GlobalAnimationChain--;
       }
     }
     else if (command_name == Fix.LEYLINE_SCHEMA)
@@ -8496,9 +8505,8 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
-        this.GlobalAnimationChain++;
+        // 全体回復なのでコマンド単位の一括スコープに委ねる。
         AbstractHealCommand(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.HealValue, stack_obj.FromPotion);
-        this.GlobalAnimationChain--;
       }
     }
     else if (command_name == Fix.BLACK_CONTRACT)
@@ -8547,34 +8555,34 @@ public partial class BattleEnemy : MotherBase
     else if (command_name == Fix.VOICE_OF_VIGOR)
     {
       One.PlaySoundEffect(Fix.SOUND_VOICE_OF_THE_VIGOR);
-      this.GlobalAnimationChain++;
+      this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
         AbstractAddBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
         ExecLifeGain(stack_obj.TargetList[ii], stack_obj.TargetList[ii], (stack_obj.TargetList[ii].MaxLife / 10.0f));
       }
-      this.GlobalAnimationChain--;
+      this.AnimationChain.End();
     }
     else if (command_name == Fix.UNSEEN_AID)
     {
       One.PlaySoundEffect(Fix.SOUND_UNSEEN_AID);
-      this.GlobalAnimationChain++;
+      this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
         stack_obj.TargetList[ii].objBuffPanel.RemoveAll(stack_obj.TargetList[ii]);
         StartAnimation(stack_obj.TargetList[ii].objGroup.gameObject, stack_obj.ViewBuffName, Fix.COLOR_NORMAL);
       }
-      this.GlobalAnimationChain--;
+      this.AnimationChain.End();
     }
     else if (command_name == Fix.VOLCANIC_BLAZE)
     {
       One.PlaySoundEffect(Fix.SOUND_VOLCANIC_BLAZE);
-      this.GlobalAnimationChain++;
+      this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
         ExecMagicAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
       }
-      this.GlobalAnimationChain--;
+      this.AnimationChain.End();
       AbstractAddBuff(stack_obj.TargetList[0], stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
     else if (command_name == Fix.FREEZING_CUBE)
@@ -8592,12 +8600,12 @@ public partial class BattleEnemy : MotherBase
       if (stack_obj.SequenceNumber == 0)
       {
         One.PlaySoundEffect(Fix.SOUND_ANGELIC_ECHO);
-        this.GlobalAnimationChain++;
+        this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
         for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
         {
           AbstractHealCommand(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.HealValue, stack_obj.FromPotion);
         }
-        this.GlobalAnimationChain--;
+        this.AnimationChain.End();
       }
       else
       {
@@ -8633,13 +8641,13 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        this.GlobalAnimationChain++;
+        this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
         for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
         {
           if (stack_obj.TargetList[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
           ExecNormalAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
         }
-        this.GlobalAnimationChain--;
+        this.AnimationChain.End();
       }
     }
     else if (command_name == Fix.DOMINATION_FIELD)
@@ -8815,25 +8823,25 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        this.GlobalAnimationChain++;
+        this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
         List<Character> player_list = GetAllyGroupAlive(stack_obj.Player);
         for (int ii = 0; ii < player_list.Count; ii++)
         {
           AbstractGainManaPoint(player_list[ii], player_list[ii], player_list[ii].MaxManaPoint - (player_list[ii].MaxManaPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
           AbstractGainSkillPoint(player_list[ii], player_list[ii], player_list[ii].MaxSkillPoint - (player_list[ii].MaxSkillPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
         }
-        this.GlobalAnimationChain--;
+        this.AnimationChain.End();
       }
     }
     else if (command_name == Fix.LAVA_ANNIHILATION)
     {
       One.PlaySoundEffect(Fix.SOUND_LAVA_ANNIHILATION);
-      this.GlobalAnimationChain++;
+      this.AnimationChain.Begin(AnimationChainMode.Simultaneous);
       for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
       {
         ExecMagicAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
       }
-      this.GlobalAnimationChain--;
+      this.AnimationChain.End();
     }
     else if (command_name == Fix.ABSOLUTE_ZERO)
     {
