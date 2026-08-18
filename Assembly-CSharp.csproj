@@ -55,8 +55,10 @@
     <Compile Include="Assets\Script\Class\AkashicRecord.cs" />
     <Compile Include="Assets\Script\Class\MessagePack.cs" />
     <Compile Include="Assets\Script\Class\TileInformation.cs" />
+    <Compile Include="Assets\Script\Core\Animation\AnimationChainAllocator.cs" />
     <Compile Include="Assets\Script\Node\NodeSelectAreaButton.cs" />
     <Compile Include="Assets\Script\Class\ap.cs" />
+    <Compile Include="Assets\Script\Core\Animation\AnimationChainPolicy.cs" />
     <Compile Include="Assets\Script\Class\DamageObject.cs" />
     <Compile Include="Assets\Script\Class\MotherBase.cs" />
     <Compile Include="Assets\Script\Class\Fix.cs" />
