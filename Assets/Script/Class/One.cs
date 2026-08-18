@@ -792,6 +792,7 @@ public static class One
   {
     for (int ii = 0; ii < _characters.Count; ii++)
     {
+      if (_characters[ii] == null) continue;
       if (full_name == _characters[ii].FullName)
       {
         return _characters[ii];
