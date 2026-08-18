@@ -358,7 +358,7 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    // ����ύX
+    // 隊列変更
     if (panelHideOther.activeInHierarchy)
     {
       Debug.Log("panelHideOther.activeInHierarchy is true, switch phase");
@@ -370,12 +370,12 @@ public class PartyMenu : MotherBase
       else if (this.SwitchCharacter == txt_name.text)
       {
         Debug.Log("SwitchCharacter is save, then cancel it: " + txt_name.text);
-        // �����ꍇ�̓L�����Z������
+        // 同じ場合はキャンセル扱い
         this.SwitchCharacter = String.Empty;
       }
       else
       {
-        // ���������ǂ�������������͂��B��Ȃ̂ŒT���Ă݂čœK�����鎖�B
+        // もう少し良い書き方があるはず。趣味なので探してみて最適化する事。
         Debug.Log("SwitchCharacter start: " + this.SwitchCharacter + " -> " + txt_name.text);
         // Swap
         if (One.TF.BattlePlayer1 == txt_name.text)
@@ -439,7 +439,7 @@ public class PartyMenu : MotherBase
     }
     Debug.Log("panelHideOther.activeInHierarchy is false...");
 
-    // �R�}���h���s
+    // コマンド実行
     if (objCancelActionCommand.activeInHierarchy)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
@@ -495,7 +495,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // �A�C�e�����s
+    // アイテム実行
     if (ParentBackpackView.objBlockFilter.activeInHierarchy)
     {
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -557,7 +557,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // �������b�Z�[�W�����Ȃ��Ǝg���Ȃ�����������Ȃ��B
+              // 何かメッセージを入れないと使えない事が分からない。
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_SINSEISUI)
@@ -569,7 +569,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // �������b�Z�[�W�����Ȃ��Ǝg���Ȃ�����������Ȃ��B
+              // 何かメッセージを入れないと使えない事が分からない。
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_VITALIRY_WATER)
@@ -581,7 +581,7 @@ public class PartyMenu : MotherBase
             }
             else
             {
-              // �������b�Z�[�W�����Ȃ��Ǝg���Ȃ�����������Ȃ��B
+              // 何かメッセージを入れないと使えない事が分からない。
             }
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
@@ -671,7 +671,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // �ʏ�I��
+    // 通常選択
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
       if (txt_name.text == PlayerList[ii].FullName)
@@ -679,7 +679,7 @@ public class PartyMenu : MotherBase
         this.CurrentPlayer = PlayerList[ii];
         if (this.groupCharacterStatus.gameObject.activeInHierarchy)
         {
-          CallGroupPartyStatus(PlayerList[ii]); // �ڍs�O�̓R�����g�A�E�g���Ă��Ȃ��B�v����
+          CallGroupPartyStatus(PlayerList[ii]); // 移行前はコメントアウトしていない。要精査
         }
         break;
       }
@@ -704,11 +704,11 @@ public class PartyMenu : MotherBase
       else { objActionCommand[3].SetActive(false); }
     }
 
-    // �R�}���h�ݒ��ʂւ̔��f
+    // コマンド設定画面への反映
     Character player3 = One.SelectCharacter(txt_name.text);
-    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [��{�s��]����ԍ��ōŏ������A�f�t�H���g�̓A�N�V�����R�}���h��\��
+    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
-    // �G�b�Z���X�c���[�ւ̔��f
+    // エッセンスツリーへの反映
     for (int ii = 0; ii < txtEssenceCategoryList.Count; ii++)
     {
       txtEssenceCategoryList[ii].text = String.Empty;
@@ -733,15 +733,15 @@ public class PartyMenu : MotherBase
     SetupCategoryColor(player3.FifthCommandAttribute, imgBackEssenceCategoryList[4], txtEssenceCategoryList[4]);
     SetupCategoryColor(player3.SixthCommandAttribute, imgBackEssenceCategoryList[5], txtEssenceCategoryList[5]);
 
-    // �����{�^���̕\��
-    btnEssenceCategoryList[0].gameObject.SetActive(true); // ��ɗL��
-    btnEssenceCategoryList[1].gameObject.SetActive(true); // ��ɗL��
+    // 属性ボタンの表示
+    btnEssenceCategoryList[0].gameObject.SetActive(true); // 常に有効
+    btnEssenceCategoryList[1].gameObject.SetActive(true); // 常に有効
     btnEssenceCategoryList[2].gameObject.SetActive(One.TF.AvailableFirstEssence);
     btnEssenceCategoryList[3].gameObject.SetActive(One.TF.AvailableSecondEssence);
     btnEssenceCategoryList[4].gameObject.SetActive(One.TF.AvailableThirdEssence);
     btnEssenceCategoryList[5].gameObject.SetActive(One.TF.AvailableFourthEssence);
-    btnEssenceCategoryList[6].gameObject.SetActive(false); // �����g��
-    btnEssenceCategoryList[7].gameObject.SetActive(false); // �����g��
+    btnEssenceCategoryList[6].gameObject.SetActive(false); // 将来拡張
+    btnEssenceCategoryList[7].gameObject.SetActive(false); // 将来拡張
 
     PreConstructEssenceList(player3);
     SetupEssenceList(player3, 0);
@@ -961,7 +961,7 @@ public class PartyMenu : MotherBase
     ParentBackpackView.GroupCategoryPrecious.SetActive(true);
   }
 
-  // �o�g���ݒ�
+  // バトル設定
   public void TapCommandTypeBasic()
   {
     SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Basic);
@@ -992,26 +992,26 @@ public class PartyMenu : MotherBase
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(action_command.CommandName));
 
-    // ������I����Ԃ����݂��Ă��Ȃ��ꍇ�͍Đݒ肷��B
+    // 万が一選択状態が存在していない場合は再設定する。
     if (this.CurrentSelectCommand == null)
     {
       this.CurrentSelectCommand = action_command;
       return;
     }
-    // ���ݑI���ƈႤ�A�N�V�����R�}���h�̏ꍇ�͂����I������B
+    // 現在選択と違うアクションコマンドの場合はそれを選択する。
     if (this.CurrentSelectCommand != action_command)
     {
       this.CurrentSelectCommand = action_command;
       // return;
     }
 
-    // �\�����[�h�Ȃ�ݒ胂�[�h�ɂ����Ȃ��B
+    // 表示モードなら設定モードにいかない。
     if (this.CommandSettingsViewMode)
     {
       return;
     }
 
-    // �ݒ胂�[�h�ւ̈ڍs
+    // 設定モードへの移行
     if (FilterForAll.activeInHierarchy == false)
     {
       if (action_command.CommandName == "" || action_command.CommandName == Fix.STAY)
@@ -1072,7 +1072,7 @@ public class PartyMenu : MotherBase
     FilterForAll.SetActive(false);
     FilterForActionCommand.SetActive(false);
     FilterForAvailableList.SetActive(false);
-    // this.CurrentSelectCommand = null; // �L�����Z�����A���ݑI�����Ă���R�}���h�̓N���A���Ȃ��ėǂ�GUI�ƂȂ����B
+    // this.CurrentSelectCommand = null; // キャンセル時、現在選択しているコマンドはクリアしなくて良いGUIとなった。
   }
 
   public void TapBattleSettingPageNext()
@@ -1136,7 +1136,7 @@ public class PartyMenu : MotherBase
     }
   }
 
-  #region "�A�N�V�����R�}���h"
+  #region "アクションコマンド"
   public void TapActionCommand(Text txt_src)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + txt_src.text);
@@ -1179,7 +1179,7 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
-          // �S�����ΏۂɂȂ�̂ŁA�����o�[�P�l����ł��Ă������p������B
+          // 全員が対象になるので、メンバー１人死んでいても処理継続する。
           continue;
         }
 
@@ -1219,7 +1219,7 @@ public class PartyMenu : MotherBase
   }
   #endregion
 
-  #region "�G�b�Z���X�E�c���[�ݒ�"
+  #region "エッセンス・ツリー設定"
   public void TapEssenceCategory(int number)
   {
     CurrentEssenceSelectNumber = number;
@@ -1260,7 +1260,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    // �����̏���ɒB���Ă���ꍇ�A�܂��́u�����Ȃ��v�̏ꍇ�A�l���ł��Ȃ��|��\������B
+    // 強化の上限に達している場合、または「強化なし」の場合、獲得できない旨を表示する。
     if (CurrentPlayer.EssenceTreeMaxCap(txtEssenceCurrentName.text))
     {
       txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, txtEssenceCurrentName.text);
@@ -1305,7 +1305,7 @@ public class PartyMenu : MotherBase
     groupSystemMessage.SetActive(false);
   }
 
-  // ����
+  // 閉じる
   public void TapExit()
   {
     SceneDimension.SceneClose(Fix.SCENE_PARTY_MENU);
@@ -1313,10 +1313,10 @@ public class PartyMenu : MotherBase
 
   public override void RefreshAllView()
   {
-    // �G�b�Z���X�c���[�{�^��
+    // エッセンスツリーボタン
     btnEssenceTree.SetActive(One.TF.AvailableEssenceTree);
 
-    // �v���C���[���X�g�̔��f
+    // プレイヤーリストの反映
     PlayerList.Clear();
 
     List<Character> list = One.AvailableCharacters;
@@ -1345,36 +1345,36 @@ public class PartyMenu : MotherBase
       if (One.TF.BattlePlayer6 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
     }
 
-    // �I�𒆂̃v���C���[�����ݒ�B
+    // 選択中のプレイヤー初期設定。
     if (this.CurrentPlayer == null)
     {
       this.CurrentPlayer = PlayerList[0];
     }
 
-    // �s�v�ȃt�B���^��r��
+    // 不要なフィルタを排除
     panelHideOther.SetActive(false);
 
-    // �p�[�e�B�X�e�[�^�X��ʂւ̔��f
+    // パーティステータス画面への反映
     SetupStayList();
 
-    // �R�}���h�ݒ��ʂւ̔��f
-    SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [��{�s��]����ԍ��ōŏ������A�f�t�H���g�̓A�N�V�����R�}���h��\��
+    // コマンド設定画面への反映
+    SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
-    // �G�b�Z���X��ʂւ̔��f
+    // エッセンス画面への反映
     PreConstructEssenceList(PlayerList[0]);
     SetupEssenceList(this.CurrentPlayer, 0);
     CurrentEssenceSelectNumber = 0;
 
-    // �o�b�N�p�b�N������ʂ֔��f
+    // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView(this);
 
-    // �S�[���h�ւ̔��f
+    // ゴールドへの反映
     txtGold.text = One.TF.Gold.ToString();
 
-    // ����ύX�{�^���̕\��
+    // 隊列変更ボタンの表示
     btnFormation.gameObject.SetActive(One.TF.AvailableFormation);
 
-    // �o�g���ݒ�A�ҏW���[�h�̕\��
+    // バトル設定、編集モードの表示
     if (CommandSettingsViewMode)
     {
       txtCommandSettingsViewMode.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLETYPE_VIEWMODE_VIEW);
@@ -1525,7 +1525,7 @@ public class PartyMenu : MotherBase
   {
     Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
 
-    // �L�����N�^�[�̃��C���R�}���h�A�A�N�V�����R�}���h�̐ݒ�
+    // キャラクターのメインコマンド、アクションコマンドの設定
     ActionCommandMain.BackColor.color = player.BattleForeColor;
     ActionCommandMain.OwnerName = player.FullName;
     ActionCommandMain.CommandName = player.ActionCommandMain;
@@ -1553,7 +1553,7 @@ public class PartyMenu : MotherBase
       ListActionCommandSet[ii].ApplyImageIcon(actionList[ii]);
     }
 
-    // �A�N�V�����\�ȃR�}���h�ꗗ�̐ݒ�
+    // アクション可能なコマンド一覧の設定
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       ListAvailableCommand[ii].CommandName = String.Empty;
@@ -1562,7 +1562,7 @@ public class PartyMenu : MotherBase
       ListAvailableCommandText[ii].text = String.Empty;
     }
 
-    // todo (�J�e�S�����������ꍇ�A�ǉ��������K�v�j
+    // todo (カテゴリが増えた場合、追加実装が必要）
     groupCommandCategory.SetActive(true);
     btnCommandCategoryAction.gameObject.SetActive(true);
     btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
@@ -1608,7 +1608,7 @@ public class PartyMenu : MotherBase
     }
     else if (category_type == ActionCommand.CommandCategory.Archetype)
     {
-      // todo �X�g�[���[�i�s or ���x���A�b�v�ȂǂŃ��X�g�ǉ�
+      // todo ストーリー進行 or レベルアップなどでリスト追加
       List<string> list = new List<string>();
       if (player.FullName == Fix.NAME_EIN_WOLENCE && One.TF.AvailableArchetype_EinWolence)
       {
@@ -1638,10 +1638,10 @@ public class PartyMenu : MotherBase
     }
     else
     {
-      currentList = player.GetAvailableBasicAction(); // �����ꌩ����Ȃ��ꍇ��Basic�ŕ\��
+      currentList = player.GetAvailableBasicAction(); // 万が一見つからない場合はBasicで表示
     }
 
-    this.CurrentBattleSettingPageNumber = 0; // �����\���̂��߁A0�ɍĐݒ�
+    this.CurrentBattleSettingPageNumber = 0; // 初期表示のため、0に再設定
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
@@ -1673,7 +1673,7 @@ public class PartyMenu : MotherBase
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(ListAvailableCommand[0].CommandName));
-    this.CurrentSelectCommand = ListAvailableCommand[0]; // �����ݒ�Ō��ݑI�����Ă���R�}���h�͂O�Ԗڂ�ݒ肵�Ă���̂Ŕ��f���Ă���GUI�N���A���Ȃ��ėǂ�GUI�ƂȂ����B
+    this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }
 
   private void PreConstructEssenceList(Character player)
@@ -1882,9 +1882,9 @@ public class PartyMenu : MotherBase
 
   private void SetupEssenceElement(Character player, int element_level, string label_text, bool available, int number, ref bool detect_zero)
   {
-    // available�͏����I�ɃA�J�V�b�N���R�[�h�Ή��ŕ\�������͌�����l�ɂ��Ă��悢�B����͉����������Ȃ��B
+    // availableは将来的にアカシックレコード対応で表示だけは見える様にしてもよい。現状は何も処理しない。
     Debug.Log("SetupEssenceElement: " + player.Level);
-    // �O�񖢏C�����������Ȃ�A��\���Ƃ���B
+    // 前回未修得があったなら、非表示とする。
     if (detect_zero)
     {
       Debug.Log("SetupEssenceElement: detect_zero");
@@ -1895,7 +1895,7 @@ public class PartyMenu : MotherBase
       txtLockedEssenceElementList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_REQUIRE) + "\r\n" + L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
-    // level 1�ȏ�Ȃ����
+    // level 1以上なら可視化
     else if (element_level >= 1)
     {
       Debug.Log("SetupEssenceElement: element_level over 1" + element_level + " " + detect_zero + " " + player.Level);
@@ -1906,7 +1906,7 @@ public class PartyMenu : MotherBase
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = false;
     }
-    // level 0�ł����Ă��ARequireLV�̏����𖞂����Ή����B���������C����\������B
+    // level 0であっても、RequireLVの条件を満たせば可視化。ただし未修得を表現する。
     else if (player.Level >= Fix.ESSENCE_TREE_REQUIRE_LIST[number])
     {
       Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
@@ -1917,7 +1917,7 @@ public class PartyMenu : MotherBase
       objHideEssenceElementList[number].SetActive(false);
       detect_zero = true;
     }
-    // ����ȊO�͔�\���Ƃ���B
+    // それ以外は非表示とする。
     else
     {
       Debug.Log("SetupEssenceElement: ELSE");

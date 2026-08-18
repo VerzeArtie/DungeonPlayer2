@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using UnityEditor;
 using UnityEngine;
 
 public class ControlSQL : MonoBehaviour

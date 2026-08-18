@@ -791,7 +791,10 @@ public partial class BattleEnemy : MotherBase
     }
 
 
-    if (EnemyList[0] != null)
+    // EnemyList が空の場合、EnemyList[0] の時点で例外となり、
+    // 「敵の情報が取得できない場合」を受けるはずの else に到達できなかった。
+    // C# の && は左辺が偽なら右辺を評価しないため、件数確認を先に置く。
+    if (EnemyList.Count > 0 && EnemyList[0] != null)
     {
       Character ec1 = EnemyList[0];
       // ヴェルゼ最終戦闘２

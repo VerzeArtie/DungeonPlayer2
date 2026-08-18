@@ -90,7 +90,11 @@ namespace AP
     ********************************************************************/
   public class Math
   {
-    public static System.Random RndObject = new System.Random(System.DateTime.Now.Millisecond);
+    // 種は起動ごとに1回だけ引かれ、そのプレイセッション全体の乱数列を決める。
+    // 以前は System.DateTime.Now.Millisecond を使っていたが、取り得る値が 0～999 しかなく、
+    // 実質1000通りの乱数列しか存在しなかった（短時間での再起動では衝突もする）。
+    // Guid から取ることで int の全域に散らす。
+    public static System.Random RndObject = new System.Random(System.Guid.NewGuid().GetHashCode());
 
     public const double MachineEpsilon = 5E-16;
     public const double MaxRealNumber = 1E300;
