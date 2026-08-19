@@ -7841,6 +7841,7 @@ public partial class BattleEnemy : MotherBase
 
         damageObj[ii].FirstLook = true;
         damageObj[ii].Timer--;
+        damageObj[ii].ApplyPopAndFade();
         RectTransform rect = damageObj[ii].txtMessage.GetComponent<RectTransform>();
         float moveX = 0.0f;
         int factor1 = MAX_ANIMATION_TIME - 15;
