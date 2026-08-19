@@ -144,6 +144,15 @@ public partial class BattleEnemy : MotherBase
   protected const int ANIMATION_TIME_HALF = 20;
   protected const int ANIMATION_TIME_SHORT = 10;
 
+  // ダメージ数値の横移動プロファイル。経過率（0〜1）で区切るため、演出の長さが
+  // 40 以外でも同じカーブになり、移動距離だけが長さに比例する。
+  private const float MOVE_PHASE1_RATE = 0.125f;
+  private const float MOVE_PHASE2_RATE = 0.250f;
+  private const float MOVE_PHASE3_RATE = 0.375f;
+  private const float MOVE_SPEED1 = 7.0f;
+  private const float MOVE_SPEED2 = 2.0f;
+  private const float MOVE_SPEED3 = 1.0f;
+
   protected bool NowSeaStripeMode = false;
   protected Character NowSeaStripePlayer = null;
   protected Character NowSeaStripeTarget = null;
@@ -7843,37 +7852,14 @@ public partial class BattleEnemy : MotherBase
         damageObj[ii].Timer--;
         damageObj[ii].ApplyPopAndFade();
         RectTransform rect = damageObj[ii].txtMessage.GetComponent<RectTransform>();
-        float moveX = 0.0f;
-        int factor1 = MAX_ANIMATION_TIME - 15;
-        int factor2 = MAX_ANIMATION_TIME - 10;
-        int factor3 = MAX_ANIMATION_TIME - 5;
-        float speed1 = 0.0f;
-        float speed2 = 1.0f;
-        float speed3 = 2.0f;
-        float speed4 = 7.0f;
+        float progress = (damageObj[ii].MaxTime > 0)
+          ? 1.0f - ((float)damageObj[ii].Timer / (float)damageObj[ii].MaxTime)
+          : 1.0f;
 
-        if (damageObj[ii].MaxTime == ANIMATION_TIME_HALF)
-        {
-          factor1 = 12;
-          factor2 = 15;
-          factor3 = 25;
-          speed2 = 1.0f;
-          speed3 = 2.0f;
-          speed4 = 7.0f;
-        }
-        else if (damageObj[ii].MaxTime == ANIMATION_TIME_SHORT)
-        {
-          factor1 = 4;
-          factor2 = 6;
-          factor3 = 8;
-          speed2 = 2.0f;
-          speed3 = 4.0f;
-          speed4 = 9.0f;
-        }
-        if (damageObj[ii].Timer <= factor1) { moveX = speed1; }
-        else if (damageObj[ii].Timer <= factor2) { moveX = speed2; }
-        else if (damageObj[ii].Timer <= factor3) { moveX = speed3; }
-        else { moveX = speed4; }
+        float moveX = 0.0f;
+        if (progress < MOVE_PHASE1_RATE) { moveX = MOVE_SPEED1; }
+        else if (progress < MOVE_PHASE2_RATE) { moveX = MOVE_SPEED2; }
+        else if (progress < MOVE_PHASE3_RATE) { moveX = MOVE_SPEED3; }
 
         rect.position = new Vector3(rect.position.x + moveX, rect.position.y, rect.position.z);
 
