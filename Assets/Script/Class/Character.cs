@@ -9201,7 +9201,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(10, 10, 20, 30, 10, 100, 0, 0);
+        SetupParameter(10, 10, 20, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;

@@ -705,7 +705,7 @@ public class Title : MotherBase
     ein.ActionCommand4 = Fix.POTION_RESIST_FIRE;
     ein.ActionCommand5 = Fix.ARCHETYPE_EIN_1;
     //ein.ActionCommand4 = Fix.FLAME_STRIKE;
-    ein.ActionCommand5 = Fix.FRESH_HEAL;
+    ein.ActionCommand5 = Fix.HOLY_BREATH;
     //ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
     ein.ActionCommand6 = Fix.GENESIS;
     //ein.ActionCommand7 = Fix.PRECISION_STRIKE;
@@ -717,7 +717,7 @@ public class Title : MotherBase
     //ein.Accessory1 = new Item(Fix.RED_AMULET);
     //ein.Accessory2 = new Item(Fix.BLUE_AMULET);
     ein.Accessory1 = new Item(Fix.MAGICLIGHT_ICE);
-    ein.ActionCommandMain = Fix.TRANSCENDENCE_REACHED;
+    ein.ActionCommandMain = Fix.HOLY_BREATH;
     ein.MaxGain();
     One.TF.AddBackPack(new Item(Fix.CURE_SEAL), 3);
     One.TF.AddBackPack(new Item(Fix.POTION_MAGIC_SEAL), 3);
