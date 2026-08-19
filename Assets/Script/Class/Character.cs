@@ -2117,17 +2117,82 @@ public partial class Character : MonoBehaviour
     }
   }
 
+  // ライフゲージの表示値。CurrentLife へ数フレームかけて追従する。負値は未初期化。
+  protected float _displayLife = -1.0f;
+
+  // 1フレームあたり残り差分の何割を詰めるか。
+  private const float DISPLAY_LIFE_FOLLOW_RATE = 0.15f;
+  // 1フレームあたりの最低移動量（最大ライフ比）。小さな差分がいつまでも残らないようにする。
+  private const float DISPLAY_LIFE_MIN_STEP_RATE = 0.01f;
+
+  /// <summary>
+  /// ライフゲージの表示値を CurrentLife へ1フレーム分近づける。
+  /// </summary>
+  private void AdvanceDisplayLife()
+  {
+    if (_displayLife < 0.0f)
+    {
+      _displayLife = this.CurrentLife;
+      return;
+    }
+
+    float step = Mathf.Max(Mathf.Abs(this.CurrentLife - _displayLife) * DISPLAY_LIFE_FOLLOW_RATE,
+                           this.MaxLife * DISPLAY_LIFE_MIN_STEP_RATE);
+    _displayLife = Mathf.MoveTowards(_displayLife, this.CurrentLife, step);
+  }
+
+  // 遅延ダメージバー。objCurrentLifeGauge を実行時に複製して1つ手前へ差し込むため、シーン変更は不要。
+  protected Image objDamageTrailGauge = null;
+
+  // 減少中に露出する色。現在バーが赤、その背景が白のため、どちらとも対比する黒にする。
+  private static readonly Color TRAIL_DAMAGE_COLOR = new Color(0.00f, 0.00f, 0.00f, 1.0f);
+  private static readonly Color TRAIL_HEAL_COLOR = new Color(0.35f, 1.00f, 0.55f, 1.0f);
+
+  /// <summary>
+  /// 遅延ダメージバーを一度だけ生成する。現在バーの1つ手前に置き、背面へ回す。
+  /// </summary>
+  private void EnsureDamageTrailGauge()
+  {
+    if (this.objDamageTrailGauge != null) { return; }
+    if (this.objCurrentLifeGauge == null) { return; }
+
+    Transform parent = this.objCurrentLifeGauge.transform.parent;
+    if (parent == null) { return; }
+
+    Image trail = Instantiate(this.objCurrentLifeGauge, parent, false);
+    trail.name = "DamageTrailGauge";
+
+    // Instantiate は子（objCurrentLifeBorder など）も複製する。遅延バー側には不要なので取り除く。
+    for (int ii = trail.transform.childCount - 1; ii >= 0; ii--)
+    {
+      Destroy(trail.transform.GetChild(ii).gameObject);
+    }
+
+    trail.transform.SetSiblingIndex(this.objCurrentLifeGauge.transform.GetSiblingIndex());
+    this.objDamageTrailGauge = trail;
+  }
+
   public void UpdateLife()
   {
-    float dx = (float)this.CurrentLife / (float)this.MaxLife;
+    AdvanceDisplayLife();
+    EnsureDamageTrailGauge();
+
+    // 現在バーは真の値、遅延バーは追従値。差分が遅延バーの色で露出する。
+    float front = Mathf.Min(this.CurrentLife, _displayLife);
+    float trail = Mathf.Max(this.CurrentLife, _displayLife);
 
     if (this.txtLife != null)
     {
       this.txtLife.text = this.CurrentLife.ToString();
     }
+    if (this.objDamageTrailGauge != null)
+    {
+      this.objDamageTrailGauge.rectTransform.localScale = new Vector3(trail / (float)this.MaxLife, 1.0f);
+      this.objDamageTrailGauge.color = (this.CurrentLife < _displayLife) ? TRAIL_DAMAGE_COLOR : TRAIL_HEAL_COLOR;
+    }
     if (this.objCurrentLifeGauge != null)
     {
-      this.objCurrentLifeGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+      this.objCurrentLifeGauge.rectTransform.localScale = new Vector3(front / (float)this.MaxLife, 1.0f);
     }
     if (this.objCurrentLifeBorder != null)
     {
@@ -9136,7 +9201,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(10, 10, 20, 99999, 10, 100, 0, 0);
+        SetupParameter(10, 10, 20, 30, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
