@@ -1423,12 +1423,14 @@ public static partial class Fix
   public const string L10N_TITLE_LOAD = "lblTitleLoad";
   public const string L10N_TITLE_CONFIG = "lblTitleConfig";
   public const string L10N_TITLE_PRIVACYPOLICY = "lblTitlePrivacyPolicy";
+  public const string L10N_TITLE_OFFICIALSITE = "lblTitleOfficialSite";
   public const string L10N_TITLE_EXIT = "lblTitleExit";
   public const string L10N_TITLE_OBSIDIAN_PORTAL = "lblTitleObsidianPortal";
   public const string L10N_TITLE_OP_GAMESTART = "lblTitleOPGameStart";
   public const string L10N_TITLE_OP_LOAD = "lblTitleOPLoad";
   public const string L10N_TITLE_OP_CONFIG = "lblTitleOPConfig";
   public const string L10N_TITLE_OP_PRIVACYPOLICY = "lblTitleOPPrivacyPolicy";
+  public const string L10N_TITLE_OP_OFFICIALSITE = "lblTitleOPOfficialSite";
   public const string L10N_TITLE_OP_EXIT = "lblTitleOPExit";
   public const string L10N_TITLE_CANNOT_GAMESTARTLOAD = "lblTitleCannotGameStartLoad";
   public const string L10N_TITLE_ACCOUNT_MESSAGE_LESS2 = "lblTitleAccountMessageLess2";

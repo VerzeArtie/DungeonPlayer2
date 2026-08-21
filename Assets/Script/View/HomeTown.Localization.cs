@@ -17,12 +17,14 @@ public static class L10n
     Register(Fix.L10N_TITLE_LOAD, "Load Game", "Load Game"); // Fix
     Register(Fix.L10N_TITLE_CONFIG, "Config", "Config"); // Fix
     Register(Fix.L10N_TITLE_PRIVACYPOLICY, "Privacy Policy", "Privacy Policy"); // Fix
+    Register(Fix.L10N_TITLE_OFFICIALSITE, "Official Site", "Official Site"); // Fix
     Register(Fix.L10N_TITLE_EXIT, "Exit", "Exit"); // Fix
     Register(Fix.L10N_TITLE_OBSIDIAN_PORTAL, "Obsidian Portal", "Obsidian Portal"); // Fix
     Register(Fix.L10N_TITLE_OP_GAMESTART, "Game Start", "Game Start"); // Fix
     Register(Fix.L10N_TITLE_OP_LOAD, "Load Game", "Load Game"); // Fix
     Register(Fix.L10N_TITLE_OP_CONFIG, "Config", "Config"); // Fix
     Register(Fix.L10N_TITLE_OP_PRIVACYPOLICY, "Privacy Policy", "Privacy Policy"); // Fix
+    Register(Fix.L10N_TITLE_OP_OFFICIALSITE, "Official Site", "Official Site"); // Fix
     Register(Fix.L10N_TITLE_OP_EXIT, "Exit", "Exit"); // Fix
     Register(Fix.L10N_TITLE_CANNOT_GAMESTARTLOAD, "アイン・ウォーレンスは並行世界へと突入しており、選択不可。", "Ein-Wolence is in a parallel world and cannot be selected.");
     Register(Fix.L10N_TITLE_ACCOUNT_MESSAGE_LESS2, "2文字以上を入力してください。", "Please enter 2 or more characters.");

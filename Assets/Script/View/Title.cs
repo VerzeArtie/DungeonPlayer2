@@ -29,12 +29,14 @@ public class Title : MotherBase
   public Text lblLoad;
   public Text lblConfig;
   public Text lblPrivacyPolicy;
+  public Text lblOfficialSite;
   public Text lblExit;
   public Text lblObsidianPortal;
   public Text lblObsidianGameStart;
   public Text lblObsidianLoad;
   public Text lblObsidianConfig;
   public Text lblObsidianPrivacyPolicy;
+  public Text lblObsidianOfficialSite;
   public Text lblObsidianExit;
 
   public Slider BGMSlider = null;
@@ -231,12 +233,14 @@ public class Title : MotherBase
       if (lblLoad != null) { lblLoad.text = L10n.Get(Fix.L10N_TITLE_LOAD); }
       if (lblConfig != null) { lblConfig.text = L10n.Get(Fix.L10N_TITLE_CONFIG); }
       if (lblPrivacyPolicy != null) { lblPrivacyPolicy.text = L10n.Get(Fix.L10N_TITLE_PRIVACYPOLICY); }
+      if (lblOfficialSite != null) { lblOfficialSite.text = L10n.Get(Fix.L10N_TITLE_OFFICIALSITE); }
       if (lblExit != null) { lblExit.text = L10n.Get(Fix.L10N_TITLE_EXIT); }
       if (lblObsidianPortal != null) { lblObsidianPortal.text = L10n.Get(Fix.L10N_TITLE_OBSIDIAN_PORTAL); }
       if (lblObsidianGameStart != null) { lblObsidianGameStart.text = L10n.Get(Fix.L10N_TITLE_OP_GAMESTART); }
       if (lblObsidianLoad != null) { lblObsidianLoad.text = L10n.Get(Fix.L10N_TITLE_OP_LOAD); }
       if (lblObsidianConfig != null) { lblObsidianConfig.text = L10n.Get(Fix.L10N_TITLE_OP_CONFIG); }
       if (lblObsidianPrivacyPolicy != null) { lblObsidianPrivacyPolicy.text = L10n.Get(Fix.L10N_TITLE_OP_PRIVACYPOLICY); }
+      if (lblObsidianOfficialSite != null) { lblObsidianOfficialSite.text = L10n.Get(Fix.L10N_TITLE_OP_OFFICIALSITE); }
       if (lblObsidianExit != null) { lblObsidianExit.text = L10n.Get(Fix.L10N_TITLE_OP_EXIT); }
 
       if (One.CONF.Account != null && One.CONF.Account != string.Empty)
@@ -1240,6 +1244,12 @@ public class Title : MotherBase
     {
       Application.OpenURL(@"https://altomosoft.com/privacypolicy/Privacy.html");
     }
+  }
+
+  public void OfficialSite_Click()
+  {
+    One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+    Application.OpenURL(@"https://altomosoft.com/dungeonplayer2/index.html");
   }
 
   public void TapAccountOK(Text account)
