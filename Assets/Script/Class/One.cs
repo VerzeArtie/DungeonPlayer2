@@ -1355,7 +1355,7 @@ public static class One
     {
       return Application.persistentDataPath;
     }
-    else if (Application.platform == RuntimePlatform.Android)
+    else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer)
     {
       return Application.persistentDataPath;
     }
@@ -1373,7 +1373,7 @@ public static class One
       //return Path.Combine(Path.Combine(path, "Documents"), filename);
       return Path.Combine(PathForSaveFile(), filename);
     }
-    else if (Application.platform == RuntimePlatform.Android)
+    else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer)
     {
       return Path.Combine(PathForSaveFile(), filename);
     }
@@ -1390,7 +1390,7 @@ public static class One
       //return Application.persistentDataPath.Substring(0, Application.persistentDataPath.LastIndexOf('/')); // after (ios)
       return Path.Combine(Application.persistentDataPath, "save");
     }
-    else if (Application.platform == RuntimePlatform.Android)
+    else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer)
     {
       return Path.Combine(Application.persistentDataPath, "save");
     }
@@ -1408,7 +1408,7 @@ public static class One
       //return filename;
       return Path.Combine(Application.persistentDataPath, filename);
     }
-    else if (Application.platform == RuntimePlatform.Android)
+    else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer)
     {
       return Path.Combine(Application.persistentDataPath, filename);
     }
@@ -1429,7 +1429,7 @@ public static class One
         System.IO.Directory.CreateDirectory(directory);
       }
     }
-    else if (Application.platform == RuntimePlatform.Android)
+    else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer)
     {
       string directory = PathForSaveFile();
       if (System.IO.Directory.Exists(directory) == false)

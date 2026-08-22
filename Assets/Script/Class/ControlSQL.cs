@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿#if !UNITY_WEBGL
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
@@ -1327,3 +1328,27 @@ public class ControlSQL : MonoBehaviour
     return false;
   }
 }
+#else // UNITY_WEBGL
+
+using UnityEngine;
+
+// WebGL 版はサーバー接続を行わないため、同一インターフェースの空実装を提供する。
+// 呼び出し側（Title / SaveLoad）を変更せずにビルドを通すための互換用クラス。
+public class ControlSQL : MonoBehaviour
+{
+  public string connection = string.Empty;
+
+  public void SetupSql() { }
+  public string SelectOwner(string name) { return string.Empty; }
+  public void ChangeOwnerName(string main_event, string sub_event, string current_field, string name) { }
+  public void UpdateOwner(string main_event, string sub_event, string current_field, string main_level) { }
+  public void UpdateCharacter() { }
+  public void UpdaeSaveData(byte[] save_current, byte[] save_we2, string sender_text, string page_number) { }
+  public void UpdateDuel(string archive_name) { }
+  public void UpdateArchivement(string archive_name) { }
+  public void CreateOwner(string name, System.Guid guid) { }
+  public void CreateArData(string account) { }
+  public bool ExistOwnerName(string name) { return false; } // 常に「未使用の名前」として扱う
+}
+
+#endif // !UNITY_WEBGL
