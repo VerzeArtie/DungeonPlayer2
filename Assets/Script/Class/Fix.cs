@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -590,6 +590,20 @@ public static partial class Fix
   public const string BUFF_LEYLINE_JP = "直光";
   public const string BUFF_CLARITY = "Clarity";
   public const string BUFF_CLARITY_JP = "鮮明";
+  // --- Delve III ---
+  public const string BUFF_BLACK_CONTRACT = "Black Contract";
+  public const string BUFF_BLACK_CONTRACT_JP = "黒契約";
+  public const string BUFF_PENDING = "Pending";
+  public const string BUFF_PENDING_JP = "留保";
+  public const string BUFF_BREACH = "Breach";
+  public const string BUFF_BREACH_JP = "破損";
+  public const string BUFF_WOUND = "Wound";
+  public const string BUFF_WOUND_JP = "損傷";
+  // 英訳せずローマ字表記とする用語。世界観固有の語は訳語を当てず日本語の読みをそのまま使う。
+  public const string BUFF_ISSHIN = "Isshin";
+  public const string BUFF_ISSHIN_JP = "一心";
+  public const string BUFF_VIGOR = "Vigor";
+  public const string BUFF_VIGOR_JP = "活力";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1709,6 +1723,9 @@ public static partial class Fix
   public const string L10N_BASIC_SKILL_POINT = "lblBasicSkillPoint";
   // 上記はステータス画面用の略記(スキル/SP)。説明文中で使う正式表記はこちら。
   public const string L10N_SKILL_POINT = "lblSkillPoint";
+  // 最大ライフ。LocalizeGeneratedText の置換ルールにも同じ対訳があり、
+  // 両者が一致していることを Tools\check-l10n.ps1 が検査する。
+  public const string L10N_MAX_LIFE = "lblMaxLife";
   public const string L10N_CORE_STRENGTH = "lblCoreStrength";
   public const string L10N_CORE_AGILITY = "lblCoreAgility";
   public const string L10N_CORE_INTELLIGENCE = "lblCoreIntelligence";
@@ -1804,6 +1821,19 @@ public static partial class Fix
   public const string L10N_DESC_MULTIPLE_SHOT = "descMultipleShot";
   public const string L10N_DESC_LEYLINE_SCHEMA = "descLeylineSchema";
   public const string L10N_DESC_SPIRITUAL_REST = "descSpiritualRest";
+  // --- Delve III ---
+  public const string L10N_DESC_METEOR_BULLET = "descMeteorBullet";
+  public const string L10N_DESC_BLUE_BULLET = "descBlueBullet";
+  public const string L10N_DESC_HOLY_BREATH = "descHolyBreath";
+  public const string L10N_DESC_BLACK_CONTRACT = "descBlackContract";
+  public const string L10N_DESC_WORD_OF_POWER = "descWordOfPower";
+  public const string L10N_DESC_SIGIL_OF_THE_PENDING = "descSigilOfThePending";
+  public const string L10N_DESC_DOUBLE_SLASH = "descDoubleSlash";
+  public const string L10N_DESC_CONCUSSIVE_HIT = "descConcussiveHit";
+  public const string L10N_DESC_BONE_CRUSH = "descBoneCrush";
+  public const string L10N_DESC_EYE_OF_THE_ISSHIN = "descEyeOfTheIsshin";
+  public const string L10N_DESC_VOICE_OF_VIGOR = "descVoiceOfVigor";
+  public const string L10N_DESC_UNSEEN_AID = "descUnseenAid";
   #endregion
 
   #endregion

@@ -264,6 +264,7 @@ public static class L10n
     Register(Fix.L10N_BASIC_MANA_POINT, "マナ", "MP");
     Register(Fix.L10N_BASIC_SKILL_POINT, "スキル", "SP");
     Register(Fix.L10N_SKILL_POINT, "スキルポイント", "Skill Point");
+    Register(Fix.L10N_MAX_LIFE, "最大ライフ", "Max Life");
     // Common-CoreParameter
     Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
     Register(Fix.L10N_CORE_AGILITY, "技", "AGL");
@@ -364,9 +365,10 @@ public static class L10n
       "味方一体を対象とする。対象のインスタントゲージを進行させる。",
       "Targets one ally. Advances the target's Instant Gauge.");
     Register(Fix.L10N_DESC_ENERGY_BOLT,
-      "敵一体を対象とする。対象に$0の魔法ダメージを与える。",
-      "Targets one enemy. Deals $0 magic damage to the target.",
-      (Fix.TERM_COLORLESS_JP, Fix.TERM_COLORLESS));
+      "敵一体を対象とする。対象に$0の【$1】ダメージを与える。",
+      "Targets one enemy. Deals $0 [$1] damage to the target.",
+      (Fix.TERM_COLORLESS_JP, Fix.TERM_COLORLESS),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
     // スキル
     Register(Fix.L10N_DESC_STRAIGHT_SMASH,
       "敵一体を対象とする。対象に【$0】ダメージを与える。",
@@ -470,6 +472,78 @@ public static class L10n
       "Targets one ally. Removes [$0] from the target if it is afflicted. In addition, applies [$1] to the target. While [$1] lasts, the target gains resistance to [$0].",
       (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN),
       (Fix.BUFF_CLARITY_JP, Fix.BUFF_CLARITY));
+
+    // ActionCommand説明文 - Delve III
+    //
+    // BUFF名の英訳について:
+    //   【防御】は Fix.DEFENSE(防御コマンド)に準拠。
+    //   【黒契約】[Black Contract] 【留保】[Pending] 【破損】[Breach] 【損傷】[Wound]
+    //   【活力】[Vigor] は既存の英訳定数が無いため新規に命名した。
+    //   【一心】[Isshin] は英訳せずローマ字表記とする(Fix.BUFF_ISSHIN)。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_METEOR_BULLET,
+      "敵グループを対象とする。いずれかの敵に対して、ランダムに3回の【$0】ダメージを与える。",
+      "Targets an enemy group. Deals [$0] damage 3 times to randomly chosen enemies.",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_DESC_BLUE_BULLET,
+      "敵一体を対象とする。対象に3回の【$0】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage to the target 3 times.",
+      (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_DESC_HOLY_BREATH,
+      "味方全員の$0を回復する。",
+      "Restores $0 for all allies.",
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_BLACK_CONTRACT,
+      "自分自身を対象とし、【$0】のBUFFを付与する。【$0】が続く間、ターン経過毎に$1の10%の分だけ$2を失う。アクションコマンドで消費するコストが0になる。",
+      "Targets self and applies [$0]. While [$0] lasts, you lose $2 equal to 10% of $1 each turn, and action commands cost 0.",
+      (Fix.BUFF_BLACK_CONTRACT_JP, Fix.BUFF_BLACK_CONTRACT),
+      Term(Fix.L10N_MAX_LIFE),
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_WORD_OF_POWER,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。ダメージ量は【$1】を根源として算出されるが、$2属性として扱われる。\r\n対象が【$3】を行っていても、あたかも【$3】していないかのようにダメージを与える。\r\nこの魔法はカウンターされない。",
+      "Targets one enemy. Deals [$0] damage to the target. The damage is derived from [$1], but is treated as $2 attribute damage.\r\nDamage is dealt as though the target were not using [$3], even while it is.\r\nThis spell cannot be countered.",
+      (Fix.TERM_FORCE_JP, Fix.TERM_FORCE),
+      (Fix.TERM_STRENGTH_JP, Fix.TERM_STRENGTH),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC),
+      (Fix.DEFENSE_JP, Fix.DEFENSE));
+    Register(Fix.L10N_DESC_SIGIL_OF_THE_PENDING,
+      "敵一体、または味方一体を対象とする。対象に【$0】のBUFFを付与する。【$0】のBUFFが続く間、対象のターン経過毎に影響が発生する効果を無効扱いとする。",
+      "Targets one enemy or one ally. Applies [$0] to the target. While [$0] lasts, effects that trigger on the target's turn are treated as nullified.",
+      (Fix.BUFF_PENDING_JP, Fix.BUFF_PENDING));
+    // スキル
+    Register(Fix.L10N_DESC_DOUBLE_SLASH,
+      "敵一体を対象とする。対象に2回【$0】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage to the target 2 times.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_CONCUSSIVE_HIT,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。対象に【$1】のBUFFを付与する。【$1】が続く間、対象の$2が減少する。この効果は5回まで累積可能である。",
+      "Targets one enemy. Deals [$0] damage to the target. Applies [$1] to the target. While [$1] lasts, the target's $2 is reduced. This effect can accumulate up to 5 times.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.BUFF_BREACH_JP, Fix.BUFF_BREACH),
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_DESC_BONE_CRUSH,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。対象に【$1】のBUFFを付与する。【$1】が続く間、対象の$2が20%低下する。",
+      "Targets one enemy. Deals [$0] damage to the target. Applies [$1] to the target. While [$1] lasts, the target's $2 is reduced by 20%.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.BUFF_WOUND_JP, Fix.BUFF_WOUND),
+      Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_DESC_EYE_OF_THE_ISSHIN,
+      "自分自身に【$0】のBUFFを付与する。【$0】が続く間、対象の$1を20%無視して、ダメージを当てられるようになる。",
+      "Applies [$0] to self. While [$0] lasts, damage is dealt while ignoring 20% of the target's $1.",
+      (Fix.BUFF_ISSHIN_JP, Fix.BUFF_ISSHIN),
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_DESC_VOICE_OF_VIGOR,
+      "味方全員に【$0】のBUFFを付与する。【$0】が続く間、$1が上昇する。また、その分だけ$2を回復する。",
+      "Applies [$0] to all allies. While [$0] lasts, $1 increases, and $2 is restored by the same amount.",
+      (Fix.BUFF_VIGOR_JP, Fix.BUFF_VIGOR),
+      Term(Fix.L10N_MAX_LIFE),
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_UNSEEN_AID,
+      "敵味方全員を対象とする。対象にかかっている【$0】【$1】いずれのBUFFもすべて除去する。",
+      "Targets all allies and enemies. Removes every [$0] and [$1] buff from them.",
+      (Fix.TERM_HARMFUL_JP, Fix.TERM_HARMFUL),
+      (Fix.TERM_BENEFICIAL_JP, Fix.TERM_BENEFICIAL));
   }
 
   /// <summary>
@@ -594,7 +668,7 @@ public static class L10n
     string[][] replacements = new string[][]
     {
       new string[] { "敵一体、または味方一体を対象とする。", "Targets one enemy or one ally. " },
-      new string[] { "敵味方全員を対象とする。", "Targets all combatants. " },
+      new string[] { "敵味方全員を対象とする。", "Targets all allies and enemies. " },
       new string[] { "敵グループを対象とする。", "Targets an enemy group. " },
       new string[] { "敵一体を対象とする。", "Targets one enemy. " },
       new string[] { "味方一体を対象とする。", "Targets one ally. " },
@@ -606,7 +680,7 @@ public static class L10n
       new string[] { "味方全員の", "All allies' " },
       new string[] { "敵全員に", "To all enemies " },
       new string[] { "敵単体 / 味方単体", "Single Enemy / Single Ally" },
-      new string[] { "敵味方全体", "All Combatants" },
+      new string[] { "敵味方全体", "All Allies and Enemies" },
       new string[] { "敵フィールド", "Enemy Field" },
       new string[] { "味方フィールド", "Ally Field" },
       new string[] { "敵全体", "All Enemies" },

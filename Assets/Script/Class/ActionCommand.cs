@@ -3342,19 +3342,19 @@ public static class ActionCommand
 
     #region "Delve III"
     // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return "敵グループを対象とする。いずれかの敵に対して、ランダムに３回の【炎】ダメージを与える。"; }
-    if (command_name == Fix.BLUE_BULLET) { return "敵一体を対象とする。対象に３回の【氷】ダメージを与える。"; }
-    if (command_name == Fix.HOLY_BREATH) { return "味方全員のライフを回復する。"; }
-    if (command_name == Fix.BLACK_CONTRACT) { return "自分自身を対象とし、【黒契約】のBUFFを付与する。【黒契約】が続く間、ターン経過毎に最大ライフの１０％の分だけライフを失う。アクションコマンドで消費するコストが０になる。"; }
-    if (command_name == Fix.WORD_OF_POWER) { return "敵一体を対象とする。対象に【理】ダメージを与える。ダメージ量は【力】を根源として算出されるが、魔法属性として扱われる。\r\n対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。\r\nこの魔法はカウンターされない。"; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "敵一体、または味方一体を対象とする。対象に【留保】のBUFFを付与する。【留保】のBUFFが続く間、対象のターン経過毎に影響が発生する効果を無効扱いとする。"; }
+    if (command_name == Fix.METEOR_BULLET) { return L10n.Get(Fix.L10N_DESC_METEOR_BULLET); }
+    if (command_name == Fix.BLUE_BULLET) { return L10n.Get(Fix.L10N_DESC_BLUE_BULLET); }
+    if (command_name == Fix.HOLY_BREATH) { return L10n.Get(Fix.L10N_DESC_HOLY_BREATH); }
+    if (command_name == Fix.BLACK_CONTRACT) { return L10n.Get(Fix.L10N_DESC_BLACK_CONTRACT); }
+    if (command_name == Fix.WORD_OF_POWER) { return L10n.Get(Fix.L10N_DESC_WORD_OF_POWER); }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return L10n.Get(Fix.L10N_DESC_SIGIL_OF_THE_PENDING); }
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return "敵一体を対象とする。対象に２回【物理】ダメージを与える。"; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return "敵一体を対象とする。対象に物理ダメージを与え、【破損】のBUFFを付与する。【破損】が続く間、対象の物理防御が減少する。この効果は５回まで累積可能である。"; }
-    if (command_name == Fix.BONE_CRUSH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象に【損傷】のBUFFを付与する。【損傷】が続く間、対象の物理攻撃力が２０％低下する。"; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "自分自身に【一心】のBUFFを付与する。【一心】が続く間、対象の物理防御を２０％無視して、ダメージを当てられるようになる。"; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return "味方全員に【活力】のBUFFを付与する。【活力】が続く間、最大ライフが上昇する。また、その分だけライフを回復する。"; }
-    if (command_name == Fix.UNSEEN_AID) { return "敵味方全員を対象とする。対象にかかっている【有害】【有益】いずれのBUFFもすべて除去する。"; }
+    if (command_name == Fix.DOUBLE_SLASH) { return L10n.Get(Fix.L10N_DESC_DOUBLE_SLASH); }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return L10n.Get(Fix.L10N_DESC_CONCUSSIVE_HIT); }
+    if (command_name == Fix.BONE_CRUSH) { return L10n.Get(Fix.L10N_DESC_BONE_CRUSH); }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return L10n.Get(Fix.L10N_DESC_EYE_OF_THE_ISSHIN); }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return L10n.Get(Fix.L10N_DESC_VOICE_OF_VIGOR); }
+    if (command_name == Fix.UNSEEN_AID) { return L10n.Get(Fix.L10N_DESC_UNSEEN_AID); }
     #endregion
 
     #region "Delve IV"
