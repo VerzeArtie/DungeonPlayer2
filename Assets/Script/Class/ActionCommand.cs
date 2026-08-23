@@ -3308,19 +3308,19 @@ public static class ActionCommand
   {
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return "敵一体を対象とする。対象に【炎】ダメージを与える。"; }
-    if (command_name == Fix.ICE_NEEDLE) { return "敵一体を対象とする。対象に【氷】ダメージを与えた後、【鈍化】のBUFFを付与する。\r\n【鈍化】が続く間、戦闘速度が減少する。"; }
-    if (command_name == Fix.FRESH_HEAL) { return "味方一体を対象とする。対象のライフを回復する。"; }
-    if (command_name == Fix.SHADOW_BLAST) { return "敵一体を対象とする。対象に【闇】ダメージを与えた後、【陰影】のBUFFを付与する。\r\n【陰影】が続く間、魔法防御が減少する。"; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを進行させる。"; }
-    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に無属性の魔法ダメージを与える。"; }
+    if (command_name == Fix.FIRE_BALL) { return L10n.Get(Fix.L10N_DESC_FIRE_BALL); }
+    if (command_name == Fix.ICE_NEEDLE) { return L10n.Get(Fix.L10N_DESC_ICE_NEEDLE); }
+    if (command_name == Fix.FRESH_HEAL) { return L10n.Get(Fix.L10N_DESC_FRESH_HEAL); }
+    if (command_name == Fix.SHADOW_BLAST) { return L10n.Get(Fix.L10N_DESC_SHADOW_BLAST); }
+    if (command_name == Fix.ORACLE_COMMAND) { return L10n.Get(Fix.L10N_DESC_ORACLE_COMMAND); }
+    if (command_name == Fix.ENERGY_BOLT) { return L10n.Get(Fix.L10N_DESC_ENERGY_BOLT); }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
-    if (command_name == Fix.SHIELD_BASH) { return "敵一体を対象とする。対象を【物理】ダメージを与えた後、【スタン】のBUFFを付与する。\r\n【スタン】が続く間、戦闘ゲージ進行が停止する。"; }
-    if (command_name == Fix.LEG_STRIKE) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【萎縮】のBUFFを付与する。\r\n【萎縮】が続く間、対象の戦闘反応値が減少する。"; }
-    if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、対象へ【標的】のBUFFを付与する。\r\n【標的】が続く間、対象はクリティカルを受ける確率が上昇する。"; }
-    if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
-    if (command_name == Fix.DISPEL_MAGIC) { return "敵一体を対象とする。対象にかかっている【有益】に属するBUFFを除去する。"; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return L10n.Get(Fix.L10N_DESC_STRAIGHT_SMASH); }
+    if (command_name == Fix.SHIELD_BASH) { return L10n.Get(Fix.L10N_DESC_SHIELD_BASH); }
+    if (command_name == Fix.LEG_STRIKE) { return L10n.Get(Fix.L10N_DESC_LEG_STRIKE); }
+    if (command_name == Fix.HUNTER_SHOT) { return L10n.Get(Fix.L10N_DESC_HUNTER_SHOT); }
+    if (command_name == Fix.TRUE_SIGHT) { return L10n.Get(Fix.L10N_DESC_TRUE_SIGHT); }
+    if (command_name == Fix.DISPEL_MAGIC) { return L10n.Get(Fix.L10N_DESC_DISPEL_MAGIC); }
     #endregion
 
     #region "Delve II"

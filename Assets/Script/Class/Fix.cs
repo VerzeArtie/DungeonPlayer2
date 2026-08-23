@@ -351,6 +351,53 @@ public static partial class Fix
   public static Color COLOR_RESIST_ENABLE = new Color(1.0f, 1.0f, 0.5f);
    
   #endregion
+  #region "説明文タグ"
+  // 説明文中の 【タグ】 の日英対応。ここが唯一の定義であり、
+  // HomeTown.Localization.cs の Register 用語ペア引数と、
+  // LocalizeGeneratedText の 【JP】->[EN] 置換ルールの双方がこれを参照する。
+  //
+  // 注意: CLASS_* とは別物である。
+  //   CLASS_HOLYLIGHT = "HolyLight" はクラス名、TERM_HOLY = "Holy" は属性タグ。
+  //   CLASS_DARK_MAGIC = "DarkMagic" はクラス名、TERM_DARK = "Dark" は属性タグ。
+  // --- パラメタ ---
+  public const string TERM_STRENGTH = "Strength";
+  public const string TERM_STRENGTH_JP = "力";
+  public const string TERM_AGILITY = "Agility";
+  public const string TERM_AGILITY_JP = "技";
+  public const string TERM_INTELLIGENCE = "Intelligence";
+  public const string TERM_INTELLIGENCE_JP = "知";
+  public const string TERM_STAMINA = "Stamina";
+  public const string TERM_STAMINA_JP = "体";
+  public const string TERM_MIND = "Mind";
+  public const string TERM_MIND_JP = "心";
+  // --- 属性 ---
+  public const string TERM_FIRE = "Fire";
+  public const string TERM_FIRE_JP = "炎";
+  public const string TERM_ICE = "Ice";
+  public const string TERM_ICE_JP = "氷";
+  public const string TERM_HOLY = "Holy";
+  public const string TERM_HOLY_JP = "聖";
+  public const string TERM_DARK = "Dark";
+  public const string TERM_DARK_JP = "闇";
+  public const string TERM_FORCE = "Force";
+  public const string TERM_FORCE_JP = "理";
+  // --- ダメージ種別 ---
+  public const string TERM_PHYSICAL = "Physical";
+  public const string TERM_PHYSICAL_JP = "物理";
+  public const string TERM_MAGIC = "Magic";
+  public const string TERM_MAGIC_JP = "魔法";
+  // 無属性。DamageSource.Colorless に対応する。属性を持たないのではなく、
+  // 属性の代わりに【知】が威力になる本作固有の概念であるため Non-Elemental とは訳さない。
+  // 説明文中では 【】 で囲まずに使われるため L10n.TermTags には含めない。
+  public const string TERM_COLORLESS = "Colorless";
+  public const string TERM_COLORLESS_JP = "無属性";
+  // --- BUFF区分 ---
+  public const string TERM_BENEFICIAL = "Beneficial";
+  public const string TERM_BENEFICIAL_JP = "有益";
+  public const string TERM_HARMFUL = "Harmful";
+  public const string TERM_HARMFUL_JP = "有害";
+  #endregion
+
   #region "Buff Effect"
   public const string SITSUON = "Lost Sound";
   public const string SITSUON_JP = "失音";
@@ -358,8 +405,6 @@ public static partial class Fix
   public const string EFFECT_HEART_OF_LIFE = "Life Gain";
   public const string EFFECT_SHADOW_BLAST = "Blind Effect";
   public const string EFFECT_FORTUNE = "Fortune";
-
-  public const string EFFECT_GAUGE_BACK = "Gauge Back";
 
   public const string EFFECT_PA_UP = "PA Up";
   public const string EFFECT_PA_DOWN = "PA Down";
@@ -406,6 +451,8 @@ public static partial class Fix
   public const string EFFECT_TEMPTATION_JP = "誘惑";
   public const string EFFECT_SLOW = "Slow";
   public const string EFFECT_SLOW_JP = "鈍化";
+  public const string EFFECT_BLIND = "Blind";
+  public const string EFFECT_BLIND_JP = "暗闇";
   public const string EFFECT_DIZZY = "Dizzy";
   public const string EFFECT_DIZZY_JP = "眩暈";
   public const string EFFECT_SLIP = "Slip";
@@ -517,6 +564,14 @@ public static partial class Fix
   public const string BUFF_ETERNAL_CONCENTRATION_JP = "超集中";
   public const string BUFF_FOCUS_EYE = "Focus Eye";
   public const string BUFF_FOCUS_EYE_JP = "凝視";
+  public const string BUFF_SHADE = "Shade";
+  public const string BUFF_SHADE_JP = "陰影";
+  public const string BUFF_DAUNT = "Daunt";
+  public const string BUFF_DAUNT_JP = "萎縮";
+  public const string BUFF_MARK = "Mark";
+  public const string BUFF_MARK_JP = "標的";
+  public const string BUFF_INSIGHT = "Insight";
+  public const string BUFF_INSIGHT_JP = "深層";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1698,6 +1753,24 @@ public static partial class Fix
   public const string L10N_AREANAME_EDELGARZEN_CASTLE_4 = "lblAreaNameEdelgarzenCastle_4";
   public const string L10N_AREANAME_EDELGARZEN_CENTER = "lblAreaNameEdelgarzenCastle_Center";
   // rito wosm
+  #endregion
+
+  #region "アクションコマンド説明文"
+  // ActionCommand.GetDescription が返す説明文のキー。
+  // 実文は HomeTown.Localization.cs の Register で日英を登録する。
+  // --- Delve I ---
+  public const string L10N_DESC_FIRE_BALL = "descFireBall";
+  public const string L10N_DESC_ICE_NEEDLE = "descIceNeedle";
+  public const string L10N_DESC_FRESH_HEAL = "descFreshHeal";
+  public const string L10N_DESC_SHADOW_BLAST = "descShadowBlast";
+  public const string L10N_DESC_ORACLE_COMMAND = "descOracleCommand";
+  public const string L10N_DESC_ENERGY_BOLT = "descEnergyBolt";
+  public const string L10N_DESC_STRAIGHT_SMASH = "descStraightSmash";
+  public const string L10N_DESC_SHIELD_BASH = "descShieldBash";
+  public const string L10N_DESC_LEG_STRIKE = "descLegStrike";
+  public const string L10N_DESC_HUNTER_SHOT = "descHunterShot";
+  public const string L10N_DESC_TRUE_SIGHT = "descTrueSight";
+  public const string L10N_DESC_DISPEL_MAGIC = "descDispelMagic";
   #endregion
 
   #endregion

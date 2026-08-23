@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -9,6 +9,29 @@ public static class L10n
   private static Dictionary<string, (string ja, string en)> table = new Dictionary<string, (string ja, string en)>(StringComparer.OrdinalIgnoreCase);
   private static Dictionary<string, string> itemNameTable = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
   private static bool itemNameTableReady = false;
+
+  /// <summary>
+  /// 説明文中の 【タグ】 の日英対応。Fix の定数ペアを参照しているため、
+  /// 定数のリネームや削除はコンパイルエラーになる。
+  /// Register の用語ペア引数と LocalizeGeneratedText の置換の双方が、ここを唯一の定義とする。
+  /// </summary>
+  public static readonly (string ja, string en)[] TermTags = new (string ja, string en)[]
+  {
+    (Fix.TERM_STRENGTH_JP, Fix.TERM_STRENGTH),
+    (Fix.TERM_AGILITY_JP, Fix.TERM_AGILITY),
+    (Fix.TERM_INTELLIGENCE_JP, Fix.TERM_INTELLIGENCE),
+    (Fix.TERM_STAMINA_JP, Fix.TERM_STAMINA),
+    (Fix.TERM_MIND_JP, Fix.TERM_MIND),
+    (Fix.TERM_FIRE_JP, Fix.TERM_FIRE),
+    (Fix.TERM_ICE_JP, Fix.TERM_ICE),
+    (Fix.TERM_HOLY_JP, Fix.TERM_HOLY),
+    (Fix.TERM_DARK_JP, Fix.TERM_DARK),
+    (Fix.TERM_FORCE_JP, Fix.TERM_FORCE),
+    (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+    (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC),
+    (Fix.TERM_BENEFICIAL_JP, Fix.TERM_BENEFICIAL),
+    (Fix.TERM_HARMFUL_JP, Fix.TERM_HARMFUL),
+  };
 
   static L10n()
   {
@@ -308,11 +331,125 @@ public static class L10n
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガイゼン城 第三階層", "Edelgarzen Castle (3F)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガイゼン城 最上階", "Edelgarzen Castle (TOP)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CENTER, "エデルガイゼン城 正面ゲート", "Edelgarzen Castle (CENTER)");
+    // ActionCommand説明文 - Delve I
+    //
+    // BUFF名の英訳について:
+    //   【鈍化】【スタン】【沈黙】は Fix.EFFECT_SLOW / EFFECT_STUN / EFFECT_SILENT に準拠。
+    //   【陰影】[Shade] 【萎縮】[Daunt] 【標的】[Mark] 【深層】[Insight] 【暗闇】[Blind] は
+    //   既存の英訳定数が無いため新規に命名した。名称を変更する場合はここを直す。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_FIRE_BALL,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage to the target.",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_DESC_ICE_NEEDLE,
+      "敵一体を対象とする。対象に【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、$2が減少する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 is reduced.",
+      (Fix.EFFECT_SLOW_JP, Fix.EFFECT_SLOW),
+      (Fix.TERM_ICE_JP, Fix.TERM_ICE),
+      Term(Fix.L10N_BATTLE_SPEED));
+    Register(Fix.L10N_DESC_FRESH_HEAL,
+      "味方一体を対象とする。対象の$0を回復する。",
+      "Targets one ally. Restores the target's $0.",
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_SHADOW_BLAST,
+      "敵一体を対象とする。対象に【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、$2が減少する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 is reduced.",
+      (Fix.BUFF_SHADE_JP, Fix.BUFF_SHADE),
+      (Fix.TERM_DARK_JP, Fix.TERM_DARK),
+      Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_DESC_ORACLE_COMMAND,
+      "味方一体を対象とする。対象のインスタントゲージを進行させる。",
+      "Targets one ally. Advances the target's Instant Gauge.");
+    Register(Fix.L10N_DESC_ENERGY_BOLT,
+      "敵一体を対象とする。対象に$0の魔法ダメージを与える。",
+      "Targets one enemy. Deals $0 magic damage to the target.",
+      (Fix.TERM_COLORLESS_JP, Fix.TERM_COLORLESS));
+    // スキル
+    Register(Fix.L10N_DESC_STRAIGHT_SMASH,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage to the target.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_SHIELD_BASH,
+      "敵一体を対象とする。対象を【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、戦闘ゲージ進行が停止する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's Battle Gauge stops advancing.",
+      (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN),
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_LEG_STRIKE,
+      "敵一体を対象とする。対象に【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、対象の$2が減少する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 is reduced.",
+      (Fix.BUFF_DAUNT_JP, Fix.BUFF_DAUNT),
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_DESC_HUNTER_SHOT,
+      "敵一体を対象とする。対象に【$1】ダメージを与えた後、対象へ【$0】のBUFFを付与する。\r\n【$0】が続く間、対象はクリティカルを受ける確率が上昇する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target is more likely to take critical hits.",
+      (Fix.BUFF_MARK_JP, Fix.BUFF_MARK),
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_TRUE_SIGHT,
+      "味方一体を対象とする。対象に【$0】のBUFFを付与する。\r\n【$0】が続く間、【$1】【$2】【$3】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。",
+      "Targets one ally. Applies [$0] to the target.\r\nWhile [$0] lasts, the target acts as though [$1], [$2] and [$3] were not present, even while afflicted by them.",
+      (Fix.BUFF_INSIGHT_JP, Fix.BUFF_INSIGHT),
+      (Fix.EFFECT_SILENT_JP, Fix.EFFECT_SILENT),
+      (Fix.EFFECT_SLOW_JP, Fix.EFFECT_SLOW),
+      (Fix.EFFECT_BLIND_JP, Fix.EFFECT_BLIND));
+    Register(Fix.L10N_DESC_DISPEL_MAGIC,
+      "敵一体を対象とする。対象にかかっている【$0】に属するBUFFを除去する。",
+      "Targets one enemy. Removes all [$0] buffs from the target.",
+      (Fix.TERM_BENEFICIAL_JP, Fix.TERM_BENEFICIAL));
   }
 
-  public static void Register(string key, string japanese, string english)
+  /// <summary>
+  /// 日英の対訳を登録する。
+  ///
+  /// terms を渡した場合、本文中の $0, $1 ... を対応する用語で置換してから登録する。
+  /// 日本語文には ja 側、英語文には en 側が入るため、1つの用語ペアを渡すだけで
+  /// 両言語の表記が同時に決まる。用語を Fix の定数ペアで渡すことにより、
+  /// 定数のリネームや削除がコンパイルエラーとして検出される。
+  ///
+  ///   Register(Fix.L10N_DESC_LEG_STRIKE,
+  ///     "... 【$0】のBUFFを付与する。",
+  ///     "... applies [$0].",
+  ///     (Fix.BUFF_DAUNT_JP, Fix.BUFF_DAUNT));
+  ///
+  /// $N は登録時に解決されるため、実行時引数用の {0} とは衝突しない。
+  /// </summary>
+  public static void Register(string key, string japanese, string english, params (string ja, string en)[] terms)
   {
+    if (terms != null && terms.Length > 0)
+    {
+      // $1 が $10 の一部に誤ヒットしないよう、添字の大きい方から置換する。
+      for (int ii = terms.Length - 1; ii >= 0; ii--)
+      {
+        string token = "$" + ii.ToString();
+        japanese = japanese.Replace(token, terms[ii].ja);
+        english = english.Replace(token, terms[ii].en);
+      }
+    }
+
     table[key] = (japanese, english);
+  }
+
+  /// <summary>
+  /// 登録済みキーの日英ペアを、Register の用語ペア引数として取り出す。
+  ///
+  /// 戦闘能力値(戦闘速度/魔法防御/戦闘反応など)は L10N_BATTLE_SPEED のように
+  /// 既に日英が登録済みであるため、Fix に別の定数ペアを起こすと二重定義になる。
+  /// 説明文からはこのメソッド経由で既存の登録をそのまま参照する。
+  ///
+  ///   Register(Fix.L10N_DESC_ICE_NEEDLE, "... $2 が減少する。", "... the target's $2 is reduced.",
+  ///     ..., Term(Fix.L10N_BATTLE_SPEED));
+  ///
+  /// 参照先は自分より前に Register 済みである必要がある。
+  /// </summary>
+  private static (string ja, string en) Term(string key)
+  {
+    if (table.TryGetValue(key, out var v)) { return v; }
+
+    // 未登録キーを参照した場合、説明文にキー文字列がそのまま出てしまうため気付けるようにする。
+    Debug.LogError("L10n.Term: 未登録のキーを参照しました key=" + key);
+    return (key, key);
   }
 
   public static string Get(string key, params object[] args)
@@ -430,7 +567,7 @@ public static class L10n
       new string[] { "ＳＰ回復量 ", "SP Recovery " },
       new string[] { "インスタンスゲージ進行 ", "Instant Gauge " },
       new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge " },
-      new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Gauge Down " },
+      new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Delay " },
       new string[] { "物理攻撃／魔法攻撃の増加量 ", "Physical Attack / Magic Attack Increase " },
       new string[] { "物理防御／魔法防御／戦闘反応の減少量 ", "Physical Defense / Magic Defense / Battle Response Reduction " },
       new string[] { "物理／魔法防御の増加量 ", "Physical / Magic Defense Increase " },
@@ -445,26 +582,19 @@ public static class L10n
       new string[] { "潜在能力の増加量 ", "Potential Increase " },
       new string[] { "クリティカル発生率 +", "Critical Rate +" },
       new string[] { "対象へのダメージの威力 ", "Target Damage Power " },
-      new string[] { "周囲全体への威力 ", "Surrounding Damage Power " },
-      new string[] { "【力】", "[Strength]" },
-      new string[] { "【技】", "[Agility]" },
-      new string[] { "【知】", "[Intelligence]" },
-      new string[] { "【体】", "[Stamina]" },
-      new string[] { "【心】", "[Mind]" },
-      new string[] { "【炎】", "[Fire]" },
-      new string[] { "【氷】", "[Ice]" },
-      new string[] { "【聖】", "[Holy]" },
-      new string[] { "【闇】", "[Dark]" },
-      new string[] { "【理】", "[Force]" },
-      new string[] { "【物理】", "[Physical]" },
-      new string[] { "【魔法】", "[Magic]" },
-      new string[] { "【有益】", "[Beneficial]" },
-      new string[] { "【有害】", "[Harmful]" }
+      new string[] { "周囲全体への威力 ", "Surrounding Damage Power " }
     };
 
     for (int ii = 0; ii < replacements.Length; ii++)
     {
       result = result.Replace(replacements[ii][0], replacements[ii][1]);
+    }
+
+    // 【タグ】 の置換は TermTags から生成する。定型句の置換より後に行うこと
+    // ("追加【炎】の威力 " のように 【】 を内包する定型句を先に処理する必要があるため)。
+    for (int ii = 0; ii < TermTags.Length; ii++)
+    {
+      result = result.Replace("【" + TermTags[ii].ja + "】", "[" + TermTags[ii].en + "]");
     }
 
     return result;
