@@ -263,6 +263,7 @@ public static class L10n
     Register(Fix.L10N_BASIC_LIFE, "ライフ", "Life");
     Register(Fix.L10N_BASIC_MANA_POINT, "マナ", "MP");
     Register(Fix.L10N_BASIC_SKILL_POINT, "スキル", "SP");
+    Register(Fix.L10N_SKILL_POINT, "スキルポイント", "Skill Point");
     // Common-CoreParameter
     Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
     Register(Fix.L10N_CORE_AGILITY, "技", "AGL");
@@ -398,6 +399,77 @@ public static class L10n
       "敵一体を対象とする。対象にかかっている【$0】に属するBUFFを除去する。",
       "Targets one enemy. Removes all [$0] buffs from the target.",
       (Fix.TERM_BENEFICIAL_JP, Fix.TERM_BENEFICIAL));
+
+    // ActionCommand説明文 - Delve II
+    //
+    // BUFF名の英訳について:
+    //   【幸運】は Fix.EFFECT_FORTUNE、【出血】は Fix.EFFECT_SLIP、【スタン】は Fix.EFFECT_STUN に準拠。
+    //   【炎剣】[Flame Blade] 【加護】[Grace] 【血の刻印】[Blood Sigil] 【剣の構え】[Blade Stance]
+    //   【盾の構え】[Guard Stance] 【俊足の構え】[Swift Stance] 【直光】[Leyline] 【鮮明】[Clarity] は
+    //   既存の英訳定数が無いため新規に命名した。名称を変更する場合はここを直す。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_FLAME_BLADE,
+      "味方一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、$1を行う度に、【$2】ダメージが追加発生する。",
+      "Targets one ally. Applies [$0] to the target. While [$0] lasts, each $1 deals additional [$2] damage.",
+      (Fix.BUFF_FLAME_BLADE_JP, Fix.BUFF_FLAME_BLADE),
+      Term(Fix.L10N_PHYSICAL_ATTACK),
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_DESC_PURE_PURIFICATION,
+      "味方一体を対象とする。対象の$0を回復する。対象にかかっている【$1】に属するBUFFを除去する。",
+      "Targets one ally. Restores the target's $0. Removes all [$1] buffs from the target.",
+      Term(Fix.L10N_BASIC_LIFE),
+      (Fix.TERM_HARMFUL_JP, Fix.TERM_HARMFUL));
+    Register(Fix.L10N_DESC_DIVINE_CIRCLE,
+      "味方フィールドに、【$0】のフィールドを形成する。味方に与えられる$1属性のダメージは【$0】のポイントに吸収される。【$0】のポイントが0以下になった場合、【$0】フィールドは消滅する。",
+      "Forms a [$0] field on the ally field. $1 attribute damage dealt to allies is absorbed by [$0] points. When [$0] points reach 0 or below, the [$0] field disappears.",
+      (Fix.BUFF_GRACE_JP, Fix.BUFF_GRACE),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_BLOOD_SIGN,
+      "敵一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、対象が行動する度に、$1ダメージを食らう。",
+      "Targets one enemy. Applies [$0] to the target. While [$0] lasts, the target takes $1 damage each time it acts.",
+      (Fix.BUFF_BLOOD_SIGIL_JP, Fix.BUFF_BLOOD_SIGIL),
+      (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP));
+    Register(Fix.L10N_DESC_FORTUNE_SPIRIT,
+      "味方一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。",
+      "Targets one ally. Applies [$0] to the target. While [$0] lasts, the next attack that hits becomes a guaranteed critical hit. This buff is removed after one action command involving damage is completed.",
+      (Fix.EFFECT_FORTUNE_JP, Fix.EFFECT_FORTUNE));
+    Register(Fix.L10N_DESC_FLASH_COUNTER,
+      "インスタント限定。インスタント行動が行われた際、その行動属性が【$0】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。",
+      "Instant only. When an instant action is performed, if its attribute is [$0] and it applies a buff, that instant action is negated.",
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    // スキル
+    Register(Fix.L10N_DESC_STANCE_OF_THE_BLADE,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。自分自身に【$1】のBUFFを付与する。この効果が続く間、$2がヒットする度に、$2が上昇する。このスタックは5回まで累積する。",
+      "Targets one enemy. Deals [$0] damage to the target. Applies [$1] to self. While this effect lasts, $2 increases each time a $2 lands. This stack accumulates up to 5 times.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.BUFF_BLADE_STANCE_JP, Fix.BUFF_BLADE_STANCE),
+      Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_DESC_STANCE_OF_THE_GUARD,
+      "自分自身に【$0】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、$1が上昇する。このスタックは5回まで累積する。",
+      "Applies [$0] to self. While this effect lasts, $1 increases each time you take an enemy attack while in a defensive stance. This stack accumulates up to 5 times.",
+      (Fix.BUFF_GUARD_STANCE_JP, Fix.BUFF_GUARD_STANCE),
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_DESC_SPEED_STEP,
+      "敵一体を対象とする。対象に【$0】ダメージを与えた後、自分自身に【$1】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、$2が上昇する。このスタックは5回まで累積する。",
+      "Targets one enemy. Deals [$0] damage to the target, then applies [$1] to self. While this effect lasts, $2 increases each time a main action is completed. This stack accumulates up to 5 times.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.BUFF_SWIFT_STANCE_JP, Fix.BUFF_SWIFT_STANCE),
+      Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_DESC_MULTIPLE_SHOT,
+      "敵全員に【$0】ダメージを与える。",
+      "Deals [$0] damage to all enemies.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_LEYLINE_SCHEMA,
+      "味方フィールドに【$0】のフィールドを形成する。【$0】が続く間、ターン経過毎に$1が回復する。",
+      "Forms a [$0] field on the ally field. While [$0] lasts, $1 is restored each turn.",
+      (Fix.BUFF_LEYLINE_JP, Fix.BUFF_LEYLINE),
+      Term(Fix.L10N_SKILL_POINT));
+    Register(Fix.L10N_DESC_SPIRITUAL_REST,
+      "味方一体を対象とする。対象が【$0】にかかっている場合、それを除去する。加えて、対象に【$1】のBUFFを付与する。【$1】が続く間、対象は【$0】に対する耐性を得る。",
+      "Targets one ally. Removes [$0] from the target if it is afflicted. In addition, applies [$1] to the target. While [$1] lasts, the target gains resistance to [$0].",
+      (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN),
+      (Fix.BUFF_CLARITY_JP, Fix.BUFF_CLARITY));
   }
 
   /// <summary>

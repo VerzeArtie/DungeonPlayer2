@@ -3325,19 +3325,19 @@ public static class ActionCommand
 
     #region "Delve II"
     // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象のライフを回復する。対象にかかっている【有害】に属するBUFFを除去する。"; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
-    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【血の刻印】のBUFFを付与する。【血の刻印】が続く間、対象が行動する度に、出血ダメージを食らう。"; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
-    if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
+    if (command_name == Fix.FLAME_BLADE) { return L10n.Get(Fix.L10N_DESC_FLAME_BLADE); }
+    if (command_name == Fix.PURE_PURIFICATION) { return L10n.Get(Fix.L10N_DESC_PURE_PURIFICATION); }
+    if (command_name == Fix.DIVINE_CIRCLE) { return L10n.Get(Fix.L10N_DESC_DIVINE_CIRCLE); }
+    if (command_name == Fix.BLOOD_SIGN) { return L10n.Get(Fix.L10N_DESC_BLOOD_SIGN); }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return L10n.Get(Fix.L10N_DESC_FORTUNE_SPIRIT); }
+    if (command_name == Fix.FLASH_COUNTER) { return L10n.Get(Fix.L10N_DESC_FLASH_COUNTER); }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "敵一体を対象とする。対象に【物理】ダメージを与える。自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
-    if (command_name == Fix.SPEED_STEP) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘反応が上昇する。このスタックは５回まで累積する。"; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎にスキルポイントが回復する。"; }
-    if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return L10n.Get(Fix.L10N_DESC_STANCE_OF_THE_BLADE); }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return L10n.Get(Fix.L10N_DESC_STANCE_OF_THE_GUARD); }
+    if (command_name == Fix.SPEED_STEP) { return L10n.Get(Fix.L10N_DESC_SPEED_STEP); }
+    if (command_name == Fix.MULTIPLE_SHOT) { return L10n.Get(Fix.L10N_DESC_MULTIPLE_SHOT); }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return L10n.Get(Fix.L10N_DESC_LEYLINE_SCHEMA); }
+    if (command_name == Fix.SPIRITUAL_REST) { return L10n.Get(Fix.L10N_DESC_SPIRITUAL_REST); }
     #endregion
 
     #region "Delve III"

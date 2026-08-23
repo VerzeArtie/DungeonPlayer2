@@ -405,6 +405,7 @@ public static partial class Fix
   public const string EFFECT_HEART_OF_LIFE = "Life Gain";
   public const string EFFECT_SHADOW_BLAST = "Blind Effect";
   public const string EFFECT_FORTUNE = "Fortune";
+  public const string EFFECT_FORTUNE_JP = "幸運";
 
   public const string EFFECT_PA_UP = "PA Up";
   public const string EFFECT_PA_DOWN = "PA Down";
@@ -572,6 +573,23 @@ public static partial class Fix
   public const string BUFF_MARK_JP = "標的";
   public const string BUFF_INSIGHT = "Insight";
   public const string BUFF_INSIGHT_JP = "深層";
+  // --- Delve II ---
+  public const string BUFF_FLAME_BLADE = "Flame Blade";
+  public const string BUFF_FLAME_BLADE_JP = "炎剣";
+  public const string BUFF_GRACE = "Grace";
+  public const string BUFF_GRACE_JP = "加護";
+  public const string BUFF_BLOOD_SIGIL = "Blood Sigil";
+  public const string BUFF_BLOOD_SIGIL_JP = "血の刻印";
+  public const string BUFF_BLADE_STANCE = "Blade Stance";
+  public const string BUFF_BLADE_STANCE_JP = "剣の構え";
+  public const string BUFF_GUARD_STANCE = "Guard Stance";
+  public const string BUFF_GUARD_STANCE_JP = "盾の構え";
+  public const string BUFF_SWIFT_STANCE = "Swift Stance";
+  public const string BUFF_SWIFT_STANCE_JP = "俊足の構え";
+  public const string BUFF_LEYLINE = "Leyline";
+  public const string BUFF_LEYLINE_JP = "直光";
+  public const string BUFF_CLARITY = "Clarity";
+  public const string BUFF_CLARITY_JP = "鮮明";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1689,6 +1707,8 @@ public static partial class Fix
   public const string L10N_BASIC_LIFE = "lblBasicLife";
   public const string L10N_BASIC_MANA_POINT = "lblBasicManaPoint";
   public const string L10N_BASIC_SKILL_POINT = "lblBasicSkillPoint";
+  // 上記はステータス画面用の略記(スキル/SP)。説明文中で使う正式表記はこちら。
+  public const string L10N_SKILL_POINT = "lblSkillPoint";
   public const string L10N_CORE_STRENGTH = "lblCoreStrength";
   public const string L10N_CORE_AGILITY = "lblCoreAgility";
   public const string L10N_CORE_INTELLIGENCE = "lblCoreIntelligence";
@@ -1771,6 +1791,19 @@ public static partial class Fix
   public const string L10N_DESC_HUNTER_SHOT = "descHunterShot";
   public const string L10N_DESC_TRUE_SIGHT = "descTrueSight";
   public const string L10N_DESC_DISPEL_MAGIC = "descDispelMagic";
+  // --- Delve II ---
+  public const string L10N_DESC_FLAME_BLADE = "descFlameBlade";
+  public const string L10N_DESC_PURE_PURIFICATION = "descPurePurification";
+  public const string L10N_DESC_DIVINE_CIRCLE = "descDivineCircle";
+  public const string L10N_DESC_BLOOD_SIGN = "descBloodSign";
+  public const string L10N_DESC_FORTUNE_SPIRIT = "descFortuneSpirit";
+  public const string L10N_DESC_FLASH_COUNTER = "descFlashCounter";
+  public const string L10N_DESC_STANCE_OF_THE_BLADE = "descStanceOfTheBlade";
+  public const string L10N_DESC_STANCE_OF_THE_GUARD = "descStanceOfTheGuard";
+  public const string L10N_DESC_SPEED_STEP = "descSpeedStep";
+  public const string L10N_DESC_MULTIPLE_SHOT = "descMultipleShot";
+  public const string L10N_DESC_LEYLINE_SCHEMA = "descLeylineSchema";
+  public const string L10N_DESC_SPIRITUAL_REST = "descSpiritualRest";
   #endregion
 
   #endregion
