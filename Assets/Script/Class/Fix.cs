@@ -629,6 +629,23 @@ public static partial class Fix
   public const string BUFF_AWAKENING_JP = "覚醒";
   public const string BUFF_SERENITY = "Serenity";
   public const string BUFF_SERENITY_JP = "静穏";
+  // --- Delve V ---
+  public const string BUFF_SCORCH = "Scorch";
+  public const string BUFF_SCORCH_JP = "炎痕";
+  public const string BUFF_FROSTBITE = "Frostbite";
+  public const string BUFF_FROSTBITE_JP = "凍傷";
+  public const string BUFF_BLESSING = "Blessing";
+  public const string BUFF_BLESSING_JP = "祝福";
+  public const string BUFF_BLIGHT = "Blight";
+  public const string BUFF_BLIGHT_JP = "荒廃";
+  public const string BUFF_LAPSE = "Lapse";
+  public const string BUFF_LAPSE_JP = "喪失";
+  public const string BUFF_BATTLE_READY = "Battle Ready";
+  public const string BUFF_BATTLE_READY_JP = "臨戦";
+  public const string BUFF_MIKIRI = "Mikiri";
+  public const string BUFF_MIKIRI_JP = "見切り";
+  public const string BUFF_PERSISTENCE = "Persistence";
+  public const string BUFF_PERSISTENCE_JP = "常在";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1751,6 +1768,10 @@ public static partial class Fix
   // 最大ライフ。LocalizeGeneratedText の置換ルールにも同じ対訳があり、
   // 両者が一致していることを Tools\check-l10n.ps1 が検査する。
   public const string L10N_MAX_LIFE = "lblMaxLife";
+  // 各種ゲージ。説明文中で頻出するため対訳を一箇所に定義する。
+  public const string L10N_INSTANT_GAUGE = "lblInstantGauge";
+  public const string L10N_ACTION_GAUGE = "lblActionGauge";
+  public const string L10N_BATTLE_GAUGE = "lblBattleGauge";
   public const string L10N_CORE_STRENGTH = "lblCoreStrength";
   public const string L10N_CORE_AGILITY = "lblCoreAgility";
   public const string L10N_CORE_INTELLIGENCE = "lblCoreIntelligence";
@@ -1894,6 +1915,19 @@ public static partial class Fix
   public const string L10N_DESC_PENETRATION_ARROW = "descPenetrationArrow";
   public const string L10N_DESC_WILL_AWAKENING = "descWillAwakening";
   public const string L10N_DESC_CIRCLE_OF_SERENITY = "descCircleOfSerenity";
+  // --- Delve V ---
+  public const string L10N_DESC_FLAME_STRIKE = "descFlameStrike";
+  public const string L10N_DESC_FROST_LANCE = "descFrostLance";
+  public const string L10N_DESC_SHINING_HEAL = "descShiningHeal";
+  public const string L10N_DESC_CIRCLE_OF_THE_DESPAIR = "descCircleOfTheDespair";
+  public const string L10N_DESC_SEVENTH_PRINCIPLE = "descSeventhPrinciple";
+  public const string L10N_DESC_COUNTER_DISALLOW = "descCounterDisallow";
+  public const string L10N_DESC_RAGING_STORM = "descRagingStorm";
+  public const string L10N_DESC_HARDEST_PARRY = "descHardestParry";
+  public const string L10N_DESC_UNINTENTIONAL_HIT = "descUnintentionalHit";
+  public const string L10N_DESC_PRECISION_STRIKE = "descPrecisionStrike";
+  public const string L10N_DESC_EVERFLOW_MIND = "descEverflowMind";
+  public const string L10N_DESC_INNER_INSPIRATION = "descInnerInspiration";
   #endregion
 
   #endregion

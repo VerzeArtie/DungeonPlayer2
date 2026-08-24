@@ -3376,19 +3376,19 @@ public static class ActionCommand
 
     #region "Delve V"
     // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return "敵一体に対して【炎】ダメージを与える。加えて、【炎痕】のBUFFを付与する。【炎痕】が続く間、対象に【炎】属性のダメージが与えられる場合、対象が【防御】の姿勢を取っていても、それを無視して【炎】ダメージが適用される。"; }
-    if (command_name == Fix.FROST_LANCE) { return "敵一体に対して【氷】ダメージを与える。加えて、【凍傷】のBUFFを付与する。【凍傷】が続く間、対象がインスタントで行動を行った場合、その行動が失敗する。"; }
-    if (command_name == Fix.SHINING_HEAL) { return "味方一体を対象とする。対象のライフを全回復する。また、味方フィールドに【祝福】のBUFFを付与する。【祝福】の効果が続く間、【猛毒】【出血】の影響を受けない。"; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "敵フィールドに【荒廃】のフィールドを形成する。【荒廃】の効果が続く間、物理防御力、魔法防御力、戦闘反応値がそれぞれ２０％減少する。"; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "味方一体を対象とする。対象に【第七原理】のBUFFを付与する。【第七原理】が続く間、物理属性値の源を【知】、魔法属性値の源を【力】に転換する。"; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
+    if (command_name == Fix.FLAME_STRIKE) { return L10n.Get(Fix.L10N_DESC_FLAME_STRIKE); }
+    if (command_name == Fix.FROST_LANCE) { return L10n.Get(Fix.L10N_DESC_FROST_LANCE); }
+    if (command_name == Fix.SHINING_HEAL) { return L10n.Get(Fix.L10N_DESC_SHINING_HEAL); }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return L10n.Get(Fix.L10N_DESC_CIRCLE_OF_THE_DESPAIR); }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return L10n.Get(Fix.L10N_DESC_SEVENTH_PRINCIPLE); }
+    if (command_name == Fix.COUNTER_DISALLOW) { return L10n.Get(Fix.L10N_DESC_COUNTER_DISALLOW); }
     // スキル
-    if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
-    if (command_name == Fix.HARDEST_PARRY) { return "インスタント限定。この行動は即座に発揮される。インスタント行動が行われた際、その行動を打ち消す。加えて、自分自身に【見切り】のBUFFを付与する。【見切り】が続く間、メイン行動からダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
-    if (command_name == Fix.PRECISION_STRIKE) { return "このコマンドはカウンターされない。インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
-    if (command_name == Fix.EVERFLOW_MIND) { return "味方一体に対して【常在】のBUFFを付与する。【常在】が続く間、インスタント行動を行った後、インスタントゲージが全て消費されず、20%残った状態となる"; }
-    if (command_name == Fix.INNER_INSPIRATION) { return "味方一体を対象とする。対象のスキルポイントを回復する。"; }
+    if (command_name == Fix.RAGING_STORM) { return L10n.Get(Fix.L10N_DESC_RAGING_STORM); }
+    if (command_name == Fix.HARDEST_PARRY) { return L10n.Get(Fix.L10N_DESC_HARDEST_PARRY); }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return L10n.Get(Fix.L10N_DESC_UNINTENTIONAL_HIT); }
+    if (command_name == Fix.PRECISION_STRIKE) { return L10n.Get(Fix.L10N_DESC_PRECISION_STRIKE); }
+    if (command_name == Fix.EVERFLOW_MIND) { return L10n.Get(Fix.L10N_DESC_EVERFLOW_MIND); }
+    if (command_name == Fix.INNER_INSPIRATION) { return L10n.Get(Fix.L10N_DESC_INNER_INSPIRATION); }
     #endregion
 
     #region "Delve VI"

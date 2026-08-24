@@ -265,6 +265,9 @@ public static class L10n
     Register(Fix.L10N_BASIC_SKILL_POINT, "スキル", "SP");
     Register(Fix.L10N_SKILL_POINT, "スキルポイント", "Skill Point");
     Register(Fix.L10N_MAX_LIFE, "最大ライフ", "Max Life");
+    Register(Fix.L10N_INSTANT_GAUGE, "インスタントゲージ", "Instant Gauge");
+    Register(Fix.L10N_ACTION_GAUGE, "行動ゲージ", "Action Gauge");
+    Register(Fix.L10N_BATTLE_GAUGE, "戦闘ゲージ", "Battle Gauge");
     // Common-CoreParameter
     Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
     Register(Fix.L10N_CORE_AGILITY, "技", "AGL");
@@ -369,6 +372,13 @@ public static class L10n
     //   ダメージ付与とBUFF付与は文を分ける。「ダメージを与え、BUFFを付与する」と繋ぐと
     //   BUFFの付与先が省略され、「敵にダメージ / 自分にBUFF」型の説明文と書式が揃わない。
     //
+    // ローマ字表記(英訳しない語):
+    //   武術・世界観固有の概念で英語に等価な一語が無いものは、訳さず日本語の読みを使う。
+    //     【一心】Isshin  【朧】Oboro  【見切り】Mikiri
+    //     (コマンド名では Stance of Muin / Stance of the Iai が同じ扱い)
+    //   ただし機械的な基準は設けない。英語で合致する表現があればそちらを優先するため、
+    //   ローマ字化するかどうかは語ごとに作者の判断を仰ぐこと。
+    //
     // 訳語の決定事項:
     //   「連続」    -> consecutively ("N times consecutively")。
     //                 in a row は口語であり、本作は隊列(Formation)の概念を持つため
@@ -409,8 +419,9 @@ public static class L10n
       (Fix.TERM_DARK_JP, Fix.TERM_DARK),
       Term(Fix.L10N_MAGIC_DEFENSE));
     Register(Fix.L10N_DESC_ORACLE_COMMAND,
-      "味方一体を対象とする。対象のインスタントゲージを進行させる。",
-      "Targets one ally. Advances the target's Instant Gauge.");
+      "味方一体を対象とする。対象の$0を進行させる。",
+      "Targets one ally. Advances the target's $0.",
+      Term(Fix.L10N_INSTANT_GAUGE));
     Register(Fix.L10N_DESC_ENERGY_BOLT,
       "敵一体を対象とする。対象に$0の【$1】ダメージを与える。",
       "Targets one enemy. Deals $0 [$1] damage to the target.",
@@ -422,10 +433,11 @@ public static class L10n
       "Targets one enemy. Deals [$0] damage to the target.",
       (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
     Register(Fix.L10N_DESC_SHIELD_BASH,
-      "敵一体を対象とする。対象を【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、戦闘ゲージ進行が停止する。",
-      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's Battle Gauge stops advancing.",
+      "敵一体を対象とする。対象を【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、$2進行が停止する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 stops advancing.",
       (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN),
-      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      Term(Fix.L10N_BATTLE_GAUGE));
     Register(Fix.L10N_DESC_LEG_STRIKE,
       "敵一体を対象とする。対象に【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、対象の$2が減少する。",
       "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 is reduced.",
@@ -683,6 +695,90 @@ public static class L10n
       (Fix.EFFECT_TEMPTATION_JP, Fix.EFFECT_TEMPTATION),
       (Fix.EFFECT_SLOW_JP, Fix.EFFECT_SLOW),
       (Fix.EFFECT_DIZZY_JP, Fix.EFFECT_DIZZY));
+
+    // ActionCommand説明文 - Delve V
+    //
+    // BUFF名の英訳について:
+    //   【猛毒】【出血】【麻痺】は Fix.EFFECT_*、【防御】は Fix.DEFENSE、
+    //   【第七原理】は既存の Fix.SEVENTH_PRINCIPLE(コマンド名)に準拠。
+    //   【炎痕】[Scorch] 【凍傷】[Frostbite] 【祝福】[Blessing] 【荒廃】[Blight]
+    //   【喪失】[Lapse] 【臨戦】[Battle Ready] 【常在】[Persistence] は
+    //   既存の英訳定数が無いため新規に命名した。
+    //   Lapse は「一時的な制御の途切れ」と「権利・能力の失効」の両義を持つ語であり、
+    //   インスタント行動を開始できなくなる本効果と、原語「喪失」の双方に対応する。
+    //   【見切り】[Mikiri] は英訳せずローマ字表記とする(Fix.BUFF_MIKIRI)。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_FLAME_STRIKE,
+      "敵一体に対して【$0】ダメージを与える。加えて、【$1】のBUFFを付与する。【$1】が続く間、対象に【$0】属性のダメージが与えられる場合、対象が【$2】の姿勢を取っていても、それを無視して【$0】ダメージが適用される。",
+      "Deals [$0] damage to one enemy. In addition, applies [$1]. While [$1] lasts, [$0] attribute damage dealt to the target applies as [$0] damage even while the target is in a [$2] stance.",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE),
+      (Fix.BUFF_SCORCH_JP, Fix.BUFF_SCORCH),
+      (Fix.DEFENSE_JP, Fix.DEFENSE));
+    Register(Fix.L10N_DESC_FROST_LANCE,
+      "敵一体に対して【$0】ダメージを与える。加えて、【$1】のBUFFを付与する。【$1】が続く間、対象が$2で行動を行った場合、その行動が失敗する。",
+      "Deals [$0] damage to one enemy. In addition, applies [$1]. While [$1] lasts, any action the target takes at $2 timing fails.",
+      (Fix.TERM_ICE_JP, Fix.TERM_ICE),
+      (Fix.BUFF_FROSTBITE_JP, Fix.BUFF_FROSTBITE),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_SHINING_HEAL,
+      "味方一体を対象とする。対象の$1を全回復する。また、味方フィールドに【$0】のBUFFを付与する。【$0】の効果が続く間、【$2】【$3】の影響を受けない。",
+      "Targets one ally. Fully restores the target's $1. In addition, applies [$0] to the ally field. While [$0] lasts, allies are unaffected by [$2] and [$3].",
+      (Fix.BUFF_BLESSING_JP, Fix.BUFF_BLESSING),
+      Term(Fix.L10N_BASIC_LIFE),
+      (Fix.EFFECT_POISON_JP, Fix.EFFECT_POISON),
+      (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP));
+    Register(Fix.L10N_DESC_CIRCLE_OF_THE_DESPAIR,
+      "敵フィールドに【$0】のフィールドを形成する。【$0】の効果が続く間、$1、$2、$3がそれぞれ20%減少する。",
+      "Forms a [$0] field on the enemy field. While [$0] lasts, $1, $2 and $3 each decrease by 20%.",
+      (Fix.BUFF_BLIGHT_JP, Fix.BUFF_BLIGHT),
+      Term(Fix.L10N_PHYSICAL_DEFENSE),
+      Term(Fix.L10N_MAGIC_DEFENSE),
+      Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_DESC_SEVENTH_PRINCIPLE,
+      "味方一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、物理属性値の源を【$1】、魔法属性値の源を【$2】に転換する。",
+      "Targets one ally. Applies [$0] to the target. While [$0] lasts, the source of physical attribute values becomes [$1] and the source of magic attribute values becomes [$2].",
+      (Fix.SEVENTH_PRINCIPLE_JP, Fix.SEVENTH_PRINCIPLE),
+      (Fix.TERM_INTELLIGENCE_JP, Fix.TERM_INTELLIGENCE),
+      (Fix.TERM_STRENGTH_JP, Fix.TERM_STRENGTH));
+    Register(Fix.L10N_DESC_COUNTER_DISALLOW,
+      "$1限定。$1行動が行われた際、その$1行動を打ち消す。その後、対象に【$0】のBUFFを付与する。【$0】が続く間、対象は$1行動を開始する事ができない。また開始した場合、その行動をカウンターする。",
+      "$1 only. When an $1 action is performed, that $1 action is negated. Afterwards, applies [$0] to the target. While [$0] lasts, the target cannot begin an $1 action. If it does begin one, that action is countered.",
+      (Fix.BUFF_LAPSE_JP, Fix.BUFF_LAPSE),
+      Term(Fix.L10N_TIMING_INSTANT));
+    // スキル
+    Register(Fix.L10N_DESC_RAGING_STORM,
+      "敵全体に対して【$1】ダメージを2回連続で与える。加えて【$0】のフィールドを形成する。その後味方フィールドに【$0】のBUFFが続く間、味方から敵に与える【$1】および【$2】ダメージが10%上昇する。",
+      "Deals [$1] damage 2 times consecutively to all enemies. In addition, forms a [$0] field. While [$0] then lasts on the ally field, [$1] and [$2] damage dealt by allies to enemies increases by 10%.",
+      (Fix.BUFF_BATTLE_READY_JP, Fix.BUFF_BATTLE_READY),
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_HARDEST_PARRY,
+      "$1限定。この行動は即座に発揮される。$1行動が行われた際、その行動を打ち消す。加えて、自分自身に【$0】のBUFFを付与する。【$0】が続く間、メイン行動からダメージを有する攻撃を受けた場合、そのダメージは0と見なされる。これはダメージ軽減の適用外である。",
+      "$1 only. This action takes effect immediately. When an $1 action is performed, that action is negated. In addition, applies [$0] to self. While [$0] lasts, damage taken from a main action is treated as 0. This is not subject to damage reduction.",
+      (Fix.BUFF_MIKIRI_JP, Fix.BUFF_MIKIRI),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_UNINTENTIONAL_HIT,
+      "敵一体に対して【$0】ダメージを与える。対象に【$1】のBUFFを付与する。また、自分の$2を20%進め、敵一体の$2を20%戻す。（$2が100%に達した場合は、$2は100%とする。$2が0%を下回る場合は$2は0%とする。）",
+      "Deals [$0] damage to one enemy. Applies [$1] to the target. In addition, advances your own $2 by 20% and sets back one enemy's $2 by 20%. (If the $2 reaches 100%, it is capped at 100%. If it would fall below 0%, it is set to 0%.)",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.EFFECT_PARALYZE_JP, Fix.EFFECT_PARALYZE),
+      Term(Fix.L10N_ACTION_GAUGE));
+    Register(Fix.L10N_DESC_PRECISION_STRIKE,
+      "このコマンドはカウンターされない。$1限定。敵一体に対して【$0】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。",
+      "This command cannot be countered. $1 only. Deals [$0] damage to one enemy. This damage is always a critical hit.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_EVERFLOW_MIND,
+      "味方一体に対して【$0】のBUFFを付与する。【$0】が続く間、$1行動を行った後、$2が全て消費されず、20%残った状態となる。",
+      "Applies [$0] to one ally. While [$0] lasts, after taking an $1 action, the $2 is not fully consumed and 20% of it remains.",
+      (Fix.BUFF_PERSISTENCE_JP, Fix.BUFF_PERSISTENCE),
+      Term(Fix.L10N_TIMING_INSTANT),
+      Term(Fix.L10N_INSTANT_GAUGE));
+    Register(Fix.L10N_DESC_INNER_INSPIRATION,
+      "味方一体を対象とする。対象の$0を回復する。",
+      "Targets one ally. Restores the target's $0.",
+      Term(Fix.L10N_SKILL_POINT));
   }
 
   /// <summary>
