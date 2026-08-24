@@ -3393,19 +3393,19 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "敵フィールドに対して【炎輪】のBUFFを付与する。\r\n【炎輪】が続く間、対象が通常攻撃を行うか、魔法を唱えるか、スキル行動を行うたびに、【炎】のダメージを与える。"; }
-    if (command_name == Fix.WATER_PRESENCE) { return "味方一体を対象とする。対象に【水脈】のBUFFを与える。\r\n【水脈】が続く間、魔法ダメージを受けた場合、そのダメージ量を軽減する。また、魔法を唱える際の消費コストが軽減される。"; }
-    if (command_name == Fix.VALKYRIE_BLADE) { return "味方一体を対象とする。対象に【聖剣】のBUFFを付与する。\r\n【聖剣】が続く間、物理攻撃を行った場合、加えて【聖】の魔法属性ダメージを与える。本効果によるダメージを受けた対象は【聖痕】のBUFFが付与される。【聖痕】が続く間、対象はライフ回復を受けた場合、ライフを回復することができない。"; }
-    if (command_name == Fix.THE_DARK_INTENSITY) { return "味方一体を対象とする。対象のライフを半分に減らし、【暗黒精神】のBUFFを付与する。\r\n【暗黒精神】が続く間、ダメージを受ける度に累積カウンターが乗る。累積カウンターの分だけ物理攻撃力、物理防御力が上昇する。累積カウンターは最大９つまで乗る。"; }
-    if (command_name == Fix.FUTURE_VISION) { return "自分自身を対象として【未来視】のBUFFを付与する。\r\n【未来視】が続く間、敵陣営のいずれかがインスタント行動を行った場合、それをカウンターする。その後、本BUFFは消失する。"; }
-    if (command_name == Fix.DETACHMENT_FAULT) { return "敵フィールドおよび味方フィールドに【無下】のフィールドを形成する。\r\n【無下】が続く間、単体およびフィールドに対してBUFFの追加／除去がされなくなる。ターン経過によるBUFF消滅は行われる。"; }
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return L10n.Get(Fix.L10N_DESC_CIRCLE_OF_THE_IGNITE); }
+    if (command_name == Fix.WATER_PRESENCE) { return L10n.Get(Fix.L10N_DESC_WATER_PRESENCE); }
+    if (command_name == Fix.VALKYRIE_BLADE) { return L10n.Get(Fix.L10N_DESC_VALKYRIE_BLADE); }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return L10n.Get(Fix.L10N_DESC_THE_DARK_INTENSITY); }
+    if (command_name == Fix.FUTURE_VISION) { return L10n.Get(Fix.L10N_DESC_FUTURE_VISION); }
+    if (command_name == Fix.DETACHMENT_FAULT) { return L10n.Get(Fix.L10N_DESC_DETACHMENT_FAULT); }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return "自分自身に【居合】のBUFFを付与する。\r\n【居合】が続く間、戦闘反応値が上昇する。相手から自分に対して物理ダメージを有するインスタント行動を行った場合、それをカウンターする。加えて、相手にクリティカルで物理ダメージを与える。その後、【居合】のBUFFは消失する。"; }
-    if (command_name == Fix.ONE_IMMUNITY) { return "自分自身を対象とし【唯一円】のBUFFを付与する。\r\n【唯一円】が続く間、自分自身へのダメージを全て軽減する。"; }
-    if (command_name == Fix.STANCE_OF_MUIN) { return "自分自身に【無音】のBUFFを付与し、累積カウンターを5つ載せる。\r\n【無音】が続く間、BUFFを付与するアクションコマンドを受けた場合、BUFFが付与されず即座に消失し、累積カウンターが１つ除去される。これは負のBUFFのみ適用される。累積カウンターが無くなれば、このBUFFは除去される。"; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return "自分自身に【超集中】のBUFFを付与する。\r\n【超集中】が続く間、ターン経過毎に攻撃対象へ【凝視】のBUFFを付与し、累積カウンターを１つ載せる。自分自身から攻撃対象者へダメージを与えた場合、【凝視】の累積カウンターの分だけ、被ダメージが上昇する。【凝視】は負のBUFFとみなされない。累積カウンターは最大９つまで累積する。"; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "味方フィールドに【信仰】のBUFFを付与する。\r\n【信仰】が続く間、最大マナ、最大スキルポイントが上昇する。上昇した分だけ、最大マナ、最大スキルポイントが回復する。ターン経過毎に、マナ、スキルポイントが回復する。"; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return "インスタント限定。敵一体が発動中のスタック・コマンドをカウンターする。"; }
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return L10n.Get(Fix.L10N_DESC_STANCE_OF_THE_IAI); }
+    if (command_name == Fix.ONE_IMMUNITY) { return L10n.Get(Fix.L10N_DESC_ONE_IMMUNITY); }
+    if (command_name == Fix.STANCE_OF_MUIN) { return L10n.Get(Fix.L10N_DESC_STANCE_OF_MUIN); }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return L10n.Get(Fix.L10N_DESC_ETERNAL_CONCENTRATION); }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return L10n.Get(Fix.L10N_DESC_SIGIL_OF_THE_FAITH); }
+    if (command_name == Fix.ZERO_IMMUNITY) { return L10n.Get(Fix.L10N_DESC_ZERO_IMMUNITY); }
     #endregion
 
     #region "Delve VII"

@@ -646,6 +646,24 @@ public static partial class Fix
   public const string BUFF_MIKIRI_JP = "見切り";
   public const string BUFF_PERSISTENCE = "Persistence";
   public const string BUFF_PERSISTENCE_JP = "常在";
+  // --- Delve VI ---
+  // 既に _JP 側のみ存在していたBUFFの英訳を補う。
+  public const string BUFF_FUTURE_VISION = "Future Vision";
+  public const string BUFF_DETACHMENT_FAULT = "Detachment";
+  public const string BUFF_STANCE_OF_THE_IAI = "Iai";
+  public const string BUFF_ONE_IMMUNITY = "One Immunity";
+  public const string BUFF_STANCE_OF_MUIN = "Muin";
+  public const string BUFF_ETERNAL_CONCENTRATION = "Hyperfocus";
+  public const string BUFF_SIGIL_OF_THE_FAITH = "Faith";
+  // BUFF_CIRCLE_IGNITE / BUFF_WATER_PRESENCE / BUFF_VALKYRIE_BLADE は
+  // AbstractAddBuff に渡すランタイム識別子で日本語値を持つ。BUFF_CLONE と同様、
+  // 日本語表記はそちらを唯一の定義とするため const 参照で共有する。
+  public const string BUFF_FLAME_RING = "Flame Ring";
+  public const string BUFF_FLAME_RING_JP = BUFF_CIRCLE_IGNITE;
+  public const string BUFF_WATER_VEIN = "Water Vein";
+  public const string BUFF_WATER_VEIN_JP = BUFF_WATER_PRESENCE;
+  public const string BUFF_HOLY_BLADE = "Holy Blade";
+  public const string BUFF_HOLY_BLADE_JP = BUFF_VALKYRIE_BLADE;
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1769,6 +1787,8 @@ public static partial class Fix
   // 両者が一致していることを Tools\check-l10n.ps1 が検査する。
   public const string L10N_MAX_LIFE = "lblMaxLife";
   // 各種ゲージ。説明文中で頻出するため対訳を一箇所に定義する。
+  public const string L10N_MAX_MANA = "lblMaxMana";
+  public const string L10N_MAX_SKILL_POINT = "lblMaxSkillPoint";
   public const string L10N_INSTANT_GAUGE = "lblInstantGauge";
   public const string L10N_ACTION_GAUGE = "lblActionGauge";
   public const string L10N_BATTLE_GAUGE = "lblBattleGauge";
@@ -1928,6 +1948,19 @@ public static partial class Fix
   public const string L10N_DESC_PRECISION_STRIKE = "descPrecisionStrike";
   public const string L10N_DESC_EVERFLOW_MIND = "descEverflowMind";
   public const string L10N_DESC_INNER_INSPIRATION = "descInnerInspiration";
+  // --- Delve VI ---
+  public const string L10N_DESC_CIRCLE_OF_THE_IGNITE = "descCircleOfTheIgnite";
+  public const string L10N_DESC_WATER_PRESENCE = "descWaterPresence";
+  public const string L10N_DESC_VALKYRIE_BLADE = "descValkyrieBlade";
+  public const string L10N_DESC_THE_DARK_INTENSITY = "descTheDarkIntensity";
+  public const string L10N_DESC_FUTURE_VISION = "descFutureVision";
+  public const string L10N_DESC_DETACHMENT_FAULT = "descDetachmentFault";
+  public const string L10N_DESC_STANCE_OF_THE_IAI = "descStanceOfTheIai";
+  public const string L10N_DESC_ONE_IMMUNITY = "descOneImmunity";
+  public const string L10N_DESC_STANCE_OF_MUIN = "descStanceOfMuin";
+  public const string L10N_DESC_ETERNAL_CONCENTRATION = "descEternalConcentration";
+  public const string L10N_DESC_SIGIL_OF_THE_FAITH = "descSigilOfTheFaith";
+  public const string L10N_DESC_ZERO_IMMUNITY = "descZeroImmunity";
   #endregion
 
   #endregion

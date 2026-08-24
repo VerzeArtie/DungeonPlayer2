@@ -265,6 +265,8 @@ public static class L10n
     Register(Fix.L10N_BASIC_SKILL_POINT, "スキル", "SP");
     Register(Fix.L10N_SKILL_POINT, "スキルポイント", "Skill Point");
     Register(Fix.L10N_MAX_LIFE, "最大ライフ", "Max Life");
+    Register(Fix.L10N_MAX_MANA, "最大マナ", "Max MP");
+    Register(Fix.L10N_MAX_SKILL_POINT, "最大スキルポイント", "Max Skill Point");
     Register(Fix.L10N_INSTANT_GAUGE, "インスタントゲージ", "Instant Gauge");
     Register(Fix.L10N_ACTION_GAUGE, "行動ゲージ", "Action Gauge");
     Register(Fix.L10N_BATTLE_GAUGE, "戦闘ゲージ", "Battle Gauge");
@@ -779,6 +781,86 @@ public static class L10n
       "味方一体を対象とする。対象の$0を回復する。",
       "Targets one ally. Restores the target's $0.",
       Term(Fix.L10N_SKILL_POINT));
+
+    // ActionCommand説明文 - Delve VI
+    //
+    // BUFF名の英訳について:
+    //   【聖痕】[Valkyrie Scar] 【暗黒精神】[Dark Spirit] 【凝視】[Focus Eye] は既存定数に準拠。
+    //   【未来視】[Future Vision] 【無下】[Detachment] 【唯一円】[One Immunity]
+    //   【超集中】[Hyperfocus] 【信仰】[Faith] 【炎輪】[Flame Ring] 【水脈】[Water Vein]
+    //   【聖剣】[Holy Blade] は既存の _JP 側のみ存在していたため英訳を補った。
+    //   【居合】[Iai] 【無音】[Muin] は英訳せずローマ字表記とする
+    //   (コマンド名 Stance of the Iai / Stance of Muin に準拠)。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_CIRCLE_OF_THE_IGNITE,
+      "敵フィールドに対して【$0】のBUFFを付与する。\r\n【$0】が続く間、対象が通常攻撃を行うか、魔法を唱えるか、スキル行動を行うたびに、【$1】のダメージを与える。",
+      "Applies [$0] to the enemy field.\r\nWhile [$0] lasts, each time a target makes a normal attack, casts a spell, or takes a skill action, it takes [$1] damage.",
+      (Fix.BUFF_FLAME_RING_JP, Fix.BUFF_FLAME_RING),
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_DESC_WATER_PRESENCE,
+      "味方一体を対象とする。対象に【$0】のBUFFを与える。\r\n【$0】が続く間、【$1】ダメージを受けた場合、そのダメージ量を軽減する。また、魔法を唱える際の消費コストが軽減される。",
+      "Targets one ally. Applies [$0] to the target.\r\nWhile [$0] lasts, [$1] damage taken is reduced. In addition, the cost of casting spells is reduced.",
+      (Fix.BUFF_WATER_VEIN_JP, Fix.BUFF_WATER_VEIN),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_VALKYRIE_BLADE,
+      "味方一体を対象とする。対象に【$0】のBUFFを付与する。\r\n【$0】が続く間、$3を行った場合、加えて【$1】の【$2】属性ダメージを与える。本効果によるダメージを受けた対象は【$4】のBUFFが付与される。【$4】が続く間、対象は$5回復を受けた場合、$5を回復することができない。",
+      "Targets one ally. Applies [$0] to the target.\r\nWhile [$0] lasts, making a $3 also deals [$1] attribute [$2] damage. A target damaged by this effect is given [$4]. While [$4] lasts, the target cannot restore $5 even when $5 recovery is applied.",
+      (Fix.BUFF_HOLY_BLADE_JP, Fix.BUFF_HOLY_BLADE),
+      (Fix.TERM_HOLY_JP, Fix.TERM_HOLY),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC),
+      Term(Fix.L10N_PHYSICAL_ATTACK),
+      (Fix.BUFF_VALKYRIE_SCAR_JP, Fix.BUFF_VALKYRIE_SCAR),
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_THE_DARK_INTENSITY,
+      "味方一体を対象とする。対象の$1を半分に減らし、【$0】のBUFFを付与する。\r\n【$0】が続く間、ダメージを受ける度に累積カウンターが乗る。累積カウンターの分だけ$2、$3が上昇する。累積カウンターは最大9つまで乗る。",
+      "Targets one ally. Halves the target's $1 and applies [$0].\r\nWhile [$0] lasts, a stack counter is added each time damage is taken. $2 and $3 increase according to the stack counter. The stack counter accumulates up to 9.",
+      (Fix.BUFF_DARK_INTENSITY_JP, Fix.BUFF_DARK_INTENSITY),
+      Term(Fix.L10N_BASIC_LIFE),
+      Term(Fix.L10N_PHYSICAL_ATTACK),
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_DESC_FUTURE_VISION,
+      "自分自身を対象として【$0】のBUFFを付与する。\r\n【$0】が続く間、敵陣営のいずれかが$1行動を行った場合、それをカウンターする。その後、本BUFFは消失する。",
+      "Targets self and applies [$0].\r\nWhile [$0] lasts, if any enemy takes an $1 action, that action is countered. This buff then disappears.",
+      (Fix.BUFF_FUTURE_VISION_JP, Fix.BUFF_FUTURE_VISION),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_DETACHMENT_FAULT,
+      "敵フィールドおよび味方フィールドに【$0】のフィールドを形成する。\r\n【$0】が続く間、単体およびフィールドに対してBUFFの追加／除去がされなくなる。ターン経過によるBUFF消滅は行われる。",
+      "Forms a [$0] field on both the enemy field and the ally field.\r\nWhile [$0] lasts, buffs can no longer be added to or removed from individuals or fields. Buffs still expire as turns pass.",
+      (Fix.BUFF_DETACHMENT_FAULT_JP, Fix.BUFF_DETACHMENT_FAULT));
+    // スキル
+    Register(Fix.L10N_DESC_STANCE_OF_THE_IAI,
+      "自分自身に【$0】のBUFFを付与する。\r\n【$0】が続く間、$1が上昇する。相手から自分に対して【$2】ダメージを有する$3行動を行った場合、それをカウンターする。加えて、相手にクリティカルで【$2】ダメージを与える。その後、【$0】のBUFFは消失する。",
+      "Applies [$0] to self.\r\nWhile [$0] lasts, $1 increases. If an opponent takes an $3 action that deals [$2] damage to you, that action is countered. In addition, you deal [$2] damage to that opponent as a critical hit. [$0] then disappears.",
+      (Fix.BUFF_STANCE_OF_THE_IAI_JP, Fix.BUFF_STANCE_OF_THE_IAI),
+      Term(Fix.L10N_BATTLE_RESPONSE),
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_ONE_IMMUNITY,
+      "自分自身を対象とし【$0】のBUFFを付与する。\r\n【$0】が続く間、自分自身へのダメージを全て軽減する。",
+      "Targets self and applies [$0].\r\nWhile [$0] lasts, all damage dealt to you is reduced.",
+      (Fix.BUFF_ONE_IMMUNITY_JP, Fix.BUFF_ONE_IMMUNITY));
+    Register(Fix.L10N_DESC_STANCE_OF_MUIN,
+      "自分自身に【$0】のBUFFを付与し、累積カウンターを5つ載せる。\r\n【$0】が続く間、BUFFを付与するアクションコマンドを受けた場合、BUFFが付与されず即座に消失し、累積カウンターが1つ除去される。これは負のBUFFのみ適用される。累積カウンターが無くなれば、このBUFFは除去される。",
+      "Applies [$0] to self with 5 stack counters.\r\nWhile [$0] lasts, an action command that would apply a buff to you instead fails and disappears immediately, and 1 stack counter is removed. This applies only to negative buffs. When no stack counters remain, [$0] is removed.",
+      (Fix.BUFF_STANCE_OF_MUIN_JP, Fix.BUFF_STANCE_OF_MUIN));
+    Register(Fix.L10N_DESC_ETERNAL_CONCENTRATION,
+      "自分自身に【$0】のBUFFを付与する。\r\n【$0】が続く間、ターン経過毎に攻撃対象へ【$1】のBUFFを付与し、累積カウンターを1つ載せる。自分自身から攻撃対象者へダメージを与えた場合、【$1】の累積カウンターの分だけ、被ダメージが上昇する。【$1】は負のBUFFとみなされない。累積カウンターは最大9つまで累積する。",
+      "Applies [$0] to self.\r\nWhile [$0] lasts, each turn applies [$1] to your attack target and adds 1 stack counter. When you deal damage to that target, the damage it takes increases according to the [$1] stack counter. [$1] is not treated as a negative buff. The stack counter accumulates up to 9.",
+      (Fix.BUFF_ETERNAL_CONCENTRATION_JP, Fix.BUFF_ETERNAL_CONCENTRATION),
+      (Fix.BUFF_FOCUS_EYE_JP, Fix.BUFF_FOCUS_EYE));
+    Register(Fix.L10N_DESC_SIGIL_OF_THE_FAITH,
+      "味方フィールドに【$0】のBUFFを付与する。\r\n【$0】が続く間、$1、$2が上昇する。上昇した分だけ、$1、$2が回復する。ターン経過毎に、$3、$4が回復する。",
+      "Applies [$0] to the ally field.\r\nWhile [$0] lasts, $1 and $2 increase, and $1 and $2 are restored by the amount they increased. $3 and $4 are also restored each turn.",
+      (Fix.BUFF_SIGIL_OF_THE_FAITH_JP, Fix.BUFF_SIGIL_OF_THE_FAITH),
+      Term(Fix.L10N_MAX_MANA),
+      Term(Fix.L10N_MAX_SKILL_POINT),
+      Term(Fix.L10N_BASIC_MANA_POINT),
+      Term(Fix.L10N_SKILL_POINT));
+    Register(Fix.L10N_DESC_ZERO_IMMUNITY,
+      "$0限定。敵一体が発動中のスタック・コマンドをカウンターする。",
+      "$0 only. Counters a stack command an enemy is activating.",
+      Term(Fix.L10N_TIMING_INSTANT));
   }
 
   /// <summary>
