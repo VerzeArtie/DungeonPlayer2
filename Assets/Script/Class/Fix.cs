@@ -604,6 +604,31 @@ public static partial class Fix
   public const string BUFF_ISSHIN_JP = "一心";
   public const string BUFF_VIGOR = "Vigor";
   public const string BUFF_VIGOR_JP = "活力";
+  // --- Delve IV ---
+  public const string BUFF_HELLFIRE = "Hellfire";
+  public const string BUFF_HELLFIRE_JP = "業炎";
+  public const string BUFF_CRYSTAL = "Crystal";
+  public const string BUFF_CRYSTAL_JP = "結晶";
+  public const string BUFF_PRAISE = "Praise";
+  public const string BUFF_PRAISE_JP = "賛美";
+  public const string BUFF_CURSE = "Curse";
+  public const string BUFF_CURSE_JP = "呪い";
+  // 分身。BUFF_CHAOTIC_SCHEMA は AbstractAddBuff に渡すランタイム識別子であり、
+  // 日本語表記はそちらを唯一の定義とするため const 参照で共有する。
+  public const string BUFF_CLONE = "Clone";
+  public const string BUFF_CLONE_JP = BUFF_CHAOTIC_SCHEMA;
+  public const string BUFF_OBORO = "Oboro";
+  public const string BUFF_OBORO_JP = "朧";
+  public const string BUFF_IRON_WALL = "Iron Wall";
+  public const string BUFF_IRON_WALL_JP = "鉄壁";
+  public const string BUFF_DESPERATION = "Desperation";
+  public const string BUFF_DESPERATION_JP = "決死";
+  public const string BUFF_SCAR = "Scar";
+  public const string BUFF_SCAR_JP = "傷跡";
+  public const string BUFF_AWAKENING = "Awakening";
+  public const string BUFF_AWAKENING_JP = "覚醒";
+  public const string BUFF_SERENITY = "Serenity";
+  public const string BUFF_SERENITY_JP = "静穏";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1792,6 +1817,28 @@ public static partial class Fix
   // rito wosm
   #endregion
 
+  #region "アクションコマンド 対象／タイミング"
+  // HelpBook・PartyMenu の対象／タイミング欄に表示するラベル。
+  // 対応する日本語は Fix.TARGET_TYPE_* / TIMING_TYPE_* に定義されているが、
+  // それらは内部判定用の値であり、表示は本キー経由の対訳を使う。
+  public const string L10N_TARGET_ENEMY = "lblTargetEnemy";
+  public const string L10N_TARGET_ALLY = "lblTargetAlly";
+  public const string L10N_TARGET_ENEMYGROUP = "lblTargetEnemyGroup";
+  public const string L10N_TARGET_ALLYGROUP = "lblTargetAllyGroup";
+  public const string L10N_TARGET_ENEMYFIELD = "lblTargetEnemyField";
+  public const string L10N_TARGET_ALLYFIELD = "lblTargetAllyField";
+  public const string L10N_TARGET_ALLMEMBER = "lblTargetAllMember";
+  public const string L10N_TARGET_ENEMYORALLY = "lblTargetEnemyOrAlly";
+  public const string L10N_TARGET_INSTANTTARGET = "lblTargetInstantTarget";
+  public const string L10N_TARGET_OWN = "lblTargetOwn";
+  public const string L10N_TARGET_NONE = "lblTargetNone";
+  public const string L10N_TIMING_INSTANT = "lblTimingInstant";
+  public const string L10N_TIMING_NORMAL = "lblTimingNormal";
+  public const string L10N_TIMING_SORCERY = "lblTimingSorcery";
+  // コスト単位が無いアクションコマンドの表示。
+  public const string L10N_UNIT_NONE = "lblUnitNone";
+  #endregion
+
   #region "アクションコマンド説明文"
   // ActionCommand.GetDescription が返す説明文のキー。
   // 実文は HomeTown.Localization.cs の Register で日英を登録する。
@@ -1834,6 +1881,19 @@ public static partial class Fix
   public const string L10N_DESC_EYE_OF_THE_ISSHIN = "descEyeOfTheIsshin";
   public const string L10N_DESC_VOICE_OF_VIGOR = "descVoiceOfVigor";
   public const string L10N_DESC_UNSEEN_AID = "descUnseenAid";
+  // --- Delve IV ---
+  public const string L10N_DESC_VOLCANIC_BLAZE = "descVolcanicBlaze";
+  public const string L10N_DESC_FREEZING_CUBE = "descFreezingCube";
+  public const string L10N_DESC_ANGELIC_ECHO = "descAngelicEcho";
+  public const string L10N_DESC_CURSED_EVANGILE = "descCursedEvangile";
+  public const string L10N_DESC_GALE_WIND = "descGaleWind";
+  public const string L10N_DESC_PHANTOM_OBORO = "descPhantomOboro";
+  public const string L10N_DESC_IRON_BUSTER = "descIronBuster";
+  public const string L10N_DESC_DOMINATION_FIELD = "descDominationField";
+  public const string L10N_DESC_DEADLY_DRIVE = "descDeadlyDrive";
+  public const string L10N_DESC_PENETRATION_ARROW = "descPenetrationArrow";
+  public const string L10N_DESC_WILL_AWAKENING = "descWillAwakening";
+  public const string L10N_DESC_CIRCLE_OF_SERENITY = "descCircleOfSerenity";
   #endregion
 
   #endregion

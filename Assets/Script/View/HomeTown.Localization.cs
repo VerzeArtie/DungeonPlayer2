@@ -333,6 +333,53 @@ public static class L10n
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガイゼン城 第三階層", "Edelgarzen Castle (3F)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガイゼン城 最上階", "Edelgarzen Castle (TOP)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CENTER, "エデルガイゼン城 正面ゲート", "Edelgarzen Castle (CENTER)");
+
+    // アクションコマンド 対象／タイミング
+    // 日本語は Fix.TARGET_TYPE_* / TIMING_TYPE_* と同一。あちらは内部判定用の値であり、
+    // 表示はここの対訳を使う(以前は LocalizeGeneratedText の語句置換に頼っていた)。
+    Register(Fix.L10N_TARGET_ENEMY, "敵単体", "Single Enemy");
+    Register(Fix.L10N_TARGET_ALLY, "味方単体", "Single Ally");
+    Register(Fix.L10N_TARGET_ENEMYGROUP, "敵全体", "All Enemies");
+    Register(Fix.L10N_TARGET_ALLYGROUP, "味方全体", "All Allies");
+    Register(Fix.L10N_TARGET_ENEMYFIELD, "敵フィールド", "Enemy Field");
+    Register(Fix.L10N_TARGET_ALLYFIELD, "味方フィールド", "Ally Field");
+    Register(Fix.L10N_TARGET_ALLMEMBER, "敵味方全体", "All Allies and Enemies");
+    Register(Fix.L10N_TARGET_ENEMYORALLY, "敵単体 / 味方単体", "Single Enemy / Single Ally");
+    Register(Fix.L10N_TARGET_INSTANTTARGET, "インスタント対象", "Instant Target");
+    Register(Fix.L10N_TARGET_OWN, "自分自身", "Self");
+    Register(Fix.L10N_TARGET_NONE, "なし", "None");
+    Register(Fix.L10N_TIMING_INSTANT, "インスタント", "Instant");
+    Register(Fix.L10N_TIMING_NORMAL, "ノーマル", "Normal");
+    Register(Fix.L10N_TIMING_SORCERY, "ソーサリー", "Sorcery");
+    Register(Fix.L10N_UNIT_NONE, "(なし)", "(None)");
+
+    // ---------------------------------------------------------------
+    // ActionCommand説明文の記述規約
+    //
+    // 数字の全角／半角:
+    //   説明文(GetDescription)の散文では半角数字を使う。英文側が必然的に半角であるため、
+    //   同一概念の表記を言語間で揃える。移行前の原文が全角の場合はここで半角に直す。
+    //   ただし GetDescReinforce の強化値(「ライフ回復量 ＋１０」など)は
+    //   ＋ と数字を全角で揃える書式が確立しているため、そちらは全角のまま維持する。
+    //
+    // 属性ダメージ:
+    //   【物理】ダメージ のように必ず括弧付きで書く。括弧が用語であることの標識になる。
+    //
+    // 文の区切り:
+    //   ダメージ付与とBUFF付与は文を分ける。「ダメージを与え、BUFFを付与する」と繋ぐと
+    //   BUFFの付与先が省略され、「敵にダメージ / 自分にBUFF」型の説明文と書式が揃わない。
+    //
+    // 訳語の決定事項:
+    //   「連続」    -> consecutively ("N times consecutively")。
+    //                 in a row は口語であり、本作は隊列(Formation)の概念を持つため
+    //                 row が「隊列の列」と読まれる余地がある。使用しない。
+    //   「敵味方全体」-> All Allies and Enemies。combatant は軍事的レジスターのため使用しない。
+    //   「無属性」  -> Colorless (Fix.TERM_COLORLESS)。
+    //                 Non-Elemental は聖/闇/理を含む本作の属性体系と合わないため使用しない。
+    //
+    // 以上は Tools\check-l10n.ps1 が検査する。
+    // ---------------------------------------------------------------
+
     // ActionCommand説明文 - Delve I
     //
     // BUFF名の英訳について:
@@ -544,6 +591,98 @@ public static class L10n
       "Targets all allies and enemies. Removes every [$0] and [$1] buff from them.",
       (Fix.TERM_HARMFUL_JP, Fix.TERM_HARMFUL),
       (Fix.TERM_BENEFICIAL_JP, Fix.TERM_BENEFICIAL));
+
+    // ActionCommand説明文 - Delve IV
+    //
+    // BUFF名の英訳について:
+    //   【束縛】【出血】【沈黙】【睡眠】【スタン】【麻痺】【恐怖】【誘惑】【鈍化】【眩暈】は
+    //   Fix.EFFECT_* に、【防御】は Fix.DEFENSE に準拠。
+    //   【業炎】[Hellfire] 【結晶】[Crystal] 【賛美】[Praise] 【呪い】[Curse] 【分身】[Clone]
+    //   【鉄壁】[Iron Wall] 【決死】[Desperation] 【傷跡】[Scar] 【覚醒】[Awakening]
+    //   【静穏】[Serenity] は既存の英訳定数が無いため新規に命名した。
+    //   【朧】[Oboro] は英訳せずローマ字表記とする(コマンド名 Phantom Oboro に準拠)。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_VOLCANIC_BLAZE,
+      "敵全体に対して【$0】ダメージを与える。加えて、敵フィールドに、【$1】のフィールドを形成する。\r\n【$1】が続く間、敵全体に対して毎ターン【$0】ダメージを与える。加えて【$0】属性の【$2】ダメージを食らう場合、20%増加された形でダメージを食らう。",
+      "Deals [$0] damage to all enemies. In addition, forms a [$1] field on the enemy field.\r\nWhile [$1] lasts, all enemies take [$0] damage each turn. In addition, [$0] attribute [$2] damage they take is increased by 20%.",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE),
+      (Fix.BUFF_HELLFIRE_JP, Fix.BUFF_HELLFIRE),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_FREEZING_CUBE,
+      "敵一体に対して【$0】ダメージを与える。加えて、敵フィールドに、【$1】のフィールドを形成する。\r\n【$1】が続く間、敵全体に対して毎ターン【$0】ダメージを与える。加えて【$0】属性の【$2】ダメージを食らう場合、20%増加された形でダメージを食らう。",
+      "Deals [$0] damage to one enemy. In addition, forms a [$1] field on the enemy field.\r\nWhile [$1] lasts, all enemies take [$0] damage each turn. In addition, [$0] attribute [$2] damage they take is increased by 20%.",
+      (Fix.TERM_ICE_JP, Fix.TERM_ICE),
+      (Fix.BUFF_CRYSTAL_JP, Fix.BUFF_CRYSTAL),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_ANGELIC_ECHO,
+      "味方全員の$1を回復し、味方フィールドに【$0】のフィールドを形成する。【$0】が続く間、味方全体はターン経過毎に$1を回復し、負のBUFFを除去する。【$0】は味方全体のうちいずれかに負のBUFFが残っている場合はBUFFカウントが減少せず継続される。いずれにも負のBUFFが残ってない場合はBUFFカウントが減少する。",
+      "Restores $1 for all allies and forms a [$0] field on the ally field. While [$0] lasts, all allies restore $1 each turn and have their negative buffs removed. While any ally still has a negative buff, the [$0] buff count does not decrease and it continues. Once none remain, the buff count decreases.",
+      (Fix.BUFF_PRAISE_JP, Fix.BUFF_PRAISE),
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_CURSED_EVANGILE,
+      "敵一体に対して【$0】ダメージを与える。加えて、【$1】を付与する。【$1】が続く間、ターンが経過するごとに【$2】【$3】【$4】のいずれかが付与される。【$2】【$3】【$4】が全て付与されている場合は、対象者に【$0】ダメージを与える。",
+      "Deals [$0] damage to one enemy. In addition, applies [$1]. While [$1] lasts, one of [$2], [$3] or [$4] is applied each turn. If [$2], [$3] and [$4] are all applied, the target takes [$0] damage.",
+      (Fix.TERM_DARK_JP, Fix.TERM_DARK),
+      (Fix.BUFF_CURSE_JP, Fix.BUFF_CURSE),
+      (Fix.EFFECT_BIND_JP, Fix.EFFECT_BIND),
+      (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP),
+      (Fix.EFFECT_SILENT_JP, Fix.EFFECT_SILENT));
+    Register(Fix.L10N_DESC_GALE_WIND,
+      "自分自身を対象とする。対象に【$0】のBUFFを付与する。\r\n【$0】の効果が続く間、コマンドを発動する際、連続で2回同じ行動を行う。",
+      "Targets self. Applies [$0] to the target.\r\nWhile [$0] lasts, activating a command performs the same action 2 times consecutively.",
+      (Fix.BUFF_CLONE_JP, Fix.BUFF_CLONE));
+    Register(Fix.L10N_DESC_PHANTOM_OBORO,
+      "自分自身に【$0】のBUFFを付与する。【$0】のBUFFがある間に、$1アクションからダメージを有する攻撃を受けた場合、そのダメージは0と見なされる。これはダメージ軽減の適用外である。",
+      "Applies [$0] to self. While [$0] is active, damage taken from an $1 action is treated as 0. This is not subject to damage reduction.",
+      (Fix.BUFF_OBORO_JP, Fix.BUFF_OBORO),
+      Term(Fix.L10N_TIMING_INSTANT));
+    // スキル
+    Register(Fix.L10N_DESC_IRON_BUSTER,
+      "このコマンドはカウンターされない。敵一体を対象とする。対象に【$0】ダメージを与える。加えて、周囲敵全体（対象となった敵以外）に対して【$0】ダメージを与える。",
+      "This command cannot be countered. Targets one enemy. Deals [$0] damage to the target. In addition, deals [$0] damage to all surrounding enemies (other than the target).",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_DOMINATION_FIELD,
+      "味方フィールドに【$0】のBUFFを形成する。【$0】が続く間、$1および$2が10%上昇する。また、各味方が【$3】姿勢を行っている場合のダメージ軽減率が20%上昇する。",
+      "Forms [$0] on the ally field. While [$0] lasts, $1 and $2 increase by 10%. In addition, damage reduction while an ally is in a [$3] stance increases by 20%.",
+      (Fix.BUFF_IRON_WALL_JP, Fix.BUFF_IRON_WALL),
+      Term(Fix.L10N_PHYSICAL_DEFENSE),
+      Term(Fix.L10N_MAGIC_DEFENSE),
+      (Fix.DEFENSE_JP, Fix.DEFENSE));
+    Register(Fix.L10N_DESC_DEADLY_DRIVE,
+      "自分自身に【$0】のBUFFを付与する。【$0】が続く間、致死ダメージ（$1が0になる攻撃ダメージ）を受けた場合、$1が1で生き残る。この効果は$1が1以下の時は適用されない。また、$1が$2の30%以下であれば、$3が5%上昇、20%以下であれば10%上昇、10%以下であれば15%上昇する。",
+      "Applies [$0] to self. While [$0] lasts, when you would take lethal damage (an attack that reduces $1 to 0), you survive with $1 at 1. This effect does not apply while $1 is 1 or less. In addition, while $1 is 30% or less of $2, $3 increases by 5%; at 20% or less, by 10%; at 10% or less, by 15%.",
+      (Fix.BUFF_DESPERATION_JP, Fix.BUFF_DESPERATION),
+      Term(Fix.L10N_BASIC_LIFE),
+      Term(Fix.L10N_MAX_LIFE),
+      Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_DESC_PENETRATION_ARROW,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。対象が【$1】を行っていても、あたかも【$1】していないかのようにダメージを与える。このダメージは相手の$2に影響しない。加えて対象に【$3】のBUFFを付与する。【$3】が続く間、対象の$2が減少する。また、対象が行動する度に【$4】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage to the target. Damage is dealt as though the target were not using [$1], even while it is. This damage is not affected by the target's $2. In addition, applies [$3] to the target. While [$3] lasts, the target's $2 is reduced. It also deals [$4] damage each time the target acts.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.DEFENSE_JP, Fix.DEFENSE),
+      Term(Fix.L10N_PHYSICAL_DEFENSE),
+      (Fix.BUFF_SCAR_JP, Fix.BUFF_SCAR),
+      (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP));
+    Register(Fix.L10N_DESC_WILL_AWAKENING,
+      "このコマンドはカウンターされない。\r\n味方一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、$1タイミングのコマンドを$2タイミングで使用可能となる。また、発動コマンドがカウンターされなくなる。",
+      "This command cannot be countered.\r\nTargets one ally. Applies [$0] to the target. While [$0] lasts, $1 timing commands can be used at $2 timing. In addition, the commands you activate can no longer be countered.",
+      (Fix.BUFF_AWAKENING_JP, Fix.BUFF_AWAKENING),
+      Term(Fix.L10N_TIMING_NORMAL),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_CIRCLE_OF_SERENITY,
+      "このコマンドは【$2】【$4】状態であっても発動する。この行動は即座に発揮され、打ち消されない。\r\n味方全体に対して【$1】【$2】【$3】【$4】【$5】【$6】【$7】【$8】【$9】のBUFFを解除し、味方フィールドに【$0】のフィールドを形成する。【$0】が続く間、【$1】【$2】【$3】【$4】【$5】【$6】【$7】【$8】【$9】のBUFFは付与されない。",
+      "This command activates even while affected by [$2] or [$4]. It takes effect immediately and cannot be negated.\r\nRemoves [$1], [$2], [$3], [$4], [$5], [$6], [$7], [$8] and [$9] from all allies, and forms a [$0] field on the ally field. While [$0] lasts, [$1], [$2], [$3], [$4], [$5], [$6], [$7], [$8] and [$9] cannot be applied.",
+      (Fix.BUFF_SERENITY_JP, Fix.BUFF_SERENITY),
+      (Fix.EFFECT_SILENT_JP, Fix.EFFECT_SILENT),
+      (Fix.EFFECT_BIND_JP, Fix.EFFECT_BIND),
+      (Fix.EFFECT_SLEEP_JP, Fix.EFFECT_SLEEP),
+      (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN),
+      (Fix.EFFECT_PARALYZE_JP, Fix.EFFECT_PARALYZE),
+      (Fix.EFFECT_FEAR_JP, Fix.EFFECT_FEAR),
+      (Fix.EFFECT_TEMPTATION_JP, Fix.EFFECT_TEMPTATION),
+      (Fix.EFFECT_SLOW_JP, Fix.EFFECT_SLOW),
+      (Fix.EFFECT_DIZZY_JP, Fix.EFFECT_DIZZY));
   }
 
   /// <summary>
@@ -667,32 +806,21 @@ public static class L10n
 
     string[][] replacements = new string[][]
     {
-      new string[] { "敵一体、または味方一体を対象とする。", "Targets one enemy or one ally. " },
-      new string[] { "敵味方全員を対象とする。", "Targets all allies and enemies. " },
-      new string[] { "敵グループを対象とする。", "Targets an enemy group. " },
       new string[] { "敵一体を対象とする。", "Targets one enemy. " },
       new string[] { "味方一体を対象とする。", "Targets one ally. " },
       new string[] { "自分自身を対象とする。", "Targets self. " },
       new string[] { "自分自身を対象として", "Targets self and " },
       new string[] { "敵全体に対して", "Deals damage to all enemies and " },
       new string[] { "敵全体に", "To all enemies " },
-      new string[] { "味方全員に", "To all allies " },
       new string[] { "味方全員の", "All allies' " },
-      new string[] { "敵全員に", "To all enemies " },
-      new string[] { "敵単体 / 味方単体", "Single Enemy / Single Ally" },
-      new string[] { "敵味方全体", "All Allies and Enemies" },
       new string[] { "敵フィールド", "Enemy Field" },
       new string[] { "味方フィールド", "Ally Field" },
       new string[] { "敵全体", "All Enemies" },
       new string[] { "味方全体", "All Allies" },
-      new string[] { "敵単体", "Single Enemy" },
-      new string[] { "味方単体", "Single Ally" },
-      new string[] { "インスタント対象", "Instant Target" },
       new string[] { "自分自身", "Self" },
       new string[] { "インスタント", "Instant" },
       new string[] { "ノーマル", "Normal" },
       new string[] { "ソーサリー", "Sorcery" },
-      new string[] { "(なし)", "(None)" },
       new string[] { "なし", "None" },
       new string[] { "威力 ", "Power " },
       new string[] { "追加【炎】の威力 ", "Extra [Fire] Power " },

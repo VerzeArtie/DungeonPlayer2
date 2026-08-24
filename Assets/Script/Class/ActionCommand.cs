@@ -396,7 +396,7 @@ public static class ActionCommand
     Attribute current = GetAttribute(command_name);
     if (current == Attribute.Basic)
     {
-      return L10n.LocalizeGeneratedText("(なし)");
+      return L10n.Get(Fix.L10N_UNIT_NONE);
     }
     else if (current == Attribute.Magic)
     {
@@ -408,21 +408,21 @@ public static class ActionCommand
     }
     else if (current == Attribute.Archetype)
     {
-      return L10n.LocalizeGeneratedText("(なし)");
+      return L10n.Get(Fix.L10N_UNIT_NONE);
     }
     else if (current == Attribute.MonsterAction)
     {
-      return L10n.LocalizeGeneratedText("(なし)");
+      return L10n.Get(Fix.L10N_UNIT_NONE);
     }
     else if (current == Attribute.Other)
     {
-      return L10n.LocalizeGeneratedText("(なし)");
+      return L10n.Get(Fix.L10N_UNIT_NONE);
     }
     else if (current == Attribute.None)
     {
-      return L10n.LocalizeGeneratedText("(なし)");
+      return L10n.Get(Fix.L10N_UNIT_NONE);
     }
-    return L10n.LocalizeGeneratedText("(なし)"); // デフォルトは(なし)とする。
+    return L10n.Get(Fix.L10N_UNIT_NONE); // デフォルトは(なし)とする。
   }
 
   public static Attribute GetAttribute(string command_name)
@@ -3359,19 +3359,19 @@ public static class ActionCommand
 
     #region "Delve IV"
     // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return "敵全体に対して【炎】ダメージを与える。加えて、敵フィールドに、【業炎】のフィールドを形成する。\r\n【業炎】が続く間、敵全体に対して毎ターン【炎】ダメージを与える。加えて炎属性の魔法ダメージを食らう場合、２０％増加された形でダメージを食らう。"; }
-    if (command_name == Fix.FREEZING_CUBE) { return "敵一体に対して【氷】ダメージを与える。加えて、敵フィールドに、【結晶】のフィールドを形成する。\r\n【結晶】が続く間、敵全体に対して毎ターン【氷】ダメージを与える。加えて氷属性の魔法ダメージを食らう場合、２０％増加された形でダメージを食らう。"; }
-    if (command_name == Fix.ANGELIC_ECHO) { return "味方全員のライフを回復し、味方フィールドに【賛美】のフィールドを形成する。【賛美】が続く間、味方全体はターン経過毎にライフを回復し、負のBUFFを除去する。【賛美】は味方全体のうちいずれかに負のBUFFが残っている場合はBUFFカウントが減少せず継続される。いずれにも負のBUFFが残ってない場合はBUFFカウントが減少する。"; }
-    if (command_name == Fix.CURSED_EVANGILE) { return "敵一体に対して【闇】ダメージを与える。加えて、【呪い】を付与する。【呪い】が続く間、ターンが経過するごとに【束縛】【出血】【沈黙】のいずれかが付与される。【束縛】【出血】【沈黙】が全て付与されている場合は、対象者に【闇】ダメージを与える。"; }
-    if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
-    if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
+    if (command_name == Fix.VOLCANIC_BLAZE) { return L10n.Get(Fix.L10N_DESC_VOLCANIC_BLAZE); }
+    if (command_name == Fix.FREEZING_CUBE) { return L10n.Get(Fix.L10N_DESC_FREEZING_CUBE); }
+    if (command_name == Fix.ANGELIC_ECHO) { return L10n.Get(Fix.L10N_DESC_ANGELIC_ECHO); }
+    if (command_name == Fix.CURSED_EVANGILE) { return L10n.Get(Fix.L10N_DESC_CURSED_EVANGILE); }
+    if (command_name == Fix.GALE_WIND) { return L10n.Get(Fix.L10N_DESC_GALE_WIND); }
+    if (command_name == Fix.PHANTOM_OBORO) { return L10n.Get(Fix.L10N_DESC_PHANTOM_OBORO); }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "このコマンドはカウンターされない。敵一体を対象とする。対象に【物理】ダメージを与える。加えて、周囲敵全体（対象となった敵以外）に対して【物理】ダメージを与える。"; }
-    if (command_name == Fix.DOMINATION_FIELD) { return "味方フィールドに【鉄壁】のBUFFを形成する。【鉄壁】が続く間、物理防御力および魔法防御力が１０％上昇する。また、各味方が【防御】姿勢を行っている場合のダメージ軽減率が20%上昇する。"; }
-    if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１以下の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
-    if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
-    if (command_name == Fix.WILL_AWAKENING) { return "このコマンドはカウンターされない。\r\n味方一体を対象とする。対象に【覚醒】のBUFFを付与する。【覚醒】が続く間、NormalタイミングのコマンドをInstantタイミングで使用可能となる。また、発動コマンドがカウンターされなくなる。"; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "このコマンドは【束縛】【スタン】状態であっても発動する。この行動は即座に発揮され、打ち消されない。\r\n味方全体に対して【沈黙】【束縛】【睡眠】【スタン】【麻痺】【恐怖】【誘惑】【鈍化】【眩暈】のBUFFを解除し、味方フィールドに【静穏】のフィールドを形成する。【静穏】が続く間、【沈黙】【束縛】【睡眠】【スタン】【麻痺】【恐怖】【誘惑】【鈍化】【眩暈】のBUFFは付与されない。"; }
+    if (command_name == Fix.IRON_BUSTER) { return L10n.Get(Fix.L10N_DESC_IRON_BUSTER); }
+    if (command_name == Fix.DOMINATION_FIELD) { return L10n.Get(Fix.L10N_DESC_DOMINATION_FIELD); }
+    if (command_name == Fix.DEADLY_DRIVE) { return L10n.Get(Fix.L10N_DESC_DEADLY_DRIVE); }
+    if (command_name == Fix.PENETRATION_ARROW) { return L10n.Get(Fix.L10N_DESC_PENETRATION_ARROW); }
+    if (command_name == Fix.WILL_AWAKENING) { return L10n.Get(Fix.L10N_DESC_WILL_AWAKENING); }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return L10n.Get(Fix.L10N_DESC_CIRCLE_OF_SERENITY); }
     #endregion
 
     #region "Delve V"
