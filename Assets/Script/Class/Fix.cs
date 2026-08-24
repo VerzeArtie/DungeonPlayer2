@@ -673,6 +673,17 @@ public static partial class Fix
   // BUFF_TRANSCENDENCE_REACHED はランタイム識別子で日本語値を持つため const 参照で共有する。
   public const string BUFF_TRANSCENDENCE = "Transcendence";
   public const string BUFF_TRANSCENDENCE_JP = BUFF_TRANSCENDENCE_REACHED;
+  // --- Archetype ---
+  // ARCHETYPE_*_1 は AbstractAddBuff に渡すランタイム識別子で日本語値を持つ。
+  // 日本語表記はそちらを唯一の定義とするため const 参照で共有する。
+  public const string BUFF_CONCENTRATION_SEVERANCE = "Concentration and Severance";
+  public const string BUFF_CONCENTRATION_SEVERANCE_JP = ARCHETYPE_EIN_1;
+  public const string BUFF_PERFECT_INCANTATION = "Perfect Incantation";
+  public const string BUFF_PERFECT_INCANTATION_JP = ARCHETYPE_LANA_1;
+  public const string BUFF_VICTORY_IS_MINE = "Victory Is Mine!";
+  public const string BUFF_VICTORY_IS_MINE_JP = ARCHETYPE_BILLY_1;
+  public const string BUFF_ETERNAL_MEMORY = "Eternal Memory";
+  public const string BUFF_ETERNAL_MEMORY_JP = ARCHETYPE_ADEL_1;
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1983,6 +1994,11 @@ public static partial class Fix
   public const string L10N_DESC_PIERCING_ARROW = "descPiercingArrow";
   public const string L10N_DESC_STANCE_OF_THE_KOKOROE = "descStanceOfTheKokoroe";
   public const string L10N_DESC_TRANSCENDENCE_REACHED = "descTranscendenceReached";
+  // --- Archetype ---
+  public const string L10N_DESC_ARCHETYPE_EIN_1 = "descArchetypeEin1";
+  public const string L10N_DESC_ARCHETYPE_LANA_1 = "descArchetypeLana1";
+  public const string L10N_DESC_ARCHETYPE_BILLY_1 = "descArchetypeBilly1";
+  public const string L10N_DESC_ARCHETYPE_ADEL_1 = "descArchetypeAdel1";
   #endregion
 
   #endregion

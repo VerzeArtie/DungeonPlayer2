@@ -941,6 +941,50 @@ public static class L10n
       "このコマンドはカウンターされない。味方一体を対象とする。対象の負のBUFFを全て除去し、【$0】のBUFFを付与する。【$0】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。対象のスタック・コマンドに対してカウンターする効果が発動した場合、そのカウンターを無効化する。この効果は即時に適用される。",
       "This command cannot be countered. Targets one ally. Removes all negative buffs from the target and applies [$0]. While [$0] lasts, negative buffs cannot be applied and positive buffs cannot be removed. If an effect that would counter the target's stack command activates, that counter is nullified. This effect applies immediately.",
       (Fix.BUFF_TRANSCENDENCE_JP, Fix.BUFF_TRANSCENDENCE));
+
+    // ActionCommand説明文 - Archetype (元核)
+    //
+    // BUFF名の英訳について:
+    //   【集中と断絶】[Concentration and Severance] 【完全なる詠唱】[Perfect Incantation]
+    //   【勝利を我が手に！】[Victory Is Mine!] 【悠久なる記憶】[Eternal Memory] を新規に命名した。
+    //   いずれもキャラクター固有の元核コマンド名と同一であり、
+    //   日本語表記は ARCHETYPE_*_1(ランタイム識別子)を唯一の定義として共有する。
+    //
+    //   Xは倍率を示す変数で、日本語・英語とも X のまま据え置く。
+    Register(Fix.L10N_DESC_ARCHETYPE_EIN_1,
+      "自分自身に【$0】のBUFFを付与する。本BUFFが付与された状態で、次にダメージを伴う行動を行った場合、そのダメージ量をX倍したうえで、クリティカルとしてダメージを与える。その時の行動はカウンターされない。その時のダメージは軽減対象とならない。Xは【$1】パラメタに依存する。行動完了後、本BUFFは消滅する。",
+      "Applies [$0] to self. While this buff is applied, the next action that deals damage multiplies its damage by X and deals it as a critical hit. That action cannot be countered, and that damage is not subject to reduction. X depends on the [$1] parameter. This buff disappears once the action completes.",
+      (Fix.BUFF_CONCENTRATION_SEVERANCE_JP, Fix.BUFF_CONCENTRATION_SEVERANCE),
+      Term(Fix.L10N_POTENTIAL));
+    Register(Fix.L10N_DESC_ARCHETYPE_LANA_1,
+      "自分自身に【$0】のBUFFを付与する。本BUFFが付与された状態で、次にBUFF付与を伴う【$2】属性のコマンドを行った場合、そのBUFF付与がターン経過の制限がある場合、その値をX倍持続可能とする。そのBUFF付与が威力を示す値が含まれている場合、その値をX倍増幅した状態でBUFFが付与される。その時の魔法はカウンターされない。Xは【$1】パラメタに依存する。行動完了後、本BUFFは消滅する。",
+      "Applies [$0] to self. While this buff is applied, when you next use a [$2] attribute command that grants a buff: if that buff has a turn limit, its duration lasts X times longer; if that buff carries a power value, the buff is granted with that value amplified X times. That spell cannot be countered. X depends on the [$1] parameter. This buff disappears once the action completes.",
+      (Fix.BUFF_PERFECT_INCANTATION_JP, Fix.BUFF_PERFECT_INCANTATION),
+      Term(Fix.L10N_POTENTIAL),
+      (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_DESC_ARCHETYPE_BILLY_1,
+      "自分自身に【$0】のBUFFを累積Xの状態で付与する。致死ダメージ（$2が0になる攻撃ダメージ）を受けた場合、累積Xを1つ消費して$2が1で生き残る。この効果は$2が1以下の時は適用されない。魔法を実行する時、$3消費コストが残り$3より大きい場合、累積Xを1つ消費して実行する。この効果は残り$3が1以下の時は適用されない。スキルを実行する時、$4消費コストが残り$4より大きい場合、累積Xを1つ消費して実行する。この効果は残り$4が1以下の時は適用されない。Xは【$1】パラメタに依存する。",
+      "Applies [$0] to self with X stacks. When you would take lethal damage (an attack that reduces $2 to 0), 1 stack of X is consumed and you survive with $2 at 1. This effect does not apply while $2 is 1 or less. When casting a spell whose $3 cost exceeds your remaining $3, 1 stack of X is consumed and the spell is cast anyway. This effect does not apply while remaining $3 is 1 or less. When using a skill whose $4 cost exceeds your remaining $4, 1 stack of X is consumed and the skill is used anyway. This effect does not apply while remaining $4 is 1 or less. X depends on the [$1] parameter.",
+      (Fix.BUFF_VICTORY_IS_MINE_JP, Fix.BUFF_VICTORY_IS_MINE),
+      Term(Fix.L10N_POTENTIAL),
+      Term(Fix.L10N_BASIC_LIFE),
+      Term(Fix.L10N_BASIC_MANA_POINT),
+      Term(Fix.L10N_BASIC_SKILL_POINT));
+    Register(Fix.L10N_DESC_ARCHETYPE_ADEL_1,
+      "自分自身に【$0】のBUFFを累積Xの状態で付与する。ターン終了時、累積Xを1つ消費して以下のいずれかのBUFFを付与する。【$2】【$3】【$4】【$5】【$6】上記全てが既に付与されている場合、以下のいずれかが発動する。※ターゲットは味方一体の場合は自分自身、敵一体の場合は先頭が対象となる。【$7】【$8】【$9】【$10】【$11】Xは【$1】パラメタに依存する。",
+      "Applies [$0] to self with X stacks. At the end of each turn, 1 stack of X is consumed to grant one of the following buffs: [$2] [$3] [$4] [$5] [$6] If all of the above are already granted, one of the following activates instead. (Targets: for a single ally, yourself; for a single enemy, the front-most one.) [$7] [$8] [$9] [$10] [$11] X depends on the [$1] parameter.",
+      (Fix.BUFF_ETERNAL_MEMORY_JP, Fix.BUFF_ETERNAL_MEMORY),
+      Term(Fix.L10N_POTENTIAL),
+      (Fix.TRUE_SIGHT_JP, Fix.TRUE_SIGHT),
+      (Fix.SPIRITUAL_REST_JP, Fix.SPIRITUAL_REST),
+      (Fix.BLACK_CONTRACT_JP, Fix.BLACK_CONTRACT),
+      (Fix.GALE_WIND_JP, Fix.GALE_WIND),
+      (Fix.EVERFLOW_MIND_JP, Fix.EVERFLOW_MIND),
+      (Fix.ORACLE_COMMAND_JP, Fix.ORACLE_COMMAND),
+      (Fix.FORTUNE_SPIRIT_JP, Fix.FORTUNE_SPIRIT),
+      (Fix.WORD_OF_POWER_JP, Fix.WORD_OF_POWER),
+      (Fix.PHANTOM_OBORO_JP, Fix.PHANTOM_OBORO),
+      (Fix.FLAME_STRIKE_JP, Fix.FLAME_STRIKE));
   }
 
   /// <summary>

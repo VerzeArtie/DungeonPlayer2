@@ -3537,10 +3537,10 @@ public static class ActionCommand
     #endregion
 
     #region "Archetype"
-    if (command_name == Fix.ARCHETYPE_EIN_1) { return "自分自身【集中と断絶】のBUFFを付与する。本BUFFが付与された状態で、次にダメージを伴う行動を行った場合、そのダメージ量をX倍したうえで、クリティカルとしてダメージを与える。その時の行動はカウンターされない。その時のダメージは軽減対象とならない。Xは【潜在能力】パラメタに依存する。行動完了後、本BUFFは消滅する。"; }
-    if (command_name == Fix.ARCHETYPE_LANA_1) { return "自分自身に【完全なる詠唱】のBUFFを付与する。本BUFFが付与された状態で、次にBUFF付与を伴う魔法属性のコマンドを行った場合、そのBUFF付与がターン経過の制限がある場合、その値をX倍持続可能とする。そのBUFF付与が威力を示す値が含まれている場合、その値をX倍増幅した状態でBUFFが付与される。その時の魔法はカウンターされない。Xは【潜在能力】パラメタに依存する。行動完了後、本BUFFは消滅する。"; }
-    if (command_name == Fix.ARCHETYPE_BILLY_1) { return "自分自身に【勝利を我が手に！】のBUFFを累積Ｘの状態で付与する。致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、累積Ｘを１つ消費してライフ１で生き残る。この効果はライフ１以下の時は適用されない。魔法を実行する時、マナ消費コストが残りマナより大きい場合、累積Ｘを１つ消費して実行する。この効果は残りマナが１以下の時は適用されない。スキルを実行する時、スキル消費コストが残りスキルより大きい場合、累積Ｘを１つ消費して実行する。この効果は残りスキルが１以下の時は適用されない。Xは【潜在能力】パラメタに依存する。"; }
-    if (command_name == Fix.ARCHETYPE_ADEL_1) { return "自分自身に【悠久なる記憶】のBUFFを累積Xの状態で付与する。ターン終了時、累積Xを１つ消費して以下のいずれかのBUFFを付与する。【トゥルー・サイト】【スピリチュアル・レスト】【ブラック・コントラクト】【ゲイル・ウィンド】【エバーフロー・マインド】上記全てが既に付与されている場合、以下のいずれかが発動する。※ターゲットは味方一体の場合は自分自身、敵一体の場合は先頭が対象となる。【オラクル・コマンド】【フォーチュン・スピリット】【ワード・オブ・パワー】【ファントム・朧】【フレイム・ストライク】Xは【潜在能力】パラメタに依存する。"; }
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return L10n.Get(Fix.L10N_DESC_ARCHETYPE_EIN_1); }
+    if (command_name == Fix.ARCHETYPE_LANA_1) { return L10n.Get(Fix.L10N_DESC_ARCHETYPE_LANA_1); }
+    if (command_name == Fix.ARCHETYPE_BILLY_1) { return L10n.Get(Fix.L10N_DESC_ARCHETYPE_BILLY_1); }
+    if (command_name == Fix.ARCHETYPE_ADEL_1) { return L10n.Get(Fix.L10N_DESC_ARCHETYPE_ADEL_1); }
     #endregion
 
     #region "Other"
