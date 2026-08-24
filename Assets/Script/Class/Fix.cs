@@ -664,6 +664,15 @@ public static partial class Fix
   public const string BUFF_WATER_VEIN_JP = BUFF_WATER_PRESENCE;
   public const string BUFF_HOLY_BLADE = "Holy Blade";
   public const string BUFF_HOLY_BLADE_JP = BUFF_VALKYRIE_BLADE;
+  // --- Delve VII ---
+  // 既に _JP 側のみ存在していたBUFFの英訳を補う。
+  public const string BUFF_ABSOLUTE_ZERO = "Absolute Zero";
+  public const string BUFF_DEATH_SCYTHE = "Death Scythe";
+  public const string BUFF_PIERCING_ARROW = "Mortal Wound";
+  public const string BUFF_STANCE_OF_THE_KOKOROE = "Kokoroe";
+  // BUFF_TRANSCENDENCE_REACHED はランタイム識別子で日本語値を持つため const 参照で共有する。
+  public const string BUFF_TRANSCENDENCE = "Transcendence";
+  public const string BUFF_TRANSCENDENCE_JP = BUFF_TRANSCENDENCE_REACHED;
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
@@ -1961,6 +1970,19 @@ public static partial class Fix
   public const string L10N_DESC_ETERNAL_CONCENTRATION = "descEternalConcentration";
   public const string L10N_DESC_SIGIL_OF_THE_FAITH = "descSigilOfTheFaith";
   public const string L10N_DESC_ZERO_IMMUNITY = "descZeroImmunity";
+  // --- Delve VII ---
+  public const string L10N_DESC_LAVA_ANNIHILATION = "descLavaAnnihilation";
+  public const string L10N_DESC_ABSOLUTE_ZERO = "descAbsoluteZero";
+  public const string L10N_DESC_RESURRECTION = "descResurrection";
+  public const string L10N_DESC_DEATH_SCYTHE = "descDeathScythe";
+  public const string L10N_DESC_GENESIS = "descGenesis";
+  public const string L10N_DESC_TIME_STOP = "descTimeStop";
+  public const string L10N_DESC_KINETIC_SMASH = "descKineticSmash";
+  public const string L10N_DESC_CATASTROPHE = "descCatastrophe";
+  public const string L10N_DESC_CARNAGE_RUSH = "descCarnageRush";
+  public const string L10N_DESC_PIERCING_ARROW = "descPiercingArrow";
+  public const string L10N_DESC_STANCE_OF_THE_KOKOROE = "descStanceOfTheKokoroe";
+  public const string L10N_DESC_TRANSCENDENCE_REACHED = "descTranscendenceReached";
   #endregion
 
   #endregion

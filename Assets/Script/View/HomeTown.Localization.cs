@@ -388,6 +388,10 @@ public static class L10n
     //   「敵味方全体」-> All Allies and Enemies。combatant は軍事的レジスターのため使用しない。
     //   「無属性」  -> Colorless (Fix.TERM_COLORLESS)。
     //                 Non-Elemental は聖/闇/理を含む本作の属性体系と合わないため使用しない。
+    //   「実行する」-> perform / take / repeat。
+    //                 execute は英語圏の戦闘ゲームで「低体力の敵を即死させる技」の定番名であり、
+    //                 一般語としても「処刑する」を意味するため使用しない。
+    //                 (内部のメソッド名 ExecMagicAttack 等はプレイヤーに見えないため対象外)
     //
     // 以上は Tools\check-l10n.ps1 が検査する。
     // ---------------------------------------------------------------
@@ -861,6 +865,82 @@ public static class L10n
       "$0限定。敵一体が発動中のスタック・コマンドをカウンターする。",
       "$0 only. Counters a stack command an enemy is activating.",
       Term(Fix.L10N_TIMING_INSTANT));
+
+    // ActionCommand説明文 - Delve VII
+    //
+    // BUFF名の英訳について:
+    //   【絶対零度】[Absolute Zero] 【死の鎌】[Death Scythe] 【致命傷】[Mortal Wound]
+    //   【超越】[Transcendence] は既存の _JP 側のみ存在していたため英訳を補った。
+    //   【致命傷】は防御姿勢を封じる効果で、【損傷】[Wound](物理攻撃低下)とは別物。
+    //   【心得】[Kokoroe] は英訳せずローマ字表記とする
+    //   (コマンド名 Stance of the Kokoroe に準拠)。
+    //
+    // 魔法
+    Register(Fix.L10N_DESC_LAVA_ANNIHILATION,
+      "敵全体に対して【$0】ダメージを与える。",
+      "Deals [$0] damage to all enemies.",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_DESC_ABSOLUTE_ZERO,
+      "敵一体を対象とする。対象に【$0】のBUFFを付与する。【$0】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、$1、$2、$3が回復不可となる。",
+      "Targets one enemy. Applies [$0] to the target. While [$0] lasts, the target cannot make normal attacks, cast spells, or take skill actions, and cannot enter a defensive stance. In addition, $1, $2 and $3 cannot be restored.",
+      (Fix.BUFF_ABSOLUTE_ZERO_JP, Fix.BUFF_ABSOLUTE_ZERO),
+      Term(Fix.L10N_BASIC_LIFE),
+      Term(Fix.L10N_BASIC_MANA_POINT),
+      Term(Fix.L10N_SKILL_POINT));
+    Register(Fix.L10N_DESC_RESURRECTION,
+      "味方一体を対象とする。対象を蘇生し、$0を全回復する。",
+      "Targets one ally. Revives the target and fully restores $0.",
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_DESC_DEATH_SCYTHE,
+      "敵フィールドに【$0】フィールドを形成する。\r\n【$0】が続く間、ターン経過毎に累積カウンターが1つ載る。ターン経過毎に$1のX % 分$2を失い、$3のX % 分$4を失い、$5のX % 分$6を失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。累積カウンターは最大99まで累積する。",
+      "Forms a [$0] field on the enemy field.\r\nWhile [$0] lasts, 1 stack counter is added each turn. Each turn, characters lose $2 equal to X % of $1, $4 equal to X % of $3, and $6 equal to X % of $5. The amount lost depends on the stack counter. If any character in the field dies, this field disappears. The stack counter accumulates up to 99.",
+      (Fix.BUFF_DEATH_SCYTHE_JP, Fix.BUFF_DEATH_SCYTHE),
+      Term(Fix.L10N_MAX_LIFE),
+      Term(Fix.L10N_BASIC_LIFE),
+      Term(Fix.L10N_MAX_MANA),
+      Term(Fix.L10N_BASIC_MANA_POINT),
+      Term(Fix.L10N_MAX_SKILL_POINT),
+      Term(Fix.L10N_SKILL_POINT));
+    Register(Fix.L10N_DESC_GENESIS,
+      "この魔法は$0を消費しない。\r\n前回自分が行ったアクションコマンドと同じ内容を実行する。",
+      "This spell does not consume $0.\r\nRepeats the same action command you performed last time.",
+      Term(Fix.L10N_BASIC_MANA_POINT));
+    Register(Fix.L10N_DESC_TIME_STOP,
+      "時間を停止する。",
+      "Stops time.");
+    // スキル
+    Register(Fix.L10N_DESC_KINETIC_SMASH,
+      "敵一体を対象とする。対象に【$0】ダメージを与える。ダメージのコア・エッセンスは【$1】と【$2】を足し合わせた値を根源として算出される。",
+      "Targets one enemy. Deals [$0] damage to the target. The core essence of the damage is derived from the sum of [$1] and [$2].",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      (Fix.TERM_STRENGTH_JP, Fix.TERM_STRENGTH),
+      (Fix.TERM_INTELLIGENCE_JP, Fix.TERM_INTELLIGENCE));
+    Register(Fix.L10N_DESC_CATASTROPHE,
+      "敵一体を対象とする。対象の$1を0とみなした上で、【$0】ダメージを与える。",
+      "Targets one enemy. Deals [$0] damage while treating the target's $1 as 0.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_DESC_CARNAGE_RUSH,
+      "敵一体を対象とする。対象に【$0】ダメージを5回連続で与える。",
+      "Targets one enemy. Deals [$0] damage to the target 5 times consecutively.",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_DESC_PIERCING_ARROW,
+      "敵一体を対象とする。対象が【$1】を行っていても、あたかも【$1】していないかのようにダメージを与える。対象に【$0】のBUFFを付与し、$2を0にする。【$0】が続く間、【$1】姿勢を取る事が出来ない。",
+      "Targets one enemy. Damage is dealt as though the target were not using [$1], even while it is. Applies [$0] to the target and sets its $2 to 0. While [$0] lasts, the target cannot take a [$1] stance.",
+      (Fix.BUFF_PIERCING_ARROW_JP, Fix.BUFF_PIERCING_ARROW),
+      (Fix.DEFENSE_JP, Fix.DEFENSE),
+      Term(Fix.L10N_INSTANT_GAUGE));
+    Register(Fix.L10N_DESC_STANCE_OF_THE_KOKOROE,
+      "自分自身を対象とする。対象に【$0】のBUFFを付与する。\r\n【$0】が続く間、$1または$2タイミングのコマンドを放つ場合、$3タイミングで行動する事が可能になる。",
+      "Targets self. Applies [$0] to the target.\r\nWhile [$0] lasts, when releasing a command of $1 or $2 timing, you may act at $3 timing instead.",
+      (Fix.BUFF_STANCE_OF_THE_KOKOROE_JP, Fix.BUFF_STANCE_OF_THE_KOKOROE),
+      Term(Fix.L10N_TIMING_SORCERY),
+      Term(Fix.L10N_TIMING_NORMAL),
+      Term(Fix.L10N_TIMING_INSTANT));
+    Register(Fix.L10N_DESC_TRANSCENDENCE_REACHED,
+      "このコマンドはカウンターされない。味方一体を対象とする。対象の負のBUFFを全て除去し、【$0】のBUFFを付与する。【$0】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。対象のスタック・コマンドに対してカウンターする効果が発動した場合、そのカウンターを無効化する。この効果は即時に適用される。",
+      "This command cannot be countered. Targets one ally. Removes all negative buffs from the target and applies [$0]. While [$0] lasts, negative buffs cannot be applied and positive buffs cannot be removed. If an effect that would counter the target's stack command activates, that counter is nullified. This effect applies immediately.",
+      (Fix.BUFF_TRANSCENDENCE_JP, Fix.BUFF_TRANSCENDENCE));
   }
 
   /// <summary>

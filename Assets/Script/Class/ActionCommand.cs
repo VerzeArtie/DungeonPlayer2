@@ -3410,19 +3410,19 @@ public static class ActionCommand
 
     #region "Delve VII"
     // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return "敵全体に対して【炎】ダメージを与える。"; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return "敵一体を対象とする。対象に【絶対零度】のBUFFを付与する。【絶対零度】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、ライフ、マナ、スキルポイントが回復不可となる。"; }
-    if (command_name == Fix.RESURRECTION) { return "味方一体を対象とする。対象を蘇生し、ライフを全回復する。"; }
-    if (command_name == Fix.DEATH_SCYTHE) { return "敵フィールドに【死の鎌】フィールドを形成する。\r\n【死の鎌】が続く間、ターン経過毎に累積カウンターが１つ載る。ターン経過毎に最大ライフのX % 分ライフを失い、最大マナのX % 分マナを失い、最大スキルポイントのX % 分スキルポイントを失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。累積カウンターは最大９９まで累積する。"; }
-    if (command_name == Fix.GENESIS) { return "この魔法はマナを消費しない。\r\n前回自分が行ったアクションコマンドと同じ内容を実行する。"; }
-    if (command_name == Fix.TIME_STOP) { return "時間を停止する。"; }
+    if (command_name == Fix.LAVA_ANNIHILATION) { return L10n.Get(Fix.L10N_DESC_LAVA_ANNIHILATION); }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return L10n.Get(Fix.L10N_DESC_ABSOLUTE_ZERO); }
+    if (command_name == Fix.RESURRECTION) { return L10n.Get(Fix.L10N_DESC_RESURRECTION); }
+    if (command_name == Fix.DEATH_SCYTHE) { return L10n.Get(Fix.L10N_DESC_DEATH_SCYTHE); }
+    if (command_name == Fix.GENESIS) { return L10n.Get(Fix.L10N_DESC_GENESIS); }
+    if (command_name == Fix.TIME_STOP) { return L10n.Get(Fix.L10N_DESC_TIME_STOP); }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。ダメージのコア・エッセンスは【力】と【知】を足し合わせた値を根源として算出される。"; }
-    if (command_name == Fix.CATASTROPHE) { return "敵一体を対象とする。対象の物理防御力を０とみなした上で、【物理】ダメージを与える。"; }
-    if (command_name == Fix.CARNAGE_RUSH) { return "敵一体を対象とする。対象に【物理】ダメージを５回連続で与える。"; }
-    if (command_name == Fix.PIERCING_ARROW) { return "敵一体を対象とする。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与え、対象に【致命傷】のBUFFを付与し、インスタントゲージを０にする。【致命傷】が続く間、【防御姿勢】を取る事が出来ない。"; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "自分自身を対象とする。対象に【心得】のBUFFを付与する。\r\n【心得】が続く間、ソーサリーまたはノーマルタイミングのコマンドを放つ場合、インスタントタイミングで行動する事が可能になる。"; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "このコマンドはカウンターされない。味方一体を対象とする。対象の負のBUFFを全て除去し、【超越】のBUFFを付与する。【超越】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。対象のスタック・コマンドに対してカウンターする効果が発動した場合、そのカウンターを無効化する。この効果は即時に適用される。"; }
+    if (command_name == Fix.KINETIC_SMASH) { return L10n.Get(Fix.L10N_DESC_KINETIC_SMASH); }
+    if (command_name == Fix.CATASTROPHE) { return L10n.Get(Fix.L10N_DESC_CATASTROPHE); }
+    if (command_name == Fix.CARNAGE_RUSH) { return L10n.Get(Fix.L10N_DESC_CARNAGE_RUSH); }
+    if (command_name == Fix.PIERCING_ARROW) { return L10n.Get(Fix.L10N_DESC_PIERCING_ARROW); }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return L10n.Get(Fix.L10N_DESC_STANCE_OF_THE_KOKOROE); }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return L10n.Get(Fix.L10N_DESC_TRANSCENDENCE_REACHED); }
     #endregion
 
     #region "複合魔法"
