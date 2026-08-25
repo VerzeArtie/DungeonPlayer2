@@ -451,7 +451,7 @@ public static class L10n
     // ゲージ
     Register(Fix.L10N_EF_OWN_GAUGE_ADVANCE, "自分の$0進行率 ", "Own $0 Advance ",
       Term(Fix.L10N_ACTION_GAUGE));
-    Register(Fix.L10N_EF_ENEMY_GAUGE_DELAY, "%、敵の$0後退率 ", "%, Enemy $0 Delay ",
+    Register(Fix.L10N_EF_ENEMY_GAUGE_DELAY, "、敵の$0後退率 ", ", Enemy $0 Delay ",
       Term(Fix.L10N_ACTION_GAUGE));
     Register(Fix.L10N_EF_INSTANT_GAUGE_ADVANCE, "$0進行 ", "$0 Advance ",
       Term(Fix.L10N_INSTANT_GAUGE));
@@ -480,7 +480,7 @@ public static class L10n
       (Fix.BUFF_GRACE_JP, Fix.BUFF_GRACE));
     Register(Fix.L10N_EF_WATERVEIN_REDUCTION, "【$0】による【$1】ダメージ軽減量 ", "[$1] Damage Reduction from [$0] ",
       (Fix.BUFF_WATER_VEIN_JP, Fix.BUFF_WATER_VEIN), (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
-    Register(Fix.L10N_EF_MAGIC_COST_REDUCTION, "% 、魔法消費コスト軽減量 ", "%, Spell Cost Reduction ");
+    Register(Fix.L10N_EF_MAGIC_COST_REDUCTION, "、魔法消費コスト軽減量 ", ", Spell Cost Reduction ");
     Register(Fix.L10N_EF_DESPERATION_PATK_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
       (Fix.BUFF_DESPERATION_JP, Fix.BUFF_DESPERATION), Term(Fix.L10N_PHYSICAL_ATTACK));
     Register(Fix.L10N_EF_IRONWALL_DEF_UP, "【$0】による$1／$2の増加量 ", "$1 / $2 Increase from [$0] ",
@@ -489,6 +489,91 @@ public static class L10n
       (Fix.DEFENSE_JP, Fix.DEFENSE));
     Register(Fix.L10N_EF_PERSISTENCE_KEEP, "【$0】による$1維持率 ", "$1 Retention from [$0] ",
       (Fix.BUFF_PERSISTENCE_JP, Fix.BUFF_PERSISTENCE), Term(Fix.L10N_INSTANT_GAUGE));
+
+    // ---------------------------------------------------------------
+    // 強化内容ラベル (ActionCommand.GetDescReinforce)
+    // 増減値(＋１０ / －５)はリテラルのまま残し、ラベル部分のみ対訳化する。
+    // ---------------------------------------------------------------
+    Register(Fix.L10N_RF_FIRE_POWER, "【$0】ダメージの威力 ", "[$0] Damage Power ",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_RF_ICE_POWER, "【$0】ダメージの威力 ", "[$0] Damage Power ",
+      (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_RF_PHYS_POWER, "【$0】ダメージの威力 ", "[$0] Damage Power ",
+      (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_RF_TARGET_POWER, "対象へのダメージの威力 ", "Damage Power to Target ");
+    Register(Fix.L10N_RF_REMOVE_AT_ONCE, "、一度に除去する数 ", ", Removed at Once ");
+    Register(Fix.L10N_RF_INSTANT_GAUGE_RATE, "$0の進行率 ", "$0 Advance Rate ",
+      Term(Fix.L10N_INSTANT_GAUGE));
+    Register(Fix.L10N_RF_METEOR_HITS, "$0の攻撃回数 ", "$0 Attack Count ",
+      (Fix.METEOR_BULLET_JP, Fix.METEOR_BULLET));
+    Register(Fix.L10N_RF_BLUE_HITS, "$0の攻撃回数 ", "$0 Attack Count ",
+      (Fix.BLUE_BULLET_JP, Fix.BLUE_BULLET));
+    // BUFF + 継続ターン数
+    Register(Fix.L10N_RF_STUN_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN));
+    Register(Fix.L10N_RF_BLACKCONTRACT_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_BLACK_CONTRACT_JP, Fix.BUFF_BLACK_CONTRACT));
+    Register(Fix.L10N_RF_PENDING_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_PENDING_JP, Fix.BUFF_PENDING));
+    Register(Fix.L10N_RF_CLONE_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_CLONE_JP, Fix.BUFF_CLONE));
+    Register(Fix.L10N_RF_AWAKENING_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_AWAKENING_JP, Fix.BUFF_AWAKENING));
+    Register(Fix.L10N_RF_BLESSING_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_BLESSING_JP, Fix.BUFF_BLESSING));
+    Register(Fix.L10N_RF_LAPSE_DURATION, "【$0】の継続ターン数 ", "[$0] Duration ",
+      (Fix.BUFF_LAPSE_JP, Fix.BUFF_LAPSE));
+    Register(Fix.L10N_RF_FORTUNE_STACK, "【$0】の累積カウンター数 ", "[$0] Stack Count ",
+      (Fix.EFFECT_FORTUNE_JP, Fix.EFFECT_FORTUNE));
+    // BUFF + 能力値ＵＰ／ＤＯＷＮ
+    Register(Fix.L10N_RF_SURGE_BS_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_SURGE_JP, Fix.BUFF_SURGE), Term(Fix.L10N_BATTLE_SPEED));
+    Register(Fix.L10N_RF_INSIGHT_PO_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_INSIGHT_JP, Fix.BUFF_INSIGHT), Term(Fix.L10N_POTENTIAL));
+    Register(Fix.L10N_RF_BLADESTANCE_PATK_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_BLADE_STANCE_JP, Fix.BUFF_BLADE_STANCE), Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_RF_GUARDSTANCE_PDEF_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_GUARD_STANCE_JP, Fix.BUFF_GUARD_STANCE), Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_RF_SWIFTSTANCE_BR_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_SWIFT_STANCE_JP, Fix.BUFF_SWIFT_STANCE), Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_RF_DESPERATION_PATK_UP, "【$0】による$1ＵＰ影響 (30%以下)", "$1 Up Effect from [$0] (at 30% or less)",
+      (Fix.BUFF_DESPERATION_JP, Fix.BUFF_DESPERATION), Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_RF_SHADE_MDEF_DOWN, "【$0】による$1ＤＯＷＮ影響 ", "$1 Down Effect from [$0] ",
+      (Fix.BUFF_SHADE_JP, Fix.BUFF_SHADE), Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_RF_BREACH_PDEF_DOWN, "【$0】による$1ＤＯＷＮ影響 ", "$1 Down Effect from [$0] ",
+      (Fix.BUFF_BREACH_JP, Fix.BUFF_BREACH), Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_RF_WOUND_PATK_DOWN, "【$0】による$1ＤＯＷＮ影響 ", "$1 Down Effect from [$0] ",
+      (Fix.BUFF_WOUND_JP, Fix.BUFF_WOUND), Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_RF_SCAR_PDEF_DOWN, "【$0】による$1ＤＯＷＮ影響 ", "$1 Down Effect from [$0] ",
+      (Fix.BUFF_SCAR_JP, Fix.BUFF_SCAR), Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_RF_BLIGHT_DEF_DOWN, "【$0】による$1／$2／$3ＤＯＷＮ影響 ", "$1 / $2 / $3 Down Effect from [$0] ",
+      (Fix.BUFF_BLIGHT_JP, Fix.BUFF_BLIGHT), Term(Fix.L10N_PHYSICAL_DEFENSE), Term(Fix.L10N_MAGIC_DEFENSE), Term(Fix.L10N_BATTLE_RESPONSE));
+    // BUFF + その他
+    Register(Fix.L10N_RF_MARK_CRITICAL, "【$0】によるクリティカル発生率 ", "Critical Rate from [$0] ",
+      (Fix.BUFF_MARK_JP, Fix.BUFF_MARK));
+    Register(Fix.L10N_RF_BLOODSIGIL_DAMAGE, "【$0】によるダメージ量 ", "Damage from [$0] ",
+      (Fix.BUFF_BLOOD_SIGIL_JP, Fix.BUFF_BLOOD_SIGIL));
+    Register(Fix.L10N_RF_ISSHIN_PDEF_IGNORE, "【$0】による対象の$1を無視する量 ", "Target's $1 Ignored by [$0] ",
+      (Fix.BUFF_ISSHIN_JP, Fix.BUFF_ISSHIN), Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_RF_VIGOR_MAXLIFE_UP, "【$0】による$1の増加量 ", "$1 Increase from [$0] ",
+      (Fix.BUFF_VIGOR_JP, Fix.BUFF_VIGOR), Term(Fix.L10N_MAX_LIFE));
+    Register(Fix.L10N_RF_LEYLINE_SP_RECOVERY, "【$0】によるＳＰの回復量 ", "SP Recovery from [$0] ",
+      (Fix.BUFF_LEYLINE_JP, Fix.BUFF_LEYLINE));
+    Register(Fix.L10N_RF_IRONWALL_DEF_UP, "【$0】による$1／$2の増加 ", "$1 / $2 Increase from [$0] ",
+      (Fix.BUFF_IRON_WALL_JP, Fix.BUFF_IRON_WALL), Term(Fix.L10N_PHYSICAL_DEFENSE), Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_RF_BATTLEREADY_ATK_UP, "【$0】による$1／$2 ", "$1 / $2 from [$0] ",
+      (Fix.BUFF_BATTLE_READY_JP, Fix.BUFF_BATTLE_READY), Term(Fix.L10N_PHYSICAL_ATTACK), Term(Fix.L10N_MAGIC_ATTACK));
+    Register(Fix.L10N_RF_FLAMEBLADE_POWER, "【$0】による追加【$1】ダメージの威力 ", "Extra [$1] Damage Power from [$0] ",
+      (Fix.BUFF_FLAME_BLADE_JP, Fix.BUFF_FLAME_BLADE), (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_RF_HELLFIRE_FIRE_POWER, "【$0】による【$1】ダメージの威力 ", "[$1] Damage Power from [$0] ",
+      (Fix.BUFF_HELLFIRE_JP, Fix.BUFF_HELLFIRE), (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_RF_CRYSTAL_ICE_UP, "【$0】による【$1】ダメージの上昇量 ", "[$1] Damage Increase from [$0] ",
+      (Fix.BUFF_CRYSTAL_JP, Fix.BUFF_CRYSTAL), (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_RF_SURROUND_POWER, "　周囲全体へのダメージの威力 ", "  Surrounding Damage Power ");
+    Register(Fix.L10N_RF_COND_20, "　(20%以下)", "  (at 20% or less)");
+    Register(Fix.L10N_RF_COND_10, "　(10%以下)", "  (at 10% or less)");
+    Register(Fix.L10N_RF_GUARD_REDUCTION, "　【$0】姿勢によるダメージ軽減 ", "  Damage Reduction in [$0] Stance ",
+      (Fix.DEFENSE_JP, Fix.DEFENSE));
 
     // ActionCommand説明文 - Delve I
     //
@@ -1222,7 +1307,7 @@ public static class L10n
       new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Delay " },
       new string[] { "物理防御を無視する量 ", "Physical Defense Ignored " },
       new string[] { "物理防御ＤＯＷＮ影響 ", "Physical Defense Down Effect " },
-      new string[] { "対象へのダメージの威力 ", "Target Damage Power " },
+      new string[] { "対象へのダメージの威力 ", "Damage Power to Target " },
     };
 
     for (int ii = 0; ii < replacements.Length; ii++)

@@ -3578,121 +3578,121 @@ public static class ActionCommand
   {
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋１０"; }
-    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋９"; }
-    if (command_name == Fix.FRESH_HEAL) { return "ライフ回復量 ＋２０"; }
-    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋５％"; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋６％"; }
-    if (command_name == Fix.ENERGY_BOLT) { return "威力　＋５"; }
+    if (command_name == Fix.FIRE_BALL) { return L10n.Get(Fix.L10N_RF_FIRE_POWER) + "＋１０"; }
+    if (command_name == Fix.ICE_NEEDLE) { return L10n.Get(Fix.L10N_RF_ICE_POWER) + "＋９"; }
+    if (command_name == Fix.FRESH_HEAL) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + "＋２０"; }
+    if (command_name == Fix.SHADOW_BLAST) { return L10n.Get(Fix.L10N_RF_SHADE_MDEF_DOWN) + "＋５％"; }
+    if (command_name == Fix.ORACLE_COMMAND) { return L10n.Get(Fix.L10N_RF_INSTANT_GAUGE_RATE) + "＋６％"; }
+    if (command_name == Fix.ENERGY_BOLT) { return L10n.Get(Fix.L10N_EF_POWER) + "＋５"; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return "威力 ＋１０"; }
-    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋１"; }
-    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋５％"; }
-    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋２％"; }
-    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋５％"; }
-    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return L10n.Get(Fix.L10N_EF_POWER) + "＋１０"; }
+    if (command_name == Fix.SHIELD_BASH) { return L10n.Get(Fix.L10N_RF_STUN_DURATION) + "＋１"; }
+    if (command_name == Fix.LEG_STRIKE) { return L10n.Get(Fix.L10N_RF_SURGE_BS_UP) + "＋５％"; }
+    if (command_name == Fix.HUNTER_SHOT) { return L10n.Get(Fix.L10N_RF_MARK_CRITICAL) + "＋２％"; }
+    if (command_name == Fix.TRUE_SIGHT) { return L10n.Get(Fix.L10N_RF_INSIGHT_PO_UP) + "＋５％"; }
+    if (command_name == Fix.DISPEL_MAGIC) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
     #endregion
 
     #region "Delve II"
     // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋２０"; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "ライフ回復量 ＋１０、一度に除去する数 ＋１"; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋３０％"; }
-    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋２０％"; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の累積カウンター数 ＋１"; }
-    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －２"; }
+    if (command_name == Fix.FLAME_BLADE) { return L10n.Get(Fix.L10N_RF_FLAMEBLADE_POWER) + "＋２０"; }
+    if (command_name == Fix.PURE_PURIFICATION) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + "＋１０" + L10n.Get(Fix.L10N_RF_REMOVE_AT_ONCE) + "＋１"; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return L10n.Get(Fix.L10N_EF_GRACE_REDUCTION) + "＋３０％"; }
+    if (command_name == Fix.BLOOD_SIGN) { return L10n.Get(Fix.L10N_RF_BLOODSIGIL_DAMAGE) + "＋２０％"; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return L10n.Get(Fix.L10N_RF_FORTUNE_STACK) + "＋１"; }
+    if (command_name == Fix.FLASH_COUNTER) { return L10n.Get(Fix.L10N_EF_MP_COST) + "－２"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋５　【剣の構え】による物理攻撃ＵＰ影響 ＋３％"; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋２％"; }
-    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋３％"; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋１０"; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋２"; }
-    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －３"; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return L10n.Get(Fix.L10N_RF_PHYS_POWER) + "＋５　" + L10n.Get(Fix.L10N_RF_BLADESTANCE_PATK_UP) + "＋３％"; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return L10n.Get(Fix.L10N_RF_GUARDSTANCE_PDEF_UP) + "＋２％"; }
+    if (command_name == Fix.SPEED_STEP) { return L10n.Get(Fix.L10N_RF_SWIFTSTANCE_BR_UP) + "＋３％"; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return L10n.Get(Fix.L10N_RF_PHYS_POWER) + "＋１０"; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return L10n.Get(Fix.L10N_RF_LEYLINE_SP_RECOVERY) + "＋２"; }
+    if (command_name == Fix.SPIRITUAL_REST) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－３"; }
     #endregion
 
     #region "Delve III"
     // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋１"; }
-    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋１"; }
-    if (command_name == Fix.HOLY_BREATH) { return "ライフ回復量 ＋３０"; }
-    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋１"; }
-    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋２０"; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋２"; }
+    if (command_name == Fix.METEOR_BULLET) { return L10n.Get(Fix.L10N_RF_METEOR_HITS) + "＋１"; }
+    if (command_name == Fix.BLUE_BULLET) { return L10n.Get(Fix.L10N_RF_BLUE_HITS) + "＋１"; }
+    if (command_name == Fix.HOLY_BREATH) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + "＋３０"; }
+    if (command_name == Fix.BLACK_CONTRACT) { return L10n.Get(Fix.L10N_RF_BLACKCONTRACT_DURATION) + "＋１"; }
+    if (command_name == Fix.WORD_OF_POWER) { return L10n.Get(Fix.L10N_RF_PHYS_POWER) + "＋２０"; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return L10n.Get(Fix.L10N_RF_PENDING_DURATION) + "＋２"; }
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋１０"; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋１％"; }
-    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋３％"; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する量 ＋２％"; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの増加量 ＋３％"; }
-    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.DOUBLE_SLASH) { return L10n.Get(Fix.L10N_RF_PHYS_POWER) + "＋１０"; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return L10n.Get(Fix.L10N_RF_BREACH_PDEF_DOWN) + "＋１％"; }
+    if (command_name == Fix.BONE_CRUSH) { return L10n.Get(Fix.L10N_RF_WOUND_PATK_DOWN) + "＋３％"; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return L10n.Get(Fix.L10N_RF_ISSHIN_PDEF_IGNORE) + "＋２％"; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return L10n.Get(Fix.L10N_RF_VIGOR_MAXLIFE_UP) + "＋３％"; }
+    if (command_name == Fix.UNSEEN_AID) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
     #endregion
 
     #region "Delve IV"
     // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの威力 ＋１０"; }
-    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋９"; }
-    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋１０"; }
-    if (command_name == Fix.CURSED_EVANGILE) { return "【呪い】による【闇】ダメージの威力 ７４"; }
-    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋１"; }
-    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －６"; }
+    if (command_name == Fix.VOLCANIC_BLAZE) { return L10n.Get(Fix.L10N_RF_HELLFIRE_FIRE_POWER) + "＋１０"; }
+    if (command_name == Fix.FREEZING_CUBE) { return L10n.Get(Fix.L10N_RF_CRYSTAL_ICE_UP) + "＋９"; }
+    if (command_name == Fix.ANGELIC_ECHO) { return L10n.Get(Fix.L10N_EF_PRAISE_LIFE_RECOVERY) + "＋１０"; }
+    if (command_name == Fix.CURSED_EVANGILE) { return L10n.Get(Fix.L10N_EF_CURSE_DARK_POWER) + "７４"; }
+    if (command_name == Fix.GALE_WIND) { return L10n.Get(Fix.L10N_RF_CLONE_DURATION) + "＋１"; }
+    if (command_name == Fix.PHANTOM_OBORO) { return L10n.Get(Fix.L10N_EF_MP_COST) + "－６"; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋３０" + "　周囲全体へのダメージの威力 ＋２０"; }
-    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御の増加 ＋３％" + "　防御姿勢によるダメージ軽減 ＋２％"; }
-    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋１％" + "　(20%以下)＋２％" + "　(10%以下)＋３％"; }
-    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋４％"; }
-    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋１"; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －１０"; }
+    if (command_name == Fix.IRON_BUSTER) { return L10n.Get(Fix.L10N_RF_TARGET_POWER) + "＋３０" + L10n.Get(Fix.L10N_RF_SURROUND_POWER) + "＋２０"; }
+    if (command_name == Fix.DOMINATION_FIELD) { return L10n.Get(Fix.L10N_RF_IRONWALL_DEF_UP) + "＋３％" + L10n.Get(Fix.L10N_RF_GUARD_REDUCTION) + "＋２％"; }
+    if (command_name == Fix.DEADLY_DRIVE) { return L10n.Get(Fix.L10N_RF_DESPERATION_PATK_UP) + "＋１％" + L10n.Get(Fix.L10N_RF_COND_20) + "＋２％" + L10n.Get(Fix.L10N_RF_COND_10) + "＋３％"; }
+    if (command_name == Fix.PENETRATION_ARROW) { return L10n.Get(Fix.L10N_RF_SCAR_PDEF_DOWN) + "＋４％"; }
+    if (command_name == Fix.WILL_AWAKENING) { return L10n.Get(Fix.L10N_RF_AWAKENING_DURATION) + "＋１"; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－１０"; }
     #endregion
 
     #region "Delve V"
     // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋５０"; }
-    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋４０"; }
-    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋１"; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋３％"; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －１０"; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋１"; }
+    if (command_name == Fix.FLAME_STRIKE) { return L10n.Get(Fix.L10N_RF_FIRE_POWER) + "＋５０"; }
+    if (command_name == Fix.FROST_LANCE) { return L10n.Get(Fix.L10N_RF_ICE_POWER) + "＋４０"; }
+    if (command_name == Fix.SHINING_HEAL) { return L10n.Get(Fix.L10N_RF_BLESSING_DURATION) + "＋１"; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return L10n.Get(Fix.L10N_RF_BLIGHT_DEF_DOWN) + "＋３％"; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return L10n.Get(Fix.L10N_EF_MP_COST) + "－１０"; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return L10n.Get(Fix.L10N_RF_LAPSE_DURATION) + "＋１"; }
     // スキル
-    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋１０％"; }
-    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －５"; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋３％、敵の行動ゲージ後退率 ＋３％"; }
-    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋５０"; }
-    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ維持率 ＋２％"; }
-    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋１０％"; }
+    if (command_name == Fix.RAGING_STORM) { return L10n.Get(Fix.L10N_RF_BATTLEREADY_ATK_UP) + "＋１０％"; }
+    if (command_name == Fix.HARDEST_PARRY) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return L10n.Get(Fix.L10N_EF_OWN_GAUGE_ADVANCE) + "＋３％" + L10n.Get(Fix.L10N_EF_ENEMY_GAUGE_DELAY) + "＋３％"; }
+    if (command_name == Fix.PRECISION_STRIKE) { return L10n.Get(Fix.L10N_RF_PHYS_POWER) + "＋５０"; }
+    if (command_name == Fix.EVERFLOW_MIND) { return L10n.Get(Fix.L10N_EF_PERSISTENCE_KEEP) + "＋２％"; }
+    if (command_name == Fix.INNER_INSPIRATION) { return L10n.Get(Fix.L10N_EF_SP_RECOVERY) + "＋１０％"; }
     #endregion
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "【炎輪】による【炎】ダメージの威力 ＋１０"; }
-    if (command_name == Fix.WATER_PRESENCE) { return "【水脈】による魔法ダメージ軽減量 ＋５％、魔法消費コスト軽減量 ＋５％"; }
-    if (command_name == Fix.VALKYRIE_BLADE) { return "物理攻撃ヒット時の【聖】ダメージの威力 ＋１０"; }
-    if (command_name == Fix.THE_DARK_INTENSITY) { return "継続ターン数 ＋１"; }
-    if (command_name == Fix.FUTURE_VISION) { return "ＭＰ消費 －２０"; }
-    if (command_name == Fix.DETACHMENT_FAULT) { return "継続ターン数 ＋１"; }
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return L10n.Get(Fix.L10N_EF_FLAMERING_POWER) + "＋１０"; }
+    if (command_name == Fix.WATER_PRESENCE) { return L10n.Get(Fix.L10N_EF_WATERVEIN_REDUCTION) + "＋５％" + L10n.Get(Fix.L10N_EF_MAGIC_COST_REDUCTION) + "＋５％"; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return L10n.Get(Fix.L10N_EF_HOLY_ON_HIT_POWER) + "＋１０"; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return L10n.Get(Fix.L10N_EF_DURATION) + "＋１"; }
+    if (command_name == Fix.FUTURE_VISION) { return L10n.Get(Fix.L10N_EF_MP_COST) + "－２０"; }
+    if (command_name == Fix.DETACHMENT_FAULT) { return L10n.Get(Fix.L10N_EF_DURATION) + "＋１"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return "【居合】による物理ダメージの威力 ＋２０"; }
-    if (command_name == Fix.ONE_IMMUNITY) { return "ＳＰ消費 －５"; }
-    if (command_name == Fix.STANCE_OF_MUIN) { return "累積カウンター数 ＋１"; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return "【凝視】による物理ダメージの威力 ＋２０"; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大値の上昇量 ＋１０"; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return L10n.Get(Fix.L10N_EF_IAI_POWER) + "＋２０"; }
+    if (command_name == Fix.ONE_IMMUNITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return L10n.Get(Fix.L10N_EF_STACK_COUNT) + "＋１"; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return L10n.Get(Fix.L10N_EF_FOCUS_EYE_POWER) + "＋２０"; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return L10n.Get(Fix.L10N_EF_MAX_VALUE_UP) + "＋１０"; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
     #endregion
 
     #region "Delve VII"
     // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return "【炎】ダメージの威力 ＋１００"; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return "継続ターン数 ＋１"; }
-    if (command_name == Fix.RESURRECTION) { return "ＭＰ消費 －５０"; }
-    if (command_name == Fix.DEATH_SCYTHE) { return "ターン経過毎に失う量 ＋１％"; } // todo 仮
-    if (command_name == Fix.GENESIS) { return "（なし）"; }
-    if (command_name == Fix.TIME_STOP) { return "時間停止タイマ ＋２００"; }
+    if (command_name == Fix.LAVA_ANNIHILATION) { return L10n.Get(Fix.L10N_RF_FIRE_POWER) + "＋１００"; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return L10n.Get(Fix.L10N_EF_DURATION) + "＋１"; }
+    if (command_name == Fix.RESURRECTION) { return L10n.Get(Fix.L10N_EF_MP_COST) + "－５０"; }
+    if (command_name == Fix.DEATH_SCYTHE) { return L10n.Get(Fix.L10N_EF_TURN_LOSS) + "＋１％"; } // todo 仮
+    if (command_name == Fix.GENESIS) { return L10n.Get(Fix.L10N_UNIT_NONE); }
+    if (command_name == Fix.TIME_STOP) { return L10n.Get(Fix.L10N_EF_TIME_STOP_TIMER) + "＋２００"; }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return "威力 ＋１００"; }
-    if (command_name == Fix.CATASTROPHE) { return "威力 ＋５０"; } 
-    if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 ＋１"; }
-    if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 ＋１"; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "ＳＰ消費 －５"; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.KINETIC_SMASH) { return L10n.Get(Fix.L10N_EF_POWER) + "＋１００"; }
+    if (command_name == Fix.CATASTROPHE) { return L10n.Get(Fix.L10N_EF_POWER) + "＋５０"; } 
+    if (command_name == Fix.CARNAGE_RUSH) { return L10n.Get(Fix.L10N_EF_ATTACK_COUNT) + "＋１"; }
+    if (command_name == Fix.PIERCING_ARROW) { return L10n.Get(Fix.L10N_EF_DURATION) + "＋１"; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return L10n.Get(Fix.L10N_EF_SP_COST) + "－５"; }
     #endregion
 
     #region "複合魔法"

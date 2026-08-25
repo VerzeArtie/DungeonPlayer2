@@ -2058,6 +2058,55 @@ public static partial class Fix
   public const string L10N_EF_PERSISTENCE_KEEP = "efPersistenceKeep";
   #endregion
 
+  #region "強化内容ラベル"
+  // ActionCommand.GetDescReinforce が返す「ラベル + 増減値」のラベル部分。
+  // 増減値(＋１０ / －５ など)は言語非依存のためリテラルのまま残す。
+  public const string L10N_RF_FIRE_POWER = "rfFirePower";
+  public const string L10N_RF_ICE_POWER = "rfIcePower";
+  public const string L10N_RF_PHYS_POWER = "rfPhysPower";
+  public const string L10N_RF_TARGET_POWER = "rfTargetPower";
+  public const string L10N_RF_REMOVE_AT_ONCE = "rfRemoveAtOnce";
+  public const string L10N_RF_INSTANT_GAUGE_RATE = "rfInstantGaugeRate";
+  public const string L10N_RF_METEOR_HITS = "rfMeteorHits";
+  public const string L10N_RF_BLUE_HITS = "rfBlueHits";
+  // BUFF + 継続ターン数
+  public const string L10N_RF_STUN_DURATION = "rfStunDuration";
+  public const string L10N_RF_BLACKCONTRACT_DURATION = "rfBlackContractDuration";
+  public const string L10N_RF_PENDING_DURATION = "rfPendingDuration";
+  public const string L10N_RF_CLONE_DURATION = "rfCloneDuration";
+  public const string L10N_RF_AWAKENING_DURATION = "rfAwakeningDuration";
+  public const string L10N_RF_BLESSING_DURATION = "rfBlessingDuration";
+  public const string L10N_RF_LAPSE_DURATION = "rfLapseDuration";
+  public const string L10N_RF_FORTUNE_STACK = "rfFortuneStack";
+  // BUFF + 能力値ＵＰ／ＤＯＷＮ
+  public const string L10N_RF_SURGE_BS_UP = "rfSurgeBsUp";
+  public const string L10N_RF_INSIGHT_PO_UP = "rfInsightPoUp";
+  public const string L10N_RF_BLADESTANCE_PATK_UP = "rfBladeStancePatkUp";
+  public const string L10N_RF_GUARDSTANCE_PDEF_UP = "rfGuardStancePdefUp";
+  public const string L10N_RF_SWIFTSTANCE_BR_UP = "rfSwiftStanceBrUp";
+  public const string L10N_RF_DESPERATION_PATK_UP = "rfDesperationPatkUp";
+  public const string L10N_RF_SHADE_MDEF_DOWN = "rfShadeMdefDown";
+  public const string L10N_RF_BREACH_PDEF_DOWN = "rfBreachPdefDown";
+  public const string L10N_RF_WOUND_PATK_DOWN = "rfWoundPatkDown";
+  public const string L10N_RF_SCAR_PDEF_DOWN = "rfScarPdefDown";
+  public const string L10N_RF_BLIGHT_DEF_DOWN = "rfBlightDefDown";
+  // BUFF + その他
+  public const string L10N_RF_MARK_CRITICAL = "rfMarkCritical";
+  public const string L10N_RF_BLOODSIGIL_DAMAGE = "rfBloodSigilDamage";
+  public const string L10N_RF_ISSHIN_PDEF_IGNORE = "rfIsshinPdefIgnore";
+  public const string L10N_RF_VIGOR_MAXLIFE_UP = "rfVigorMaxLifeUp";
+  public const string L10N_RF_LEYLINE_SP_RECOVERY = "rfLeylineSpRecovery";
+  public const string L10N_RF_IRONWALL_DEF_UP = "rfIronWallDefUp";
+  public const string L10N_RF_BATTLEREADY_ATK_UP = "rfBattleReadyAtkUp";
+  public const string L10N_RF_FLAMEBLADE_POWER = "rfFlameBladePower";
+  public const string L10N_RF_HELLFIRE_FIRE_POWER = "rfHellfireFirePower";
+  public const string L10N_RF_CRYSTAL_ICE_UP = "rfCrystalIceUp";
+  public const string L10N_RF_SURROUND_POWER = "rfSurroundPower";
+  public const string L10N_RF_GUARD_REDUCTION = "rfGuardReduction";
+  public const string L10N_RF_COND_20 = "rfCond20";
+  public const string L10N_RF_COND_10 = "rfCond10";
+  #endregion
+
   #endregion
 
   #region "Action Command"

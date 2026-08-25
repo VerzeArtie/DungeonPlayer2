@@ -4047,7 +4047,7 @@ public partial class Character : MonoBehaviour
     // スキル
     else if (command_name == Fix.RAGING_STORM) { return L10n.Get(Fix.L10N_EF_PATK_MATK_UP) + (Math.Round(SecondaryLogic.RagingStorm_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.HARDEST_PARRY) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.HARDEST_PARRY, ActionCommand.Cost(Fix.HARDEST_PARRY), this); }
-    else if (command_name == Fix.UNINTENTIONAL_HIT) { return L10n.Get(Fix.L10N_EF_OWN_GAUGE_ADVANCE) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) +L10n.Get(Fix.L10N_EF_ENEMY_GAUGE_DELAY) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.UNINTENTIONAL_HIT) { return L10n.Get(Fix.L10N_EF_OWN_GAUGE_ADVANCE) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"+L10n.Get(Fix.L10N_EF_ENEMY_GAUGE_DELAY) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.PRECISION_STRIKE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.PrecisionStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.EVERFLOW_MIND) { return L10n.Get(Fix.L10N_EF_PERSISTENCE_KEEP) + (Math.Round(SecondaryLogic.EverflowMind_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
     else if (command_name == Fix.INNER_INSPIRATION) { return L10n.Get(Fix.L10N_EF_SP_RECOVERY) + (Math.Round(SecondaryLogic.InnerInspiration_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
@@ -4056,7 +4056,7 @@ public partial class Character : MonoBehaviour
     #region "Delve VI"
     // 魔法
     else if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return L10n.Get(Fix.L10N_EF_FLAMERING_POWER) + (Math.Round(SecondaryLogic.CircleOfTheIgnite_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.WATER_PRESENCE) { return L10n.Get(Fix.L10N_EF_WATERVEIN_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_MAGIC_COST_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.WATER_PRESENCE) { return L10n.Get(Fix.L10N_EF_WATERVEIN_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "% " + L10n.Get(Fix.L10N_EF_MAGIC_COST_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.VALKYRIE_BLADE) { return L10n.Get(Fix.L10N_EF_HOLY_ON_HIT_POWER) + (Math.Round(SecondaryLogic.ValkyrieBlade_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.THE_DARK_INTENSITY) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.TheDarkIntensity_Turn(this); }
     else if (command_name == Fix.FUTURE_VISION) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(Fix.FUTURE_VISION, ActionCommand.Cost(Fix.FUTURE_VISION), this); }
