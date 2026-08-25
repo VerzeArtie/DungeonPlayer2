@@ -8990,7 +8990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGL
+  m_Text: AGI
 --- !u!222 &181620339
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23171,7 +23171,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGL
+  m_Text: AGI
 --- !u!222 &434598071
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31096,7 +31096,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STM
+  m_Text: STA
 --- !u!222 &580089082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38881,7 +38881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STM
+  m_Text: STA
 --- !u!222 &707645534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51823,7 +51823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGL
+  m_Text: AGI
 --- !u!222 &935106307
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83311,7 +83311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STM
+  m_Text: STA
 --- !u!222 &1504661823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -90354,7 +90354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGL
+  m_Text: AGI
 --- !u!222 &1644816022
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -92879,7 +92879,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STM
+  m_Text: STA
 --- !u!222 &1698776944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -97126,7 +97126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AGL
+  m_Text: AGI
 --- !u!222 &1757216556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -106676,7 +106676,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STM
+  m_Text: STA
 --- !u!222 &1918171377
 CanvasRenderer:
   m_ObjectHideFlags: 0

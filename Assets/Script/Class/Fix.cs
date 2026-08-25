@@ -360,15 +360,15 @@ public static partial class Fix
   //   CLASS_HOLYLIGHT = "HolyLight" はクラス名、TERM_HOLY = "Holy" は属性タグ。
   //   CLASS_DARK_MAGIC = "DarkMagic" はクラス名、TERM_DARK = "Dark" は属性タグ。
   // --- パラメタ ---
-  public const string TERM_STRENGTH = "Strength";
+  public const string TERM_STRENGTH = "STR";
   public const string TERM_STRENGTH_JP = "力";
-  public const string TERM_AGILITY = "Agility";
+  public const string TERM_AGILITY = "AGI";
   public const string TERM_AGILITY_JP = "技";
-  public const string TERM_INTELLIGENCE = "Intelligence";
+  public const string TERM_INTELLIGENCE = "INT";
   public const string TERM_INTELLIGENCE_JP = "知";
-  public const string TERM_STAMINA = "Stamina";
+  public const string TERM_STAMINA = "STA";
   public const string TERM_STAMINA_JP = "体";
-  public const string TERM_MIND = "Mind";
+  public const string TERM_MIND = "MND";
   public const string TERM_MIND_JP = "心";
   // --- 属性 ---
   public const string TERM_FIRE = "Fire";
@@ -2105,6 +2105,64 @@ public static partial class Fix
   public const string L10N_RF_GUARD_REDUCTION = "rfGuardReduction";
   public const string L10N_RF_COND_20 = "rfCond20";
   public const string L10N_RF_COND_10 = "rfCond10";
+  #endregion
+
+  #region "アイテム説明のステータス表記"
+  // Item.Description 末尾のステータス部。フレーバー部は日本語のまま残るため、
+  // 境界に改行を入れて言語が切り替わることを視覚的に示す。
+  // 数値・区切り(＋ ～ ％ 、)は言語非依存のためリテラルのまま残す。
+  public const string L10N_IT_PATK = "itPatk";
+  public const string L10N_IT_MATK = "itMatk";
+  public const string L10N_IT_PDEF = "itPdef";
+  public const string L10N_IT_MDEF = "itMdef";
+  public const string L10N_IT_STR = "itStr";
+  public const string L10N_IT_AGI = "itAgi";
+  public const string L10N_IT_INT = "itInt";
+  public const string L10N_IT_STA = "itSta";
+  public const string L10N_IT_MND = "itMnd";
+  // 率
+  public const string L10N_IT_RATE_PATK = "itRatePatk";
+  public const string L10N_IT_RATE_PDEF = "itRatePdef";
+  public const string L10N_IT_RATE_MATK = "itRateMatk";
+  public const string L10N_IT_RATE_MDEF = "itRateMdef";
+  public const string L10N_IT_RATE_SPEED = "itRateSpeed";
+  public const string L10N_IT_RATE_RESPONSE = "itRateResponse";
+  public const string L10N_IT_RATE_POTENTIAL = "itRatePotential";
+  // 耐性
+  public const string L10N_IT_RES_STUN = "itResStun";
+  public const string L10N_IT_RES_SILENT = "itResSilent";
+  public const string L10N_IT_RES_PARALYZE = "itResParalyze";
+  public const string L10N_IT_RES_BIND = "itResBind";
+  public const string L10N_IT_RES_POISON = "itResPoison";
+  public const string L10N_IT_RES_FEAR = "itResFear";
+  public const string L10N_IT_RES_FREEZE = "itResFreeze";
+  public const string L10N_IT_RES_SLIP = "itResSlip";
+  public const string L10N_IT_RES_DIZZY = "itResDizzy";
+  public const string L10N_IT_RES_SLEEP = "itResSleep";
+  public const string L10N_IT_RES_SLOW = "itResSlow";
+  public const string L10N_IT_RES_TEMPTATION = "itResTemptation";
+  public const string L10N_IT_RES_FIRE = "itResFire";
+  public const string L10N_IT_RES_ICE = "itResIce";
+  public const string L10N_IT_RES_HOLY = "itResHoly";
+  public const string L10N_IT_RES_DARK = "itResDark";
+  // 増幅
+  public const string L10N_IT_AMP_FIRE = "itAmpFire";
+  public const string L10N_IT_AMP_ICE = "itAmpIce";
+  public const string L10N_IT_AMP_HOLY = "itAmpHoly";
+  public const string L10N_IT_AMP_DARK = "itAmpDark";
+  // 属性攻撃ダメージ
+  public const string L10N_IT_ATKDMG_FIRE = "itAtkDmgFire";
+  public const string L10N_IT_ATKDMG_ICE = "itAtkDmgIce";
+  public const string L10N_IT_ATKDMG_HOLY = "itAtkDmgHoly";
+  public const string L10N_IT_ATKDMG_DARK = "itAtkDmgDark";
+  // ポーション等の回復量 (「ライフを3000回復する。」の前後)
+  public const string L10N_IT_RECOVER_LIFE_PRE = "itRecoverLifePre";
+  public const string L10N_IT_RECOVER_MANA_PRE = "itRecoverManaPre";
+  public const string L10N_IT_RECOVER_SP_PRE = "itRecoverSpPre";
+  public const string L10N_IT_RECOVER_SUFFIX = "itRecoverSuffix";
+  public const string L10N_IT_UP_SUFFIX = "itUpSuffix";
+  // 特殊効果の見出し
+  public const string L10N_IT_SPECIAL = "itSpecial";
   #endregion
 
   #endregion

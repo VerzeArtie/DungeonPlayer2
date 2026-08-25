@@ -193,11 +193,11 @@ public static class L10n
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL, "キャンセル", "Cancel");
     Register(Fix.L10N_PARTYMENU_ITEM_DECISION_OK, "ＯＫ", "OK");
-    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STRENGTH, "{0} の【力】パラメタが {1} 上昇した！", "{0} 's 【Strength】 parameter increased by {1}!");
-    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_AGILITY, "{0} の【技】パラメタが {1} 上昇した！", "{0} 's 【Agility】 parameter increased by {1}!");
-    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_INTELLIGENCE, "{0} の【知】パラメタが {1} 上昇した！", "{0} 's 【Intelligence】 parameter increased by {1}!");
-    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STAMINA, "{0} の【体】パラメタが {1} 上昇した！", "{0} 's 【Stamina】 parameter increased by {1}!");
-    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_MIND, "{0} の【心】パラメタが {1} 上昇した！", "{0} 's 【Mind】 parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STRENGTH, "{0} の【力】パラメタが {1} 上昇した！", "{0} 's [STR] parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_AGILITY, "{0} の【技】パラメタが {1} 上昇した！", "{0} 's [AGI] parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_INTELLIGENCE, "{0} の【知】パラメタが {1} 上昇した！", "{0} 's [INT] parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_STAMINA, "{0} の【体】パラメタが {1} 上昇した！", "{0} 's [STA] parameter increased by {1}!");
+    Register(Fix.L10N_PARTYMENU_ITEM_LIQUID_MIND, "{0} の【心】パラメタが {1} 上昇した！", "{0} 's [MND] parameter increased by {1}!");
     // PartyMenu-EssencePowerUp
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_ACCEPT, "実行", "Accept");
     Register(Fix.L10N_PARTYMENU_ESSENCE_POWERUP_CANCEL, "キャンセル", "Cancel");
@@ -272,9 +272,9 @@ public static class L10n
     Register(Fix.L10N_BATTLE_GAUGE, "戦闘ゲージ", "Battle Gauge");
     // Common-CoreParameter
     Register(Fix.L10N_CORE_STRENGTH, "力", "STR");
-    Register(Fix.L10N_CORE_AGILITY, "技", "AGL");
+    Register(Fix.L10N_CORE_AGILITY, "技", "AGI");
     Register(Fix.L10N_CORE_INTELLIGENCE, "知", "INT");
-    Register(Fix.L10N_CORE_STAMINA, "体", "STM");
+    Register(Fix.L10N_CORE_STAMINA, "体", "STA");
     Register(Fix.L10N_CORE_MIND, "心", "MND");
     // Common-SecondParameter
     Register(Fix.L10N_PHYSICAL_ATTACK, "物理攻撃", "Physical Attack");
@@ -572,6 +572,64 @@ public static class L10n
     Register(Fix.L10N_RF_SURROUND_POWER, "　周囲全体へのダメージの威力 ", "  Surrounding Damage Power ");
     Register(Fix.L10N_RF_COND_20, "　(20%以下)", "  (at 20% or less)");
     Register(Fix.L10N_RF_COND_10, "　(10%以下)", "  (at 10% or less)");
+
+    // ---------------------------------------------------------------
+    // アイテム説明のステータス表記 (Item.Description)
+    // フレーバー部は日本語のまま残るため、境界に改行を入れて切り替わりを示す。
+    // ---------------------------------------------------------------
+    Register(Fix.L10N_IT_PATK, "$0力", "$0 ", Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_IT_MATK, "$0力", "$0 ", Term(Fix.L10N_MAGIC_ATTACK));
+    Register(Fix.L10N_IT_PDEF, "$0力", "$0 ", Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_IT_MDEF, "$0力", "$0 ", Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_IT_STR, "$0", "$0 ", (Fix.TERM_STRENGTH_JP, Fix.TERM_STRENGTH));
+    Register(Fix.L10N_IT_AGI, "$0", "$0 ", (Fix.TERM_AGILITY_JP, Fix.TERM_AGILITY));
+    Register(Fix.L10N_IT_INT, "$0", "$0 ", (Fix.TERM_INTELLIGENCE_JP, Fix.TERM_INTELLIGENCE));
+    Register(Fix.L10N_IT_STA, "$0", "$0 ", (Fix.TERM_STAMINA_JP, Fix.TERM_STAMINA));
+    Register(Fix.L10N_IT_MND, "$0", "$0 ", (Fix.TERM_MIND_JP, Fix.TERM_MIND));
+    // 率
+    Register(Fix.L10N_IT_RATE_PATK, "物攻率", "Physical Attack Rate ");
+    Register(Fix.L10N_IT_RATE_PDEF, "物防率", "Physical Defense Rate ");
+    Register(Fix.L10N_IT_RATE_MATK, "魔攻率", "Magic Attack Rate ");
+    Register(Fix.L10N_IT_RATE_MDEF, "魔防率", "Magic Defense Rate ");
+    Register(Fix.L10N_IT_RATE_SPEED, "戦速率", "Battle Speed Rate ");
+    Register(Fix.L10N_IT_RATE_RESPONSE, "戦応率", "Battle Response Rate ");
+    Register(Fix.L10N_IT_RATE_POTENTIAL, "潜在率", "Potential Rate ");
+    // 耐性
+    Register(Fix.L10N_IT_RES_STUN, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_STUN_JP, Fix.EFFECT_STUN));
+    Register(Fix.L10N_IT_RES_SILENT, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_SILENT_JP, Fix.EFFECT_SILENT));
+    Register(Fix.L10N_IT_RES_PARALYZE, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_PARALYZE_JP, Fix.EFFECT_PARALYZE));
+    Register(Fix.L10N_IT_RES_BIND, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_BIND_JP, Fix.EFFECT_BIND));
+    Register(Fix.L10N_IT_RES_POISON, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_POISON_JP, Fix.EFFECT_POISON));
+    Register(Fix.L10N_IT_RES_FEAR, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_FEAR_JP, Fix.EFFECT_FEAR));
+    Register(Fix.L10N_IT_RES_FREEZE, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_FREEZE_JP, Fix.EFFECT_FREEZE));
+    Register(Fix.L10N_IT_RES_SLIP, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP));
+    Register(Fix.L10N_IT_RES_DIZZY, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_DIZZY_JP, Fix.EFFECT_DIZZY));
+    Register(Fix.L10N_IT_RES_SLEEP, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_SLEEP_JP, Fix.EFFECT_SLEEP));
+    Register(Fix.L10N_IT_RES_SLOW, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_SLOW_JP, Fix.EFFECT_SLOW));
+    Register(Fix.L10N_IT_RES_TEMPTATION, "【$0】耐性", "[$0] Resist ", (Fix.EFFECT_TEMPTATION_JP, Fix.EFFECT_TEMPTATION));
+    Register(Fix.L10N_IT_RES_FIRE, "【$0】耐性", "[$0] Resist ", (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_IT_RES_ICE, "【$0】耐性", "[$0] Resist ", (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_IT_RES_HOLY, "【$0】耐性", "[$0] Resist ", (Fix.TERM_HOLY_JP, Fix.TERM_HOLY));
+    Register(Fix.L10N_IT_RES_DARK, "【$0】耐性", "[$0] Resist ", (Fix.TERM_DARK_JP, Fix.TERM_DARK));
+    // 増幅
+    Register(Fix.L10N_IT_AMP_FIRE, "【$0】増幅", "[$0] Amplify ", (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_IT_AMP_ICE, "【$0】増幅", "[$0] Amplify ", (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_IT_AMP_HOLY, "【$0】増幅", "[$0] Amplify ", (Fix.TERM_HOLY_JP, Fix.TERM_HOLY));
+    Register(Fix.L10N_IT_AMP_DARK, "【$0】増幅", "[$0] Amplify ", (Fix.TERM_DARK_JP, Fix.TERM_DARK));
+    // 属性攻撃ダメージ
+    Register(Fix.L10N_IT_ATKDMG_FIRE, "【$0】属性の攻撃ダメージ", "[$0] Attack Damage ", (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_IT_ATKDMG_ICE, "【$0】属性の攻撃ダメージ", "[$0] Attack Damage ", (Fix.TERM_ICE_JP, Fix.TERM_ICE));
+    Register(Fix.L10N_IT_ATKDMG_HOLY, "【$0】属性の攻撃ダメージ", "[$0] Attack Damage ", (Fix.TERM_HOLY_JP, Fix.TERM_HOLY));
+    Register(Fix.L10N_IT_ATKDMG_DARK, "【$0】属性の攻撃ダメージ", "[$0] Attack Damage ", (Fix.TERM_DARK_JP, Fix.TERM_DARK));
+    // ポーション等の回復量。「$0を <数値> 回復する。」の形で数値を挟む。
+    Register(Fix.L10N_IT_RECOVER_LIFE_PRE, "$0を", "Restores $0 by ", Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_IT_RECOVER_MANA_PRE, "$0を", "Restores $0 by ", Term(Fix.L10N_BASIC_MANA_POINT));
+    Register(Fix.L10N_IT_RECOVER_SP_PRE, "$0を", "Restores $0 by ", Term(Fix.L10N_SKILL_POINT));
+    Register(Fix.L10N_IT_RECOVER_SUFFIX, "回復する。", ". ");
+    Register(Fix.L10N_IT_UP_SUFFIX, "ＵＰ。", " Up. ");
+    // 特殊効果の見出し
+    // 見出しであり用語タグではないため、英語側は 【】 を用いない。
+    Register(Fix.L10N_IT_SPECIAL, "【特殊効果】", "-- Special Effect -- ");
     Register(Fix.L10N_RF_GUARD_REDUCTION, "　【$0】姿勢によるダメージ軽減 ", "  Damage Reduction in [$0] Stance ",
       (Fix.DEFENSE_JP, Fix.DEFENSE));
 
