@@ -494,7 +494,7 @@ public static class L10n
     //
     // BUFF名の英訳について:
     //   【鈍化】【スタン】【沈黙】は Fix.EFFECT_SLOW / EFFECT_STUN / EFFECT_SILENT に準拠。
-    //   【陰影】[Shade] 【萎縮】[Daunt] 【標的】[Mark] 【深層】[Insight] 【暗闇】[Blind] は
+    //   【陰影】[Shade] 【躍動】[Surge] 【標的】[Mark] 【深層】[Insight] 【暗闇】[Blind] は
     //   既存の英訳定数が無いため新規に命名した。名称を変更する場合はここを直す。
     //
     // 魔法
@@ -539,11 +539,11 @@ public static class L10n
       (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
       Term(Fix.L10N_BATTLE_GAUGE));
     Register(Fix.L10N_DESC_LEG_STRIKE,
-      "敵一体を対象とする。対象に【$1】ダメージを与えた後、【$0】のBUFFを付与する。\r\n【$0】が続く間、対象の$2が減少する。",
-      "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target's $2 is reduced.",
-      (Fix.BUFF_DAUNT_JP, Fix.BUFF_DAUNT),
+      "敵一体を対象とする。対象に【$1】ダメージを与えた後、自分自身に【$0】のBUFFを付与する。\r\n【$0】が続く間、$2が上昇する。",
+      "Targets one enemy. Deals [$1] damage to the target, then applies [$0] to self.\r\nWhile [$0] lasts, $2 increases.",
+      (Fix.BUFF_SURGE_JP, Fix.BUFF_SURGE),
       (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL),
-      Term(Fix.L10N_BATTLE_RESPONSE));
+      Term(Fix.L10N_BATTLE_SPEED));
     Register(Fix.L10N_DESC_HUNTER_SHOT,
       "敵一体を対象とする。対象に【$1】ダメージを与えた後、対象へ【$0】のBUFFを付与する。\r\n【$0】が続く間、対象はクリティカルを受ける確率が上昇する。",
       "Targets one enemy. Deals [$1] damage to the target, then applies [$0].\r\nWhile [$0] lasts, the target is more likely to take critical hits.",
@@ -1092,7 +1092,7 @@ public static class L10n
   ///   Register(Fix.L10N_DESC_LEG_STRIKE,
   ///     "... 【$0】のBUFFを付与する。",
   ///     "... applies [$0].",
-  ///     (Fix.BUFF_DAUNT_JP, Fix.BUFF_DAUNT));
+  ///     (Fix.BUFF_SURGE_JP, Fix.BUFF_SURGE));
   ///
   /// $N は登録時に解決されるため、実行時引数用の {0} とは衝突しない。
   /// </summary>

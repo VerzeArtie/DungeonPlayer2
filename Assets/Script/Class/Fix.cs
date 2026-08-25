@@ -567,8 +567,8 @@ public static partial class Fix
   public const string BUFF_FOCUS_EYE_JP = "凝視";
   public const string BUFF_SHADE = "Shade";
   public const string BUFF_SHADE_JP = "陰影";
-  public const string BUFF_DAUNT = "Daunt";
-  public const string BUFF_DAUNT_JP = "萎縮";
+  public const string BUFF_SURGE = "Surge";
+  public const string BUFF_SURGE_JP = "躍動";
   public const string BUFF_MARK = "Mark";
   public const string BUFF_MARK_JP = "標的";
   public const string BUFF_INSIGHT = "Insight";
