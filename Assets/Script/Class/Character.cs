@@ -3970,121 +3970,121 @@ public partial class Character : MonoBehaviour
   {
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return "威力 " + (Math.Round(SecondaryLogic.FireBall(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.ICE_NEEDLE) { return "威力 " + (Math.Round(SecondaryLogic.IceNeedle(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.FreshHeal(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SHADOW_BLAST) { return "魔法防御の減少量 " + (100.0f - (Math.Round(SecondaryLogic.ShadowBlast_Value(this), 2, MidpointRounding.AwayFromZero) * 100)) + "%"; }
-    else if (command_name == Fix.ORACLE_COMMAND) { return "インスタンスゲージ進行 " + (Math.Round(SecondaryLogic.OracleCommand(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.ENERGY_BOLT) { return "威力 " + (Math.Round(SecondaryLogic.EnergyBolt(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    if (command_name == Fix.FIRE_BALL) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.FireBall(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ICE_NEEDLE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.IceNeedle(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FRESH_HEAL) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + (Math.Round(SecondaryLogic.FreshHeal(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHADOW_BLAST) { return L10n.Get(Fix.L10N_EF_MDEF_DOWN) + (100.0f - (Math.Round(SecondaryLogic.ShadowBlast_Value(this), 2, MidpointRounding.AwayFromZero) * 100)) + "%"; }
+    else if (command_name == Fix.ORACLE_COMMAND) { return L10n.Get(Fix.L10N_EF_INSTANT_GAUGE_ADVANCE) + (Math.Round(SecondaryLogic.OracleCommand(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.ENERGY_BOLT) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.EnergyBolt(this), 2, MidpointRounding.AwayFromZero) * 100); }
     // スキル
-    else if (command_name == Fix.STRAIGHT_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.StraightSmash(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SHIELD_BASH) { return "継続ターン数 " + SecondaryLogic.ShieldBash_Turn(this); }
-    else if (command_name == Fix.LEG_STRIKE) { return "戦闘速度の増加量 " + (-100 + Math.Round(SecondaryLogic.LegStrike_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.HUNTER_SHOT) { return "クリティカル発生率 +" + Math.Round(SecondaryLogic.HunterShot_Value(this), 2, MidpointRounding.AwayFromZero) + "%"; }
-    else if (command_name == Fix.TRUE_SIGHT) { return "潜在能力の増加量 " + (Math.Round(SecondaryLogic.TrueSight_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.DISPEL_MAGIC, ActionCommand.Cost(Fix.DISPEL_MAGIC), this); }
+    else if (command_name == Fix.STRAIGHT_SMASH) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.StraightSmash(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHIELD_BASH) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.ShieldBash_Turn(this); }
+    else if (command_name == Fix.LEG_STRIKE) { return L10n.Get(Fix.L10N_EF_BS_UP) + (-100 + Math.Round(SecondaryLogic.LegStrike_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.HUNTER_SHOT) { return L10n.Get(Fix.L10N_EF_CRITICAL_RATE) + Math.Round(SecondaryLogic.HunterShot_Value(this), 2, MidpointRounding.AwayFromZero) + "%"; }
+    else if (command_name == Fix.TRUE_SIGHT) { return L10n.Get(Fix.L10N_EF_PO_UP) + (Math.Round(SecondaryLogic.TrueSight_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.DISPEL_MAGIC) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.DISPEL_MAGIC, ActionCommand.Cost(Fix.DISPEL_MAGIC), this); }
     #endregion
 
     #region "Delve II"
     // 魔法
-    else if (command_name == Fix.FLAME_BLADE) { return "追加【炎】の威力 " + (Math.Round(SecondaryLogic.FlameBlade(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.PURE_PURIFICATION) { return "ライフ回復量 " + Math.Round(SecondaryLogic.PurePurificationHealValue(this), 2, MidpointRounding.AwayFromZero) * 100 + "、１度に除去できる数 " + SecondaryLogic.PurePurification_Effect1(this); }
-    else if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 " + (Math.Round(SecondaryLogic.DivineCircle_Effect1(this), 0, MidpointRounding.AwayFromZero) * 1); }
-    else if (command_name == Fix.BLOOD_SIGN) { return "【出血】ダメージの威力 " + (Math.Round(SecondaryLogic.BloodSign(this), 0, MidpointRounding.AwayFromZero) * 1); }
-    else if (command_name == Fix.FORTUNE_SPIRIT) { return "累積カウンター数 " + SecondaryLogic.FortuneSpirit_Effect1(this); }
-    else if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費　" + SecondaryLogic.CostControl(Fix.FLASH_COUNTER, ActionCommand.Cost(Fix.FLASH_COUNTER), this); }
+    else if (command_name == Fix.FLAME_BLADE) { return L10n.Get(Fix.L10N_EF_EXTRA_FIRE_POWER) + (Math.Round(SecondaryLogic.FlameBlade(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.PURE_PURIFICATION) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + Math.Round(SecondaryLogic.PurePurificationHealValue(this), 2, MidpointRounding.AwayFromZero) * 100 + L10n.Get(Fix.L10N_EF_REMOVE_COUNT) + SecondaryLogic.PurePurification_Effect1(this); }
+    else if (command_name == Fix.DIVINE_CIRCLE) { return L10n.Get(Fix.L10N_EF_GRACE_REDUCTION) + (Math.Round(SecondaryLogic.DivineCircle_Effect1(this), 0, MidpointRounding.AwayFromZero) * 1); }
+    else if (command_name == Fix.BLOOD_SIGN) { return L10n.Get(Fix.L10N_EF_SLIP_POWER) + (Math.Round(SecondaryLogic.BloodSign(this), 0, MidpointRounding.AwayFromZero) * 1); }
+    else if (command_name == Fix.FORTUNE_SPIRIT) { return L10n.Get(Fix.L10N_EF_STACK_COUNT) + SecondaryLogic.FortuneSpirit_Effect1(this); }
+    else if (command_name == Fix.FLASH_COUNTER) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(Fix.FLASH_COUNTER, ActionCommand.Cost(Fix.FLASH_COUNTER), this); }
     // スキル
-    else if (command_name == Fix.STANCE_OF_THE_BLADE) { return "威力 " + (Math.Round(SecondaryLogic.StanceOfTheBladeDamage(this), 2, MidpointRounding.AwayFromZero) * 100) + "、物理攻撃ヒット毎の上昇率" + (Math.Round(SecondaryLogic.StanceOfTheBlade(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.STANCE_OF_THE_GUARD) { return "物理防御の増加量 " + (Math.Round(SecondaryLogic.StanceOfTheGuard(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.SPEED_STEP) { return "戦闘反応の増加量 " + (Math.Round(SecondaryLogic.SpeedStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.MULTIPLE_SHOT) { return "威力 " + Math.Round(SecondaryLogic.MultipleShot(this), 2, MidpointRounding.AwayFromZero) * 100; }
-    else if (command_name == Fix.LEYLINE_SCHEMA) { return "ＳＰ回復量 " + Math.Round(SecondaryLogic.LeylineSchema_Effect1(this), 2, MidpointRounding.AwayFromZero); }
-    else if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.SPIRITUAL_REST, ActionCommand.Cost(Fix.SPIRITUAL_REST), this); }
+    else if (command_name == Fix.STANCE_OF_THE_BLADE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.StanceOfTheBladeDamage(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_BLADE_STANCE_RATE) + (Math.Round(SecondaryLogic.StanceOfTheBlade(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.STANCE_OF_THE_GUARD) { return L10n.Get(Fix.L10N_EF_PDEF_UP) + (Math.Round(SecondaryLogic.StanceOfTheGuard(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.SPEED_STEP) { return L10n.Get(Fix.L10N_EF_BR_UP) + (Math.Round(SecondaryLogic.SpeedStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.MULTIPLE_SHOT) { return L10n.Get(Fix.L10N_EF_POWER) + Math.Round(SecondaryLogic.MultipleShot(this), 2, MidpointRounding.AwayFromZero) * 100; }
+    else if (command_name == Fix.LEYLINE_SCHEMA) { return L10n.Get(Fix.L10N_EF_SP_RECOVERY) + Math.Round(SecondaryLogic.LeylineSchema_Effect1(this), 2, MidpointRounding.AwayFromZero); }
+    else if (command_name == Fix.SPIRITUAL_REST) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.SPIRITUAL_REST, ActionCommand.Cost(Fix.SPIRITUAL_REST), this); }
     #endregion
 
     #region "Delve III"
     // 魔法
-    else if (command_name == Fix.METEOR_BULLET) { return "攻撃回数 " + SecondaryLogic.MeteorBullet_Effect1(this) + "回"; }
-    else if (command_name == Fix.BLUE_BULLET) { return "攻撃回数 " + SecondaryLogic.BlueBullet_Effect1(this) + "回"; }
-    else if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.HolyBreath(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.BLACK_CONTRACT) { return "ターン持続数 " + SecondaryLogic.BlackContract_Turn(this); }
-    else if (command_name == Fix.WORD_OF_POWER) { return "威力 " + (Math.Round(SecondaryLogic.WordOfPower(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "継続ターン数 " + SecondaryLogic.SigilOfThePending_Turn(this); }
+    else if (command_name == Fix.METEOR_BULLET) { return L10n.Get(Fix.L10N_EF_ATTACK_COUNT) + SecondaryLogic.MeteorBullet_Effect1(this) + L10n.Get(Fix.L10N_EF_TIMES_SUFFIX); }
+    else if (command_name == Fix.BLUE_BULLET) { return L10n.Get(Fix.L10N_EF_ATTACK_COUNT) + SecondaryLogic.BlueBullet_Effect1(this) + L10n.Get(Fix.L10N_EF_TIMES_SUFFIX); }
+    else if (command_name == Fix.HOLY_BREATH) { return L10n.Get(Fix.L10N_EF_LIFE_RECOVERY) + (Math.Round(SecondaryLogic.HolyBreath(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.BLACK_CONTRACT) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.BlackContract_Turn(this); }
+    else if (command_name == Fix.WORD_OF_POWER) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.WordOfPower(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SIGIL_OF_THE_PENDING) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.SigilOfThePending_Turn(this); }
     // スキル
-    else if (command_name == Fix.DOUBLE_SLASH) { return "威力 " + (Math.Round(SecondaryLogic.DoubleSlash(this), 2, MidpointRounding.AwayFromZero) * 100) + " x2回"; }
-    else if (command_name == Fix.CONCUSSIVE_HIT) { return "物理防御の減少量 " + (Math.Round(SecondaryLogic.ConcussiveHit(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.BONE_CRUSH) { return "物理攻撃の減少量 " + (100.0f - Math.Round(SecondaryLogic.BoneCrush_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "物理防御を無視する量 " + (Math.Round(SecondaryLogic.EyeOfTheIsshin_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.VOICE_OF_VIGOR) { return "最大ライフの増加量 " + (Math.Round(SecondaryLogic.VoiceOfVigor(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.UNSEEN_AID, ActionCommand.Cost(Fix.UNSEEN_AID), this); }
+    else if (command_name == Fix.DOUBLE_SLASH) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.DoubleSlash(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_TWICE); }
+    else if (command_name == Fix.CONCUSSIVE_HIT) { return L10n.Get(Fix.L10N_EF_PDEF_DOWN) + (Math.Round(SecondaryLogic.ConcussiveHit(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.BONE_CRUSH) { return L10n.Get(Fix.L10N_EF_PATK_DOWN) + (100.0f - Math.Round(SecondaryLogic.BoneCrush_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.EYE_OF_THE_ISSHIN) { return L10n.Get(Fix.L10N_EF_PDEF_IGNORE) + (Math.Round(SecondaryLogic.EyeOfTheIsshin_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.VOICE_OF_VIGOR) { return L10n.Get(Fix.L10N_EF_MAXLIFE_UP) + (Math.Round(SecondaryLogic.VoiceOfVigor(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.UNSEEN_AID) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.UNSEEN_AID, ActionCommand.Cost(Fix.UNSEEN_AID), this); }
     #endregion
 
     #region "Delve IV"
     // 魔法
-    else if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】の威力 " + (Math.Round(SecondaryLogic.VolcanicBlaze_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.FREEZING_CUBE) { return "【結晶】の威力 " + (Math.Round(SecondaryLogic.FreezingCube_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 " + (Math.Round(SecondaryLogic.AngelicEcho_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.CURSED_EVANGILE) { return "【呪い】による【闇】ダメージの威力 " + (Math.Round(SecondaryLogic.CursedEvangile_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.GALE_WIND) { return "継続ターン数 " + SecondaryLogic.GaleWind_Turn(this); }
-    else if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.PHANTOM_OBORO, ActionCommand.Cost(Fix.PHANTOM_OBORO), this); }
+    else if (command_name == Fix.VOLCANIC_BLAZE) { return L10n.Get(Fix.L10N_EF_HELLFIRE_POWER) + (Math.Round(SecondaryLogic.VolcanicBlaze_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FREEZING_CUBE) { return L10n.Get(Fix.L10N_EF_CRYSTAL_POWER) + (Math.Round(SecondaryLogic.FreezingCube_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ANGELIC_ECHO) { return L10n.Get(Fix.L10N_EF_PRAISE_LIFE_RECOVERY) + (Math.Round(SecondaryLogic.AngelicEcho_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.CURSED_EVANGILE) { return L10n.Get(Fix.L10N_EF_CURSE_DARK_POWER) + (Math.Round(SecondaryLogic.CursedEvangile_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.GALE_WIND) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.GaleWind_Turn(this); }
+    else if (command_name == Fix.PHANTOM_OBORO) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(Fix.PHANTOM_OBORO, ActionCommand.Cost(Fix.PHANTOM_OBORO), this); }
     // スキル
-    else if (command_name == Fix.IRON_BUSTER) { return "威力 " + (Math.Round(SecondaryLogic.IronBuster(this), 2, MidpointRounding.AwayFromZero) * 100) + "、周囲全体への威力 " + (Math.Round(SecondaryLogic.IronBuster_2(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御の増加量 " + (Math.Round(SecondaryLogic.DominationField_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%、防御姿勢によるダメージ軽減 " + (Math.Round(SecondaryLogic.DominationField_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect3(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.PENETRATION_ARROW) { return "物理防御ＤＯＷＮ影響 " + (100.0f - Math.Round(SecondaryLogic.PenetrationArrow_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.WILL_AWAKENING) { return "継続ターン数 " + SecondaryLogic.WillAwakening_Turn(this); }
-    else if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.CIRCLE_OF_SERENITY, ActionCommand.Cost(Fix.CIRCLE_OF_SERENITY), this); }
+    else if (command_name == Fix.IRON_BUSTER) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.IronBuster(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_SURROUND_POWER) + (Math.Round(SecondaryLogic.IronBuster_2(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.DOMINATION_FIELD) { return L10n.Get(Fix.L10N_EF_IRONWALL_DEF_UP) + (Math.Round(SecondaryLogic.DominationField_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_GUARD_REDUCTION) + (Math.Round(SecondaryLogic.DominationField_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.DEADLY_DRIVE) { return L10n.Get(Fix.L10N_EF_DESPERATION_PATK_UP) + (Math.Round(SecondaryLogic.DeadlyDrive_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect3(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.PENETRATION_ARROW) { return L10n.Get(Fix.L10N_EF_PDEF_DOWN_EFFECT) + (100.0f - Math.Round(SecondaryLogic.PenetrationArrow_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.WILL_AWAKENING) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.WillAwakening_Turn(this); }
+    else if (command_name == Fix.CIRCLE_OF_SERENITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.CIRCLE_OF_SERENITY, ActionCommand.Cost(Fix.CIRCLE_OF_SERENITY), this); }
     #endregion
 
     #region "Delve V"
     // 魔法
-    else if (command_name == Fix.FLAME_STRIKE) { return "威力 " + (Math.Round(SecondaryLogic.FlameStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.FROST_LANCE) { return "威力 " + (Math.Round(SecondaryLogic.FrostLance(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SHINING_HEAL) { return "継続ターン数 " + SecondaryLogic.ShiningHeal_Turn(this); }
-    else if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "物理防御／魔法防御／戦闘反応の減少量 " + (100.0f - Math.Round(SecondaryLogic.CircleOfDespair_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.SEVENTH_PRINCIPLE, ActionCommand.Cost(Fix.SEVENTH_PRINCIPLE), this); }
-    else if (command_name == Fix.COUNTER_DISALLOW) { return "継続ターン数 " + SecondaryLogic.CounterDisallow_Turn(this); }
+    else if (command_name == Fix.FLAME_STRIKE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.FlameStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FROST_LANCE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.FrostLance(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHINING_HEAL) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.ShiningHeal_Turn(this); }
+    else if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return L10n.Get(Fix.L10N_EF_PDEF_MDEF_BR_DOWN) + (100.0f - Math.Round(SecondaryLogic.CircleOfDespair_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.SEVENTH_PRINCIPLE) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(Fix.SEVENTH_PRINCIPLE, ActionCommand.Cost(Fix.SEVENTH_PRINCIPLE), this); }
+    else if (command_name == Fix.COUNTER_DISALLOW) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.CounterDisallow_Turn(this); }
     // スキル
-    else if (command_name == Fix.RAGING_STORM) { return "物理攻撃／魔法攻撃の増加量 " + (Math.Round(SecondaryLogic.RagingStorm_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.HARDEST_PARRY, ActionCommand.Cost(Fix.HARDEST_PARRY), this); }
-    else if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 " + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) +"%、敵の行動ゲージ後退率 " + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.PRECISION_STRIKE) { return "威力 " + (Math.Round(SecondaryLogic.PrecisionStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ維持率 " + (Math.Round(SecondaryLogic.EverflowMind_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
-    else if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 " + (Math.Round(SecondaryLogic.InnerInspiration_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
+    else if (command_name == Fix.RAGING_STORM) { return L10n.Get(Fix.L10N_EF_PATK_MATK_UP) + (Math.Round(SecondaryLogic.RagingStorm_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.HARDEST_PARRY) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(Fix.HARDEST_PARRY, ActionCommand.Cost(Fix.HARDEST_PARRY), this); }
+    else if (command_name == Fix.UNINTENTIONAL_HIT) { return L10n.Get(Fix.L10N_EF_OWN_GAUGE_ADVANCE) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) +L10n.Get(Fix.L10N_EF_ENEMY_GAUGE_DELAY) + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.PRECISION_STRIKE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.PrecisionStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.EVERFLOW_MIND) { return L10n.Get(Fix.L10N_EF_PERSISTENCE_KEEP) + (Math.Round(SecondaryLogic.EverflowMind_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
+    else if (command_name == Fix.INNER_INSPIRATION) { return L10n.Get(Fix.L10N_EF_SP_RECOVERY) + (Math.Round(SecondaryLogic.InnerInspiration_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
     #endregion
 
     #region "Delve VI"
     // 魔法
-    else if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "【炎輪】による【炎】ダメージの威力 " + (Math.Round(SecondaryLogic.CircleOfTheIgnite_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.WATER_PRESENCE) { return "【水脈】による魔法ダメージ軽減量 " + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "% 、魔法消費コスト軽減量 " + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.VALKYRIE_BLADE) { return "物理攻撃ヒット時の【聖】ダメージの威力 " + (Math.Round(SecondaryLogic.ValkyrieBlade_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.THE_DARK_INTENSITY) { return "継続ターン数 " + SecondaryLogic.TheDarkIntensity_Turn(this); }
-    else if (command_name == Fix.FUTURE_VISION) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.FUTURE_VISION, ActionCommand.Cost(Fix.FUTURE_VISION), this); }
-    else if (command_name == Fix.DETACHMENT_FAULT) { return "継続ターン数 " + SecondaryLogic.DetachmentFault_Turn(this); }
+    else if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return L10n.Get(Fix.L10N_EF_FLAMERING_POWER) + (Math.Round(SecondaryLogic.CircleOfTheIgnite_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.WATER_PRESENCE) { return L10n.Get(Fix.L10N_EF_WATERVEIN_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + L10n.Get(Fix.L10N_EF_MAGIC_COST_REDUCTION) + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.VALKYRIE_BLADE) { return L10n.Get(Fix.L10N_EF_HOLY_ON_HIT_POWER) + (Math.Round(SecondaryLogic.ValkyrieBlade_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.THE_DARK_INTENSITY) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.TheDarkIntensity_Turn(this); }
+    else if (command_name == Fix.FUTURE_VISION) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(Fix.FUTURE_VISION, ActionCommand.Cost(Fix.FUTURE_VISION), this); }
+    else if (command_name == Fix.DETACHMENT_FAULT) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.DetachmentFault_Turn(this); }
     // スキル
-    else if (command_name == Fix.STANCE_OF_THE_IAI) { return "【居合】による物理ダメージの威力 " + (Math.Round(SecondaryLogic.StanceoftheIai_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.ONE_IMMUNITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
-    else if (command_name == Fix.STANCE_OF_MUIN) { return "累積カウンター数 " + SecondaryLogic.StanceofMuin_Effect(this); }
-    else if (command_name == Fix.ETERNAL_CONCENTRATION) { return "【凝視】による物理ダメージの威力 " + (Math.Round(SecondaryLogic.EternalConcentration_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大値の上昇量 " + (Math.Round(SecondaryLogic.SigilOfTheFaith_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.STANCE_OF_THE_IAI) { return L10n.Get(Fix.L10N_EF_IAI_POWER) + (Math.Round(SecondaryLogic.StanceoftheIai_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ONE_IMMUNITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.STANCE_OF_MUIN) { return L10n.Get(Fix.L10N_EF_STACK_COUNT) + SecondaryLogic.StanceofMuin_Effect(this); }
+    else if (command_name == Fix.ETERNAL_CONCENTRATION) { return L10n.Get(Fix.L10N_EF_FOCUS_EYE_POWER) + (Math.Round(SecondaryLogic.EternalConcentration_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SIGIL_OF_THE_FAITH) { return L10n.Get(Fix.L10N_EF_MAX_VALUE_UP) + (Math.Round(SecondaryLogic.SigilOfTheFaith_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ZERO_IMMUNITY) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
     #endregion
 
     #region "Delve VI"
     // 魔法
-    else if (command_name == Fix.LAVA_ANNIHILATION) { return "威力 " + (Math.Round(SecondaryLogic.LavaAnnihilation(this) * 100)); }
-    else if (command_name == Fix.ABSOLUTE_ZERO) { return "継続ターン数 " + SecondaryLogic.AbsoluteZero_Turn(this); }
-    else if (command_name == Fix.RESURRECTION) { return "ＭＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
-    else if (command_name == Fix.DEATH_SCYTHE) { return "ターン経過毎に失う量 " + (Math.Round(SecondaryLogic.DeathScythe_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    else if (command_name == Fix.GENESIS) { return "（なし）"; }
-    else if (command_name == Fix.TIME_STOP) { return "時間停止タイマ " + SecondaryLogic.TimeStop_Effect(this); }
+    else if (command_name == Fix.LAVA_ANNIHILATION) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.LavaAnnihilation(this) * 100)); }
+    else if (command_name == Fix.ABSOLUTE_ZERO) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.AbsoluteZero_Turn(this); }
+    else if (command_name == Fix.RESURRECTION) { return L10n.Get(Fix.L10N_EF_MP_COST) + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.DEATH_SCYTHE) { return L10n.Get(Fix.L10N_EF_TURN_LOSS) + (Math.Round(SecondaryLogic.DeathScythe_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.GENESIS) { return L10n.Get(Fix.L10N_UNIT_NONE); }
+    else if (command_name == Fix.TIME_STOP) { return L10n.Get(Fix.L10N_EF_TIME_STOP_TIMER) + SecondaryLogic.TimeStop_Effect(this); }
     // スキル
-    else if (command_name == Fix.KINETIC_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.KineticSmash_Effect(this) * 100)); }
-    else if (command_name == Fix.CATASTROPHE) { return "威力 " + (Math.Round(SecondaryLogic.Catastrophe(this) * 100)); }
-    else if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 " + SecondaryLogic.CarnageRush_Count(this); }
-    else if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 " + SecondaryLogic.PiercingArrow_Turn(this); }
-    else if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
-    else if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.KINETIC_SMASH) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.KineticSmash_Effect(this) * 100)); }
+    else if (command_name == Fix.CATASTROPHE) { return L10n.Get(Fix.L10N_EF_POWER) + (Math.Round(SecondaryLogic.Catastrophe(this) * 100)); }
+    else if (command_name == Fix.CARNAGE_RUSH) { return L10n.Get(Fix.L10N_EF_ATTACK_COUNT) + SecondaryLogic.CarnageRush_Count(this); }
+    else if (command_name == Fix.PIERCING_ARROW) { return L10n.Get(Fix.L10N_EF_DURATION) + SecondaryLogic.PiercingArrow_Turn(this); }
+    else if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.TRANSCENDENCE_REACHED) { return L10n.Get(Fix.L10N_EF_SP_COST) + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
     #endregion
 
     else if (command_name == "") { return ""; }

@@ -2001,6 +2001,63 @@ public static partial class Fix
   public const string L10N_DESC_ARCHETYPE_ADEL_1 = "descArchetypeAdel1";
   #endregion
 
+  #region "エッセンス係数ラベル"
+  // Character.GetEssenceFactor が返す「固定句 + 計算値」の固定句部分。
+  // 複数コマンドで共有される句が多いため、コマンド単位ではなく句単位でキーを定義する。
+  public const string L10N_EF_POWER = "efPower";
+  public const string L10N_EF_DURATION = "efDuration";
+  public const string L10N_EF_SP_COST = "efSpCost";
+  public const string L10N_EF_MP_COST = "efMpCost";
+  public const string L10N_EF_ATTACK_COUNT = "efAttackCount";
+  public const string L10N_EF_TIMES_SUFFIX = "efTimesSuffix";
+  public const string L10N_EF_STACK_COUNT = "efStackCount";
+  public const string L10N_EF_LIFE_RECOVERY = "efLifeRecovery";
+  public const string L10N_EF_SP_RECOVERY = "efSpRecovery";
+  public const string L10N_EF_TURN_LOSS = "efTurnLoss";
+  public const string L10N_EF_MAX_VALUE_UP = "efMaxValueUp";
+  public const string L10N_EF_TIME_STOP_TIMER = "efTimeStopTimer";
+  public const string L10N_EF_CRITICAL_RATE = "efCriticalRate";
+  public const string L10N_EF_TWICE = "efTwice";
+  public const string L10N_EF_REMOVE_COUNT = "efRemoveCount";
+  public const string L10N_EF_SURROUND_POWER = "efSurroundPower";
+  // 能力値の増減
+  public const string L10N_EF_PATK_DOWN = "efPatkDown";
+  public const string L10N_EF_PDEF_UP = "efPdefUp";
+  public const string L10N_EF_PDEF_DOWN = "efPdefDown";
+  public const string L10N_EF_MDEF_DOWN = "efMdefDown";
+  public const string L10N_EF_BS_UP = "efBsUp";
+  public const string L10N_EF_BR_UP = "efBrUp";
+  public const string L10N_EF_PO_UP = "efPoUp";
+  public const string L10N_EF_MAXLIFE_UP = "efMaxLifeUp";
+  public const string L10N_EF_PATK_MATK_UP = "efPatkMatkUp";
+  public const string L10N_EF_PDEF_MDEF_BR_DOWN = "efPdefMdefBrDown";
+  public const string L10N_EF_PDEF_IGNORE = "efPdefIgnore";
+  public const string L10N_EF_PDEF_DOWN_EFFECT = "efPdefDownEffect";
+  public const string L10N_EF_BLADE_STANCE_RATE = "efBladeStanceRate";
+  // ゲージ
+  public const string L10N_EF_OWN_GAUGE_ADVANCE = "efOwnGaugeAdvance";
+  public const string L10N_EF_ENEMY_GAUGE_DELAY = "efEnemyGaugeDelay";
+  public const string L10N_EF_INSTANT_GAUGE_ADVANCE = "efInstantGaugeAdvance";
+  // BUFF名を含む句
+  public const string L10N_EF_EXTRA_FIRE_POWER = "efExtraFirePower";
+  public const string L10N_EF_CRYSTAL_POWER = "efCrystalPower";
+  public const string L10N_EF_HELLFIRE_POWER = "efHellfirePower";
+  public const string L10N_EF_FLAMERING_POWER = "efFlameRingPower";
+  public const string L10N_EF_SLIP_POWER = "efSlipPower";
+  public const string L10N_EF_CURSE_DARK_POWER = "efCurseDarkPower";
+  public const string L10N_EF_FOCUS_EYE_POWER = "efFocusEyePower";
+  public const string L10N_EF_IAI_POWER = "efIaiPower";
+  public const string L10N_EF_HOLY_ON_HIT_POWER = "efHolyOnHitPower";
+  public const string L10N_EF_PRAISE_LIFE_RECOVERY = "efPraiseLifeRecovery";
+  public const string L10N_EF_GRACE_REDUCTION = "efGraceReduction";
+  public const string L10N_EF_WATERVEIN_REDUCTION = "efWaterVeinReduction";
+  public const string L10N_EF_MAGIC_COST_REDUCTION = "efMagicCostReduction";
+  public const string L10N_EF_DESPERATION_PATK_UP = "efDesperationPatkUp";
+  public const string L10N_EF_IRONWALL_DEF_UP = "efIronWallDefUp";
+  public const string L10N_EF_GUARD_REDUCTION = "efGuardReduction";
+  public const string L10N_EF_PERSISTENCE_KEEP = "efPersistenceKeep";
+  #endregion
+
   #endregion
 
   #region "Action Command"

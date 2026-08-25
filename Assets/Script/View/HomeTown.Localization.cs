@@ -396,6 +396,100 @@ public static class L10n
     // 以上は Tools\check-l10n.ps1 が検査する。
     // ---------------------------------------------------------------
 
+    // ---------------------------------------------------------------
+    // エッセンス係数ラベル (Character.GetEssenceFactor)
+    //
+    // 「固定句 + 計算値」の固定句部分。末尾の半角スペースは計算値との区切りであり、
+    // 削らないこと。ＳＰ/ＭＰ は強化値の書式に合わせ全角を維持する。
+    // ---------------------------------------------------------------
+    Register(Fix.L10N_EF_POWER, "威力 ", "Power ");
+    Register(Fix.L10N_EF_DURATION, "継続ターン数 ", "Duration ");
+    Register(Fix.L10N_EF_SP_COST, "ＳＰ消費 ", "SP Cost ");
+    Register(Fix.L10N_EF_MP_COST, "ＭＰ消費 ", "MP Cost ");
+    Register(Fix.L10N_EF_ATTACK_COUNT, "攻撃回数 ", "Attack Count ");
+    // 「回」は助数詞であり英語に対応語が無いため、訳を置かない (攻撃回数 3回 -> Attack Count 3)。
+    // 空文字は未登録キーと実行時に区別できないため、check-l10n.ps1 の allowEmptyEn に明示する。
+    Register(Fix.L10N_EF_TIMES_SUFFIX, "回", "");
+    Register(Fix.L10N_EF_STACK_COUNT, "累積カウンター数 ", "Stack Count ");
+    Register(Fix.L10N_EF_LIFE_RECOVERY, "$0の回復量 ", "$0 Recovery ",
+      Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_EF_SP_RECOVERY, "ＳＰ回復量 ", "SP Recovery ");
+    Register(Fix.L10N_EF_TURN_LOSS, "ターン経過毎に失う量 ", "Loss per Turn ");
+    Register(Fix.L10N_EF_MAX_VALUE_UP, "最大値の上昇量 ", "Max Value Increase ");
+    Register(Fix.L10N_EF_TIME_STOP_TIMER, "時間停止タイマ ", "Time Stop Timer ");
+    Register(Fix.L10N_EF_CRITICAL_RATE, "クリティカル発生率 +", "Critical Rate +");
+    Register(Fix.L10N_EF_TWICE, " x2回", " x2");
+    Register(Fix.L10N_EF_REMOVE_COUNT, "、1度に除去できる数 ", ", Removed at Once ");
+    Register(Fix.L10N_EF_SURROUND_POWER, "、周囲全体への威力 ", ", Surrounding Power ");
+    // 能力値の増減
+    Register(Fix.L10N_EF_PATK_DOWN, "$0の減少量 ", "$0 Reduction ",
+      Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_EF_PDEF_UP, "$0の増加量 ", "$0 Increase ",
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_EF_PDEF_DOWN, "$0の減少量 ", "$0 Reduction ",
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_EF_MDEF_DOWN, "$0の減少量 ", "$0 Reduction ",
+      Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_EF_BS_UP, "$0の増加量 ", "$0 Increase ",
+      Term(Fix.L10N_BATTLE_SPEED));
+    Register(Fix.L10N_EF_BR_UP, "$0の増加量 ", "$0 Increase ",
+      Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_EF_PO_UP, "$0の増加量 ", "$0 Increase ",
+      Term(Fix.L10N_POTENTIAL));
+    Register(Fix.L10N_EF_MAXLIFE_UP, "$0の増加量 ", "$0 Increase ",
+      Term(Fix.L10N_MAX_LIFE));
+    Register(Fix.L10N_EF_PATK_MATK_UP, "$0／$1の増加量 ", "$0 / $1 Increase ",
+      Term(Fix.L10N_PHYSICAL_ATTACK), Term(Fix.L10N_MAGIC_ATTACK));
+    Register(Fix.L10N_EF_PDEF_MDEF_BR_DOWN, "$0／$1／$2の減少量 ", "$0 / $1 / $2 Reduction ",
+      Term(Fix.L10N_PHYSICAL_DEFENSE), Term(Fix.L10N_MAGIC_DEFENSE), Term(Fix.L10N_BATTLE_RESPONSE));
+    Register(Fix.L10N_EF_PDEF_IGNORE, "$0を無視する量 ", "$0 Ignored ",
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_EF_PDEF_DOWN_EFFECT, "$0ＤＯＷＮ影響 ", "$0 Down Effect ",
+      Term(Fix.L10N_PHYSICAL_DEFENSE));
+    Register(Fix.L10N_EF_BLADE_STANCE_RATE, "、$0ヒット毎の上昇率", ", Increase per $0 Hit ",
+      Term(Fix.L10N_PHYSICAL_ATTACK));
+    // ゲージ
+    Register(Fix.L10N_EF_OWN_GAUGE_ADVANCE, "自分の$0進行率 ", "Own $0 Advance ",
+      Term(Fix.L10N_ACTION_GAUGE));
+    Register(Fix.L10N_EF_ENEMY_GAUGE_DELAY, "%、敵の$0後退率 ", "%, Enemy $0 Delay ",
+      Term(Fix.L10N_ACTION_GAUGE));
+    Register(Fix.L10N_EF_INSTANT_GAUGE_ADVANCE, "$0進行 ", "$0 Advance ",
+      Term(Fix.L10N_INSTANT_GAUGE));
+    // BUFF名を含む句
+    Register(Fix.L10N_EF_EXTRA_FIRE_POWER, "追加【$0】の威力 ", "Extra [$0] Power ",
+      (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_EF_CRYSTAL_POWER, "【$0】の威力 ", "[$0] Power ",
+      (Fix.BUFF_CRYSTAL_JP, Fix.BUFF_CRYSTAL));
+    Register(Fix.L10N_EF_HELLFIRE_POWER, "【$0】の威力 ", "[$0] Power ",
+      (Fix.BUFF_HELLFIRE_JP, Fix.BUFF_HELLFIRE));
+    Register(Fix.L10N_EF_FLAMERING_POWER, "【$0】による【$1】ダメージの威力 ", "[$1] Damage Power from [$0] ",
+      (Fix.BUFF_FLAME_RING_JP, Fix.BUFF_FLAME_RING), (Fix.TERM_FIRE_JP, Fix.TERM_FIRE));
+    Register(Fix.L10N_EF_SLIP_POWER, "【$0】ダメージの威力 ", "[$0] Damage Power ",
+      (Fix.EFFECT_SLIP_JP, Fix.EFFECT_SLIP));
+    Register(Fix.L10N_EF_CURSE_DARK_POWER, "【$0】による【$1】ダメージの威力 ", "[$1] Damage Power from [$0] ",
+      (Fix.BUFF_CURSE_JP, Fix.BUFF_CURSE), (Fix.TERM_DARK_JP, Fix.TERM_DARK));
+    Register(Fix.L10N_EF_FOCUS_EYE_POWER, "【$0】による【$1】ダメージの威力 ", "[$1] Damage Power from [$0] ",
+      (Fix.BUFF_FOCUS_EYE_JP, Fix.BUFF_FOCUS_EYE), (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_EF_IAI_POWER, "【$0】による【$1】ダメージの威力 ", "[$1] Damage Power from [$0] ",
+      (Fix.BUFF_STANCE_OF_THE_IAI_JP, Fix.BUFF_STANCE_OF_THE_IAI), (Fix.TERM_PHYSICAL_JP, Fix.TERM_PHYSICAL));
+    Register(Fix.L10N_EF_HOLY_ON_HIT_POWER, "$1ヒット時の【$0】ダメージの威力 ", "[$0] Damage Power on $1 Hit ",
+      (Fix.TERM_HOLY_JP, Fix.TERM_HOLY), Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_EF_PRAISE_LIFE_RECOVERY, "【$0】による$1の回復量 ", "$1 Recovery from [$0] ",
+      (Fix.BUFF_PRAISE_JP, Fix.BUFF_PRAISE), Term(Fix.L10N_BASIC_LIFE));
+    Register(Fix.L10N_EF_GRACE_REDUCTION, "【$0】による軽減量 ", "Reduction from [$0] ",
+      (Fix.BUFF_GRACE_JP, Fix.BUFF_GRACE));
+    Register(Fix.L10N_EF_WATERVEIN_REDUCTION, "【$0】による【$1】ダメージ軽減量 ", "[$1] Damage Reduction from [$0] ",
+      (Fix.BUFF_WATER_VEIN_JP, Fix.BUFF_WATER_VEIN), (Fix.TERM_MAGIC_JP, Fix.TERM_MAGIC));
+    Register(Fix.L10N_EF_MAGIC_COST_REDUCTION, "% 、魔法消費コスト軽減量 ", "%, Spell Cost Reduction ");
+    Register(Fix.L10N_EF_DESPERATION_PATK_UP, "【$0】による$1ＵＰ影響 ", "$1 Up Effect from [$0] ",
+      (Fix.BUFF_DESPERATION_JP, Fix.BUFF_DESPERATION), Term(Fix.L10N_PHYSICAL_ATTACK));
+    Register(Fix.L10N_EF_IRONWALL_DEF_UP, "【$0】による$1／$2の増加量 ", "$1 / $2 Increase from [$0] ",
+      (Fix.BUFF_IRON_WALL_JP, Fix.BUFF_IRON_WALL), Term(Fix.L10N_PHYSICAL_DEFENSE), Term(Fix.L10N_MAGIC_DEFENSE));
+    Register(Fix.L10N_EF_GUARD_REDUCTION, "%、【$0】姿勢によるダメージ軽減 ", "%, Damage Reduction in [$0] Stance ",
+      (Fix.DEFENSE_JP, Fix.DEFENSE));
+    Register(Fix.L10N_EF_PERSISTENCE_KEEP, "【$0】による$1維持率 ", "$1 Retention from [$0] ",
+      (Fix.BUFF_PERSISTENCE_JP, Fix.BUFF_PERSISTENCE), Term(Fix.L10N_INSTANT_GAUGE));
+
     // ActionCommand説明文 - Delve I
     //
     // BUFF名の英訳について:
@@ -1108,57 +1202,27 @@ public static class L10n
 
     string[][] replacements = new string[][]
     {
-      new string[] { "敵一体を対象とする。", "Targets one enemy. " },
-      new string[] { "味方一体を対象とする。", "Targets one ally. " },
-      new string[] { "自分自身を対象とする。", "Targets self. " },
-      new string[] { "自分自身を対象として", "Targets self and " },
-      new string[] { "敵全体に対して", "Deals damage to all enemies and " },
-      new string[] { "敵全体に", "To all enemies " },
-      new string[] { "味方全員の", "All allies' " },
-      new string[] { "敵フィールド", "Enemy Field" },
       new string[] { "味方フィールド", "Ally Field" },
-      new string[] { "敵全体", "All Enemies" },
-      new string[] { "味方全体", "All Allies" },
       new string[] { "自分自身", "Self" },
       new string[] { "インスタント", "Instant" },
-      new string[] { "ノーマル", "Normal" },
-      new string[] { "ソーサリー", "Sorcery" },
       new string[] { "なし", "None" },
       new string[] { "威力 ", "Power " },
-      new string[] { "追加【炎】の威力 ", "Extra [Fire] Power " },
       new string[] { "ライフの回復量 ", "Life Recovery " },
       new string[] { "ライフ回復量 ", "Life Recovery " },
       new string[] { "最大ライフの増加量 ", "Max Life Increase " },
       new string[] { "最大ライフ", "Max Life" },
       new string[] { "回復量 ", "Recovery " },
       new string[] { "増加量 ", "Increase " },
-      new string[] { "減少量 ", "Reduction " },
       new string[] { "継続ターン数 ", "Duration " },
-      new string[] { "ターン持続数 ", "Duration " },
-      new string[] { "攻撃回数 ", "Hits " },
+      new string[] { "攻撃回数 ", "Attack Count " },
       new string[] { "累積カウンター数 ", "Stack Count " },
       new string[] { "ＭＰ消費 ", "MP Cost " },
-      new string[] { "ＭＰ消費　", "MP Cost " },
       new string[] { "ＳＰ消費 ", "SP Cost " },
-      new string[] { "ＳＰ回復量 ", "SP Recovery " },
-      new string[] { "インスタンスゲージ進行 ", "Instant Gauge " },
-      new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge " },
+      new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge Advance " },
       new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Delay " },
-      new string[] { "物理攻撃／魔法攻撃の増加量 ", "Physical Attack / Magic Attack Increase " },
-      new string[] { "物理防御／魔法防御／戦闘反応の減少量 ", "Physical Defense / Magic Defense / Battle Response Reduction " },
-      new string[] { "物理／魔法防御の増加量 ", "Physical / Magic Defense Increase " },
-      new string[] { "物理防御を無視する量 ", "Physical Defense Ignore " },
+      new string[] { "物理防御を無視する量 ", "Physical Defense Ignored " },
       new string[] { "物理防御ＤＯＷＮ影響 ", "Physical Defense Down Effect " },
-      new string[] { "物理防御の増加量 ", "Physical Defense Increase " },
-      new string[] { "物理防御の減少量 ", "Physical Defense Reduction " },
-      new string[] { "物理攻撃の減少量 ", "Physical Attack Reduction " },
-      new string[] { "魔法防御の減少量 ", "Magic Defense Reduction " },
-      new string[] { "戦闘速度の増加量 ", "Battle Speed Increase " },
-      new string[] { "戦闘反応の増加量 ", "Battle Response Increase " },
-      new string[] { "潜在能力の増加量 ", "Potential Increase " },
-      new string[] { "クリティカル発生率 +", "Critical Rate +" },
       new string[] { "対象へのダメージの威力 ", "Target Damage Power " },
-      new string[] { "周囲全体への威力 ", "Surrounding Damage Power " }
     };
 
     for (int ii = 0; ii < replacements.Length; ii++)
