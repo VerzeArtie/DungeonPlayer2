@@ -2108,6 +2108,40 @@ public static partial class Fix
   #endregion
 
 
+
+  #region "料理の説明文"
+  // 宿屋の料理説明。日本語は Fix.DESC_*_MINI を唯一の定義とし、表示のみ本キー経由で対訳する。
+  public const string L10N_DESC_FOOD_01 = "lblDescFood01";
+  public const string L10N_DESC_FOOD_02 = "lblDescFood02";
+  public const string L10N_DESC_FOOD_03 = "lblDescFood03";
+  public const string L10N_DESC_FOOD_04 = "lblDescFood04";
+  public const string L10N_DESC_FOOD_05 = "lblDescFood05";
+  public const string L10N_DESC_FOOD_11 = "lblDescFood11";
+  public const string L10N_DESC_FOOD_12 = "lblDescFood12";
+  public const string L10N_DESC_FOOD_13 = "lblDescFood13";
+  public const string L10N_DESC_FOOD_14 = "lblDescFood14";
+  public const string L10N_DESC_FOOD_15 = "lblDescFood15";
+  public const string L10N_DESC_FOOD_21 = "lblDescFood21";
+  public const string L10N_DESC_FOOD_22 = "lblDescFood22";
+  public const string L10N_DESC_FOOD_23 = "lblDescFood23";
+  public const string L10N_DESC_FOOD_24 = "lblDescFood24";
+  public const string L10N_DESC_FOOD_25 = "lblDescFood25";
+  public const string L10N_DESC_FOOD_31 = "lblDescFood31";
+  public const string L10N_DESC_FOOD_32 = "lblDescFood32";
+  public const string L10N_DESC_FOOD_33 = "lblDescFood33";
+  public const string L10N_DESC_FOOD_34 = "lblDescFood34";
+  public const string L10N_DESC_FOOD_35 = "lblDescFood35";
+  public const string L10N_DESC_FOOD_51 = "lblDescFood51";
+  public const string L10N_DESC_FOOD_52 = "lblDescFood52";
+  public const string L10N_DESC_FOOD_53 = "lblDescFood53";
+  public const string L10N_DESC_FOOD_54 = "lblDescFood54";
+  public const string L10N_DESC_FOOD_55 = "lblDescFood55";
+  public const string L10N_DESC_FOOD_61 = "lblDescFood61";
+  public const string L10N_DESC_FOOD_62 = "lblDescFood62";
+  public const string L10N_DESC_FOOD_63 = "lblDescFood63";
+  public const string L10N_DESC_FOOD_64 = "lblDescFood64";
+  public const string L10N_DESC_FOOD_65 = "lblDescFood65";
+  #endregion
   #region "料理名"
   // 宿屋の料理名。日本語は Fix.FOOD_* を唯一の定義とし、表示のみ本キー経由で対訳する。
   // 分岐判定は Fix.FOOD_* のキーで行うため、英訳は動作に影響しない。

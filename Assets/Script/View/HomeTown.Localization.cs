@@ -685,6 +685,40 @@ public static class L10n
     Register(Fix.L10N_FOOD_HUNWARI_ORANGE_TOAST, Fix.FOOD_HUNWARI_ORANGE_TOAST, "Fluffy Orange Toast");
     Register(Fix.L10N_FOOD_TRUTH_YAMINABE_2, Fix.FOOD_TRUTH_YAMINABE_2, "Hotpot of Truth (Part 2)");
 
+    // 宿屋の料理説明
+    // 日本語は Fix.DESC_*_MINI を唯一の定義とし、ここでは英訳のみを与える。
+    Register(Fix.L10N_DESC_FOOD_01, Fix.DESC_01_MINI, "A set meal designed with your health in mind. Its calorie balance is well considered, and the flavor keeps locals coming back.");
+    Register(Fix.L10N_DESC_FOOD_02, Fix.DESC_02_MINI, "The perfect rice set for filling up. On top of the heaping mound of rice, it comes loaded with side dishes that build plenty of stamina, making it a favorite among certain customers.");
+    Register(Fix.L10N_DESC_FOOD_03, Fix.DESC_03_MINI, "If you want to build strength, start with this udon set. There is no particular reason for it, but people swear they feel highly motivated the day after eating it.");
+    Register(Fix.L10N_DESC_FOOD_04, Fix.DESC_04_MINI, "Rabbit meat wrapped in sun leaves and slowly deep-fried. The flavor is rich and distinctive. Rumor has it that eating this fires up your brain and raises your intelligence.");
+    Register(Fix.L10N_DESC_FOOD_05, Fix.DESC_05_MINI, "Egg soba that keeps getting refilled no matter how much you eat. The combination is superb and never gets old. Unless you call a stop partway, you will keep eating forever, so knowing when to quit is everything.");
+    Register(Fix.L10N_DESC_FOOD_11, Fix.DESC_11_MINI, "S-so spicy!! But so good!!\r\n　Hanna apparently adjusts the heat for every customer.");
+    Register(Fix.L10N_DESC_FOOD_12, Fix.DESC_12_MINI, "Onion soup with a faint aroma of olive, prepared with a light touch. It proved so popular that it became one of the standard menu items.");
+    Register(Fix.L10N_DESC_FOOD_13, Fix.DESC_13_MINI, "The taste itself is exquisite and the texture is excellent. The only problem is how it looks...");
+    Register(Fix.L10N_DESC_FOOD_14, Fix.DESC_14_MINI, "The gaminess unique to rabbit has been removed while the savory richness of the meat remains. It is quite chewy, but the more you chew, the more flavor comes out.");
+    Register(Fix.L10N_DESC_FOOD_15, Fix.DESC_15_MINI, "It brings out the natural flavor of the fish, and pairs remarkably well with the simmered side.");
+    Register(Fix.L10N_DESC_FOOD_21, Fix.DESC_21_MINI, "A gratin scattered with finely sliced fresh seafood.");
+    Register(Fix.L10N_DESC_FOOD_22, Fix.DESC_22_MINI, "The gaminess unique to seafood has been completely removed, finished as a high-quality tempura. Size, tenderness, and heartiness are all beyond reproach, and you can eat your fill.");
+    Register(Fix.L10N_DESC_FOOD_23, Fix.DESC_23_MINI, "Truth lurks within the darkness. The taste, at least, is said to be guaranteed...");
+    Register(Fix.L10N_DESC_FOOD_24, Fix.DESC_24_MINI, "A jingisukan so chewy you would never guess it was fish. It leaves a pleasant aftertaste and a flavor you will want again and again.");
+    Register(Fix.L10N_DESC_FOOD_25, Fix.DESC_25_MINI, "Bright red spaghetti, yet apparently not spicy at all.\r\n　They make full use of the ingredients' natural colors, with no coloring added.");
+    Register(Fix.L10N_DESC_FOOD_31, Fix.DESC_31_MINI, "Rabbit thigh slowly grilled over a low flame and finished with a sauce passed down in secret at $0. The fluffy texture makes it addictively delicious.",
+      Term(Fix.L10N_AREANAME_ZHALMAN));
+    Register(Fix.L10N_DESC_FOOD_32, Fix.DESC_32_MINI, "Migratory ducks are a common catch in the hunts held near the village. The duck's lower legs are cut away and simmered in a pot with a wide variety of vegetables. The finished pot gives off a pleasant, savory aroma that whets the appetite.");
+    Register(Fix.L10N_DESC_FOOD_33, Fix.DESC_33_MINI, "A rare dish of a whole packmushroom grilled in a stone oven. The texture is surprisingly crunchy, and one bite makes it hard to stop.");
+    Register(Fix.L10N_DESC_FOOD_34, Fix.DESC_34_MINI, "A mountain of scallions grilled boldly on a searing iron plate. Piled onto a huge rice bowl, and order up!");
+    Register(Fix.L10N_DESC_FOOD_35, Fix.DESC_35_MINI, "Very little of the rainbow beech fish is actually edible, even after cooking. Simmered over several days, its savory depth is drawn out to its finest.");
+    Register(Fix.L10N_DESC_FOOD_51, Fix.DESC_51_MINI, "Vegetable tempura fried crisp in tempura batter.\r\nThe aroma and crunch are so pronounced you forget you are eating vegetables.");
+    Register(Fix.L10N_DESC_FOOD_52, Fix.DESC_52_MINI, "The ultimate dish: tough, unpleasantly chewy seal meat thoroughly tenderized, then frozen, grilled, and dusted with salt.");
+    Register(Fix.L10N_DESC_FOOD_53, Fix.DESC_53_MINI, "Curry rice made with beef firmed up by the sharp temperature swings of winter. Not a trace of gaminess.");
+    Register(Fix.L10N_DESC_FOOD_54, Fix.DESC_54_MINI, "Meat, fish, beans, miso soup, rice, and green tea. A well-balanced set meal with everything you need.\r\nAunt Hanna's pride and joy.");
+    Register(Fix.L10N_DESC_FOOD_55, Fix.DESC_55_MINI, "Such blueness... just looking at it could freeze you.\r\n　The sensation that fills your mouth when you eat it is that of a first-class dessert.");
+    Register(Fix.L10N_DESC_FOOD_61, Fix.DESC_61_MINI, "Pitch-black spaghetti.\r\nIt looks rather ominous... but gives off a spiced aroma.");
+    Register(Fix.L10N_DESC_FOOD_62, Fix.DESC_62_MINI, "Finely chopped peanuts are mixed into the hamburg steak.\r\nThe fluffy, juicy meat and the crunchy peanuts together whet the appetite.");
+    Register(Fix.L10N_DESC_FOOD_63, Fix.DESC_63_MINI, "A fillet steak topped with bright red chili peppers.\r\nHidden beneath is a subtle touch of honey, so heat and sweetness ring out together for whoever eats it.");
+    Register(Fix.L10N_DESC_FOOD_64, Fix.DESC_64_MINI, "When it comes to the most popular toast set, this orange toast is it.\r\nThe enormous slice, generously spread with orange jam and topped with white cream, is a favorite regardless of who you ask.");
+    Register(Fix.L10N_DESC_FOOD_65, Fix.DESC_65_MINI, "A pot of darkness with no smell of food at all.\r\n　Aunt Hanna says the good stuff is definitely in there. You have no choice but to believe her and eat.");
+
     // ダンジョン内の選択肢
     // 心の解(ヴェルガス海底神殿)の設問文。選択肢は物語のキーワードのため原文のまま残す。
     Register(Fix.L10N_CHOICE_REVEAL_PROMPT, "どのような内容を示すか選択してください。", "Choose what to reveal.");

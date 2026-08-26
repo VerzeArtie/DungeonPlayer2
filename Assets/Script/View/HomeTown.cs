@@ -2759,41 +2759,41 @@ public partial class HomeTown : MotherBase
 
     this.txtFoodMenuTitle.text = GetFoodDisplayName(foodKey);
 
-    if (foodKey == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01_MINI; SetupFoodMenu(Fix.FOOD_01_VALUE); }
-    if (foodKey == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02_MINI; SetupFoodMenu(Fix.FOOD_02_VALUE); }
-    if (foodKey == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03_MINI; SetupFoodMenu(Fix.FOOD_03_VALUE); }
-    if (foodKey == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04_MINI; SetupFoodMenu(Fix.FOOD_04_VALUE); }
-    if (foodKey == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05_MINI; SetupFoodMenu(Fix.FOOD_05_VALUE); }
+    if (foodKey == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_01); SetupFoodMenu(Fix.FOOD_01_VALUE); }
+    if (foodKey == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_02); SetupFoodMenu(Fix.FOOD_02_VALUE); }
+    if (foodKey == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_03); SetupFoodMenu(Fix.FOOD_03_VALUE); }
+    if (foodKey == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_04); SetupFoodMenu(Fix.FOOD_04_VALUE); }
+    if (foodKey == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_05); SetupFoodMenu(Fix.FOOD_05_VALUE); }
 
-    if (foodKey == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11_MINI; SetupFoodMenu(Fix.FOOD_11_VALUE); }
-    if (foodKey == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12_MINI; SetupFoodMenu(Fix.FOOD_12_VALUE); }
-    if (foodKey == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13_MINI; SetupFoodMenu(Fix.FOOD_13_VALUE); }
-    if (foodKey == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14_MINI; SetupFoodMenu(Fix.FOOD_14_VALUE); }
-    if (foodKey == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15_MINI; SetupFoodMenu(Fix.FOOD_15_VALUE); }
+    if (foodKey == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_11); SetupFoodMenu(Fix.FOOD_11_VALUE); }
+    if (foodKey == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_12); SetupFoodMenu(Fix.FOOD_12_VALUE); }
+    if (foodKey == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_13); SetupFoodMenu(Fix.FOOD_13_VALUE); }
+    if (foodKey == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_14); SetupFoodMenu(Fix.FOOD_14_VALUE); }
+    if (foodKey == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_15); SetupFoodMenu(Fix.FOOD_15_VALUE); }
 
-    if (foodKey == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21_MINI; SetupFoodMenu(Fix.FOOD_21_VALUE); }
-    if (foodKey == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22_MINI; SetupFoodMenu(Fix.FOOD_22_VALUE); }
-    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23_MINI; SetupFoodMenu(Fix.FOOD_23_VALUE); }
-    if (foodKey == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24_MINI; SetupFoodMenu(Fix.FOOD_24_VALUE); }
-    if (foodKey == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25_MINI; SetupFoodMenu(Fix.FOOD_25_VALUE); }
+    if (foodKey == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_21); SetupFoodMenu(Fix.FOOD_21_VALUE); }
+    if (foodKey == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_22); SetupFoodMenu(Fix.FOOD_22_VALUE); }
+    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_23); SetupFoodMenu(Fix.FOOD_23_VALUE); }
+    if (foodKey == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_24); SetupFoodMenu(Fix.FOOD_24_VALUE); }
+    if (foodKey == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_25); SetupFoodMenu(Fix.FOOD_25_VALUE); }
 
-    if (foodKey == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31_MINI; SetupFoodMenu(Fix.FOOD_31_VALUE); }
-    if (foodKey == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32_MINI; SetupFoodMenu(Fix.FOOD_32_VALUE); }
-    if (foodKey == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33_MINI; SetupFoodMenu(Fix.FOOD_33_VALUE); }
-    if (foodKey == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34_MINI; SetupFoodMenu(Fix.FOOD_34_VALUE); }
-    if (foodKey == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35_MINI; SetupFoodMenu(Fix.FOOD_35_VALUE); }
+    if (foodKey == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_31); SetupFoodMenu(Fix.FOOD_31_VALUE); }
+    if (foodKey == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_32); SetupFoodMenu(Fix.FOOD_32_VALUE); }
+    if (foodKey == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_33); SetupFoodMenu(Fix.FOOD_33_VALUE); }
+    if (foodKey == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_34); SetupFoodMenu(Fix.FOOD_34_VALUE); }
+    if (foodKey == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_35); SetupFoodMenu(Fix.FOOD_35_VALUE); }
 
-    if (foodKey == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51_MINI; SetupFoodMenu(Fix.FOOD_51_VALUE); }
-    if (foodKey == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52_MINI; SetupFoodMenu(Fix.FOOD_52_VALUE); }
-    if (foodKey == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53_MINI; SetupFoodMenu(Fix.FOOD_53_VALUE); }
-    if (foodKey == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54_MINI; SetupFoodMenu(Fix.FOOD_54_VALUE); }
-    if (foodKey == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55_MINI; SetupFoodMenu(Fix.FOOD_55_VALUE); }
+    if (foodKey == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_51); SetupFoodMenu(Fix.FOOD_51_VALUE); }
+    if (foodKey == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_52); SetupFoodMenu(Fix.FOOD_52_VALUE); }
+    if (foodKey == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_53); SetupFoodMenu(Fix.FOOD_53_VALUE); }
+    if (foodKey == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_54); SetupFoodMenu(Fix.FOOD_54_VALUE); }
+    if (foodKey == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_55); SetupFoodMenu(Fix.FOOD_55_VALUE); }
 
-    if (foodKey == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61_MINI; SetupFoodMenu(Fix.FOOD_61_VALUE); }
-    if (foodKey == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62_MINI; SetupFoodMenu(Fix.FOOD_62_VALUE); }
-    if (foodKey == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63_MINI; SetupFoodMenu(Fix.FOOD_63_VALUE); }
-    if (foodKey == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64_MINI; SetupFoodMenu(Fix.FOOD_64_VALUE); }
-    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65_MINI; SetupFoodMenu(Fix.FOOD_65_VALUE); }
+    if (foodKey == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_61); SetupFoodMenu(Fix.FOOD_61_VALUE); }
+    if (foodKey == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_62); SetupFoodMenu(Fix.FOOD_62_VALUE); }
+    if (foodKey == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_63); SetupFoodMenu(Fix.FOOD_63_VALUE); }
+    if (foodKey == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_64); SetupFoodMenu(Fix.FOOD_64_VALUE); }
+    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = L10n.Get(Fix.L10N_DESC_FOOD_65); SetupFoodMenu(Fix.FOOD_65_VALUE); }
 
   }
 
