@@ -630,6 +630,40 @@ public static class L10n
     // 特殊効果の見出し
     // 見出しであり用語タグではないため、英語側は 【】 を用いない。
     Register(Fix.L10N_IT_SPECIAL, "【特殊効果】", "-- Special Effect -- ");
+
+    // コマンド解放／エッセンス獲得の確認ダイアログ
+    // {0} にはコマンド名・カテゴリ名が入る。
+    Register(Fix.L10N_UNLOCK_FAIL_TITLE, "{0} を解放する事ができません。", "{0} cannot be unlocked.");
+    Register(Fix.L10N_UNLOCK_FAIL_SOULFRAGMENT, "ソウル・フラグメントが不足しています。ソウル・フラグメントを入手してください。", "You do not have enough Soul Fragments. Obtain more Soul Fragments.");
+    Register(Fix.L10N_UNLOCK_CONFIRM_TITLE, "{0} を解放しますか？", "Unlock {0}?");
+    Register(Fix.L10N_UNLOCK_CONFIRM_MESSAGE, "ソウル・フラグメントを１ポイント消費します。この操作は元に戻せません。", "This consumes 1 Soul Fragment. This action cannot be undone.");
+    Register(Fix.L10N_UNLOCK_BLOCK_TITLE, "{0} を解放する条件を満たしていません。", "{0} does not meet the requirements to be unlocked.");
+    Register(Fix.L10N_UNLOCK_BLOCK_MESSAGE, "このコマンドを解放するためには、{0}を解放する必要があります", "To unlock this command, you must first unlock {0}.");
+    Register(Fix.L10N_REINFORCE_FAIL_TITLE, "{0} を強化する事ができません。", "{0} cannot be reinforced.");
+    Register(Fix.L10N_REINFORCE_CONFIRM_TITLE, "{0} を強化しますか？", "Reinforce {0}?");
+    Register(Fix.L10N_ESSENCE_FAIL_TITLE, "{0} を獲得する事ができません。", "{0} cannot be obtained.");
+    Register(Fix.L10N_ESSENCE_FAIL_MESSAGE, "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。", "You do not have enough Essence Points. Obtain more Essence Points.");
+    Register(Fix.L10N_ESSENCE_CONFIRM_TITLE, "{0}を獲得しますか？", "Obtain {0}?");
+    Register(Fix.L10N_ESSENCE_CONFIRM_MESSAGE, "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。", "This consumes 1 Essence Point. This action cannot be undone.");
+    Register(Fix.L10N_MYSTICFOREST_WARNING, "【$0】はダンジョンエリアとなります。全滅した場合はゴールドが失われます。", "[$0] is a dungeon area. If your party is wiped out, you will lose gold.",
+      Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+
+    // ダンジョン内の選択肢
+    // 心の解(ヴェルガス海底神殿)の設問文。選択肢は物語のキーワードのため原文のまま残す。
+    Register(Fix.L10N_CHOICE_REVEAL_PROMPT, "どのような内容を示すか選択してください。", "Choose what to reveal.");
+    // 崖・扉・仲間加入
+    Register(Fix.L10N_CHOICE_CLIFF_DOWN_MSG, "崖を降りるかどうかを決めてください。", "Decide whether to climb down the cliff.");
+    Register(Fix.L10N_CHOICE_CLIFF_DOWN_A, "崖を降りる", "Climb down");
+    Register(Fix.L10N_CHOICE_TURN_BACK, "引き返す", "Turn back");
+    Register(Fix.L10N_CHOICE_CLIFF_RETURN_MSG, "崖を降りて元の通路へ戻るかどうかを決めてください。", "Decide whether to climb down the cliff and return to the original passage.");
+    Register(Fix.L10N_CHOICE_CLIFF_RETURN_A, "崖を降りて元の通路へ戻る。", "Climb down and return");
+    Register(Fix.L10N_CHOICE_CLIFF_RETURN_B, "引き返して他の場所を探す", "Turn back and search elsewhere");
+    Register(Fix.L10N_CHOICE_BREAK_DOOR_MSG, "扉を蹴破って進むかどうかを決めてください。", "Decide whether to break down the door and proceed.");
+    Register(Fix.L10N_CHOICE_BREAK_DOOR_A, "扉を蹴破る", "Break down the door");
+    Register(Fix.L10N_CHOICE_RECRUIT_TITLE, "セルモイ・ロウに50000G支払い、仲間に引き入れますか？", "Pay 50,000G to recruit Selmoi Rou?");
+    Register(Fix.L10N_CHOICE_RECRUIT_MSG, "50000G支払う事で、セルモイ・ロウを仲間にする事が出来ます。50000G持っていない場合は仲間にする事は出来ません。", "Paying 50,000G lets you recruit Selmoi Rou. You cannot recruit him without 50,000G.");
+    Register(Fix.L10N_CHOICE_RECRUIT_YES, "仲間にする", "Recruit");
+    Register(Fix.L10N_CHOICE_RECRUIT_NO, "仲間にしない", "Do not recruit");
     Register(Fix.L10N_RF_GUARD_REDUCTION, "　【$0】姿勢によるダメージ軽減 ", "  Damage Reduction in [$0] Stance ",
       (Fix.DEFENSE_JP, Fix.DEFENSE));
 

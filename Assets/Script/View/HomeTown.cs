@@ -2302,8 +2302,8 @@ public partial class HomeTown : MotherBase
 
       imgCurrentDecision.sprite = Resources.Load<Sprite>(currentAttributeName);
       imgCurrentDecision.name = currentAttributeName;
-      txtDecisionTitle.text = currentAttributeName + " を解放する事ができません。";
-      txtDecisionMessage.text = "ソウル・フラグメントが不足しています。ソウル・フラグメントを入手してください。";
+      txtDecisionTitle.text = L10n.Get(Fix.L10N_UNLOCK_FAIL_TITLE, currentAttributeName);
+      txtDecisionMessage.text = L10n.Get(Fix.L10N_UNLOCK_FAIL_SOULFRAGMENT);
       btnDecisionAccept.gameObject.SetActive(false);
       btnDecisionCancel.gameObject.SetActive(false);
       btnDecisionOK.gameObject.SetActive(true);
@@ -2315,8 +2315,8 @@ public partial class HomeTown : MotherBase
 
     imgCurrentDecision.sprite = Resources.Load<Sprite>(currentAttributeName);
     imgCurrentDecision.name = currentAttributeName;
-    txtDecisionTitle.text = currentAttributeName + " を解放しますか？";
-    txtDecisionMessage.text = "ソウル・フラグメントを１ポイント消費します。この操作は元に戻せません。";
+    txtDecisionTitle.text = L10n.Get(Fix.L10N_UNLOCK_CONFIRM_TITLE, currentAttributeName);
+    txtDecisionMessage.text = L10n.Get(Fix.L10N_UNLOCK_CONFIRM_MESSAGE);
     btnDecisionAccept.gameObject.SetActive(true);
     btnDecisionCancel.gameObject.SetActive(true);
     btnDecisionOK.gameObject.SetActive(false);
@@ -2327,8 +2327,8 @@ public partial class HomeTown : MotherBase
   {
     imgCurrentDecision.sprite = Resources.Load<Sprite>(wish_command);
     imgCurrentDecision.name = wish_command;
-    txtDecisionTitle.text = wish_command + " を解放する条件を満たしていません。";
-    txtDecisionMessage.text = "このコマンドを解放するためには、" + restriction + "を解放する必要があります";
+    txtDecisionTitle.text = L10n.Get(Fix.L10N_UNLOCK_BLOCK_TITLE, wish_command);
+    txtDecisionMessage.text = L10n.Get(Fix.L10N_UNLOCK_BLOCK_MESSAGE, restriction);
     btnDecisionAccept.gameObject.SetActive(false);
     btnDecisionCancel.gameObject.SetActive(false);
     btnDecisionOK.gameObject.SetActive(true);
@@ -2342,8 +2342,8 @@ public partial class HomeTown : MotherBase
     {
       imgCurrentDecision.sprite = Resources.Load<Sprite>(sender.text);
       imgCurrentDecision.name = sender.text;
-      txtDecisionTitle.text = sender.text + " を強化する事ができません。";
-      txtDecisionMessage.text = "ソウル・フラグメントが不足しています。ソウル・フラグメントを入手してください。";
+      txtDecisionTitle.text = L10n.Get(Fix.L10N_REINFORCE_FAIL_TITLE, sender.text);
+      txtDecisionMessage.text = L10n.Get(Fix.L10N_UNLOCK_FAIL_SOULFRAGMENT);
       btnDecisionAccept.gameObject.SetActive(false);
       btnDecisionCancel.gameObject.SetActive(false);
       btnDecisionOK.gameObject.SetActive(true);
@@ -2352,8 +2352,8 @@ public partial class HomeTown : MotherBase
     {
       imgCurrentDecision.sprite = Resources.Load<Sprite>(sender.text);
       imgCurrentDecision.name = sender.text;
-      txtDecisionTitle.text = sender.text + " を強化しますか？";
-      txtDecisionMessage.text = "ソウル・フラグメントを１ポイント消費します。この操作は元に戻せません。";
+      txtDecisionTitle.text = L10n.Get(Fix.L10N_REINFORCE_CONFIRM_TITLE, sender.text);
+      txtDecisionMessage.text = L10n.Get(Fix.L10N_UNLOCK_CONFIRM_MESSAGE);
       btnDecisionAccept.gameObject.SetActive(true);
       btnDecisionCancel.gameObject.SetActive(true);
       btnDecisionOK.gameObject.SetActive(false);
@@ -3292,7 +3292,7 @@ public partial class HomeTown : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.HomeTownYesNoMessageDisplay)
         {
           this.txtDecisionMessageTitle.text = currentMessage;
-          this.txtDecisionMessageDescription.text = "【神秘の森】はダンジョンエリアとなります。全滅した場合はゴールドが失われます。";
+          this.txtDecisionMessageDescription.text = L10n.Get(Fix.L10N_MYSTICFOREST_WARNING);
           this.GroupDecisionMessage.SetActive(true);
           continue; // 継続
         }

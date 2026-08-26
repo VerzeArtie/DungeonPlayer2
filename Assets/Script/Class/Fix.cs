@@ -2107,6 +2107,40 @@ public static partial class Fix
   public const string L10N_RF_COND_10 = "rfCond10";
   #endregion
 
+  #region "ダンジョン内の選択肢"
+  // 心の解(ヴェルガス海底神殿)の設問文。選択肢そのものは物語のキーワードのため原文のまま。
+  public const string L10N_CHOICE_REVEAL_PROMPT = "lblChoiceRevealPrompt";
+  // 崖・扉・仲間加入
+  public const string L10N_CHOICE_CLIFF_DOWN_MSG = "lblChoiceCliffDownMsg";
+  public const string L10N_CHOICE_CLIFF_DOWN_A = "lblChoiceCliffDownA";
+  public const string L10N_CHOICE_TURN_BACK = "lblChoiceTurnBack";
+  public const string L10N_CHOICE_CLIFF_RETURN_MSG = "lblChoiceCliffReturnMsg";
+  public const string L10N_CHOICE_CLIFF_RETURN_A = "lblChoiceCliffReturnA";
+  public const string L10N_CHOICE_CLIFF_RETURN_B = "lblChoiceCliffReturnB";
+  public const string L10N_CHOICE_BREAK_DOOR_MSG = "lblChoiceBreakDoorMsg";
+  public const string L10N_CHOICE_BREAK_DOOR_A = "lblChoiceBreakDoorA";
+  public const string L10N_CHOICE_RECRUIT_TITLE = "lblChoiceRecruitTitle";
+  public const string L10N_CHOICE_RECRUIT_MSG = "lblChoiceRecruitMsg";
+  public const string L10N_CHOICE_RECRUIT_YES = "lblChoiceRecruitYes";
+  public const string L10N_CHOICE_RECRUIT_NO = "lblChoiceRecruitNo";
+  #endregion
+
+  #region "コマンド解放／エッセンス獲得の確認ダイアログ"
+  public const string L10N_UNLOCK_FAIL_TITLE = "lblUnlockFailTitle";
+  public const string L10N_UNLOCK_FAIL_SOULFRAGMENT = "lblUnlockFailSoulFragment";
+  public const string L10N_UNLOCK_CONFIRM_TITLE = "lblUnlockConfirmTitle";
+  public const string L10N_UNLOCK_CONFIRM_MESSAGE = "lblUnlockConfirmMessage";
+  public const string L10N_UNLOCK_BLOCK_TITLE = "lblUnlockBlockTitle";
+  public const string L10N_UNLOCK_BLOCK_MESSAGE = "lblUnlockBlockMessage";
+  public const string L10N_REINFORCE_FAIL_TITLE = "lblReinforceFailTitle";
+  public const string L10N_REINFORCE_CONFIRM_TITLE = "lblReinforceConfirmTitle";
+  public const string L10N_ESSENCE_FAIL_TITLE = "lblEssenceFailTitle";
+  public const string L10N_ESSENCE_FAIL_MESSAGE = "lblEssenceFailMessage";
+  public const string L10N_ESSENCE_CONFIRM_TITLE = "lblEssenceConfirmTitle";
+  public const string L10N_ESSENCE_CONFIRM_MESSAGE = "lblEssenceConfirmMessage";
+  public const string L10N_MYSTICFOREST_WARNING = "lblMysticForestWarning";
+  #endregion
+
   #region "アイテム説明のステータス表記"
   // Item.Description 末尾のステータス部。フレーバー部は日本語のまま残るため、
   // 境界に改行を入れて言語が切り替わることを視覚的に示す。

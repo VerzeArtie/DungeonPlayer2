@@ -1429,8 +1429,8 @@ public class GroupCharacterStatus : MonoBehaviour
     imgEssenceDecision.name = txtEssenceCurrentCategory.text;
     if (CurrentPlayer.SoulFragment <= 0)
     {
-      txtEssenceDecisionTitle.text = txtEssenceCurrentCategory.text + " を獲得する事ができません。";
-      txtEssenceDecisionMessage.text = "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。";
+      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_ESSENCE_FAIL_TITLE, txtEssenceCurrentCategory.text);
+      txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_ESSENCE_FAIL_MESSAGE);
       btnEssenceDecisionAccept.gameObject.SetActive(false);
       btnEssenceDecisionCancel.gameObject.SetActive(false);
       btnEssenceDecisionOK.gameObject.SetActive(true);
@@ -1438,8 +1438,8 @@ public class GroupCharacterStatus : MonoBehaviour
       return;
     }
 
-    txtEssenceDecisionTitle.text = txtEssenceCurrentCategory.text + "を獲得しますか？";
-    txtEssenceDecisionMessage.text = "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。";
+    txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_ESSENCE_CONFIRM_TITLE, txtEssenceCurrentCategory.text);
+    txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_ESSENCE_CONFIRM_MESSAGE);
     btnEssenceDecisionAccept.gameObject.SetActive(true);
     btnEssenceDecisionCancel.gameObject.SetActive(true);
     btnEssenceDecisionOK.gameObject.SetActive(false);

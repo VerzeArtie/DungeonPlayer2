@@ -13965,9 +13965,9 @@ public class DungeonField : MotherBase
           {
             this.currentDecision = currentMessage;
             txtDecisionTitle.text = "DECISION TIME";
-            txtDecisionMessage.text = "崖を降りるかどうかを決めてください。";
-            txtDecisionA.text = "崖を降りる";
-            txtDecisionB.text = "引き返す";
+            txtDecisionMessage.text = L10n.Get(Fix.L10N_CHOICE_CLIFF_DOWN_MSG);
+            txtDecisionA.text = L10n.Get(Fix.L10N_CHOICE_CLIFF_DOWN_A);
+            txtDecisionB.text = L10n.Get(Fix.L10N_CHOICE_TURN_BACK);
             txtDecisionC.text = "";
             GroupDecision.SetActive(true);
             return;
@@ -13976,9 +13976,9 @@ public class DungeonField : MotherBase
           {
             this.currentDecision = currentMessage;
             txtDecisionTitle.text = "DECISION TIME";
-            txtDecisionMessage.text = "崖を降りて元の通路へ戻るかどうかを決めてください。";
-            txtDecisionA.text = "崖を降りて元の通路へ戻る。";
-            txtDecisionB.text = "引き返して他の場所を探す";
+            txtDecisionMessage.text = L10n.Get(Fix.L10N_CHOICE_CLIFF_RETURN_MSG);
+            txtDecisionA.text = L10n.Get(Fix.L10N_CHOICE_CLIFF_RETURN_A);
+            txtDecisionB.text = L10n.Get(Fix.L10N_CHOICE_CLIFF_RETURN_B);
             txtDecisionC.text = "";
             GroupDecision.SetActive(true);
             return;
@@ -13987,9 +13987,9 @@ public class DungeonField : MotherBase
           {
             this.currentDecision = currentMessage;
             txtDecisionTitle.text = "DECISION TIME";
-            txtDecisionMessage.text = "扉を蹴破って進むかどうかを決めてください。";
-            txtDecisionA.text = "扉を蹴破る";
-            txtDecisionB.text = "引き返す";
+            txtDecisionMessage.text = L10n.Get(Fix.L10N_CHOICE_BREAK_DOOR_MSG);
+            txtDecisionA.text = L10n.Get(Fix.L10N_CHOICE_BREAK_DOOR_A);
+            txtDecisionB.text = L10n.Get(Fix.L10N_CHOICE_TURN_BACK);
             txtDecisionC.text = "";
             GroupDecision.SetActive(true);
             return;
@@ -13998,9 +13998,9 @@ public class DungeonField : MotherBase
           {
             this.currentDecision = currentMessage;
             txtDecisionTitle.text = "DECISION TIME";
-            txtDecisionMessage.text = "扉を蹴破って進むかどうかを決めてください。";
-            txtDecisionA.text = "扉を蹴破る";
-            txtDecisionB.text = "引き返す";
+            txtDecisionMessage.text = L10n.Get(Fix.L10N_CHOICE_BREAK_DOOR_MSG);
+            txtDecisionA.text = L10n.Get(Fix.L10N_CHOICE_BREAK_DOOR_A);
+            txtDecisionB.text = L10n.Get(Fix.L10N_CHOICE_TURN_BACK);
             txtDecisionC.text = "";
             GroupDecision.SetActive(true);
             return;
@@ -14008,10 +14008,10 @@ public class DungeonField : MotherBase
           if (currentMessage == Fix.DECISION_PARTY_JOIN_SELMOI_RO)
           {
             this.currentDecision = currentMessage;
-            txtDecisionTitle.text = "セルモイ・ロウに50000G支払い、仲間に引き入れますか？";
-            txtDecisionMessage.text = "50000G支払う事で、セルモイ・ロウを仲間にする事が出来ます。50000G持っていない場合は仲間にする事は出来ません。";
-            txtDecisionA.text = "仲間にする";
-            txtDecisionB.text = "仲間にしない";
+            txtDecisionTitle.text = L10n.Get(Fix.L10N_CHOICE_RECRUIT_TITLE);
+            txtDecisionMessage.text = L10n.Get(Fix.L10N_CHOICE_RECRUIT_MSG);
+            txtDecisionA.text = L10n.Get(Fix.L10N_CHOICE_RECRUIT_YES);
+            txtDecisionB.text = L10n.Get(Fix.L10N_CHOICE_RECRUIT_NO);
             GroupDecision.SetActive(true);
             return;
           }
@@ -14019,7 +14019,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "破壊の心を示す"; // +2
             txtChoiceB.text = "慈愛の心を示す"; // +1
             txtChoiceC.text = "何も心を示さない"; // 0
@@ -14030,7 +14030,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "過去の自分自身をイメージする"; // +0
             txtChoiceB.text = "未来の自分自身をイメージする"; // +1
             txtChoiceC.text = "現在の自分自身をイメージする"; // +2
@@ -14041,7 +14041,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "神々からの意志"; // 0
             txtChoiceB.text = "人々による意志"; // +1
             txtChoiceC.text = "意志からの脱却"; // +2
@@ -14052,7 +14052,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "生命そのもの"; // +1
             txtChoiceB.text = "波動そのもの"; // +2
             txtChoiceC.text = "存在しえない"; // 0
@@ -14063,7 +14063,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "同一であり相反である"; // +2
             txtChoiceB.text = "対称的であり排他的である"; // 0
             txtChoiceC.text = "絶対的な円環"; // +1
@@ -14074,7 +14074,7 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
             txtChoiceA.text = "古来より定められし絶対根源法則"; // 0
             txtChoiceB.text = "時空変化し続ける万物の色空"; // +1
             txtChoiceC.text = "全ての因果関係を示す無限連鎖"; // +2
