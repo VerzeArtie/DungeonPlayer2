@@ -279,6 +279,8 @@ public partial class HomeTown : MotherBase
   public GameObject GroupInn;
   public GameObject GroupInnDecision;
   public List<Text> txtFoodMenuList;
+  // txtFoodMenuList と添字で対応する料理キー(Fix.FOOD_*)。ConstructFoodMenu が設定する。
+  private List<string> currentFoodMenu;
   public Text txtFoodMenuTitle;
   public Text txtFoodMenuDesc;
   public Text txtFoodMenuStrengthUp;
@@ -2751,43 +2753,47 @@ public partial class HomeTown : MotherBase
 
   public void TapSelectFood(Text sender)
   {
-    this.txtFoodMenuTitle.text = sender.text;
+    // ボタンの同一性は表示文字列ではなく料理キーで判定する。
+    // 料理名を英訳しても分岐は影響を受けない。
+    string foodKey = GetFoodKey(sender);
 
-    if (sender.text == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01_MINI; SetupFoodMenu(Fix.FOOD_01_VALUE); }
-    if (sender.text == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02_MINI; SetupFoodMenu(Fix.FOOD_02_VALUE); }
-    if (sender.text == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03_MINI; SetupFoodMenu(Fix.FOOD_03_VALUE); }
-    if (sender.text == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04_MINI; SetupFoodMenu(Fix.FOOD_04_VALUE); }
-    if (sender.text == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05_MINI; SetupFoodMenu(Fix.FOOD_05_VALUE); }
+    this.txtFoodMenuTitle.text = GetFoodDisplayName(foodKey);
 
-    if (sender.text == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11_MINI; SetupFoodMenu(Fix.FOOD_11_VALUE); }
-    if (sender.text == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12_MINI; SetupFoodMenu(Fix.FOOD_12_VALUE); }
-    if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13_MINI; SetupFoodMenu(Fix.FOOD_13_VALUE); }
-    if (sender.text == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14_MINI; SetupFoodMenu(Fix.FOOD_14_VALUE); }
-    if (sender.text == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15_MINI; SetupFoodMenu(Fix.FOOD_15_VALUE); }
+    if (foodKey == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01_MINI; SetupFoodMenu(Fix.FOOD_01_VALUE); }
+    if (foodKey == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02_MINI; SetupFoodMenu(Fix.FOOD_02_VALUE); }
+    if (foodKey == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03_MINI; SetupFoodMenu(Fix.FOOD_03_VALUE); }
+    if (foodKey == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04_MINI; SetupFoodMenu(Fix.FOOD_04_VALUE); }
+    if (foodKey == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05_MINI; SetupFoodMenu(Fix.FOOD_05_VALUE); }
 
-    if (sender.text == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21_MINI; SetupFoodMenu(Fix.FOOD_21_VALUE); }
-    if (sender.text == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22_MINI; SetupFoodMenu(Fix.FOOD_22_VALUE); }
-    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23_MINI; SetupFoodMenu(Fix.FOOD_23_VALUE); }
-    if (sender.text == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24_MINI; SetupFoodMenu(Fix.FOOD_24_VALUE); }
-    if (sender.text == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25_MINI; SetupFoodMenu(Fix.FOOD_25_VALUE); }
+    if (foodKey == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11_MINI; SetupFoodMenu(Fix.FOOD_11_VALUE); }
+    if (foodKey == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12_MINI; SetupFoodMenu(Fix.FOOD_12_VALUE); }
+    if (foodKey == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13_MINI; SetupFoodMenu(Fix.FOOD_13_VALUE); }
+    if (foodKey == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14_MINI; SetupFoodMenu(Fix.FOOD_14_VALUE); }
+    if (foodKey == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15_MINI; SetupFoodMenu(Fix.FOOD_15_VALUE); }
 
-    if (sender.text == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31_MINI; SetupFoodMenu(Fix.FOOD_31_VALUE); }
-    if (sender.text == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32_MINI; SetupFoodMenu(Fix.FOOD_32_VALUE); }
-    if (sender.text == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33_MINI; SetupFoodMenu(Fix.FOOD_33_VALUE); }
-    if (sender.text == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34_MINI; SetupFoodMenu(Fix.FOOD_34_VALUE); }
-    if (sender.text == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35_MINI; SetupFoodMenu(Fix.FOOD_35_VALUE); }
+    if (foodKey == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21_MINI; SetupFoodMenu(Fix.FOOD_21_VALUE); }
+    if (foodKey == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22_MINI; SetupFoodMenu(Fix.FOOD_22_VALUE); }
+    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23_MINI; SetupFoodMenu(Fix.FOOD_23_VALUE); }
+    if (foodKey == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24_MINI; SetupFoodMenu(Fix.FOOD_24_VALUE); }
+    if (foodKey == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25_MINI; SetupFoodMenu(Fix.FOOD_25_VALUE); }
 
-    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51_MINI; SetupFoodMenu(Fix.FOOD_51_VALUE); }
-    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52_MINI; SetupFoodMenu(Fix.FOOD_52_VALUE); }
-    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53_MINI; SetupFoodMenu(Fix.FOOD_53_VALUE); }
-    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54_MINI; SetupFoodMenu(Fix.FOOD_54_VALUE); }
-    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55_MINI; SetupFoodMenu(Fix.FOOD_55_VALUE); }
+    if (foodKey == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31_MINI; SetupFoodMenu(Fix.FOOD_31_VALUE); }
+    if (foodKey == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32_MINI; SetupFoodMenu(Fix.FOOD_32_VALUE); }
+    if (foodKey == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33_MINI; SetupFoodMenu(Fix.FOOD_33_VALUE); }
+    if (foodKey == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34_MINI; SetupFoodMenu(Fix.FOOD_34_VALUE); }
+    if (foodKey == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35_MINI; SetupFoodMenu(Fix.FOOD_35_VALUE); }
 
-    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61_MINI; SetupFoodMenu(Fix.FOOD_61_VALUE); }
-    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62_MINI; SetupFoodMenu(Fix.FOOD_62_VALUE); }
-    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63_MINI; SetupFoodMenu(Fix.FOOD_63_VALUE); }
-    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64_MINI; SetupFoodMenu(Fix.FOOD_64_VALUE); }
-    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65_MINI; SetupFoodMenu(Fix.FOOD_65_VALUE); }
+    if (foodKey == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51_MINI; SetupFoodMenu(Fix.FOOD_51_VALUE); }
+    if (foodKey == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52_MINI; SetupFoodMenu(Fix.FOOD_52_VALUE); }
+    if (foodKey == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53_MINI; SetupFoodMenu(Fix.FOOD_53_VALUE); }
+    if (foodKey == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54_MINI; SetupFoodMenu(Fix.FOOD_54_VALUE); }
+    if (foodKey == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55_MINI; SetupFoodMenu(Fix.FOOD_55_VALUE); }
+
+    if (foodKey == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61_MINI; SetupFoodMenu(Fix.FOOD_61_VALUE); }
+    if (foodKey == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62_MINI; SetupFoodMenu(Fix.FOOD_62_VALUE); }
+    if (foodKey == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63_MINI; SetupFoodMenu(Fix.FOOD_63_VALUE); }
+    if (foodKey == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64_MINI; SetupFoodMenu(Fix.FOOD_64_VALUE); }
+    if (foodKey == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65_MINI; SetupFoodMenu(Fix.FOOD_65_VALUE); }
 
   }
 
@@ -4470,16 +4476,84 @@ public partial class HomeTown : MotherBase
 
   private void ConstructFoodMenu()
   {
-    List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
+    // 表示中のボタンに対応する料理キーを保持する。
+    // ボタンの同一性は表示文字列ではなくこのリストの添字で決まるため、
+    // 料理名を英訳しても分岐は影響を受けない。
+    this.currentFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
     for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
     {
       txtFoodMenuList[ii].text = String.Empty;
     }
-    for (int ii = 0; ii < listFoodMenu.Count; ii++)
+    for (int ii = 0; ii < this.currentFoodMenu.Count; ii++)
     {
-      txtFoodMenuList[ii].text = listFoodMenu[ii];
+      txtFoodMenuList[ii].text = GetFoodDisplayName(this.currentFoodMenu[ii]);
     }
     TapSelectFood(txtFoodMenuList[0]);
+  }
+
+  /// <summary>
+  /// ボタンに対応する料理キー(Fix.FOOD_*)を返す。表示文字列は参照しない。
+  /// 対応が取れない場合は空文字を返す。
+  /// </summary>
+  private string GetFoodKey(Text sender)
+  {
+    if (sender == null || this.currentFoodMenu == null) { return String.Empty; }
+
+    int index = txtFoodMenuList.IndexOf(sender);
+    if (index < 0 || index >= this.currentFoodMenu.Count) { return String.Empty; }
+
+    return this.currentFoodMenu[index];
+  }
+
+  /// <summary>
+  /// 料理キー(Fix.FOOD_*)から表示名を返す。対訳が無い場合はキー(日本語)をそのまま返す。
+  /// </summary>
+  private string GetFoodDisplayName(string food_key)
+  {
+    if (string.IsNullOrEmpty(food_key)) { return String.Empty; }
+
+    string display = L10n.Get(FoodDisplayKey(food_key));
+    return string.IsNullOrEmpty(display) ? food_key : display;
+  }
+
+  /// <summary>
+  /// 料理キー(Fix.FOOD_*)に対応する対訳キー(Fix.L10N_FOOD_*)を返す。
+  /// 対応が無い場合は空文字を返し、呼び出し側が日本語をそのまま表示する。
+  /// </summary>
+  private string FoodDisplayKey(string food_key)
+  {
+    if (food_key == Fix.FOOD_BALANCE_SET) { return Fix.L10N_FOOD_BALANCE_SET; }
+    if (food_key == Fix.FOOD_LARGE_GOHAN_SET) { return Fix.L10N_FOOD_LARGE_GOHAN_SET; }
+    if (food_key == Fix.FOOD_TSIKARA_UDON) { return Fix.L10N_FOOD_TSIKARA_UDON; }
+    if (food_key == Fix.FOOD_ZUNOU_FLY_SET) { return Fix.L10N_FOOD_ZUNOU_FLY_SET; }
+    if (food_key == Fix.FOOD_SPEED_SOBA) { return Fix.L10N_FOOD_SPEED_SOBA; }
+    if (food_key == Fix.FOOD_KATUCARRY) { return Fix.L10N_FOOD_KATUCARRY; }
+    if (food_key == Fix.FOOD_OLIVE_AND_ONION) { return Fix.L10N_FOOD_OLIVE_AND_ONION; }
+    if (food_key == Fix.FOOD_INAGO_AND_TAMAGO) { return Fix.L10N_FOOD_INAGO_AND_TAMAGO; }
+    if (food_key == Fix.FOOD_USAGI) { return Fix.L10N_FOOD_USAGI; }
+    if (food_key == Fix.FOOD_SANMA) { return Fix.L10N_FOOD_SANMA; }
+    if (food_key == Fix.FOOD_FISH_GURATAN) { return Fix.L10N_FOOD_FISH_GURATAN; }
+    if (food_key == Fix.FOOD_SEA_TENPURA) { return Fix.L10N_FOOD_SEA_TENPURA; }
+    if (food_key == Fix.FOOD_TRUTH_YAMINABE_1) { return Fix.L10N_FOOD_TRUTH_YAMINABE_1; }
+    if (food_key == Fix.FOOD_OSAKANA_ZINGISKAN) { return Fix.L10N_FOOD_OSAKANA_ZINGISKAN; }
+    if (food_key == Fix.FOOD_RED_HOT_SPAGHETTI) { return Fix.L10N_FOOD_RED_HOT_SPAGHETTI; }
+    if (food_key == Fix.FOOD_TOBIUSAGI_ROAST) { return Fix.L10N_FOOD_TOBIUSAGI_ROAST; }
+    if (food_key == Fix.FOOD_WATARI_KAMONABE) { return Fix.L10N_FOOD_WATARI_KAMONABE; }
+    if (food_key == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { return Fix.L10N_FOOD_SYOI_KINOKO_SUGATAYAKI; }
+    if (food_key == Fix.FOOD_NEGIYAKI_DON) { return Fix.L10N_FOOD_NEGIYAKI_DON; }
+    if (food_key == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { return Fix.L10N_FOOD_NANAIRO_BUNA_NITSUKE; }
+    if (food_key == Fix.FOOD_HINYARI_YASAI) { return Fix.L10N_FOOD_HINYARI_YASAI; }
+    if (food_key == Fix.FOOD_AZARASI_SHIOYAKI) { return Fix.L10N_FOOD_AZARASI_SHIOYAKI; }
+    if (food_key == Fix.FOOD_WINTER_BEEF_CURRY) { return Fix.L10N_FOOD_WINTER_BEEF_CURRY; }
+    if (food_key == Fix.FOOD_GATTURI_GOZEN) { return Fix.L10N_FOOD_GATTURI_GOZEN; }
+    if (food_key == Fix.FOOD_KOGOERU_DESSERT) { return Fix.L10N_FOOD_KOGOERU_DESSERT; }
+    if (food_key == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { return Fix.L10N_FOOD_BLACK_BUTTER_SPAGHETTI; }
+    if (food_key == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { return Fix.L10N_FOOD_KOROKORO_PIENUS_HAMBURG; }
+    if (food_key == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { return Fix.L10N_FOOD_PIRIKARA_HATIMITSU_STEAK; }
+    if (food_key == Fix.FOOD_HUNWARI_ORANGE_TOAST) { return Fix.L10N_FOOD_HUNWARI_ORANGE_TOAST; }
+    if (food_key == Fix.FOOD_TRUTH_YAMINABE_2) { return Fix.L10N_FOOD_TRUTH_YAMINABE_2; }
+
+    return String.Empty;
   }
 
   private void SelectShopItem(NodeShopItem shopItem, List<NodeShopItem> shop_item_list)

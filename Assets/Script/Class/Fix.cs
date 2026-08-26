@@ -2107,6 +2107,41 @@ public static partial class Fix
   public const string L10N_RF_COND_10 = "rfCond10";
   #endregion
 
+
+  #region "料理名"
+  // 宿屋の料理名。日本語は Fix.FOOD_* を唯一の定義とし、表示のみ本キー経由で対訳する。
+  // 分岐判定は Fix.FOOD_* のキーで行うため、英訳は動作に影響しない。
+  public const string L10N_FOOD_BALANCE_SET = "lblFoodBalanceSet";
+  public const string L10N_FOOD_LARGE_GOHAN_SET = "lblFoodLargeGohanSet";
+  public const string L10N_FOOD_TSIKARA_UDON = "lblFoodTsikaraUdon";
+  public const string L10N_FOOD_ZUNOU_FLY_SET = "lblFoodZunouFlySet";
+  public const string L10N_FOOD_SPEED_SOBA = "lblFoodSpeedSoba";
+  public const string L10N_FOOD_KATUCARRY = "lblFoodKatucarry";
+  public const string L10N_FOOD_OLIVE_AND_ONION = "lblFoodOliveAndOnion";
+  public const string L10N_FOOD_INAGO_AND_TAMAGO = "lblFoodInagoAndTamago";
+  public const string L10N_FOOD_USAGI = "lblFoodUsagi";
+  public const string L10N_FOOD_SANMA = "lblFoodSanma";
+  public const string L10N_FOOD_FISH_GURATAN = "lblFoodFishGuratan";
+  public const string L10N_FOOD_SEA_TENPURA = "lblFoodSeaTenpura";
+  public const string L10N_FOOD_TRUTH_YAMINABE_1 = "lblFoodTruthYaminabe1";
+  public const string L10N_FOOD_OSAKANA_ZINGISKAN = "lblFoodOsakanaZingiskan";
+  public const string L10N_FOOD_RED_HOT_SPAGHETTI = "lblFoodRedHotSpaghetti";
+  public const string L10N_FOOD_TOBIUSAGI_ROAST = "lblFoodTobiusagiRoast";
+  public const string L10N_FOOD_WATARI_KAMONABE = "lblFoodWatariKamonabe";
+  public const string L10N_FOOD_SYOI_KINOKO_SUGATAYAKI = "lblFoodSyoiKinokoSugatayaki";
+  public const string L10N_FOOD_NEGIYAKI_DON = "lblFoodNegiyakiDon";
+  public const string L10N_FOOD_NANAIRO_BUNA_NITSUKE = "lblFoodNanairoBunaNitsuke";
+  public const string L10N_FOOD_HINYARI_YASAI = "lblFoodHinyariYasai";
+  public const string L10N_FOOD_AZARASI_SHIOYAKI = "lblFoodAzarasiShioyaki";
+  public const string L10N_FOOD_WINTER_BEEF_CURRY = "lblFoodWinterBeefCurry";
+  public const string L10N_FOOD_GATTURI_GOZEN = "lblFoodGatturiGozen";
+  public const string L10N_FOOD_KOGOERU_DESSERT = "lblFoodKogoeruDessert";
+  public const string L10N_FOOD_BLACK_BUTTER_SPAGHETTI = "lblFoodBlackButterSpaghetti";
+  public const string L10N_FOOD_KOROKORO_PIENUS_HAMBURG = "lblFoodKorokoroPienusHamburg";
+  public const string L10N_FOOD_PIRIKARA_HATIMITSU_STEAK = "lblFoodPirikaraHatimitsuSteak";
+  public const string L10N_FOOD_HUNWARI_ORANGE_TOAST = "lblFoodHunwariOrangeToast";
+  public const string L10N_FOOD_TRUTH_YAMINABE_2 = "lblFoodTruthYaminabe2";
+  #endregion
   #region "ダンジョン内の選択肢"
   // 心の解(ヴェルガス海底神殿)の設問文。
   public const string L10N_CHOICE_REVEAL_PROMPT = "lblChoiceRevealPrompt";

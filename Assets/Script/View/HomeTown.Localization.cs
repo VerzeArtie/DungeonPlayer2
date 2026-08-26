@@ -651,6 +651,40 @@ public static class L10n
     Register(Fix.L10N_MYSTICFOREST_WARNING, "【$0】はダンジョンエリアとなります。全滅した場合はゴールドが失われます。", "[$0] is a dungeon area. If your party is wiped out, you will lose gold.",
       Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
 
+    // 宿屋の料理名
+    // 日本語は Fix.FOOD_* を唯一の定義とし、ここでは英訳のみを与える。
+    // 分岐判定は Fix.FOOD_* のキーで行うため(HomeTown.GetFoodKey)、英訳は動作に影響しない。
+    Register(Fix.L10N_FOOD_BALANCE_SET, Fix.FOOD_BALANCE_SET, "Balanced Set Meal");
+    Register(Fix.L10N_FOOD_LARGE_GOHAN_SET, Fix.FOOD_LARGE_GOHAN_SET, "Heaping Rice Set");
+    Register(Fix.L10N_FOOD_TSIKARA_UDON, Fix.FOOD_TSIKARA_UDON, "Hearty Chikara Udon");
+    Register(Fix.L10N_FOOD_ZUNOU_FLY_SET, Fix.FOOD_ZUNOU_FLY_SET, "Brain-Boost Fry Set Meal");
+    Register(Fix.L10N_FOOD_SPEED_SOBA, Fix.FOOD_SPEED_SOBA, "Endless Egg Soba");
+    Register(Fix.L10N_FOOD_KATUCARRY, Fix.FOOD_KATUCARRY, "Fiery Katsu Curry Set Meal");
+    Register(Fix.L10N_FOOD_OLIVE_AND_ONION, Fix.FOOD_OLIVE_AND_ONION, "Olive Bread and Onion Soup");
+    Register(Fix.L10N_FOOD_INAGO_AND_TAMAGO, Fix.FOOD_INAGO_AND_TAMAGO, "Candied Locust and Egg Set Meal");
+    Register(Fix.L10N_FOOD_USAGI, Fix.FOOD_USAGI, "Rabbit Stew");
+    Register(Fix.L10N_FOOD_SANMA, Fix.FOOD_SANMA, "Saury Set Meal (with Simmered Side)");
+    Register(Fix.L10N_FOOD_FISH_GURATAN, Fix.FOOD_FISH_GURATAN, "Fish Gratin");
+    Register(Fix.L10N_FOOD_SEA_TENPURA, Fix.FOOD_SEA_TENPURA, "Crispy Seafood Tempura");
+    Register(Fix.L10N_FOOD_TRUTH_YAMINABE_1, Fix.FOOD_TRUTH_YAMINABE_1, "Hotpot of Truth (Part 1)");
+    Register(Fix.L10N_FOOD_OSAKANA_ZINGISKAN, Fix.FOOD_OSAKANA_ZINGISKAN, "Fish Jingisukan");
+    Register(Fix.L10N_FOOD_RED_HOT_SPAGHETTI, Fix.FOOD_RED_HOT_SPAGHETTI, "Red Hot Spaghetti");
+    Register(Fix.L10N_FOOD_TOBIUSAGI_ROAST, Fix.FOOD_TOBIUSAGI_ROAST, "Roast Jackrabbit Set Meal");
+    Register(Fix.L10N_FOOD_WATARI_KAMONABE, Fix.FOOD_WATARI_KAMONABE, "Migratory Duck Hotpot");
+    Register(Fix.L10N_FOOD_SYOI_KINOKO_SUGATAYAKI, Fix.FOOD_SYOI_KINOKO_SUGATAYAKI, "Whole-Grilled Packmushroom");
+    Register(Fix.L10N_FOOD_NEGIYAKI_DON, Fix.FOOD_NEGIYAKI_DON, "Grilled Scallion Don");
+    Register(Fix.L10N_FOOD_NANAIRO_BUNA_NITSUKE, Fix.FOOD_NANAIRO_BUNA_NITSUKE, "Simmered Rainbow Beech Fish");
+    Register(Fix.L10N_FOOD_HINYARI_YASAI, Fix.FOOD_HINYARI_YASAI, "Chilled Crispy Vegetable Set Meal");
+    Register(Fix.L10N_FOOD_AZARASI_SHIOYAKI, Fix.FOOD_AZARASI_SHIOYAKI, "Salt-Grilled White Seal");
+    Register(Fix.L10N_FOOD_WINTER_BEEF_CURRY, Fix.FOOD_WINTER_BEEF_CURRY, "Winter Beef Curry");
+    Register(Fix.L10N_FOOD_GATTURI_GOZEN, Fix.FOOD_GATTURI_GOZEN, "Hearty Bone-Deep Feast");
+    Register(Fix.L10N_FOOD_KOGOERU_DESSERT, Fix.FOOD_KOGOERU_DESSERT, "Bone-Chilling Blue Dessert");
+    Register(Fix.L10N_FOOD_BLACK_BUTTER_SPAGHETTI, Fix.FOOD_BLACK_BUTTER_SPAGHETTI, "Black Butter Spaghetti");
+    Register(Fix.L10N_FOOD_KOROKORO_PIENUS_HAMBURG, Fix.FOOD_KOROKORO_PIENUS_HAMBURG, "Peanut-Studded Hamburg Steak");
+    Register(Fix.L10N_FOOD_PIRIKARA_HATIMITSU_STEAK, Fix.FOOD_PIRIKARA_HATIMITSU_STEAK, "Spicy Honey Steak Set Meal");
+    Register(Fix.L10N_FOOD_HUNWARI_ORANGE_TOAST, Fix.FOOD_HUNWARI_ORANGE_TOAST, "Fluffy Orange Toast");
+    Register(Fix.L10N_FOOD_TRUTH_YAMINABE_2, Fix.FOOD_TRUTH_YAMINABE_2, "Hotpot of Truth (Part 2)");
+
     // ダンジョン内の選択肢
     // 心の解(ヴェルガス海底神殿)の設問文。選択肢は物語のキーワードのため原文のまま残す。
     Register(Fix.L10N_CHOICE_REVEAL_PROMPT, "どのような内容を示すか選択してください。", "Choose what to reveal.");
