@@ -14020,9 +14020,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "破壊の心を示す"; // +2
-            txtChoiceB.text = "慈愛の心を示す"; // +1
-            txtChoiceC.text = "何も心を示さない"; // 0
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_1_A); // +2
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_1_B); // +1
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_1_C); // 0
             GroupChoice.SetActive(true);
             return;
           }
@@ -14031,9 +14031,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "過去の自分自身をイメージする"; // +0
-            txtChoiceB.text = "未来の自分自身をイメージする"; // +1
-            txtChoiceC.text = "現在の自分自身をイメージする"; // +2
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_2_A); // +0
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_2_B); // +1
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_2_C); // +2
             GroupChoice.SetActive(true);
             return;
           }
@@ -14042,9 +14042,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "神々からの意志"; // 0
-            txtChoiceB.text = "人々による意志"; // +1
-            txtChoiceC.text = "意志からの脱却"; // +2
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_3_A); // 0
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_3_B); // +1
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_3_C); // +2
             GroupChoice.SetActive(true);
             return;
           }
@@ -14053,9 +14053,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "生命そのもの"; // +1
-            txtChoiceB.text = "波動そのもの"; // +2
-            txtChoiceC.text = "存在しえない"; // 0
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_4_A); // +1
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_4_B); // +2
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_4_C); // 0
             GroupChoice.SetActive(true);
             return;
           }
@@ -14064,9 +14064,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "同一であり相反である"; // +2
-            txtChoiceB.text = "対称的であり排他的である"; // 0
-            txtChoiceC.text = "絶対的な円環"; // +1
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_5_A); // +2
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_5_B); // 0
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_5_C); // +1
             GroupChoice.SetActive(true);
             return;
           }
@@ -14075,9 +14075,9 @@ public class DungeonField : MotherBase
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
             txtChoiceMessage.text = L10n.Get(Fix.L10N_CHOICE_REVEAL_PROMPT);
-            txtChoiceA.text = "古来より定められし絶対根源法則"; // 0
-            txtChoiceB.text = "時空変化し続ける万物の色空"; // +1
-            txtChoiceC.text = "全ての因果関係を示す無限連鎖"; // +2
+            txtChoiceA.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_6_A); // 0
+            txtChoiceB.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_6_B); // +1
+            txtChoiceC.text = L10n.Get(Fix.L10N_CHOICE_JUDGE_6_C); // +2
             GroupChoice.SetActive(true);
             return;
           }

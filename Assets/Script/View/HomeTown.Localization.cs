@@ -651,6 +651,30 @@ public static class L10n
     // ダンジョン内の選択肢
     // 心の解(ヴェルガス海底神殿)の設問文。選択肢は物語のキーワードのため原文のまま残す。
     Register(Fix.L10N_CHOICE_REVEAL_PROMPT, "どのような内容を示すか選択してください。", "Choose what to reveal.");
+    // 心の解の選択肢18項目 ---------------------------------------------
+    // 訳出が未確定のため、英語側も日本語原文のまま登録している。
+    // 「日英対応が必要だが英訳が未了」であることを明示するのが目的であり、
+    // 対応漏れではない。訳語が決まり次第、第3引数のみ差し替えること。
+    // 検査 [6] が英語側に日本語が残る登録として一覧表示する。
+    Register(Fix.L10N_CHOICE_JUDGE_1_A, "破壊の心を示す", "破壊の心を示す");
+    Register(Fix.L10N_CHOICE_JUDGE_1_B, "慈愛の心を示す", "慈愛の心を示す");
+    Register(Fix.L10N_CHOICE_JUDGE_1_C, "何も心を示さない", "何も心を示さない");
+    Register(Fix.L10N_CHOICE_JUDGE_2_A, "過去の自分自身をイメージする", "過去の自分自身をイメージする");
+    Register(Fix.L10N_CHOICE_JUDGE_2_B, "未来の自分自身をイメージする", "未来の自分自身をイメージする");
+    Register(Fix.L10N_CHOICE_JUDGE_2_C, "現在の自分自身をイメージする", "現在の自分自身をイメージする");
+    Register(Fix.L10N_CHOICE_JUDGE_3_A, "神々からの意志", "神々からの意志");
+    Register(Fix.L10N_CHOICE_JUDGE_3_B, "人々による意志", "人々による意志");
+    Register(Fix.L10N_CHOICE_JUDGE_3_C, "意志からの脱却", "意志からの脱却");
+    Register(Fix.L10N_CHOICE_JUDGE_4_A, "生命そのもの", "生命そのもの");
+    Register(Fix.L10N_CHOICE_JUDGE_4_B, "波動そのもの", "波動そのもの");
+    Register(Fix.L10N_CHOICE_JUDGE_4_C, "存在しえない", "存在しえない");
+    Register(Fix.L10N_CHOICE_JUDGE_5_A, "同一であり相反である", "同一であり相反である");
+    Register(Fix.L10N_CHOICE_JUDGE_5_B, "対称的であり排他的である", "対称的であり排他的である");
+    Register(Fix.L10N_CHOICE_JUDGE_5_C, "絶対的な円環", "絶対的な円環");
+    Register(Fix.L10N_CHOICE_JUDGE_6_A, "古来より定められし絶対根源法則", "古来より定められし絶対根源法則");
+    Register(Fix.L10N_CHOICE_JUDGE_6_B, "時空変化し続ける万物の色空", "時空変化し続ける万物の色空");
+    Register(Fix.L10N_CHOICE_JUDGE_6_C, "全ての因果関係を示す無限連鎖", "全ての因果関係を示す無限連鎖");
+    // -----------------------------------------------------------------
     // 崖・扉・仲間加入
     Register(Fix.L10N_CHOICE_CLIFF_DOWN_MSG, "崖を降りるかどうかを決めてください。", "Decide whether to climb down the cliff.");
     Register(Fix.L10N_CHOICE_CLIFF_DOWN_A, "崖を降りる", "Climb down");

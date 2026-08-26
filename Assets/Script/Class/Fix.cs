@@ -2108,8 +2108,28 @@ public static partial class Fix
   #endregion
 
   #region "ダンジョン内の選択肢"
-  // 心の解(ヴェルガス海底神殿)の設問文。選択肢そのものは物語のキーワードのため原文のまま。
+  // 心の解(ヴェルガス海底神殿)の設問文。
   public const string L10N_CHOICE_REVEAL_PROMPT = "lblChoiceRevealPrompt";
+  // 心の解の選択肢18項目。物語のキーワードであり訳語が未確定のため、
+  // 日英とも日本語原文を登録している。訳出が決まり次第、英語側のみ差し替える。
+  public const string L10N_CHOICE_JUDGE_1_A = "lblChoiceJudge1A";
+  public const string L10N_CHOICE_JUDGE_1_B = "lblChoiceJudge1B";
+  public const string L10N_CHOICE_JUDGE_1_C = "lblChoiceJudge1C";
+  public const string L10N_CHOICE_JUDGE_2_A = "lblChoiceJudge2A";
+  public const string L10N_CHOICE_JUDGE_2_B = "lblChoiceJudge2B";
+  public const string L10N_CHOICE_JUDGE_2_C = "lblChoiceJudge2C";
+  public const string L10N_CHOICE_JUDGE_3_A = "lblChoiceJudge3A";
+  public const string L10N_CHOICE_JUDGE_3_B = "lblChoiceJudge3B";
+  public const string L10N_CHOICE_JUDGE_3_C = "lblChoiceJudge3C";
+  public const string L10N_CHOICE_JUDGE_4_A = "lblChoiceJudge4A";
+  public const string L10N_CHOICE_JUDGE_4_B = "lblChoiceJudge4B";
+  public const string L10N_CHOICE_JUDGE_4_C = "lblChoiceJudge4C";
+  public const string L10N_CHOICE_JUDGE_5_A = "lblChoiceJudge5A";
+  public const string L10N_CHOICE_JUDGE_5_B = "lblChoiceJudge5B";
+  public const string L10N_CHOICE_JUDGE_5_C = "lblChoiceJudge5C";
+  public const string L10N_CHOICE_JUDGE_6_A = "lblChoiceJudge6A";
+  public const string L10N_CHOICE_JUDGE_6_B = "lblChoiceJudge6B";
+  public const string L10N_CHOICE_JUDGE_6_C = "lblChoiceJudge6C";
   // 崖・扉・仲間加入
   public const string L10N_CHOICE_CLIFF_DOWN_MSG = "lblChoiceCliffDownMsg";
   public const string L10N_CHOICE_CLIFF_DOWN_A = "lblChoiceCliffDownA";
