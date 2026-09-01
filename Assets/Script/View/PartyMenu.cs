@@ -262,6 +262,9 @@ public class PartyMenu : MotherBase
   // Start is called before the first frame update
   public override void Start()
   {
+    // 説明枠を上下スクロール対応にする。文字サイズを固定したまま長文を全て読ませるため。
+    MakeVerticalScrollable(this.txtCommandDescription);
+
     RefreshAllView();
 
     TapStatus();
@@ -991,6 +994,7 @@ public class PartyMenu : MotherBase
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(action_command.CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
+    ResetScrollToTop(this.txtCommandDescription);
 
     // 万が一選択状態が存在していない場合は再設定する。
     if (this.CurrentSelectCommand == null)
@@ -1673,6 +1677,7 @@ public class PartyMenu : MotherBase
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
+    ResetScrollToTop(this.txtCommandDescription);
     this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }
 
