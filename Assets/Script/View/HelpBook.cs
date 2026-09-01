@@ -427,7 +427,7 @@ public class HelpBook : MotherBase
     CurrentLabel_EN.text = command;
     CurrentLabel_JP.text = ActionCommand.To_JP(command);
     CurrentImage.sprite = Resources.Load<Sprite>(command);
-    CurrentDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(command)); 
+    CurrentDescription.text = ActionCommand.GetDescription(command); 
     CurrentCost.text = ActionCommand.Cost(command).ToString();
 
 

@@ -353,8 +353,8 @@ public static partial class Fix
   #endregion
   #region "説明文タグ"
   // 説明文中の 【タグ】 の日英対応。ここが唯一の定義であり、
-  // HomeTown.Localization.cs の Register 用語ペア引数と、
-  // LocalizeGeneratedText の 【JP】->[EN] 置換ルールの双方がこれを参照する。
+  // HomeTown.Localization.cs の Register 用語ペア引数と L10n.TermTags がこれを参照する。
+  // 訳語の揺れは Tools\check-l10n.ps1 の検査[5]が 【JP】/[EN] の 1:1 対応として検出する。
   //
   // 注意: CLASS_* とは別物である。
   //   CLASS_HOLYLIGHT = "HolyLight" はクラス名、TERM_HOLY = "Holy" は属性タグ。
@@ -1803,8 +1803,7 @@ public static partial class Fix
   public const string L10N_BASIC_SKILL_POINT = "lblBasicSkillPoint";
   // 上記はステータス画面用の略記(スキル/SP)。説明文中で使う正式表記はこちら。
   public const string L10N_SKILL_POINT = "lblSkillPoint";
-  // 最大ライフ。LocalizeGeneratedText の置換ルールにも同じ対訳があり、
-  // 両者が一致していることを Tools\check-l10n.ps1 が検査する。
+  // 最大ライフ。説明文中で頻出するため対訳を一箇所に定義する。
   public const string L10N_MAX_LIFE = "lblMaxLife";
   // 各種ゲージ。説明文中で頻出するため対訳を一箇所に定義する。
   public const string L10N_MAX_MANA = "lblMaxMana";

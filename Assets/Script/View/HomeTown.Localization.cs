@@ -13,7 +13,8 @@ public static class L10n
   /// <summary>
   /// 説明文中の 【タグ】 の日英対応。Fix の定数ペアを参照しているため、
   /// 定数のリネームや削除はコンパイルエラーになる。
-  /// Register の用語ペア引数と LocalizeGeneratedText の置換の双方が、ここを唯一の定義とする。
+  /// Register の用語ペア引数 Term(...) がここを唯一の定義とし、
+  /// Tools\check-l10n.ps1 の検査[5]が説明文中の 【JP】/[EN] の 1:1 対応をここに照らして検証する。
   /// </summary>
   public static readonly (string ja, string en)[] TermTags = new (string ja, string en)[]
   {
@@ -397,7 +398,7 @@ public static class L10n
 
     // アクションコマンド 対象／タイミング
     // 日本語は Fix.TARGET_TYPE_* / TIMING_TYPE_* と同一。あちらは内部判定用の値であり、
-    // 表示はここの対訳を使う(以前は LocalizeGeneratedText の語句置換に頼っていた)。
+    // 表示はここの対訳を使う。
     Register(Fix.L10N_TARGET_ENEMY, "敵単体", "Single Enemy");
     Register(Fix.L10N_TARGET_ALLY, "味方単体", "Single Ally");
     Register(Fix.L10N_TARGET_ENEMYGROUP, "敵全体", "All Enemies");
@@ -1606,53 +1607,6 @@ public static class L10n
   public static string GetItemName(string key)
   {
     return GetDisplayName(key);
-  }
-
-  public static string LocalizeGeneratedText(string text)
-  {
-    if (string.IsNullOrEmpty(text)) { return string.Empty; }
-    if (One.CONF == null || One.CONF.GameLanguage != (int)(One.GameLanguage.English)) { return text; }
-
-    string result = text.Replace("　", " ");
-
-    string[][] replacements = new string[][]
-    {
-      new string[] { "味方フィールド", "Ally Field" },
-      new string[] { "自分自身", "Self" },
-      new string[] { "インスタント", "Instant" },
-      new string[] { "なし", "None" },
-      new string[] { "威力 ", "Power " },
-      new string[] { "ライフの回復量 ", "Life Recovery " },
-      new string[] { "ライフ回復量 ", "Life Recovery " },
-      new string[] { "最大ライフの増加量 ", "Max Life Increase " },
-      new string[] { "最大ライフ", "Max Life" },
-      new string[] { "回復量 ", "Recovery " },
-      new string[] { "増加量 ", "Increase " },
-      new string[] { "継続ターン数 ", "Duration " },
-      new string[] { "攻撃回数 ", "Attack Count " },
-      new string[] { "累積カウンター数 ", "Stack Count " },
-      new string[] { "ＭＰ消費 ", "MP Cost " },
-      new string[] { "ＳＰ消費 ", "SP Cost " },
-      new string[] { "自分の行動ゲージ進行率 ", "Own Action Gauge Advance " },
-      new string[] { "敵の行動ゲージ後退率 ", "Enemy Action Delay " },
-      new string[] { "物理防御を無視する量 ", "Physical Defense Ignored " },
-      new string[] { "物理防御ＤＯＷＮ影響 ", "Physical Defense Down Effect " },
-      new string[] { "対象へのダメージの威力 ", "Damage Power to Target " },
-    };
-
-    for (int ii = 0; ii < replacements.Length; ii++)
-    {
-      result = result.Replace(replacements[ii][0], replacements[ii][1]);
-    }
-
-    // 【タグ】 の置換は TermTags から生成する。定型句の置換より後に行うこと
-    // ("追加【炎】の威力 " のように 【】 を内包する定型句を先に処理する必要があるため)。
-    for (int ii = 0; ii < TermTags.Length; ii++)
-    {
-      result = result.Replace("【" + TermTags[ii].ja + "】", "[" + TermTags[ii].en + "]");
-    }
-
-    return result;
   }
 
   private static void EnsureItemNameTable()

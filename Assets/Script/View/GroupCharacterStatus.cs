@@ -808,7 +808,7 @@ public class GroupCharacterStatus : MonoBehaviour
   /// <param name="sender"></param>
   public void TapNodeCurrentEquip(Text sender)
   {
-    txtEquipChangeDescription.text = L10n.LocalizeGeneratedText(new Item(sender.name).Description);
+    txtEquipChangeDescription.text = new Item(sender.name).Description;
     if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       this.ShadowPlayer.MainWeapon = null;
@@ -920,7 +920,7 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
 
-    txtEquipChangeDescription.text = L10n.LocalizeGeneratedText(new Item(sender.name).Description);
+    txtEquipChangeDescription.text = new Item(sender.name).Description;
   }
 
   /// <summary>

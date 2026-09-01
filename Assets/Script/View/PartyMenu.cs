@@ -990,7 +990,7 @@ public class PartyMenu : MotherBase
     btnActionCommandTitle.ApplyImageIcon(action_command.CommandName);
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(action_command.CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
-    txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(action_command.CommandName));
+    txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
 
     // 万が一選択状態が存在していない場合は再設定する。
     if (this.CurrentSelectCommand == null)
@@ -1237,8 +1237,8 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */L10n.LocalizeGeneratedText(ActionCommand.GetDescription(txt_title.text));
-    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + L10n.LocalizeGeneratedText(ActionCommand.GetDescReinforce(txt_title.text));
+    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */ActionCommand.GetDescription(txt_title.text);
+    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + ActionCommand.GetDescReinforce(txt_title.text);
 
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
@@ -1672,7 +1672,7 @@ public class PartyMenu : MotherBase
     btnActionCommandTitle.ApplyImageIcon(ListAvailableCommand[0].CommandName);
     txtCommandAttribute.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_TYPE) + " " + ActionCommand.GetAttribute_Label(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = L10n.Get(Fix.L10N_PARTYMENU_BATTLE_LABEL_COST) + " " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
-    txtCommandDescription.text = L10n.LocalizeGeneratedText(ActionCommand.GetDescription(ListAvailableCommand[0].CommandName));
+    txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
     this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }
 
@@ -1900,7 +1900,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: element_level over 1" + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
-      txtEssenceElementFactor[number].text = L10n.LocalizeGeneratedText(player.GetEssenceFactor(label_text));
+      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_STANDARD_LABEL_LV) + " " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
@@ -1911,7 +1911,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
-      txtEssenceElementFactor[number].text = L10n.LocalizeGeneratedText(player.GetEssenceFactor(label_text));
+      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_NOACQ);
       objHideEssenceElementList[number].SetActive(false);
