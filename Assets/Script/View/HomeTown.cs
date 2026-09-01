@@ -453,6 +453,9 @@ public partial class HomeTown : MotherBase
   {
     base.Start();
 
+    // 説明枠を上下スクロール対応にする。文字サイズを固定したまま長文を全て読ませるため。
+    MakeVerticalScrollable(this.txtEventDescription);
+
     One.TF.SaveByDungeon = false;
 
     this.canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
@@ -5502,6 +5505,8 @@ public partial class HomeTown : MotherBase
     if (One.CurrentAreaEdelgarzenCastle_2(select_area_name)) { txtEventDescription.text = L10n.Get(Fix.L10N_AREA_INFO_EDELGARZEN); }
     if (One.CurrentAreaEdelgarzenCastle_3(select_area_name)) { txtEventDescription.text = L10n.Get(Fix.L10N_AREA_INFO_EDELGARZEN); }
     if (One.CurrentAreaEdelgarzenCastle_4(select_area_name)) { txtEventDescription.text = L10n.Get(Fix.L10N_AREA_INFO_EDELGARZEN); }
+
+    ResetScrollToTop(this.txtEventDescription);
   }
   
   private void ViewQuestEvent(string quest_id)
@@ -5558,6 +5563,8 @@ public partial class HomeTown : MotherBase
     {
       txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_22_2);
     }
+
+    ResetScrollToTop(this.txtEventDescription);
   }
 
   private void RefreshJewelSocketView()
