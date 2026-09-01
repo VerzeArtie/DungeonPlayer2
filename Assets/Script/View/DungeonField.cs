@@ -2446,7 +2446,8 @@ public class DungeonField : MotherBase
     // same DungeonField, HomeTown
     if (txt == null) { Debug.Log("TapQuestButton txt is null..."); return; }
 
-    ViewQuestEvent(txt.text);
+    // 表示ラベルは翻訳されるため、対応表から Fix.QUEST_ID_* を引く。
+    ViewQuestEvent(GetQuestId(txt));
   }
 
   public void TapMapReload(Text txtMap)
@@ -11048,32 +11049,36 @@ public class DungeonField : MotherBase
         // 画面にクエスト開始メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
         {
-          this.txtSystemMessage.text = currentMessage;
+          // currentMessage は Fix.QUEST_ID_* 。表示文はここで合成する。
+          this.txtSystemMessage.text = L10n.Get(Fix.L10N_QUESTSTART_TITLE, L10n.GetQuestTitle(currentMessage));
           this.panelSystemMessage.SetActive(true);
 
           // todo
-          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_00021 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_00022 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_00023 = true; }
+          if (currentMessage == Fix.QUEST_ID_1) { One.TF.QuestMain_00001 = true; }
+          if (currentMessage == Fix.QUEST_ID_2) { One.TF.QuestMain_00002 = true; }
+          if (currentMessage == Fix.QUEST_ID_3) { One.TF.QuestMain_00003 = true; }
+          if (currentMessage == Fix.QUEST_ID_4) { One.TF.QuestMain_00004 = true; }
+          if (currentMessage == Fix.QUEST_ID_5) { One.TF.QuestMain_00005 = true; }
+          if (currentMessage == Fix.QUEST_ID_6) { One.TF.QuestMain_00006 = true; }
+          if (currentMessage == Fix.QUEST_ID_7) { One.TF.QuestMain_00007 = true; }
+          if (currentMessage == Fix.QUEST_ID_8) { One.TF.QuestMain_00008 = true; }
+          if (currentMessage == Fix.QUEST_ID_9) { One.TF.QuestMain_00009 = true; }
+          if (currentMessage == Fix.QUEST_ID_10) { One.TF.QuestMain_00010 = true; }
+          if (currentMessage == Fix.QUEST_ID_11) { One.TF.QuestMain_00011 = true; }
+          if (currentMessage == Fix.QUEST_ID_20) { One.TF.QuestMain_00020 = true; }
+          if (currentMessage == Fix.QUEST_ID_21) { One.TF.QuestMain_00021 = true; }
+          if (currentMessage == Fix.QUEST_ID_22) { One.TF.QuestMain_00022 = true; }
+          if (currentMessage == Fix.QUEST_ID_23) { One.TF.QuestMain_00023 = true; }
+          if (currentMessage == Fix.QUEST_ID_31) { One.TF.QuestMain_00031 = true; }
+          if (currentMessage == Fix.QUEST_ID_41) { One.TF.QuestMain_00041 = true; }
           RefreshQuestList();
           return;
         }
         // 画面にクエスト更新メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.QuestUpdate)
         {
-          this.txtSystemMessage.text = currentMessage;
+          // currentMessage は Fix.QUEST_ID_* 。表示文はここで合成する。
+          this.txtSystemMessage.text = L10n.Get(Fix.L10N_QUESTUPDATE_TITLE, L10n.GetQuestTitle(currentMessage));
           this.panelSystemMessage.SetActive(true);
 
           RefreshQuestList();
@@ -11082,25 +11087,28 @@ public class DungeonField : MotherBase
         // 画面にクエスト完了メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
         {
-          this.txtSystemMessage.text = currentMessage;
+          // currentMessage は Fix.QUEST_ID_* 。表示文はここで合成する。
+          this.txtSystemMessage.text = L10n.Get(Fix.L10N_QUESTCOMPLETE_TITLE, L10n.GetQuestTitle(currentMessage));
           this.panelSystemMessage.SetActive(true);
 
           // todo
-          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_Complete_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Complete_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_Complete_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_Complete_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_Complete_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_Complete_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_Complete_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_Complete_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_Complete_00010 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_Complete_00011 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_Complete_00021 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_Complete_00022 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_Complete_00023 = true; }
+          if (currentMessage == Fix.QUEST_ID_1) { One.TF.QuestMain_Complete_00001 = true; }
+          if (currentMessage == Fix.QUEST_ID_2) { One.TF.QuestMain_Complete_00002 = true; }
+          if (currentMessage == Fix.QUEST_ID_3) { One.TF.QuestMain_Complete_00003 = true; }
+          if (currentMessage == Fix.QUEST_ID_4) { One.TF.QuestMain_Complete_00004 = true; }
+          if (currentMessage == Fix.QUEST_ID_5) { One.TF.QuestMain_Complete_00005 = true; }
+          if (currentMessage == Fix.QUEST_ID_6) { One.TF.QuestMain_Complete_00006 = true; }
+          if (currentMessage == Fix.QUEST_ID_7) { One.TF.QuestMain_Complete_00007 = true; }
+          if (currentMessage == Fix.QUEST_ID_8) { One.TF.QuestMain_Complete_00008 = true; }
+          if (currentMessage == Fix.QUEST_ID_9) { One.TF.QuestMain_Complete_00009 = true; }
+          if (currentMessage == Fix.QUEST_ID_10) { One.TF.QuestMain_Complete_00010 = true; }
+          if (currentMessage == Fix.QUEST_ID_11) { One.TF.QuestMain_Complete_00011 = true; }
+          if (currentMessage == Fix.QUEST_ID_20) { One.TF.QuestMain_Complete_00020 = true; }
+          if (currentMessage == Fix.QUEST_ID_21) { One.TF.QuestMain_Complete_00021 = true; }
+          if (currentMessage == Fix.QUEST_ID_22) { One.TF.QuestMain_Complete_00022 = true; }
+          if (currentMessage == Fix.QUEST_ID_23) { One.TF.QuestMain_Complete_00023 = true; }
+          if (currentMessage == Fix.QUEST_ID_31) { One.TF.QuestMain_Complete_00031 = true; }
+          if (currentMessage == Fix.QUEST_ID_41) { One.TF.QuestMain_Complete_00041 = true; }
           RefreshQuestList();
           return;
         }
@@ -26084,32 +26092,54 @@ public class DungeonField : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentQuestButtonList.Clear();
+    contentQuestIdList.Clear();
     int counter = 0;
 
     // todo
-    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_TITLE_1, One.TF.QuestMain_Complete_00001, counter); counter++; }
-    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_TITLE_2, One.TF.QuestMain_Complete_00002, counter); counter++; }
-    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_TITLE_3, One.TF.QuestMain_Complete_00003, counter); counter++; }
-    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_TITLE_4, One.TF.QuestMain_Complete_00004, counter); counter++; }
-    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_TITLE_5, One.TF.QuestMain_Complete_00005, counter); counter++; }
-    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_TITLE_6, One.TF.QuestMain_Complete_00006, counter); counter++; }
-    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_TITLE_7, One.TF.QuestMain_Complete_00007, counter); counter++; }
-    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_TITLE_8, One.TF.QuestMain_Complete_00008, counter); counter++; }
-    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_TITLE_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
-    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_TITLE_10, One.TF.QuestMain_Complete_00010, counter); counter++; }
-    if (One.TF.QuestMain_00011) { AddQuestEvent(Fix.QUEST_TITLE_11, One.TF.QuestMain_Complete_00011, counter); counter++; }
-    if (One.TF.QuestMain_00020) { AddQuestEvent(Fix.QUEST_TITLE_20, One.TF.QuestMain_Complete_00020, counter); counter++; }
-    if (One.TF.QuestMain_00021) { AddQuestEvent(Fix.QUEST_TITLE_21, One.TF.QuestMain_Complete_00021, counter); counter++; }
-    if (One.TF.QuestMain_00022) { AddQuestEvent(Fix.QUEST_TITLE_22, One.TF.QuestMain_Complete_00022, counter); counter++; }
-    if (One.TF.QuestMain_00023) { AddQuestEvent(Fix.QUEST_TITLE_23, One.TF.QuestMain_Complete_00023, counter); counter++; }
+    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_ID_1, One.TF.QuestMain_Complete_00001, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_ID_2, One.TF.QuestMain_Complete_00002, counter); counter++; }
+    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_ID_3, One.TF.QuestMain_Complete_00003, counter); counter++; }
+    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_ID_4, One.TF.QuestMain_Complete_00004, counter); counter++; }
+    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_ID_5, One.TF.QuestMain_Complete_00005, counter); counter++; }
+    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_ID_6, One.TF.QuestMain_Complete_00006, counter); counter++; }
+    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_ID_7, One.TF.QuestMain_Complete_00007, counter); counter++; }
+    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_ID_8, One.TF.QuestMain_Complete_00008, counter); counter++; }
+    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_ID_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
+    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_ID_10, One.TF.QuestMain_Complete_00010, counter); counter++; }
+    if (One.TF.QuestMain_00011) { AddQuestEvent(Fix.QUEST_ID_11, One.TF.QuestMain_Complete_00011, counter); counter++; }
+    if (One.TF.QuestMain_00020) { AddQuestEvent(Fix.QUEST_ID_20, One.TF.QuestMain_Complete_00020, counter); counter++; }
+    if (One.TF.QuestMain_00021) { AddQuestEvent(Fix.QUEST_ID_21, One.TF.QuestMain_Complete_00021, counter); counter++; }
+    if (One.TF.QuestMain_00022) { AddQuestEvent(Fix.QUEST_ID_22, One.TF.QuestMain_Complete_00022, counter); counter++; }
+    if (One.TF.QuestMain_00023) { AddQuestEvent(Fix.QUEST_ID_23, One.TF.QuestMain_Complete_00023, counter); counter++; }
+    if (One.TF.QuestMain_00031) { AddQuestEvent(Fix.QUEST_ID_31, One.TF.QuestMain_Complete_00031, counter); counter++; }
+    if (One.TF.QuestMain_00041) { AddQuestEvent(Fix.QUEST_ID_41, One.TF.QuestMain_Complete_00041, counter); counter++; }
   }
 
-  private void AddQuestEvent(string quest_name, bool complete, int counter)
+  // クエスト一覧のボタンと、それが表す Fix.QUEST_ID_* の対応表。添字で1対1に対応する。
+  // 表示ラベルは翻訳されるため、ラベル文字列からクエストを識別してはならない。
+  private List<Text> contentQuestButtonList = new List<Text>();
+  private List<string> contentQuestIdList = new List<string>();
+
+  /// <summary>
+  /// タップされたボタンから、対応するクエストID (Fix.QUEST_ID_*) を得る。
+  /// </summary>
+  private string GetQuestId(Text txt)
+  {
+    if (txt == null) { return String.Empty; }
+    int index = contentQuestButtonList.IndexOf(txt);
+    if (index < 0 || index >= contentQuestIdList.Count) { return String.Empty; }
+    return contentQuestIdList[index];
+  }
+
+  private void AddQuestEvent(string quest_id, bool complete, int counter)
   {
     // same DungeonField, HomeTown
     NodeButton button = Instantiate(nodeButton) as NodeButton;
     button.gameObject.transform.SetParent(contentDungeonPlayer.transform);
-    button.txtName.text = quest_name;
+    button.txtName.text = L10n.GetQuestTitle(quest_id);
+    contentQuestButtonList.Add(button.txtName);
+    contentQuestIdList.Add(quest_id);
     button.gameObject.SetActive(true);
     if (complete)
     {
@@ -26117,51 +26147,59 @@ public class DungeonField : MotherBase
     }
     contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
 
-    ViewQuestEvent(quest_name);
+    ViewQuestEvent(quest_id);
 
     RectTransform rect = button.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
   }
 
-  private void ViewQuestEvent(string quest_name)
+  private void ViewQuestEvent(string quest_id)
   {
     // same DungeonField, HomeTown
-    txtEventTitle.text = quest_name;
+    if (String.IsNullOrEmpty(quest_id)) { return; }
+    txtEventTitle.text = L10n.GetQuestTitle(quest_id);
 
-    if (quest_name == Fix.QUEST_TITLE_1) { txtEventDescription.text = Fix.QUEST_DESC_1; }
-    if (quest_name == Fix.QUEST_TITLE_2) { txtEventDescription.text = Fix.QUEST_DESC_2; }
-    if (quest_name == Fix.QUEST_TITLE_3) { txtEventDescription.text = Fix.QUEST_DESC_3; }
-    if (quest_name == Fix.QUEST_TITLE_4) { txtEventDescription.text = Fix.QUEST_DESC_4; }
-    if (quest_name == Fix.QUEST_TITLE_5) { txtEventDescription.text = Fix.QUEST_DESC_5; }
-    if (quest_name == Fix.QUEST_TITLE_6) { txtEventDescription.text = Fix.QUEST_DESC_6; }
-    if (quest_name == Fix.QUEST_TITLE_7) { txtEventDescription.text = Fix.QUEST_DESC_7; }
-    if (quest_name == Fix.QUEST_TITLE_8) { txtEventDescription.text = Fix.QUEST_DESC_8; }
-    if (quest_name == Fix.QUEST_TITLE_9) { txtEventDescription.text = Fix.QUEST_DESC_9; }
-    if (quest_name == Fix.QUEST_TITLE_10) { txtEventDescription.text = Fix.QUEST_DESC_10; }
-    if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
-    if (quest_name == Fix.QUEST_TITLE_20) { txtEventDescription.text = Fix.QUEST_DESC_20; }
-    if (quest_name == Fix.QUEST_TITLE_21) { txtEventDescription.text = Fix.QUEST_DESC_21; }
-    if (quest_name == Fix.QUEST_TITLE_22) { txtEventDescription.text = Fix.QUEST_DESC_22; }
-    if (quest_name == Fix.QUEST_TITLE_23) { txtEventDescription.text = Fix.QUEST_DESC_23; }
+    if (quest_id == Fix.QUEST_ID_1) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_1); }
+    if (quest_id == Fix.QUEST_ID_2) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_2); }
+    if (quest_id == Fix.QUEST_ID_3) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_3); }
+    if (quest_id == Fix.QUEST_ID_4) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_4); }
+    if (quest_id == Fix.QUEST_ID_5) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_5); }
+    if (quest_id == Fix.QUEST_ID_6) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_6); }
+    if (quest_id == Fix.QUEST_ID_7) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_7); }
+    if (quest_id == Fix.QUEST_ID_8) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_8); }
+    if (quest_id == Fix.QUEST_ID_9) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_9); }
+    if (quest_id == Fix.QUEST_ID_10) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_10); }
+    if (quest_id == Fix.QUEST_ID_11) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_11); }
+    if (quest_id == Fix.QUEST_ID_20) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_20); }
+    if (quest_id == Fix.QUEST_ID_21) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_21); }
+    if (quest_id == Fix.QUEST_ID_22) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_22); }
+    if (quest_id == Fix.QUEST_ID_23) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_23); }
+    if (quest_id == Fix.QUEST_ID_31) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_31); }
+    if (quest_id == Fix.QUEST_ID_41) { txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_41); }
 
     // クエスト到達状況に応じて、テキスト文章を更新する。
-    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
+    if (quest_id == Fix.QUEST_ID_2 && One.TF.Event_Message400030)
     {
-      txtEventDescription.text = Fix.QUEST_DESC_2_2;
+      txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_2_2);
     }
-    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message500020)
+    if (quest_id == Fix.QUEST_ID_2 && One.TF.Event_Message500020)
     {
-      txtEventDescription.text = Fix.QUEST_DESC_2_3;
+      txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_2_3);
     }
 
-    if (quest_name == Fix.QUEST_TITLE_11 && One.TF.Event_Message800090)
+    if (quest_id == Fix.QUEST_ID_11 && One.TF.Event_Message800090)
     {
-      txtEventDescription.text = Fix.QUEST_DESC_11_2;
+      txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_11_2);
     }
-    if (quest_name == Fix.QUEST_DESC_21 && One.TF.Event_Message1100010)
+    if (quest_id == Fix.QUEST_ID_21 && One.TF.Event_Message1100010)
     {
-      txtEventDescription.text = Fix.QUEST_DESC_21_2;
+      txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_21_2);
+    }
+
+    if (quest_id == Fix.QUEST_ID_22 && One.TF.Event_Message500022)
+    {
+      txtEventDescription.text = L10n.Get(Fix.L10N_QUEST_DESC_22_2);
     }
   }
 

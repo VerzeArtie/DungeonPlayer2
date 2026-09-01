@@ -136,10 +136,29 @@ public static class L10n
     Register(Fix.L10N_HOMETOWN_AVAILABLE, "【 {0} 】が追加されました！", "【 {0} 】 has been added!");
     // HomeTown-Quest
     Register(Fix.L10N_QUESTCOMPLETE_TITLE, "クエスト【 {0} 】を達成しました！", "Quest 【 {0} 】 completed!");
+    Register(Fix.L10N_QUESTSTART_TITLE, "クエスト【 {0} 】が開始されました！", "Quest 【 {0} 】 started!");
+    Register(Fix.L10N_QUESTUPDATE_TITLE, "クエスト【 {0} 】が更新されました！", "Quest 【 {0} 】 updated!");
+    // クエスト名。日本語は Fix.QUEST_TITLE_* を唯一の定義とし、ここでは英訳のみを与える。
+    Register(Fix.L10N_QUEST_TITLE_1, Fix.QUEST_TITLE_1, "Obtain the Expedition Permit");
+    Register(Fix.L10N_QUEST_TITLE_2, Fix.QUEST_TITLE_2, "A Request from King Aermi");
+    Register(Fix.L10N_QUEST_TITLE_3, Fix.QUEST_TITLE_3, "Speak with Vasta the Blacksmith");
+    Register(Fix.L10N_QUEST_TITLE_4, Fix.QUEST_TITLE_4, "Gather Zetanium Ore");
+    Register(Fix.L10N_QUEST_TITLE_5, Fix.QUEST_TITLE_5, "Find the Mattock");
+    Register(Fix.L10N_QUEST_TITLE_6, Fix.QUEST_TITLE_6, "Find the Door Key");
+    Register(Fix.L10N_QUEST_TITLE_7, Fix.QUEST_TITLE_7, "Defeat the Beast");
+    Register(Fix.L10N_QUEST_TITLE_8, Fix.QUEST_TITLE_8, "Guard Against the Poison");
+    Register(Fix.L10N_QUEST_TITLE_9, Fix.QUEST_TITLE_9, "An Ominous Presence Within");
+    Register(Fix.L10N_QUEST_TITLE_10, Fix.QUEST_TITLE_10, "Investigating the Strange Object");
+    Register(Fix.L10N_QUEST_TITLE_11, Fix.QUEST_TITLE_11, "A Request from King Aermi II");
+    Register(Fix.L10N_QUEST_TITLE_20, Fix.QUEST_TITLE_20, "A Presence at the Tower Summit");
+    Register(Fix.L10N_QUEST_TITLE_21, Fix.QUEST_TITLE_21, "A Request from King Aermi III");
+    Register(Fix.L10N_QUEST_TITLE_31, Fix.QUEST_TITLE_31, "A Request from Pontiff Zveldose");
+    Register(Fix.L10N_QUEST_TITLE_41, Fix.QUEST_TITLE_41, "A Request from Pontiff Zveldose II");
+    Register(Fix.L10N_QUEST_TITLE_23, Fix.QUEST_TITLE_23, "The Red Star Is the Marble Star");
     Register(Fix.L10N_QUESTCOMPLETE_GOLDGAIN, "{0} ゴールドを獲得しました！", "Gain {0} Gold!");
     Register(Fix.L10N_QUESTCOMPLETE_EXPGAIN, "{0} 経験値を獲得しました！", "Gain {0} EXP!");
     Register(Fix.L10N_QUESTCOMPLETE_ITEMGAIN, "【 {0} 】を獲得しました！", "Gain 【 {0} 】!");
-    Register(Fix.L10N_QUESTCOMPLETE_PARTY_EONE, "エオネ・フルネアが仲間になりました！", "Eone Furnea has joined your party!");
+    Register(Fix.L10N_QUESTCOMPLETE_PARTY_EONE, "エオネ・フルネアが仲間になりました！", "Eone Fulnea has joined your party!");
     Register(Fix.L10N_QUESTCOMPLETE_NEWQUEST, "新しいミッションが追加されました！", "New mission added!");
     Register(Fix.L10N_QUESTCOMPLETE_SOULESSENCEGAIN, "{0} ソウル・エッセンスを獲得しました！", "Gain {0} Soul Essence!");
     // DungeonField
@@ -341,6 +360,40 @@ public static class L10n
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_3, "エデルガイゼン城 第三階層", "Edelgarzen Castle (3F)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CASTLE_4, "エデルガイゼン城 最上階", "Edelgarzen Castle (TOP)");
     Register(Fix.L10N_AREANAME_EDELGARZEN_CENTER, "エデルガイゼン城 正面ゲート", "Edelgarzen Castle (CENTER)");
+
+    // ここから下は Term(Fix.L10N_AREANAME_*) を参照するため、地名の登録より後に置くこと。
+    // Register は呼び出し時点でトークンを確定させるため、参照先が未登録だとキー文字列がそのまま残る。
+    Register(Fix.L10N_QUEST_TITLE_22, Fix.QUEST_TITLE_22, "Hidden Away: [$0]", Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+
+    // エリア情報。日本語は Fix.AREA_INFO_* を唯一の定義とし、ここでは英訳のみを与える。
+    // 地名は L10N_AREANAME_* を参照し、表記を一箇所で管理する。
+    Register(Fix.L10N_AREA_INFO_ANSHET, Fix.AREA_INFO_ANSHET,
+      "The town of Anshet prospers quietly downriver, to the south of $0. Few traveling merchants pass through, but the town as a whole is stable, and its people lead peaceful lives.",
+      Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_AREA_INFO_ESMILIA_GRASSFIELD, Fix.AREA_INFO_ESMILIA_GRASSFIELD,
+      "A game trail running through $0. It is the route by which travelers pass between $1 and the town of Anshet. Monsters appear here, but none of [High] threat, and those who keep to the path seldom meet with danger.",
+      Term(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD), Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_AREA_INFO_FAZIL_CASTLE, Fix.AREA_INFO_FAZIL_CASTLE,
+      "$0, the seat of King Aermi Jorzt, who governs the whole of the Fazil region. Numerous warp gates stand behind $0, and through them King Aermi Jorzt, Queen Fara Flore, Sinikia Kahlhanz the head of the Academy of Sorcery, Ol Landis the Tyrant of Justice, and Verze Artie the Unseen keep daily watch over the state of every area. That crime is rare throughout Fazil, and that its people live in peace, is owed to their protection and nothing else.",
+      Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_AREA_INFO_GORATRUM_CAVE, Fix.AREA_INFO_GORATRUM_CAVE,
+      "These enchanting limestone caverns once drew travelers as a sightseeing destination. Little of the limestone formation remains today, and monsters now emerge from the depths of the earth, so ordinary people no longer visit. Anyone who ventures in to explore had best not neglect thorough preparation.");
+    Register(Fix.L10N_AREA_INFO_COTUHSYE, Fix.AREA_INFO_COTUHSYE,
+      "People of every trade come and go through this port town. King Aermi designated the area as a place of exchange and imposed no restriction on entry, so commerce flourishes here. At present, however, sailings are restricted, and no ship departs from here for the Kingdom of Vinsgarde.");
+    Register(Fix.L10N_AREA_INFO_MYSTIC_FOREST, Fix.AREA_INFO_MYSTIC_FOREST,
+      "The [$0], which lures those who enter into a deep and abyssal mist. Visibility is poor, and monsters attack again and again, so there is no end to those who lose all sense of direction and vanish for good. Thorough preparation will be needed to press on.",
+      Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+    Register(Fix.L10N_AREA_INFO_OHRAN_TOWER, Fix.AREA_INFO_OHRAN_TOWER,
+      "From the summit of the tower one can survey the entire continent. When the [$0] was built remains unknown, but it has stood at least since before the Kingdom of Fazil rose to prosperity. No one visits it as a sightseer now; it has become a place overrun with monsters, and is designated as a proving ground where those with combat experience test their skill. To reach the tower top, one must take it on with a certain level of ability and sound judgment.",
+      Term(Fix.L10N_AREANAME_OHRAN_TOWER));
+    Register(Fix.L10N_AREA_INFO_PARMETYSIA, Fix.AREA_INFO_PARMETYSIA,
+      "$0, which oversees the Moonforder region. That region is a snowfield, and it is said that no one travels there from the Fazil area without special cause. The whole of the area is also kept under regular watch by members of the Moonforder cult, and wandering about carelessly is not permitted.",
+      Term(Fix.L10N_AREANAME_PARMETYSIA));
+    Register(Fix.L10N_AREA_INFO_VELGUS_SEA_TEMPLE, Fix.AREA_INFO_VELGUS_SEA_TEMPLE,
+      "The undersea temple of Velgus, which has stood since the distant past. Its name was taken from Verselius Garland Altorius, the figure who discovered the temple in the cult of that era. Every life born into this world is promised the equal favor of the divine, and that favor is shown in the form of the Name of Heaven. Countless patterns are carved into the undersea temple, and what those patterns mean has yet to be deciphered, even with the power of the Moonforder cult. For all that it is said to bestow the Name of Heaven, the undersea temple is in truth a den of monsters. Considerable ability will be required to challenge it.");
+    Register(Fix.L10N_AREA_INFO_EDELGARZEN, Fix.AREA_INFO_EDELGARZEN,
+      "$0, standing serene and lofty in the Kingdom of Vinsgarde. The castle was built atop the Kilcood mountain range to guard against invasion from other nations and to strengthen watch over other regions. Being impregnable, it has never been assailed, and it radiates an overwhelming presence. Thorough preparation and the strength to act are not enough when setting out for the castle. A certain capacity, and a true temperament, will be required.",
+      Term(Fix.L10N_AREANAME_EDELGARZEN_CASTLE));
 
     // アクションコマンド 対象／タイミング
     // 日本語は Fix.TARGET_TYPE_* / TIMING_TYPE_* と同一。あちらは内部判定用の値であり、
@@ -718,6 +771,67 @@ public static class L10n
     Register(Fix.L10N_DESC_FOOD_63, Fix.DESC_63_MINI, "A fillet steak topped with bright red chili peppers.\r\nHidden beneath is a subtle touch of honey, so heat and sweetness ring out together for whoever eats it.");
     Register(Fix.L10N_DESC_FOOD_64, Fix.DESC_64_MINI, "When it comes to the most popular toast set, this orange toast is it.\r\nThe enormous slice, generously spread with orange jam and topped with white cream, is a favorite regardless of who you ask.");
     Register(Fix.L10N_DESC_FOOD_65, Fix.DESC_65_MINI, "A pot of darkness with no smell of food at all.\r\n　Aunt Hanna says the good stuff is definitely in there. You have no choice but to believe her and eat.");
+
+    // クエスト説明文
+    // 日本語は Fix.QUEST_DESC_* を唯一の定義とし、ここでは英訳のみを与える。
+    // 地名は L10N_AREANAME_* を参照し、表記を一箇所で管理する。
+    Register(Fix.L10N_QUEST_DESC_1, Fix.QUEST_DESC_1,
+      "Head for $0 and obtain an expedition permit. To reach $0 you must pass through $1. Set out once you have made your preparations.",
+      Term(Fix.L10N_AREANAME_FAZIL_CASTLE), Term(Fix.L10N_AREANAME_ESMILIA_GRASSFIELD));
+    Register(Fix.L10N_QUEST_DESC_2, Fix.QUEST_DESC_2,
+      "Upon receiving the domestic and foreign expedition permit, King Aermi asked you to travel to $0 in the Fazil region and investigate. $0 lies along the coast east of the Fazil region, but you must pass through $1 on the way. Break through $1 and reach $0.",
+      Term(Fix.L10N_AREANAME_COTUHSYE), Term(Fix.L10N_AREANAME_GORATRUM_CAVE));
+    Register(Fix.L10N_QUEST_DESC_2_2, Fix.QUEST_DESC_2_2,
+      "Arriving at $0, Ein and the others joined up with the mercenary Billy Laki and resolved to head for the $1. No detailed information about the $1 has surfaced yet, but Ein sensed they would find it by continuing this journey.",
+      Term(Fix.L10N_AREANAME_COTUHSYE), Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+    Register(Fix.L10N_QUEST_DESC_2_3, Fix.QUEST_DESC_2_3,
+      "Ein and the others reached $0 and were speaking with the village elder, only to be abruptly turned away partway through. Immediately after, a messenger relayed orders to return to $1 once. Having lost their destination, Ein followed the messenger for now, returning to $1 to report the whole affair to the king.",
+      Term(Fix.L10N_AREANAME_ZHALMAN), Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_QUEST_DESC_3, Fix.QUEST_DESC_3,
+      "Go and meet the blacksmith Vasta. Vasta lives in Qvelta Town, straight east of $0.",
+      Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_QUEST_DESC_4, Fix.QUEST_DESC_4,
+      "You have been asked to gather 5 pieces of zetanium ore. The ore appears to be somewhere in the Artharium Factory Ruins. Gather it, if only to uncover the identity of the mysterious item.");
+    Register(Fix.L10N_QUEST_DESC_5, Fix.QUEST_DESC_5,
+      "Eone Fulnea told you that a mattock lies somewhere in the Artharium Factory Ruins. Search every corner of the ruins and find it. With the mattock you should be able to break through the rock wall.");
+    Register(Fix.L10N_QUEST_DESC_6, Fix.QUEST_DESC_6,
+      "While advancing through the passages of the Artharium Factory Ruins, you found a large door. It is locked, and opening it will be difficult without a key. The key must be somewhere within the ruins. Go look for it.");
+    Register(Fix.L10N_QUEST_DESC_7, Fix.QUEST_DESC_7,
+      "A sign at the entrance to the narrow passage read: \"Ferocious creatures have appeared deep in this area. This passage is to be sealed at once.\"\r\n\r\nUnusually powerful monsters may be lying in wait. Explore this area with caution.");
+    Register(Fix.L10N_QUEST_DESC_8, Fix.QUEST_DESC_8,
+      "While exploring the Artharium Factory Ruins, you discovered an area filled with poison. You cannot venture further into this area without a countermeasure. Go find an item that protects against poison. It should be somewhere in the section where you found the mattock.");
+    Register(Fix.L10N_QUEST_DESC_9, Fix.QUEST_DESC_9,
+      "After unlocking the door in the central passage, the whole party sensed an extraordinary atmosphere. Something is clearly waiting ahead. Ein and the others are steeling themselves to press deeper. It would be wise to prepare thoroughly before facing it.");
+    Register(Fix.L10N_QUEST_DESC_10, Fix.QUEST_DESC_10,
+      "After defeating the boss of the Artharium Factory Ruins, you obtained a strange object in its depths. What this item signifies is entirely unknown, and it cannot be analyzed here. Deciding to settle on a plan for investigating it, Ein chose to return to Qvelta Town for now. Return to Qvelta Town and speak with your party members.");
+    Register(Fix.L10N_QUEST_DESC_11, Fix.QUEST_DESC_11,
+      "Having returned from $0 to $1, Ein and the others received their next order: travel to the $2 and survey the continent. The $2 appears to lie northeast of $1. Head northeast and make for the $2.",
+      Term(Fix.L10N_AREANAME_ZHALMAN), Term(Fix.L10N_AREANAME_FAZIL_CASTLE), Term(Fix.L10N_AREANAME_OHRAN_TOWER));
+    Register(Fix.L10N_QUEST_DESC_11_2, Fix.QUEST_DESC_11_2,
+      "Reaching the top floor of the $0, you surveyed the continent from the observation deck and gathered a variety of information about its situation. To convey this to the king, Ein returns to $1 and confers with King Aermi in the audience chamber.",
+      Term(Fix.L10N_AREANAME_OHRAN_TOWER), Term(Fix.L10N_AREANAME_FAZIL_CASTLE));
+    Register(Fix.L10N_QUEST_DESC_20, Fix.QUEST_DESC_20,
+      "On the stairs leading to the top floor of the $0, the whole party felt an alien wind flowing in. There is no doubt that something waits ahead. It would be wise to prepare thoroughly before facing it.",
+      Term(Fix.L10N_AREANAME_OHRAN_TOWER));
+    Register(Fix.L10N_QUEST_DESC_21, Fix.QUEST_DESC_21,
+      "You reported to the king what was seen from the $0. King Aermi gave the next order: make for $1 in the Moonforder region. Having made their preparations, Ein and the others head for $1.",
+      Term(Fix.L10N_AREANAME_OHRAN_TOWER), Term(Fix.L10N_AREANAME_PARMETYSIA));
+    Register(Fix.L10N_QUEST_DESC_21_2, Fix.QUEST_DESC_21_2,
+      "Having arrived at Arcanedine Town, Ein and the others decided to begin asking around at once. Make a full round of Arcanedine Town and talk with its people.");
+    Register(Fix.L10N_QUEST_DESC_31, Fix.QUEST_DESC_31,
+      "The pontiff of $0 asked you to travel to the $1 and obtain the Name of Heaven. Steeling himself, Ein sets out for the $1. By receiving the Name of Heaven there, Ein may come to understand the unease he has felt all this time. Believing so, he presses on.",
+      Term(Fix.L10N_AREANAME_PARMETYSIA), Term(Fix.L10N_AREANAME_VELGUS_SEA_TEMPLE));
+    Register(Fix.L10N_QUEST_DESC_41, Fix.QUEST_DESC_41,
+      "Having received the Name of Heaven, Ein was granted an audience with Pontiff Zveldose and asked to head for $0 in the Kingdom of Vinsgarde. Through his encounters with the Obsidian Stone, Ein is close to reaching a single conclusion. Resolved to accept everything that awaits him at $0, Ein sets out.",
+      Term(Fix.L10N_AREANAME_EDELGARZEN_CASTLE));
+    Register(Fix.L10N_QUEST_DESC_22, Fix.QUEST_DESC_22,
+      "From townspeople crossing the central fountain plaza of Arcanedine Town, you learned that a trade route once existed between Arcanedine Town and $0. The route was apparently the very road Ein and the others had travelled. In those days, rumor held that an inviolable domain, the $1, lay deep beyond $0. Whether the $1 still exists is uncertain, but visiting $0 once more may reveal the answer. Go to $0 and speak with the elder again.",
+      Term(Fix.L10N_AREANAME_ZHALMAN), Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+    Register(Fix.L10N_QUEST_DESC_22_2, Fix.QUEST_DESC_22_2,
+      "When you asked the elder in $0 about the $1, it turned out to be managed as a sacred place, and Ein and the others were not permitted to enter. However, the elder assigned an errand to a man named Adel Brigandi, and granted permission on the condition that they accompany him. Explore the $1 together with Adel Brigandi. Surely something will be found.",
+      Term(Fix.L10N_AREANAME_ZHALMAN), Term(Fix.L10N_AREANAME_MYSTIC_FOREST));
+    Register(Fix.L10N_QUEST_DESC_23, Fix.QUEST_DESC_23,
+      "When Ein asked about the red star at the Fortune House: Aminda in Arcanedine Town, the fortune teller offered him a Marble Star. What this item is used for is uncertain, but Ein was advised to visit the Ruins of Saritan regarding it. Search for the Ruins of Saritan and gather information about this item.");
 
     // ダンジョン内の選択肢
     // 心の解(ヴェルガス海底神殿)の設問文。選択肢は物語のキーワードのため原文のまま残す。
@@ -1435,6 +1549,35 @@ public static class L10n
     }
 
     return string.Empty;
+  }
+
+  /// <summary>
+  /// クエストID (Fix.QUEST_ID_*) から表示用のクエスト名を得る。
+  /// 進行フラグの判定は呼び出し側でIDに対して行うこと。本メソッドの戻り値を条件に使ってはならない。
+  /// </summary>
+  public static string GetQuestTitle(string quest_id)
+  {
+    // クエスト一覧の空枠 (SeekerMode) では空文字が渡る。
+    if (String.IsNullOrEmpty(quest_id)) { return String.Empty; }
+    if (quest_id == Fix.QUEST_ID_1) { return Get(Fix.L10N_QUEST_TITLE_1); }
+    if (quest_id == Fix.QUEST_ID_2) { return Get(Fix.L10N_QUEST_TITLE_2); }
+    if (quest_id == Fix.QUEST_ID_3) { return Get(Fix.L10N_QUEST_TITLE_3); }
+    if (quest_id == Fix.QUEST_ID_4) { return Get(Fix.L10N_QUEST_TITLE_4); }
+    if (quest_id == Fix.QUEST_ID_5) { return Get(Fix.L10N_QUEST_TITLE_5); }
+    if (quest_id == Fix.QUEST_ID_6) { return Get(Fix.L10N_QUEST_TITLE_6); }
+    if (quest_id == Fix.QUEST_ID_7) { return Get(Fix.L10N_QUEST_TITLE_7); }
+    if (quest_id == Fix.QUEST_ID_8) { return Get(Fix.L10N_QUEST_TITLE_8); }
+    if (quest_id == Fix.QUEST_ID_9) { return Get(Fix.L10N_QUEST_TITLE_9); }
+    if (quest_id == Fix.QUEST_ID_10) { return Get(Fix.L10N_QUEST_TITLE_10); }
+    if (quest_id == Fix.QUEST_ID_11) { return Get(Fix.L10N_QUEST_TITLE_11); }
+    if (quest_id == Fix.QUEST_ID_20) { return Get(Fix.L10N_QUEST_TITLE_20); }
+    if (quest_id == Fix.QUEST_ID_21) { return Get(Fix.L10N_QUEST_TITLE_21); }
+    if (quest_id == Fix.QUEST_ID_31) { return Get(Fix.L10N_QUEST_TITLE_31); }
+    if (quest_id == Fix.QUEST_ID_41) { return Get(Fix.L10N_QUEST_TITLE_41); }
+    if (quest_id == Fix.QUEST_ID_22) { return Get(Fix.L10N_QUEST_TITLE_22); }
+    if (quest_id == Fix.QUEST_ID_23) { return Get(Fix.L10N_QUEST_TITLE_23); }
+    Debug.LogError("L10n.GetQuestTitle: 未知のクエストIDを参照しました quest_id=" + quest_id);
+    return quest_id;
   }
 
   public static string GetDisplayName(string key)

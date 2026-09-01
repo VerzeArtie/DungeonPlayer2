@@ -939,7 +939,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行くとしますか！ッハッハッハ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_1, ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
   }
@@ -1145,7 +1145,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：はい、分かりました！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.MessageDisplay);
 
@@ -1215,7 +1215,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】を達成しました！", ActionEvent.QuestComplete);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_1, ActionEvent.QuestComplete);
   }
   #endregion
 
@@ -2676,7 +2676,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_4 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_4, ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "ヴァスタ：あそこはモンスターも出てくるという噂を聞いておる。準備は万全にな。", ActionEvent.None);
 
@@ -3008,7 +3008,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：で、ツァルマンの里とやらの情報もそこで探ってみよう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_10 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_10, ActionEvent.QuestComplete);
     }
   }
   #endregion
@@ -3309,7 +3309,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：っしゃ、任せておけ！ッハッハッハ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_5 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_5, ActionEvent.GetNewQuest);
   }
 
   private static void UseMatockForRock(ref List<string> m_list, ref List<ActionEvent> e_list, string identity)
@@ -3368,7 +3368,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
+        Message(ref m_list, ref e_list, Fix.QUEST_ID_6, ActionEvent.GetNewQuest);
 
         Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
       }
@@ -3462,7 +3462,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "アイン：ああ、了解だ！任せておけ！", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】を達成しました！", ActionEvent.QuestComplete);
+          Message(ref m_list, ref e_list, Fix.QUEST_ID_6, ActionEvent.QuestComplete);
         }
       }
     }
@@ -3596,7 +3596,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetPreciousItem);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_5 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_5, ActionEvent.QuestComplete);
     }
   }
 
@@ -4110,7 +4110,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、分かった。じゃあ、ここは一旦引き下がって、その部屋をくまなく探すとしよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_8, ActionEvent.GetNewQuest);
     }
     else if (One.TF.QuestMain_Complete_00008 == false)
     {
@@ -4142,7 +4142,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_8, ActionEvent.QuestComplete);
     }
   }
 
@@ -4188,7 +4188,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 " + Fix.RESIST_POISON_SUIT + " 】を手にいれました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_8, ActionEvent.QuestComplete);
     }
   }
 
@@ -4418,7 +4418,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よっしゃ、任せておけ！待ってろよ、お宝！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_9 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_9, ActionEvent.QuestComplete);
 
       Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic14);
     }
@@ -4536,7 +4536,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあクヴェルタ街に向かうとしよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_10 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_10, ActionEvent.GetNewQuest);
     }
   }
 
@@ -4908,7 +4908,7 @@ public static class MessagePack
 
       if (One.TF.Event_Message400030)
       {
-        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が更新されました！", ActionEvent.QuestUpdate);
+        Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.QuestUpdate);
       }
     }
   }
@@ -5047,7 +5047,7 @@ public static class MessagePack
 
       if (One.TF.AvailableBillyRaki)
       {
-        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が更新されました！", ActionEvent.QuestUpdate);
+        Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.QuestUpdate);
       }
     }
     else
@@ -5775,7 +5775,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあこの件は一旦置いといて、まずは皆でファージル宮殿に戻ろう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が更新されました！", ActionEvent.QuestUpdate);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.QuestUpdate);
     }
   }
 
@@ -6296,7 +6296,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "　状況に応じて、【隊列変更】を駆使するようにしましょう。 ", ActionEvent.MessageDisplay);
 
-      // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】を達成しました！", ActionEvent.QuestComplete);
+      // Message(ref m_list, ref e_list, Fix.QUEST_ID_1, ActionEvent.QuestComplete);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあファージル宮殿へ向かうとしよう。", ActionEvent.None);
     }
@@ -8884,9 +8884,9 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：よし、じゃオーランの塔へ向けて出発とするか！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】を達成しました！", ActionEvent.QuestComplete);
+        Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.QuestComplete);
 
-        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】が開始されました！", ActionEvent.GetNewQuest);
+        Message(ref m_list, ref e_list, Fix.QUEST_ID_11, ActionEvent.GetNewQuest);
       }
     }
   }
@@ -9333,9 +9333,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ皆！早速ムーンフォーダーにあるパルメテイシア神殿へ向かうとしよう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_11, ActionEvent.QuestComplete);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_21, ActionEvent.GetNewQuest);
     }
   }
 
@@ -10273,7 +10273,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：この塔、おそらくもうすぐだ。ともかく、気をつけて行こう。", ActionEvent.None);
 
-      // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      // Message(ref m_list, ref e_list, Fix.QUEST_ID_20, ActionEvent.GetNewQuest);
     }
   }
 
@@ -10700,9 +10700,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン；じゃあ、塔の最上階から視察も終えた事だし、一旦戻るとするか！", ActionEvent.None);
 
-      // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
+      // Message(ref m_list, ref e_list, Fix.QUEST_ID_20, ActionEvent.QuestComplete);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】が更新されました！", ActionEvent.QuestUpdate);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_11, ActionEvent.QuestUpdate);
     }
     else
     {
@@ -29133,8 +29133,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、それじゃあ準備でもしておくとするか！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_31 + " 】を達成しました！", ActionEvent.QuestComplete);
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_41 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_31, ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_41, ActionEvent.GetNewQuest);
 
       Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
@@ -29276,7 +29276,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ま、そういう事だ。まずは何はともあれ情報収集をしよう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】が更新されました！", ActionEvent.QuestUpdate);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_21, ActionEvent.QuestUpdate);
 
       Message(ref m_list, ref e_list, "", ActionEvent.PlayMusic01);
     }
@@ -29366,7 +29366,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：おうよ！頼んだぜ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_22 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_22, ActionEvent.GetNewQuest);
 
     }
   }
@@ -33730,8 +33730,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：分かりました。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】を達成しました！", ActionEvent.QuestComplete);
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_31 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_21, ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, Fix.QUEST_ID_31, ActionEvent.GetNewQuest);
 
       Message(ref m_list, ref e_list, "ツヴェル：ふむ。では導きはここまで。行くが良い。", ActionEvent.None);
 
@@ -33829,7 +33829,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　アイン、ラナ、エオネ、ビリー、アデルは解散し、各部屋に入って行った　～", ActionEvent.MessageDisplay);
 
-      //Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_24 + " 】が更新されました！", ActionEvent.QuestUpdate);
+      //Message(ref m_list, ref e_list, Fix.QUEST_ID_24, ActionEvent.QuestUpdate);
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownNight);
 
@@ -36686,7 +36686,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：お試しでアイテムを1つ上げるわ。受け取ってちょうだい。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, Fix.FINE_ROBE, ActionEvent.GetItem);
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】を達成しました！", ActionEvent.QuestComplete);
+    Message(ref m_list, ref e_list, Fix.QUEST_ID_2, ActionEvent.QuestComplete);
 
     Message(ref m_list, ref e_list, "アイン：お、サンキュー", ActionEvent.None);
   }

@@ -2109,6 +2109,91 @@ public static partial class Fix
 
 
 
+
+
+
+  #region "エリア情報"
+  // 日本語は Fix.AREA_INFO_* を唯一の定義とし、表示のみ本キー経由で対訳する。
+  public const string L10N_AREA_INFO_ANSHET = "lblAreaInfoANSHET";
+  public const string L10N_AREA_INFO_ESMILIA_GRASSFIELD = "lblAreaInfoESMILIA_GRASSFIELD";
+  public const string L10N_AREA_INFO_FAZIL_CASTLE = "lblAreaInfoFAZIL_CASTLE";
+  public const string L10N_AREA_INFO_GORATRUM_CAVE = "lblAreaInfoGORATRUM_CAVE";
+  public const string L10N_AREA_INFO_COTUHSYE = "lblAreaInfoCOTUHSYE";
+  public const string L10N_AREA_INFO_MYSTIC_FOREST = "lblAreaInfoMYSTIC_FOREST";
+  public const string L10N_AREA_INFO_OHRAN_TOWER = "lblAreaInfoOHRAN_TOWER";
+  public const string L10N_AREA_INFO_PARMETYSIA = "lblAreaInfoPARMETYSIA";
+  public const string L10N_AREA_INFO_VELGUS_SEA_TEMPLE = "lblAreaInfoVELGUS_SEA_TEMPLE";
+  public const string L10N_AREA_INFO_EDELGARZEN = "lblAreaInfoEDELGARZEN";
+  #endregion
+  #region "クエストID"
+  // クエストの同一性判定に使う内部識別子。表示しないため翻訳対象外であり、値を変更してはならない。
+  // 進行フラグの判定は必ず本IDで行い、表示文字列 (QUEST_TITLE_*) を条件に使ってはならない。
+  public const string QUEST_ID_1 = "QM00001";
+  public const string QUEST_ID_2 = "QM00002";
+  public const string QUEST_ID_3 = "QM00003";
+  public const string QUEST_ID_4 = "QM00004";
+  public const string QUEST_ID_5 = "QM00005";
+  public const string QUEST_ID_6 = "QM00006";
+  public const string QUEST_ID_7 = "QM00007";
+  public const string QUEST_ID_8 = "QM00008";
+  public const string QUEST_ID_9 = "QM00009";
+  public const string QUEST_ID_10 = "QM00010";
+  public const string QUEST_ID_11 = "QM00011";
+  public const string QUEST_ID_20 = "QM00020";
+  public const string QUEST_ID_21 = "QM00021";
+  public const string QUEST_ID_31 = "QM00031";
+  public const string QUEST_ID_41 = "QM00041";
+  public const string QUEST_ID_22 = "QM00022";
+  public const string QUEST_ID_23 = "QM00023";
+  #endregion
+
+  #region "クエスト名"
+  // 日本語は Fix.QUEST_TITLE_* を唯一の定義とし、表示のみ本キー経由で対訳する。
+  public const string L10N_QUEST_TITLE_1 = "lblQuestTitle1";
+  public const string L10N_QUEST_TITLE_2 = "lblQuestTitle2";
+  public const string L10N_QUEST_TITLE_3 = "lblQuestTitle3";
+  public const string L10N_QUEST_TITLE_4 = "lblQuestTitle4";
+  public const string L10N_QUEST_TITLE_5 = "lblQuestTitle5";
+  public const string L10N_QUEST_TITLE_6 = "lblQuestTitle6";
+  public const string L10N_QUEST_TITLE_7 = "lblQuestTitle7";
+  public const string L10N_QUEST_TITLE_8 = "lblQuestTitle8";
+  public const string L10N_QUEST_TITLE_9 = "lblQuestTitle9";
+  public const string L10N_QUEST_TITLE_10 = "lblQuestTitle10";
+  public const string L10N_QUEST_TITLE_11 = "lblQuestTitle11";
+  public const string L10N_QUEST_TITLE_20 = "lblQuestTitle20";
+  public const string L10N_QUEST_TITLE_21 = "lblQuestTitle21";
+  public const string L10N_QUEST_TITLE_31 = "lblQuestTitle31";
+  public const string L10N_QUEST_TITLE_41 = "lblQuestTitle41";
+  public const string L10N_QUEST_TITLE_22 = "lblQuestTitle22";
+  public const string L10N_QUEST_TITLE_23 = "lblQuestTitle23";
+  public const string L10N_QUESTSTART_TITLE = "lblQuestStartTitle";
+  public const string L10N_QUESTUPDATE_TITLE = "lblQuestUpdateTitle";
+  #endregion
+  #region "クエスト説明文"
+  // クエストの目的・行き先。日本語は Fix.QUEST_DESC_* を唯一の定義とし、表示のみ本キー経由で対訳する。
+  public const string L10N_QUEST_DESC_1 = "lblQuestDesc1";
+  public const string L10N_QUEST_DESC_2 = "lblQuestDesc2";
+  public const string L10N_QUEST_DESC_2_2 = "lblQuestDesc2_2";
+  public const string L10N_QUEST_DESC_2_3 = "lblQuestDesc2_3";
+  public const string L10N_QUEST_DESC_3 = "lblQuestDesc3";
+  public const string L10N_QUEST_DESC_4 = "lblQuestDesc4";
+  public const string L10N_QUEST_DESC_5 = "lblQuestDesc5";
+  public const string L10N_QUEST_DESC_6 = "lblQuestDesc6";
+  public const string L10N_QUEST_DESC_7 = "lblQuestDesc7";
+  public const string L10N_QUEST_DESC_8 = "lblQuestDesc8";
+  public const string L10N_QUEST_DESC_9 = "lblQuestDesc9";
+  public const string L10N_QUEST_DESC_10 = "lblQuestDesc10";
+  public const string L10N_QUEST_DESC_11 = "lblQuestDesc11";
+  public const string L10N_QUEST_DESC_11_2 = "lblQuestDesc11_2";
+  public const string L10N_QUEST_DESC_20 = "lblQuestDesc20";
+  public const string L10N_QUEST_DESC_21 = "lblQuestDesc21";
+  public const string L10N_QUEST_DESC_21_2 = "lblQuestDesc21_2";
+  public const string L10N_QUEST_DESC_31 = "lblQuestDesc31";
+  public const string L10N_QUEST_DESC_41 = "lblQuestDesc41";
+  public const string L10N_QUEST_DESC_22 = "lblQuestDesc22";
+  public const string L10N_QUEST_DESC_22_2 = "lblQuestDesc22_2";
+  public const string L10N_QUEST_DESC_23 = "lblQuestDesc23";
+  #endregion
   #region "料理の説明文"
   // 宿屋の料理説明。日本語は Fix.DESC_*_MINI を唯一の定義とし、表示のみ本キー経由で対訳する。
   public const string L10N_DESC_FOOD_01 = "lblDescFood01";
@@ -15436,7 +15521,7 @@ public static partial class Fix
   #endregion
   #region "Hometown"
   public const string TOWN_ANSHET = "アンシェット街";
-  public const string TOWN_ANSHET_EN = "Ansthet Town";
+  public const string TOWN_ANSHET_EN = "Anshet Town";
   public const string TOWN_ANSHET_ICON = "TownIcon_AnshetTown";
   public const string TOWN_QVELTA_TOWN = "クヴェルタ街";
   public const string TOWN_COTUHSYE = "港町コチューシェ";
