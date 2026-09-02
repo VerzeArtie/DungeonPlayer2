@@ -119,16 +119,42 @@ public class HelpBook : MotherBase
     }
   }
 
+  /// <summary>
+  /// タップされたボタンが配列の何番目かを返す。見つからなければ -1。
+  /// 表示ラベルは翻訳されるため、ラベル文字列で画面を識別してはならない。
+  /// </summary>
+  private int IndexOfButton(Text[] list, Text sender)
+  {
+    if (list == null || sender == null) { return -1; }
+    for (int ii = 0; ii < list.Length; ii++)
+    {
+      if (list[ii] == sender) { return ii; }
+    }
+    return -1;
+  }
+
   public void TapHelpMenu(Text sender)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
-    if (sender.text == Fix.HELPMENU_ACTIONCOMMAND)
+
+    // MenuButtonText の並びが画面の識別子である。
+    //   [0] アクションコマンド (Fix.HELPMENU_ACTIONCOMMAND)
+    //   [1] バトル関連         (Fix.HELPMENUL_BATTLE)
+    // 以前は sender.text と日本語定数を比較していたため、ラベルを英訳すると分岐しなくなった。
+    int index = IndexOfButton(MenuButtonText, sender);
+    if (index < 0)
+    {
+      Debug.LogError("TapHelpMenu: MenuButtonText に存在しないボタンです name=" + sender.name);
+      return;
+    }
+
+    if (index == 0)
     {
       groupAC.SetActive(true);
       groupBattle.SetActive(false);
       tapElement(ElementButtonText[0]);
     }
-    else if (sender.text == Fix.HELPMENUL_BATTLE)
+    else if (index == 1)
     {
       groupAC.SetActive(false);
       groupBattle.SetActive(true);

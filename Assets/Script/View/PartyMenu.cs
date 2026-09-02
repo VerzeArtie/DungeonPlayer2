@@ -223,6 +223,10 @@ public class PartyMenu : MotherBase
   //public Image imgEssenceCurrent;
   public NodeActionCommand imgEssenceCurrent;
   public Text txtEssenceCurrentName;
+
+  // 選択中エッセンスの識別子 (Fix のコマンド名定数と同じ値)。
+  // txtEssenceCurrentName は表示専用であり、そこから読み戻して識別してはならない。
+  private string CurrentEssenceCommandName = String.Empty;
   public Text txtEssenceCurrentDescription;
   public Text txtEssenceCurrentDescEffect;
   public GameObject groupEssenceDecision;
@@ -1240,11 +1244,12 @@ public class PartyMenu : MotherBase
   public void TapSelectEssence(Text txt_title)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */ActionCommand.GetDescription(txt_title.text);
-    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + ActionCommand.GetDescReinforce(txt_title.text);
+    this.CurrentEssenceCommandName = txt_title.text;
+    txtEssenceCurrentName.text = this.CurrentEssenceCommandName;
+    txtEssenceCurrentDescription.text = /* L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_EFFECT) + " " + */ActionCommand.GetDescription(this.CurrentEssenceCommandName);
+    txtEssenceCurrentDescEffect.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCETREE_LABEL_POWERUP) + " " + ActionCommand.GetDescReinforce(this.CurrentEssenceCommandName);
 
-    imgEssenceCurrent.ApplyImageIcon(txt_title.text);
+    imgEssenceCurrent.ApplyImageIcon(this.CurrentEssenceCommandName);
   }
 
   public void TapDecisionEssence()
@@ -1252,10 +1257,10 @@ public class PartyMenu : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
 
     imgEssenceDecision.sprite = imgEssenceCurrent.ActionButton.image.sprite;
-    imgEssenceDecision.name = txtEssenceCurrentName.text;
+    imgEssenceDecision.name = this.CurrentEssenceCommandName;
     if (CurrentPlayer.SoulFragment <= 0)
     {
-      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_TITLE, txtEssenceCurrentName.text);
+      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_TITLE, this.CurrentEssenceCommandName);
       txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETCANNOT_MESSAGE);
       btnEssenceDecisionAccept.gameObject.SetActive(false);
       btnEssenceDecisionCancel.gameObject.SetActive(false);
@@ -1265,9 +1270,9 @@ public class PartyMenu : MotherBase
     }
 
     // 強化の上限に達している場合、または「強化なし」の場合、獲得できない旨を表示する。
-    if (CurrentPlayer.EssenceTreeMaxCap(txtEssenceCurrentName.text))
+    if (CurrentPlayer.EssenceTreeMaxCap(this.CurrentEssenceCommandName))
     {
-      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, txtEssenceCurrentName.text);
+      txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_TITLE, this.CurrentEssenceCommandName);
       txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETLIMIT_MESSAGE);
       btnEssenceDecisionAccept.gameObject.SetActive(false);
       btnEssenceDecisionCancel.gameObject.SetActive(false);
@@ -1276,7 +1281,7 @@ public class PartyMenu : MotherBase
       return;
     }
 
-    txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_TITLE, txtEssenceCurrentName.text);
+    txtEssenceDecisionTitle.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_TITLE, this.CurrentEssenceCommandName);
     txtEssenceDecisionMessage.text = L10n.Get(Fix.L10N_PARTYMENU_ESSENCE_GETNEW_MESSAGE);
     btnEssenceDecisionAccept.gameObject.SetActive(true);
     btnEssenceDecisionCancel.gameObject.SetActive(true);
