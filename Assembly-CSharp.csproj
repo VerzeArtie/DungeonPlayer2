@@ -75,6 +75,7 @@
     <Compile Include="Assets\Script\Class\Distributions.cs" />
     <Compile Include="Assets\Script\Node\NodeCharaExp.cs" />
     <Compile Include="Assets\Script\Node\NodeShopItem.cs" />
+    <Compile Include="Assets\Script\View\HomeTown.Localization.ItemName.cs" />
     <Compile Include="Assets\Script\Node\NodeBackpackItem.cs" />
     <Compile Include="Assets\Script\Class\Item.cs" />
     <Compile Include="Assets\Script\Class\SceneDimension.cs" />
