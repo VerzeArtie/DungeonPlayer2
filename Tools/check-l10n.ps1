@@ -18,7 +18,7 @@ $fixFile = Join-Path $script 'Class\Fix.cs'
 # --- Fix.cs に定義されている L10N_ 定数 ---
 $defined = @{}
 foreach ($line in [System.IO.File]::ReadAllLines($fixFile)) {
-  $m = [regex]::Match($line, 'public\s+const\s+string\s+(L10N_\w+)\s*=\s*"([^"]*)"')
+  $m = [regex]::Match($line, 'public\s+const\s+string\s+(L10N_\w+)\s*=\s*@?"([^"]*)"')
   if ($m.Success) { $defined[$m.Groups[1].Value] = $m.Groups[2].Value }
 }
 
@@ -78,6 +78,26 @@ if ($ghost) {
 }
 
 Write-Host ''
+Write-Host '=== [3b] 英訳が空文字の登録 (許可リスト外は登録漏れの疑い) ===' -ForegroundColor Cyan
+# L10n.Get は未登録キーでも空文字を返すため、意図的な空文字と登録漏れが実行時に区別できない。
+# 英語に対応語を持たない助数詞などは、ここに明示して初めて許可する。
+$allowEmptyEn = @(
+  'L10N_EF_TIMES_SUFFIX'   # 「回」。英語には助数詞が無いため訳を置かない (Attack Count 3)
+)
+$emptyNG = 0
+foreach ($m in [regex]::Matches($locText, 'Register\(\s*Fix\.(L10N_\w+)\s*,\s*"((?:[^"\\]|\\.)+)"\s*,\s*""\s*\)')) {
+  $k = $m.Groups[1].Value
+  if ($allowEmptyEn -contains $k) {
+    Write-Host ("  --  {0} (許可: ja='{1}')" -f $k, $m.Groups[2].Value) -ForegroundColor Yellow
+    continue
+  }
+  Write-Host ("  NG  {0}: 英訳が空文字 (ja='{1}') — 意図的なら check-l10n.ps1 の allowEmptyEn に追加すること" -f $k, $m.Groups[2].Value) -ForegroundColor Red
+  $emptyNG++
+}
+if ($emptyNG -gt 0) { $fail = 1 }
+if ($emptyNG -eq 0 -and @($allowEmptyEn).Count -eq 0) { Write-Host '  なし' -ForegroundColor Green }
+
+Write-Host ''
 Write-Host '=== [4] 登録済みだがコードから参照されていないキー (死蔵 / 参考) ===' -ForegroundColor Cyan
 $unused = $registered.Keys | Where-Object { -not $used.ContainsKey($_) } | Sort-Object
 Write-Host ("  {0} 件" -f @($unused).Count)
@@ -104,7 +124,7 @@ $origin   = @{}   # 日本語用語 -> 定義元(表示用)
 $allConst = @{}
 $constAlias = @{}
 foreach ($line in [System.IO.File]::ReadAllLines($fixFile)) {
-  $m = [regex]::Match($line, 'public\s+const\s+string\s+(\w+)\s*=\s*"([^"]*)"')
+  $m = [regex]::Match($line, 'public\s+const\s+string\s+(\w+)\s*=\s*@?"([^"]*)"')
   if ($m.Success) { $allConst[$m.Groups[1].Value] = $m.Groups[2].Value; continue }
   # 別の const を参照する定義 (例: BUFF_CLONE_JP = BUFF_CHAOTIC_SCHEMA;)
   $m = [regex]::Match($line, 'public\s+const\s+string\s+(\w+)\s*=\s*(\w+)\s*;')
@@ -306,9 +326,10 @@ foreach ($m in $pairRe.Matches($locText)) {
     }
   }
 
-  # 【 {0} 】 のような書式プレースホルダは用語ではないため除外する。
+  # 用語ではない 【】 の中身。書式プレースホルダと、見出しとして使われる語を除外する。
+  $notTerm = @('特殊効果')
   $jaTerms = @([regex]::Matches($ja, '【([^】]+)】') | ForEach-Object { $_.Groups[1].Value } |
-                Where-Object { $_ -notmatch '[{}]' } | Sort-Object -Unique)
+                Where-Object { $_ -notmatch '[{}]' -and $notTerm -notcontains $_ } | Sort-Object -Unique)
   # 英文側の用語表記は [Term] が正。既存テキストに 【Term】 形式が残っているため両方を拾い、
   # 【Term】 を使っている場合は表記ゆれとして警告する。
   $enTerms = @([regex]::Matches($en, '\[([^\]]+)\]') | ForEach-Object { $_.Groups[1].Value } |
@@ -346,6 +367,315 @@ foreach ($m in $pairRe.Matches($locText)) {
   }
 }
 if ($termNG -eq 0) { Write-Host ('  なし (用語表 {0} 語)' -f $glossary.Count) -ForegroundColor Green } else { Write-Host ("  計 {0} 件" -f $termNG) -ForegroundColor Red; $fail = 1 }
+
+# ---------------------------------------------------------------
+# [6] 英訳が未了の登録 (英語側に日本語が残っているもの)
+#
+#   訳語が未確定な語は、日英とも日本語原文で登録して「対応漏れではなく訳出保留」
+#   であることを示す運用にしている。ここに並ぶ件数が英訳の残作業量になる。
+# ---------------------------------------------------------------
+Write-Host ''
+Write-Host '=== [6] 英語側に日本語が残る登録 ===' -ForegroundColor Cyan
+# 「訳出保留」(いずれ英訳する)と「変換しない」(日本語のまま出すのが仕様)を区別する。
+# 後者は行末に「// 変換しない。」と書くことで宣言し、訳出保留の残数から除外する。
+$pendingRe = [regex]'Register\(\s*Fix\.(L10N_\w+)\s*,\s*(?:\r?\n\s*)?"((?:[^"\\]|\\.)*)"\s*,\s*(?:\r?\n\s*)?"((?:[^"\\]|\\.)*)"\s*\)\s*;?\s*(//.*)?'
+$pending = @()
+$intentional = @()
+foreach ($m in $pendingRe.Matches($locText)) {
+  $pja = $m.Groups[2].Value; $pen = $m.Groups[3].Value
+  if ($pen -notmatch '[぀-ヿ㐀-鿿]') { continue }
+  $row = [pscustomobject]@{ Key = $m.Groups[1].Value; Ja = $pja; Same = ($pja -ceq $pen) }
+  if ($m.Groups[4].Value -match '変換しない') { $intentional += $row; continue }
+  $pending += $row
+}
+if ($intentional.Count -gt 0) {
+  Write-Host ("  -- 変換しない (仕様): {0} 件" -f $intentional.Count) -ForegroundColor DarkGray
+}
+if ($pending.Count -eq 0) {
+  Write-Host '  なし' -ForegroundColor Green
+} else {
+  $byPrefix = $pending | Group-Object { ($_.Key -split '_')[0..2] -join '_' } | Sort-Object Count -Descending
+  foreach ($g in $byPrefix) {
+    Write-Host ("  {0,-28} {1,3} 件" -f $g.Name, $g.Count) -ForegroundColor Yellow
+  }
+  $mismatch = @($pending | Where-Object { -not $_.Same })
+  if ($mismatch.Count -gt 0) {
+    foreach ($x in $mismatch) {
+      Write-Host ("  NG  {0}: 英語側に日本語が混在 (ja と一致しない)" -f $x.Key) -ForegroundColor Red
+    }
+    $fail = 1
+  }
+  Write-Host ("  ---- 訳出保留 計 {0} 件" -f $pending.Count) -ForegroundColor Yellow
+}
+
+# ---------------------------------------------------------------
+# [7] 日本語定数が L10n を経由せず画面に出ている箇所
+#
+#   .text 代入などの表示シンクへ Fix.<日本語を持つ定数> が直接渡されると、
+#   英語モードでも日本語が表示される。リテラルではなく定数経由のため、
+#   「日本語リテラルを探す」方式では検出できない。宿屋の料理名はこれで見落とした。
+# ---------------------------------------------------------------
+Write-Host ''
+Write-Host '=== [7] 日本語定数が L10n を経由せず表示されている箇所 ===' -ForegroundColor Cyan
+$jpConst = @{}
+foreach ($k in $allConst.Keys) {
+  if ($allConst[$k] -match '[぀-ヿ㐀-鿿]') { $jpConst[$k] = $allConst[$k] }
+}
+$sinkRe = '\.text\s*=|SetupItemDetail\(|SetMessage\(|ShowMessage\(|\.Description\s*='
+$leak = @()
+foreach ($f in Get-ChildItem $script -Recurse -Filter *.cs -File) {
+  if ($f.Name -in @('Fix.cs', 'HomeTown.Localization.cs', 'MessagePack.cs')) { continue }
+  $n = 0
+  foreach ($line in [System.IO.File]::ReadAllLines($f.FullName)) {
+    $n++
+    $t = $line.Trim()
+    if ($t.StartsWith('//')) { continue }
+    if ($t -notmatch $sinkRe) { continue }
+    if ($t -match 'L10n\.') { continue }
+    foreach ($m in [regex]::Matches($line, 'Fix\.(\w+)')) {
+      if ($jpConst.ContainsKey($m.Groups[1].Value)) {
+        $leak += [pscustomobject]@{ File = $f.Name; Line = $n; Const = $m.Groups[1].Value }
+      }
+    }
+  }
+}
+if ($leak.Count -eq 0) {
+  Write-Host '  なし' -ForegroundColor Green
+} else {
+  foreach ($g in ($leak | Group-Object { ($_.Const -split '_')[0..1] -join '_' } | Sort-Object Count -Descending)) {
+    Write-Host ("  --  {0,-26} {1,4} 件" -f $g.Name, $g.Count) -ForegroundColor Yellow
+  }
+  Write-Host ("  ---- 計 {0} 件 / 固有定数 {1} 種" -f $leak.Count, @($leak.Const | Sort-Object -Unique).Count) -ForegroundColor Yellow
+}
+
+# === [8] Term(Fix.X) の参照が X の登録より前に無いか ===
+# Register は呼び出し時点で $N を確定させるため、参照先が未登録だと Term が (key, key) を返し、
+# キー文字列 (lblAreaNameFazilCastle 等) がそのまま英文に残る。実行時 LogError は出るが
+# 画面を見ないと気付けないため、静的に検出する。
+Write-Host ''
+Write-Host '=== [8] Term 参照が登録より前にある箇所 ==='
+$locLines = [System.IO.File]::ReadAllLines($locFile)
+$regFirst = @{}
+for ($i = 0; $i -lt $locLines.Count; $i++) {
+  $mm = [regex]::Match($locLines[$i], '^\s*Register\(Fix\.(\w+)\s*,')
+  if ($mm.Success -and -not $regFirst.ContainsKey($mm.Groups[1].Value)) { $regFirst[$mm.Groups[1].Value] = $i + 1 }
+}
+$termBad = @()
+$curReg = ''
+$curRegLine = 0
+for ($i = 0; $i -lt $locLines.Count; $i++) {
+  $mm = [regex]::Match($locLines[$i], '^\s*Register\(Fix\.(\w+)\s*,')
+  if ($mm.Success) { $curReg = $mm.Groups[1].Value; $curRegLine = $i + 1 }
+  foreach ($tm in [regex]::Matches($locLines[$i], 'Term\(Fix\.(\w+)\)')) {
+    $tk = $tm.Groups[1].Value
+    if (-not $regFirst.ContainsKey($tk)) {
+      $termBad += ('  L{0}  {1} が Term({2}) を参照: {2} の登録が存在しない' -f ($i + 1), $curReg, $tk)
+    }
+    elseif ($regFirst[$tk] -ge $curRegLine) {
+      $termBad += ('  L{0}  {1} (L{2}) が Term({3}) を参照 -> {3} の登録は L{4} で後方' -f ($i + 1), $curReg, $curRegLine, $tk, $regFirst[$tk])
+    }
+  }
+}
+if ($termBad.Count -eq 0) {
+  Write-Host '  なし' -ForegroundColor Green
+} else {
+  foreach ($b in $termBad) { Write-Host $b -ForegroundColor Red }
+  Write-Host ('  ---- 計 {0} 件  参照先の Register より後ろへ移動すること' -f $termBad.Count) -ForegroundColor Red
+  $fail = 1
+}
+
+# === [9] 二値照合 (JP値 と EN値 の両方を受理する箇所) の整合性 ===
+#   `name == Fix.X || name == Fix.X_EN` の形で「日本語表記と英語表記のどちらでも通す」
+#   書き方がコードベース全体にある (例 One.CurrentAreaAnshet)。
+#   この方式は、実際に画面へ出る英語 (L10n の登録値) が Fix の EN 定数と一致していて初めて成立する。
+#   一致が崩れると判定だけが静かに偽になる。実例: TOWN_ANSHET_EN='Ansthet Town' に対し
+#   L10n='Anshet Town' だったため CurrentAreaAnshet() が英語名を受理できていなかった。
+#
+#   命名規約 (X/X_EN, X_JP/X) からの機械的な対では 【闇】=属性タグ と 闇=DarkMagic のような
+#   語の衝突で誤検出が出るため、コード上で実際に二値照合している対だけを対象にする。
+Write-Host ''
+Write-Host '=== [9] 二値照合 (JP/EN 両方を受理する箇所) と L10n 登録の整合性 ===' -ForegroundColor Cyan
+
+$dualSites = @{}
+foreach ($f in Get-ChildItem $script -Recurse -Filter *.cs -File) {
+  $n = 0
+  foreach ($line in [System.IO.File]::ReadAllLines($f.FullName)) {
+    $n++
+    $t = $line.Trim()
+    if ($t.StartsWith('//')) { continue }
+    foreach ($m in [regex]::Matches($t, '(\w[\w\.\[\]]*)\s*==\s*Fix\.(\w+)\s*\|\|\s*\1\s*==\s*Fix\.(\w+)')) {
+      $ca = $m.Groups[2].Value; $cb = $m.Groups[3].Value
+      if (-not ($allConst.ContainsKey($ca) -and $allConst.ContainsKey($cb))) { continue }
+      $va = $allConst[$ca]; $vb = $allConst[$cb]
+      $kJa = $null; $kEn = $null
+      if ($va -match '[぀-ヿ㐀-鿿]' -and $vb -notmatch '[぀-ヿ㐀-鿿]') { $kJa = $ca; $kEn = $cb }
+      elseif ($vb -match '[぀-ヿ㐀-鿿]' -and $va -notmatch '[぀-ヿ㐀-鿿]') { $kJa = $cb; $kEn = $ca }
+      if ($null -eq $kJa) { continue }
+      $pk = $kJa + '|' + $kEn
+      if (-not $dualSites.ContainsKey($pk)) { $dualSites[$pk] = @() }
+      $dualSites[$pk] += ($f.Name + ':L' + $n)
+    }
+  }
+}
+# L10n 登録を 日本語値 -> 英語値 で引けるようにする
+$regByJa = @{}
+foreach ($m in [regex]::Matches($locText, 'Register\(Fix\.(\w+),\s*"([^"]*)",\s*"([^"]*)"\)')) {
+  $ja = $m.Groups[2].Value
+  if (-not $regByJa.ContainsKey($ja)) { $regByJa[$ja] = @{ en = $m.Groups[3].Value; key = $m.Groups[1].Value } }
+}
+$dualNG = 0; $dualChecked = 0; $dualNoReg = 0
+foreach ($pk in ($dualSites.Keys | Sort-Object)) {
+  $p = $pk -split '\|'
+  $jaV = $allConst[$p[0]]; $enV = $allConst[$p[1]]
+  if (-not $regByJa.ContainsKey($jaV)) { $dualNoReg++; continue }   # 表示経路が L10n に無いので対象外
+  $dualChecked++
+  if ($regByJa[$jaV].en -ne $enV) {
+    Write-Host ("  NG  Fix.{0}='{1}' を受理する箇所で Fix.{2}='{3}' だが、表示は L10n({4})='{5}'" -f `
+      $p[0], $jaV, $p[1], $enV, $regByJa[$jaV].key, $regByJa[$jaV].en) -ForegroundColor Red
+    Write-Host ("      使用: {0}" -f (($dualSites[$pk] | Select-Object -First 3) -join ', ')) -ForegroundColor Red
+    $dualNG++
+  }
+}
+if ($dualNG -eq 0) {
+  Write-Host ("  なし (二値照合 {0} 対 / うち L10n 登録あり {1} 対を照合)" -f $dualSites.Count, $dualChecked) -ForegroundColor Green
+} else {
+  Write-Host ("  ---- 計 {0} 件  Fix の EN 定数と L10n の英訳を一致させること" -f $dualNG) -ForegroundColor Red
+  $fail = 1
+}
+
+# === [10] 同じ Fix 定数に割り当てるアイコンが場所によって食い違っていないか ===
+#   アイコン解決は NodeActionCommand.ApplyImageIcon が正典だが、
+#   SecondaryLogic.ApplyImageIcon にもポーション類の同じ分岐が二重に書かれている。
+#   現状は値が一致しているものの、片方だけ直せば静かにズレる (Anshet と同じ構図)。
+#   コードを一本化する代わりに、ズレたことを検出する。
+Write-Host ''
+Write-Host '=== [10] 同一定数に対するアイコン割り当ての一貫性 ==='
+
+$iconMap = @{}
+foreach ($f in Get-ChildItem $script -Recurse -Filter *.cs -File) {
+  $lines = [System.IO.File]::ReadAllLines($f.FullName)
+  for ($i = 0; $i -lt $lines.Count; $i++) {
+    $t = $lines[$i].Trim()
+    if ($t.StartsWith('//')) { continue }
+    $cmp = [regex]::Matches($t, '==\s*Fix\.(\w+)')
+    if ($cmp.Count -eq 0) { continue }
+    $consts = New-Object System.Collections.Generic.List[string]
+    foreach ($c in $cmp) { $consts.Add($c.Groups[1].Value) }
+    $icon = $null
+    $at = -1
+    for ($j = $i; $j -lt [Math]::Min($i + 6, $lines.Count); $j++) {
+      $u = $lines[$j].Trim()
+      if ($u.StartsWith('//')) { continue }
+      if ($j -gt $i) {
+        # 条件が || で次行へ続く場合は定数を足す。次の分岐に入ったら打ち切る。
+        if ($u -match '^\|\|' -or $u -match '^\s*\w[\w\.\[\]]*\s*==\s*Fix\.') {
+          foreach ($c in [regex]::Matches($u, '==\s*Fix\.(\w+)')) { $consts.Add($c.Groups[1].Value) }
+        }
+        elseif ($u -match '^else\b' -or $u -match '^if\s*\(') { break }
+      }
+      $m = [regex]::Match($u, 'Resources\.Load<Sprite>\(\s*(?:Fix\.(\w+)|"([^"]+)")\s*\)')
+      if ($m.Success) {
+        $icon = $(if ($m.Groups[1].Success) { 'Fix.' + $m.Groups[1].Value } else { '"' + $m.Groups[2].Value + '"' })
+        $at = $j + 1
+        break
+      }
+    }
+    if ($null -eq $icon) { continue }
+    foreach ($k in ($consts | Sort-Object -Unique)) {
+      if (-not $iconMap.ContainsKey($k)) { $iconMap[$k] = @{} }
+      if (-not $iconMap[$k].ContainsKey($icon)) { $iconMap[$k][$icon] = New-Object System.Collections.Generic.List[string] }
+      $iconMap[$k][$icon].Add($f.Name + ':L' + $at)
+    }
+  }
+}
+$iconNG = 0
+foreach ($k in ($iconMap.Keys | Sort-Object)) {
+  if ($iconMap[$k].Count -le 1) { continue }
+  Write-Host ("  NG  Fix.{0} に割り当てるアイコンが場所によって異なる" -f $k) -ForegroundColor Red
+  foreach ($icon in ($iconMap[$k].Keys | Sort-Object)) {
+    Write-Host ("        {0}  <- {1}" -f $icon, (($iconMap[$k][$icon] | Select-Object -First 3) -join ', ')) -ForegroundColor Red
+  }
+  $iconNG++
+}
+if ($iconNG -eq 0) {
+  Write-Host ("  なし (アイコンを割り当てている定数 {0} 件を照合)" -f $iconMap.Count) -ForegroundColor Green
+} else {
+  Write-Host ("  ---- 計 {0} 件  同じ定数には同じアイコンを割り当てること" -f $iconNG) -ForegroundColor Red
+  $fail = 1
+}
+
+# === [11] アイテム名 (RegisterItemName) の健全性 ===
+#   アイテム名は日本語名そのものをキーとして L10n の同一テーブルへ入るため、
+#   検査[1]〜[3] の「Fix.L10N_* をキーとする登録」とは形が違い、そちらでは見られない。
+#   旧 itemNameTable を廃止して Register へ統合した際に、ここを検査対象として引き取った。
+Write-Host ''
+Write-Host '=== [11] アイテム名の登録 (RegisterItemName) ==='
+
+$itemFile = Join-Path $script 'View\HomeTown.Localization.ItemName.cs'
+if (-not (Test-Path $itemFile)) {
+  Write-Host ('  NG  {0} が見つからない' -f $itemFile) -ForegroundColor Red
+  $fail = 1
+} else {
+  $itemLines = [System.IO.File]::ReadAllLines($itemFile)
+  $itemByConst = @{}
+  $itemByJa = @{}
+  $itemNG = 0
+  for ($i = 0; $i -lt $itemLines.Count; $i++) {
+    $m = [regex]::Match($itemLines[$i], '^\s*RegisterItemName\(Fix\.(\w+),\s*"([^"]*)"\);')
+    if (-not $m.Success) { continue }
+    $ck = $m.Groups[1].Value
+    $cen = $m.Groups[2].Value
+    $ln = $i + 1
+
+    if (-not $allConst.ContainsKey($ck)) {
+      Write-Host ("  NG  L{0}  Fix.{1} が Fix.cs に存在しない" -f $ln, $ck) -ForegroundColor Red
+      $itemNG++
+      continue
+    }
+    $cja = $allConst[$ck]
+
+    if ($itemByConst.ContainsKey($ck)) {
+      Write-Host ("  NG  L{0}  Fix.{1} が重複登録されている (既に L{2})" -f $ln, $ck, $itemByConst[$ck]) -ForegroundColor Red
+      $itemNG++
+    } else { $itemByConst[$ck] = $ln }
+
+    if ([string]::IsNullOrWhiteSpace($cen)) {
+      Write-Host ("  NG  L{0}  Fix.{1} の英訳が空" -f $ln, $ck) -ForegroundColor Red
+      $itemNG++
+    }
+    if ($cen -match '[぀-ヿ㐀-鿿]') {
+      Write-Host ("  NG  L{0}  Fix.{1} の英訳に日本語が残っている `"{2}`"" -f $ln, $ck, $cen) -ForegroundColor Red
+      $itemNG++
+    }
+    # 日本語名がキーになるため、同じ日本語に異なる英訳を書くと後勝ちで静かに上書きされる
+    if ($itemByJa.ContainsKey($cja)) {
+      if ($itemByJa[$cja].en -ne $cen) {
+        Write-Host ("  NG  L{0}  日本語 `"{1}`" に異なる英訳: `"{2}`" (L{3}) と `"{4}`"" -f `
+          $ln, $cja, $itemByJa[$cja].en, $itemByJa[$cja].ln, $cen) -ForegroundColor Red
+        $itemNG++
+      }
+    } else { $itemByJa[$cja] = @{ en = $cen; ln = $ln } }
+  }
+
+  # 実アイテム (Item.cs の case) のうち、名前が日本語で未登録のもの
+  $itemCase = @{}
+  foreach ($m in [regex]::Matches([System.IO.File]::ReadAllText((Join-Path $script 'Class\Item.cs')), 'case Fix\.(\w+)\s*:')) {
+    $itemCase[$m.Groups[1].Value] = 1
+  }
+  $needTrans = @($itemCase.Keys | Where-Object { $allConst.ContainsKey($_) -and $allConst[$_] -match '[぀-ヿ㐀-鿿]' })
+  $missTrans = @($needTrans | Where-Object { -not $itemByConst.ContainsKey($_) })
+  foreach ($k in ($missTrans | Sort-Object)) {
+    Write-Host ("  --  Fix.{0} `"{1}`" は英訳が無く、英語モードでも日本語のまま表示される" -f $k, $allConst[$k]) -ForegroundColor Yellow
+  }
+
+  if ($itemNG -eq 0) {
+    Write-Host ("  なし (登録 {0} 件 / 実アイテム {1} 件中 {2} 件を網羅)" -f `
+      $itemByConst.Count, $needTrans.Count, ($needTrans.Count - $missTrans.Count)) -ForegroundColor Green
+  } else {
+    Write-Host ("  ---- 計 {0} 件" -f $itemNG) -ForegroundColor Red
+    $fail = 1
+  }
+}
 
 Write-Host ''
 Write-Host ('--- 定義 {0} / 登録 {1} / 参照 {2} / 用語 {3} ---' -f $defined.Count, $registered.Count, $used.Count, $glossary.Count)
