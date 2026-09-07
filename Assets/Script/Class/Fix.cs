@@ -2124,6 +2124,35 @@ public static partial class Fix
   public const string L10N_AREA_INFO_VELGUS_SEA_TEMPLE = "lblAreaInfoVELGUS_SEA_TEMPLE";
   public const string L10N_AREA_INFO_EDELGARZEN = "lblAreaInfoEDELGARZEN";
   #endregion
+
+  #region "敵の名前表示 (称号つき2行表記)"
+  // 日本語は Fix.*_JP_VIEW を唯一の定義とし、表示のみ本キー経由で対訳する。
+  // *_JP_VIEW は EnemyList の FullName 比較にも使われる識別子であり、値を変更してはならない。
+  public const string L10N_ENEMYVIEW_ROYAL_KING_AERMI_JORZT = "lblEnemyViewROYAL_KING_AERMI_JORZT";
+  public const string L10N_ENEMYVIEW_ETERNITY_KING_AERMI_JORZT = "lblEnemyViewETERNITY_KING_AERMI_JORZT";
+  public const string L10N_ENEMYVIEW_SCREAMING_RAFFLESIA = "lblEnemyViewSCREAMING_RAFFLESIA";
+  public const string L10N_ENEMYVIEW_MAGICAL_HAIL_GUN = "lblEnemyViewMAGICAL_HAIL_GUN";
+  public const string L10N_ENEMYVIEW_THE_YODIRIAN = "lblEnemyViewTHE_YODIRIAN";
+  public const string L10N_ENEMYVIEW_DEVIL_STAR_DEATH_FLODIETE = "lblEnemyViewDEVIL_STAR_DEATH_FLODIETE";
+  public const string L10N_ENEMYVIEW_THE_BIGHAND_OF_KRAKEN = "lblEnemyViewTHE_BIGHAND_OF_KRAKEN";
+  public const string L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE = "lblEnemyViewBRILLIANT_SEA_PRINCE";
+  public const string L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE_1 = "lblEnemyViewBRILLIANT_SEA_PRINCE_1";
+  public const string L10N_ENEMYVIEW_SHELL_THE_SWORD_KNIGHT = "lblEnemyViewSHELL_THE_SWORD_KNIGHT";
+  public const string L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AEGIR = "lblEnemyViewSEA_STAR_KNIGHT_AEGIR";
+  public const string L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AMARA = "lblEnemyViewSEA_STAR_KNIGHT_AMARA";
+  public const string L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN = "lblEnemyViewORIGIN_STAR_CORAL_QUEEN";
+  public const string L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN_1 = "lblEnemyViewORIGIN_STAR_CORAL_QUEEN_1";
+  public const string L10N_ENEMYVIEW_JELLY_EYE_BRIGHT_RED = "lblEnemyViewJELLY_EYE_BRIGHT_RED";
+  public const string L10N_ENEMYVIEW_JELLY_EYE_DEEP_BLUE = "lblEnemyViewJELLY_EYE_DEEP_BLUE";
+  public const string L10N_ENEMYVIEW_GROUND_VORTEX_LEVIATHAN = "lblEnemyViewGROUND_VORTEX_LEVIATHAN";
+  public const string L10N_ENEMYVIEW_VELGAS_THE_KING_OF_SEA_STAR = "lblEnemyViewVELGAS_THE_KING_OF_SEA_STAR";
+  public const string L10N_ENEMYVIEW_MASCLEWARRIOR_HARDIL = "lblEnemyViewMASCLEWARRIOR_HARDIL";
+  public const string L10N_ENEMYVIEW_HUGE_MAGICIAN_ZAGAN = "lblEnemyViewHUGE_MAGICIAN_ZAGAN";
+  public const string L10N_ENEMYVIEW_LEGIN_ARZE_1 = "lblEnemyViewLEGIN_ARZE_1";
+  public const string L10N_ENEMYVIEW_LEGIN_ARZE_2 = "lblEnemyViewLEGIN_ARZE_2";
+  public const string L10N_ENEMYVIEW_LEGIN_ARZE_3 = "lblEnemyViewLEGIN_ARZE_3";
+  public const string L10N_ENEMYVIEW_EMPEROR_LEGAL_ORPHSTEIN = "lblEnemyViewEMPEROR_LEGAL_ORPHSTEIN";
+  #endregion
   #region "クエストID"
   // クエストの同一性判定に使う内部識別子。表示しないため翻訳対象外であり、値を変更してはならない。
   // 進行フラグの判定は必ず本IDで行い、表示文字列 (QUEST_TITLE_*) を条件に使ってはならない。

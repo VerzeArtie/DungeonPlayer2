@@ -1466,6 +1466,33 @@ public static partial class L10n
       (Fix.FLAME_STRIKE_JP, Fix.FLAME_STRIKE));
 
     // アイテム名は件数が多いため別ファイル (HomeTown.Localization.ItemName.cs) に分けている。
+    // 敵の名前表示。日本語は Fix.*_JP_VIEW を唯一の定義とし、ここでは英訳のみを与える。
+    // 【　称号　】+ 改行 + 名前 という2行構成を英語側でも保つ ( 【】 は [] に対応させる )。
+    Register(Fix.L10N_ENEMYVIEW_ROYAL_KING_AERMI_JORZT, Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW, "[Royal-King]\r\nAermi Jorzt");
+    Register(Fix.L10N_ENEMYVIEW_ETERNITY_KING_AERMI_JORZT, Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW, "[Eternity-King]\r\nAermi Jorzt");
+    Register(Fix.L10N_ENEMYVIEW_SCREAMING_RAFFLESIA, Fix.SCREAMING_RAFFLESIA_JP_VIEW, "[Queen of the Grassland]\r\nScreaming Rafflesia");
+    Register(Fix.L10N_ENEMYVIEW_MAGICAL_HAIL_GUN, Fix.MAGICAL_HAIL_GUN_JP_VIEW, "[Runaway Assault Unit]\r\nMagical Hail-Gun");
+    Register(Fix.L10N_ENEMYVIEW_THE_YODIRIAN, Fix.THE_YODIRIAN_JP_VIEW, "[The Way of Tranquil-Line]\r\nYodirian");
+    Register(Fix.L10N_ENEMYVIEW_DEVIL_STAR_DEATH_FLODIETE, Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW, "[Devil-Star]\r\nDeath-Flodiete");
+    Register(Fix.L10N_ENEMYVIEW_THE_BIGHAND_OF_KRAKEN, Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW, "[Lord of the Open Sea]\r\nThe Big-Hand of Kraken");
+    Register(Fix.L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE, Fix.BRILLIANT_SEA_PRINCE_JP_VIEW, "[Sea-Star-Prince] Leva-Laul");
+    Register(Fix.L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE_1, Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW, "[Sea-Star-Prince]\r\nLeva-Laul ");
+    Register(Fix.L10N_ENEMYVIEW_SHELL_THE_SWORD_KNIGHT, Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW, "[Guardian of the Sea-Star Source]\r\nShell the Sword-Knight");
+    Register(Fix.L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AEGIR, Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW, "[Bearer of the Scales]\r\nSea-StarKnight Aegir");
+    Register(Fix.L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AMARA, Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW, "[Watcher of the Scales]\r\nSea-StarKnight Amara");
+    Register(Fix.L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN, Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW, "[Sea-Star-Queen] Meril-Sieju");
+    Register(Fix.L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN_1, Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW, "[Sea-Star-Queen] Meril-Sieju ");
+    Register(Fix.L10N_ENEMYVIEW_JELLY_EYE_BRIGHT_RED, Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW, "[Watcher of the Great Eye]\r\nJelly-Eye Bright-Red");
+    Register(Fix.L10N_ENEMYVIEW_JELLY_EYE_DEEP_BLUE, Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW, "[Watcher of the Great Eye]\r\nJelly-Eye Deep-Blue");
+    Register(Fix.L10N_ENEMYVIEW_GROUND_VORTEX_LEVIATHAN, Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW, "[Ground-Vortex]\r\nLeviathan");
+    Register(Fix.L10N_ENEMYVIEW_VELGAS_THE_KING_OF_SEA_STAR, Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW, "[Sea-Star-King] Velgas-Olzeta");
+    Register(Fix.L10N_ENEMYVIEW_MASCLEWARRIOR_HARDIL, Fix.MASCLEWARRIOR_HARDIL_JP_VIEW, "[MuscleWarrior]\r\nHardil");
+    Register(Fix.L10N_ENEMYVIEW_HUGE_MAGICIAN_ZAGAN, Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW, "[Huge Magician]\r\nZagan");
+    Register(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_1, Fix.LEGIN_ARZE_1_JP_VIEW, "[Dark-Flame <Miasma>]\r\nLegin-Arze");
+    Register(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_2, Fix.LEGIN_ARZE_2_JP_VIEW, "[Dark-Flame <Soundless>]\r\nLegin-Arze");
+    Register(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_3, Fix.LEGIN_ARZE_3_JP_VIEW, "[Dark-Flame <Abyss>]\r\nLegin-Arze");
+    Register(Fix.L10N_ENEMYVIEW_EMPEROR_LEGAL_ORPHSTEIN, Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW, "[The Emperor]\r\nLegal Orphstein");
+
     RegisterItemNames();
   }
 

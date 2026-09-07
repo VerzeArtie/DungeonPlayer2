@@ -543,11 +543,11 @@ public partial class BattleEnemy : MotherBase
 
         if (One.EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_ROYAL_KING_AERMI_JORZT);
         }
         else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_ETERNITY_KING_AERMI_JORZT);
         }
 
         // 戦闘ゲージを設定
@@ -643,91 +643,91 @@ public partial class BattleEnemy : MotherBase
         // ボス向けに表示文字を変換
         if (One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA || One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.SCREAMING_RAFFLESIA_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_SCREAMING_RAFFLESIA);
         }
         else if (One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN || One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.MAGICAL_HAIL_GUN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_MAGICAL_HAIL_GUN);
         }
         if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN || One.EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_THE_YODIRIAN);
         }
         else if (One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE || One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_DEVIL_STAR_DEATH_FLODIETE);
         }
         else if (One.EnemyList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN || One.EnemyList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_THE_BIGHAND_OF_KRAKEN);
         }
         else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE);
         }
         else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1 || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_BRILLIANT_SEA_PRINCE_1);
         }
         else if (One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
         {
-          One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_SHELL_THE_SWORD_KNIGHT);
         }
         else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR || One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AEGIR);
         }
         else if (One.EnemyList.Count > 1 && (One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA || One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP))
         {
-          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_SEA_STAR_KNIGHT_AMARA);
         }
         else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN);
         }
         else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_ORIGIN_STAR_CORAL_QUEEN_1);
         }
         else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_JELLY_EYE_BRIGHT_RED);
         }
         else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE || One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_JELLY_EYE_DEEP_BLUE);
         }
         else if (One.EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN || One.EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_GROUND_VORTEX_LEVIATHAN);
         }
         else if (One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_VELGAS_THE_KING_OF_SEA_STAR);
         }
         else if (One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL || One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.MASCLEWARRIOR_HARDIL_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_MASCLEWARRIOR_HARDIL);
         }
         else if (One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_HUGE_MAGICIAN_ZAGAN);
         }
         else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_1_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_1);
         }
         else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_2_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_2);
         }
         else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_3_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_LEGIN_ARZE_3);
         }
         else if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = L10n.Get(Fix.L10N_ENEMYVIEW_EMPEROR_LEGAL_ORPHSTEIN);
         }
 
         // 戦闘ゲージを設定
