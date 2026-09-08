@@ -421,7 +421,9 @@ $jpConst = @{}
 foreach ($k in $allConst.Keys) {
   if ($allConst[$k] -match '[぀-ヿ㐀-鿿]') { $jpConst[$k] = $allConst[$k] }
 }
-$sinkRe = '\.text\s*=|SetupItemDetail\(|SetMessage\(|ShowMessage\(|\.Description\s*='
+# 代入だけを拾う。`.text == Fix.X` のような比較を代入と誤認しないよう、= の直後が = でないことを要求する。
+# (誤認していた例: HelpBook の `sender.text == Fix.CLASS_WARRIOR_JP` はクラス名の表示ではなく分岐条件)
+$sinkRe = '\.text\s*=(?!=)|SetupItemDetail\(|SetMessage\(|ShowMessage\(|\.Description\s*=(?!=)'
 $leak = @()
 foreach ($f in Get-ChildItem $script -Recurse -Filter *.cs -File) {
   if ($f.Name -in @('Fix.cs', 'HomeTown.Localization.cs', 'MessagePack.cs')) { continue }
