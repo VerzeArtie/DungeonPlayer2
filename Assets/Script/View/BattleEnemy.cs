@@ -13756,7 +13756,8 @@ public partial class BattleEnemy : MotherBase
     int result = (int)((double)target.CurrentLife * decrease);
     Debug.Log("ExecLifeDownCurrent: " + target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    target.AddPendingDisplayDamage(result);
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, MAX_ANIMATION_TIME, target, result);
   }
 
   private void ExecLifeDown(Character target, double decrease)
@@ -13764,7 +13765,8 @@ public partial class BattleEnemy : MotherBase
     int result = (int)((double)target.MaxLife * decrease);
     Debug.Log("ExecLifeDown: " + target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    target.AddPendingDisplayDamage(result);
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, MAX_ANIMATION_TIME, target, result);
   }
 
   private void ExecLifeOne(Character target)
@@ -13785,8 +13787,8 @@ public partial class BattleEnemy : MotherBase
     int result = (int)effectValue;
     Debug.Log(target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
-    target.txtLife.text = target.CurrentLife.ToString();
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    target.AddPendingDisplayDamage(result);
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, MAX_ANIMATION_TIME, target, result);
   }
 
   private void ExecElementalDamage(Character target, Fix.DamageSource damage_source, double effect_value)
@@ -13846,8 +13848,15 @@ public partial class BattleEnemy : MotherBase
     int result = (int)effect_value;
     Debug.Log(target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
-    target.txtLife.text = target.CurrentLife.ToString();
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    target.AddPendingDisplayDamage(result);
+
+    // 武具などによる属性追加ダメージは、純正のアクションコマンドとは別系統の効果。
+    // 本体ダメージと同じ拍にまとめると同じキャラの上で数値が重なって読めないため、
+    // 一括コマンドの最中でも明示的に逐次へ抜けて、本体の後に単独で表示する。
+    using (this.AnimationChain.BeginScope(AnimationChainMode.Sequential))
+    {
+      StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, MAX_ANIMATION_TIME, target, result);
+    }
   }
 
   private void ExecSlipDamage(Character target, double effectValue)
@@ -13868,8 +13877,8 @@ public partial class BattleEnemy : MotherBase
     int result = (int)effectValue;
     Debug.Log(target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
-    target.txtLife.text = target.CurrentLife.ToString();
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    target.AddPendingDisplayDamage(result);
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, MAX_ANIMATION_TIME, target, result);
   }
 
   private void ExecBuffPoison(Character player, Character target, int turn, double effect_value)
