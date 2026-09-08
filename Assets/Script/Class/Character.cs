@@ -2117,28 +2117,69 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  // ライフゲージの表示値。CurrentLife へ数フレームかけて追従する。負値は未初期化。
+  // ライフゲージの表示値。StepLife へ数フレームかけて追従する。負値は未初期化。
   protected float _displayLife = -1.0f;
+  // 最後に追従を進めたフレーム。1フレームに複数回進めないための番人。
+  protected int _displayLifeFrame = -1;
 
   // 1フレームあたり残り差分の何割を詰めるか。
   private const float DISPLAY_LIFE_FOLLOW_RATE = 0.15f;
   // 1フレームあたりの最低移動量（最大ライフ比）。小さな差分がいつまでも残らないようにする。
   private const float DISPLAY_LIFE_MIN_STEP_RATE = 0.01f;
 
+  // まだダメージ数値が画面に出ていない分の合計。1フレームで複数回ダメージが確定する
+  // コマンドでも、数値の表示に合わせてゲージが段階的に減るようにするための差し戻し量。
+  protected int _pendingDisplayDamage = 0;
+
+  /// <summary>ダメージ確定時に、まだ表示されていない量として積む。</summary>
+  public void AddPendingDisplayDamage(int amount)
+  {
+    if (amount <= 0) { return; }
+    _pendingDisplayDamage += amount;
+  }
+
+  /// <summary>対応するダメージ数値が画面に出た時点で、その分を取り崩す。</summary>
+  public void ReleasePendingDisplayDamage(int amount)
+  {
+    if (amount <= 0) { return; }
+    _pendingDisplayDamage -= amount;
+    if (_pendingDisplayDamage < 0) { _pendingDisplayDamage = 0; }
+  }
+
+  /// <summary>取り崩し漏れの保険。演出が尽きた時点で呼び、ゲージを真の値へ収束させる。</summary>
+  public void ClearPendingDisplayDamage()
+  {
+    _pendingDisplayDamage = 0;
+  }
+
+
+  /// <summary>ゲージが目指す値。未表示ダメージを差し戻すので、数値が出るたびに1段下がる。</summary>
+  public float StepLife
+  {
+    get { return Mathf.Min(this.CurrentLife + _pendingDisplayDamage, this.MaxLife); }
+  }
+
   /// <summary>
-  /// ライフゲージの表示値を CurrentLife へ1フレーム分近づける。
+  /// ライフゲージの表示値を StepLife へ1フレーム分近づける。
   /// </summary>
   private void AdvanceDisplayLife()
   {
+    // LogicInvalidate() は Update 内の複数箇所から呼ばれ、UpdateLife も1フレームに2〜3回走る。
+    // 減衰量は「1フレームに1回」を前提に決めているので、2回目以降は動かさない。
+    if (_displayLifeFrame == Time.frameCount) { return; }
+    _displayLifeFrame = Time.frameCount;
+
+    float target = this.StepLife;
+
     if (_displayLife < 0.0f)
     {
-      _displayLife = this.CurrentLife;
+      _displayLife = target;
       return;
     }
 
-    float step = Mathf.Max(Mathf.Abs(this.CurrentLife - _displayLife) * DISPLAY_LIFE_FOLLOW_RATE,
+    float step = Mathf.Max(Mathf.Abs(target - _displayLife) * DISPLAY_LIFE_FOLLOW_RATE,
                            this.MaxLife * DISPLAY_LIFE_MIN_STEP_RATE);
-    _displayLife = Mathf.MoveTowards(_displayLife, this.CurrentLife, step);
+    _displayLife = Mathf.MoveTowards(_displayLife, target, step);
   }
 
   // 遅延ダメージバー。objCurrentLifeGauge を実行時に複製して1つ手前へ差し込むため、シーン変更は不要。
@@ -2177,18 +2218,20 @@ public partial class Character : MonoBehaviour
     AdvanceDisplayLife();
     EnsureDamageTrailGauge();
 
-    // 現在バーは真の値、遅延バーは追従値。差分が遅延バーの色で露出する。
-    float front = Mathf.Min(this.CurrentLife, _displayLife);
-    float trail = Mathf.Max(this.CurrentLife, _displayLife);
+    // 現在バーは数値表示に同期して段階的に下がる値、遅延バーはそれを追う値。
+    float stepLife = this.StepLife;
+    float front = Mathf.Min(stepLife, _displayLife);
+    float trail = Mathf.Max(stepLife, _displayLife);
 
     if (this.txtLife != null)
     {
-      this.txtLife.text = this.CurrentLife.ToString();
+      // バーと同じ段階値を出す。真の値にすると、まだ数値が出ていない分まで先に減って見える。
+      this.txtLife.text = Mathf.CeilToInt(stepLife).ToString();
     }
     if (this.objDamageTrailGauge != null)
     {
       this.objDamageTrailGauge.rectTransform.localScale = new Vector3(trail / (float)this.MaxLife, 1.0f);
-      this.objDamageTrailGauge.color = (this.CurrentLife < _displayLife) ? TRAIL_DAMAGE_COLOR : TRAIL_HEAL_COLOR;
+      this.objDamageTrailGauge.color = (stepLife < _displayLife) ? TRAIL_DAMAGE_COLOR : TRAIL_HEAL_COLOR;
     }
     if (this.objCurrentLifeGauge != null)
     {

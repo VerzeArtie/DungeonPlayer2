@@ -55,6 +55,27 @@ public class DamageObject : MonoBehaviour
   // フェードで alpha を変えるため、元の色を保持する。シーンへ書き出す必要はないので SerializeField は付けない。
   protected Color _baseColor = Color.white;
 
+  // この数値が画面に出た時点で、対象のライフゲージを1段下げるための情報。
+  // 実行時にのみ設定するので、こちらも SerializeField は付けない。
+  protected Character _stepTarget = null;
+  protected int _stepAmount = 0;
+
+  /// <summary>この数値に対応するゲージの減少量を紐づける。ダメージ表示のみが使う。</summary>
+  public void SetGaugeStep(Character target, int amount)
+  {
+    _stepTarget = target;
+    _stepAmount = amount;
+  }
+
+
+  /// <summary>紐づけた減少量をゲージへ反映する。2回目以降は何もしない。</summary>
+  public void ReleaseGaugeStep()
+  {
+    if (_stepTarget == null) { return; }
+    _stepTarget.ReleasePendingDisplayDamage(_stepAmount);
+    _stepTarget = null;
+  }
+
   // 出現時の拡大率。ここから1.0へ縮めてポップさせる。
   private const float POP_START_SCALE = 1.6f;
 

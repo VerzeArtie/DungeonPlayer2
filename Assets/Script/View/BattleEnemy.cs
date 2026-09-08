@@ -2498,7 +2498,8 @@ public partial class BattleEnemy : MotherBase
         {
           AllList[ii].txtTargetName.text = AllList[ii].Target.FullName;
         }
-        float dx = (float)AllList[ii].Target.CurrentLife / (float)AllList[ii].Target.MaxLife;
+        // 相手のライフ表示もダメージ数値の段階に合わせる。真の値だと先に減って見える。
+        float dx = AllList[ii].Target.StepLife / (float)AllList[ii].Target.MaxLife;
         if (AllList[ii].imgTargetLifeGauge != null)
         {
           AllList[ii].imgTargetLifeGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
@@ -7790,7 +7791,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// アニメーションオブジェクトを生成します。
   /// </summary>
-  private void StartAnimation(GameObject targetObj, string message, Color color, int animation_speed = MAX_ANIMATION_TIME)
+  private void StartAnimation(GameObject targetObj, string message, Color color, int animation_speed = MAX_ANIMATION_TIME, Character gauge_target = null, int gauge_amount = 0)
   {
     DamageObject damageObj = Instantiate(this.prefab_Damage, new Vector3(0, 0, 0), Quaternion.identity) as DamageObject;
     // 対象オブジェクトにリンクさせて位置を設定する。
@@ -7805,6 +7806,7 @@ public partial class BattleEnemy : MotherBase
 
     // アニメーショングループに再設定してアニメーション表示する。
     damageObj.Construct(message, this.AnimationChain.CurrentChainId, color, animation_speed);
+    damageObj.SetGaugeStep(gauge_target, gauge_amount);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -7848,6 +7850,9 @@ public partial class BattleEnemy : MotherBase
           continue;
         }
 
+        // 画面に出る最初のフレームで、この数値に対応する分だけゲージを下げる。
+        if (damageObj[ii].FirstLook == false) { damageObj[ii].ReleaseGaugeStep(); }
+
         damageObj[ii].FirstLook = true;
         damageObj[ii].Timer--;
         damageObj[ii].ApplyPopAndFade();
@@ -7886,6 +7891,12 @@ public partial class BattleEnemy : MotherBase
     if (detect == false)
     {
       this.NowAnimationMode = false;
+
+      // 取り崩し漏れがあってもゲージが真の値へ収束するようにする。
+      for (int ii = 0; ii < AllList.Count; ii++)
+      {
+        AllList[ii].ClearPendingDisplayDamage();
+      }
     }
   }
 
@@ -14686,14 +14697,15 @@ public partial class BattleEnemy : MotherBase
     }
 
     target.CurrentLife -= result;
-    target.txtLife.text = target.CurrentLife.ToString();
+    // 1フレームで複数回確定しても数値の表示に合わせて段階的に減らすため、未表示分として積む。
+    target.AddPendingDisplayDamage(result);
     if (critical)
     {
-      StartAnimation(target.objGroup.gameObject, result.ToString() + "\r\n Critial", Fix.COLOR_NORMAL, animation_speed);
+      StartAnimation(target.objGroup.gameObject, result.ToString() + "\r\n Critial", Fix.COLOR_NORMAL, animation_speed, target, result);
     }
     else
     {
-      StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed);
+      StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed, target, result);
     }
 
     if (target.IsDeadlyDrive != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
