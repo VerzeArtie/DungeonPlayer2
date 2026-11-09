@@ -2491,7 +2491,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].MainWeapon = new Item(listValue[kk]);
+                One.Characters[ii].MainWeapon = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }
@@ -2502,7 +2502,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].SubWeapon = new Item(listValue[kk]);
+                One.Characters[ii].SubWeapon = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }
@@ -2513,7 +2513,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].MainArmor = new Item(listValue[kk]);
+                One.Characters[ii].MainArmor = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }
@@ -2524,7 +2524,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].Accessory1 = new Item(listValue[kk]);
+                One.Characters[ii].Accessory1 = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }
@@ -2535,7 +2535,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].Accessory2 = new Item(listValue[kk]);
+                One.Characters[ii].Accessory2 = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }
@@ -2546,7 +2546,7 @@ public static class One
             {
               if (listName[kk] == pi.Name)
               {
-                One.Characters[ii].Artifact = new Item(listValue[kk]);
+                One.Characters[ii].Artifact = listValue[kk] == string.Empty ? null : new Item(listValue[kk]);
                 break;
               }
             }

@@ -13678,7 +13678,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Version 1.0.0.8
+  m_Text: Version 1.0.0.9
 --- !u!222 &1208784719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14291,6 +14291,7 @@ MonoBehaviour:
   lblObsidianPrivacyPolicy: {fileID: 537927665}
   lblObsidianOfficialSite: {fileID: 820000009}
   lblObsidianExit: {fileID: 2021370023}
+  lblVersion: {fileID: 1208784718}
   BGMSlider: {fileID: 350409692}
   SoundSlider: {fileID: 1026025856}
   DifficultySilder: {fileID: 883515456}

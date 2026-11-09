@@ -38,6 +38,7 @@ public class Title : MotherBase
   public Text lblObsidianPrivacyPolicy;
   public Text lblObsidianOfficialSite;
   public Text lblObsidianExit;
+  public Text lblVersion;
 
   public Slider BGMSlider = null;
   public Slider SoundSlider = null;
@@ -64,6 +65,7 @@ public class Title : MotherBase
   public override void Start()
   {
     base.Start();
+    lblVersion.text = "Version " + Fix.GAME_VERSION;
   }
 
   // Update is called once per frame

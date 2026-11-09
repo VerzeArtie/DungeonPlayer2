@@ -987,7 +987,7 @@ public class GroupCharacterStatus : MonoBehaviour
               Debug.Log("Change Equip MainWeapon, failed(SubWeapon)...");
             }
 
-            CurrentPlayer.SubWeapon = new Item(string.Empty);
+            CurrentPlayer.SubWeapon = null;
           }
         }
 
@@ -1156,7 +1156,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.MainWeapon = new Item(string.Empty);
+      CurrentPlayer.MainWeapon = null;
     }
     else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
@@ -1173,7 +1173,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.SubWeapon = new Item(string.Empty);
+      CurrentPlayer.SubWeapon = null;
     }
     else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
@@ -1190,7 +1190,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.MainArmor = new Item(string.Empty);
+      CurrentPlayer.MainArmor = null;
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
@@ -1207,7 +1207,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.Accessory1 = new Item(string.Empty);
+      CurrentPlayer.Accessory1 = null;
     }
     else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
@@ -1224,7 +1224,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.Accessory2 = new Item(string.Empty);
+      CurrentPlayer.Accessory2 = null;
     }
     else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
@@ -1241,7 +1241,7 @@ public class GroupCharacterStatus : MonoBehaviour
           return;
         }
       }
-      CurrentPlayer.Artifact = new Item(string.Empty);
+      CurrentPlayer.Artifact = null;
     }
     //CurrentPlayer.MaxGain();
 

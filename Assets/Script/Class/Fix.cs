@@ -782,6 +782,7 @@ public static partial class Fix
   public static string SAVELOAD_NEW = "SaveLoadNew2";
   public static string SAVELOAD_NEW_AUTO = "SaveLoadNewAuto";
   public static int VERSION = 2;
+  public const string GAME_VERSION = "1.0.0.9";
   #endregion
   #region "DungeonMapFile"
   public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";
