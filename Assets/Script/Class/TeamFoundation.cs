@@ -3640,7 +3640,7 @@ public class TeamFoundation : MonoBehaviour
           if (this._backpackList[ii].StackValue >= item.LimitValue)
           {
             // 次のアイテムリストへスルー
-            break;
+            continue;
           }
           else
           {
@@ -3648,7 +3648,7 @@ public class TeamFoundation : MonoBehaviour
             if (this._backpackList[ii].StackValue + addValue > item.LimitValue)
             {
               // 次のアイテムリストへスルー
-              break;
+              continue;
             }
             else
             {
@@ -3792,7 +3792,7 @@ public class TeamFoundation : MonoBehaviour
           if (this._itemBankList[ii].StackValue >= item.LimitValue)
           {
             // 次のアイテムリストへスルー
-            break;
+            continue;
           }
           else
           {
@@ -3800,7 +3800,7 @@ public class TeamFoundation : MonoBehaviour
             if (this._itemBankList[ii].StackValue + addValue > item.LimitValue)
             {
               // 次のアイテムリストへスルー
-              break;
+              continue;
             }
             else
             {
