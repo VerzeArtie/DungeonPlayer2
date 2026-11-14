@@ -5865,6 +5865,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.EARTH_SHARD_CLAW));
       shopList.Add(new Item(Fix.BLOOD_STUBBORN_SPEAR));
       shopList.Add(new Item(Fix.EMBLEM_OF_VALKYRIE));
+      shopList.Add(new Item(Fix.BLACK_SPIRAL_NEEDLE));
       shopList.Add(new Item(Fix.ZELMAN_THE_ONSLAUGHT_BASTER));
       shopList.Add(new Item(Fix.LIFEGRACE_FORTUNE_STAFF));
       shopList.Add(new Item(Fix.WHITEVEIL_QUEENS_ROBE));

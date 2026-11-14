@@ -370,6 +370,13 @@ public static partial class L10n
     RegisterItemName(Fix.SPIRIT_BRANCH, "Spirit Branch");
     RegisterItemName(Fix.BLUE_WIZARD_HAT, "Blue Wizard Hat");
     RegisterItemName(Fix.FLAME_HAND_KEEPER, "Flame Hand Keeper");
+    RegisterItemName(Fix.GRASSLAND_GUARDIAN, "Grassland Guardian");
+    RegisterItemName(Fix.SHIPPU_CROSS, "Gale Dance Garb");
+    RegisterItemName(Fix.SHUNYOU_ROBE, "Spring Sun Robe");
+    RegisterItemName(Fix.BROAD_SWORD, "Broad Sword");
+    RegisterItemName(Fix.LONG_SPEAR, "Long Spear");
+    RegisterItemName(Fix.GREAT_AXE, "Great Axe");
+    RegisterItemName(Fix.OAK_STAFF, "Oak Staff");
     RegisterItemName(Fix.WOLF_CROSS, "Wolf-Crafted Dance Garb");
     RegisterItemName(Fix.STRIDE_WAR_SWORD, "Stride War Sword");
     // --- Classical series ---
@@ -649,6 +656,9 @@ public static partial class L10n
     RegisterItemName(Fix.EXTREME_ROD, "Extreme Rod");
     RegisterItemName(Fix.EXTREME_BOOK, "Extreme Book");
     RegisterItemName(Fix.EXTREME_ORB, "Extreme Orb");
+    RegisterItemName(Fix.EXTREME_LARGE_SWORD, "Extreme Greatsword");
+    RegisterItemName(Fix.EXTREME_LARGE_LANCE, "Extreme Grand Lance");
+    RegisterItemName(Fix.EXTREME_LARGE_AXE, "Extreme Grand Axe");
     RegisterItemName(Fix.EXTREME_BOW, "Extreme Bow");
     RegisterItemName(Fix.EXTREME_LARGE_STAFF, "Extreme Grand Staff");
     RegisterItemName(Fix.EXTREME_SHIELD, "Extreme Shield");

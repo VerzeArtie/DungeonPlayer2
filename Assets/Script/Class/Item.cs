@@ -2900,6 +2900,170 @@ public partial class Item
         this._stamina = 4;
         this._mind = 8;
         break;
+
+      case Fix.GRASSLAND_GUARDIAN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 16;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 2600;
+        this._importantType = Important.None;
+        this._description = "草原の守り手が代々受け継いできた重鎧。草花の紋様が刻まれた装甲は、見た目以上に堅牢である。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１６" + "、" + L10n.Get(Fix.L10N_IT_STA) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_POISON);
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistPoison = true;
+        break;
+
+      case Fix.SHIPPU_CROSS:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 10;
+        this._magicDefense = 6;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 2500;
+        this._importantType = Important.None;
+        this._description = "草原を吹き抜ける疾風をまとった舞踏衣。身のこなしが軽くなり、動きを鈍らされる事もない。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１０" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "６" + "、" + L10n.Get(Fix.L10N_IT_AGI) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_SLOW);
+        this._strength = 0;
+        this._agility = 3;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistSlow = true;
+        break;
+
+      case Fix.SHUNYOU_ROBE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 4;
+        this._magicDefense = 11;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 2500;
+        this._importantType = Important.None;
+        this._description = "春の陽だまりのような温もりを帯びたローブ。纏う者の心を穏やかに保ち、詠唱を妨げられにくくする。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "４" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "１１" + "、" + L10n.Get(Fix.L10N_IT_INT) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_MND) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_RES_SILENT);
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 2;
+        this._resistSilence = true;
+        break;
+
+      case Fix.BROAD_SWORD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Sword;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 87;
+        this._physicalAttack = 6;
+        this._physicalAttackMax = 18;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1400;
+        this._importantType = Important.None;
+        this._description = "身幅の広い両手剣。扱いには慣れが必要だが、振り抜いた時の威力は片手剣を上回る。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "６～１８";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.LONG_SPEAR:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 85;
+        this._physicalAttack = 8;
+        this._physicalAttackMax = 24;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "柄を長く取った両手槍。間合いの外から敵を突く事ができる。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "８～２４";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.GREAT_AXE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 83;
+        this._physicalAttack = 10;
+        this._physicalAttackMax = 32;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1800;
+        this._importantType = Important.None;
+        this._description = "重量のある刃を備えた両手斧。命中した時の一撃は重い。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "１０～３２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.OAK_STAFF:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 8;
+        this._magicAttackMax = 16;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1400;
+        this._importantType = Important.None;
+        this._description = "樫の木から削り出した大杖。両手で構える事で魔力を安定して引き出せる。\r\n" + L10n.Get(Fix.L10N_IT_MATK) + "８～１６";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
       #endregion
       #region "アンシェット街(武具合成)"
       case Fix.WOLF_CROSS:
@@ -10157,6 +10321,39 @@ public partial class Item
         this._gold = 980000;
         this._importantType = Important.None;
         this._description = "世界に7つしかない高級素材で製作された水晶はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_MATK) + "７００～９００";
+        break;
+
+      case Fix.EXTREME_LARGE_SWORD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Sword;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 750;
+        this._physicalAttackMax = 1850;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手剣はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "７５０～１８５０";
+        break;
+
+      case Fix.EXTREME_LARGE_LANCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 900;
+        this._physicalAttackMax = 2000;
+        this._gold = 1700000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手槍はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "９００～２０００";
+        break;
+
+      case Fix.EXTREME_LARGE_AXE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 1050;
+        this._physicalAttackMax = 2450;
+        this._gold = 1900000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手斧はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "１０５０～２４５０";
         break;
 
       case Fix.EXTREME_BOW:
