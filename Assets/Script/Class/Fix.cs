@@ -269,6 +269,16 @@ public static partial class Fix
   public const int BOSS_AUTORECOVER = 30;
      
   #endregion
+  #region "Battle Time Speed"
+  public const int BATTLE_TIME_SPEED_MIN = 1;
+  public const int BATTLE_TIME_SPEED_MAX = 4;
+  public const int BATTLE_TIME_SPEED_DEFAULT = 2;
+  public const float BATTLE_TIME_SPEED_1_RATE = 0.5f;
+  public const float BATTLE_TIME_SPEED_2_RATE = 1.0f;
+  public const float BATTLE_TIME_SPEED_3_RATE = 2.0f;
+  public const float BATTLE_TIME_SPEED_4_RATE = 3.0f;
+  public const float BATTLE_TIME_SPEED_STACK_MAX_RATE = 1.0f;
+  #endregion
   #region "Battle Effect Message"
   public const string BATTLE_MISS = "Miss";
   public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
