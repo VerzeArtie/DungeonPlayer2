@@ -949,6 +949,53 @@ public class PartyMenu : MotherBase
     ParentBackpackView.TapBackpackDelete();
   }
 
+  /// <summary>
+  /// バックパックを整頓（スタックをまとめて、種類順→レア度順→名前順に並べ替え）します。
+  /// </summary>
+  public void TapBackpackSort()
+  {
+    One.TF.SortBackPack();
+    ParentBackpackView.CurrentSelectBackpack = null;
+    ParentBackpackView.ConstructBackpackView(this);
+  }
+
+  /// <summary>
+  /// 「捨てる」ボタンを複製して「整頓」ボタンを下部ボタン列に追加します。
+  /// 下部ボタン列は HorizontalLayoutGroup のため、追加すると4等分に自動配置されます。
+  /// </summary>
+  private Button btnBackpackSort = null;
+  private Text lblItemSort = null;
+  private void SetupBackpackSortButton()
+  {
+    if (btnBackpackSort == null)
+    {
+      Button source = lblItemDelete?.GetComponentInParent<Button>();
+      if (source == null) { return; }
+
+      btnBackpackSort = Instantiate(source, source.transform.parent);
+      btnBackpackSort.name = "btnBackpackSort";
+      btnBackpackSort.transform.SetAsLastSibling();
+      // シーン上で設定された「捨てる」の処理は引き継がない
+      btnBackpackSort.onClick = new Button.ButtonClickedEvent();
+      btnBackpackSort.onClick.AddListener(TapBackpackSort);
+
+      foreach (Text txt in btnBackpackSort.GetComponentsInChildren<Text>(true))
+      {
+        if (txt.name == lblItemDelete.name)
+        {
+          lblItemSort = txt;
+          lblItemSort.name = "lblItemSort";
+          break;
+        }
+      }
+    }
+
+    if (lblItemSort != null)
+    {
+      lblItemSort.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_SORT);
+    }
+  }
+
   public void TapBackpackCancelAction()
   {
     ParentBackpackView.objBlockFilter.SetActive(false);
@@ -1423,6 +1470,7 @@ public class PartyMenu : MotherBase
     lblItemUse.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_USE);
     lblItemDetail.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DETAIL);
     lblItemDelete.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DELETE);
+    SetupBackpackSortButton();
     lblItemDecisionAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT);
     lblItemDecisionCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL);
     lblItemDecisionOK.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_OK);

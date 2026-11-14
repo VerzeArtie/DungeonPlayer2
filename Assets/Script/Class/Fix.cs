@@ -1737,6 +1737,7 @@ public static partial class Fix
   public const string L10N_PARTYMENU_ITEM_USE = "lblPartyMenuItemUse";
   public const string L10N_PARTYMENU_ITEM_DETAIL = "lblPartyMenuItemDetail";
   public const string L10N_PARTYMENU_ITEM_DELETE = "lblPartyMenuItemDelete";
+  public const string L10N_PARTYMENU_ITEM_SORT = "lblPartyMenuItemSort";
   public const string L10N_PARTYMENU_ITEM_DECISION_ACCEPT = "lblPartyMenuItemDecisionAccept";
   public const string L10N_PARTYMENU_ITEM_DECISION_CANCEL = "lblPartyMenuItemDecisionCancel";
   public const string L10N_PARTYMENU_ITEM_DECISION_OK = "lblPartyMenuItemDecisionOK";
