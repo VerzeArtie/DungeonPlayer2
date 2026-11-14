@@ -3789,7 +3789,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
             {
-              int randomValue3 = rd.Next(1, 24);
+              int randomValue3 = rd.Next(1, 27);
               Debug.Log("randomValue3: " + randomValue3);
               switch (randomValue3)
               {
@@ -3814,61 +3814,61 @@ public static class One
                 case 7:
                   targetItemName = Fix.EXTREME_ORB;
                   break;
-                //case 8:
-                //  targetItemName = Fix.EXTREME_LARGE_SWORD;
-                //  break;
-                //case 9:
-                //  targetItemName = Fix.EXTREME_LARGE_LANCE;
-                //  break;
-                //case 10:
-                //  targetItemName = Fix.EXTREME_LARGE_AXE;
-                //  break;
                 case 8:
-                  targetItemName = Fix.EXTREME_BOW;
+                  targetItemName = Fix.EXTREME_LARGE_SWORD;
                   break;
                 case 9:
-                  targetItemName = Fix.EXTREME_LARGE_STAFF;
+                  targetItemName = Fix.EXTREME_LARGE_LANCE;
                   break;
                 case 10:
-                  targetItemName = Fix.EXTREME_SHIELD;
+                  targetItemName = Fix.EXTREME_LARGE_AXE;
                   break;
                 case 11:
-                  targetItemName = Fix.EXTREME_ARMOR;
+                  targetItemName = Fix.EXTREME_BOW;
                   break;
                 case 12:
-                  targetItemName = Fix.EXTREME_CROSS;
+                  targetItemName = Fix.EXTREME_LARGE_STAFF;
                   break;
                 case 13:
-                  targetItemName = Fix.EXTREME_ROBE;
+                  targetItemName = Fix.EXTREME_SHIELD;
                   break;
                 case 14:
-                  targetItemName = Fix.PLATINUM_RING_1;
+                  targetItemName = Fix.EXTREME_ARMOR;
                   break;
                 case 15:
-                  targetItemName = Fix.PLATINUM_RING_2;
+                  targetItemName = Fix.EXTREME_CROSS;
                   break;
                 case 16:
-                  targetItemName = Fix.PLATINUM_RING_3;
+                  targetItemName = Fix.EXTREME_ROBE;
                   break;
                 case 17:
-                  targetItemName = Fix.PLATINUM_RING_4;
+                  targetItemName = Fix.PLATINUM_RING_1;
                   break;
                 case 18:
-                  targetItemName = Fix.PLATINUM_RING_5;
+                  targetItemName = Fix.PLATINUM_RING_2;
                   break;
                 case 19:
-                  targetItemName = Fix.PLATINUM_RING_6;
+                  targetItemName = Fix.PLATINUM_RING_3;
                   break;
                 case 20:
-                  targetItemName = Fix.PLATINUM_RING_7;
+                  targetItemName = Fix.PLATINUM_RING_4;
                   break;
                 case 21:
-                  targetItemName = Fix.PLATINUM_RING_8;
+                  targetItemName = Fix.PLATINUM_RING_5;
                   break;
                 case 22:
-                  targetItemName = Fix.PLATINUM_RING_9;
+                  targetItemName = Fix.PLATINUM_RING_6;
                   break;
                 case 23:
+                  targetItemName = Fix.PLATINUM_RING_7;
+                  break;
+                case 24:
+                  targetItemName = Fix.PLATINUM_RING_8;
+                  break;
+                case 25:
+                  targetItemName = Fix.PLATINUM_RING_9;
+                  break;
+                case 26:
                   targetItemName = Fix.PLATINUM_RING_10;
                   break;
               }
@@ -4682,7 +4682,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
             {
-              int randomValue5 = rd.Next(1, 20);
+              int randomValue5 = rd.Next(1, 21);
               Debug.Log("randomValue5: " + randomValue5);
               switch (randomValue5)
               {
@@ -4742,6 +4742,9 @@ public static class One
                   break;
                 case 19:
                   targetItemName = Fix.DANZAI_ANGEL_TALISMAN;
+                  break;
+                case 20:
+                  targetItemName = Fix.ROBE_OF_COLORSTREAMING;
                   break;
               }
             }

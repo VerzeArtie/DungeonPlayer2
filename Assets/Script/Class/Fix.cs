@@ -3888,6 +3888,9 @@ public static partial class Fix
   public const string EXTREME_ROD = "エクストリーム・ロッド";
   public const string EXTREME_BOOK = "エクストリーム・ブック";
   public const string EXTREME_ORB = "エクストリーム・オーブ";
+  public const string EXTREME_LARGE_SWORD = "エクストリーム・ラージ・ソード";
+  public const string EXTREME_LARGE_LANCE = "エクストリーム・ラージ・ランス";
+  public const string EXTREME_LARGE_AXE = "エクストリーム・ラージ・アックス";
   public const string EXTREME_BOW = "エクストリーム・ボウ";
   public const string EXTREME_LARGE_STAFF = "エクストリーム・ラージ・スタッフ";
   public const string EXTREME_SHIELD = "エクストリーム・シールド";

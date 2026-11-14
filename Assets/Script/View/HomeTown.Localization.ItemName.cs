@@ -649,6 +649,9 @@ public static partial class L10n
     RegisterItemName(Fix.EXTREME_ROD, "Extreme Rod");
     RegisterItemName(Fix.EXTREME_BOOK, "Extreme Book");
     RegisterItemName(Fix.EXTREME_ORB, "Extreme Orb");
+    RegisterItemName(Fix.EXTREME_LARGE_SWORD, "Extreme Greatsword");
+    RegisterItemName(Fix.EXTREME_LARGE_LANCE, "Extreme Grand Lance");
+    RegisterItemName(Fix.EXTREME_LARGE_AXE, "Extreme Grand Axe");
     RegisterItemName(Fix.EXTREME_BOW, "Extreme Bow");
     RegisterItemName(Fix.EXTREME_LARGE_STAFF, "Extreme Grand Staff");
     RegisterItemName(Fix.EXTREME_SHIELD, "Extreme Shield");

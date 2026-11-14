@@ -10159,6 +10159,39 @@ public partial class Item
         this._description = "世界に7つしかない高級素材で製作された水晶はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_MATK) + "７００～９００";
         break;
 
+      case Fix.EXTREME_LARGE_SWORD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Sword;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 750;
+        this._physicalAttackMax = 1850;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手剣はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "７５０～１８５０";
+        break;
+
+      case Fix.EXTREME_LARGE_LANCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 900;
+        this._physicalAttackMax = 2000;
+        this._gold = 1700000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手槍はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "９００～２０００";
+        break;
+
+      case Fix.EXTREME_LARGE_AXE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 1050;
+        this._physicalAttackMax = 2450;
+        this._gold = 1900000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手斧はエクストリームの称号にふさわしい。\r\n" + L10n.Get(Fix.L10N_IT_PATK) + "１０５０～２４５０";
+        break;
+
       case Fix.EXTREME_BOW:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Bow;
