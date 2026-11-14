@@ -11193,6 +11193,16 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // スペリオル・フレイム・シールドによる効果（防御姿勢で炎属性の魔法攻撃を受けた場合、ダメージ半減）
+    if (target.IsEquip(Fix.SUPERIOR_FLAME_SHIELD) && target.IsDefense && attr == Fix.DamageSource.Fire)
+    {
+      double effect = SecondaryLogic.SuperiorFlameShield_Effect(target);
+      Debug.Log("Equip " + Fix.SUPERIOR_FLAME_SHIELD + " fire-magic-damage reduction (before) " + damageValue + " " + effect);
+      damageValue = damageValue * effect;
+      Debug.Log("Equip " + Fix.SUPERIOR_FLAME_SHIELD + " fire-magic-damage reduction (after ) " + damageValue + " " + effect);
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_HALF, Fix.COLOR_GUARD);
+    }
+
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {

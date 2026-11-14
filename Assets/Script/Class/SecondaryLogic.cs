@@ -1527,6 +1527,11 @@ public static class SecondaryLogic
     return 0.5f;
   }
 
+  public static double SuperiorFlameShield_Effect(Character player)
+  {
+    return 0.5f;
+  }
+
   public static int SwiftcrossOFRedthunder_Percent(Character player)
   {
     return 30;
