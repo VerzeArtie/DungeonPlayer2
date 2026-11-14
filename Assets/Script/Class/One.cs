@@ -3886,7 +3886,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              int randomValue4 = rd.Next(1, 22);
+              int randomValue4 = rd.Next(1, 26);
               Debug.Log("randomValue4: " + randomValue4);
               switch (randomValue4)
               {
@@ -3952,6 +3952,18 @@ public static class One
                   break;
                 case 21:
                   targetItemName = Fix.SPIRIT_BRANCH;
+                  break;
+                case 22:
+                  targetItemName = Fix.BROAD_SWORD;
+                  break;
+                case 23:
+                  targetItemName = Fix.LONG_SPEAR;
+                  break;
+                case 24:
+                  targetItemName = Fix.GREAT_AXE;
+                  break;
+                case 25:
+                  targetItemName = Fix.OAK_STAFF;
                   break;
               }
             }
@@ -4215,7 +4227,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              int randomValue5 = rd.Next(1, 21);
+              int randomValue5 = rd.Next(1, 24);
               Debug.Log("randomValue5: " + randomValue5);
               switch (randomValue5)
               {
@@ -4278,6 +4290,15 @@ public static class One
                   break;
                 case 20:
                   targetItemName = Fix.FLAME_HAND_KEEPER;
+                  break;
+                case 21:
+                  targetItemName = Fix.GRASSLAND_GUARDIAN;
+                  break;
+                case 22:
+                  targetItemName = Fix.SHIPPU_CROSS;
+                  break;
+                case 23:
+                  targetItemName = Fix.SHUNYOU_ROBE;
                   break;
               }
             }
