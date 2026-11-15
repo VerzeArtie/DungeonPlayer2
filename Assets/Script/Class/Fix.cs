@@ -3476,9 +3476,9 @@ public static partial class Fix
 
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
-  public const string GRASSLAND_GUARDIAN = "グラスランド・ガーディアン";
-  public const string SHIPPU_CROSS = "疾風の舞踏衣";
-  public const string SHUNYOU_ROBE = "春陽のローブ";
+  public const string EARTH_SCALE_ARMOR = "土鱗の鎧";
+  public const string HAYATE_CROSS = "颯の舞踏衣";
+  public const string SOLAR_EMBRACE_ROBE = "ソーラー・エンブレス・ローブ";
   public const string BROAD_SWORD = "ブロード・ソード";
   public const string LONG_SPEAR = "ロング・スピア";
   public const string GREAT_AXE = "グレート・アックス";

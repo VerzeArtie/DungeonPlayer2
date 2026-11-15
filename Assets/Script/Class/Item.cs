@@ -2901,7 +2901,7 @@ public partial class Item
         this._mind = 8;
         break;
 
-      case Fix.GRASSLAND_GUARDIAN:
+      case Fix.EARTH_SCALE_ARMOR:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Heavy_Armor;
         this._gripType = GripTypes.None;
@@ -2916,7 +2916,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 2600;
         this._importantType = Important.None;
-        this._description = "草原の守り手が代々受け継いできた重鎧。草花の紋様が刻まれた装甲は、見た目以上に堅牢である。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１６" + "、" + L10n.Get(Fix.L10N_IT_STA) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_POISON);
+        this._description = "土鱗の爪に含まれている毒を中和する成分を鎧に付与。見た目以上に堅牢である。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１６" + "、" + L10n.Get(Fix.L10N_IT_STA) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_POISON);
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -2925,7 +2925,7 @@ public partial class Item
         this._resistPoison = true;
         break;
 
-      case Fix.SHIPPU_CROSS:
+      case Fix.HAYATE_CROSS:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Middle_Armor;
         this._gripType = GripTypes.None;
@@ -2940,7 +2940,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
-        this._description = "草原を吹き抜ける疾風をまとった舞踏衣。身のこなしが軽くなり、動きを鈍らされる事もない。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１０" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "６" + "、" + L10n.Get(Fix.L10N_IT_AGI) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_SLOW);
+        this._description = "颯の心得を感じ取れる舞踏衣。装着した者には颯の恩恵が授けられ、動きを鈍らされる事がない。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "１０" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "６" + "、" + L10n.Get(Fix.L10N_IT_AGI) + "＋３" + "、" + L10n.Get(Fix.L10N_IT_RES_SLOW);
         this._strength = 0;
         this._agility = 3;
         this._intelligence = 0;
@@ -2949,7 +2949,7 @@ public partial class Item
         this._resistSlow = true;
         break;
 
-      case Fix.SHUNYOU_ROBE:
+      case Fix.SOLAR_EMBRACE_ROBE:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Light_Armor;
         this._gripType = GripTypes.None;
@@ -2964,7 +2964,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
-        this._description = "春の陽だまりのような温もりを帯びたローブ。纏う者の心を穏やかに保ち、詠唱を妨げられにくくする。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "４" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "１１" + "、" + L10n.Get(Fix.L10N_IT_INT) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_MND) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_RES_SILENT);
+        this._description = "陽だまりのような温もりを帯びたローブ。纏う者の心を穏やかに保ち、詠唱を妨げられにくくする。\r\n" + L10n.Get(Fix.L10N_IT_PDEF) + "４" + "、" + L10n.Get(Fix.L10N_IT_MDEF) + "１１" + "、" + L10n.Get(Fix.L10N_IT_INT) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_MND) + "＋２" + "、" + L10n.Get(Fix.L10N_IT_RES_SILENT);
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 2;

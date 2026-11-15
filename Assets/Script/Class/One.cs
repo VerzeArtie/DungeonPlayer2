@@ -4292,13 +4292,13 @@ public static class One
                   targetItemName = Fix.FLAME_HAND_KEEPER;
                   break;
                 case 21:
-                  targetItemName = Fix.GRASSLAND_GUARDIAN;
+                  targetItemName = Fix.EARTH_SCALE_ARMOR;
                   break;
                 case 22:
-                  targetItemName = Fix.SHIPPU_CROSS;
+                  targetItemName = Fix.HAYATE_CROSS;
                   break;
                 case 23:
-                  targetItemName = Fix.SHUNYOU_ROBE;
+                  targetItemName = Fix.SOLAR_EMBRACE_ROBE;
                   break;
               }
             }
