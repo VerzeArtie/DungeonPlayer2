@@ -3756,7 +3756,9 @@ public class TeamFoundation : MonoBehaviour
   /// 1. 同名アイテムで分かれているスタックを上限までまとめます（スタック上限が2以上のアイテムのみ）。
   /// 2. 種類順 → レア度の高い順 → 名前順 に並べ替えます。
   /// アイテムの増減は発生しません（合計数は変わりません）。
+  /// 呼び出すたびに「正順」と「逆順」が交互に切り替わります（最初は正順）。
   /// </summary>
+  [NonSerialized] private bool _backpackSortReverse = false;
   public void SortBackPack()
   {
     // 同名アイテムのスタックをまとめる
@@ -3786,6 +3788,11 @@ public class TeamFoundation : MonoBehaviour
                               .ThenByDescending(x => (int)x.Rare)
                               .ThenBy(x => x.DisplayName, StringComparer.Ordinal)
                               .ToList();
+    if (this._backpackSortReverse)
+    {
+      sorted.Reverse();
+    }
+    this._backpackSortReverse = !this._backpackSortReverse;
 
     this._backpackList.Clear();
     this._backpackList.AddRange(sorted);
