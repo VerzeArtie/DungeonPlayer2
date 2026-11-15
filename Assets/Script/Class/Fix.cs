@@ -3487,6 +3487,13 @@ public static partial class Fix
 
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
+  public const string EARTH_SCALE_ARMOR = "土鱗の鎧";
+  public const string HAYATE_CROSS = "颯の舞踏衣";
+  public const string SOLAR_EMBRACE_ROBE = "ソーラー・エンブレス・ローブ";
+  public const string BROAD_SWORD = "ブロード・ソード";
+  public const string LONG_SPEAR = "ロング・スピア";
+  public const string GREAT_AXE = "グレート・アックス";
+  public const string OAK_STAFF = "オーク・スタッフ";
 
   public const string RING_OF_OSCURETE = @"Ring of the Oscurete";
   public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
@@ -3899,6 +3906,9 @@ public static partial class Fix
   public const string EXTREME_ROD = "エクストリーム・ロッド";
   public const string EXTREME_BOOK = "エクストリーム・ブック";
   public const string EXTREME_ORB = "エクストリーム・オーブ";
+  public const string EXTREME_LARGE_SWORD = "エクストリーム・ラージ・ソード";
+  public const string EXTREME_LARGE_LANCE = "エクストリーム・ラージ・ランス";
+  public const string EXTREME_LARGE_AXE = "エクストリーム・ラージ・アックス";
   public const string EXTREME_BOW = "エクストリーム・ボウ";
   public const string EXTREME_LARGE_STAFF = "エクストリーム・ラージ・スタッフ";
   public const string EXTREME_SHIELD = "エクストリーム・シールド";
