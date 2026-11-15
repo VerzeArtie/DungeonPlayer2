@@ -4791,6 +4791,16 @@ public partial class HomeTown : MotherBase
   }
 
   /// <summary>
+  /// バックパックを整頓（スタックをまとめて、種類順→レア度順→名前順に並べ替え）します。
+  /// </summary>
+  public void TapBackpackSort()
+  {
+    One.TF.SortBackPack();
+    this.CurrentSelectBackpack = null;
+    ConstructBackpackView();
+  }
+
+  /// <summary>
   /// 対象のアイテムに宝玉ソケットを設定する画面を呼び出します。
   /// </summary>
   public void TapJewelSocket(Text sender)

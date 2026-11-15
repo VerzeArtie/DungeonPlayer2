@@ -49,6 +49,7 @@ public class PartyMenu : MotherBase
   public Text lblItemUse;
   public Text lblItemDetail;
   public Text lblItemDelete;
+  public Text lblItemSort;
   public Text lblItemDecisionAccept;
   public Text lblItemDecisionCancel;
   public Text lblItemDecisionOK;
@@ -949,6 +950,16 @@ public class PartyMenu : MotherBase
     ParentBackpackView.TapBackpackDelete();
   }
 
+  /// <summary>
+  /// バックパックを整頓（スタックをまとめて、種類順→レア度順→名前順に並べ替え）します。
+  /// </summary>
+  public void TapBackpackSort()
+  {
+    One.TF.SortBackPack();
+    ParentBackpackView.CurrentSelectBackpack = null;
+    ParentBackpackView.ConstructBackpackView(this);
+  }
+
   public void TapBackpackCancelAction()
   {
     ParentBackpackView.objBlockFilter.SetActive(false);
@@ -1423,6 +1434,7 @@ public class PartyMenu : MotherBase
     lblItemUse.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_USE);
     lblItemDetail.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DETAIL);
     lblItemDelete.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DELETE);
+    if (lblItemSort != null) { lblItemSort.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_SORT); }
     lblItemDecisionAccept.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_ACCEPT);
     lblItemDecisionCancel.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_CANCEL);
     lblItemDecisionOK.text = L10n.Get(Fix.L10N_PARTYMENU_ITEM_DECISION_OK);

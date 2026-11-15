@@ -3750,6 +3750,53 @@ public class TeamFoundation : MonoBehaviour
     }
     return false;
   }
+
+  /// <summary>
+  /// バックパックを整頓します。
+  /// 1. 同名アイテムで分かれているスタックを上限までまとめます（スタック上限が2以上のアイテムのみ）。
+  /// 2. 種類順 → レア度の高い順 → 名前順 に並べ替えます。
+  /// アイテムの増減は発生しません（合計数は変わりません）。
+  /// 呼び出すたびに「正順」と「逆順」が交互に切り替わります（最初は正順）。
+  /// </summary>
+  [NonSerialized] private bool _backpackSortReverse = false;
+  public void SortBackPack()
+  {
+    // 同名アイテムのスタックをまとめる
+    List<Item> merged = new List<Item>();
+    foreach (var group in this._backpackList.Where(x => x != null).GroupBy(x => x.ItemName))
+    {
+      List<Item> items = group.ToList();
+      int limit = items[0].LimitValue;
+      if (limit <= 1 || items.Count <= 1)
+      {
+        merged.AddRange(items);
+        continue;
+      }
+
+      int total = items.Sum(x => x.StackValue);
+      for (int ii = 0; ii < items.Count && total > 0; ii++)
+      {
+        int value = Math.Min(total, limit);
+        items[ii].StackValue = value;
+        merged.Add(items[ii]);
+        total -= value;
+      }
+    }
+
+    // 種類順 → レア度の高い順 → 名前順（OrderByは安定ソートのため、同一条件では元の並びを維持）
+    List<Item> sorted = merged.OrderBy(x => (int)x.ItemType)
+                              .ThenByDescending(x => (int)x.Rare)
+                              .ThenBy(x => x.DisplayName, StringComparer.Ordinal)
+                              .ToList();
+    if (this._backpackSortReverse)
+    {
+      sorted.Reverse();
+    }
+    this._backpackSortReverse = !this._backpackSortReverse;
+
+    this._backpackList.Clear();
+    this._backpackList.AddRange(sorted);
+  }
   #endregion
 
   #region "ItemBank Control"
