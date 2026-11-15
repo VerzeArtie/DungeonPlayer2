@@ -10,6 +10,7 @@ public class GameConfig : MonoBehaviour
   protected bool _supportLog = true;
   protected string _account = string.Empty;
   protected int _gameLanguage = 0;
+  protected int _battleTimeSpeed = Fix.BATTLE_TIME_SPEED_DEFAULT;
 
   public int EnableBGM { get { return _enableBGM; } set { _enableBGM = value; } }
   public int EnableSoundEffect { get { return _enableSound; } set { _enableSound = value; } }
@@ -17,4 +18,5 @@ public class GameConfig : MonoBehaviour
   public bool SupportLog { get { return _supportLog; } set { _supportLog = value; } }
   public string Account { get { return _account; } set { _account = value; } }
   public int GameLanguage { get { return _gameLanguage; } set { _gameLanguage = value; } }
+  public int BattleTimeSpeed { get { return _battleTimeSpeed; } set { _battleTimeSpeed = value; } }
 }

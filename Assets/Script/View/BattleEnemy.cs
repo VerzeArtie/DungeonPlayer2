@@ -128,7 +128,7 @@ public partial class BattleEnemy : MotherBase
 
   // Inner Value
   private Sprite[] imageSandglass;
-  private float speedDown = 1;
+  private float battleStepCredit = 0;
 
   public List<Character> PlayerList;
   public List<Character> EnemyList;
@@ -1201,6 +1201,26 @@ public partial class BattleEnemy : MotherBase
       lblBattleSurrender.text = L10n.Get(Fix.L10N_BATTLE_SURRENDER);
     }
 
+    // 戦闘進行速度に応じて、1フレームあたりの戦闘ステップ実行回数を調整する。
+    float rate = BattleTimeSpeedRate();
+    if (NowStackInTheCommand && rate > Fix.BATTLE_TIME_SPEED_STACK_MAX_RATE)
+    {
+      rate = Fix.BATTLE_TIME_SPEED_STACK_MAX_RATE;
+    }
+    this.battleStepCredit += rate;
+    while (this.battleStepCredit >= 1.0f)
+    {
+      this.battleStepCredit -= 1.0f;
+      UpdateBattleStep();
+      if (NowStackInTheCommand && this.battleStepCredit >= 1.0f)
+      {
+        this.battleStepCredit = 0.0f;
+      }
+    }
+  }
+
+  private void UpdateBattleStep()
+  {
     // 早期 return で閉じ損ねた演出チェインのスコープを毎フレーム回収する。
     int leakedAnimationChainDepth = this.AnimationChain.ResetScopes();
     if (leakedAnimationChainDepth > 0)
@@ -1463,7 +1483,7 @@ public partial class BattleEnemy : MotherBase
 
     if (detectSpacetimeInfluence == false)
     {
-      this.BattleTimer += SpeedFactor();
+      this.BattleTimer++;
       if (BattleTurnCount != 0)
       {
         float currentTime = ((float)Fix.BASE_TIMER_BAR_LENGTH - (float)this.BattleTimer) / ((float)Fix.BASE_TIMER_BAR_LENGTH);
@@ -7776,7 +7796,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.nowAnimationSandGlassCounter > waitTime)
     {
-      System.Threading.Thread.Sleep(500);
+      System.Threading.Thread.Sleep((int)(500 / BattleTimeSpeedRate()));
       this.angle = 0.0f;
       SandGlassImage.transform.rotation = new Quaternion(0, 0, 0, 0);
       SandGlassImage.transform.position = new Vector3(SandGlassImage.transform.position.x - moveLen * (waitTime - startTime), SandGlassImage.transform.position.y, SandGlassImage.transform.position.z);
@@ -8855,7 +8875,7 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        System.Threading.Thread.Sleep(1300);
+        System.Threading.Thread.Sleep((int)(1300 / BattleTimeSpeedRate()));
         AbstractResurrection(stack_obj.Player, stack_obj.Target, (int)(stack_obj.HealValue));
       }
     }
@@ -8873,7 +8893,7 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        System.Threading.Thread.Sleep(500);
+        System.Threading.Thread.Sleep((int)(500 / BattleTimeSpeedRate()));
         ExecBeforeAttackPhase(stack_obj.Player, false);
       }
     }
@@ -9050,7 +9070,6 @@ public partial class BattleEnemy : MotherBase
     if (player.CurrentInstantPoint < player.MaxInstantPoint)
     {
       double increment = PrimaryLogic.BattleResponse(player);
-      increment = increment * SpeedFactor();
       if (player.IsUltimateFlare)
       {
         increment = 0;
@@ -9761,17 +9780,15 @@ public partial class BattleEnemy : MotherBase
 
   public void TapSpeedUp()
   {
-    speedDown--;
-    if (speedDown <= 1) { speedDown = 1; }
+    One.CONF.BattleTimeSpeed = Mathf.Clamp(One.CONF.BattleTimeSpeed + 1, Fix.BATTLE_TIME_SPEED_MIN, Fix.BATTLE_TIME_SPEED_MAX);
+    One.UpdateGameConfig();
     LogicInvalidate();
   }
 
   public void TapSpeedDown()
   {
-    if (speedDown < 10)
-    {
-      speedDown++;
-    }
+    One.CONF.BattleTimeSpeed = Mathf.Clamp(One.CONF.BattleTimeSpeed - 1, Fix.BATTLE_TIME_SPEED_MIN, Fix.BATTLE_TIME_SPEED_MAX);
+    One.UpdateGameConfig();
     LogicInvalidate();
   }
 
@@ -10468,13 +10485,18 @@ public partial class BattleEnemy : MotherBase
 
   private void UpdateTimerSpeed()
   {
-    lblTimerSpeed.text = "x" + SpeedFactor().ToString("0.00");
+    lblTimerSpeed.text = "x" + BattleTimeSpeedRate().ToString("0.0");
   }
 
-  private float SpeedFactor()
+  private float BattleTimeSpeedRate()
   {
-    float result = (11.0f - speedDown) / 10.0f;
-    return result;
+    switch (One.CONF.BattleTimeSpeed)
+    {
+      case 1: return Fix.BATTLE_TIME_SPEED_1_RATE;
+      case 3: return Fix.BATTLE_TIME_SPEED_3_RATE;
+      case 4: return Fix.BATTLE_TIME_SPEED_4_RATE;
+    }
+    return Fix.BATTLE_TIME_SPEED_2_RATE;
   }
 
   private void UpdateMessage(string message)
